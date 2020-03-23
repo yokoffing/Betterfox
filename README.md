@@ -1,5 +1,6 @@
-# Better Fox: v.74
-A set of digestable preferences lists to enhance Firefox. Updated every stable release. Just comb through the lists and add desired preferences to your <a href="http://kb.mozillazine.org/User.js_file">user.js</a>. Most of the preferences work with a simple copy+paste. I've tried to note where user manipulation may be needed.
+# Better Fox /74
+A set of digestable preferences lists to enhance Firefox.
+Updated every stable release. Just comb through the lists and add desired preferences to your <a href="http://kb.mozillazine.org/User.js_file">user.js</a>. Most of the preferences work with a simple copy+paste. I've tried to note where user manipulation may be needed.
 
 Four categories:
 1) FastFox: increase Firefox's browsing speed immensely.
