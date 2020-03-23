@@ -1,4 +1,5 @@
-FIREFOX 74
+/*** BETTERFOX
+ * V. 74 STABLE ***/
 
 user_pref("gfx.webrender.all", true);
 user_pref("dom.image-lazy-loading.enabled", true);
