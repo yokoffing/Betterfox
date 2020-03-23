@@ -61,7 +61,7 @@ user_pref("browser.tabs.closeWindowWithLastTab", true);
 user_pref("accessibility.force_disabled", 1);
 user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.ctrlTab.recentlyUsedOrder", false);
-user_pref("browser.download.folderList", 0);
+user_pref("browser.download.folderList", 1);
 user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("browser.startup.page", 3);
 user_pref("browser.urlbar.trimURLs", true);
