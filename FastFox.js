@@ -18,7 +18,7 @@
  * Low-end machines (2GB RAM) = "default"
  * Mid-range machines (4-6GB RAM) = "mid-range"
  * High-end or current machines (8GB+ RAM) = "recommended"
- 
+ *
 ***********************************************************************************************/
 
 
