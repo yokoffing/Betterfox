@@ -1,11 +1,14 @@
 # BetterFox  /v.74
 A set of about:config tweaks to enhance Firefox.
-Updated every stable release. Go through the lists and add desired preferences to your <a href="http://kb.mozillazine.org/User.js_file">user.js</a>. Most of the preferences work with a simple copy+paste, or you can use the <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">user.js provided</a>.
+Updated every stable release. It is recommended you go through the lists and add desired preferences to your <a href="http://kb.mozillazine.org/User.js_file">user.js</a>. Most of the preferences work with a simple copy+paste.
+
+Note: The <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">user.js provided</a> is intended for mid-range PCs (i.e., 6–8GB RAM). If you have a budget PC or high-end machine, please adjust preferences found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> to what is appropriate for your machine.
+
 
 ## Three simple goals:
 1) <b>Minimalism:</b> get what isn't needed out of the way
 2) <b>Efficiency:</b> configuring your browser should be simple
-3) <b>Security:</b> upgrade end user security and privacy without causing website breakage
+3) <b>Security:</b> upgrade security and privacy without causing website breakage
 
 
 ## Three simple files:
@@ -29,3 +32,6 @@ Credit: Hours spent reviewing, condensing, and testing <a href="https://github.c
 <a href="https://addons.mozilla.org/en-US/firefox/addon/clearurls"><b>ClearURLs</a>:</b> clean tracking parameters from URLs, Google searches, etc.
 
 <a href="https://addons.mozilla.org/en-US/firefox/addon/tap-to-tab"><b>Tap to Tab</a>:</b> double-click (double tap) on a link to open it in a new tab. Designed with tablets and laptop trackpads in mind.
+
+## Welcome!
+This page was created on 23 March 2020. The configs continue to be polished.
