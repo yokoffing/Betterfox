@@ -1,11 +1,12 @@
 # BetterFox /v.74
-about:config tweaks to enhance Firefox. Updated every stable release for your <a href="http://kb.mozillazine.org/User.js_file">user.js</a> file.
+<h3>{FastFox, SecureFox, PeskyFox}</h3>
+<br>about:config tweaks to enhance Firefox. Updated every stable release for your <a href="http://kb.mozillazine.org/User.js_file">user.js</a> file.
 
 
 ## Three simple goals:
 1) <b>Minimalism:</b> get what isn't needed out of the way
-2) <b>Efficiency:</b> configuring your browser should be simple
-3) <b>Security:</b> upgrade security and privacy without causing website breakage
+2) <b>Efficiency:</b> unleash Firefox's ability to be fast and performant
+3) <b>Security:</b> sensible privacy and security — without causing website breakage
 
 
 ## Three simple configs:
@@ -15,7 +16,7 @@ about:config tweaks to enhance Firefox. Updated every stable release for your <a
 
 
 ## Required Reading
-<a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> is intended for at least mid-range machines (6GB of RAM, give or take). Needing modern architecture applies strictly to the first set of preferences, all of which are found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a>. Even if you don't read the other two branches thoroughly (PeskyFox and SecureFox), and you're simply downloading and inserting <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> as it is, you still need to read through and adjust <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> to determine what is appropriate for your machine.
+<a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> is intended for at least mid-range machines (6GB of RAM, give or take). Needing modern architecture applies strictly to the first set of preferences, all of which are found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a>. Even if you don't read the other two branches thoroughly, and you're simply downloading and inserting <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> as it is, you still need to read through and adjust <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> to determine what is appropriate for your machine.
 
 The rest of the prefs in user.js (found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/PeskyFox.js">PeskyFox</a> and <a href="https://github.com/hjstephens09/Better-Fox/blob/master/SecureFox.js">SecureFox</a>) can be applied universally on any machine running Firefox stable release.
 
@@ -25,7 +26,11 @@ The rest of the prefs in user.js (found in <a href="https://github.com/hjstephen
 
 
 ## about:Privacy
-<b>My note to super, SUPER privacy-concious users:</b> I made Firefox as private as I could up to the point of breakage. My guiding principle was: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find settings like <privacy.firstparty.isolate> or <network.http.referer.XOriginPolicy> mentioned here. <b>BetterFox is designed to set-and-forget, not to troubleshoot and tinker.</b> If your threat level calls for not just privacy but anonymity, please use the <a href="https://www.torproject.org">TOR browser</a>. Or if you want to use my configs as a baseline to tinker with Firefox further, then have at it! 👍
+My note to hardcore privacy-concious users: I made <a href="https://github.com/hjstephens09/Better-Fox/blob/master/SecureFox.js">SecureFox</a> as private as I could, up to the point of experiencing breakage. My guiding principle was: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find settings like <privacy.firstparty.isolate> or <network.http.referer.XOriginPolicy> mentioned here. BetterFox is designed to set-and-forget, not to troubleshoot and tinker.
+
+<a href="https://github.com/pyllyukko/user.js">There are alternatives for you</a>, and <a href="https://github.com/ghacksuserjs/ghacks-user.js">they will break things.</a> Mine is the only one that won't.
+
+If your threat level calls for anonymity and not just reasonable privacy, please use the <a href="https://www.torproject.org">TOR browser</a>. 👍
 
 
 ## Recommended Extensions
