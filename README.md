@@ -5,7 +5,7 @@ about:config tweaks to enhance <a href="https://www.mozilla.org/en-US/firefox/ne
 ## Three simple goals:
 1) <b>Minimalism:</b> get what isn't needed out of the way
 2) <b>Efficiency:</b> unleash Firefox's ability to be fast and performant
-3) <b>Security:</b> sensible privacy and security without causing website breakage
+3) <b>Security:</b> sensible privacy and security without causing site breakage
 
 
 ## Three simple configs:
