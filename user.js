@@ -1,6 +1,6 @@
 /******
 * name: BetterFox Essentials user.js
-* description: A streamlined configuration. Combines FastFox, SecureFox, and some of PeskyFox.
+* description: A streamlined, unified configuration. Combines FastFox, SecureFox, and some of PeskyFox.
 * date: 24 March 2020
 * version 74
 * authors: hjs
