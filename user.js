@@ -20,8 +20,8 @@ user_pref("nglayout.initialpaint.delay", 0); // 0=immediate, 250=default
 user_pref("dom.image-lazy-loading.enabled", true);
 user_pref("network.manage-offline-status", false);
 user_pref("network.http.max-persistent-connections-per-server", 10);
-user_pref("network.http.max-connections", 1500);
-user_pref("browser.cache.disk.metadata_memory_limit", 51200);
+user_pref("network.http.max-connections", 1100);
+user_pref("browser.cache.disk.metadata_memory_limit", 10000);
 user_pref("security.dialog_enable_delay", 0);
 user_pref("browser.display.show_image_placeholders", false);
 user_pref("apz.frame_delay.enabled", false);
