@@ -25,7 +25,7 @@ The rest of the prefs in user.js (found in <a href="https://github.com/hjstephen
 
 
 ## about:Privacy
-<b>My note to super, SUPER privacy-concious users:</b> I made Firefox as private as I could up to the point of breakage. So things like WebGL and DRM are still enabled, and you won't find settings like <privacy.firstparty.isolate> or <network.http.referer.XOriginPolicy> mentioned here. <b>BetterFox is designed to set-and-forget, not to troubleshoot and tinker.</b> If your threat level calls for not just privacy but anonymity, please use the <a href="https://www.torproject.org">TOR browser</a>. Or if you want to use my configs as a baseline to tinker with Firefox further, then have at it! 👍
+<b>My note to super, SUPER privacy-concious users:</b> I made Firefox as private as I could up to the point of breakage. My guiding principle was: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find settings like <privacy.firstparty.isolate> or <network.http.referer.XOriginPolicy> mentioned here. <b>BetterFox is designed to set-and-forget, not to troubleshoot and tinker.</b> If your threat level calls for not just privacy but anonymity, please use the <a href="https://www.torproject.org">TOR browser</a>. Or if you want to use my configs as a baseline to tinker with Firefox further, then have at it! 👍
 
 
 ## Recommended Extensions
