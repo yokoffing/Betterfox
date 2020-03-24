@@ -1,6 +1,6 @@
 # BetterFox  /v.74
 A set of preferences to enhance Firefox.
-Updated every stable release. Go through the lists and add desired preferences to your <a href="http://kb.mozillazine.org/User.js_file">user.js</a>. Most of the preferences work with a simple copy+paste, or you can use the provided user.js.
+Updated every stable release. Go through the lists and add desired preferences to your <a href="http://kb.mozillazine.org/User.js_file">user.js</a>. Most of the preferences work with a simple copy+paste, or you can use the user.js provided.
 
 ## Three simple goals:
 1) <b>Minimalism:</b> get what isn't needed out of the way
