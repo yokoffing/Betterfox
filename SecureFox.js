@@ -53,12 +53,12 @@ user_pref("network.IDN_show_punycode", true);
 user_pref("network.prefetch-next", false);
 user_pref("privacy.donottrackheader.enabled", true);
 user_pref("privacy.donottrackheader.value", 1);
-// user_pref("privacy.trackingprotection.enabled", true); // Can turn off w/ uBlock Origin
-user_pref("privacy.trackingprotection.pbmode.enabled", true); // Can turn off w/ uBlock Origin
 user_pref("security.mixed_content.block_active_content", true);
 user_pref("security.mixed_content.block_display_content", true);
 user_pref("security.mixed_content.block_object_subrequest", true);
 user_pref("security.mixed_content.upgrade_display_content", true);
+// user_pref("privacy.trackingprotection.enabled", true);
+// user_pref("privacy.trackingprotection.pbmode.enabled", true);
 
 /** GEOLOCATION ***/
 user_pref("permissions.default.geo", 0); // 0=default, always ask
