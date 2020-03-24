@@ -11,7 +11,7 @@
 ******/
 
 
-/***** GOOGLE SAFE BROWSING ***/
+/*** GOOGLE SAFE BROWSING ***/
 // [WARNING] Do this at your own risk!
 // In disabling this, please have an alternative to phishing and malware protection!
 user_pref("browser.safebrowsing.allowOverride", true);
@@ -27,7 +27,7 @@ user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
 
 
-/***** MOZILLA ***/
+/*** MOZILLA ***/
 
 /** SEARCH ***/
 /* Enable a seperate Private Search Engine
