@@ -6,9 +6,7 @@
 * authors: hjs
 * url: https://github.com/hjstephens09/Better-Fox
 * license: https://github.com/hjstephens09/Better-Fox/blob/master/LICENSE
-
-* README:
-    // https://github.com/hjstephens09/Better-Fox/blob/master/README.md
+* README: https://github.com/hjstephens09/Better-Fox/blob/master/README.md
      
 ******/
 
