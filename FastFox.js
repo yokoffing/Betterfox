@@ -92,7 +92,6 @@ user_pref("browser.display.show_image_placeholders", false);
  * This is my preferred configuration. See other by using the link:
  * [1] https://www.reddit.com/r/firefox/comments/bvfqtp/these_are_the_smooth_scrolling_tweaks_i_play/epozw68 ***/
 user_pref("apz.frame_delay.enabled", false);
-user_pref("general.autoScroll", true);
 user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 250);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
 user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 400);
