@@ -78,6 +78,7 @@ user_pref("browser.search.suggest.enabled.private", false);
 	// user_pref("browser.urlbar.oneOffSearches", false);
 
 /** GOOGLE SAFE BROWSING ***/
+/* In disabling this, please have an alternative to phishing and malware protection! ***/
 user_pref("browser.safebrowsing.allowOverride", true);
 user_pref("browser.safebrowsing.appRepURL", "");
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
