@@ -11,15 +11,15 @@
 ******/
 
 
-// Third-party cookies
+// Block third-party cookies
 /* I recommended you block all third-party cookies as it is essential for ad companies to not track you.
- * Firefox does filter some of these by default, but blocking all third-party cookies greatly enhances your privacy!
- * [NOTE] I have left this setting on the default for now since some site features will not work without third-party cookies.
+ * Blocking all third-party cookies greatly enhances your privacy! Firefox only filters some of these by default.
+ * [NOTE] I have set this to 3 for now since some site features will not function properly without third-party cookies.
  * Change to 1 if you're okay encountering some minor breakage.
- * 1=disable third-party cookies, 4=block cross site and social media trackers (default) ***/
-user_pref("network.cookie.cookieBehavior", 4);
+ * 1=disable third-party cookies, 3=blocks from unvisited websites, 4=block cross site and social media trackers (default) ***/
+user_pref("network.cookie.cookieBehavior", 3);
 user_pref("pref.privacy.disable_button.cookie_exceptions", false);
-/*	Regardless, we will limit third-party cookies even when they are allowed ***/
+/* Regardless, we will limit third-party cookies even when they are allowed ***/
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
