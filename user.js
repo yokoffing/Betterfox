@@ -9,6 +9,8 @@
 ******/
 
 /*** BEGIN FastFox essentials ***/
+/* For more configs and descriptions, please see the link provided.
+ * [1] https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js ***/
 user_pref("gfx.webrender.all", true);
 user_pref("content.notify.ontimer", true); // [HIDDEN]
 user_pref("content.notify.interval", 500000); // [HIDDEN]
@@ -36,6 +38,8 @@ user_pref("mousewheel.min_line_scroll_amount", 32); // adjust to preference, 22-
 
 
 /*** BEGIN PeskyFox essentials ***/
+/* For more configs and descriptions, please see the link provided.
+ * [1] https://github.com/hjstephens09/Better-Fox/blob/master/PeskyFox.js ***/
 user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.tabs.warnOnCloseOtherTabs", false);
 user_pref("browser.tabs.warnOnOpen", false);
@@ -80,8 +84,9 @@ user_pref("extensions.pocket.oAuthConsumerKey", " ");
 user_pref("extensions.pocket.site", " ");
 user_pref("browser.toolbarbuttons.introduced.pocket-button", false);
 
-
 /*** BEGIN SecureFox essentials ***/
+/* Please view all configs and their descriptions
+ * [1] https://github.com/hjstephens09/Better-Fox/blob/master/SecureFox.js ***/
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 user_pref("pref.privacy.disable_button.cookie_exceptions", false);
@@ -123,6 +128,7 @@ user_pref("signon.autofillForms", false);
 user_pref("browser.formfill.enable", false);
 user_pref("signon.formlessCapture.enabled", false); // security benefit
 user_pref("signon.rememberSignons", false); // use a password manager
+/* GOOGLE SAFE BROWSING */
 user_pref("browser.safebrowsing.allowOverride", true);
 user_pref("browser.safebrowsing.appRepURL", "");
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
