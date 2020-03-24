@@ -1,5 +1,5 @@
 # BetterFox /v.74
-about:config tweaks to enhance <a href="https://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a>. Files are updated as needed for your <a href="http://kb.mozillazine.org/User.js_file">user.js</a> file.
+about:config tweaks to enhance <a href="https://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a>. Files are updated as needed for your <a href="http://kb.mozillazine.org/User.js_file">user.js</a>.
 
 
 ## Three simple goals:
