@@ -17,7 +17,7 @@ Credit: Hours spent reviewing, condensing, and testing <a href="https://github.c
 
 
 ## Who is this setup for?
-<b>If you want a private, fast browsing experience and don't want to deal with breakage, this setup is for you.</b> My objective is to make the defaults sufficient enough for the average privacy-minded user, but remain trouble-free enough that my grandmother could use it. <strike>(That puts a whole new twist on being a foxy grandma!)</strike> Edit: Sorry for the dad joke 😓
+<b>If you want a secure, blazing fast browsing experience, and don't want to deal with breakage, this setup is for you.</b> My objective is to make the defaults sufficient enough for the average privacy-minded user, but remain trouble-free enough that my grandmother could use it. <strike>(That puts a whole new twist on being a foxy grandma!)</strike> Edit: Sorry for the dad joke 😓
 
 <b>A note to super, super privacy-concious users:</b> I made Firefox as secure as I could to the point of breakage. So things like WebGL and DRM are still enabled, and you won't find settings like <privacy.firstparty.isolate> or <network.http.referer.XOriginPolicy> mentioned here. <b>BetterFox is designed to set-and-forget, not to troubleshoot and tinker.</b> If your threat level calls for not just privacy but anonymity, please use the <a href="https://www.torproject.org">TOR browser</a>.
 
