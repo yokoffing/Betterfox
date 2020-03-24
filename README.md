@@ -13,7 +13,7 @@ Updated every stable release. Go through the lists and add desired preferences t
 2) <b>PeskyFox:</b> unclutter the new tab page. Remove Pocket and form autofill. Adjust download preferences. Prevent Firefox from randomly going offline and serving annoying webpage notifications.
 3) <b>SecureFox:</b> remove Telemetry, Mozilla experiments, Google Safe Browsing, geolocation, and search engine suggestions in URL bar. Auto-upgrades HTTP content to HTTPS and adds various privacy enhancements — all without breaking webpages. You read that right. No breakage 😁
 
-Credit: Hours spent reviewing, condensing, and testing <a href="https://github.com/ghacksuserjs/ghacks-user.js">ghacks user.js</a>, about:config suggestions from websites and blogs, and keeping up with <a href="https://wiki.mozilla.org/Firefox/Roadmap/Updates">Mozilla updates</a>. (There is code taken directly from ghacks, and credit goes to them.)
+Credit: Hours spent reviewing, condensing, and testing <a href="https://github.com/ghacksuserjs/ghacks-user.js">ghacks user.js</a>, about:config suggestions from websites and blogs, and keeping up with <a href="https://wiki.mozilla.org/Firefox/Roadmap/Updates">Mozilla updates</a>. (Where there is similiarity to ghacks, credit goes to them.)
 
 ## Who is this setup for?
 <b>If you want a private, secure, fast browsing experience and don't want to deal with breakage, this setup is for you.</b> My objective is to make the defaults sufficient enough for the average privacy-minded user, but remain trouble-free enough that my grandmother could use it. <strike>(That puts a whole new twist on being a foxy grandma!)</strike> Edit: Sorry for the dad joke 😓
