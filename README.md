@@ -24,7 +24,7 @@ Credit: Hours spent reviewing, condensing, and testing <a href="https://github.c
 <a href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/?src=search">uBlock Origin</a>: lightweight content blocker
 <br>– Add the custom list <a href="https://abp.oisd.nl/">dbl.oisd.nl</a> for the best in-browser protection. It's most comprehensive, unified domain blocklist available, actively maintained to prevent false positives and to keep the web usable! Use it alongside your usual lists. <a href="https://www.reddit.com/r/oisd_blocklist/comments/dwxgld/dbloisdnl_internets_1_domain_blocklist/?sort=new">Read More</a> [<a href="https://dbl.oisd.nl">DNS format</a> | <a href="https://abp.oisd.nl">ABP format</a>]
 
-<a href="https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager">Bitwarden</a>: encrypted password manager.
+<a href="https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager"><b>Bitwarden</b></a>: encrypted password manager.
 
 <a href="https://addons.mozilla.org/en-US/firefox/addon/clearurls">ClearURLs</a>: clean tracking parameters from URLs, Google searches, etc.
 
