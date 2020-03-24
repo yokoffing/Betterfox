@@ -17,7 +17,9 @@ about:config tweaks to enhance Firefox. Updated every stable release for your <a
 ## Required Reading
 <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> is intended for mid-range PCs (i.e. ~6GB RAM). This applies strictly to the first set of preferences, all of which are found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a>. Even if you don't thoroughly read the other two branches (PeskyFox and SecureFox), and you're simply downloading and inserting <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> as it is, you still need to read through <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a>.
 
-If you have a budget PC or high-end machine, please adjust preferences found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> to what is appropriate for your machine. Most of the preferences work with a simple copy+paste. The rest of the prefs in the user.js (found in PeskyFox and SecureFox) can be applied universally on any machine.
+If you have a budget PC or high-end machine, please adjust preferences found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> to what is appropriate for your machine. (Budget = leave at Firefox's defaults; High-end machines = recommended.)
+
+Most of the preferences work with a simple copy+paste. The rest of the prefs in the user.js (found in PeskyFox and SecureFox) can be applied universally on any machine.
 
 
 ## Who is this setup for?
