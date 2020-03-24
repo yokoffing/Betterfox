@@ -10,7 +10,7 @@ About:config tweaks to enhance Firefox. Updated every stable release for your <a
 
 ## Three simple configs:
 1) <b>FastFox:</b> immensely increase Firefox's browsing speed. Give Chrome a run for its money!
-2) <b>PeskyFox:</b> unclutter the new tab page. Remove Pocket and form autofill. Adjust download preferences. Prevent Firefox from randomly going offline, and from serving annoying webpage notifications.
+2) <b>PeskyFox:</b> unclutter the new tab page. Remove Pocket and form autofill. Prevent Firefox from randomly going offline, and from serving annoying webpage notifications.
 3) <b>SecureFox:</b> remove Telemetry, Mozilla experiments, Google Safe Browsing, and search engine suggestions in URL bar. Auto-upgrade mixed content to HTTPS. Add various privacy enhancements — all without breaking webpages. You read that right. No breakage 😁
 
 Credit: Hours spent reviewing, condensing, and testing <a href="https://github.com/ghacksuserjs/ghacks-user.js">ghacks user.js</a>, about:config suggestions from websites and blogs, and keeping up with <a href="https://wiki.mozilla.org/Firefox/Roadmap/Updates">Mozilla updates</a>. (Where there is similiarity to ghacks, credit goes to them.)
