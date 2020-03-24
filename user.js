@@ -123,13 +123,6 @@ user_pref("security.mixed_content.block_object_subrequest", true);
 user_pref("security.mixed_content.upgrade_display_content", true);
 user_pref("permissions.default.geo", 0); // 0=default
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
-user_pref("geo.provider.use_corelocation", false); // [MAC]
-user_pref("geo.provider.use_gpsd", false); // [LINUX]
-user_pref("browser.search.region", "US"); // [HIDDEN PREF]
-user_pref("browser.search.geoip.url", "");
-user_pref("browser.search.geoSpecificDefaults", false);
-user_pref("browser.search.geoSpecificDefaults.url", "");
 user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
