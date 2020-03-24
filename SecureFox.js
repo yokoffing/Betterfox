@@ -57,24 +57,9 @@ user_pref("security.mixed_content.upgrade_display_content", true);
 
 
 /** GEOLOCATION ***/
-user_pref("permissions.default.geo", 0); // 0=default
-/* Use Mozilla geolocation service instead of Google when geolocation is enabled
- * Optionally enable logging to the console (defaults to false) ***/
+user_pref("permissions.default.geo", 0); // 0=default, always ask
+/* Use Mozilla geolocation service instead of Google when geolocation is enabled ***/
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-/* Disable using the OS's geolocation service ***/
-user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
-user_pref("geo.provider.use_corelocation", false); // [MAC]
-user_pref("geo.provider.use_gpsd", false); // [LINUX]
-/* Disable GeoIP-based search results
- * May not be hidden if Firefox has changed your settings due to your locale
- * [1] https://trac.torproject.org/projects/tor/ticket/16254
- * [2] https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections#w_geolocation-for-default-search-engine ***/
-user_pref("browser.search.region", "US"); // [HIDDEN PREF]
-user_pref("browser.search.geoip.url", "");
-/* Disable geographically specific results/search engines e.g. "browser.search.*.US"
- * Ignore all of Mozilla's various search engines in multiple locales ***/
-user_pref("browser.search.geoSpecificDefaults", false);
-user_pref("browser.search.geoSpecificDefaults.url", "");
 
 
 /** SEARCH ***/
