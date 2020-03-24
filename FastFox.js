@@ -27,7 +27,8 @@ user_pref("gfx.webrender.all", true);
  * In practice, a page is not loaded completely at once, but it is loaded gradually. Every time a new element is loaded,
  * the page is refreshed, and the default interval for this function is set to 0.12 seconds (in other words, the page displays
  * new elements every 0.12 seconds). However, since these redraws will increase the total page load time, you can set a new value
- * of 500000(ms), which corresponds to 0.5 sec. ***/
+ * of 500000(ms), which corresponds to 0.5 sec.
+ * [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955 ***/
 user_pref("content.notify.ontimer", true); // [HIDDEN]
 user_pref("content.notify.interval", 500000); // [HIDDEN]
 
@@ -35,7 +36,7 @@ user_pref("content.notify.interval", 500000); // [HIDDEN]
  * Firefox is configured to apply low frequency mode after 0.75 seconds of user inactivity. Every time the browser goes to
  * low frequency mode, it becomes faster at loading pages. Therefore, it is beneficial to reduce the time it takes for FF
  * to enter low frequency mode. Thus, a value of 0.25 seconds (250000 ms) should be fine for that purpose.
- * [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#content-switch.threshold
+ * [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#content-switch.threshold ***/
 user_pref("content.switch.threshold", 250000); // [HIDDEN]
 user_pref("content.interrupt.parsing", true); // [HIDDEN]
 
@@ -74,6 +75,7 @@ user_pref("network.http.max-connections", 1500);
  * then you’ll just decrease the overall system speed. So pick wisely, and test the browser
  * (and overall system) performance before leaving this value changed permanently.
  * If you notice that it’s not working for you, then revert it to its default value.
+ * [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955
  * default=250 -> 250KB
  * midrange=10000 -> 10MB
  * recommended=51200 -> 50MB ***/
