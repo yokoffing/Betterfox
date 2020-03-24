@@ -10,72 +10,6 @@
 
 ******/
 
-/* Third-party cookies
- * I recommended you block all third-party cookies as it is essential for ad companies to not track you.
- * FF does filter some of these by default, as does uBlock Origin. But blocking all third-party cookies greatly enhances your privacy!
- * [NOTE] I have left this setting on the default for now since some site features will not work without third-party cookies.
- * Change to 1 if you're okay encountering some minor breakage.
- * 1=disable third-party cookies, 4=block cross site and social media trackers (default) ***/
-user_pref("network.cookie.cookieBehavior", 4);
-user_pref("pref.privacy.disable_button.cookie_exceptions", false);
-
-/* Regardless, we will limit third-party cookies even when they are allowed ***/
-user_pref("network.cookie.thirdparty.sessionOnly", true);
-user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
-
-
-/** DNS-over-HTTPS ***/
-/* Enter custom DNS Resolver
- * 0=off, 2=TRR preferred, ?3=TRR only?, 5=TRR disabled ***/
-user_pref("network.trr.mode", 2);
-user_pref("network.trr.uri", "");
-user_pref("network.trr.custom_uri", "");
-user_pref("network.security.esni.enabled", true);
-
-
-/** MISC. ***/
-user_pref("beacon.enabled", false);
-user_pref("browser.cache.offline.enable", false);
-user_pref("browser.fixup.alternate.enabled", false);
-user_pref("browser.fixup.typo.scheme", false);
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
-user_pref("dom.battery.enabled", false);
-user_pref("dom.targetBlankNoOpener.enabled", true);
-user_pref("media.video_stats.enabled", false);
-// user_pref("media.navigator.enabled", false); // breakage?
-user_pref("network.auth.subresource-http-auth-allow", 1);
-user_pref("network.dns.disablePrefetch", true);
-user_pref("network.ftp.enabled", false);
-user_pref("network.http.referer.defaultPolicy.trackers", 2);
-user_pref("network.http.referer.defaultPolicy", 2); // default=3
-user_pref("network.http.speculative-parallel-limit", 0);
-user_pref("network.IDN_show_punycode", true);
-user_pref("network.prefetch-next", false);
-user_pref("privacy.donottrackheader.enabled", true);
-user_pref("privacy.donottrackheader.value", 1);
-user_pref("security.mixed_content.block_active_content", true);
-user_pref("security.mixed_content.block_display_content", true);
-user_pref("security.mixed_content.block_object_subrequest", true);
-user_pref("security.mixed_content.upgrade_display_content", true);
-// user_pref("privacy.trackingprotection.enabled", true);
-// user_pref("privacy.trackingprotection.pbmode.enabled", true);
-
-/** GEOLOCATION ***/
-user_pref("permissions.default.geo", 0); // 0=default, always ask
-/* Use Mozilla geolocation service instead of Google when geolocation is enabled ***/
-user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-
-/** SEARCH ***/
-/* Enable a seperate Private Search Engine
- * Remember to go into Preferences -> Search and select another search provider ***/
-user_pref("browser.search.separatePrivateDefault", true);
-user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
-/* Search Suggestions turned off
- * Search engines keylog every character you type ***/
-user_pref("browser.search.suggest.enabled", false);
-user_pref("browser.search.suggest.enabled.private", false);
-	// user_pref("browser.urlbar.suggest.searches", false);
-	// user_pref("browser.urlbar.oneOffSearches", false);
 
 /** GOOGLE SAFE BROWSING ***/
 /* In disabling this, please have an alternative to phishing and malware protection! ***/
@@ -91,8 +25,26 @@ user_pref("browser.safebrowsing.enabled", false);
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
 
+
 /** MOZILLA ***/
-/* Blocklist ***/
+
+/** SEARCH ***/
+/* Enable a seperate Private Search Engine
+ * Remember to go into Preferences -> Search and select another search provider ***/
+user_pref("browser.search.separatePrivateDefault", true);
+user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
+/* Search Suggestions turned off
+ * Search engines keylog every character you type ***/
+user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.search.suggest.enabled.private", false);
+	// user_pref("browser.urlbar.suggest.searches", false);
+	// user_pref("browser.urlbar.oneOffSearches", false);
+/** Geolocation ***/
+user_pref("permissions.default.geo", 0); // 0=default, always ask
+/* Use Mozilla geolocation service instead of Google when geolocation is enabled ***/
+user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+
+/* EXT. BLOCKLIST ***/
 /* 0401: enforce Firefox blocklist, but sanitize blocklist url
  * It includes updates for "revoked certificates"
  * [1] https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/
@@ -100,7 +52,7 @@ user_pref("browser.safebrowsing.phishing.enabled", false);
 user_pref("extensions.blocklist.enabled", true); // [DEFAULT: true]
 user_pref("extensions.blocklist.url", "https://blocklists.settings.services.mozilla.com/v1/blocklist/3/%APP_ID%/%APP_VERSION%/");
 
-/* MOZILLA TELEMTRY AND DATA COLLECTION */
+/* MOZILLA TELEMTRY, DATA COLLECTION, EXPERIMENTS */
 user_pref("app.normandy.api_url", "");
 user_pref("app.normandy.enabled", false);
 user_pref("app.shield.optoutstudies.enabled", false);
@@ -161,6 +113,55 @@ user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
 user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.unifiedIsOptIn", false);
 user_pref("toolkit.telemetry.updatePing.enabled", false);
+
+/* Third-party cookies
+ * I recommended you block all third-party cookies as it is essential for ad companies to not track you.
+ * FF does filter some of these by default, as does uBlock Origin. But blocking all third-party cookies greatly enhances your privacy!
+ * [NOTE] I have left this setting on the default for now since some site features will not work without third-party cookies.
+ * Change to 1 if you're okay encountering some minor breakage.
+ * 1=disable third-party cookies, 4=block cross site and social media trackers (default) ***/
+user_pref("network.cookie.cookieBehavior", 4);
+user_pref("pref.privacy.disable_button.cookie_exceptions", false);
+/*	Regardless, we will limit third-party cookies even when they are allowed ***/
+user_pref("network.cookie.thirdparty.sessionOnly", true);
+user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
+
+
+/** Configure DNS-over-HTTPS ***/
+/* Enter custom DNS Resolver
+ * 0=off, 2=TRR preferred, 5=TRR disabled ***/
+user_pref("network.trr.mode", 2);
+// user_pref("network.trr.uri", "");
+// user_pref("network.trr.custom_uri", "");
+user_pref("network.security.esni.enabled", true);
+
+
+/** MISC. ***/
+user_pref("beacon.enabled", false);
+user_pref("browser.cache.offline.enable", false);
+user_pref("browser.fixup.alternate.enabled", false);
+user_pref("browser.fixup.typo.scheme", false);
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
+user_pref("dom.battery.enabled", false);
+user_pref("dom.targetBlankNoOpener.enabled", true);
+user_pref("media.video_stats.enabled", false);
+// user_pref("media.navigator.enabled", false); // breakage?
+user_pref("network.auth.subresource-http-auth-allow", 1);
+user_pref("network.dns.disablePrefetch", true);
+user_pref("network.ftp.enabled", false);
+user_pref("network.http.referer.defaultPolicy.trackers", 2);
+user_pref("network.http.referer.defaultPolicy", 2); // default=3
+user_pref("network.http.speculative-parallel-limit", 0);
+user_pref("network.IDN_show_punycode", true);
+user_pref("network.prefetch-next", false);
+user_pref("privacy.donottrackheader.enabled", true);
+user_pref("privacy.donottrackheader.value", 1);
+user_pref("security.mixed_content.block_active_content", true);
+user_pref("security.mixed_content.block_display_content", true);
+user_pref("security.mixed_content.block_object_subrequest", true);
+user_pref("security.mixed_content.upgrade_display_content", true);
+// user_pref("privacy.trackingprotection.enabled", true);
+// user_pref("privacy.trackingprotection.pbmode.enabled", true);
 
 
 /** OPT ***/
