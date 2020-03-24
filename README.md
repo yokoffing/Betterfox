@@ -9,7 +9,7 @@ Updated every stable release. Go through the lists and add desired preferences t
 
 
 ## Three simple files:
-1) <b>FastFox:</b> immensely increase Firefox's browsing speed.
+1) <b>FastFox:</b> immensely increase Firefox's browsing speed. Give Chrome a run for its money!
 2) <b>PeskyFox:</b> unclutter the new tab page. Remove Pocket and form autofill. Adjust download preferences. Prevent Firefox from randomly going offline and serving annoying webpage notifications.
 3) <b>SecureFox:</b> remove Telemetry, Mozilla experiments, Google Safe Browsing, geolocation, and search engine suggestions in URL bar. Auto-upgrade mixed content to HTTPS. Add various privacy enhancements — all without breaking webpages. You read that right. No breakage 😁
 
@@ -18,7 +18,7 @@ Credit: Hours spent reviewing, condensing, and testing <a href="https://github.c
 ## Who is this setup for?
 <b>If you want a private, fast browsing experience and don't want to deal with breakage, this setup is for you.</b> My objective is to make the defaults sufficient enough for the average privacy-minded user, but remain trouble-free enough that my grandmother could use it. <strike>(That puts a whole new twist on being a foxy grandma!)</strike> Edit: Sorry for the dad joke 😓
 
-<b>A note to super privacy-concious users:</b> I made Firefox as secure as I could to the point of breakage. (The only thing that could remotely cause breakage with my setup here is that third-party cookies are blocked by default.) So things like DRM are still enabled, and you won't find settings like <privacy.firstparty.isolate> or <network.http.referer.XOriginPolicy> mentioned here. <b>BetterFox is designed to set-and-forget, not to troubleshoot and tinker.</b> If your threat level calls for not just privacy but anonymity, please use the <a href="https://www.torproject.org">TOR browser</a>.
+<b>A note to super privacy-concious users:</b> I made Firefox as secure as I could to the point of breakage. (The only thing that could remotely cause breakage with my setup here is that third-party cookies are blocked by default.) So things like WebGL and DRM are still enabled, and you won't find settings like <privacy.firstparty.isolate> or <network.http.referer.XOriginPolicy> mentioned here. <b>BetterFox is designed to set-and-forget, not to troubleshoot and tinker.</b> If your threat level calls for not just privacy but anonymity, please use the <a href="https://www.torproject.org">TOR browser</a>.
 
 ## Recommended Extensions
 <a href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/?src=search"><b>uBlock Origin</a>:</b> lightweight content blocker
