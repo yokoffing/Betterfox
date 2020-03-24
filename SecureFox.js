@@ -11,12 +11,18 @@
 ******/
 
 /* Third-party cookies
+ * I recommended you block all third-party cookies as it is essential for ad companies to not track you.
+ * FF does filter some of these by default, as does uBlock Origin. But blocking all third-party cookies greatly enhances your privacy!
+ * [NOTE] I have left this setting on the default for now since some site features will not work without third-party cookies.
+ * Change to 1 if you're okay encountering some minor breakage.
  * 1=disable third-party cookies, 4=cross site and social media trackers ***/
-user_pref("network.cookie.cookieBehavior", 1);
-/* Limit third-party cookies, if enabled */
+user_pref("network.cookie.cookieBehavior", 4);
+user_pref("pref.privacy.disable_button.cookie_exceptions", false);
+
+/* Regardless, we will limit third-party cookies even when they are allowed ***/
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
-user_pref("pref.privacy.disable_button.cookie_exceptions", false);
+
 
 /** DNS-over-HTTPS ***/
 /* Enter custom DNS Resolver
@@ -25,6 +31,7 @@ user_pref("network.trr.mode", 2);
 user_pref("network.trr.uri", "");
 user_pref("network.trr.custom_uri", "");
 user_pref("network.security.esni.enabled", true);
+
 
 /** MISC. ***/
 user_pref("beacon.enabled", false);
@@ -40,13 +47,13 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.ftp.enabled", false);
 user_pref("network.http.referer.defaultPolicy.trackers", 2);
-user_pref("network.http.referer.defaultPolicy", 2);
+user_pref("network.http.referer.defaultPolicy", 2); // default=3
 user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.IDN_show_punycode", true);
 user_pref("network.prefetch-next", false);
 user_pref("privacy.donottrackheader.enabled", true);
 user_pref("privacy.donottrackheader.value", 1);
-user_pref("privacy.trackingprotection.enabled", true); // Can turn off w/ uBlock Origin
+// user_pref("privacy.trackingprotection.enabled", true); // Can turn off w/ uBlock Origin
 user_pref("privacy.trackingprotection.pbmode.enabled", true); // Can turn off w/ uBlock Origin
 user_pref("security.mixed_content.block_active_content", true);
 user_pref("security.mixed_content.block_display_content", true);
