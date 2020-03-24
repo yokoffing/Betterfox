@@ -15,7 +15,7 @@
  * FF does filter some of these by default, as does uBlock Origin. But blocking all third-party cookies greatly enhances your privacy!
  * [NOTE] I have left this setting on the default for now since some site features will not work without third-party cookies.
  * Change to 1 if you're okay encountering some minor breakage.
- * 1=disable third-party cookies, 4=cross site and social media trackers (default) ***/
+ * 1=disable third-party cookies, 4=block cross site and social media trackers (default) ***/
 user_pref("network.cookie.cookieBehavior", 4);
 user_pref("pref.privacy.disable_button.cookie_exceptions", false);
 
