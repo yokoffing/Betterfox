@@ -89,8 +89,7 @@ user_pref("config.trim_on_minimize", true); // [WINDOWS-ONLY] saves memory when 
 user_pref("layout.spellcheckDefault", 2);
 user_pref("browser.urlbar.decodeURLsOnCopy", true); // see bugzilla 1320061
 /* [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1320061 ***/
-user_pref("general.autoScroll", false);
-// user_pref("middlemouse.scrollbarPosition", true);
+user_pref("middlemouse.scrollbarPosition", true);
 user_pref("ui.key.menuAccessKey", 0);
 user_pref("accessibility.force_disabled", 1);
 user_pref("browser.bookmarks.max_backups", 2);
@@ -114,18 +113,6 @@ user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.pocketCta", " ");
 user_pref("browser.newtabpage.enhanced", false);
 user_pref("browser.newtabpage.introShown", false);
-
-
-/** DISABLE AUTOFILL ***/
-user_pref("extensions.formautofill.addresses.enabled", false);
-user_pref("extensions.formautofill.available", "off");
-user_pref("extensions.formautofill.creditCards.enabled", false);
-user_pref("extensions.formautofill.heuristics.enabled", false);
-user_pref("signon.autofillForms", false);
-user_pref("browser.formfill.enable", false);
-user_pref("signon.formlessCapture.enabled", false); // security benefit
-user_pref("signon.rememberSignons", false); // use a password manager ext.
-
 
 /** DISABLE POCKET ***/
 user_pref("extensions.pocket.api", " ");
