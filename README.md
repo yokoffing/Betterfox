@@ -1,5 +1,5 @@
 # BetterFox  /v.74
-A set of about:config tweaks to enhance Firefox.
+About:config tweaks to enhance Firefox.
 Updated every stable release. It is recommended you go through the lists and add desired preferences to your <a href="http://kb.mozillazine.org/User.js_file">user.js</a>. Most of the preferences work with a simple copy+paste.
 
 Note: The <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">user.js provided</a> is intended for mid-range PCs (i.e., 6–8GB RAM). If you have a budget PC or high-end machine, please adjust preferences found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> to what is appropriate for your machine.
