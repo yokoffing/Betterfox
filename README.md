@@ -15,9 +15,9 @@ about:config tweaks to enhance Firefox. Updated every stable release for your <a
 
 
 ## Required Reading
-<a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> is intended for at least mid-range machines (6GB of RAM, give or take). Needing modern architecture applies strictly to the first set of preferences, all of which are found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a>. Even if you don't read the other two branches thoroughly (PeskyFox & SecureFox), and you're simply downloading and inserting <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> as it is, you still need to read through and adjust <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> to determine what is appropriate for your machine.
+<a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> is intended for at least mid-range machines (6GB of RAM, give or take). Needing modern architecture applies strictly to the first set of preferences, all of which are found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a>. Even if you don't read the other two branches thoroughly (PeskyFox and SecureFox), and you're simply downloading and inserting <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> as it is, you still need to read through and adjust <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> to determine what is appropriate for your machine.
 
-The rest of the prefs in user.js (found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/PeskyFox.js>PeskyFox</a> & <a href="https://github.com/hjstephens09/Better-Fox/blob/master/SecureFox.js"SecureFox</a>) can be applied universally on any machine running Firefox stable release.
+The rest of the prefs in user.js (found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/PeskyFox.js">PeskyFox</a> and <a href="https://github.com/hjstephens09/Better-Fox/blob/master/SecureFox.js">SecureFox</a>) can be applied universally on any machine running Firefox stable release.
 
 
 ## Who is this setup for?
