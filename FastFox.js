@@ -16,6 +16,7 @@
  *
 ***********************************************************************************************/
 
+
 /*  Activate Webrender, FF's new rendering engine
  * Scroll webpages @ 60 FPS
  * [1] https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/
@@ -67,7 +68,9 @@ user_pref("network.http.max-persistent-connections-per-server", 10);
  * The range of value for this setting goes from 1 to 65535. However, it is rather unreasonable to increase it to the maximum
  * allowed value, and subsequently strain the system, so give it a try with a value of 1500.
  * [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-persistent-connections-per-server
- * default=900 ***/
+ * default=900
+ * midrange=1100
+ * recommended=1500 ***/
 user_pref("network.http.max-connections", 1500);
 
 /*  Increase the memory capacity in Firefox, in order to load more pages faster
