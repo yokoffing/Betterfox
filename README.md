@@ -14,20 +14,20 @@ about:config tweaks to enhance <a href="https://www.mozilla.org/en-US/firefox/ne
 3) <b>SecureFox:</b> remove Telemetry, Mozilla experiments, Google Safe Browsing, and search engine suggestions in URL bar. Auto-upgrade mixed content to HTTPS. Add various privacy enhancements — all without breaking webpages. You read that right. No breakage 😁
 
 
-## Required Reading
-<a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> is intended for at least mid-range machines (6GB of RAM, give or take). Needing modern architecture applies strictly to the first set of preferences, all of which are found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a>. Even if you don't read the other two branches thoroughly, and you're simply inserting <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> as it is, you still need to read through and adjust <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> to determine what is appropriate for your machine.
-
-The rest of the prefs in user.js (found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/PeskyFox.js">PeskyFox</a> and <a href="https://github.com/hjstephens09/Better-Fox/blob/master/SecureFox.js">SecureFox</a>) can be applied universally on any machine running Firefox stable release.
-
-
 ## Who is this setup for?
 <b>If you want a secure, blazing fast browsing experience, and don't want to deal with breakage, this setup is for you.</b> My objective is to make the defaults sufficient enough for the average privacy-minded user, but remain trouble-free enough that my grandmother could use it. <strike>(That puts a whole new twist on being a foxy grandma!)</strike> Edit: Sorry for the dad joke 😓
 
 
-## about:Privacy
-My note to hardcore privacy-concious users: I made <a href="https://github.com/hjstephens09/Better-Fox/blob/master/SecureFox.js">SecureFox</a> as private as I could, up to the point of experiencing breakage. My guiding principle was: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find settings like <privacy.firstparty.isolate> or <network.http.referer.XOriginPolicy> mentioned here. BetterFox is designed to set-and-forget, not to troubleshoot and tinker.
+## Required Reading
+Unlike the other two configs, <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> is intended for at least mid-range machines (6GB of RAM, give or take). Even if you don't read the other two branches thoroughly, and you're simply inserting <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> as it is, you still need to read through and adjust <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> to determine what is appropriate for your machine.
 
-<a href="https://github.com/pyllyukko/user.js">There are alternatives for you</a>, and <a href="https://github.com/ghacksuserjs/ghacks-user.js">they will break things.</a> Mine is the only one that won't.
+The rest of the prefs in user.js (found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/PeskyFox.js">PeskyFox</a> and <a href="https://github.com/hjstephens09/Better-Fox/blob/master/SecureFox.js">SecureFox</a>) can be applied universally on any machine running Firefox stable release.
+
+
+## about:Privacy
+<b>A note to hardcore privacy-concious users:</b> <a href="https://github.com/pyllyukko/user.js">There are alternatives for you</a>, and <a href="https://github.com/ghacksuserjs/ghacks-user.js">they will break things.</a>
+
+I made <a href="https://github.com/hjstephens09/Better-Fox/blob/master/SecureFox.js">SecureFox</a> as private as I could, up to the point of experiencing breakage. My guiding principle was: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find settings like <privacy.firstparty.isolate> or <network.http.referer.XOriginPolicy> mentioned here. BetterFox is designed to set-and-forget, not to troubleshoot and tinker.
 
 If your threat level calls for anonymity and not just reasonable privacy, please use the <a href="https://www.torproject.org">TOR browser</a>. 👍
 
