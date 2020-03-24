@@ -1,17 +1,19 @@
-/******
-* name: FastFox
-* description: Improve FF performance
-* date: 24 March 2020
-* version 74
-* authors: hjs
-* url: https://github.com/hjstephens09/Better-Fox
-* license: MIT: https://github.com/hjstephens09/Better-Fox/blob/master/LICENSE
-******/
+/***********************************************************************************************
+ *
+ * name: FastFox
+ * description: Increase FF rendering speed.
+ * date: 24 March 2020
+ * version 74
+ * author: hjs
+ * url: https://github.com/hjstephens09/Better-Fox
+ * license: MIT: https://github.com/hjstephens09/Better-Fox/blob/master/LICENSE
+ *
+***********************************************************************************************/
 
 
 /***********************************************************************************************
  *
- * [NOTE] If you have 6GB of RAM or less, you will need to test these settings individually,
+ * [NOTE] If you have 8GB of RAM or less, you will need to test these settings individually,
  * and in some cases, leave them to their defaults entirely.
  *
  * Adjust preferences found in FastFox to what is appropriate for your machine:
@@ -36,7 +38,7 @@ user_pref("gfx.webrender.all", true);
  * new elements every 0.12 seconds). However, since these redraws will increase the total page load time, you can set a new value
  * of 500000(ms), which corresponds to 0.5 sec.
  * [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955
- * default=leave unchanged
+ * default=leave unchanged *//
 user_pref("content.notify.ontimer", true); // [HIDDEN]
 user_pref("content.notify.interval", 500000); // [HIDDEN]
 
