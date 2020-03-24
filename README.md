@@ -15,11 +15,11 @@ Updated every stable release. Go through the lists and add desired preferences t
 
 Credit: Hours spent reviewing, condensing, and testing <a href="https://github.com/ghacksuserjs/ghacks-user.js">ghacks user.js</a>, about:config suggestions from websites and blogs, and keeping up with <a href="https://wiki.mozilla.org/Firefox/Roadmap/Updates">Mozilla updates</a>.
 
-## Who is this setup for?
-If you want a private, secure, fast browsing experience but don't want to deal with breakage, this setup is for you. My objective is to make the defaults sufficient enough for the casual, privacy-minded user, but remain trouble-free enough that I could set it up for my grandmother, and she could use it with no problems! (That puts a whole new twist on being a foxy grandma!) Edit: Sorry for the bad joke 😓
-
-A note to advanced users and super privacy-concious bros: I made Firefox as private as I could to the point of breakage. (The only thing that could remotely cause breakage with my setup here is that third-party cookies are blocked by default.) So things like DRM are still enabled, and you won't find settings like <privacy.firstparty.isolate> or <network.http.referer.XOriginPolicy> mentioned here. BetterFox is designed to set-and-forget, not to troubledshoot and tinker. If your threat level calls not just privacy but anonymity, then please use the <a href="https://www.torproject.org"TOR browser</a>.
-
-
 ## Recommended Extensions
-<a href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/?src=search</a>: add the custom list <a href="https://abp.oisd.nl/">dbl.oisd.nl</a> for the best in browsing protection. It's most comprehensive, unified domain blocklist available, actively maintained to prevent false positives and to keep the web usable! Use it alongside your usual lists. <a href="https://www.reddit.com/r/oisd_blocklist/comments/dwxgld/dbloisdnl_internets_1_domain_blocklist/?sort=new">read more</a>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/?src=search">uBlock Origin</a>: add the custom list <a href="https://abp.oisd.nl/">dbl.oisd.nl</a> for the best in-browsing protection. It's most comprehensive, unified domain blocklist available, actively maintained to prevent false positives and to keep the web usable! Use it alongside your usual lists. <a href="https://www.reddit.com/r/oisd_blocklist/comments/dwxgld/dbloisdnl_internets_1_domain_blocklist/?sort=new">Read More</a> [<a href="https://dbl.oisd.nl">DNS format</a> | <a href="https://abp.oisd.nl">ABP format</a>] 
+
+
+## Who is this setup for?
+<b>If you want a private, secure, fast browsing experience and don't want to deal with breakage, this setup is for you.</b> My objective is to make the defaults sufficient enough for the average privacy-minded user, but remain trouble-free enough that my grandmother could use it. (That puts a whole new twist on being a foxy grandma!) Edit: Sorry for the dad joke 😓
+
+<b>A note to advanced users and super privacy-concious bros:</b> I made Firefox as secure as I could to the point of breakage. (The only thing that could remotely cause breakage with my setup here is that third-party cookies are blocked by default.) So things like DRM are still enabled, and you won't find settings like <privacy.firstparty.isolate> or <network.http.referer.XOriginPolicy> mentioned here. <b>BetterFox is designed to set-and-forget, not to troubledshoot and tinker.</b> If your threat level calls not just privacy but anonymity, then please use the <a href="https://www.torproject.org">TOR browser</a>.
