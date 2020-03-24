@@ -77,18 +77,6 @@ user_pref("browser.search.suggest.enabled.private", false);
 	// user_pref("browser.urlbar.suggest.searches", false);
 	// user_pref("browser.urlbar.oneOffSearches", false);
 
-/** DISABLE AUTOFILL ***/
-/* Not reccommended to use the browser's autofill.
- * You can use a password manager like Bitwarden for an encrypted, easy-fill alternative ***/
-user_pref("extensions.formautofill.addresses.enabled", false);
-user_pref("extensions.formautofill.available", "off");
-user_pref("extensions.formautofill.creditCards.enabled", false);
-user_pref("extensions.formautofill.heuristics.enabled", false);
-user_pref("signon.autofillForms", false);
-user_pref("browser.formfill.enable", false);
-user_pref("signon.formlessCapture.enabled", false); // security benefit
-user_pref("signon.rememberSignons", false); // use a password manager
-
 /** GOOGLE SAFE BROWSING ***/
 user_pref("browser.safebrowsing.allowOverride", true);
 user_pref("browser.safebrowsing.appRepURL", "");
