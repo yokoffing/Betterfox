@@ -11,16 +11,21 @@
 
 /***********************************************************************************************
  *
- * [NOTE] If you have 2GB of RAM or less, or a low-end PC in general, you will need
- * to test these settings individually, and in some cases, leave them to their defaults entirely.
+ * [NOTE] If you have 6GB of RAM or less, you will need to test these settings individually,
+ * and in some cases, leave them to their defaults entirely.
  *
+ * Adjust preferences found in FastFox to what is appropriate for your machine:
+ * Low-end machines (2GB RAM) = "default"
+ * Mid-range machines (4-6GB RAM) = "mid-range"
+ * High-end or current machines (8GB+ RAM) = "recommended"
 ***********************************************************************************************/
 
 
 /*  Activate Webrender, FF's new rendering engine
  * Scroll webpages @ 60 FPS
  * [1] https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/
- * [2] https://wiki.mozilla.org/Platform/GFX/WebRender_Where ***/
+ * [2] https://wiki.mozilla.org/Platform/GFX/WebRender_Where
+ * default=false
 user_pref("gfx.webrender.all", true);
 
 /*  Increase speed of gradual rendered elements
@@ -29,7 +34,8 @@ user_pref("gfx.webrender.all", true);
  * the page is refreshed, and the default interval for this function is set to 0.12 seconds (in other words, the page displays
  * new elements every 0.12 seconds). However, since these redraws will increase the total page load time, you can set a new value
  * of 500000(ms), which corresponds to 0.5 sec.
- * [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955 ***/
+ * [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955
+ * default=leave unchanged
 user_pref("content.notify.ontimer", true); // [HIDDEN]
 user_pref("content.notify.interval", 500000); // [HIDDEN]
 
@@ -37,7 +43,8 @@ user_pref("content.notify.interval", 500000); // [HIDDEN]
  * Firefox is configured to apply low frequency mode after 0.75 seconds of user inactivity. Every time the browser goes to
  * low frequency mode, it becomes faster at loading pages. Therefore, it is beneficial to reduce the time it takes for FF
  * to enter low frequency mode. Thus, a value of 0.25 seconds (250000 ms) should be fine for that purpose.
- * [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#content-switch.threshold ***/
+ * [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#content-switch.threshold
+ * default=leave unchanged ***/
 user_pref("content.switch.threshold", 250000); // [HIDDEN]
 user_pref("content.interrupt.parsing", true); // [HIDDEN]
 
@@ -59,7 +66,7 @@ user_pref("network.manage-offline-status", false);
  * If, at some point, more connections are needed, a delay will occur until there is a slot available.
  * To avoid any idle periods, we can set more alive connections, thus forcing the browser to load several elements of a website.
  * [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-connections
- * default=6, recommended=10. Don't go past 10 or websites may blacklist your IP! ***/
+ * default=6    Don't go past 10 or websites may blacklist your IP! ***/
 user_pref("network.http.max-persistent-connections-per-server", 10);
 
 /*  Increase communication channels
@@ -106,7 +113,8 @@ user_pref("toolkit.scrollbox.horizontalScrollDistance", 4);
 user_pref("toolkit.scrollbox.verticalScrollDistance", 5);
 user_pref("mousewheel.min_line_scroll_amount", 40); // adjust to preference, 22-40
 
-/* Disable Firefox animations ***/
+/* Disable Firefox animations 
+ * default=true ***/
     // user_pref("toolkit.cosmeticAnimations.enabled", false);
 
 /* Disable Reader mode
