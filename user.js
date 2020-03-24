@@ -5,13 +5,10 @@
 * version 74
 * authors: hjs
 * url: https://github.com/hjstephens09/Better-Fox
-* license: MIT: https://github.com/hjstephens09/Better-Fox/blob/master/LICENSE
+* license: https://github.com/hjstephens09/Better-Fox/blob/master/LICENSE
 
 * README:
-  1. Consider using Tor Browser if it meets your needs or fits your threat model better
-     * https://www.torproject.org/about/torusers.html.en
-  2. READ the full README
-     * https://github.com/hjstephens09/Better-Fox/blob/master/README.md
+    // https://github.com/hjstephens09/Better-Fox/blob/master/README.md
      
 ******/
 
