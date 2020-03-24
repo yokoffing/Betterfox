@@ -11,9 +11,23 @@
 ******/
 
 
+// Third-party cookies
+/* I recommended you block all third-party cookies as it is essential for ad companies to not track you.
+ * Firefox does filter some of these by default. But blocking all third-party cookies greatly enhances your privacy!
+ * [NOTE] I have left this setting on the default for now since some site features will not work without third-party cookies.
+ * Change to 1 if you're okay encountering some minor breakage.
+ * 1=disable third-party cookies, 4=block cross site and social media trackers (default) ***/
+user_pref("network.cookie.cookieBehavior", 4);
+user_pref("pref.privacy.disable_button.cookie_exceptions", false);
+/*	Regardless, we will limit third-party cookies even when they are allowed ***/
+user_pref("network.cookie.thirdparty.sessionOnly", true);
+user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
+
 /*** GOOGLE SAFE BROWSING ***/
-// [WARNING] Do this at your own risk!
+// [WARNING] Do this at your own risk! Increased privacy from Google, but less protection against threats.
 // In disabling this, please have an alternative to phishing and malware protection!
+// [1] https://www.wikiwand.com/en/Google_Safe_Browsing#/Privacy
+// [2] https://ashkansoltani.org/2012/02/25/cookies-from-nowhere
 user_pref("browser.safebrowsing.allowOverride", true);
 user_pref("browser.safebrowsing.appRepURL", "");
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
@@ -114,18 +128,6 @@ user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
 user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.unifiedIsOptIn", false);
 user_pref("toolkit.telemetry.updatePing.enabled", false);
-
-/* Third-party cookies
- * I recommended you block all third-party cookies as it is essential for ad companies to not track you.
- * FF does filter some of these by default, as does uBlock Origin. But blocking all third-party cookies greatly enhances your privacy!
- * [NOTE] I have left this setting on the default for now since some site features will not work without third-party cookies.
- * Change to 1 if you're okay encountering some minor breakage.
- * 1=disable third-party cookies, 4=block cross site and social media trackers (default) ***/
-user_pref("network.cookie.cookieBehavior", 4);
-user_pref("pref.privacy.disable_button.cookie_exceptions", false);
-/*	Regardless, we will limit third-party cookies even when they are allowed ***/
-user_pref("network.cookie.thirdparty.sessionOnly", true);
-user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
 
 /** Configure DNS-over-HTTPS ***/
