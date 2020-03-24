@@ -19,7 +19,7 @@ about:config tweaks to enhance Firefox. Updated every stable release for your <a
 
 If you have a budget PC or high-end machine, please adjust preferences found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> to what is appropriate for your machine.
 
-Most of the preferences work with a simple copy+paste. The rest of the prefs in the user.js (found in PeskyFox and SecureFox) can be applied universally on any machine.
+The rest of the prefs in the user.js (found in PeskyFox and SecureFox) can be applied universally on any machine.
 
 
 ## Who is this setup for?
