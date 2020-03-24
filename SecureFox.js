@@ -2,7 +2,7 @@
 
 * name: SecureFox
 * description: Immensely increase FF's security and privacy. Should not cause breakage.
-* date: 23 March 2020
+* date: 24 March 2020
 * version 74
 * author: hjs
 * url: https://github.com/hjstephens09/Better-Fox
@@ -18,7 +18,6 @@ user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 user_pref("pref.privacy.disable_button.cookie_exceptions", false);
 
-
 /** DNS-over-HTTPS ***/
 /* Enter custom DNS Resolver
  * 0=off, 2=TRR preferred, ?3=TRR only?, 5=TRR disabled ***/
@@ -26,7 +25,6 @@ user_pref("network.trr.mode", 2);
 user_pref("network.trr.uri", "");
 user_pref("network.trr.custom_uri", "");
 user_pref("network.security.esni.enabled", true);
-
 
 /** MISC. ***/
 user_pref("beacon.enabled", false);
@@ -55,12 +53,10 @@ user_pref("security.mixed_content.block_display_content", true);
 user_pref("security.mixed_content.block_object_subrequest", true);
 user_pref("security.mixed_content.upgrade_display_content", true);
 
-
 /** GEOLOCATION ***/
 user_pref("permissions.default.geo", 0); // 0=default, always ask
 /* Use Mozilla geolocation service instead of Google when geolocation is enabled ***/
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-
 
 /** SEARCH ***/
 /* Designate a Private Search Engine ***/
@@ -72,7 +68,6 @@ user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false);
 	// user_pref("browser.urlbar.suggest.searches", false);
 	// user_pref("browser.urlbar.oneOffSearches", false);
-
 
 /** GOOGLE SAFE BROWSING ***/
 user_pref("browser.safebrowsing.allowOverride", true);
@@ -86,7 +81,6 @@ user_pref("browser.safebrowsing.downloads.remote.url", "");
 user_pref("browser.safebrowsing.enabled", false);
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
-
 
 /** MOZILLA ***/
 /* Blocklist ***/
