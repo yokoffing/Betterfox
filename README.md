@@ -1,4 +1,4 @@
-# BetterFox  /v.74
+# BetterFox
 about:config tweaks to enhance Firefox. Updated every stable release for your <a href="http://kb.mozillazine.org/User.js_file">user.js</a> file.
 
 
