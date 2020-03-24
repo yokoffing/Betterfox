@@ -1,5 +1,4 @@
 # BetterFox /v.74
-<h3>{FastFox, SecureFox, PeskyFox}</h3>
 <br>about:config tweaks to enhance Firefox. Updated every stable release for your <a href="http://kb.mozillazine.org/User.js_file">user.js</a> file.
 
 
