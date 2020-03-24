@@ -13,8 +13,6 @@ about:config tweaks to enhance Firefox. Updated every stable release for your <a
 2) <b>PeskyFox:</b> unclutter the new tab page. Remove Pocket and form autofill. Prevent Firefox from randomly going offline, and from serving annoying webpage notifications.
 3) <b>SecureFox:</b> remove Telemetry, Mozilla experiments, Google Safe Browsing, and search engine suggestions in URL bar. Auto-upgrade mixed content to HTTPS. Add various privacy enhancements — all without breaking webpages. You read that right. No breakage 😁
 
-Credit: Hours spent reviewing, condensing, and testing <a href="https://github.com/ghacksuserjs/ghacks-user.js">ghacks user.js</a>, about:config suggestions from websites and blogs, and keeping up with <a href="https://wiki.mozilla.org/Firefox/Roadmap/Updates">Mozilla updates</a>. (Where there is similiarity to ghacks, credit goes to them.)
-
 
 ## Required Reading
 <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> is intended for mid-range PCs (i.e. ~6GB RAM). This applies strictly to the first set of preferences, all of which are found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a>. Even if you don't thoroughly read the other two branches (PeskyFox and SecureFox), and you're simply downloading and inserting <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> as it is, you still need to read through <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a>.
@@ -39,3 +37,7 @@ If you have a budget PC or high-end machine, please adjust preferences found in 
 <a href="https://addons.mozilla.org/en-US/firefox/addon/clearurls"><b>ClearURLs</a>:</b> clean tracking parameters from URLs, Google searches, etc.
 
 <a href="https://addons.mozilla.org/en-US/firefox/addon/tap-to-tab"><b>Tap to Tab</a>:</b> double-click (double tap) on a link to open it in a new tab. Designed with tablets and laptop trackpads in mind.
+
+
+## Credit
+Hours spent reviewing, condensing, and testing <a href="https://github.com/ghacksuserjs/ghacks-user.js">ghacks user.js</a>, about:config suggestions from websites and blogs, and keeping up with <a href="https://wiki.mozilla.org/Firefox/Roadmap/Updates">Mozilla updates</a>. (Where there is similiarity to ghacks or other authors, credit goes to them.)
