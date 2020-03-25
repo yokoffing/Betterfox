@@ -1,9 +1,8 @@
 /******
 * name: BetterFox Essentials user.js
 * description: A streamlined, unified configuration. Combines FastFox, SecureFox, and some of PeskyFox.
-* date: 24 March 2020
+* date: 25 March 2020
 * version 74
-* author: hjs
 * url: https://github.com/hjstephens09/Better-Fox
 * license: https://github.com/hjstephens09/Better-Fox/blob/master/LICENSE
 * README: https://github.com/hjstephens09/Better-Fox/blob/master/README.md
@@ -14,29 +13,15 @@
 /* For more configs and descriptions, please see the link provided.
  * [1] https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js ***/
 user_pref("gfx.webrender.all", true);
-user_pref("content.notify.ontimer", true); // [HIDDEN]
-user_pref("content.notify.interval", 500000); // [HIDDEN]
-user_pref("content.switch.threshold", 250000); // [HIDDEN]
-user_pref("content.interrupt.parsing", true); // [HIDDEN]
 user_pref("nglayout.initialpaint.delay", 0); // 0=immediate, 250=default
 user_pref("dom.image-lazy-loading.enabled", true);
 user_pref("network.manage-offline-status", false);
 user_pref("network.http.max-persistent-connections-per-server", 10);
-user_pref("network.http.max-connections", 1100);
-user_pref("browser.cache.disk.metadata_memory_limit", 10000);
+user_pref("network.http.max-connections", 1500);
+user_pref("browser.cache.disk.metadata_memory_limit", 51200);
 user_pref("security.dialog_enable_delay", 0);
 user_pref("browser.display.show_image_placeholders", false);
 user_pref("apz.frame_delay.enabled", false);
-user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 250);
-user_pref("general.smoothScroll.msdPhysics.enabled", true);
-user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 400);
-user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 400);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 120);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 0.4);
-user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 5000);
-user_pref("toolkit.scrollbox.horizontalScrollDistance", 4);
-user_pref("toolkit.scrollbox.verticalScrollDistance", 5);
-user_pref("mousewheel.min_line_scroll_amount", 32); // adjust to preference, 22-40
 
 
 /*** BEGIN PeskyFox essentials ***/
