@@ -3,15 +3,15 @@
 * description: A streamlined, unified configuration. Combines FastFox, SecureFox, and some of PeskyFox.
 * date: 25 March 2020
 * version 74
-* url: https://github.com/hjstephens09/Better-Fox
-* license: https://github.com/hjstephens09/Better-Fox/blob/master/LICENSE
-* README: https://github.com/hjstephens09/Better-Fox/blob/master/README.md
+* url: https://github.com/yokoffing/Better-Fox
+* license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE
+* README: https://github.com/yokoffing/Better-Fox/blob/master/README.md
      
 ******/
 
 /*** BEGIN FastFox essentials ***/
 /* For more configs and descriptions, please see the link provided.
- * [1] https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js ***/
+ * [1] https://github.com/yokoffing/Better-Fox/blob/master/FastFox.js ***/
 user_pref("gfx.webrender.all", true);
 user_pref("nglayout.initialpaint.delay", 0); // 0=immediate, 250=default
 user_pref("dom.image-lazy-loading.enabled", true);
@@ -26,7 +26,7 @@ user_pref("apz.frame_delay.enabled", false);
 
 /*** BEGIN PeskyFox essentials ***/
 /* For more configs and descriptions, please see the link provided.
- * [1] https://github.com/hjstephens09/Better-Fox/blob/master/PeskyFox.js ***/
+ * [1] https://github.com/yokoffing/Better-Fox/blob/master/PeskyFox.js ***/
 user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.tabs.warnOnCloseOtherTabs", false);
 user_pref("browser.tabs.warnOnOpen", false);
@@ -73,7 +73,7 @@ user_pref("browser.toolbarbuttons.introduced.pocket-button", false);
 
 /*** BEGIN SecureFox essentials ***/
 /* Please view all configs and their descriptions
- * [1] https://github.com/hjstephens09/Better-Fox/blob/master/SecureFox.js ***/
+ * [1] https://github.com/yokoffing/Better-Fox/blob/master/SecureFox.js ***/
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 user_pref("pref.privacy.disable_button.cookie_exceptions", false);
