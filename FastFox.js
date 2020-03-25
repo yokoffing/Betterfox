@@ -100,22 +100,6 @@ user_pref("security.dialog_enable_delay", 0);
 /* Hide image placeholders ***/
 user_pref("browser.display.show_image_placeholders", false);
 
-/** SMOOTH SCROLLING ***/
-/* Edge-like smooth scrolliing
- * This is my preferred configuration. See other by using the link:
- * [1] https://www.reddit.com/r/firefox/comments/bvfqtp/these_are_the_smooth_scrolling_tweaks_i_play/epozw68 ***/
-user_pref("apz.frame_delay.enabled", false);
-user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 250);
-user_pref("general.smoothScroll.msdPhysics.enabled", true);
-user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 400);
-user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 400);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 120);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 0.4);
-user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 5000);
-user_pref("toolkit.scrollbox.horizontalScrollDistance", 4);
-user_pref("toolkit.scrollbox.verticalScrollDistance", 5);
-user_pref("mousewheel.min_line_scroll_amount", 40); // adjust to preference, 22-40
-
 /* Disable Firefox animations 
  * default=true ***/
     // user_pref("toolkit.cosmeticAnimations.enabled", false);
