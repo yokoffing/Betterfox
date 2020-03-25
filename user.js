@@ -3,10 +3,9 @@
 * description: A streamlined, unified configuration. Combines FastFox, SecureFox, and some of PeskyFox.
 * date: 24 March 2020
 * version 74
-* authors: hjs
+* author: hjs
 * url: https://github.com/hjstephens09/Better-Fox
 * license: https://github.com/hjstephens09/Better-Fox/blob/master/LICENSE
-
 * README: https://github.com/hjstephens09/Better-Fox/blob/master/README.md
      
 ******/
