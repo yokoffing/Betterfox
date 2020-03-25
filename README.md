@@ -19,7 +19,7 @@ about:config tweaks to enhance <a href="https://www.mozilla.org/en-US/firefox/ne
 
 
 ## Required Reading
-Unlike the other two configs, <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> is intended for at least mid-range machines (6GB of RAM, give or take). Even if you don't read the other two branches thoroughly, and you're simply inserting <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> as it is, you still need to read through and adjust <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> to determine what is appropriate for your machine.
+A handful of the prefs in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> are intended for at least mid-range machines (6GB of RAM, give or take). Even if you don't read the other two branches thoroughly, and you're simply inserting <a href="https://github.com/hjstephens09/Better-Fox/blob/master/user.js">BetterFox user.js</a> as it is, you still need to read through and adjust <a href="https://github.com/hjstephens09/Better-Fox/blob/master/FastFox.js">FastFox</a> to determine what is appropriate for your machine.
 
 The rest of the prefs in user.js (found in <a href="https://github.com/hjstephens09/Better-Fox/blob/master/PeskyFox.js">PeskyFox</a> and <a href="https://github.com/hjstephens09/Better-Fox/blob/master/SecureFox.js">SecureFox</a>) can be applied universally on any machine running Firefox stable release.
 
