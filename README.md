@@ -20,7 +20,7 @@ about:config tweaks to enhance <a href="https://www.mozilla.org/en-US/firefox/ne
 
 
 ## about:Privacy
-<b>A note to hardcore privacy users:</b> <a href="https://github.com/pyllyukko/user.js">There are alternatives</a> <a href="https://github.com/ghacksuserjs/ghacks-user.js">for you</a>. I made <a href="https://github.com/hjstephens09/Better-Fox/blob/master/SecureFox.js">SecureFox</a> as private as I could, up to the point of experiencing breakage. My guiding principle was: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find settings like <privacy.firstparty.isolate> or <network.http.referer.XOriginPolicy> mentioned here. BetterFox is designed to set-and-forget, not to troubleshoot and tinker.
+<b>A note to hardcore privacy users:</b> <a href="https://github.com/pyllyukko/user.js">There are alternatives</a> <a href="https://github.com/ghacksuserjs/ghacks-user.js">for you</a>. I made <a href="https://github.com/yokoffing/Better-Fox/blob/master/SecureFox.js">SecureFox</a> as private as I could, up to the point of experiencing breakage. My guiding principle was: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find settings like <privacy.firstparty.isolate> or <network.http.referer.XOriginPolicy> mentioned here. BetterFox is designed to set-and-forget, not to troubleshoot and tinker.
 
 TL;DR: If your threat level calls for anonymity and not just reasonable privacy, please use the <a href="https://www.torproject.org">TOR browser</a>. 👍
 
