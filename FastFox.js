@@ -42,15 +42,6 @@ user_pref("gfx.webrender.all", true);
 user_pref("content.notify.ontimer", true); // [HIDDEN]
 user_pref("content.notify.interval", 500000); // [HIDDEN]
 
-/*  Improve the browser’s loading times
- * Firefox is configured to apply low frequency mode after 0.75 seconds of user inactivity. Every time the browser goes to
- * low frequency mode, it becomes faster at loading pages. Therefore, it is beneficial to reduce the time it takes for FF
- * to enter low frequency mode. Thus, a value of 0.25 seconds (250000 ms) should be fine for that purpose.
- * [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#content-switch.threshold
- * default=leave unchanged ***/
-user_pref("content.switch.threshold", 250000); // [HIDDEN]
-user_pref("content.interrupt.parsing", true); // [HIDDEN]
-
 /*  Paint visuals on the webpage as fast as possible ***/
 user_pref("nglayout.initialpaint.delay", 0); // 0=immediate, 250=default
 
