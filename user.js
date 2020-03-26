@@ -1,32 +1,106 @@
-/******
-* name: BetterFox Essentials user.js
-* description: A streamlined, unified configuration. Combines FastFox, SecureFox, and some of PeskyFox.
-* date: 25 March 2020
-* version 74
-* url: https://github.com/yokoffing/Better-Fox
-* license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE
-* README: https://github.com/yokoffing/Better-Fox/blob/master/README.md
-     
-******/
+// Hal's Personal Prefs
+user_pref("gfx.webrender.enabled", true);
+user_pref("gfx.webrender.compositor", true);
 
-/*** BEGIN FastFox essentials ***/
-/* For more configs and descriptions, please see the link provided.
- * [1] https://github.com/yokoffing/Better-Fox/blob/master/FastFox.js ***/
+// CoolSafari2 Specific
+user_pref("browser.urlbar.maxRichResults", 2);
+user_pref("browser.in-content.dark-mode", false);
+user_pref("browser.ctrlTab.recentlyUsedOrder", false);
+user_pref("browser.tabs.insertAfterCurrent", true); // default=false
+user_pref("browser.tabs.insertRelatedAfterCurrent", true); // default=true
+
+
+//
+/******************************************************************************
+ * name: BetterFox user.js		        					*
+ * date: 25 March 2020								*
+ * version 74										*
+ * url: https://github.com/yokoffing/Better-Fox				*
+ * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE 	*
+ * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md 	*
+******************************************************************************/
+
+
+/******************************************************************************
+ * START: FASTFOX						                          *
+******************************************************************************/
+
+// PREF: Activate Webrender, Firefox's new rendering engine!
+// Greatly increases Firefox's rendering capabilities.
+// [NOTE] Webrender is still under development.
+// [BUG] Occasionally gives you "judder scroll" on sites with a lot of images. But the tradeoff is worth it.
+// [1] https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/
+// [2] https://wiki.mozilla.org/Platform/GFX/WebRender_Where
+// [3] https://www.reddit.com/r/firefox/comments/fo1jwz/make_firefox_faster/flhh5l2/
+// default=false (on some machines)
 user_pref("gfx.webrender.all", true);
-user_pref("nglayout.initialpaint.delay", 0); // 0=immediate, 250=default
-user_pref("dom.image-lazy-loading.enabled", true);
-user_pref("network.manage-offline-status", false);
+
+// PREF: Lazy Image Loading
+// [1] https://www.ghacks.net/2020/02/15/firefox-75-gets-lazy-loading-support-for-images/
+ user_pref("dom.image-lazy-loading.enabled", true);
+
+// PREF: Paint visuals on the webpage as fast as possible
+// Lower values will make a page initially display more quickly, but will make the page take longer to finish rendering.
+// Higher values will have the opposite effect (i.e. page initially displays slower, but less time is spent watching it render)
+// [1] http://kb.mozillazine.org/Nglayout.initialpaint.delay
+// [2] https://botw.org/articles/firefox-about-config.htm
+// 250=default
+user_pref("nglayout.initialpaint.delay", 0);
+
+// PREF: Increase active connections
+// According to the default value, there will be 6 active connections kept for future requests to a server.
+// If, at some point, more connections are needed, a delay will occur until there is a slot available.
+// To avoid any idle periods, we can set more alive connections, thus forcing the browser to load several elements of a website.
+// [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-connections
+// [WARNING] Don't go past 10 or websites may temporarily blacklist your IP!
+// default=6
 user_pref("network.http.max-persistent-connections-per-server", 10);
+
+// PREF: Increase communication channels
+// Perform this change in order to open communication channels with the server, and consequently load several elements of the website.
+// Increased browser speed shall be mainly observed in pages that contain data such as images and videos, which slow down loading times.
+// The range of value for this setting goes from 1 to 65535. However, it is rather unreasonable to increase it to the maximum
+// allowed value, and subsequently strain the system, so give it a try with a value of 1500.
+// [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-persistent-connections-per-server
+// default=900
 user_pref("network.http.max-connections", 1500);
+
+// PREF: Increase the memory capacity in Firefox, in order to load more pages faster
+// If you enter a high value, but you don’t have a lot of RAM in your computer (e.g. 2GB),
+// then you’ll just decrease the overall system speed. So pick wisely, and test the browser
+// (and overall system) performance before leaving this value changed permanently.
+// NOTE: If you notice that it’s not working for you, then revert it to its default value.
+// [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955
+// default=250 -> 250KB, 51200 -> 50MB
 user_pref("browser.cache.disk.metadata_memory_limit", 51200);
-user_pref("security.dialog_enable_delay", 0);
+
+// PREF: Prevent FF from going offline
+// FF manages network connectivity poorly. It'll stall your browsing if your connectivity goes out, even for a second.
+// It can make you think your wifi is down, etc. Best to disable unless you need it.
+// [1] https://lifehacker.com/stop-firefox-from-automatically-entering-work-offline-5714560 ***/
+user_pref("network.manage-offline-status", false);
+
+// PREF: Hide image placeholders
+// default=true
 user_pref("browser.display.show_image_placeholders", false);
-user_pref("apz.frame_delay.enabled", false);
+
+// PREF: Decrease delay of security dialog when downloading extensions
+user_pref("security.dialog_enable_delay", 0);
+
+// PREF: Disable Firefox animations 
+// Use for old, slow hardware if Firefox gives you laggy performance.
+// default=false
+// user_pref("toolkit.cosmeticAnimations.enabled", true);
+
+// PREF: Disable Reader mode
+// Firefox will not have to parse webpage when navigating. Minimal performance impact.
+// user_pref("reader.parse-on-load.enabled", true);
 
 
-/*** BEGIN PeskyFox essentials ***/
-/* For more configs and descriptions, please see the link provided.
- * [1] https://github.com/yokoffing/Better-Fox/blob/master/PeskyFox.js ***/
+/******************************************************************************
+ * START: PESKYFOX		                             						  *
+******************************************************************************/
+
 user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.tabs.warnOnCloseOtherTabs", false);
 user_pref("browser.tabs.warnOnOpen", false);
@@ -41,7 +115,7 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.tabs.tabMinWidth", 100); // default=76, adjust to preference
-user_pref("toolkit.zoomManager.zoomValues", ".8,.9,.95,1,1.05,1.1,1,15,1.2,1.33,1.5,1.7,2,2.4");
+user_pref("toolkit.zoomManager.zoomValues", ".8,.9,.95,1,1.05,1.1,1.15,1.2,1.33,1.5,1.7,2,2.4");
 user_pref("view_source.wrap_long_lines", true);
 user_pref("config.trim_on_minimize", true); // [WINDOWS-ONLY] saves memory when FF is minimized
 user_pref("layout.spellcheckDefault", 2);
@@ -71,9 +145,10 @@ user_pref("extensions.pocket.oAuthConsumerKey", " ");
 user_pref("extensions.pocket.site", " ");
 user_pref("browser.toolbarbuttons.introduced.pocket-button", false);
 
-/*** BEGIN SecureFox essentials ***/
-/* Please view all configs and their descriptions
- * [1] https://github.com/yokoffing/Better-Fox/blob/master/SecureFox.js ***/
+
+/******************************************************************************
+ * START: SECUREFOX	                       						                     *
+******************************************************************************/
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 user_pref("pref.privacy.disable_button.cookie_exceptions", false);
@@ -101,8 +176,7 @@ user_pref("security.mixed_content.block_display_content", true);
 user_pref("security.mixed_content.block_object_subrequest", true);
 user_pref("security.mixed_content.upgrade_display_content", true);
 user_pref("permissions.default.geo", 0); // 0=default, always ask
-user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?
-key=%MOZILLA_API_KEY%");
+user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
