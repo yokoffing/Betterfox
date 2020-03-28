@@ -35,9 +35,10 @@ user_pref("nglayout.initialpaint.delay", 0);
 
 // PREF: Prioritize page load over immediate responsiveness
 // [!] Only use if you have a high-speed connection
+// [NOTE] Both are hidden by defeault.
 // default=true
-user_pref("content.notify.ontimer", false); // [HIDDEN]
-user_pref("content.interrupt.parsing", false); // [HIDDEN]
+user_pref("content.notify.ontimer", false);
+user_pref("content.interrupt.parsing", false);
 
 // PREF: Increase active connections
 // According to the default value, there will be 6 active connections kept
@@ -89,7 +90,8 @@ user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 
 // PREF: Decrease delay of security dialog when downloading extensions
-user_pref("security.dialog_enable_delay", 0); // default=1000
+// default=1000
+user_pref("security.dialog_enable_delay", 0);
 
 // PREF: Disable Firefox animations 
 // Use for old, slow hardware if Firefox gives you laggy performance.
@@ -98,48 +100,3 @@ user_pref("security.dialog_enable_delay", 0); // default=1000
 
 // PREF: Reduce memory usage when Firefox is minimized [WINDOWS-only]
 // user_pref("config.trim_on_minimize", true);
-
-/****************************************************************************
- * SECTION: REMOVED 														*
-****************************************************************************/
-
-// PREF: Modify Firefox responsiveness while rendering
-// [!] After <nglayout.initialpaint.delay> has been created and modified,
-// Firefox may speed up rendering while annoying you with constant
-// adjustments as you scroll through that new content. The preference
-// <content.switch.threshold> controls Firefox responsiveness to your input
-// (i.e. responsiveness to the UI) at the expense of slightly slowing the
-// page load. Since you’ve already minimized the page load time, that
-// shouldn’t be too much of a sacrifice.
-
-// Firefox is configured to apply low frequency mode after 0.75 seconds of
-// user inactivity. Every time the browser goes to low frequency mode, it
-// becomes faster at loading pages. Therefore, it is beneficial to reduce
-// the time it takes for FF to enter low frequency mode. Thus, a value of
-// 0.25 seconds (250000 ms) should be fine for that purpose.
-
-// "Raising the value will make the application more responsive at the expense of page load time.” 
-// [!] <content.notify.ontimer> and <content.interrupt.parsing> must
-// be set to true for this preference to take effect. 
-// [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#content-switch.threshold
-// [2] https://botw.org/articles/firefox-about-config.htm
-// user_pref("content.notify.ontimer", true); // [HIDDEN] default=true
-// user_pref("content.interrupt.parsing", true); // [HIDDEN] default=true
-// user_pref("content.switch.threshold", 250000); // [HIDDEN] default=750000
-
-
-// PREF: Increase speed of gradual rendered elements
-// The function of this setting is associated with the gradual display of
-// rendered elements on a page. In practice, a page is not loaded completely
-// at once, but it is loaded gradually. Every time a new element is loaded,
-// the page is refreshed, and the default interval for this function is set
-// to 0.12 seconds (in other words, the page displays new elements every
-// 0.12 seconds). However, since these redraws will increase the total page
-// load time, you can set a new value of 500000(ms), which corresponds to
-// 0.5 sec (an increase).
-// [!] Lowering the interval will lower the perceived page loading time but increase the total loading time, especially on slower connections.
-// [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955
-// user_pref("content.notify.ontimer", true); // [HIDDEN] default=true
-// user_pref("content.notify.interval", 500000); // [HIDDEN] default=120000
-
-
