@@ -16,6 +16,7 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 | [PeskyFox](https://raw.githubusercontent.com/yokoffing/Better-Fox/master/PeskyFox.js)  | Unclutter the new tab page. Remove Pocket and form autofill. Prevent Firefox from serving annoying webpage notifications.|
 | [SmoothFox](https://raw.githubusercontent.com/yokoffing/Better-Fox/master/SmoothFox.js) | Get Microsoft Edge-like smooth scrolling on your favorite browser|
 | [SecureFox](https://raw.githubusercontent.com/yokoffing/Better-Fox/master/SecureFox.js) | Remove Telemetry, Mozilla experiments, Google Safe Browsing, and search engine suggestions in URL bar. Auto-upgrade mixed content to HTTPS. Add various privacy enhancements — all without breaking webpages. You read that right. No breakage 😁 |
+| [user.js](https://raw.githubusercontent.com/yokoffing/Better-Fox/master/user.js) | Unified list. |
 
 ## Who is this setup for?
 **If you want a secure, blazing fast browsing experience, and don't want to deal with breakage, this setup is for you.** My objective is to make the defaults sufficient enough for the average privacy-minded user, but remain trouble-free enough that my grandmother could use it. <strike>(That puts a whole new twist on being a foxy grandma!)</strike> Edit: Sorry for the dad joke 😓
