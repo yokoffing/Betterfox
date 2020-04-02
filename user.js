@@ -18,7 +18,6 @@ user_pref("content.notify.ontimer", false);
 user_pref("content.interrupt.parsing", false);
 user_pref("network.http.max-persistent-connections-per-server", 10);
 user_pref("network.http.max-connections", 2000);
-user_pref("browser.cache.disk.metadata_memory_limit", 51200);
 user_pref("network.manage-offline-status", false);
 user_pref("dom.image-lazy-loading.enabled", true);
 user_pref("full-screen-api.transition-duration.enter", "0 0");
