@@ -72,7 +72,7 @@ user_pref("network.http.max-connections", 2000);
 // before leaving this value changed permanently.
 // [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955
 // default=250 -> 250KB, 51200 -> 50MB
-user_pref("browser.cache.disk.metadata_memory_limit", 51200);
+// user_pref("browser.cache.disk.metadata_memory_limit", 51200);
 
 // PREF: Prevent FF from going offline
 // Firefox manages network connectivity poorly. It'll stall your browsing if
