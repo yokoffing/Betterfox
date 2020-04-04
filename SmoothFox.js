@@ -1,16 +1,23 @@
 //
-/******************************************************************************
- * SmoothFox																  *      
- * priority: smooth scrolling
- * version: 25 March 2020													  *
- * url: https://github.com/hjstephens09/Better-Fox							  *
- ******************************************************************************/
+/* Do not COPY+PASTE this file. If you do, only COPY+PASTE the user_pref itself.
+ *
+ * If you make changes to your about:config while the program is running, the
+ * changes will be overwritten when the application restarts.
+ *
+ * To make a change to preferences, you will have to edit the user.js file.
+ */
 
+/****************************************************************************
+ * SmoothFox                                                                *
+ * "Faber est suae quisque fortunae."                                       *
+ * priority: smooth scrolling                                               *
+ * version: 3 April 2020                                                    *
+ * url: https://github.com/hjstephens09/Better-Fox                          *
+ ***************************************************************************/
 
-/******************************************************************************
- * SECTION: EDGE-LIKE SMOOTH SCROLLING (USING MSDPHYSICS)		              *
-******************************************************************************/
-
+/****************************************************************************
+ * SECTION: EDGE-LIKE SMOOTH SCROLLING (USING MSDPHYSICS)                   *
+****************************************************************************/
 // PREF: Edge-like smooth scrolliing (using msdPhysics)
 user_pref("apz.frame_delay.enabled", false);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
@@ -24,11 +31,9 @@ user_pref("toolkit.scrollbox.horizontalScrollDistance", 4);
 user_pref("toolkit.scrollbox.verticalScrollDistance", 5);
 user_pref("mousewheel.min_line_scroll_amount", 35); // adjust to preference, 20-40
 
-
 /******************************************************************************
- * SECTION: EDGE-LIKE SMOOTH SCROLLING (w/o MSDPHYSICS)			              *
+ * SECTION: EDGE-LIKE SMOOTH SCROLLING (w/o MSDPHYSICS)                       *
 ******************************************************************************/
-
 // PREF: Edge-like smooth scrolliing (without msdPhysics)
 user_pref("apz.frame_delay.enabled", false);
 user_pref("general.smoothScroll.currentVelocityWeighting", 0.05);
@@ -46,11 +51,9 @@ user_pref("toolkit.scrollbox.horizontalScrollDistance", 4);
 user_pref("toolkit.scrollbox.verticalScrollDistance", 5);
 user_pref("mousewheel.min_line_scroll_amount", 35); // adjust to preference, 20-40
 
-
 /******************************************************************************
- * SECTION: MAC OS TRACKPAD										              *
+ * SECTION: MAC OS TRACKPAD                                                   *
 ******************************************************************************/
-
 // PREF: OS X / macOS Trackpad
 // May not need to adjust settings since scrolling is already pretty smooth in macOS.
 user_pref("apz.frame_delay.enabled", false);
@@ -64,9 +67,8 @@ user_pref("mousewheel.acceleration.factor", 8);
 user_pref("mousewheel.acceleration.start", 2);
 user_pref("mousewheel.min_line_scroll_amount", 2);
 
-
 /******************************************************************************
- * SECTION: GPU SPECIFIC										              *
+ * SECTION: GPU SPECIFIC                                                      *
 ******************************************************************************/
 
 // PREF: Improve performance by utilizing the GPU

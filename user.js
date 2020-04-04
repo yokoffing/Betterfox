@@ -1,7 +1,8 @@
 //
 /****************************************************************************
+ * BetterFox                                                                *
  * name: yokoffing user.js                                                  *
- * version: 30 March 2020                                                   *
+ * version: 31 March 2020                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -11,7 +12,6 @@
 /****************************************************************************
  * START: FASTFOX                                                           *
 ****************************************************************************/
-
 user_pref("gfx.webrender.all", true);
 user_pref("nglayout.initialpaint.delay", 0);
 user_pref("content.notify.ontimer", false);
@@ -27,14 +27,13 @@ user_pref("security.dialog_enable_delay", 0);
 /****************************************************************************
  * START: SECUREFOX                                                         *
 ****************************************************************************/
-
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.socialtracking.block_cookies.enabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
-user_pref("network.cookie.cookieBehavior", 3);
+user_pref("network.cookie.cookieBehavior", 1);
 user_pref("pref.privacy.disable_button.cookie_exceptions", false);
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
@@ -44,17 +43,19 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-prefetch", false);
-user_pref("network.dns.disablePrefetch", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
 user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("browser.newtab.preload", false);
+user_pref("browser.send_pings.require_same_host", true);
+user_pref("browser.send_pings", false);
 user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false);
 user_pref("browser.fixup.alternate.enabled", false);
 user_pref("browser.fixup.typo.scheme", false);
+user_pref("browser.urlbar.oneOffSearches", true);
 user_pref("network.trr.mode", 2);
 user_pref("network.security.esni.enabled", true);
 user_pref("security.mixed_content.block_active_content", true);
@@ -63,6 +64,7 @@ user_pref("security.mixed_content.upgrade_display_content", true);
 user_pref("security.mixed_content.block_object_subrequest", true);
 user_pref("network.auth.subresource-http-auth-allow", 1);
 user_pref("beacon.enabled", false);
+user_pref("dom.battery.enabled", false);
 user_pref("dom.targetBlankNoOpener.enabled", true);
 user_pref("network.ftp.enabled", false);
 user_pref("network.IDN_show_punycode", true);
@@ -99,8 +101,6 @@ user_pref("browser.newtabpage.activity-stream.telemetry", false);
 user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.search.update", false);
 user_pref("browser.selfsupport.url", "");
-user_pref("browser.send_pings.require_same_host", true);
-user_pref("browser.send_pings", false);
 user_pref("browser.startup.homepage_override.mstone", "ignore");
 user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.uitour.enabled", false);
@@ -113,10 +113,6 @@ user_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled", false);
 user_pref("dom.ipc.plugins.reportCrashURL", false);
 user_pref("dom.push.enabled", false);
 user_pref("dom.push.userAgentID", "");
-user_pref("experiments.activeExperiment", false);
-user_pref("experiments.enabled", false);
-user_pref("experiments.manifest.uri", "");
-user_pref("experiments.supported", false);
 user_pref("extensions.getAddons.cache.enabled", false);
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
@@ -143,7 +139,6 @@ user_pref("toolkit.telemetry.updatePing.enabled", false);
 /****************************************************************************
  * START: PESKYFOX                                                          *
 ****************************************************************************/
-
 user_pref("browser.library.activity-stream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
@@ -198,6 +193,8 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
+user_pref("media.videocontrols.picture-in-picture.audio-toggle.enabled", true);
+user_pref("media.videocontrols.picture-in-picture.video-toggle.flyout-enabled", true);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
