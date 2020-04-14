@@ -45,7 +45,7 @@ user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
 // 1=disable third-party cookies, 3=blocks from unvisited websites,
 // 4=block cross site and social media trackers (default)
 // FF77+ 5=block cross site and social media trackers, and isolate remaining cookies
-user_pref("network.cookie.cookieBehavior", 4);
+user_pref("network.cookie.cookieBehavior", 5);
 user_pref("pref.privacy.disable_button.cookie_exceptions", false);
 
 // PREF: Limit third-party cookies to the current session even when they are allowed
