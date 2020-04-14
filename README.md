@@ -33,8 +33,6 @@ TL;DR: If your threat level calls for anonymity and not just reasonable privacy,
 
    Add the custom list [dbl.oisd.nl](https://abp.oisd.nl/) for the best in-browser protection. It's most comprehensive, unified domain blocklist available, actively maintained to prevent false positives and to keep the web usable! Use it alongside your usual lists. [Read More](https://www.reddit.com/r/oisd_blocklist/comments/dwxgld/dbloisdnl_internets_1_domain_blocklist/?sort=new) [[DNS format](https://dbl.oisd.nl) | [ABP format](https://abp.oisd.nl)]
 
-MultiAccount Containers : essential privacy for anyone enabling third-party cookies.
-
 2. **[Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager)**: encrypted password manager.
 
 3. **[ClearURLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls)**: clean tracking parameters from URLs, Google searches, etc.
