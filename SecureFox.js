@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: increase security and privacy without causing site breakage    *  
- * version: 31 March 2020                                                   *
+ * version: 14 April 2020                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -44,7 +44,8 @@ user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
 // with providing exceptions or encountering rare site issues, alter this value.
 // 1=disable third-party cookies, 3=blocks from unvisited websites,
 // 4=block cross site and social media trackers (default)
-user_pref("network.cookie.cookieBehavior", 1);
+// FF77+ 5=block cross site and social media trackers, and isolate remaining cookies
+user_pref("network.cookie.cookieBehavior", 4);
 user_pref("pref.privacy.disable_button.cookie_exceptions", false);
 
 // PREF: Limit third-party cookies to the current session even when they are allowed
@@ -55,6 +56,18 @@ user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 // Alternative: use a cookie manager extension
 // user_pref("network.cookie.lifetimePolicy", 3);
 // user_pref("network.cookie.lifetime.days", 5);
+
+// PREF: Purge site data of sites associated with tracking cookies automatically
+// Identify sites that set tracking cookies, remove those cookies (and other site data)
+// if the site has not been interacted with in 30 days.
+// https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
+user_pref("privacy.purge_trackers.enabled", true);
+user_pref("privacy.purge_trackers.logging.enabled", false);
+
+// PREF: Samesite Cookies
+// https://www.jardinesoftware.net/2019/10/28/samesite-by-default-in-2020/
+// user_pref("network.cookie.sameSite.laxByDefault", true);
+// user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 
 // PREF: Disable offline cache to limit tracking
 user_pref("browser.cache.offline.enable", false);
@@ -176,6 +189,9 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
  * SECTION: VARIOUS SECURITY/PRIVACY ENHANCEMENTS                            *
 ******************************************************************************/
 
+// PREF: Enforce TLS 1.0 and 1.1 downgrades as session only
+user_pref("security.tls.version.enable-deprecated", false);
+
 // 1030: disable favicons in shortcuts
 // URL shortcuts use a cached randomly named .ico file which is stored in your
 // profile/shortcutCache directory. The .ico remains after the shortcut is deleted.
@@ -226,6 +242,11 @@ user_pref("webgl.disable-fail-if-major-performance-caveat", true);
 // and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With").
 // default=false
 user_pref("pdfjs.disabled", false);
+
+// PREF: Enable QUIC protocol / HTTP3
+// https://www.litespeedtech.com/
+// https://quic.rocks
+user_pref("network.http.http3.enabled", true);
 
 // PREF: Disable Windows jumplist [WINDOWS-only]
 // user_pref("browser.taskbar.lists.enabled", false);
@@ -344,19 +365,23 @@ user_pref("toolkit.telemetry.updatePing.enabled", false);
 // https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
 // user_pref("privacy.purge_trackers.enabled", true);
 // user_pref("privacy.purge_trackers.logging.enabled", false);
-// user_pref("privacy.purge_trackers.max_purge_count", 100); // default=100
+
+// PREF: Enable QUIC protocol / HTTP3
+// https://www.litespeedtech.com/
+// https://quic.rocks
+// user_pref("network.http.http3.enabled", true);
 
 // PREF: Samesite Cookies
 // Samesite=Lax
 // [1] https://www.jardinesoftware.net/2019/10/28/samesite-by-default-in-2020/
-// user_pref("network.cookie.sameSite.laxByDefault", true); // default=false
-// user_pref("network.cookie.sameSite.noneRequiresSecure", false); default=false
+// user_pref("network.cookie.sameSite.laxByDefault", true);
+// user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 
 /******************************************************************************
  * SECTION: FIREFOX 76                                   *
 ******************************************************************************/
 
-// PREF: Allow HTTPS-only connections
+// PREF: Allow HTTPS-only connections [FF76+]
 // There is currently no way to relax this setting browser-side to make an exception.
 // https://www.ghacks.net/2020/03/24/firefox-76-gets-optional-https-only-mode
 // Alternative: HTTPZ extension https://addons.mozilla.org/en-US/firefox/addon/httpz/

@@ -2,7 +2,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * name: yokoffing user.js                                                  *
- * version: 31 March 2020                                                   *
+ * version: 3 April 2020                                                    *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -27,6 +27,7 @@ user_pref("security.dialog_enable_delay", 0);
 /****************************************************************************
  * START: SECUREFOX                                                         *
 ****************************************************************************/
+user_pref("security.tls.version.enable-deprecated", false);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
@@ -37,6 +38,8 @@ user_pref("network.cookie.cookieBehavior", 1);
 user_pref("pref.privacy.disable_button.cookie_exceptions", false);
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
+user_pref("privacy.purge_trackers.enabled", true);
+user_pref("privacy.purge_trackers.logging.enabled", false);
 user_pref("browser.cache.offline.enable", false);
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
@@ -72,6 +75,7 @@ user_pref("browser.urlbar.decodeURLsOnCopy", true);
 user_pref("webgl.enable-debug-renderer-info", false);
 user_pref("webgl.disable-fail-if-major-performance-caveat", true);
 user_pref("pdfjs.disabled", false);
+user_pref("network.http.http3.enabled", true);
 user_pref("browser.safebrowsing.allowOverride", true);
 user_pref("browser.safebrowsing.appRepURL", "");
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
@@ -195,6 +199,8 @@ user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("media.videocontrols.picture-in-picture.audio-toggle.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.flyout-enabled", true);
+user_pref("gfx.color_management.mode", 1);
+user_pref("gfx.color_management.enablev4", true);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
