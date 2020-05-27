@@ -1,12 +1,20 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+title: "[BUG]"
+labels: bug
+assignees: yokoffing
 
 ---
 
+## BEFORE YOU BEGIN
+I have attempted the following troubleshooting suggestions:
+- [ ] [Cleared website data](https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2018/05/clear-browser-cache-firefox.png), restarted Firefox, and my issue persists.
+- [ ] No issues when using the website or extension in another web browser.
+- [ ] The issue persists when using Firefox in [Safe Mode](https://support.mozilla.org/en-US/kb/troubleshoot-firefox-issues-using-safe-mode#w_how-to-start-firefox-in-safe-mode).
+- [ ] Disabled DNS-level content blocking (AdGuard, NextDNS, PiHole), [cleared my DNS cache](https://www.pcmag.com/how-to/how-to-flush-your-dns-cache), and used my ISP's DNS resolver (if applicable).
+
+## REPORT
 **Describe the bug**
 A clear and concise description of what the bug is.
 
@@ -26,12 +34,6 @@ If applicable, add screenshots to help explain your problem.
 **Desktop (please complete the following information):**
  - OS: [e.g. iOS]
  - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
  - Version [e.g. 22]
 
 **Additional context**
