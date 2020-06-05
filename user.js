@@ -2,7 +2,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * name: yokoffing user.js                                                  *
- * version: 14 April 2020                                                    *
+ * version: 5 June 2020                                                     *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -27,7 +27,6 @@ user_pref("security.dialog_enable_delay", 0);
 /****************************************************************************
  * START: SECUREFOX                                                         *
 ****************************************************************************/
-user_pref("security.tls.version.enable-deprecated", false);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
@@ -41,6 +40,8 @@ user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 user_pref("privacy.purge_trackers.enabled", true);
 user_pref("privacy.purge_trackers.logging.enabled", false);
 user_pref("browser.cache.offline.enable", false);
+user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
+user_pref("media.memory_cache_max_size", 16384);
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("network.prefetch-next", false);
@@ -58,14 +59,13 @@ user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false);
 user_pref("browser.fixup.alternate.enabled", false);
 user_pref("browser.fixup.typo.scheme", false);
-user_pref("browser.urlbar.oneOffSearches", true);
-user_pref("network.trr.mode", 2);
 user_pref("network.security.esni.enabled", true);
 user_pref("security.mixed_content.block_active_content", true);
 user_pref("security.mixed_content.block_display_content", true);
 user_pref("security.mixed_content.upgrade_display_content", true);
 user_pref("security.mixed_content.block_object_subrequest", true);
 user_pref("network.auth.subresource-http-auth-allow", 1);
+user_pref("security.tls.version.enable-deprecated", false);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
 user_pref("dom.targetBlankNoOpener.enabled", true);
@@ -199,8 +199,12 @@ user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("media.videocontrols.picture-in-picture.audio-toggle.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.flyout-enabled", true);
+user_pref("accessibility.blockautorefresh", true);
+user_pref("browser.meta_refresh_when_inactive.disabled", true);
 user_pref("gfx.color_management.mode", 1);
 user_pref("gfx.color_management.enablev4", true);
+user_pref("browser.helperApps.showOpenOptionForPdfJS", true);
+user_pref("editor.truncate_user_pastes", false);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *

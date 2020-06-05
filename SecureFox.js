@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: increase security and privacy without causing site breakage    *  
- * version: 14 April 2020                                                   *
+ * version: 5 June 2020                                                     *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -45,7 +45,7 @@ user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
 // 1=disable third-party cookies, 3=blocks from unvisited websites,
 // 4=block cross site and social media trackers (default)
 // FF77+ 5=block cross site and social media trackers, and isolate remaining cookies
-user_pref("network.cookie.cookieBehavior", 5);
+user_pref("network.cookie.cookieBehavior", 1);
 user_pref("pref.privacy.disable_button.cookie_exceptions", false);
 
 // PREF: Limit third-party cookies to the current session even when they are allowed
@@ -71,6 +71,11 @@ user_pref("privacy.purge_trackers.logging.enabled", false);
 
 // PREF: Disable offline cache to limit tracking
 user_pref("browser.cache.offline.enable", false);
+
+// PREF: Disable media cache from writing to disk in Private Browsing
+// NOTE: MSE (Media Source Extensions) are already stored in-memory in PB
+user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
+user_pref("media.memory_cache_max_size", 16384);
 
 // PREF: Disable all speculative connections
 // Prefetching causes cookies from the prefetched site to be loaded and other potentially unwanted behavior.
@@ -134,9 +139,6 @@ user_pref("browser.fixup.typo.scheme", false);
 // https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete
 // user_pref("browser.urlbar.autoFill", false);
 
-// PREF: Hide different search provider icons in the URL dropdown
-user_pref("browser.urlbar.oneOffSearches", true);
-
 /******************************************************************************
  * SECTION: DNS-over-HTTPS                                                    *
 ******************************************************************************/
@@ -144,8 +146,8 @@ user_pref("browser.urlbar.oneOffSearches", true);
 // PREF: Enable DNS-over-HTTPS
 // https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
-// 0=off, 2=TRR preferred, 5=TRR disabled
-user_pref("network.trr.mode", 2);
+// 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
+// user_pref("network.trr.mode", 3);
 
 // PREF: Enable ESNI
 // This prevents others from intercepting the TLS SNI extension and using it
@@ -354,28 +356,6 @@ user_pref("toolkit.telemetry.updatePing.enabled", false);
 // [1] [find source]
 // user_pref("network.dns.disableIPv6", true);
 // user_pref("network.notify.IPv6", false);
-
-/****************************************************************************
- * SECTION: FIREFOX 75                                                      *
-****************************************************************************/
-
-// PREF: Purge site data of sites associated with tracking cookies automatically
-// Identify sites that set tracking cookies, remove those cookies (and other site data)
-// if the site has not been interacted with in 30 days.
-// https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
-// user_pref("privacy.purge_trackers.enabled", true);
-// user_pref("privacy.purge_trackers.logging.enabled", false);
-
-// PREF: Enable QUIC protocol / HTTP3
-// https://www.litespeedtech.com/
-// https://quic.rocks
-// user_pref("network.http.http3.enabled", true);
-
-// PREF: Samesite Cookies
-// Samesite=Lax
-// [1] https://www.jardinesoftware.net/2019/10/28/samesite-by-default-in-2020/
-// user_pref("network.cookie.sameSite.laxByDefault", true);
-// user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 
 /******************************************************************************
  * SECTION: FIREFOX 76                                   *

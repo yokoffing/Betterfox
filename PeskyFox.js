@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: 3 April 2020                                                    *
+ * version: 5 June 2020                                                     *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -32,6 +32,11 @@
 // ! RESTART
 // https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988
 // user_pref("extensions.webextensions.restrictedDomains", "");
+// PREF: disable mozAddonManager Web API [FF57+]
+ * [NOTE] As a side-effect in FF57-59 this allowed extensions to work on AMO. In FF60+ you also need
+ * to sanitize or clear extensions.webextensions.restrictedDomains (see 2662) to keep that side-effect
+ * [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988 ***/
+user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN PREF]
 
 /****************************************************************************
  * SECTION: START-UP / NEW TAB PAGE                                         *
@@ -246,6 +251,24 @@ user_pref("browser.tabs.loadBookmarksInTabs", true);
 // PREF: Show Picture-in-Picture (PiP) flyout
 user_pref("media.videocontrols.picture-in-picture.audio-toggle.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.flyout-enabled", true);
+
+// PREF: Stop websites from reloading pages automatically
+// https://www.ghacks.net/2018/08/19/stop-websites-from-reloading-pages-automatically/
+user_pref("accessibility.blockautorefresh", true);
+user_pref("browser.meta_refresh_when_inactive.disabled", true);
+
+// PREF: Color management
+// Force FF to show the same color profiles as Chromium
+user_pref("gfx.color_management.mode", 1);
+user_pref("gfx.color_management.enablev4", true);
+
+// [FF 77+] PREF: Firefox now allows viewing of PDFs even if the response HTTP headers
+// include Content-Disposition:attachment. 
+user_pref("browser.helperApps.showOpenOptionForPdfJS", true);
+
+// [FF 77+] PREF: Prevent password truncation when submitting form data
+// https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
+user_pref("editor.truncate_user_pastes", false);
 
 // PREF: Adjust the minimum tab width
 // [!] Can be overridden by userChrome.css.
