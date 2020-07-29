@@ -2,7 +2,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * name: yokoffing user.js                                                  *
- * version: 5 June 2020                                                     *
+ * version: 29 July 2020                                                    *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -13,12 +13,6 @@
  * START: FASTFOX                                                           *
 ****************************************************************************/
 user_pref("gfx.webrender.all", true);
-user_pref("nglayout.initialpaint.delay", 0);
-user_pref("content.notify.ontimer", false);
-user_pref("content.interrupt.parsing", false);
-user_pref("network.http.max-persistent-connections-per-server", 10);
-user_pref("network.http.max-connections", 2000);
-user_pref("network.manage-offline-status", false);
 user_pref("dom.image-lazy-loading.enabled", true);
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
@@ -72,10 +66,7 @@ user_pref("dom.targetBlankNoOpener.enabled", true);
 user_pref("network.ftp.enabled", false);
 user_pref("network.IDN_show_punycode", true);
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
-user_pref("webgl.enable-debug-renderer-info", false);
-user_pref("webgl.disable-fail-if-major-performance-caveat", true);
 user_pref("pdfjs.disabled", false);
-user_pref("network.http.http3.enabled", true);
 user_pref("browser.safebrowsing.allowOverride", true);
 user_pref("browser.safebrowsing.appRepURL", "");
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
@@ -201,8 +192,6 @@ user_pref("media.videocontrols.picture-in-picture.audio-toggle.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.flyout-enabled", true);
 user_pref("accessibility.blockautorefresh", true);
 user_pref("browser.meta_refresh_when_inactive.disabled", true);
-user_pref("gfx.color_management.mode", 1);
-user_pref("gfx.color_management.enablev4", true);
 user_pref("browser.helperApps.showOpenOptionForPdfJS", true);
 user_pref("editor.truncate_user_pastes", false);
 

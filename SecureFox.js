@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: increase security and privacy without causing site breakage    *  
- * version: 5 June 2020                                                     *
+ * version: 29 July 2020                                                     *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -22,12 +22,12 @@
 // PREF: Enable complete Tracking Protection in Private Browsing mode 
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
 
-// PREF: Disable Tracking Protection for regular windows
-// ALTERNATIVE: Allow uBlock Origin protect against social tracking instead.
-// There is no exception with Firefox's Tracking Protection to allow certain
-// content (i.e. Twitter's embedded tweets on articles).
-// user_pref("privacy.trackingprotection.enabled", false);
-// user_pref("privacy.trackingprotection.socialtracking.enabled", false);
+// PREF: Firefox's Enhanced Tracking Protection for regular windows
+// ALTERNATIVE: Allow an extension like uBlock Origin or Ghostery to protect you
+// against social tracking instead. Firefox's Tracking Protection does not make
+// exceptions to allow certain content (i.e. Twitter's embedded tweets on articles).
+// user_pref("privacy.trackingprotection.enabled", true);
+// user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 
 // PREF: Regardless, Firefox will continue to block cryptominers, fingerprinters, etc.
 user_pref("privacy.socialtracking.block_cookies.enabled", true);
@@ -53,9 +53,9 @@ user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
 // PREF: Delete all cookies after a certain period of time
-// Alternative: use a cookie manager extension
-// user_pref("network.cookie.lifetimePolicy", 3);
-// user_pref("network.cookie.lifetime.days", 5);
+// ALTERNATIVE: Use a cookie manager extension
+user_pref("network.cookie.lifetimePolicy", 3);
+user_pref("network.cookie.lifetime.days", 7);
 
 // PREF: Purge site data of sites associated with tracking cookies automatically
 // Identify sites that set tracking cookies, remove those cookies (and other site data)
@@ -74,8 +74,8 @@ user_pref("browser.cache.offline.enable", false);
 
 // PREF: Disable media cache from writing to disk in Private Browsing
 // NOTE: MSE (Media Source Extensions) are already stored in-memory in PB
-user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
-user_pref("media.memory_cache_max_size", 16384);
+// user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
+// user_pref("media.memory_cache_max_size", 16384);
 
 // PREF: Disable all speculative connections
 // Prefetching causes cookies from the prefetched site to be loaded and other potentially unwanted behavior.
@@ -153,7 +153,7 @@ user_pref("browser.fixup.typo.scheme", false);
 // This prevents others from intercepting the TLS SNI extension and using it
 // to determine what websites you are browsing.
 // [1] https://www.eff.org/deeplinks/2018/09/esni-privacy-protecting-upgrade-https/
-user_pref("network.security.esni.enabled", true);
+// user_pref("network.security.esni.enabled", true);
 
 // PREF: Force FF to always use your custom DNS resolver
 // You will type between the "" for both prefs.
@@ -231,24 +231,17 @@ user_pref("network.IDN_show_punycode", true);
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1320061
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
-// PREF: When webGL is enabled, do not expose information about the graphics driver
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1171228
-// https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_debug_renderer_info
-user_pref("webgl.enable-debug-renderer-info", false);
-
-// PREF: WebGL
-user_pref("webgl.disable-fail-if-major-performance-caveat", true);
-
 // PREF: Enforce Firefox's built-in PDF reader
 // This setting controls if the option "Display in Firefox" is available in the setting below
 // and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With").
 // default=false
-user_pref("pdfjs.disabled", false);
+user_pref("pdfjs.disabled", false); /*default*/
 
 // PREF: Enable QUIC protocol / HTTP3
+// WARNING: Very experimental!
 // https://www.litespeedtech.com/
 // https://quic.rocks
-user_pref("network.http.http3.enabled", true);
+// user_pref("network.http.http3.enabled", true);
 
 // PREF: Disable Windows jumplist [WINDOWS-only]
 // user_pref("browser.taskbar.lists.enabled", false);
@@ -292,10 +285,20 @@ user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/
 user_pref("extensions.blocklist.enabled", true);
 user_pref("extensions.blocklist.url", "https://blocklists.settings.services.mozilla.com/v1/blocklist/3/%APP_ID%/%APP_VERSION%/");
 
+// PREF: Alert when using a breached password
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1569848
+user_pref("signon.management.page.vulnerable-passwords.enabled", true);
+
 // PREF: Disable extension metadata
 // Used when installing/updating an extension, and in daily background update checks.
 // When false, extension detail tabs will have no description.
 // user_pref("extensions.getAddons.cache.enabled", false);
+
+// PREF: Allow HTTPS-only connections [FF76+]
+// There is currently no way to relax this setting browser-side to make an exception.
+// https://www.ghacks.net/2020/03/24/firefox-76-gets-optional-https-only-mode
+// Alternative: HTTPZ extension https://addons.mozilla.org/en-US/firefox/addon/httpz/
+// user_pref("dom.security.https_only_mode", true);
 
 // PREF: Disable all Mozilla telemetry, data collection, experiments, phoning home, etc.
 user_pref("app.normandy.api_url", "");
@@ -356,25 +359,3 @@ user_pref("toolkit.telemetry.updatePing.enabled", false);
 // [1] [find source]
 // user_pref("network.dns.disableIPv6", true);
 // user_pref("network.notify.IPv6", false);
-
-/******************************************************************************
- * SECTION: FIREFOX 76                                   *
-******************************************************************************/
-
-// PREF: Allow HTTPS-only connections [FF76+]
-// There is currently no way to relax this setting browser-side to make an exception.
-// https://www.ghacks.net/2020/03/24/firefox-76-gets-optional-https-only-mode
-// Alternative: HTTPZ extension https://addons.mozilla.org/en-US/firefox/addon/httpz/
-// user_pref("dom.security.https_only_mode", true);
-
-// PREF: Alert when using a breached password
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1569848
-user_pref("signon.management.page.vulnerable-passwords.enabled", true);
-
-/******************************************************************************
- * SECTION: NIGHTLY-ONLY                                      *
-******************************************************************************/
-
-// PREF: Project Fisson
-// A new process model that enables full site isolation
-// user_pref("fission.autostart", true);

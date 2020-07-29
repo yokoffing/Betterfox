@@ -15,8 +15,9 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 | [Fastfox](https://github.com/yokoffing/Better-Fox/blob/master/FastFox.js)   | Immensely increase Firefox's browsing speed. Give Chrome a run for its money!|
 | [PeskyFox](https://github.com/yokoffing/Better-Fox/blob/master/PeskyFox.js)  | Unclutter the new tab page. Remove Pocket and form autofill. Prevent Firefox from serving annoying webpage notifications.|
 | [SmoothFox](https://github.com/yokoffing/Better-Fox/blob/master/SmoothFox.js) | Get Microsoft Edge-like smooth scrolling on your favorite browser|
-| [SecureFox](https://github.com/yokoffing/Better-Fox/blob/master/SecureFox.js) | Remove Telemetry, Mozilla experiments, Google Safe Browsing, and search engine suggestions in URL bar. Auto-upgrade mixed content to HTTPS. Add various privacy enhancements — all without breaking webpages. You read that right. No breakage 😁 |
+| [SecureFox](https://github.com/yokoffing/Better-Fox/blob/master/SecureFox.js) | Remove Telemetry, Mozilla experiments, Google Safe Browsing, and search engine suggestions in URL bar. Auto-upgrade mixed content to HTTPS. Various privacy enhancements. |
 | [user.js](https://github.com/yokoffing/Better-Fox/blob/master/user.js) | Unified list, minus some of my personal preferences. Users may download this list as their own user.js. |
+| [LiteFox](https://github.com/yokoffing/Better-Fox/blob/master/LiteFox.js) | All the essentails without any of the breakage. Use these preferences as your foundation to add to each category as desired, or use it by itself. |
 
 ## Who is this setup for?
 **If you want a secure, blazing fast browsing experience, and don't want to deal with breakage, this setup is for you.** My objective is to make the defaults sufficient enough for the average privacy-minded user, but remain trouble-free enough that my grandmother could use it. <strike>(That puts a whole new twist on being a foxy grandma!)</strike> Edit: Sorry for the dad joke 😓
@@ -33,6 +34,8 @@ TL;DR: If your threat level calls for anonymity and not just reasonable privacy,
 
    Add the custom list [dbl.oisd.nl](https://abp.oisd.nl/) for the best in-browser protection. It's most comprehensive, unified domain blocklist available, actively maintained to prevent false positives and to keep the web usable! Use it alongside your usual lists. [Read More](https://www.reddit.com/r/oisd_blocklist/comments/dwxgld/dbloisdnl_internets_1_domain_blocklist/?sort=new) [[DNS format](https://dbl.oisd.nl) | [ABP format](https://abp.oisd.nl)]
 
+   Also check out [NoTracking](https://github.com/notracking/hosts-blocklists/#general-blocklist-policies) [ABP format](https://raw.githubusercontent.com/notracking/hosts-blocklists/master/adblock/adblock.txt)
+
 2. **[Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager)**: encrypted password manager.
 
 3. **[ClearURLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls)**: clean tracking parameters from URLs, Google searches, etc.
@@ -43,4 +46,4 @@ TL;DR: If your threat level calls for anonymity and not just reasonable privacy,
 
 
 ## Credit
-Hours spent reviewing, condensing, and testing [ghacks user.js](https://github.com/ghacksuserjs/ghacks-user.js), about:config suggestions from websites and blogs, and keeping up with [Mozilla updates](https://wiki.mozilla.org/Firefox/Roadmap/Updates). (Where there is similiarity to other authors, credit goes to them.)
+Where there is similiarity to other authors, credit goes to them.
