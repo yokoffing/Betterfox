@@ -16,7 +16,7 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 | [PeskyFox](https://github.com/yokoffing/Better-Fox/blob/master/PeskyFox.js)  | Unclutter the new tab page. Remove Pocket and form autofill. Prevent Firefox from serving annoying webpage notifications.|
 | [SmoothFox](https://github.com/yokoffing/Better-Fox/blob/master/SmoothFox.js) | Get Microsoft Edge-like smooth scrolling on your favorite browser|
 | [SecureFox](https://github.com/yokoffing/Better-Fox/blob/master/SecureFox.js) | Remove Telemetry, Mozilla experiments, Google Safe Browsing, and search engine suggestions in URL bar. Auto-upgrade mixed content to HTTPS. Various privacy enhancements. |
-| [LiteFox](https://github.com/yokoffing/Better-Fox/blob/master/LiteFox.js) | All the essentails without any of the breakage. Use these preferences as your foundation to add to each category as desired, or use it by itself. |
+| [LiteFox](https://github.com/yokoffing/Better-Fox/blob/master/Litefox.js) | All the essentails without any of the breakage. Use these preferences as your foundation to add to each category as desired, or use it by itself. |
 | [user.js](https://github.com/yokoffing/Better-Fox/blob/master/user.js) | Unified list, minus some of my personal preferences. Users may download this list as their own user.js. |
 
 ## Who is this setup for?
