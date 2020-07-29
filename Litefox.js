@@ -1,13 +1,11 @@
 //
 /****************************************************************************
- * Betterfox                                                                *
- * name: Litefox                                                            *
- * version: 29 July 2020                                                    *
- * url: https://github.com/yokoffing/Better-Fox                             *
- * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
- * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
+ * Litefox                                                                  *
  * "Facile est inventis addere."                                            *
-****************************************************************************/
+ * priority: the simple, bare necessities                                   *
+ * version: 29 July 2020                                                    *
+ * url: https://github.com/hjstephens09/Better-Fox                          *
+ ***************************************************************************/
 
 /****************************************************************************
  * START: FASTFOX MINIMAL                                                   *
