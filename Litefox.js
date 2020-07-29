@@ -41,6 +41,26 @@ user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("dom.battery.enabled", false);
+user_pref("toolkit.telemetry.unified", false);
+user_pref("toolkit.telemetry.enabled", false);
+user_pref("toolkit.telemetry.server", "data:,");
+user_pref("toolkit.telemetry.archive.enabled", false);
+user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+user_pref("toolkit.telemetry.updatePing.enabled", false);
+user_pref("toolkit.telemetry.bhrPing.enabled", false);
+user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+user_pref("toolkit.telemetry.coverage.opt-out", true);
+user_pref("toolkit.coverage.opt-out", true);
+user_pref("toolkit.coverage.endpoint.base", "");
+user_pref("datareporting.healthreport.uploadEnabled", false);
+user_pref("datareporting.policy.dataSubmissionEnabled", false);
+user_pref("app.shield.optoutstudies.enabled", false);
+user_pref("browser.discovery.enabled", false);
+user_pref("breakpad.reportURL", "");
+user_pref("browser.tabs.crashReporting.sendReport", false);
+user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
+user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
 /****************************************************************************
  * START: PESKYFOX MINIMAL                                                  *
