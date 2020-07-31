@@ -13,11 +13,11 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 | List      | Description |
 |:---------:|-------------|
 | [Fastfox](https://github.com/yokoffing/Better-Fox/blob/master/FastFox.js)   | Immensely increase Firefox's browsing speed. Give Chrome a run for its money!|
-| [PeskyFox](https://github.com/yokoffing/Better-Fox/blob/master/PeskyFox.js)  | Unclutter the new tab page. Remove Pocket and form autofill. Prevent Firefox from serving annoying webpage notifications.|
-| [SmoothFox](https://github.com/yokoffing/Better-Fox/blob/master/SmoothFox.js) | Get Microsoft Edge-like smooth scrolling on your favorite browser|
 | [SecureFox](https://github.com/yokoffing/Better-Fox/blob/master/SecureFox.js) | Remove Telemetry, Mozilla experiments, Google Safe Browsing, and search engine suggestions in URL bar. Auto-upgrade mixed content to HTTPS. Various privacy enhancements. |
-| [LiteFox](https://github.com/yokoffing/Better-Fox/blob/master/Litefox.js) | All the essentails without any of the breakage. Use these preferences as your foundation to add to each category as desired, or use it by itself. |
+| [PeskyFox](https://github.com/yokoffing/Better-Fox/blob/master/PeskyFox.js)  | Unclutter the new tab page. Remove Pocket and form autofill. Prevent Firefox from serving annoying webpage notifications.|
+| [SmoothFox](https://github.com/yokoffing/Better-Fox/blob/master/SmoothFox.js) | Optional: Get Microsoft Edge-like smooth scrolling on your favorite browser. (You will need to manually add this to your user.js.) |
 | [user.js](https://github.com/yokoffing/Better-Fox/blob/master/user.js) | Unified list, minus some of my personal preferences. Users may download this list as their own user.js. |
+| [LiteFox user.js](https://github.com/yokoffing/Better-Fox/blob/master/Litefox.js) | All the essentails. None of the breakage. Use these preferences as your foundation to add to each category as desired, or use it by itself. |
 
 ## Who is this setup for?
 **If you want a secure, blazing fast browsing experience, and don't want to deal with breakage, this setup is for you.** My objective is to make the defaults sufficient enough for the average privacy-minded user, but remain trouble-free enough that my grandmother could use it. <strike>(That puts a whole new twist on being a foxy grandma!)</strike> Edit: Sorry for the dad joke 😓
