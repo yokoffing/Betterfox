@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 30 July 2020                                                    *
+ * version: 7 August 2020                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -24,10 +24,11 @@ user_pref("privacy.trackingprotection.pbmode.enabled", true);
 
 // PREF: Enhanced Tracking Protection for regular windows
 // ALTERNATIVE: Allow an extension like uBlock Origin or Ghostery to protect you
-// against social tracking instead. Firefox's Tracking Protection does not make
-// exceptions to allow certain content (i.e. Twitter's embedded tweets on articles).
-// user_pref("privacy.trackingprotection.enabled", true);
-// user_pref("privacy.trackingprotection.socialtracking.enabled", true);
+// against tracking in regular windows and social tracking instead. Firefox's Tracking
+// Protection does not make exceptions to allow certain content (i.e. Twitter's
+// embedded tweets on articles).
+user_pref("privacy.trackingprotection.enabled", true);
+user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 
 // PREF: Regardless, Firefox will continue to block cryptominers, fingerprinters, etc.
 user_pref("privacy.socialtracking.block_cookies.enabled", true);
@@ -38,19 +39,25 @@ user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
  * SECTION: COOKIES / CACHE                               *
 ******************************************************************************/
 
-// PREF: Third-party cookies
-// I recommended you block all third-party cookies as it is essential for ad
-// companies, Google, random websites, etc. to not track you. If you're uncomfortable
-// with providing exceptions or encountering rare site issues, alter this value.
-// 1=disable third-party cookies, 3=blocks from unvisited websites,
+// PREF: Third-party cookies and site isolation
+// If you're uncomfortable with Mozilla's tracker isolation policies, alter this value to 1.
+// 1=disable third-party cookies
+// 3=blocks from unvisited websites
 // 4=block cross site and social media trackers (default)
-// FF77+ 5=block cross site and social media trackers, and isolate remaining cookies
-user_pref("network.cookie.cookieBehavior", 1);
-// user_pref("pref.privacy.disable_button.cookie_exceptions", false);
+// 5=block cross site and social media trackers, and isolate remaining cookies
+user_pref("network.cookie.cookieBehavior", 5);
+user_pref("pref.privacy.disable_button.cookie_exceptions", false);
 
 // PREF: Limit third-party cookies to the current session even when they are allowed
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
+
+// PREF: Redirect tracking prevention + Purge trackers
+// All storage is cleared (more or less) daily from origins that are known trackers and that
+// haven’t received a top-level user interaction (including scroll) within the last 45 days. 
+// https://www.cookiestatus.com/firefox/#other-first-party-storage
+// https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
+user_pref("privacy.purge_trackers.enabled", true);
 
 // PREF: Delete all cookies after a certain period of time
 // ALTERNATIVE: Use a cookie manager extension
@@ -71,14 +78,20 @@ user_pref("privacy.purge_trackers.logging.enabled", false);
 // user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 
 // PREF: Disable offline cache to limit tracking
-user_pref("browser.cache.offline.enable", false);
+// user_pref("browser.cache.offline.enable", false);
 
 // PREF: Disable media cache from writing to disk in Private Browsing
 // NOTE: MSE (Media Source Extensions) are already stored in-memory in PB
 // user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 // user_pref("media.memory_cache_max_size", 16384);
 
-// PREF: Disable Firefox prefetching pages it thinks you will visit next
+// PREF: Disable preloading of autocomplete URLs. Firefox preloads URLs that autocomplete
+// when a user types into the address bar, which is a concern if URLs are suggested that the user
+// does not want to connect to.
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
+user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
+
+// PREF: Disable Firefox prefetching pages it thinks you will visit next.
 // Prefetching causes cookies from the prefetched site to be loaded and other potentially unwanted behavior.
 // NOTE: You can set uBlock Origin to do disable preloading in its settings.
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
@@ -89,11 +102,10 @@ user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-prefetch", false);
 
-// PREF: Disable preloading of autocomplete URLs. Firefox preloads URLs that autocomplete
-// when a user types into the address bar, which is a concern if URLs are suggested that the user
-// does not want to connect to.
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
-user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
+// PREF: Disable <link rel=preload>.
+// Experimental! Only enabled in Nightly and Beta at this time.
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
+user_pref("network.preload", false);
 
 // PREF: Disable link-mouseover opening connection to linked server
 // https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
@@ -243,11 +255,11 @@ user_pref("security.mixed_content.block_active_content", true);
 
 // PREF: Disable insecure passive content (such as images) on HTTPS pages
 // Attempt to upgrade them to HTTPS.
-user_pref("security.mixed_content.block_display_content", true);
+// user_pref("security.mixed_content.block_display_content", true);
 
 // PREF: Block unencrypted requests from Flash on encrypted pages to mitigate MitM attacks
 // https://bugzilla.mozilla.org/1190623
-user_pref("security.mixed_content.block_object_subrequest", true);
+// user_pref("security.mixed_content.block_object_subrequest", true);
 
 /******************************************************************************
  * SECTION: VARIOUS SECURITY/PRIVACY ENHANCEMENTS                            *
