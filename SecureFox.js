@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 7 August 2020                                                   *
+ * version: 8 August 2020                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -36,12 +36,12 @@ user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
 
 /******************************************************************************
- * SECTION: COOKIES / CACHE                               *
+ * SECTION: STORAGE                              *
 ******************************************************************************/
 
 // PREF: Third-party cookies and site isolation
 // If you're uncomfortable with Mozilla's tracker isolation policies, alter this value to 1.
-// 1=disable third-party cookies
+// 1=disable third-party cookies (may cause site breakage)
 // 3=blocks from unvisited websites
 // 4=block cross site and social media trackers (default)
 // 5=block cross site and social media trackers, and isolate remaining cookies
@@ -52,27 +52,22 @@ user_pref("pref.privacy.disable_button.cookie_exceptions", false);
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
-// PREF: Redirect tracking prevention + Purge trackers
+// PREF: Redirect tracking prevention + Purge site data of sites associated with tracking cookies automatically.
 // All storage is cleared (more or less) daily from origins that are known trackers and that
 // haven’t received a top-level user interaction (including scroll) within the last 45 days. 
 // https://www.cookiestatus.com/firefox/#other-first-party-storage
 // https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
+// https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
 user_pref("privacy.purge_trackers.enabled", true);
+user_pref("privacy.purge_trackers.logging.enabled", false);
 
 // PREF: Delete all cookies after a certain period of time
 // ALTERNATIVE: Use a cookie manager extension
 // user_pref("network.cookie.lifetimePolicy", 3);
 // user_pref("network.cookie.lifetime.days", 7);
 
-// PREF: Purge site data of sites associated with tracking cookies automatically
-// Identify sites that set tracking cookies, remove those cookies (and other site data)
-// if the site has not been interacted with in 30 days.
-// https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
-user_pref("privacy.purge_trackers.enabled", true);
-user_pref("privacy.purge_trackers.logging.enabled", false);
-
 // PREF: Samesite Cookies
-// [!] This is an evovling standard.
+// [!] EXPERIMENTAL: This is an evovling standard.
 // https://www.jardinesoftware.net/2019/10/28/samesite-by-default-in-2020/
 // user_pref("network.cookie.sameSite.laxByDefault", true);
 // user_pref("network.cookie.sameSite.noneRequiresSecure", true);
@@ -84,6 +79,10 @@ user_pref("privacy.purge_trackers.logging.enabled", false);
 // NOTE: MSE (Media Source Extensions) are already stored in-memory in PB
 // user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 // user_pref("media.memory_cache_max_size", 16384);
+
+/******************************************************************************
+ * SECTION: PREFETCHING                              *
+******************************************************************************/
 
 // PREF: Disable preloading of autocomplete URLs. Firefox preloads URLs that autocomplete
 // when a user types into the address bar, which is a concern if URLs are suggested that the user
@@ -102,17 +101,21 @@ user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-prefetch", false);
 
-// PREF: Disable <link rel=preload>.
-// Experimental! Only enabled in Nightly and Beta at this time.
+// PREF: Enable <link rel=preload>.
+// [!] EXPERIMENTAL: Only enabled in Nightly and Beta at this time.
+// Web developers may use the the Link: <..>; rel=preload response header or <link rel="preload"> markup to give
+// the browser a hint to preload some resources with a higher priority and in advance. Use preload in a smart way
+// to help the web page to render and get into the stable and interactive state faster.
+// https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
-user_pref("network.preload", false);
+// user_pref("network.preload", true);
 
 // PREF: Disable link-mouseover opening connection to linked server
 // https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
 user_pref("network.http.speculative-parallel-limit", 0);
 
-// PREF: Disable "Hyperlink Auditing" (click tracking) and enforce same host in case
+// PREF: Disable "Hyperlink Auditing" (click tracking) and enforce same host in case.
 user_pref("browser.send_pings", false);
 user_pref("browser.send_pings.require_same_host", true);
 
@@ -146,15 +149,18 @@ user_pref("browser.search.suggest.enabled.private", false);
 // default=10, disable=0
 // user_pref("browser.urlbar.maxRichResults", 0);
 
-// PREF: Disable location bar domain guessing
+// PREF: Disable location bar domain guessing.
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
 // request (e.g. by adding www or .com). This is inconsistent use (e.g. FQDNs), does not work
 // via Proxy Servers (different error), is a flawed use of DNS (TLDs: why treat .com
 // as the 411 for DNS errors?), privacy issues (why connect to sites you didn't
 // intend to), can leak sensitive data (e.g. query strings: e.g. Princeton attack),
-// and is a security risk (e.g. common typos & malicious sites set up to exploit this)
+// and is a security risk (e.g. common typos & malicious sites set up to exploit this).
 user_pref("browser.fixup.alternate.enabled", false);
 user_pref("browser.fixup.typo.scheme", false);
+
+// PREF: "Not Secure" text on HTTP sites.
+user_pref("security.insecure_connection_text.enabled", true);
 
 // PREF: Disable location bar autofill
 // https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete
@@ -243,23 +249,22 @@ user_pref("signon.generation.enabled", false);
 // 1=don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
 // 2=allow sub-resources to open HTTP authentication credentials dialogs (default)
 // https://www.fxsitecompat.com/en-CA/docs/2015/http-auth-dialog-can-no-longer-be-triggered-by-cross-origin-resources/
-user_pref("network.auth.subresource-http-auth-allow", 1);
+// user_pref("network.auth.subresource-http-auth-allow", 1);
 
 /******************************************************************************
  * SECTION: MIXED CONTENT                             *
 ******************************************************************************/
 
-// PREF: Disable insecure active content on HTTPS pages
+// PREF: Block insecure active content (scripts) on HTTPS pages.
 // https://trac.torproject.org/projects/tor/ticket/21323
-user_pref("security.mixed_content.block_active_content", true);
+user_pref("security.mixed_content.block_active_content", true); /* default */
 
-// PREF: Disable insecure passive content (such as images) on HTTPS pages
-// Attempt to upgrade them to HTTPS.
-// user_pref("security.mixed_content.block_display_content", true);
+// PREF: Block insecure passive content (images) on HTTPS pages.
+// user_pref("security.mixed_content.block_display_content", true); /* default */
 
 // PREF: Block unencrypted requests from Flash on encrypted pages to mitigate MitM attacks
 // https://bugzilla.mozilla.org/1190623
-// user_pref("security.mixed_content.block_object_subrequest", true);
+// user_pref("security.mixed_content.block_object_subrequest", true); /* default */
 
 /******************************************************************************
  * SECTION: VARIOUS SECURITY/PRIVACY ENHANCEMENTS                            *
@@ -279,7 +284,7 @@ user_pref("browser.shell.shortcutFavicons", false);
 user_pref("beacon.enabled", false);
 
 // PREF: Do not track battery status
-user_pref("dom.battery.enabled", false);
+user_pref("dom.battery.enabled", false); /* default */
 
 // PREF: Enable (limited but sufficient) window.opener protection
 // Makes rel=noopener implicit for target=_blank in anchor and area elements when no rel attribute is set
