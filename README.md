@@ -28,5 +28,9 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 TL;DR: If your threat level calls for anonymity and not just reasonable privacy, please use the [TOR browser](https://www.torproject.org). 👍
 
 
+## [Wiki](https://github.com/yokoffing/Better-Fox/wiki)
+For recommended extensions and more!
+
+
 ## Credit
 Where there is similiarity to other authors, credit goes to them.
