@@ -49,7 +49,6 @@ user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false);
-user_pref("browser.urlbar.maxRichResults", 0);
 user_pref("browser.fixup.alternate.enabled", false);
 user_pref("browser.fixup.typo.scheme", false);
 user_pref("security.insecure_connection_text.enabled", true);
@@ -133,7 +132,6 @@ user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.display.show_image_placeholders", false);
 user_pref("browser.download.folderList", 0);
 user_pref("browser.download.manager.addToRecentDocs", false);
-user_pref("browser.startup.page", 3);
 user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.tabs.warnOnCloseOtherTabs", false);
 user_pref("browser.tabs.warnOnOpen", false);
@@ -163,6 +161,21 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("editor.truncate_user_pastes", false);
+
+/****************************************************************************
+ * START: SMOOTHFOX                                                         *
+****************************************************************************/
+// PREF: Edge-like smooth scrolliing (using msdPhysics)
+user_pref("general.smoothScroll.msdPhysics.enabled", true);
+user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 250);
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 400);
+user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 400);
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 120);
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 0.4);
+user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 5000);
+user_pref("toolkit.scrollbox.horizontalScrollDistance", 4);
+user_pref("toolkit.scrollbox.verticalScrollDistance", 5);
+user_pref("mousewheel.min_line_scroll_amount", 35);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
