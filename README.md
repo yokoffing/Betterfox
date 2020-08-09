@@ -29,7 +29,7 @@ TL;DR: If your threat level calls for anonymity and not just reasonable privacy,
 
 
 ## [Wiki](https://github.com/yokoffing/Better-Fox/wiki)
-For recommended extensions and more!
+Check out our [most recommended extension](https://github.com/yokoffing/Better-Fox/wiki/Ghostery)!
 
 
 ## Credit
