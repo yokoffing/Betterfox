@@ -36,7 +36,7 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-prefetch", false);
-user_pref("network.preload", true);
+user_pref("network.preload", false);
 /*** URLBAR PRELOAD ***/
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
@@ -153,8 +153,6 @@ user_pref("signon.formlessCapture.enabled", false);
 user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("media.autoplay.default", 5);
-user_pref("browser.backspace_action", 2);
-user_pref("ui.key.menuAccessKey", 0);
 user_pref("findbar.highlightAll", true);
 user_pref("layout.spellcheckDefault", 2);
 user_pref("view_source.wrap_long_lines", true);
