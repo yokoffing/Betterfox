@@ -84,11 +84,12 @@ user_pref("privacy.purge_trackers.logging.enabled", false);
  * SECTION: PREFETCHING                              *
 ******************************************************************************/
 
-// PREF: Disable preloading of autocomplete URLs. Firefox preloads URLs that autocomplete
-// when a user types into the address bar, which is a concern if URLs are suggested that the user
-// does not want to connect to.
+// PREF: Disable preloading the autocomplete URL in the address bar.
+// Firefox preloads URLs that autocomplete when a user types into the address bar, which is
+// a concern if URLs are suggested that the user does not want to connect to.
+// NOTE: Firefox will do the server DNS lookup and TCP and TLS handshake but not start sending or receiving HTTP data.
+// https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
-user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
 
 // PREF: Disable Firefox prefetching pages it thinks you will visit next.
 // Prefetching causes cookies from the prefetched site to be loaded and other potentially unwanted behavior.
