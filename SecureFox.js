@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 8 August 2020                                                   *
+ * version: 11 August 2020                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -84,41 +84,51 @@ user_pref("privacy.purge_trackers.logging.enabled", false);
  * SECTION: PREFETCHING                              *
 ******************************************************************************/
 
-// PREF: Disable preloading the autocomplete URL in the address bar.
+// LINK PREFETCHING
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
+user_pref("network.prefetch-next", true); /* default */
+
+// PREF: Link-mouseover opening connection to linked server.
+// TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
+// https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
+// https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
+user_pref("network.http.speculative-parallel-limit", 6); /* default */
+
+// PREF: Disable "Hyperlink Auditing" (click tracking).
+user_pref("browser.send_pings", false);
+// Enforce same host in case.
+user_pref("browser.send_pings.require_same_host", true);
+
+// PREF: DNS PREFETCHING
+// In order to reduce latency, Firefox will proactively perform domain name resolution
+// on links that the user may choose to follow as well as URLs for items referenced by elements in a web page.
+// NOTE: You can set uBlock Origin to do disable preloading in its settings.
+// https://bitsup.blogspot.com/2008/11/dns-prefetching-for-firefox.html
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
+user_pref("network.dns.disablePrefetch", false); /* default */
+// As a security measure, prefetching of embedded link hostnames is not done from documents loaded over HTTPS.
+user_pref("network.dns.disablePrefetchFromHTTPS", true); /* default */
+
+// PREF: Preload the autocomplete URL in the address bar.
 // Firefox preloads URLs that autocomplete when a user types into the address bar, which is
 // a concern if URLs are suggested that the user does not want to connect to.
 // NOTE: Firefox will do the server DNS lookup and TCP and TLS handshake but not start sending or receiving HTTP data.
 // https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
+user_pref("browser.urlbar.speculativeConnect.enabled", true); /* default */
 
-// PREF: Disable Firefox prefetching pages it thinks you will visit next.
-// Prefetching causes cookies from the prefetched site to be loaded and other potentially unwanted behavior.
-// NOTE: You can set uBlock Origin to do disable preloading in its settings.
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
-user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true);
-user_pref("network.prefetch-next", false);
-user_pref("network.predictor.enabled", false);
-user_pref("network.predictor.enable-prefetch", false);
+// PREF: Network predictor
+user_pref("network.predictor.enabled", true); /* default */
+user_pref("network.predictor.enable-prefetch", false); /* default */
 
 // PREF: Enable <link rel=preload>.
-// [!] EXPERIMENTAL: Only enabled in Nightly and Beta at this time.
+// [!] EXPERIMENTAL: Only enabled by default in Nightly and Beta at this time.
 // Web developers may use the the Link: <..>; rel=preload response header or <link rel="preload"> markup to give
 // the browser a hint to preload some resources with a higher priority and in advance. Use preload in a smart way
 // to help the web page to render and get into the stable and interactive state faster.
 // https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
-// user_pref("network.preload", true);
-
-// PREF: Disable link-mouseover opening connection to linked server
-// https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
-// https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
-user_pref("network.http.speculative-parallel-limit", 0);
-
-// PREF: Disable "Hyperlink Auditing" (click tracking) and enforce same host in case.
-user_pref("browser.send_pings", false);
-user_pref("browser.send_pings.require_same_host", true);
+user_pref("network.preload", true);
 
 /******************************************************************************
  * SECTION: SEARCH / URL BAR                              *
