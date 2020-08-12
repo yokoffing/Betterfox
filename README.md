@@ -14,16 +14,21 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 |:---------:|-------------|
 | [Fastfox](https://github.com/yokoffing/Better-Fox/blob/master/FastFox.js)   | Immensely increase Firefox's browsing speed. Give Chrome a run for its money!|
 | [SecureFox](https://github.com/yokoffing/Better-Fox/blob/master/SecureFox.js) | Remove Telemetry, Mozilla experiments, Google Safe Browsing, and search engine suggestions in URL bar. Auto-upgrade mixed content to HTTPS. Various privacy enhancements. |
-| [PeskyFox](https://github.com/yokoffing/Better-Fox/blob/master/PeskyFox.js)  | Unclutter the new tab page. Remove Pocket and form autofill. Prevent Firefox from serving annoying webpage notifications.|
+| [PeskyFox](https://github.com/yokoffing/Better-Fox/blob/master/PeskyFox.js)  | Unclutter the new tab page. Remove Pocket and form autofill. Prevent Firefox from serving annoying webpage notifications. |
 | [SmoothFox](https://github.com/yokoffing/Better-Fox/blob/master/SmoothFox.js) | Get Microsoft Edge-like smooth scrolling on your favorite browser. |
 | [user.js](https://github.com/yokoffing/Better-Fox/blob/master/user.js) | All the essentails. None of the breakage. Users may download this list as their own user.js. |
 
 ## Who is this setup for?
 **If you want a secure, blazing fast browsing experience, and don't want to deal with breakage, this setup is for you.** My objective is to make the defaults sufficient enough for the average privacy-minded user, but remain trouble-free enough that my grandmother could use it. <strike>(That puts a whole new twist on being a foxy grandma!)</strike> Edit: Sorry for the dad joke 😓
 
-
 ## about:Privacy
-**A note to hardcore privacy users:** I made [SecureFox](https://github.com/yokoffing/Better-Fox/blob/master/SecureFox.js) as private as I could, up to the point of experiencing breakage. My guiding principle was: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find settings like `privacy.firstparty.isolate` or `network.http.referer.XOriginPolicy` mentioned here. BetterFox is designed to set-and-forget, not to troubleshoot and tinker. You can [compare different user.js files here](https://yokoffing.github.io/compare-user.js/).
+My guiding principle was: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find settings like `privacy.firstparty.isolate` or `network.http.referer.XOriginPolicy` mentioned here. BetterFox is designed to set-and-forget, not to troubleshoot and tinker. You can [compare different user.js files here](https://yokoffing.github.io/compare-user.js/).
+
+Betterfox was created with a [less is more](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e) mentality. Most repos I've encountered have niche privacy and security concerns with little regard for speed, annoyances, or mainstream use. The average user doesn't need most `user_prefs` to be altered to get the results they want.
+
+That being said, Betterfox does make some assumptions. **Google Safe Browsing is completely disabled.** If you don't have other means of protection, you should remove the preferences listed and leave it turned on. **Saving passwords natively** is also disabled. Betterfox assumes you use a password manager. If you don't have something like [LastPass](https://addons.mozilla.org/en-US/firefox/addon/lastpass-password-manager/) or [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/), then remove the prefs that disable this functionality. etc, etc.
+
+You should have [Ghostery](https://github.com/yokoffing/Better-Fox/wiki/Ghostery) or [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/) for ad and tracker blocking. Using DNS-level protection like [NextDNS](https://nextdns.io/?from=xujj63g5) is highly recommended.
 
 TL;DR: If your threat level calls for anonymity and not just reasonable privacy, please use the [TOR browser](https://www.torproject.org). 👍
 
