@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 11 August 2020                                                   *
+ * version: 14 August 2020                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -377,11 +377,6 @@ user_pref("geo.provider.network.logging.enabled", false);
 // [2] https://trac.torproject.org/projects/tor/ticket/16931
 user_pref("extensions.blocklist.enabled", true);
 
-// PREF: Disable extension metadata
-// Used when installing/updating an extension, and in daily background update checks.
-// When false, extension detail tabs will have no description.
-// user_pref("extensions.getAddons.cache.enabled", false);
-
 // PREF: Allow HTTPS-only connections [FF76+]
 // There is currently no way to relax this setting browser-side to make an exception.
 // https://www.ghacks.net/2020/03/24/firefox-76-gets-optional-https-only-mode
@@ -389,6 +384,7 @@ user_pref("extensions.blocklist.enabled", true);
 // user_pref("dom.security.https_only_mode", true);
 
 // PREF: Disable all the various Mozilla telemetry, studies, etc.
+user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.enabled", false);
@@ -402,25 +398,38 @@ user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 user_pref("toolkit.telemetry.coverage.opt-out", true);
 user_pref("toolkit.coverage.opt-out", true);
 user_pref("toolkit.coverage.endpoint.base", "");
-user_pref("datareporting.healthreport.uploadEnabled", false);
-user_pref("datareporting.policy.dataSubmissionEnabled", false);
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("browser.discovery.enabled", false);
+
+// PREF: Disable new data submission, master kill switch
+// If disabled, no policy is shown or upload takes place, ever
+// https://bugzilla.mozilla.org/1195552 ***/
+user_pref("datareporting.policy.dataSubmissionEnabled", false);
+
+// PREF: Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data
+user_pref("datareporting.healthreport.uploadEnabled", false);
+// PREF: Disable PingCentre telemetry (used in several System Add-ons)
+// Currently blocked by 'datareporting.healthreport.uploadEnabled'
+user_pref("browser.ping-centre.telemetry", false);
+
+// PREF: Disable Crash Reports
+// Leave these enabled to help Mozilla with compatibility issues.
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
-
 // PREF: Disable Web Compatibility Reporter
 // Web Compatibility Reporter adds a "Report Site Issue" button to send data to Mozilla
 user_pref("extensions.webcompat-reporter.enabled", false);
+// PREF: Disable Network Connectivity checks
+// https://bugzilla.mozilla.org/1460537
+user_pref("network.connectivity-service.enabled", false);
 
 /******************************************************************************
  * SECTION: VPN specific                                                      *
 ******************************************************************************/
 
 // PREF: Turn off IPv6
-// IPv6 can leak your real IP address when using a VPN
-// [1] [find source]
+// IPv6 can leak your real IP address when using a VPN,
 // user_pref("network.dns.disableIPv6", true);
 // user_pref("network.notify.IPv6", false);
