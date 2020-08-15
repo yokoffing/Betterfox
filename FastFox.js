@@ -11,7 +11,7 @@
  * FasterFox                                                                *
  * "Non ducor duco."                                                        *
  * priority: speedy browsing                                                *
- * version: 29 July 2020                                                    *
+ * version: 15 August 2020                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -43,6 +43,46 @@ user_pref("full-screen-api.transition-duration.leave", "0 0");
 // default=1000
 user_pref("security.dialog_enable_delay", 0);
 
+// PREF: Process count
+// Having more content processes can improve performance when using multiple tabs but
+// it will also use more memory. You can reduce the number of content processes if your
+// computer is running out of memory. If your computer's system information shows more
+// than 8 GB of RAM, you would likely benefit from a high content process limit.
+// https://support.mozilla.org/en-US/kb/performance-settings
+// default = 8
+// user_pref("dom.ipc.processCount", 16);
+
+// PREF: Increase active connections
+// WARNING: Don't go past 10 or websites may temporarily blacklist your IP!
+// According to the default value, there will be 6 active connections kept
+// for future requests to a server. If, at some point, more connections are
+// needed, a delay will occur until there is a slot available. To avoid any
+// idle periods, we can set more alive connections, thus forcing the browser
+// to load several elements of a website.
+// https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-connections
+// user_pref("network.http.max-persistent-connections-per-server", 8); // default=6
+
+// PREF: Increase communication channels
+// Increased browser speed shall be mainly observed in pages that contain
+// images and videos, which normally slow down loading times. The range of
+// value for this setting goes from 1 to 65535. However, it is rather
+// unreasonable to increase it to the maximum allowed value, and
+// subsequently strain the system.
+// ! Users on slower connections may want to reduce this number to help prevent
+// HTTP connection timeouts. Users on faster connections may want to increase it,
+// but the default value is usually fine for normal usage.
+// https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-persistent-connections-per-server
+// user_pref("network.http.max-connections", 1800); // default=900
+
+// PREF: Increase memory capacity in order to load more pages faster
+// If you enter a high value, but you don’t have a lot of RAM in your
+// computer (e.g. 2GB), then you’ll just decrease the overall system speed.
+// So pick wisely, and test the browser (and overall system) performance
+// before leaving this value changed permanently.
+// https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955
+// default=250 -> 250KB; 1000 -> 1MB; 12000 -> 12MB; 51200 -> 50MB
+// user_pref("browser.cache.disk.metadata_memory_limit", 1000);
+
 // PREF: Paint visuals on the webpage as fast as possible
 // The number of milliseconds to wait before first displaying the page.
 // Lower values will make a page initially display more quickly, but they will
@@ -57,38 +97,6 @@ user_pref("security.dialog_enable_delay", 0);
 // ! Only use if you have a high-speed connection
 // user_pref("content.notify.ontimer", false); // [HIDDEN]
 // user_pref("content.interrupt.parsing", false); // [HIDDEN]
-
-// PREF: Increase active connections
-// ! Assumes high-speed connection
-// ! Don't go past 10 or websites may temporarily blacklist your IP!
-// According to the default value, there will be 6 active connections kept
-// for future requests to a server. If, at some point, more connections are
-// needed, a delay will occur until there is a slot available. To avoid any
-// idle periods, we can set more alive connections, thus forcing the browser
-// to load several elements of a website.
-// https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-connections
-// user_pref("network.http.max-persistent-connections-per-server", 10); // default=6
-
-// PREF: Increase communication channels
-// Increased browser speed shall be mainly observed in pages that contain
-// images and videos, which normally slow down loading times. The range of
-// value for this setting goes from 1 to 65535. However, it is rather
-// unreasonable to increase it to the maximum allowed value, and
-// subsequently strain the system.
-// ! Users on slower connections may want to reduce this number to help prevent
-// HTTP connection timeouts. Users on faster connections may want to increase it,
-// but the default value is usually fine for normal usage.
-// https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-persistent-connections-per-server
-// user_pref("network.http.max-connections", 2000); // default=900
-
-// PREF: Increase memory capacity in order to load more pages faster
-// If you enter a high value, but you don’t have a lot of RAM in your
-// computer (e.g. 2GB), then you’ll just decrease the overall system speed.
-// So pick wisely, and test the browser (and overall system) performance
-// before leaving this value changed permanently.
-// https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955
-// default=250 -> 250KB, 51200 -> 50MB
-// user_pref("browser.cache.disk.metadata_memory_limit", 51200);
 
 // PREF: Prevent FF from going offline
 // Firefox manages network connectivity poorly. It'll stall your browsing if
