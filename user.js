@@ -2,7 +2,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * name: yokoffing user.js                                                  *
- * version: 9 August 2020                                                   *
+ * version: 31 August 2020                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -16,7 +16,7 @@ user_pref("gfx.webrender.all", true);
 user_pref("dom.image-lazy-loading.enabled", true);
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
-user_pref("security.dialog_enable_delay", 200);
+user_pref("security.dialog_enable_delay", 500);
 
 /****************************************************************************
  * START: SECUREFOX                                                         *
@@ -27,8 +27,6 @@ user_pref("privacy.socialtracking.block_cookies.enabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
 user_pref("pref.privacy.disable_button.cookie_exceptions", false);
-user_pref("network.cookie.thirdparty.sessionOnly", true);
-user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 user_pref("network.cookie.cookieBehavior", 5);
 user_pref("privacy.purge_trackers.enabled", true);
 /*** DNS PREFETCHING ***/
@@ -36,7 +34,7 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-prefetch", false);
-user_pref("network.preload", false);
+user_pref("network.preload", true);
 /*** URLBAR PRELOAD ***/
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("browser.urlbar.usepreloadedtopurls.enabled", false);
@@ -76,7 +74,6 @@ user_pref("signon.generation.available", false);
 user_pref("signon.generation.enabled", false);
 /***OTHERS***/
 user_pref("network.IDN_show_punycode", true);
-user_pref("browser.urlbar.decodeURLsOnCopy", true);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
 /***GOOGLE SAFE BROWSING***/
@@ -93,33 +90,15 @@ user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("geo.provider.network.logging.enabled", false);
-/**MOZILLA TELEMETRY AND EXPERIMENTS***/
-user_pref("app.normandy.enabled", false);
-user_pref("app.normandy.api_url", "");
-user_pref("default-browser-agent.enabled", false);
-user_pref("toolkit.telemetry.unified", false);
-user_pref("toolkit.telemetry.enabled", false);
-user_pref("toolkit.telemetry.server", "data:,");
-user_pref("toolkit.telemetry.archive.enabled", false);
-user_pref("toolkit.telemetry.newProfilePing.enabled", false);
-user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
-user_pref("toolkit.telemetry.updatePing.enabled", false);
-user_pref("toolkit.telemetry.bhrPing.enabled", false);
-user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
-user_pref("toolkit.telemetry.coverage.opt-out", true);
-user_pref("toolkit.coverage.opt-out", true);
-user_pref("toolkit.coverage.endpoint.base", "");
-user_pref("datareporting.healthreport.uploadEnabled", false);
-user_pref("datareporting.policy.dataSubmissionEnabled", false);
-user_pref("app.shield.optoutstudies.enabled", false);
-user_pref("browser.discovery.enabled", false);
-user_pref("breakpad.reportURL", "");
-user_pref("browser.tabs.crashReporting.sendReport", false);
-user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
-user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+/**MOZILLA FIX-UPS**/
+user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+user_pref("geo.provider.network.logging.enabled", false);
+user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 user_pref("extensions.getAddons.showPane", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); 
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+user_pref("default-browser-agent.enabled", false);
+user_pref("app.shield.optoutstudies.enabled", false);
 
 /****************************************************************************
  * START: PESKYFOX                                                          *
@@ -150,7 +129,7 @@ user_pref("signon.formlessCapture.enabled", false);
 /***MISC***/
 user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("permissions.default.desktop-notification", 2);
-user_pref("media.autoplay.default", 5);
+user_pref("media.autoplay.default", 1);
 user_pref("findbar.highlightAll", true);
 user_pref("layout.spellcheckDefault", 2);
 user_pref("view_source.wrap_long_lines", true);
@@ -161,21 +140,6 @@ user_pref("browser.tabs.closeWindowWithLastTab", false);
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("editor.truncate_user_pastes", false);
-
-/****************************************************************************
- * START: SMOOTHFOX                                                         *
-****************************************************************************/
-// PREF: Edge-like smooth scrolliing (using msdPhysics)
-user_pref("general.smoothScroll.msdPhysics.enabled", true);
-user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 250);
-user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 400);
-user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 400);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 120);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 0.4);
-user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 5000);
-user_pref("toolkit.scrollbox.horizontalScrollDistance", 4);
-user_pref("toolkit.scrollbox.verticalScrollDistance", 5);
-user_pref("mousewheel.min_line_scroll_amount", 35);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
