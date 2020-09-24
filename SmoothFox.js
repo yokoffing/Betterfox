@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 /****************************************************************************
- * SECTION: SMOOTH SCROLLING (OVERALL IMPROVEMENT OF DEFAULT                *
+ * SECTION: SMOOTH SCROLLING (OVERALL IMPROVEMENT OF DEFAULTS)              *
 ****************************************************************************/
 user_pref("general.smoothScroll", true);
 user_pref("general.smoothScroll.lines.durationMaxMS", 125);
