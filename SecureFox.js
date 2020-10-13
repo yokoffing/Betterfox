@@ -199,6 +199,7 @@ user_pref("security.insecure_connection_text.enabled", true);
 // [1] https://nextdns.io
 // user_pref("network.trr.uri", "");
 // user_pref("network.trr.custom_uri", "");
+// user_pref("network.trr.bootstrapAddress", ""); /*Optional starting Firefox 74*/
 
 /******************************************************************************
  * SECTION: PASSWORDS                             *
