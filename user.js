@@ -2,7 +2,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * name: yokoffing user.js                                                  *
- * version: 27 September 2020                                               *
+ * version: 25 October 2020                                                 *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -85,7 +85,16 @@ user_pref("signon.formlessCapture.enabled", false);
 user_pref("signon.generation.available", false);
 user_pref("signon.generation.enabled", false);
 
+/***OTHERS***/
+user_pref("network.IDN_show_punycode", true);
+user_pref("browser.urlbar.decodeURLsOnCopy", false);
+user_pref("beacon.enabled", false);
+user_pref("dom.battery.enabled", false);
+user_pref("browser.cache.offline.enable", false);
+user_pref("browser.cache.cache_isolation", true);
+
 /***GOOGLE SAFE BROWSING***/
+/* Be sure to have alternate security measures if you disable Safebrowsing! */
 user_pref("browser.safebrowsing.allowOverride", true);
 user_pref("browser.safebrowsing.appRepURL", "");
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
@@ -165,7 +174,7 @@ user_pref("browser.aboutConfig.showWarning", false);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("permissions.default.desktop-notification", 2);
-user_pref("media.autoplay.default", 1);
+user_pref("media.autoplay.default", 5);
 user_pref("media.block-autoplay-until-in-foreground", true);
 user_pref("browser.backspace_action", 2);
 user_pref("ui.key.menuAccessKey", 0);
@@ -182,25 +191,21 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("editor.truncate_user_pastes", false);
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
+user_pref("clipboard.plainTextOnly", true);
 
 /****************************************************************************
- * START: SMOOTHFOX                                                         *
+ * START: DEV/NIGHTLY PREFS                                                 *
 ****************************************************************************/
-/***General smooth scrolling improvements***/
-user_pref("general.smoothScroll", true);
-user_pref("general.smoothScroll.lines.durationMaxMS", 125);
-user_pref("general.smoothScroll.lines.durationMinMS", 125);
-user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 200);
-user_pref("general.smoothScroll.mouseWheel.durationMinMS", 100);
-user_pref("general.smoothScroll.other.durationMaxMS", 125);
-user_pref("general.smoothScroll.other.durationMinMS", 125);
-user_pref("general.smoothScroll.pages.durationMaxMS", 125);
-user_pref("general.smoothScroll.pages.durationMinMS", 125);
-user_pref("mousewheel.system_scroll_override_on_root_content.horizontal.factor", 175);
-user_pref("mousewheel.system_scroll_override_on_root_content.vertical.factor", 175);
-user_pref("toolkit.scrollbox.horizontalScrollDistance", 6);
-user_pref("toolkit.scrollbox.verticalScrollDistance", 2);
-user_pref("mousewheel.min_line_scroll_amount", 35);
+user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
+user_pref("network.cookie.sameSite.laxByDefault", true);
+user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+user_pref("network.cookie.sameSite.schemeful", true);
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
+user_pref("layout.css.constructable-stylesheets.enabled", true);
+user_pref("javascript.options.warp", true);
+user_pref("image.avif.enabled", true);
+user_pref("dom.input_events.beforeinput.enabled", true);
+user_pref("dom.forms.inputmode", true);
 
 
 ****************************************************************************
