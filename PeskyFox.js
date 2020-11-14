@@ -128,10 +128,10 @@ user_pref("extensions.pocket.site", " ");
 // 0=desktop, 1=downloads (default), 2=last used
 // user_pref("browser.download.folderList", 1);
 
-// PREF: Enforce user interaction for security by always asking where to download
-// On Android this blocks longtapping and saving images
+// PREF: Enforce user interaction for security by always asking where to download.
+// On Android, this blocks longtapping and saving images.
 // SETTING: General>Downloads>Always ask you where to save files
-// user_pref("browser.download.useDownloadDir", false);
+user_pref("browser.download.useDownloadDir", true);
 
 // PREF: Disable adding downloads to the system's "recent documents" list
 user_pref("browser.download.manager.addToRecentDocs", false);
@@ -315,3 +315,6 @@ user_pref("editor.truncate_user_pastes", false);
 // PREF: Adjust the minimum tab width
 // [!] Can be overridden by userChrome.css.
 // user_pref("browser.tabs.tabMinWidth", 100); // default=76
+
+// PREF: Reduce size of picture-in-picture icon
+user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
