@@ -2,7 +2,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * name: yokoffing user.js                                                  *
- * version: 25 October 2020                                                 *
+ * version: 17 November 2020                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -110,6 +110,10 @@ user_pref("browser.safebrowsing.phishing.enabled", false);
 /***GEO MOZILLA INSTEAD OF GOOGLE***/
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("geo.provider.network.logging.enabled", false);
+
+/***HTTPS ONLY MODE***/
+user_pref("dom.security.https_only_mode", true);
+user_pref("dom.security.https_only_mode_ever_enabled", true);
 
 /***FIREFOX TELEMETRY AND ANNOYANCES***/
 user_pref("browser.privatebrowsing.vpnpromourl", "");
