@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 14 August 2020                                                   *
+ * version: 17 November 2020                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -377,11 +377,11 @@ user_pref("geo.provider.network.logging.enabled", false);
 // [2] https://trac.torproject.org/projects/tor/ticket/16931
 user_pref("extensions.blocklist.enabled", true);
 
-// PREF: Allow HTTPS-only connections [FF76+]
-// There is currently no way to relax this setting browser-side to make an exception.
-// https://www.ghacks.net/2020/03/24/firefox-76-gets-optional-https-only-mode
-// Alternative: HTTPZ extension https://addons.mozilla.org/en-US/firefox/addon/httpz/
-// user_pref("dom.security.https_only_mode", true);
+// PREF: Allow HTTPS-only connections [FF83+]
+// You can relax this setting per-website in the address bar.
+// https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
+user_pref("dom.security.https_only_mode", true);
+user_pref("dom.security.https_only_mode_ever_enabled", true);
 
 // PREF: Disable all the various Mozilla telemetry, studies, etc.
 user_pref("app.normandy.enabled", false);
@@ -424,12 +424,3 @@ user_pref("extensions.webcompat-reporter.enabled", false);
 // PREF: Disable Network Connectivity checks
 // https://bugzilla.mozilla.org/1460537
 user_pref("network.connectivity-service.enabled", false);
-
-/******************************************************************************
- * SECTION: VPN specific                                                      *
-******************************************************************************/
-
-// PREF: Turn off IPv6
-// IPv6 can leak your real IP address when using a VPN,
-// user_pref("network.dns.disableIPv6", true);
-// user_pref("network.notify.IPv6", false);
