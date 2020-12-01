@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: 30 July 2020                                                    *
+ * version: 1 December 2020                                                 *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -305,6 +305,7 @@ user_pref("browser.tabs.loadBookmarksInTabs", true);
 // user_pref("gfx.color_management.enablev4", true);
 
 // [FF 77+] PREF: Firefox now allows viewing of PDFs even if the response HTTP headers
+// NOW DEFAULT
 // include Content-Disposition:attachment. 
 user_pref("browser.helperApps.showOpenOptionForPdfJS", true);
 
@@ -318,3 +319,8 @@ user_pref("editor.truncate_user_pastes", false);
 
 // PREF: Reduce size of picture-in-picture icon
 user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
+
+// PREF: New focus toggle
+// https://www.reddit.com/r/firefox/comments/k3oq9i/firefox_has_nicer_looking_focus_rings_but_theyre/ge49o3e/?context=3
+// user_pref("browser.display.focus_ring_width", 3);
+// user_pref("browser.display.focus_ring_style", 0);
