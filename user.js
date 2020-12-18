@@ -2,7 +2,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * name: yokoffing user.js                                                  *
- * version: 17 November 2020                                                *
+ * version: 18 December 2020                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -21,39 +21,32 @@ user_pref("dom.image-lazy-loading.enabled", true);
 /****************************************************************************
  * START: SECUREFOX                                                         *
 ****************************************************************************/
-/***NATIVE TRACKING PROTECTION***/
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
-user_pref("privacy.trackingprotection.socialtracking.enabled", false);
 user_pref("privacy.socialtracking.block_cookies.enabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
-user_pref("pref.privacy.disable_button.cookie_exceptions", false);
-user_pref("network.cookie.cookieBehavior", 5);
-user_pref("privacy.purge_trackers.enabled", true);
-
-/*** LINK PREFETCHING ***/
-user_pref("network.prefetch-next", false);
-user_pref("network.http.speculative-parallel-limit", 0);
-
-/*** HYPERLINK AUDITING ***/
+user_pref("privacy.trackingprotection.socialtracking.enabled", false);
 user_pref("browser.send_pings", false);
 user_pref("browser.send_pings.require_same_host", true);
+user_pref("beacon.enabled", false);
+user_pref("dom.battery.enabled", false);
 
-/*** DNS PREFETCHING ***/
-user_pref("network.dns.disablePrefetch", true); 
+/*** STORAGE ***/
+user_pref("network.cookie.cookieBehavior", 5);
+user_pref("privacy.purge_trackers.enabled", true);
+user_pref("browser.cache.offline.enable", false);
+user_pref("browser.cache.cache_isolation", true);
+
+/*** PRELOADING ***/
+user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
-
-/*** PRELOAD THE AUTOCOMPLETE URL ***/
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
-
-/*** NETWORK PREDICTOR ***/
-user_pref("network.predictor.enabled", false);
-user_pref("network.predictor.enable-prefetch", false);
-
-/*** LINK REL=PRELOAD ***/
+user_pref("browser.urlbar.speculativeConnect.enabled", true);
+user_pref("network.prefetch-next", false);
+user_pref("network.http.speculative-parallel-limit", 6);
 user_pref("network.preload", true);
-
-/*** NTP ***/
+user_pref("network.predictor.enabled", true);
+user_pref("network.predictor.enable-hover-on-ssl", true);
+user_pref("network.predictor.enable-prefetch", false);
 user_pref("browser.newtab.preload", true);
 
 /*** SEARCH***/
@@ -63,6 +56,7 @@ user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false);
 user_pref("browser.fixup.alternate.enabled", false);
 user_pref("security.insecure_connection_text.enabled", true);
+user_pref("network.IDN_show_punycode", true);
 
 /***PASSWORDS AND AUTOFILL***/
 user_pref("signon.management.page.breach-alerts.enabled", true);
@@ -84,14 +78,6 @@ user_pref("signon.storeWhenAutocompleteOff", false);
 user_pref("signon.formlessCapture.enabled", false);
 user_pref("signon.generation.available", false);
 user_pref("signon.generation.enabled", false);
-
-/***OTHERS***/
-user_pref("network.IDN_show_punycode", true);
-user_pref("browser.urlbar.decodeURLsOnCopy", false);
-user_pref("beacon.enabled", false);
-user_pref("dom.battery.enabled", false);
-user_pref("browser.cache.offline.enable", false);
-user_pref("browser.cache.cache_isolation", true);
 
 /***GOOGLE SAFE BROWSING***/
 /* Be sure to have alternate security measures if you disable Safebrowsing! */
@@ -200,17 +186,17 @@ user_pref("clipboard.plainTextOnly", true);
 /****************************************************************************
  * START: DEV/NIGHTLY PREFS                                                 *
 ****************************************************************************/
-user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
-user_pref("network.cookie.sameSite.laxByDefault", true);
-user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-user_pref("network.cookie.sameSite.schemeful", true);
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
-user_pref("layout.css.constructable-stylesheets.enabled", true);
-user_pref("javascript.options.warp", true);
-user_pref("image.avif.enabled", true);
-user_pref("dom.input_events.beforeinput.enabled", true);
-user_pref("dom.forms.inputmode", true);
-
+// user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
+// user_pref("network.cookie.sameSite.laxByDefault", true);
+// user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+// user_pref("network.cookie.sameSite.schemeful", true);
+// user_pref("layout.css.grid-template-masonry-value.enabled", true);
+// user_pref("layout.css.constructable-stylesheets.enabled", true);
+// user_pref("javascript.options.warp", true);
+// user_pref("image.avif.enabled", true);
+// user_pref("dom.input_events.beforeinput.enabled", true);
+// user_pref("dom.forms.inputmode", true);
+// user_pref("privacy.partition.network_state", true);
 
 ****************************************************************************
  * END: BETTERFOX                                                           *
