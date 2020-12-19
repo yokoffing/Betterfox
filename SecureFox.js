@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 18 December 2020                                                *
+ * version: 19 December 2020                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -43,29 +43,28 @@ user_pref("browser.send_pings.require_same_host", true);
 // https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
 user_pref("beacon.enabled", false);
 
-// PREF: Do not track battery status
+// PREF: Disable battery status tracking
 user_pref("dom.battery.enabled", false);
 
 /******************************************************************************
  * SECTION: STORAGE                              *
 ******************************************************************************/
 
-// PREF: Cookies and Site Isolation
-// If you're uncomfortable with Mozilla's tracker isolation policies, alter this value to 1.
-// 1=disable third-party cookies (may cause site breakage)
-// 4=block cross site and social media trackers (default)
+// PREF: Dynamic First-Party Isolation (dFPI)
+// A more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
+// context. dFPI partitions user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
+// compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1625228
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1549587
 // 5=block cross site and social media trackers, and isolate remaining cookies (Dynamic First Party Isolation)
 user_pref("network.cookie.cookieBehavior", 5);
-// user_pref("pref.privacy.disable_button.cookie_exceptions", false);
 
-// PREF: Redirect tracking prevention + Purge site data of sites associated with tracking cookies automatically.
-// All storage is cleared (more or less) daily from origins that are known trackers and that
-// haven’t received a top-level user interaction (including scroll) within the last 45 days. 
-// https://www.cookiestatus.com/firefox/#other-first-party-storage
-// https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
-// https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
-user_pref("privacy.purge_trackers.enabled", true);
-// user_pref("privacy.purge_trackers.logging.enabled", true);
+// ALTERNATIVE: Disable all third-party cookies
+// If you're uncomfortable with Mozilla's isolation policies, alter this value to 1.
+// 1=disable third-party cookies (may cause site breakage)
+// 4=block cross site and social media trackers (default)
+// user_pref("network.cookie.cookieBehavior", 1);
+// user_pref("pref.privacy.disable_button.cookie_exceptions", false);
 
 // PREF: Limit third-party cookies to the current session even when they are allowed
 // user_pref("network.cookie.thirdparty.sessionOnly", true);
@@ -82,9 +81,30 @@ user_pref("privacy.purge_trackers.enabled", true);
 // user_pref("network.cookie.sameSite.laxByDefault", true);
 // user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 
-// PREF: Disable offline to limit tracking; isolate cache per site.
+// PREF: Redirect tracking prevention + Purge site data of sites associated with tracking cookies automatically
+// All storage is cleared (more or less) daily from origins that are known trackers and that
+// haven’t received a top-level user interaction (including scroll) within the last 45 days. 
+// https://www.ghacks.net/2020/08/06/how-to-enable-redirect-tracking-in-firefox/
+// https://www.cookiestatus.com/firefox/#other-first-party-storage
+// https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
+// https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
+user_pref("privacy.purge_trackers.enabled", true);
+// user_pref("privacy.purge_trackers.logging.enabled", true);
+
+// PREF: Disable offline cache
+// Historically, Firefox can become slow when the cache becomes too large. Doesn't hurt to enable it for that
+// reason alone, any privacy benefits aside.
 user_pref("browser.cache.offline.enable", false);
+
+// PREF: Isolate cache per site
 user_pref("browser.cache.cache_isolation", true);
+
+// PREF: Network Partitioning
+// Network Partitioning will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
+// on a per-website basis rather than together in the same pool.
+// https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
+// https://github.com/privacycg/storage-partitioning
+user_pref("privacy.partition.network_state", true);
 
 /******************************************************************************
  * SECTION: PRELOADING/PREFETCHING                              *
@@ -92,12 +112,11 @@ user_pref("browser.cache.cache_isolation", true);
 
 // DECEMBER 2020 UPDATE:
 // I have altered this section for a mixture of privacy and speed.
-// I recommend you leave off any PREFETCH preferences if you utilize domain blocking (Pihole, NextDNS, AdGuard,
-// etc.) as I have noticed websites not working correctly, especially in conjunction with with uBlock Origin.
-// All "prefetch" preferences continue to be disabled here and in the user.js.
-// NOTE: You can set uBlock Origin to do disable preloading in its settings. This overrides some settings below.
+// I recommend you leave off any PREFETCH preferences if you have "Disable pre-fetching" unchecked in uBlock Origin.
+// All PREFETCH preferences continue to be disabled here and in the user.js, but other speed improvements are enabled.
+// NOTE: You can set uBlock Origin to do "Disable pre-fetching" in its settings. This overrides some settings below.
 
-// PREF: DNS PREFETCHING
+// PREF: DNS prefetching
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 user_pref("network.dns.disablePrefetch", true);
 // As a security measure, prefetching of embedded link hostnames is not done from documents loaded over HTTPS.
@@ -109,8 +128,6 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true); /* default */
 // NOTE: Firefox will do the server DNS lookup and TCP and TLS handshake but not start sending or receiving HTTP data.
 // https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
 user_pref("browser.urlbar.speculativeConnect.enabled", true); /* default */
-
-
 
 // PREF: Link prefetching
 // Along with the referral and URL-following implications, prefetching will generally cause the cookies of the prefetched
@@ -132,8 +149,6 @@ user_pref("network.http.speculative-parallel-limit", 6); /* default */
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
 user_pref("network.preload", true); /* default */
 
-
-
 // PREF: Network predictor
 // Uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
 // so that the next time the user mouseovers a link to that webpage, this history can be used to predict what resources will
@@ -142,8 +157,6 @@ user_pref("network.preload", true); /* default */
 user_pref("network.predictor.enabled", true); /* default */
 user_pref("network.predictor.enable-hover-on-ssl", true);
 user_pref("network.predictor.enable-prefetch", false); /* default */
-
-
 
 // PREF: Preload New Tab page
 user_pref("browser.newtab.preload", true); /* default */
@@ -389,11 +402,15 @@ user_pref("geo.provider.network.logging.enabled", false);
 // [2] https://trac.torproject.org/projects/tor/ticket/16931
 user_pref("extensions.blocklist.enabled", true);
 
-// PREF: Allow HTTPS-only connections [FF83+]
-// You can relax this setting per-website in the address bar.
+// PREF: Allow HTTPS-only connections
+// You can relax this setting per-website.
 // https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 user_pref("dom.security.https_only_mode", true);
 user_pref("dom.security.https_only_mode_ever_enabled", true);
+
+// PREF: HTTPS-only connection in Private Browsing windows only.
+// user_pref("dom.security.https_only_mode_pbm", true);
+// user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 
 // PREF: Disable all the various Mozilla telemetry, studies, etc.
 user_pref("app.normandy.enabled", false);
@@ -423,16 +440,3 @@ user_pref("datareporting.healthreport.uploadEnabled", false);
 // PREF: Disable PingCentre telemetry (used in several System Add-ons)
 // Currently blocked by 'datareporting.healthreport.uploadEnabled'
 user_pref("browser.ping-centre.telemetry", false);
-
-// PREF: Disable Crash Reports
-// Leave these enabled to help Mozilla with compatibility issues.
-user_pref("breakpad.reportURL", "");
-user_pref("browser.tabs.crashReporting.sendReport", false);
-user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
-user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
-// PREF: Disable Web Compatibility Reporter
-// Web Compatibility Reporter adds a "Report Site Issue" button to send data to Mozilla
-user_pref("extensions.webcompat-reporter.enabled", false);
-// PREF: Disable Network Connectivity checks
-// https://bugzilla.mozilla.org/1460537
-user_pref("network.connectivity-service.enabled", false);
