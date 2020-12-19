@@ -11,7 +11,7 @@
  * FasterFox                                                                *
  * "Non ducor duco."                                                        *
  * priority: speedy browsing                                                *
- * version: 15 August 2020                                                  *
+ * version: 19 December 2020                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -23,13 +23,13 @@
 ****************************************************************************/
 
 // PREF: Activate Webrender, Firefox's new rendering engine
-// ! Webrender is still under active development.
-// BUG: Occasionally gives you "judder scroll" on sites with a lot of images.
 // https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/
 // https://wiki.mozilla.org/Platform/GFX/WebRender_Where
 // https://www.reddit.com/r/firefox/comments/fo1jwz/make_firefox_faster/flhh5l2/
-// default=false (blacklisted on some machines still, especially macOS)
-user_pref("gfx.webrender.all", true);
+user_pref("gfx.webrender.all", true); /* default */
+// If your hardware doesn't support Webrender, you can fallback to Webrender's software renderer.
+// https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
+// user_pref("gfx.webrender.software", true);
 
 // PREF: Lazy Image Loading
 // https://www.ghacks.net/2020/02/15/firefox-75-gets-lazy-loading-support-for-images/
