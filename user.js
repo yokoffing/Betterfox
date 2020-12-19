@@ -2,7 +2,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * name: yokoffing user.js                                                  *
- * version: 18 December 2020                                                *
+ * version: 19 December 2020                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -36,6 +36,7 @@ user_pref("network.cookie.cookieBehavior", 5);
 user_pref("privacy.purge_trackers.enabled", true);
 user_pref("browser.cache.offline.enable", false);
 user_pref("browser.cache.cache_isolation", true);
+user_pref("privacy.partition.network_state", true);
 
 /*** PRELOADING ***/
 user_pref("network.dns.disablePrefetch", true);
@@ -196,7 +197,6 @@ user_pref("clipboard.plainTextOnly", true);
 // user_pref("image.avif.enabled", true);
 // user_pref("dom.input_events.beforeinput.enabled", true);
 // user_pref("dom.forms.inputmode", true);
-// user_pref("privacy.partition.network_state", true);
 
 ****************************************************************************
  * END: BETTERFOX                                                           *
