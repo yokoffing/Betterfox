@@ -42,3 +42,5 @@ Check out our [most recommended extension](https://github.com/yokoffing/Better-F
 Where there is similiarity to other authors, credit goes to them.
 
 <a href="https://www.buymeacoffee.com/yokoffing" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+Support me on [Patreon](https://www.patreon.com/yokoffing).
