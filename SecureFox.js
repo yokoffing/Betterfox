@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 19 December 2020                                                *
+ * version: 9 January 2021                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -92,9 +92,7 @@ user_pref("privacy.purge_trackers.enabled", true);
 // user_pref("privacy.purge_trackers.logging.enabled", true);
 
 // PREF: Disable offline cache
-// Historically, Firefox can become slow when the cache becomes too large. Doesn't hurt to enable it for that
-// reason alone, any privacy benefits aside.
-user_pref("browser.cache.offline.enable", false);
+// user_pref("browser.cache.offline.enable", false);
 
 // PREF: Isolate cache per site
 user_pref("browser.cache.cache_isolation", true);
@@ -186,8 +184,8 @@ user_pref("browser.search.suggest.enabled.private", false);
 // NOTE: Items (bookmarks/history/openpages) with a high "frequency"/"bonus" will always
 // be displayed (no we do not know how these are calculated or what the threshold is),
 // and this does not affect the search by search engine suggestion.
-// NOTE: This setting is only useful if you want to enable search engine keywords
-// but you want to limit suggestions shown.
+// NOTE: This setting is only useful if you want to enable search engine keywords but
+// you want to limit suggestions shown. (I like to set this to 1.)
 // default=10, disable=0
 // user_pref("browser.urlbar.maxRichResults", 0);
 
@@ -218,28 +216,45 @@ user_pref("security.insecure_connection_text.enabled", true);
 // [4] https://www.xudongz.com/blog/2017/idn-phishing/
 user_pref("network.IDN_show_punycode", true);
 
+// PREF: Allow HTTPS-only connections
+// You can relax this setting per-website.
+// https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
+user_pref("dom.security.https_only_mode", true);
+user_pref("dom.security.https_only_mode_ever_enabled", true);
+
+// PREF: HTTPS-only connection in Private Browsing windows only.
+// user_pref("dom.security.https_only_mode_pbm", true);
+// user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
+
 /******************************************************************************
  * SECTION: DNS-over-HTTPS                                                    *
 ******************************************************************************/
 
-// PREF: Enable DNS-over-HTTPS
+// PREF: Always use the DNS-over-HTTPS (DoH) provider
+// Mozilla uses Cloudfare by default. NextDNS is also an option.
 // https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
 // user_pref("network.trr.mode", 3);
 
-// PREF: Enable ESNI
-// This prevents others from intercepting the TLS SNI extension and using it
-// to determine what websites you are browsing.
-// [1] https://www.eff.org/deeplinks/2018/09/esni-privacy-protecting-upgrade-https/
-// user_pref("network.security.esni.enabled", true);
-
 // PREF: Force FF to always use your custom DNS resolver
 // You will type between the "" for both prefs.
-// I recommend creating your own URI with NextDNS for both privacy and security
-// [1] https://nextdns.io
+// I recommend creating your own URI with NextDNS for both privacy and security.
+// https://nextdns.io
 // user_pref("network.trr.uri", "");
 // user_pref("network.trr.custom_uri", "");
+
+// PREF: Enable Encrypted Client Hello (ECH)
+// [EXPERIMENTAL] Evolution of ESNI.
+// ECH: https://blog.mozilla.org/security/2021/01/07/encrypted-client-hello-the-future-of-esni-in-firefox/
+// user_pref("network.dns.echconfig.enabled", true);
+// user_pref("network.dns.use_https_rr_as_altsvc", true);
+
+// Firefox ESR will continue to use the old ESNI pref.
+// This prevents others from intercepting the TLS SNI extension and using it
+// to determine what websites you are browsing.
+// ESNI: https://www.eff.org/deeplinks/2018/09/esni-privacy-protecting-upgrade-https/
+// user_pref("network.security.esni.enabled", true);
 
 /******************************************************************************
  * SECTION: PASSWORDS                             *
@@ -314,6 +329,9 @@ user_pref("security.mixed_content.block_active_content", true); /* default */
 // PREF: Block insecure passive content (images) on HTTPS pages.
 // user_pref("security.mixed_content.block_display_content", true);
 
+// PREF: Upgrade passive content to use HTTPS on secure pages.
+user_pref("security.mixed_content.upgrade_display_content", true);
+
 // PREF: Block unencrypted requests from Flash on encrypted pages to mitigate MitM attacks
 // https://bugzilla.mozilla.org/1190623
 // user_pref("security.mixed_content.block_object_subrequest", true);
@@ -332,17 +350,17 @@ user_pref("security.tls.version.enable-deprecated", false); /* default */
 // user_pref("browser.shell.shortcutFavicons", false);
 
 // PREF: Enable (limited but sufficient) window.opener protection
-// Makes rel=noopener implicit for target=_blank in anchor and area elements when no rel attribute is set
-// [1] https://jakearchibald.com/2016/performance-benefits-of-rel-noopener/
+// Makes rel=noopener implicit for target=_blank in anchor and area elements when no rel attribute is set.
+// https://jakearchibald.com/2016/performance-benefits-of-rel-noopener/
 user_pref("dom.targetBlankNoOpener.enabled", true); /* default */
 
-// PREF: Disable FTP protocol
+// PREF: Enable FTP protocol
 // Firefox redirects any attempt to load a FTP resource to the default search engine if the FTP protocol is disabled.
-// [1] https://www.ghacks.net/2018/02/20/firefox-60-with-new-preference-to-disable-ftp/
-// user_pref("network.ftp.enabled", false);
+// https://www.ghacks.net/2018/02/20/firefox-60-with-new-preference-to-disable-ftp/
+// user_pref("network.ftp.enabled", true);
 
 // PREF: Decode URLs in other languages
-// Can have unintended consequecnes when copy+paste some links.
+// I leave this off because it has unintended consequecnes when copy+paste links with underscores.
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1320061
 // user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
@@ -353,16 +371,9 @@ user_pref("dom.targetBlankNoOpener.enabled", true); /* default */
 user_pref("pdfjs.disabled", false);
 
 // PREF: Enable QUIC protocol / HTTP3
-// WARNING: Very experimental!
-// https://www.litespeedtech.com/
+// [!] WARNING: Very experimental!
 // https://quic.rocks
 // user_pref("network.http.http3.enabled", true);
-
-// PREF: Disable Windows jumplist [WINDOWS-only]
-// user_pref("browser.taskbar.lists.enabled", false);
-// user_pref("browser.taskbar.lists.frequent.enabled", false);
-// user_pref("browser.taskbar.lists.recent.enabled", false);
-// user_pref("browser.taskbar.lists.tasks.enabled", false);
 
 /******************************************************************************
  * SECTION: GOOGLE                                                            *
@@ -402,16 +413,6 @@ user_pref("geo.provider.network.logging.enabled", false);
 // [2] https://trac.torproject.org/projects/tor/ticket/16931
 user_pref("extensions.blocklist.enabled", true);
 
-// PREF: Allow HTTPS-only connections
-// You can relax this setting per-website.
-// https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
-user_pref("dom.security.https_only_mode", true);
-user_pref("dom.security.https_only_mode_ever_enabled", true);
-
-// PREF: HTTPS-only connection in Private Browsing windows only.
-// user_pref("dom.security.https_only_mode_pbm", true);
-// user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
-
 // PREF: Disable all the various Mozilla telemetry, studies, etc.
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
@@ -431,12 +432,13 @@ user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("browser.discovery.enabled", false);
 
 // PREF: Disable new data submission, master kill switch
-// If disabled, no policy is shown or upload takes place, ever
+// If disabled, no policy is shown or upload takes place, ever.
 // https://bugzilla.mozilla.org/1195552 ***/
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 
-// PREF: Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data
+// PREF: Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data.
 user_pref("datareporting.healthreport.uploadEnabled", false);
-// PREF: Disable PingCentre telemetry (used in several System Add-ons)
+
+// PREF: Disable PingCentre telemetry (used in several System Add-ons).
 // Currently blocked by 'datareporting.healthreport.uploadEnabled'
 user_pref("browser.ping-centre.telemetry", false);
