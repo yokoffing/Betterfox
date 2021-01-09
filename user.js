@@ -2,7 +2,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * name: yokoffing user.js                                                  *
- * version: 19 December 2020                                                *
+ * version: 09 January 2021                                                 *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -58,6 +58,8 @@ user_pref("browser.search.suggest.enabled.private", false);
 user_pref("browser.fixup.alternate.enabled", false);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("network.IDN_show_punycode", true);
+user_pref("dom.security.https_only_mode", true);
+user_pref("dom.security.https_only_mode_ever_enabled", true);
 
 /***PASSWORDS AND AUTOFILL***/
 user_pref("signon.management.page.breach-alerts.enabled", true);
@@ -80,6 +82,10 @@ user_pref("signon.formlessCapture.enabled", false);
 user_pref("signon.generation.available", false);
 user_pref("signon.generation.enabled", false);
 
+/*** MIXED CONTENT ***/
+user_pref("security.mixed_content.block_active_content", true);
+user_pref("security.mixed_content.upgrade_display_content", true);
+
 /***GOOGLE SAFE BROWSING***/
 /* Be sure to have alternate security measures if you disable Safebrowsing! */
 user_pref("browser.safebrowsing.allowOverride", true);
@@ -97,10 +103,6 @@ user_pref("browser.safebrowsing.phishing.enabled", false);
 /***MOZILLA GEOLOCATION INSTEAD OF GOOGLE***/
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("geo.provider.network.logging.enabled", false);
-
-/***HTTPS ONLY MODE***/
-user_pref("dom.security.https_only_mode", true);
-user_pref("dom.security.https_only_mode_ever_enabled", true);
 
 /***FIREFOX TELEMETRY AND ANNOYANCES***/
 user_pref("browser.privatebrowsing.vpnpromourl", "");
@@ -144,6 +146,7 @@ user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
+user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
@@ -196,9 +199,11 @@ user_pref("editor.truncate_user_pastes", false);
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
 user_pref("clipboard.plainTextOnly", true);
+user_pref("dom.disable_window_move_resize", true);
+user_pref("dom.popup_allowed_events", "click dblclick");
 
 /****************************************************************************
- * START: DEV/NIGHTLY PREFS                                                 *
+ * START: DEV / NIGHTLY PREFS                                                 *
 ****************************************************************************/
 // user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 // user_pref("network.cookie.sameSite.laxByDefault", true);
@@ -211,6 +216,6 @@ user_pref("clipboard.plainTextOnly", true);
 // user_pref("dom.input_events.beforeinput.enabled", true);
 // user_pref("dom.forms.inputmode", true);
 
-****************************************************************************
+/****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
