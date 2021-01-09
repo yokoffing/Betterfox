@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: 1 December 2020                                                 *
+ * version: 09 January 2021                                                 *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -31,82 +31,22 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", fa
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 
 // PREF: Disable Activity Stream Top Stories, Pocket-based and/or sponsored content
-user_pref("browser.newtabpage.activity-stream.pocketCta", "");
-user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
-user_pref("browser.newtabpage.activity-stream.feeds.section.topstories.options", "");
-user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
-user_pref("browser.newtabpage.activity-stream.sectionOrder", "");
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
-user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 
 // PREF: Disable Activity Stream snippets
-// Runs code received from a server (aka Remote Code Execution) and sends information back to a metrics server
-user_pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "");
+// Runs code received from a server (aka Remote Code Execution) and sends information back to a metrics server.
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
 
-// PREF: Disable Activity Stream telemetry
-user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.telemetry.ut.events", false);
-user_pref("browser.newtabpage.activity-stream.telemetry.structuredIngestion", false);
-user_pref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "");
+// PREF: Hide Activity Stream content
+user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 
-// PREF: Disable Activity Stream feeds
-user_pref("browser.newtabpage.activity-stream.feeds.aboutpreferences", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.favicon", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.messagecenterfeed", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.migration", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.newtabinit", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.places", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.prefs", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.sections", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.systemtick", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.asrouterfeed", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.recommendationproviderswitcher", false);  
-
-// PREF: Disable Activity Stream (others)
-user_pref("browser.newtabpage.activity-stream.messageCenterExperimentEnabled", false);
-user_pref("browser.newtabpage.activity-stream.showSearch", false);  
-user_pref("browser.newtabpage.activity-stream.discoverystream.config", "");  
-user_pref("browser.newtabpage.activity-stream.discoverystream.endpoints", "");  
-user_pref("browser.newtabpage.activity-stream.discoverystream.rec.impressions", "");  
-user_pref("browser.newtabpage.activity-stream.discoverystream.spoc.impressions", "");  
-user_pref("browser.newtabpage.activity-stream.discoverystream.endpointSpocsClear", "");
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);  
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);  
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);  
-user_pref("browser.newtabpage.activity-stream.discoverystream.personalization.modelKeys", "");  
-user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);  
-user_pref("browser.newtabpage.activity-stream.discoverystream.isCollectionDismissible", false);  
-user_pref("browser.newtabpage.activity-stream.discoverystream.region-basic-layout", false);  
-user_pref("browser.newtabpage.activity-stream.discoverystream.region-layout-config", "");  
-user_pref("browser.newtabpage.activity-stream.discoverystream.region-spocs-config", "");  
-user_pref("browser.newtabpage.activity-stream.discoverystream.region-stories-config", "");  
-user_pref("browser.newtabpage.activity-stream.discoverystream.recs.personalized", false);  
-user_pref("browser.newtabpage.activity-stream.discoverystream.spocs.personalized", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.system.topsites", false);  
-user_pref("browser.newtabpage.activity-stream.feeds.system.topstories", false); 
-
-// PREF: Disable new tab tile ads and preload
-// https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
-// https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
-// https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
-user_pref("browser.newtab.preload", false);  
-user_pref("browser.newtabpage.directory.ping", "");  
-user_pref("browser.newtabpage.activity-stream.asrouter.messageProviders", ""); 
-
-// PREF: Don't reveal build ID
-// Value taken from Tor Browser
-// https://bugzilla.mozilla.org/show_bug.cgi?id=583181
-// user_pref("browser.startup.homepage_override.mstone", "ignore");
-
-// PREF: Disable separate about:welcome page
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1617783
-// user_pref("browser.aboutwelcome.enabled", false);
-// user_pref("trailhead.firstrun.branches", "");
-// user_pref("browser.aboutwelcome.overrideContent", "");
 
 /******************************************************************************
  * SECTION: DISABLE POCKET EXTENSION                                          *
@@ -187,8 +127,19 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 // PREF: Hide parts of the url in the location bar
 // user_pref("browser.urlbar.trimURLs", true);
 
-// PREF: Disable annoying website notifications
+// PREF: Set a default permission for Notifications
+// To add site exceptions: Page Info>Permissions>Receive Notifications.
+// To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings.
+// 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.desktop-notification", 2);
+
+// PREF: Disable Push API
+// Push is an API that allows websites to send you (subscribed) messages even when the site
+// isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
+// https://support.mozilla.org/en-US/kb/push-notifications-firefox
+// https://developer.mozilla.org/en-US/docs/Web/API/Push_API
+// user_pref("dom.push.enabled", false);
+// user_pref("dom.push.userAgentID", "");
 
 // PREF: Adjust HTML5 autoplay settings
 // 0=Allow all, 1=Block non-muted media (default), 5=Block all
@@ -276,7 +227,7 @@ user_pref("browser.link.open_newwindow", 3);
 // Pop-up windows are treated like regular tabs
 // You can still right-click a link and open in a new window
 user_pref("browser.link.open_newwindow", 3);
-// user_pref("browser.link.open_newwindow.restriction", 0);
+user_pref("browser.link.open_newwindow.restriction", 0);
 
 // PREF: Insert tab immediately after the current tab
 // Tap to Tab extension: set to "Put new tab at the end"
@@ -303,24 +254,31 @@ user_pref("browser.tabs.loadBookmarksInTabs", true);
 // Force FF to show the same color profiles as Chromium
 // user_pref("gfx.color_management.mode", 1);
 // user_pref("gfx.color_management.enablev4", true);
+// user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 
 // [FF 77+] PREF: Firefox now allows viewing of PDFs even if the response HTTP headers
-// NOW DEFAULT
 // include Content-Disposition:attachment. 
-user_pref("browser.helperApps.showOpenOptionForPdfJS", true);
+user_pref("browser.helperApps.showOpenOptionForPdfJS", true); /*default*/
 
 // [FF 77+] PREF: Prevent password truncation when submitting form data
 // https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
-user_pref("editor.truncate_user_pastes", false);
+user_pref("editor.truncate_user_pastes", false); /*default ? */
 
 // PREF: Adjust the minimum tab width
 // [!] Can be overridden by userChrome.css.
 // user_pref("browser.tabs.tabMinWidth", 100); // default=76
 
-// PREF: Reduce size of picture-in-picture icon
+// PREF: Reduce size of picture-in-picture icon on the first run
 user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
+// user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
 
-// PREF: New focus toggle
-// https://www.reddit.com/r/firefox/comments/k3oq9i/firefox_has_nicer_looking_focus_rings_but_theyre/ge49o3e/?context=3
-// user_pref("browser.display.focus_ring_width", 3);
-// user_pref("browser.display.focus_ring_style", 0);
+// PREF: Plain Text only when copying text.
+user_pref("clipboard.plainTextOnly", true);
+
+// PREF: Prevent scripts from moving and resizing open windows
+user_pref("dom.disable_window_move_resize", true);
+
+// PREF: Limit events that can cause a pop-up
+// Really cuts down on pop-ups Private Browsing websites... Thank me later.
+// (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
+user_pref("dom.popup_allowed_events", "click dblclick");
