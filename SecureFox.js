@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 9 January 2021                                                  *
+ * version: 16 January 2021                                                 *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -83,11 +83,12 @@ user_pref("network.cookie.cookieBehavior", 5);
 
 // PREF: Redirect tracking prevention + Purge site data of sites associated with tracking cookies automatically
 // All storage is cleared (more or less) daily from origins that are known trackers and that
-// haven’t received a top-level user interaction (including scroll) within the last 45 days. 
+// haven’t received a top-level user interaction (including scroll) within the last 45 days.
 // https://www.ghacks.net/2020/08/06/how-to-enable-redirect-tracking-in-firefox/
 // https://www.cookiestatus.com/firefox/#other-first-party-storage
 // https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
 // https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
+// https://github.com/arkenfox/user.js/issues/1089
 user_pref("privacy.purge_trackers.enabled", true);
 // user_pref("privacy.purge_trackers.logging.enabled", true);
 
@@ -104,13 +105,16 @@ user_pref("browser.cache.cache_isolation", true);
 // https://github.com/privacycg/storage-partitioning
 user_pref("privacy.partition.network_state", true);
 
+// PREF: Enable Local Storage Next Generation (LSNG)
+user_pref("dom.storage.next_gen", true);
+
 /******************************************************************************
  * SECTION: PRELOADING/PREFETCHING                              *
 ******************************************************************************/
 
 // DECEMBER 2020 UPDATE:
 // I have altered this section for a mixture of privacy and speed.
-// I recommend you leave off any PREFETCH preferences if you have "Disable pre-fetching" unchecked in uBlock Origin.
+// Leave off any PREFETCH preferences if you use an adblock extension and/or DNS-level adblocking due to wonky page rendering.
 // All PREFETCH preferences continue to be disabled here and in the user.js, but other speed improvements are enabled.
 // NOTE: You can set uBlock Origin to do "Disable pre-fetching" in its settings. This overrides some settings below.
 
@@ -122,7 +126,6 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true); /* default */
 
 // PREF: Preload the autocomplete URL in the address bar.
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
-// Largely a net benefit since we have search engine suggestions turned off.
 // NOTE: Firefox will do the server DNS lookup and TCP and TLS handshake but not start sending or receiving HTTP data.
 // https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
 user_pref("browser.urlbar.speculativeConnect.enabled", true); /* default */
@@ -156,8 +159,13 @@ user_pref("network.predictor.enabled", true); /* default */
 user_pref("network.predictor.enable-hover-on-ssl", true);
 user_pref("network.predictor.enable-prefetch", false); /* default */
 
-// PREF: Preload New Tab page
+// PREF: Disable new tab tile ads and preload
+// https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
+// https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
+// https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
 user_pref("browser.newtab.preload", true); /* default */
+// user_pref("browser.newtabpage.directory.ping", "");  
+// user_pref("browser.newtabpage.activity-stream.asrouter.messageProviders", "");
 
 /******************************************************************************
  * SECTION: SEARCH / URL BAR                              *
@@ -216,6 +224,10 @@ user_pref("security.insecure_connection_text.enabled", true);
 // [4] https://www.xudongz.com/blog/2017/idn-phishing/
 user_pref("network.IDN_show_punycode", true);
 
+/******************************************************************************
+ * SECTION: HTTPS-ONLY MODE                              *
+******************************************************************************/
+
 // PREF: Allow HTTPS-only connections
 // You can relax this setting per-website.
 // https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
@@ -225,6 +237,16 @@ user_pref("dom.security.https_only_mode_ever_enabled", true);
 // PREF: HTTPS-only connection in Private Browsing windows only.
 // user_pref("dom.security.https_only_mode_pbm", true);
 // user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
+
+// PREF: Disable HTTP background requests
+// When attempting to upgrade, if the server doesn't respond within 3 seconds, Firefox
+// sends HTTP requests in order to check if the server supports HTTPS or not.
+// This is done to avoid waiting for a timeout which takes 90 seconds.
+// https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
+user_pref("dom.security.https_only_mode_send_http_background_request", false);
+
+// PREF: Enable HTTPS-Only mode for local resources
+// user_pref("dom.security.https_only_mode.upgrade_local", true);
 
 /******************************************************************************
  * SECTION: DNS-over-HTTPS                                                    *
@@ -334,7 +356,11 @@ user_pref("security.mixed_content.upgrade_display_content", true);
 
 // PREF: Block unencrypted requests from Flash on encrypted pages to mitigate MitM attacks
 // https://bugzilla.mozilla.org/1190623
-// user_pref("security.mixed_content.block_object_subrequest", true);
+user_pref("security.mixed_content.block_object_subrequest", true);
+
+// PREF: Block insecure downloads from secure sites
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
+// user_pref("dom.block_download_insecure", true);
 
 /******************************************************************************
  * SECTION: VARIOUS SECURITY/PRIVACY ENHANCEMENTS                            *
@@ -374,6 +400,27 @@ user_pref("pdfjs.disabled", false);
 // [!] WARNING: Very experimental!
 // https://quic.rocks
 // user_pref("network.http.http3.enabled", true);
+
+// PREF: Enable "window.name" protection
+// If a new page from another domain is loaded into a tab, then window.name is set to an empty string. The original
+// string is restored if the tab reverts back to the original page. This change prevents some cross-site attacks.
+user_pref("privacy.window.name.update.enabled", true);
+
+// PREF: Downgrade Cross-Origin (Third-Party) Referers
+// CROSS ORIGIN: control when to send a referer
+// 0=always (default), 1=only if base domains match, 2=only if hosts match
+// https://github.com/arkenfox/user.js/issues/1077
+// user_pref("network.http.referer.XOriginPolicy", 0);
+// Control the amount of information to send.
+// 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
+// user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+
+// PREF: CRLite
+// This will reduce the number of times an OCSP server needs to be contacted and therefore increase privacy.
+// https://blog.mozilla.org/security/2020/01/09/crlite-part-2-end-to-end-design/
+// https://github.com/arkenfox/user.js/issues/1065
+user_pref("security.pki.crlite_mode", 2);
+user_pref("security.remote_settings.crlite_filters.enabled", true);
 
 /******************************************************************************
  * SECTION: GOOGLE                                                            *
@@ -426,7 +473,6 @@ user_pref("toolkit.telemetry.updatePing.enabled", false);
 user_pref("toolkit.telemetry.bhrPing.enabled", false);
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 user_pref("toolkit.telemetry.coverage.opt-out", true);
-user_pref("toolkit.coverage.opt-out", true);
 user_pref("toolkit.coverage.endpoint.base", "");
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("browser.discovery.enabled", false);
