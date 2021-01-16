@@ -202,7 +202,7 @@ user_pref("findbar.highlightAll", true);
 user_pref("layout.spellcheckDefault", 2);
 user_pref("accessibility.force_disabled", 1);
 user_pref("browser.bookmarks.max_backups", 2);
-user_pref("browser.display.show_image_placeholders", true);
+user_pref("browser.display.show_image_placeholders", false);
 user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
 
