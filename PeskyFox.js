@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: 09 January 2021                                                 *
+ * version: 16 January 2021                                                 *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -23,7 +23,7 @@
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // PREF: Set START page (0=blank, 1=home, 2=last visited page, 3=resume previous session)
-// user_pref("browser.startup.page", 3);
+user_pref("browser.startup.page", 3);
 
 // PREF: Disable Extension Recommendations (CFR: "Contextual Feature Recommender")
 // https://support.mozilla.org/en-US/kb/extension-recommendations
@@ -47,17 +47,18 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownload
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 
+// PREF: Hide "What's New"
+user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 /******************************************************************************
  * SECTION: DISABLE POCKET EXTENSION                                          *
 ******************************************************************************/
 
 // PREF: Disable built-in Pocket extension
-user_pref("browser.pocket.enabled", false);
-user_pref("extensions.pocket.api"," ");
 user_pref("extensions.pocket.enabled", false);
-user_pref("extensions.pocket.oAuthConsumerKey", " ");
-user_pref("extensions.pocket.site", " ");
+// user_pref("extensions.pocket.api"," ");
+// user_pref("extensions.pocket.oAuthConsumerKey", " ");
+// user_pref("extensions.pocket.site", " ");
 
 /******************************************************************************
  * SECTION: DOWNLOADS                                 *
@@ -105,6 +106,7 @@ user_pref("browser.aboutConfig.showWarning", false);
 // https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.available", "off");
+user_pref("extensions.formautofill.creditCards.available", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
 user_pref("extensions.formautofill.heuristics.enabled", false);
 user_pref("browser.formfill.enable", false);
@@ -120,6 +122,14 @@ user_pref("signon.formlessCapture.enabled", false);
 /****************************************************************************
  * SECTION: ANNOYANCES                                                      *
 ****************************************************************************/
+
+// PREF: Disable dropdown options in the URL bar
+// user_pref("browser.urlbar.suggest.bookmarks", true);
+user_pref("browser.urlbar.suggest.engines", false);
+// user_pref("browser.urlbar.suggest.history", false);
+// user_pref("browser.urlbar.suggest.openpage", false);
+// user_pref("browser.urlbar.suggest.searches", false);
+// user_pref("browser.urlbar.suggest.topsites", false);
 
 // PREF: Disable default browser check
 user_pref("browser.shell.checkDefaultBrowser", false);
@@ -157,16 +167,6 @@ user_pref("browser.backspace_action", 2);
 // PREF: Disable ALT key toggling the menu bar
 user_pref("ui.key.menuAccessKey", 0);
 
-// PREF: Disable website control over browser right-click context menu
-// [!] This sometimes results in having two menus displayed.
-// [NOTE] Shift-Right-Click will always bring up the browser right-click
-// context menu.
-user_pref("dom.event.contextmenu.enabled", true);
-
-// PREF: Long press left-click for right-click context menu
-// user_pref("ui.click_hold_context_menus", true); // default=false
-// user_pref("ui.click_hold_context_menus.delay", 500); // default=500
-
 // PREF: CTRL+TAB cycles tabs in chronological order instead of recently-
 // used order
 // user_pref("browser.ctrlTab.recentlyUsedOrder", false);
@@ -182,7 +182,7 @@ user_pref("layout.spellcheckDefault", 2);
 user_pref("accessibility.force_disabled", 1);
 
 // PREF: Limit the number of bookmark backups Firefox keeps
-// user_pref("browser.bookmarks.max_backups", 2);
+user_pref("browser.bookmarks.max_backups", 2);
 
 // PREF: Allow for more granular control of zoom levels
 // Especially useful if you want to set your default zoom to a custom level
@@ -194,11 +194,6 @@ user_pref("browser.display.show_image_placeholders", false);
 // PREF: Wrap long lines of text when using source / debugger
 user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
-
-// PREF: Disable links launching Windows Store on Windows 8/8.1/10
-// [WINDOWS-only]
-// [1] https://www.ghacks.net/2016/03/25/block-firefox-chrome-windows-store/
-// user_pref("network.protocol-handler.external.ms-windows-store", false);
 
 /****************************************************************************
  * SECTION: TAB BEHAVIOR                                                    *
@@ -256,6 +251,9 @@ user_pref("browser.tabs.loadBookmarksInTabs", true);
 // user_pref("gfx.color_management.enablev4", true);
 // user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 
+// PREF: AVIF images
+user_pref("image.avif.enabled", true);
+
 // [FF 77+] PREF: Firefox now allows viewing of PDFs even if the response HTTP headers
 // include Content-Disposition:attachment. 
 user_pref("browser.helperApps.showOpenOptionForPdfJS", true); /*default*/
@@ -269,7 +267,7 @@ user_pref("editor.truncate_user_pastes", false); /*default ? */
 // user_pref("browser.tabs.tabMinWidth", 100); // default=76
 
 // PREF: Reduce size of picture-in-picture icon on the first run
-user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
+// user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
 // user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
 
 // PREF: Plain Text only when copying text.
@@ -280,5 +278,7 @@ user_pref("dom.disable_window_move_resize", true);
 
 // PREF: Limit events that can cause a pop-up
 // Really cuts down on pop-ups Private Browsing websites... Thank me later.
+// Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
 // (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
+// (recommended) user_pref("dom.popup_allowed_events", "dblclick");
 user_pref("dom.popup_allowed_events", "click dblclick");
