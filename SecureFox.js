@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 16 January 2021                                                 *
+ * version: 22 January 2021                                                 *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -19,20 +19,18 @@
  * SECTION: TRACKING PROTECTION                                             *
 ****************************************************************************/
 
-// PREF: Disable Enhanced Tracking Protection (ETP) for regular windows
-// ETP does not make exceptions to allow certain content (i.e. Twitter's embedded tweets on articles) to appear
-// like Brave browser does. Let uBlock Origin or Ghostery handle regular browsing and ETP serve as additional
-// protection in private browsing windows.
-// user_pref("privacy.trackingprotection.enabled", false); /* default */
-
-// PREF: ETP in Private Browsing mode 
-user_pref("privacy.trackingprotection.pbmode.enabled", true);
-
-// PREF: Regardless, Firefox will continue to block cryptominers, fingerprinters, etc.
-user_pref("privacy.socialtracking.block_cookies.enabled", true);
+// PREF: Enhanced Tracking Protection (ETP)
+// "Tracking Protecton" and "Social Tracking" are disabled here because Firefox does not allow exceptions
+// for certain content. This results in breakage of some webpages (e.g., Twitter's embedded tweets on articles).
+// SOLUTION: Let uBlock Origin or Ghostery handle tracking protection universally while ETP serves as additional
+// protection in private browsing windows. Regardless, Firefox will continue to block cryptominers, fingerprinters,
+// and social tracking cookies.
+user_pref("privacy.trackingprotection.enabled", false); /* default */
+user_pref("privacy.trackingprotection.pbmode.enabled", true); /* default */
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
-user_pref("privacy.trackingprotection.socialtracking.enabled", true);
+user_pref("privacy.trackingprotection.socialtracking.enabled", false);
+user_pref("privacy.socialtracking.block_cookies.enabled", true);
 
 // PREF: Disable Hyperlink Auditing (click tracking).
 user_pref("browser.send_pings", false);
@@ -59,15 +57,9 @@ user_pref("dom.battery.enabled", false);
 // 5=block cross site and social media trackers, and isolate remaining cookies (Dynamic First Party Isolation)
 user_pref("network.cookie.cookieBehavior", 5);
 
-// ALTERNATIVE: Disable all third-party cookies
-// If you're uncomfortable with Mozilla's isolation policies, alter this value to 1.
-// 1=disable third-party cookies (may cause site breakage)
-// 4=block cross site and social media trackers (default)
-// user_pref("network.cookie.cookieBehavior", 1);
-// user_pref("pref.privacy.disable_button.cookie_exceptions", false);
-
-// PREF: Limit third-party cookies to the current session even when they are allowed
-// user_pref("network.cookie.thirdparty.sessionOnly", true);
+// PREF: Limit third-party cookies
+// Because of dFPI and our tracking protection(s), we will only clear nonsecure cookies each session.
+// user_pref("network.cookie.thirdparty.sessionOnly", false);
 // user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
 // PREF: Delete all cookies after a certain period of time
@@ -90,12 +82,14 @@ user_pref("network.cookie.cookieBehavior", 5);
 // https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
 // https://github.com/arkenfox/user.js/issues/1089
 user_pref("privacy.purge_trackers.enabled", true);
-// user_pref("privacy.purge_trackers.logging.enabled", true);
+// user_pref("privacy.purge_trackers.logging.level", "All");
+// user_pref("privacy.purge_trackers.consider_entity_list", true);
 
-// PREF: Disable offline cache
-// user_pref("browser.cache.offline.enable", false);
-
-// PREF: Isolate cache per site
+// PREF: Disable offline cache + isolate cache per site
+// https://github.com/arkenfox/user.js/issues/1055
+user_pref("browser.cache.disk.enable", true); /* default */
+user_pref("browser.cache.offline.enable", true); /* default */
+// user_pref("browser.cache.offline.storage.enable", false);
 user_pref("browser.cache.cache_isolation", true);
 
 // PREF: Network Partitioning
@@ -112,7 +106,6 @@ user_pref("dom.storage.next_gen", true);
  * SECTION: PRELOADING/PREFETCHING                              *
 ******************************************************************************/
 
-// DECEMBER 2020 UPDATE:
 // I have altered this section for a mixture of privacy and speed.
 // Leave off any PREFETCH preferences if you use an adblock extension and/or DNS-level adblocking due to wonky page rendering.
 // All PREFETCH preferences continue to be disabled here and in the user.js, but other speed improvements are enabled.
@@ -257,30 +250,30 @@ user_pref("dom.security.https_only_mode_send_http_background_request", false);
 // https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
-// user_pref("network.trr.mode", 3);
+user_pref("network.trr.mode", 3);
 
 // PREF: Force FF to always use your custom DNS resolver
 // You will type between the "" for both prefs.
 // I recommend creating your own URI with NextDNS for both privacy and security.
 // https://nextdns.io
-// user_pref("network.trr.uri", "");
-// user_pref("network.trr.custom_uri", "");
+user_pref("network.trr.uri", "");
+user_pref("network.trr.custom_uri", "");
 
 // PREF: Enable Encrypted Client Hello (ECH)
 // [EXPERIMENTAL] Evolution of ESNI.
+// [!] Breaks Discord login through Firefox.
+// ESNI: https://www.eff.org/deeplinks/2018/09/esni-privacy-protecting-upgrade-https/
 // ECH: https://blog.mozilla.org/security/2021/01/07/encrypted-client-hello-the-future-of-esni-in-firefox/
 // user_pref("network.dns.echconfig.enabled", true);
 // user_pref("network.dns.use_https_rr_as_altsvc", true);
 
-// Firefox ESR will continue to use the old ESNI pref.
-// This prevents others from intercepting the TLS SNI extension and using it
-// to determine what websites you are browsing.
-// ESNI: https://www.eff.org/deeplinks/2018/09/esni-privacy-protecting-upgrade-https/
-// user_pref("network.security.esni.enabled", true);
+// PREF: Disable bypass of DoH with parental controls
+user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
 /******************************************************************************
  * SECTION: PASSWORDS                             *
 ******************************************************************************/
+
 // PREF: Disable about:logins (Firefox Lockwise)
 // https://lockwise.firefox.com/
 // https://support.mozilla.org/en-US/kb/firefox-lockwise-managing-account-data
