@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 22 January 2021                                                 *
+ * version: 29 January 2021                                                 *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -20,17 +20,21 @@
 ****************************************************************************/
 
 // PREF: Enhanced Tracking Protection (ETP)
-// "Tracking Protecton" and "Social Tracking" are disabled here because Firefox does not allow exceptions
-// for certain content. This results in breakage of some webpages (e.g., Twitter's embedded tweets on articles).
-// SOLUTION: Let uBlock Origin or Ghostery handle tracking protection universally while ETP serves as additional
-// protection in private browsing windows. Regardless, Firefox will continue to block cryptominers, fingerprinters,
-// and social tracking cookies.
-user_pref("privacy.trackingprotection.enabled", false); /* default */
+// Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
+// Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
+// been interacted with in the last 30 days.
+user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true); /* default */
-user_pref("privacy.trackingprotection.cryptomining.enabled", true);
-user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
-user_pref("privacy.trackingprotection.socialtracking.enabled", false);
-user_pref("privacy.socialtracking.block_cookies.enabled", true);
+// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
+user_pref("privacy.trackingprotection.cryptomining.enabled", true); /* default */
+user_pref("privacy.trackingprotection.fingerprinting.enabled", true); /* default */
+user_pref("privacy.trackingprotection.socialtracking.enabled", true);
+user_pref("privacy.socialtracking.block_cookies.enabled", true); /* default */
+
+// PREF: Allow embedded tweets and Instagram posts to load in articles.
+// https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
+user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); /* hidden */
+user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); /* hidden */
 
 // PREF: Disable Hyperlink Auditing (click tracking).
 user_pref("browser.send_pings", false);
@@ -82,15 +86,15 @@ user_pref("network.cookie.cookieBehavior", 5);
 // https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
 // https://github.com/arkenfox/user.js/issues/1089
 user_pref("privacy.purge_trackers.enabled", true);
-// user_pref("privacy.purge_trackers.logging.level", "All");
-// user_pref("privacy.purge_trackers.consider_entity_list", true);
+// user_pref("privacy.purge_trackers.logging.level", "All");  /* ??? */
+// user_pref("privacy.purge_trackers.consider_entity_list", false);  /* ??? */
 
-// PREF: Disable offline cache + isolate cache per site
+// PREF: Isolate cache per site + Disable offline cache
 // https://github.com/arkenfox/user.js/issues/1055
+user_pref("browser.cache.cache_isolation", true);
 user_pref("browser.cache.disk.enable", true); /* default */
 user_pref("browser.cache.offline.enable", true); /* default */
-// user_pref("browser.cache.offline.storage.enable", false);
-user_pref("browser.cache.cache_isolation", true);
+user_pref("browser.cache.offline.storage.enable", false);
 
 // PREF: Network Partitioning
 // Network Partitioning will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
@@ -99,8 +103,35 @@ user_pref("browser.cache.cache_isolation", true);
 // https://github.com/privacycg/storage-partitioning
 user_pref("privacy.partition.network_state", true);
 
-// PREF: Enable Local Storage Next Generation (LSNG)
+// PREF: Enable Local Storage Next Generation (LSNG) (DOMStorage) 
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 user_pref("dom.storage.next_gen", true);
+
+/******************************************************************************
+ * SECTION: CLEARING HISTORY DEFAULTS                           *
+******************************************************************************/
+
+// PREF: Reset default items to clear with Ctrl-Shift-Del
+// This dialog can also be accessed from the menu History>Clear Recent History
+// Firefox remembers your last choices. This will reset them when you start Firefox.
+// Regardless of what you set privacy.cpd.downloads to, as soon as the dialog
+// for "Clear Recent History" is opened, it is synced to the same as 'history'.
+// user_pref("privacy.cpd.downloads", true); // not used, see note above
+user_pref("privacy.cpd.history", true); // Browsing & Download History
+user_pref("privacy.cpd.formdata", true); // Form & Search History
+user_pref("privacy.cpd.offlineApps", true); // Offline Website Data
+user_pref("privacy.cpd.cache", true); // Cache
+user_pref("privacy.cpd.cookies", false); // Cookies
+user_pref("privacy.cpd.sessions", false); // Active Logins
+user_pref("privacy.cpd.siteSettings", false); // Site Preferences
+
+// PREF: Reset default 'Time range to clear' for 'Clear Recent History'.
+// Firefox remembers your last choice. This will reset the value when you start Firefox.
+// 0=everything, 1=last hour, 2=last two hours, 3=last four hours,
+// 4=today, 5=last five minutes, 6=last twenty-four hours
+// The values 5 + 6 are not listed in the dropdown, which will display a
+// blank value if they are used, but they do work as advertised.
+user_pref("privacy.sanitize.timeSpan", 0);
 
 /******************************************************************************
  * SECTION: PRELOADING/PREFETCHING                              *
@@ -121,7 +152,7 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true); /* default */
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
 // NOTE: Firefox will do the server DNS lookup and TCP and TLS handshake but not start sending or receiving HTTP data.
 // https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
-user_pref("browser.urlbar.speculativeConnect.enabled", true); /* default */
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
 // PREF: Link prefetching
 // Along with the referral and URL-following implications, prefetching will generally cause the cookies of the prefetched
@@ -157,8 +188,6 @@ user_pref("network.predictor.enable-prefetch", false); /* default */
 // https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
 // https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
 user_pref("browser.newtab.preload", true); /* default */
-// user_pref("browser.newtabpage.directory.ping", "");  
-// user_pref("browser.newtabpage.activity-stream.asrouter.messageProviders", "");
 
 /******************************************************************************
  * SECTION: SEARCH / URL BAR                              *
@@ -202,6 +231,7 @@ user_pref("browser.fixup.typo.scheme", false);
 
 // PREF: "Not Secure" text on HTTP sites.
 user_pref("security.insecure_connection_text.enabled", true);
+user_pref("security.insecure_connection_text.pbmode.enabled", true);
 
 // PREF: Disable location bar autofill
 // https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete
@@ -239,7 +269,7 @@ user_pref("dom.security.https_only_mode_ever_enabled", true);
 user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 // PREF: Enable HTTPS-Only mode for local resources
-// user_pref("dom.security.https_only_mode.upgrade_local", true);
+user_pref("dom.security.https_only_mode.upgrade_local", true);
 
 /******************************************************************************
  * SECTION: DNS-over-HTTPS                                                    *
@@ -251,6 +281,8 @@ user_pref("dom.security.https_only_mode_send_http_background_request", false);
 // https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
 user_pref("network.trr.mode", 3);
+user_pref("network.trr.send_user-agent_headers", false); /* default */
+user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
 // PREF: Force FF to always use your custom DNS resolver
 // You will type between the "" for both prefs.
@@ -267,27 +299,20 @@ user_pref("network.trr.custom_uri", "");
 // user_pref("network.dns.echconfig.enabled", true);
 // user_pref("network.dns.use_https_rr_as_altsvc", true);
 
-// PREF: Disable bypass of DoH with parental controls
-user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
-
 /******************************************************************************
  * SECTION: PASSWORDS                             *
 ******************************************************************************/
-
-// PREF: Disable about:logins (Firefox Lockwise)
-// https://lockwise.firefox.com/
-// https://support.mozilla.org/en-US/kb/firefox-lockwise-managing-account-data
-user_pref("signon.management.page.breach-alerts.enabled", false); 
-user_pref("signon.management.page.breachAlertUrl", ""); 
-// user_pref("signon.management.page.hideMobileFooter", true); 
-// user_pref("signon.management.page.mobileAndroidURL", ""); 
-// user_pref("signon.management.page.mobileAppleURL", ""); 
-// user_pref("signon.management.page.showPasswordSyncNotification", false); 
 
 // PREF: Disable autofilling saved passwords on HTTP pages and show warning
 // https://bugzilla.mozilla.org/buglist.cgi?bug_id=1217152,1319119
 user_pref("signon.autofillForms.http", false);
 user_pref("security.insecure_field_warning.contextual.enabled", true);
+
+// PREF: Disable about:logins (Firefox Lockwise)
+// https://lockwise.firefox.com/
+// https://support.mozilla.org/en-US/kb/firefox-lockwise-managing-account-data
+// user_pref("signon.management.page.breach-alerts.enabled", false); 
+// user_pref("signon.management.page.breachAlertUrl", ""); 
 
 // PREF: Disable password manager
 // NOTE” This does not clear any passwords already saved
@@ -299,8 +324,15 @@ user_pref("signon.autologin.proxy", false);
 user_pref("signon.privateBrowsingCapture.enabled", false);
 user_pref("signon.debug", false);
 
+// PREF: Disable Firefox built-in password generator
+// https://wiki.mozilla.org/Toolkit:Password_Manager/Password_Generation
+// NOTE: Create passwords with random characters and numbers
+user_pref("signon.generation.available", false);
+user_pref("signon.generation.enabled", false);
+
 // PREF: Disable Firefox import password from signons.sqlite file
 // https://support.mozilla.org/en-US/questions/1020818
+user_pref("signon.management.page.fileImport.enabled", false);
 user_pref("signon.importedFromSqlite", false);
 user_pref("signon.recipes.path", "");
 
@@ -319,11 +351,24 @@ user_pref("signon.storeWhenAutocompleteOff", false);
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
 user_pref("signon.formlessCapture.enabled", false);
 
-// PREF: Disable Firefox built-in password generator
-// https://wiki.mozilla.org/Toolkit:Password_Manager/Password_Generation
-// NOTE: Create passwords with random characters and numbers
-user_pref("signon.generation.available", false);
-user_pref("signon.generation.enabled", false);
+/****************************************************************************
+ * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
+****************************************************************************/
+
+// PREF: Disable Form Autofill
+// NOTE: stored data is not secure (uses a JSON file)
+// https://wiki.mozilla.org/Firefox/Features/Form_Autofill
+// https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
+user_pref("extensions.formautofill.addresses.enabled", false);
+user_pref("extensions.formautofill.available", "off");
+user_pref("extensions.formautofill.creditCards.available", false);
+user_pref("extensions.formautofill.creditCards.enabled", false);
+user_pref("extensions.formautofill.heuristics.enabled", false);
+user_pref("browser.formfill.enable", false);
+
+/******************************************************************************
+ * SECTION: MIXED CONTENT                             *
+******************************************************************************/
 
 // PREF: Limit (or disable) HTTP authentication credentials dialogs triggered by sub-resources
 // Hardens against potential credentials phishing
@@ -331,11 +376,7 @@ user_pref("signon.generation.enabled", false);
 // 1=don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
 // 2=allow sub-resources to open HTTP authentication credentials dialogs (default)
 // https://www.fxsitecompat.com/en-CA/docs/2015/http-auth-dialog-can-no-longer-be-triggered-by-cross-origin-resources/
-// user_pref("network.auth.subresource-http-auth-allow", 1);
-
-/******************************************************************************
- * SECTION: MIXED CONTENT                             *
-******************************************************************************/
+user_pref("network.auth.subresource-http-auth-allow", 1);
 
 // PREF: Block insecure active content (scripts) on HTTPS pages.
 // https://trac.torproject.org/projects/tor/ticket/21323
@@ -353,7 +394,18 @@ user_pref("security.mixed_content.block_object_subrequest", true);
 
 // PREF: Block insecure downloads from secure sites
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
-// user_pref("dom.block_download_insecure", true);
+user_pref("dom.block_download_insecure", true);
+
+// PREF: Disable bypassing 3rd party extension install prompts
+// https://bugzilla.mozilla.org/buglist.cgi?bug_id=1659530,1681331
+user_pref("extensions.postDownloadThirdPartyPrompt", false);
+
+// PREF: Disable permissions delegation
+// Currently applies to cross-origin geolocation, camera, mic and screen-sharing
+// permissions, and fullscreen requests. Disabling delegation means any prompts
+// for these will show/use their correct 3rd party origin
+// https://groups.google.com/forum/#!topic/mozilla.dev.platform/BdFOMAuCGW8/discussion
+user_pref("permissions.delegation.enabled", false);
 
 /******************************************************************************
  * SECTION: VARIOUS SECURITY/PRIVACY ENHANCEMENTS                            *
@@ -383,12 +435,6 @@ user_pref("dom.targetBlankNoOpener.enabled", true); /* default */
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1320061
 // user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
-// PREF: Enforce Firefox's built-in PDF reader
-// This setting controls if the option "Display in Firefox" is available in the setting below
-// and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With").
-// default=false
-user_pref("pdfjs.disabled", false);
-
 // PREF: Enable QUIC protocol / HTTP3
 // [!] WARNING: Very experimental!
 // https://quic.rocks
@@ -401,12 +447,12 @@ user_pref("privacy.window.name.update.enabled", true);
 
 // PREF: Downgrade Cross-Origin (Third-Party) Referers
 // CROSS ORIGIN: control when to send a referer
-// 0=always (default), 1=only if base domains match, 2=only if hosts match
 // https://github.com/arkenfox/user.js/issues/1077
-// user_pref("network.http.referer.XOriginPolicy", 0);
+// 0=always (default), 1=only if base domains match, 2=only if hosts match
+user_pref("network.http.referer.XOriginPolicy", 0);
 // Control the amount of information to send.
 // 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
-// user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 // PREF: CRLite
 // This will reduce the number of times an OCSP server needs to be contacted and therefore increase privacy.
@@ -439,7 +485,6 @@ user_pref("browser.safebrowsing.phishing.enabled", false);
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
 // user_pref("permissions.default.geo", 0);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-
 // PREF: Disable logging geolocation to the console
 user_pref("geo.provider.network.logging.enabled", false);
 
@@ -447,11 +492,24 @@ user_pref("geo.provider.network.logging.enabled", false);
  * SECTION: MOZILLA                                                   *
 ******************************************************************************/
 
-// PREF: Enforce Firefox blocklist for extensions
-// This includes updates for "revoked certificates"
-// [1] https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/
-// [2] https://trac.torproject.org/projects/tor/ticket/16931
+// PREF: Enforce Firefox blocklist for extensions + No hiding tabs
+// This includes updates for "revoked certificates".
+// https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/
+// https://trac.torproject.org/projects/tor/ticket/16931
 user_pref("extensions.blocklist.enabled", true);
+user_pref("extensions.webextensions.tabhide.enabled", false);
+
+// PREF: Disable new data submission, master kill switch
+// If disabled, no policy is shown or upload takes place, ever.
+// https://bugzilla.mozilla.org/1195552 ***/
+user_pref("datareporting.policy.dataSubmissionEnabled", false);
+
+// PREF: Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data.
+user_pref("datareporting.healthreport.uploadEnabled", false);
+
+// PREF: Disable PingCentre telemetry (used in several System Add-ons).
+// Currently blocked by 'datareporting.healthreport.uploadEnabled'
+user_pref("browser.ping-centre.telemetry", false);
 
 // PREF: Disable all the various Mozilla telemetry, studies, etc.
 user_pref("app.normandy.enabled", false);
@@ -469,15 +527,8 @@ user_pref("toolkit.telemetry.coverage.opt-out", true);
 user_pref("toolkit.coverage.endpoint.base", "");
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("browser.discovery.enabled", false);
-
-// PREF: Disable new data submission, master kill switch
-// If disabled, no policy is shown or upload takes place, ever.
-// https://bugzilla.mozilla.org/1195552 ***/
-user_pref("datareporting.policy.dataSubmissionEnabled", false);
-
-// PREF: Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data.
-user_pref("datareporting.healthreport.uploadEnabled", false);
-
-// PREF: Disable PingCentre telemetry (used in several System Add-ons).
-// Currently blocked by 'datareporting.healthreport.uploadEnabled'
-user_pref("browser.ping-centre.telemetry", false);
+user_pref("breakpad.reportURL", "");
+user_pref("browser.tabs.crashReporting.sendReport", false);
+user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
+user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+user_pref("default-browser-agent.enabled", false);
