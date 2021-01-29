@@ -11,12 +11,41 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: 16 January 2021                                                 *
+ * version: 29 January 2021                                                 *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
 /****************************************************************************
- * SECTION: START-UP / NEW TAB PAGE                                         *
+ * SECTION: MOZILLA UI ANNOYANCES                                           *
+****************************************************************************/
+user_pref("browser.privatebrowsing.vpnpromourl", "");
+user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
+user_pref("browser.shell.checkDefaultBrowser", false);
+
+// PREF: Disable Extension Recommendations (CFR: "Contextual Feature Recommender")
+// https://support.mozilla.org/en-US/kb/extension-recommendations
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+user_pref("extensions.getAddons.showPane", false);
+
+// PREF: Decrease delay of security dialog when downloading extensions
+// default=1000
+user_pref("security.dialog_enable_delay", 0);
+
+// PREF: Disable Warnings
+user_pref("browser.tabs.warnOnClose", false);
+user_pref("browser.tabs.warnOnCloseOtherTabs", false);
+user_pref("browser.tabs.warnOnOpen", false);
+user_pref("browser.aboutConfig.showWarning", false);
+
+// PREF: Disable fullscreen delay and notice
+user_pref("full-screen-api.transition-duration.enter", "0 0");
+user_pref("full-screen-api.transition-duration.leave", "0 0");
+user_pref("full-screen-api.warning.delay", 0);
+user_pref("full-screen-api.warning.timeout", 0);
+
+/****************************************************************************
+ * SECTION: NEW TAB PAGE                                                    *
 ****************************************************************************/
 
 // PREF: Allow Firefox to use userChome, userContent, etc.
@@ -24,11 +53,6 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // PREF: Set START page (0=blank, 1=home, 2=last visited page, 3=resume previous session)
 user_pref("browser.startup.page", 3);
-
-// PREF: Disable Extension Recommendations (CFR: "Contextual Feature Recommender")
-// https://support.mozilla.org/en-US/kb/extension-recommendations
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 
 // PREF: Disable Activity Stream Top Stories, Pocket-based and/or sponsored content
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
@@ -50,15 +74,22 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited"
 // PREF: Hide "What's New"
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
+// PREF: Logo to always show
+// user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", true);
+
+// PREF: Bookmarks Toolbar visibility
+// always, never, or newtab
+// user_pref("browser.toolbars.bookmarks.visibility", "newtab");
+
 /******************************************************************************
- * SECTION: DISABLE POCKET EXTENSION                                          *
+ * SECTION: POCKET                                                            *
 ******************************************************************************/
 
 // PREF: Disable built-in Pocket extension
 user_pref("extensions.pocket.enabled", false);
-// user_pref("extensions.pocket.api"," ");
-// user_pref("extensions.pocket.oAuthConsumerKey", " ");
-// user_pref("extensions.pocket.site", " ");
+user_pref("extensions.pocket.api"," ");
+user_pref("extensions.pocket.oAuthConsumerKey", " ");
+user_pref("extensions.pocket.site", " ");
 
 /******************************************************************************
  * SECTION: DOWNLOADS                                 *
@@ -85,54 +116,22 @@ user_pref("browser.download.hide_plugins_without_extensions", false);
 // user_pref("browser.download.autohideButton", true);
 
 /****************************************************************************
- * SECTION: WARNINGS                                                        *
+ * SECTION: VARIOUS                                                         *
 ****************************************************************************/
 
-// PREF: Disable Warnings
-user_pref("browser.tabs.warnOnClose", false);
-user_pref("browser.tabs.warnOnCloseOtherTabs", false);
-user_pref("browser.tabs.warnOnOpen", false);
-user_pref("full-screen-api.warning.delay", 0); // -1=also works
-user_pref("full-screen-api.warning.timeout", 0); // -1=also works
-user_pref("browser.aboutConfig.showWarning", false);
-
-/****************************************************************************
- * SECTION: AUTOFILL                                                        *
-****************************************************************************/
-
-// PREF: Disable Form Autofill
-// NOTE: stored data is not secure (uses a JSON file)
-// https://wiki.mozilla.org/Firefox/Features/Form_Autofill
-// https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
-user_pref("extensions.formautofill.addresses.enabled", false);
-user_pref("extensions.formautofill.available", "off");
-user_pref("extensions.formautofill.creditCards.available", false);
-user_pref("extensions.formautofill.creditCards.enabled", false);
-user_pref("extensions.formautofill.heuristics.enabled", false);
-user_pref("browser.formfill.enable", false);
-
-// PREF: Disable autofilling saved passwords on HTTP pages and show warning
-user_pref("signon.autofillForms", false);
-user_pref("security.insecure_field_warning.contextual.enabled", true);
-
-// PREF: Disable saving passwords
-user_pref("signon.rememberSignons", false);
-user_pref("signon.formlessCapture.enabled", false);
-
-/****************************************************************************
- * SECTION: ANNOYANCES                                                      *
-****************************************************************************/
+// PREF: Do not unload tabs on low memory
+// Firefox will detect if your computer’s memory is running low (less than 400MB)
+// and suspend tabs that you have not used in awhile.
+// https://support.mozilla.org/en-US/questions/1262073
+user_pref("browser.tabs.unloadOnLowMemory", false); /* default */
 
 // PREF: Disable dropdown options in the URL bar
 // user_pref("browser.urlbar.suggest.bookmarks", true);
 user_pref("browser.urlbar.suggest.engines", false);
 // user_pref("browser.urlbar.suggest.history", false);
 // user_pref("browser.urlbar.suggest.openpage", false);
-// user_pref("browser.urlbar.suggest.searches", false);
+// user_pref("browser.urlbar.suggest.searches", true);
 // user_pref("browser.urlbar.suggest.topsites", false);
-
-// PREF: Disable default browser check
-user_pref("browser.shell.checkDefaultBrowser", false);
 
 // PREF: Hide parts of the url in the location bar
 // user_pref("browser.urlbar.trimURLs", true);
@@ -153,7 +152,7 @@ user_pref("permissions.default.desktop-notification", 2);
 
 // PREF: Adjust HTML5 autoplay settings
 // 0=Allow all, 1=Block non-muted media (default), 5=Block all
-user_pref("media.autoplay.default", 5);
+user_pref("media.autoplay.default", 1);
 
 // PREF: Disable Reader mode
 // Firefox will not have to parse webpage for Reader when navigating.
@@ -162,7 +161,7 @@ user_pref("media.autoplay.default", 5);
 
 // PREF: Disable backspace action
 // 0=previous page, 1=scroll up, 2=do nothing
-user_pref("browser.backspace_action", 2);
+user_pref("browser.backspace_action", 2); /* default */
 
 // PREF: Disable ALT key toggling the menu bar
 user_pref("ui.key.menuAccessKey", 0);
@@ -196,14 +195,32 @@ user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
 
 /****************************************************************************
+ * SECTION: PDF                                                             *
+****************************************************************************/
+
+// PREF: Enforce Firefox's built-in PDF reader
+// This setting controls if the option "Display in Firefox" is available in the setting below
+// and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With").
+// default=false
+user_pref("pdfjs.disabled", false);
+
+// PREF: Firefox now allows viewing of PDFs even if the response HTTP headers
+// include Content-Disposition:attachment. 
+user_pref("browser.helperApps.showOpenOptionForPdfJS", true); /*default*/
+
+// PREF: Default zoom for PDFs
+user_pref("pdfjs.defaultZoomValue", "page-width");
+
+/****************************************************************************
  * SECTION: TAB BEHAVIOR                                                    *
 ****************************************************************************/
 
-// PREF: Control how non-pinned tabs are loaded when a session is restored.
-// true=Tabs are not loaded until they are selected (default)
-// false=Tabs begin to load immediately.
-user_pref("browser.sessionstore.restore_on_demand", true);
- 
+// PREF: Searches from the search box appear in a new tab
+// user_pref("browser.search.openintab", true);
+
+// PREF: Searches in the URL bar appear in a new tab
+// user_pref("browser.urlbar.openintab", true);
+
 // PREF: Control behavior of links that would normally open in a new window.
 // 1=Open in the current tab/window
 // 2=Open in a new window
@@ -223,6 +240,9 @@ user_pref("browser.link.open_newwindow", 3);
 // You can still right-click a link and open in a new window
 user_pref("browser.link.open_newwindow", 3);
 user_pref("browser.link.open_newwindow.restriction", 0);
+
+// PREF: Prevent scripts from moving and resizing open windows
+user_pref("dom.disable_window_move_resize", true);
 
 // PREF: Insert tab immediately after the current tab
 // Tap to Tab extension: set to "Put new tab at the end"
@@ -252,11 +272,11 @@ user_pref("browser.tabs.loadBookmarksInTabs", true);
 // user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 
 // PREF: AVIF images
+// https://www.omgubuntu.co.uk/2021/01/firefox-86-avif-image-support
 user_pref("image.avif.enabled", true);
 
-// [FF 77+] PREF: Firefox now allows viewing of PDFs even if the response HTTP headers
-// include Content-Disposition:attachment. 
-user_pref("browser.helperApps.showOpenOptionForPdfJS", true); /*default*/
+// PREF: Set default zoom for PDFs
+user_pref("pdfjs.defaultZoomValue", "page-width"); /* hidden */
 
 // [FF 77+] PREF: Prevent password truncation when submitting form data
 // https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
@@ -273,12 +293,10 @@ user_pref("editor.truncate_user_pastes", false); /*default ? */
 // PREF: Plain Text only when copying text.
 user_pref("clipboard.plainTextOnly", true);
 
-// PREF: Prevent scripts from moving and resizing open windows
-user_pref("dom.disable_window_move_resize", true);
-
 // PREF: Limit events that can cause a pop-up
 // Really cuts down on pop-ups Private Browsing websites... Thank me later.
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
 // (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
 // (recommended) user_pref("dom.popup_allowed_events", "dblclick");
 user_pref("dom.popup_allowed_events", "click dblclick");
+user_pref("dom.disable_open_during_load", true);
