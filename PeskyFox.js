@@ -11,13 +11,27 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: 29 January 2021                                                 *
+ * version: 01 February 2021                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
 /****************************************************************************
  * SECTION: MOZILLA UI ANNOYANCES                                           *
 ****************************************************************************/
+
+// PREF: Enable a Light theme for browser and webpage content
+// Test page: https://9to5mac.com/
+// user_pref("ui.systemUsesDarkTheme", 0);
+// user_pref("browser.in-content.dark-mode", false); /* removed? */
+
+// PREF: Enable a Dark theme for browser and webpage content
+// user_pref("ui.systemUsesDarkTheme", 1);
+// user_pref("browser.in-content.dark-mode", true); /* removed? */
+
+// PREF: Allow Firefox to use userChome, userContent, etc.
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+// PREF: Various annoyances
 user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 user_pref("browser.shell.checkDefaultBrowser", false);
@@ -48,11 +62,11 @@ user_pref("full-screen-api.warning.timeout", 0);
  * SECTION: NEW TAB PAGE                                                    *
 ****************************************************************************/
 
-// PREF: Allow Firefox to use userChome, userContent, etc.
-user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-
 // PREF: Set START page (0=blank, 1=home, 2=last visited page, 3=resume previous session)
 user_pref("browser.startup.page", 3);
+
+// PREF: Set HOME page
+// user_pref("browser.startup.page", "about:home");
 
 // PREF: Disable Activity Stream Top Stories, Pocket-based and/or sponsored content
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
@@ -79,7 +93,7 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 // PREF: Bookmarks Toolbar visibility
 // always, never, or newtab
-// user_pref("browser.toolbars.bookmarks.visibility", "newtab");
+// user_pref("browser.toolbars.bookmarks.visibility", "never");
 
 /******************************************************************************
  * SECTION: POCKET                                                            *
@@ -101,9 +115,9 @@ user_pref("extensions.pocket.site", " ");
 // user_pref("browser.download.folderList", 1);
 
 // PREF: Enforce user interaction for security by always asking where to download.
-// On Android, this blocks longtapping and saving images.
 // SETTING: General>Downloads>Always ask you where to save files
-user_pref("browser.download.useDownloadDir", true);
+// If this value is false, the user is asked what to do.
+user_pref("browser.download.useDownloadDir", false);
 
 // PREF: Disable adding downloads to the system's "recent documents" list
 user_pref("browser.download.manager.addToRecentDocs", false);
@@ -125,16 +139,16 @@ user_pref("browser.download.hide_plugins_without_extensions", false);
 // https://support.mozilla.org/en-US/questions/1262073
 user_pref("browser.tabs.unloadOnLowMemory", false); /* default */
 
-// PREF: Disable dropdown options in the URL bar
+// PREF: Dropdown options in the URL bar
 // user_pref("browser.urlbar.suggest.bookmarks", true);
 user_pref("browser.urlbar.suggest.engines", false);
-// user_pref("browser.urlbar.suggest.history", false);
-// user_pref("browser.urlbar.suggest.openpage", false);
+// user_pref("browser.urlbar.suggest.history", true);
+// user_pref("browser.urlbar.suggest.openpage", true);
 // user_pref("browser.urlbar.suggest.searches", true);
-// user_pref("browser.urlbar.suggest.topsites", false);
+// user_pref("browser.urlbar.suggest.topsites", true);
 
-// PREF: Hide parts of the url in the location bar
-// user_pref("browser.urlbar.trimURLs", true);
+// PREF: Unhide parts of the url in the location bar
+// user_pref("browser.urlbar.trimURLs", false);
 
 // PREF: Set a default permission for Notifications
 // To add site exceptions: Page Info>Permissions>Receive Notifications.
@@ -147,8 +161,8 @@ user_pref("permissions.default.desktop-notification", 2);
 // isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
 // https://support.mozilla.org/en-US/kb/push-notifications-firefox
 // https://developer.mozilla.org/en-US/docs/Web/API/Push_API
-// user_pref("dom.push.enabled", false);
-// user_pref("dom.push.userAgentID", "");
+user_pref("dom.push.enabled", false);
+user_pref("dom.push.userAgentID", "");
 
 // PREF: Adjust HTML5 autoplay settings
 // 0=Allow all, 1=Block non-muted media (default), 5=Block all
@@ -209,7 +223,7 @@ user_pref("pdfjs.disabled", false);
 user_pref("browser.helperApps.showOpenOptionForPdfJS", true); /*default*/
 
 // PREF: Default zoom for PDFs
-user_pref("pdfjs.defaultZoomValue", "page-width");
+user_pref("pdfjs.defaultZoomValue", "page-width"); /* hidden */
 
 /****************************************************************************
  * SECTION: TAB BEHAVIOR                                                    *
@@ -275,9 +289,6 @@ user_pref("browser.tabs.loadBookmarksInTabs", true);
 // https://www.omgubuntu.co.uk/2021/01/firefox-86-avif-image-support
 user_pref("image.avif.enabled", true);
 
-// PREF: Set default zoom for PDFs
-user_pref("pdfjs.defaultZoomValue", "page-width"); /* hidden */
-
 // [FF 77+] PREF: Prevent password truncation when submitting form data
 // https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
 user_pref("editor.truncate_user_pastes", false); /*default ? */
@@ -300,3 +311,4 @@ user_pref("clipboard.plainTextOnly", true);
 // (recommended) user_pref("dom.popup_allowed_events", "dblclick");
 user_pref("dom.popup_allowed_events", "click dblclick");
 user_pref("dom.disable_open_during_load", true);
+user_pref("privacy.popups.showBrowserMessage", true);
