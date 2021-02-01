@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 29 January 2021                                                 *
+ * version: 01 February 2021                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -23,13 +23,14 @@
 // Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
 // Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
 // been interacted with in the last 30 days.
+// https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true); /* default */
-// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); /* default */
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true); /* default */
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.socialtracking.block_cookies.enabled", true); /* default */
+// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false);
 
 // PREF: Allow embedded tweets and Instagram posts to load in articles.
 // https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
@@ -47,6 +48,13 @@ user_pref("beacon.enabled", false);
 
 // PREF: Disable battery status tracking
 user_pref("dom.battery.enabled", false);
+
+// PREF: CRLite
+// This will reduce the number of times an OCSP server needs to be contacted and therefore increase privacy.
+// https://blog.mozilla.org/security/2020/01/09/crlite-part-2-end-to-end-design/
+// https://github.com/arkenfox/user.js/issues/1065
+user_pref("security.pki.crlite_mode", 2);
+user_pref("security.remote_settings.crlite_filters.enabled", true);
 
 /******************************************************************************
  * SECTION: STORAGE                              *
@@ -70,12 +78,6 @@ user_pref("network.cookie.cookieBehavior", 5);
 // ALTERNATIVE: Use a cookie manager extension
 // user_pref("network.cookie.lifetimePolicy", 3);
 // user_pref("network.cookie.lifetime.days", 7);
-
-// PREF: Samesite Cookies
-// [!] EXPERIMENTAL: This is an evovling standard.
-// https://www.jardinesoftware.net/2019/10/28/samesite-by-default-in-2020/
-// user_pref("network.cookie.sameSite.laxByDefault", true);
-// user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 
 // PREF: Redirect tracking prevention + Purge site data of sites associated with tracking cookies automatically
 // All storage is cleared (more or less) daily from origins that are known trackers and that
@@ -308,11 +310,14 @@ user_pref("network.trr.custom_uri", "");
 user_pref("signon.autofillForms.http", false);
 user_pref("security.insecure_field_warning.contextual.enabled", true);
 
+// Disable capturing credentials in private browsing
+user_pref("signon.privateBrowsingCapture.enabled", false);
+
 // PREF: Disable about:logins (Firefox Lockwise)
 // https://lockwise.firefox.com/
 // https://support.mozilla.org/en-US/kb/firefox-lockwise-managing-account-data
-// user_pref("signon.management.page.breach-alerts.enabled", false); 
-// user_pref("signon.management.page.breachAlertUrl", ""); 
+user_pref("signon.management.page.breach-alerts.enabled", false); 
+user_pref("signon.management.page.breachAlertUrl", ""); 
 
 // PREF: Disable password manager
 // NOTE” This does not clear any passwords already saved
@@ -321,7 +326,6 @@ user_pref("signon.rememberSignons.visibilityToggle", false);
 user_pref("signon.schemeUpgrades", false);
 user_pref("signon.showAutoCompleteFooter", false);
 user_pref("signon.autologin.proxy", false);
-user_pref("signon.privateBrowsingCapture.enabled", false);
 user_pref("signon.debug", false);
 
 // PREF: Disable Firefox built-in password generator
@@ -367,7 +371,7 @@ user_pref("extensions.formautofill.heuristics.enabled", false);
 user_pref("browser.formfill.enable", false);
 
 /******************************************************************************
- * SECTION: MIXED CONTENT                             *
+ * SECTION: MIXED CONTENT + CROSS-SITE                             *
 ******************************************************************************/
 
 // PREF: Limit (or disable) HTTP authentication credentials dialogs triggered by sub-resources
@@ -407,38 +411,13 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 // https://groups.google.com/forum/#!topic/mozilla.dev.platform/BdFOMAuCGW8/discussion
 user_pref("permissions.delegation.enabled", false);
 
-/******************************************************************************
- * SECTION: VARIOUS SECURITY/PRIVACY ENHANCEMENTS                            *
-******************************************************************************/
-
 // PREF: Enforce TLS 1.0 and 1.1 downgrades as session only
 user_pref("security.tls.version.enable-deprecated", false); /* default */
-
-// disable favicons in shortcuts
-// URL shortcuts use a cached randomly named .ico file which is stored in your
-// profile/shortcutCache directory. The .ico remains after the shortcut is deleted.
-// If set to false then the shortcuts use a generic Firefox icon
-// user_pref("browser.shell.shortcutFavicons", false);
 
 // PREF: Enable (limited but sufficient) window.opener protection
 // Makes rel=noopener implicit for target=_blank in anchor and area elements when no rel attribute is set.
 // https://jakearchibald.com/2016/performance-benefits-of-rel-noopener/
 user_pref("dom.targetBlankNoOpener.enabled", true); /* default */
-
-// PREF: Enable FTP protocol
-// Firefox redirects any attempt to load a FTP resource to the default search engine if the FTP protocol is disabled.
-// https://www.ghacks.net/2018/02/20/firefox-60-with-new-preference-to-disable-ftp/
-// user_pref("network.ftp.enabled", true);
-
-// PREF: Decode URLs in other languages
-// I leave this off because it has unintended consequecnes when copy+paste links with underscores.
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1320061
-// user_pref("browser.urlbar.decodeURLsOnCopy", true);
-
-// PREF: Enable QUIC protocol / HTTP3
-// [!] WARNING: Very experimental!
-// https://quic.rocks
-// user_pref("network.http.http3.enabled", true);
 
 // PREF: Enable "window.name" protection
 // If a new page from another domain is loaded into a tab, then window.name is set to an empty string. The original
@@ -454,33 +433,65 @@ user_pref("network.http.referer.XOriginPolicy", 0);
 // 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
-// PREF: CRLite
-// This will reduce the number of times an OCSP server needs to be contacted and therefore increase privacy.
-// https://blog.mozilla.org/security/2020/01/09/crlite-part-2-end-to-end-design/
-// https://github.com/arkenfox/user.js/issues/1065
-user_pref("security.pki.crlite_mode", 2);
-user_pref("security.remote_settings.crlite_filters.enabled", true);
+
+/******************************************************************************
+ * SECTION: VARIOUS                            *
+******************************************************************************/
+
+// PREF: Disable favicons in shortcuts
+// URL shortcuts use a cached randomly named .ico file which is stored in your
+// profile/shortcutCache directory. The .ico remains after the shortcut is deleted.
+// If set to false then the shortcuts use a generic Firefox icon
+// user_pref("browser.shell.shortcutFavicons", false);
+
+// PREF: Enable FTP protocol
+// Firefox redirects any attempt to load a FTP resource to the default search engine if the FTP protocol is disabled.
+// https://www.ghacks.net/2018/02/20/firefox-60-with-new-preference-to-disable-ftp/
+// user_pref("network.ftp.enabled", true);
+
+// PREF: Decode URLs in other languages
+// I leave this off because it has unintended consequecnes when copy+paste links with underscores.
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1320061
+// user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
 /******************************************************************************
  * SECTION: GOOGLE                                                            *
 ******************************************************************************/
 
-// PREF: Disable Google Safe Browsing
-// ! Please have alternative phishing and malware protection before you uncomment prefs.
+// PREF: Disable Google Safe Browsing, master switch
+// WARNING: Be sure to have alternate security measures if you disable Safe Browsing.
 // Increased privacy away from Google, but less protection against threats.
-// 1 https://www.wikiwand.com/en/Google_Safe_Browsing#/Privacy
-// 2 https://ashkansoltani.org/2012/02/25/cookies-from-nowhere
-user_pref("browser.safebrowsing.allowOverride", true);
-user_pref("browser.safebrowsing.appRepURL", "");
-user_pref("browser.safebrowsing.blockedURIs.enabled", false);
-user_pref("browser.safebrowsing.downloads.enabled", false);
-user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
-user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
-user_pref("browser.safebrowsing.downloads.remote.enabled", false);
-user_pref("browser.safebrowsing.downloads.remote.url", "");
-user_pref("browser.safebrowsing.enabled", false);
+// Privacy & Security>Security>... "Block dangerous and deceptive content"
+// https://www.wikiwand.com/en/Google_Safe_Browsing#/Privacy
+// https://ashkansoltani.org/2012/02/25/cookies-from-nowhere
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
+
+// PREF: Disable Google Safe Browsing checking downloads local + remote, master switch
+// Privacy & Security>Security>... "Block dangerous downloads"
+user_pref("browser.safebrowsing.downloads.enabled", false);
+
+// PREF: Disable Google Safe Browsing checks for downloads (remote)
+// To verify the safety of certain executable files, Firefox may submit some information about the
+// file, including the name, origin, size and a cryptographic hash of the contents, to the Google
+// Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
+user_pref("browser.safebrowsing.downloads.remote.enabled", false);
+user_pref("browser.safebrowsing.downloads.remote.url", "");
+
+// PREF: Disable Google Safe Browsing checks for unwanted software
+// Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
+user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
+user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+
+// PREF: Disable 'ignore this warning' on Google Safe Browsing warnings
+// If clicked, it bypasses the block for that session. This is a means for admins to enforce SB.
+// https://bugzilla.mozilla.org/1226490
+// user_pref("browser.safebrowsing.allowOverride", false);
+// user_pref("browser.safebrowsing.blockedURIs.enabled", true);
+
+/******************************************************************************
+ * SECTION: MOZILLA                                                   *
+******************************************************************************/
 
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
 // user_pref("permissions.default.geo", 0);
@@ -488,16 +499,16 @@ user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/
 // PREF: Disable logging geolocation to the console
 user_pref("geo.provider.network.logging.enabled", false);
 
-/******************************************************************************
- * SECTION: MOZILLA                                                   *
-******************************************************************************/
-
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
 // This includes updates for "revoked certificates".
 // https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/
 // https://trac.torproject.org/projects/tor/ticket/16931
 user_pref("extensions.blocklist.enabled", true);
 user_pref("extensions.webextensions.tabhide.enabled", false);
+
+/******************************************************************************
+ * SECTION: TELEMETRY                                                   *
+******************************************************************************/
 
 // PREF: Disable new data submission, master kill switch
 // If disabled, no policy is shown or upload takes place, ever.
@@ -511,7 +522,13 @@ user_pref("datareporting.healthreport.uploadEnabled", false);
 // Currently blocked by 'datareporting.healthreport.uploadEnabled'
 user_pref("browser.ping-centre.telemetry", false);
 
-// PREF: Disable all the various Mozilla telemetry, studies, etc.
+// PREF: Disable software that continually checks what default browser you are using
+user_pref("default-browser-agent.enabled", false);
+
+// PREF: Disable Mozilla performing studies
+user_pref("app.shield.optoutstudies.enabled", false);
+
+// PREF: Disable all the various Mozilla telemetry
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 user_pref("toolkit.telemetry.unified", false);
@@ -525,10 +542,10 @@ user_pref("toolkit.telemetry.bhrPing.enabled", false);
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 user_pref("toolkit.telemetry.coverage.opt-out", true);
 user_pref("toolkit.coverage.endpoint.base", "");
-user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("browser.discovery.enabled", false);
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
-user_pref("default-browser-agent.enabled", false);
+user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+user_pref("browser.newtabpage.activity-stream.telemetry", false);
