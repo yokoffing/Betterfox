@@ -9,9 +9,9 @@
  *
  * [1] If you do NOT have a firewall or DNS-filtering for dangerous and
  * deceptive content, then delete all prefs related to Google Safe Browsing.
- * Trading security for a little bit of privacy is worth it.
+ * Trading a little bit of privacy for security is worth it.
  *
- * [2]+[3] If you use these native features of Firefox, please remove the
+ * [2], [3] If you use these native features of Firefox, please remove the
  * prefs as instructed below.
  *
  * If you make changes to your about:config while the program is running, the
@@ -161,8 +161,8 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 /** GOOGLE SAFE BROWSING ***/
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.url", "");
-/* NOTE: Remove everything below this line if you use this feature */
 /* WARNING: Be sure to have alternate security measures if you disable Safe Browsing! */
+/* NOTE: Remove everything below this line if you use this feature */
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
 user_pref("browser.safebrowsing.downloads.enabled", false);
