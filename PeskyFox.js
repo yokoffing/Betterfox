@@ -42,6 +42,9 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 // PREF: Disable Firefox accounts
 user_pref("identity.fxaccounts.enabled", false);
 
+// PREF: Disable about:welcome page
+user_pref("browser.aboutwelcome.enabled", false);
+
 // PREF: Disable Extension Recommendations (CFR: "Contextual Feature Recommender")
 // https://support.mozilla.org/en-US/kb/extension-recommendations
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
@@ -78,6 +81,8 @@ user_pref("browser.startup.page", 3);
 // user_pref("browser.startup.page", "about:home");
 
 // PREF: Disable Activity Stream Top Stories, Pocket-based and/or sponsored content
+user_pref("browser.library.activity-stream.enabled", false);
+user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
