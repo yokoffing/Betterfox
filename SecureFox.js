@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 01 February 2021                                                *
+ * version: 07 February 2021                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -24,6 +24,7 @@
 // Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
 // been interacted with in the last 30 days.
 // https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
+user_pref("browser.contentblocking.category", "custom");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true); /* default */
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); /* default */
@@ -355,6 +356,9 @@ user_pref("signon.storeWhenAutocompleteOff", false);
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
 user_pref("signon.formlessCapture.enabled", false);
 
+// PREF: Disable Firefox Monitor
+user_pref("extensions.fxmonitor.enabled", false);
+
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
 ****************************************************************************/
@@ -453,6 +457,10 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // I leave this off because it has unintended consequecnes when copy+paste links with underscores.
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1320061
 // user_pref("browser.urlbar.decodeURLsOnCopy", true);
+
+// PREF: Number of usages of the web console.
+// If this is less than 5, then pasting code into the web console is disabled
+// user_pref("devtools.selfxss.count", 5);
 
 /******************************************************************************
  * SECTION: GOOGLE                                                            *
