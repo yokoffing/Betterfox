@@ -11,30 +11,36 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: 01 February 2021                                                *
+ * version: 07 February 2021                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
 /****************************************************************************
- * SECTION: MOZILLA UI ANNOYANCES                                           *
+ * SECTION: MOZILLA UI                                                      *
 ****************************************************************************/
 
 // PREF: Enable a Light theme for browser and webpage content
-// Test page: https://9to5mac.com/
+// [TEST] https://9to5mac.com/
 // user_pref("ui.systemUsesDarkTheme", 0);
 // user_pref("browser.in-content.dark-mode", false); /* removed? */
 
 // PREF: Enable a Dark theme for browser and webpage content
+// [TEST] https://9to5mac.com/
 // user_pref("ui.systemUsesDarkTheme", 1);
 // user_pref("browser.in-content.dark-mode", true); /* removed? */
 
 // PREF: Allow Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-// PREF: Various annoyances
+// PREF: Mozilla VPN
 user_pref("browser.privatebrowsing.vpnpromourl", "");
+
+// PREF: Disable about:addons' Recommendations pane (uses Google Analytics)
+user_pref("extensions.getAddons.showPane", false); /* hidden */
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
-user_pref("browser.shell.checkDefaultBrowser", false);
+
+// PREF: Disable Firefox accounts
+user_pref("identity.fxaccounts.enabled", false);
 
 // PREF: Disable Extension Recommendations (CFR: "Contextual Feature Recommender")
 // https://support.mozilla.org/en-US/kb/extension-recommendations
@@ -42,9 +48,12 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", fa
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("extensions.getAddons.showPane", false);
 
-// PREF: Decrease delay of security dialog when downloading extensions
+// PREF: Delay of security dialog when downloading extensions
 // default=1000
 user_pref("security.dialog_enable_delay", 0);
+
+// PREF: Remove "addons.mozilla.org" from set of domains that extensions cannot access
+user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
 
 // PREF: Disable Warnings
 user_pref("browser.tabs.warnOnClose", false);
@@ -88,12 +97,12 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited"
 // PREF: Hide "What's New"
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
-// PREF: Logo to always show
+// PREF: Logo to always show?
 // user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", true);
 
 // PREF: Bookmarks Toolbar visibility
 // always, never, or newtab
-// user_pref("browser.toolbars.bookmarks.visibility", "never");
+// user_pref("browser.toolbars.bookmarks.visibility", "newtab");
 
 /******************************************************************************
  * SECTION: POCKET                                                            *
@@ -140,12 +149,13 @@ user_pref("browser.download.hide_plugins_without_extensions", false);
 user_pref("browser.tabs.unloadOnLowMemory", false); /* default */
 
 // PREF: Dropdown options in the URL bar
-// user_pref("browser.urlbar.suggest.bookmarks", true);
+user_pref("browser.urlbar.suggest.bookmarks", true);
 user_pref("browser.urlbar.suggest.engines", false);
 // user_pref("browser.urlbar.suggest.history", true);
 // user_pref("browser.urlbar.suggest.openpage", true);
 // user_pref("browser.urlbar.suggest.searches", true);
-// user_pref("browser.urlbar.suggest.topsites", true);
+// Disable dropdown suggestions with empty query
+user_pref("browser.urlbar.suggest.topsites", false);
 
 // PREF: Unhide parts of the url in the location bar
 // user_pref("browser.urlbar.trimURLs", false);
