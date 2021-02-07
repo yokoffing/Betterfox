@@ -1,7 +1,7 @@
 //
 /* You may copy+paste this file and leave it as it is.
  *
- * HOWEVER, please confirm the following preferences:
+ * However, please confirm the following preferences:
  *
  * [1] Google Safe Browsing (disabled)
  * [2] Firefox Password Manager (disabled)
@@ -11,7 +11,7 @@
  * deceptive content, then delete all prefs related to Google Safe Browsing.
  * Trading a little bit of privacy for security is worth it.
  *
- * [2], [3] If you use these native features of Firefox, please remove the
+ * [2] & [3] If you use these native features of Firefox, please remove the
  * prefs as instructed below.
  *
  * If you make changes to your about:config while the program is running, the
@@ -23,7 +23,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: 01 February 2021                                                *
+ * version: 07 February 2021                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -45,6 +45,7 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 ****************************************************************************/
 
 /** TRACKING PROTECTION ***/
+user_pref("browser.contentblocking.category", "custom");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
@@ -117,7 +118,9 @@ user_pref("security.insecure_field_warning.contextual.enabled", true);
 user_pref("signon.privateBrowsingCapture.enabled", false);
 /* NOTE: Remove everything below this line if you use Firefox's password manager */
 user_pref("signon.management.page.breach-alerts.enabled", false); 
-user_pref("signon.management.page.breachAlertUrl", ""); 
+user_pref("signon.management.page.breachAlertUrl", "");
+user_pref("browser.contentblocking.report.lockwise.enabled", false);
+user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
 user_pref("signon.rememberSignons", false);
 user_pref("signon.rememberSignons.visibilityToggle", false);
 user_pref("signon.schemeUpgrades", false);
@@ -134,6 +137,7 @@ user_pref("signon.autofillForms.autocompleteOff", true);
 user_pref("signon.showAutoCompleteOrigins", false);
 user_pref("signon.storeWhenAutocompleteOff", false);
 user_pref("signon.formlessCapture.enabled", false);
+user_pref("extensions.fxmonitor.enabled", false);
 
 /** ADDRESS + CREDIT CARD MANAGER ***/
 /* NOTE: Remove everything below this line if you use this feature */
@@ -198,20 +202,27 @@ user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+user_pref("browser.newtabpage.activity-stream.telemetry", false);
+user_pref("extensions.abuseReport.enabled", false);
+user_pref("corroborator.enabled", false)
 
 /****************************************************************************
  * SECTION: PESKYFOX                                                        *
 ****************************************************************************/
 
-/** MOZILLA UI ANNOYANCES ***/
+/** MOZILLA UI ***/
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.privatebrowsing.vpnpromourl", "");
+user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 user_pref("browser.shell.checkDefaultBrowser", false);
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); 
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); 
-user_pref("extensions.getAddons.showPane", false);
+user_pref("identity.fxaccounts.enabled", false);
+user_pref("browser.aboutwelcome.enabled", false);
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("security.dialog_enable_delay", 0);
+user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
 
 /** WARNINGS ***/
 user_pref("browser.tabs.warnOnClose", false);
@@ -227,8 +238,8 @@ user_pref("full-screen-api.warning.timeout", 0);
 
 /** NEW TAB PAGE ***/
 user_pref("browser.startup.page", 3);
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+user_pref("browser.library.activity-stream.enabled", false);
+user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
@@ -254,7 +265,9 @@ user_pref("browser.download.hide_plugins_without_extensions", false);
 
 /** VARIOUS ***/
 user_pref("browser.tabs.unloadOnLowMemory", false);
+user_pref("browser.urlbar.suggest.bookmarks", true);
 user_pref("browser.urlbar.suggest.engines", false);
+user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("dom.push.enabled", false);
 user_pref("dom.push.userAgentID", "");
@@ -304,11 +317,22 @@ user_pref("privacy.popups.showBrowserMessage", true);
 * user_pref("dom.forms.inputmode", true);
 *
 * // PREF: Cookie isolation changes?
-* // https://bugzilla.mozilla.org/show_bug.cgi?id=1685575
-* // https://hg.mozilla.org/mozilla-central/rev/37acd60f7bcc15481e8ebb231bb2f80fe9fd0a2e
-* // https://www.reddit.com/r/firefox/comments/kzrmsb/enable_dynamic_first_party_isolation/gjtxyje/?context=3
+* // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1685575
+* // [2] https://hg.mozilla.org/mozilla-central/rev/37acd60f7bcc15481e8ebb231bb2f80fe9fd0a2e
+* // [3] https://www.reddit.com/r/firefox/comments/kzrmsb/enable_dynamic_first_party_isolation/gjtxyje/?context=3
 * // user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); /* default */
 * // user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); /* hidden */
+*
+* // PREF: Samesite Cookies
+* // [1] https://www.jardinesoftware.net/2019/10/28/samesite-by-default-in-2020/
+* // [2] https://web.dev/schemeful-samesite/
+* // user_pref("network.cookie.sameSite.laxByDefault", true);
+* // user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+* // user_pref("network.cookie.sameSite.schemeful", false);
+*
+* // PREF: Enable theme for PDF viewer
+* // user_pref("pdfjs.viewerCssTheme", 1); /* light theme */
+* // user_pref("pdfjs.viewerCssTheme", 2); /* dark theme */
 *
 **/
 
@@ -321,15 +345,8 @@ user_pref("privacy.popups.showBrowserMessage", true);
 * // user_pref("browser.translation.detectLanguage", true);
 *
 * // PREF: Enable QUIC protocol / HTTP3
-* // [!] WARNING: Very experimental!
-* // https://quic.rocks
+* // [1] https://quic.rocks
 * // user_pref("network.http.http3.enabled", true);
-*
-* // PREF: Samesite Cookies (defaults)
-* // https://www.jardinesoftware.net/2019/10/28/samesite-by-default-in-2020/
-* // user_pref("network.cookie.sameSite.laxByDefault", true);
-* // user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-* // user_pref("network.cookie.sameSite.schemeful", true);
 *
 * // PREF: Evolution of ESNI for DNS-over-HTTPS
 * // user_pref("network.dns.echconfig.enabled", true);
@@ -338,9 +355,11 @@ user_pref("privacy.popups.showBrowserMessage", true);
 * // PREF: Proton UI Redesign
 * // user_pref("browser.proton.enabled", true);
 * // user_pref("browser.proton.tabs.enabled", true);
-*
-* // PREF: Enables dark theme for PDF if dark theme is enabled. (Enhancements??)
-* // user_pref("pdfjs.viewerCssTheme", true);
+* // user_pref("browser.proton.appmenu.enabled", true);
+* // user_pref("browser.newtabpage.activity-stream.newNewtabExperience.enabled", true);
+* 
+* // PREF: Microphone and camera kill switch
+* // user_pref("privacy.webrtc.globalMuteToggles", true);
 *
 **/
 
