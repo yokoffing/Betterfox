@@ -280,8 +280,8 @@ user_pref("dom.security.https_only_mode.upgrade_local", true);
 
 // PREF: Always use the DNS-over-HTTPS (DoH) provider
 // Mozilla uses Cloudfare by default. NextDNS is also an option.
-// https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
-// https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
+// [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
+// [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
 user_pref("network.trr.mode", 3);
 user_pref("network.trr.send_user-agent_headers", false); /* default */
@@ -314,11 +314,13 @@ user_pref("security.insecure_field_warning.contextual.enabled", true);
 // Disable capturing credentials in private browsing
 user_pref("signon.privateBrowsingCapture.enabled", false);
 
-// PREF: Disable about:logins (Firefox Lockwise)
-// https://lockwise.firefox.com/
-// https://support.mozilla.org/en-US/kb/firefox-lockwise-managing-account-data
+// PREF: Disable Firefox Lockwise (about:logins)
+// [1] https://lockwise.firefox.com/
+// [2] https://support.mozilla.org/en-US/kb/firefox-lockwise-managing-account-data
 user_pref("signon.management.page.breach-alerts.enabled", false); 
-user_pref("signon.management.page.breachAlertUrl", ""); 
+user_pref("signon.management.page.breachAlertUrl", "");
+user_pref("browser.contentblocking.report.lockwise.enabled", false);
+user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
 
 // PREF: Disable password manager
 // NOTE” This does not clear any passwords already saved
@@ -536,7 +538,7 @@ user_pref("default-browser-agent.enabled", false);
 // PREF: Disable Mozilla performing studies
 user_pref("app.shield.optoutstudies.enabled", false);
 
-// PREF: Disable all the various Mozilla telemetry
+// PREF: Disable all the various Mozilla telemetry, studies, reports, etc.
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 user_pref("toolkit.telemetry.unified", false);
@@ -557,3 +559,5 @@ user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
+user_pref("extensions.abuseReport.enabled", false);
+user_pref("corroborator.enabled", false)
