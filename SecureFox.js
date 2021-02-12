@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 07 February 2021                                                *
+ * version: 12 February 2021                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -23,7 +23,7 @@
 // Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
 // Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
 // been interacted with in the last 30 days.
-// https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
+// [1] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
 user_pref("browser.contentblocking.category", "custom");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true); /* default */
@@ -34,7 +34,7 @@ user_pref("privacy.socialtracking.block_cookies.enabled", true); /* default */
 // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false);
 
 // PREF: Allow embedded tweets and Instagram posts to load in articles.
-// https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
+// [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
 user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); /* hidden */
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); /* hidden */
 
@@ -44,7 +44,7 @@ user_pref("browser.send_pings", false);
 user_pref("browser.send_pings.require_same_host", true);
 
 // PREF: Disable sending additional analytics to web servers
-// https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
+// [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
 user_pref("beacon.enabled", false);
 
 // PREF: Disable battery status tracking
@@ -52,8 +52,8 @@ user_pref("dom.battery.enabled", false);
 
 // PREF: CRLite
 // This will reduce the number of times an OCSP server needs to be contacted and therefore increase privacy.
-// https://blog.mozilla.org/security/2020/01/09/crlite-part-2-end-to-end-design/
-// https://github.com/arkenfox/user.js/issues/1065
+// [1] https://blog.mozilla.org/security/2020/01/09/crlite-part-2-end-to-end-design/
+// [2] https://github.com/arkenfox/user.js/issues/1065
 user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 
@@ -65,8 +65,8 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 // A more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
 // context. dFPI partitions user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
 // compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1625228
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1549587
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1625228
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1549587
 // 5=block cross site and social media trackers, and isolate remaining cookies (Dynamic First Party Isolation)
 user_pref("network.cookie.cookieBehavior", 5);
 
@@ -83,17 +83,17 @@ user_pref("network.cookie.cookieBehavior", 5);
 // PREF: Redirect tracking prevention + Purge site data of sites associated with tracking cookies automatically
 // All storage is cleared (more or less) daily from origins that are known trackers and that
 // haven’t received a top-level user interaction (including scroll) within the last 45 days.
-// https://www.ghacks.net/2020/08/06/how-to-enable-redirect-tracking-in-firefox/
-// https://www.cookiestatus.com/firefox/#other-first-party-storage
-// https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
-// https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
-// https://github.com/arkenfox/user.js/issues/1089
+// [1] https://www.ghacks.net/2020/08/06/how-to-enable-redirect-tracking-in-firefox/
+// [2] https://www.cookiestatus.com/firefox/#other-first-party-storage
+// [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
+// [4] https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
+// [5] https://github.com/arkenfox/user.js/issues/1089
 user_pref("privacy.purge_trackers.enabled", true);
 // user_pref("privacy.purge_trackers.logging.level", "All");  /* ??? */
 // user_pref("privacy.purge_trackers.consider_entity_list", false);  /* ??? */
 
 // PREF: Isolate cache per site + Disable offline cache
-// https://github.com/arkenfox/user.js/issues/1055
+// [1] https://github.com/arkenfox/user.js/issues/1055
 user_pref("browser.cache.cache_isolation", true);
 user_pref("browser.cache.disk.enable", true); /* default */
 user_pref("browser.cache.offline.enable", true); /* default */
@@ -102,12 +102,12 @@ user_pref("browser.cache.offline.storage.enable", false);
 // PREF: Network Partitioning
 // Network Partitioning will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
 // on a per-website basis rather than together in the same pool.
-// https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
-// https://github.com/privacycg/storage-partitioning
+// [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
+// [2] https://github.com/privacycg/storage-partitioning
 user_pref("privacy.partition.network_state", true);
 
 // PREF: Enable Local Storage Next Generation (LSNG) (DOMStorage) 
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 user_pref("dom.storage.next_gen", true);
 
 /******************************************************************************
@@ -146,7 +146,7 @@ user_pref("privacy.sanitize.timeSpan", 0);
 // NOTE: You can set uBlock Origin to do "Disable pre-fetching" in its settings. This overrides some settings below.
 
 // PREF: DNS prefetching
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 user_pref("network.dns.disablePrefetch", true);
 // As a security measure, prefetching of embedded link hostnames is not done from documents loaded over HTTPS.
 user_pref("network.dns.disablePrefetchFromHTTPS", true); /* default */
@@ -154,42 +154,42 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true); /* default */
 // PREF: Preload the autocomplete URL in the address bar.
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
 // NOTE: Firefox will do the server DNS lookup and TCP and TLS handshake but not start sending or receiving HTTP data.
-// https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
+// [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
 // PREF: Link prefetching
 // Along with the referral and URL-following implications, prefetching will generally cause the cookies of the prefetched
 // site to be accessed. (For example, if you google Amazon, the Google results page will prefetch www.amazon.com, causing
 // Amazon cookies to be sent back and forth.)
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#Privacy_implications
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#Privacy_implications
 user_pref("network.prefetch-next", false);
 
 // PREF: Link-mouseover opening connection to linked server.
 // TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
-// https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
-// https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
+// [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
+// [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
 user_pref("network.http.speculative-parallel-limit", 6); /* default */
 
 // PREF: Enable <link rel=preload>.
 // Developer hints to the browser to preload some resources with a higher priority and in advance.
 // Helps the web page to render and get into the stable and interactive state faster.
-// https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
+// [1] https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
 user_pref("network.preload", true); /* default */
 
 // PREF: Network predictor
 // Uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
 // so that the next time the user mouseovers a link to that webpage, this history can be used to predict what resources will
 // be needed rather than wait for the document to link those resources.
-// https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
+// [1] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
 user_pref("network.predictor.enabled", true); /* default */
 user_pref("network.predictor.enable-hover-on-ssl", true);
 user_pref("network.predictor.enable-prefetch", false); /* default */
 
-// PREF: Disable new tab tile ads and preload
-// https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
-// https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
-// https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
+// PREF: New tab tile ads and preload
+// [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
+// [2] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
+// [3] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
 user_pref("browser.newtab.preload", true); /* default */
 
 /******************************************************************************
@@ -206,13 +206,13 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false);
 
-// PREF: Turn off all URL bar suggestions (bookmarks, history, open tabs)
+// PREF: URL bar suggestions (bookmarks, history, open tabs)
 // user_pref("browser.urlbar.suggest.searches", false);
 // user_pref("browser.urlbar.suggest.history", false);
 // user_pref("browser.urlbar.suggest.bookmark", false);
 // user_pref("browser.urlbar.suggest.openpage", false);
 
-// PREF: Disable location bar dropdown
+// PREF: Location bar dropdown
 // This value controls the total number of entries to appear in the location bar dropdown.
 // NOTE: Items (bookmarks/history/openpages) with a high "frequency"/"bonus" will always
 // be displayed (no we do not know how these are calculated or what the threshold is),
@@ -222,7 +222,7 @@ user_pref("browser.search.suggest.enabled.private", false);
 // default=10, disable=0
 // user_pref("browser.urlbar.maxRichResults", 0);
 
-// PREF: Disable location bar domain guessing.
+// PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
 // request (e.g. by adding www or .com). This is inconsistent use (e.g. FQDNs), does not work
 // via Proxy Servers (different error), is a flawed use of DNS (TLDs: why treat .com
@@ -230,9 +230,8 @@ user_pref("browser.search.suggest.enabled.private", false);
 // intend to), can leak sensitive data (e.g. query strings: e.g. Princeton attack),
 // and is a security risk (e.g. common typos & malicious sites set up to exploit this).
 user_pref("browser.fixup.alternate.enabled", false);
-user_pref("browser.fixup.typo.scheme", false);
 
-// PREF: "Not Secure" text on HTTP sites.
+// PREF: "Not Secure" text in the URL bar on HTTP sites
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
 
@@ -268,7 +267,7 @@ user_pref("dom.security.https_only_mode_ever_enabled", true);
 // When attempting to upgrade, if the server doesn't respond within 3 seconds, Firefox
 // sends HTTP requests in order to check if the server supports HTTPS or not.
 // This is done to avoid waiting for a timeout which takes 90 seconds.
-// https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 // PREF: Enable HTTPS-Only mode for local resources
@@ -278,7 +277,7 @@ user_pref("dom.security.https_only_mode.upgrade_local", true);
  * SECTION: DNS-over-HTTPS                                                    *
 ******************************************************************************/
 
-// PREF: Always use the DNS-over-HTTPS (DoH) provider
+// PREF: DNS-over-HTTPS (DoH) provider
 // Mozilla uses Cloudfare by default. NextDNS is also an option.
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
@@ -307,7 +306,7 @@ user_pref("network.trr.custom_uri", "");
 ******************************************************************************/
 
 // PREF: Disable autofilling saved passwords on HTTP pages and show warning
-// https://bugzilla.mozilla.org/buglist.cgi?bug_id=1217152,1319119
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1217152,1319119
 user_pref("signon.autofillForms.http", false);
 user_pref("security.insecure_field_warning.contextual.enabled", true);
 
@@ -332,13 +331,13 @@ user_pref("signon.autologin.proxy", false);
 user_pref("signon.debug", false);
 
 // PREF: Disable Firefox built-in password generator
-// https://wiki.mozilla.org/Toolkit:Password_Manager/Password_Generation
+// [1] https://wiki.mozilla.org/Toolkit:Password_Manager/Password_Generation
 // NOTE: Create passwords with random characters and numbers
 user_pref("signon.generation.available", false);
 user_pref("signon.generation.enabled", false);
 
 // PREF: Disable Firefox import password from signons.sqlite file
-// https://support.mozilla.org/en-US/questions/1020818
+// [1] https://support.mozilla.org/en-US/questions/1020818
 user_pref("signon.management.page.fileImport.enabled", false);
 user_pref("signon.importedFromSqlite", false);
 user_pref("signon.recipes.path", "");
@@ -355,7 +354,7 @@ user_pref("signon.showAutoCompleteOrigins", false);
 user_pref("signon.storeWhenAutocompleteOff", false);
 
 // PREF: Disable formless login capture
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
 user_pref("signon.formlessCapture.enabled", false);
 
 // PREF: Disable Firefox Monitor
@@ -367,8 +366,8 @@ user_pref("extensions.fxmonitor.enabled", false);
 
 // PREF: Disable Form Autofill
 // NOTE: stored data is not secure (uses a JSON file)
-// https://wiki.mozilla.org/Firefox/Features/Form_Autofill
-// https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
+// [1] https://wiki.mozilla.org/Firefox/Features/Form_Autofill
+// [2] https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.available", "off");
 user_pref("extensions.formautofill.creditCards.available", false);
@@ -385,11 +384,11 @@ user_pref("browser.formfill.enable", false);
 // 0=don't allow sub-resources to open HTTP authentication credentials dialogs
 // 1=don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
 // 2=allow sub-resources to open HTTP authentication credentials dialogs (default)
-// https://www.fxsitecompat.com/en-CA/docs/2015/http-auth-dialog-can-no-longer-be-triggered-by-cross-origin-resources/
+// [1] https://www.fxsitecompat.com/en-CA/docs/2015/http-auth-dialog-can-no-longer-be-triggered-by-cross-origin-resources/
 user_pref("network.auth.subresource-http-auth-allow", 1);
 
 // PREF: Block insecure active content (scripts) on HTTPS pages.
-// https://trac.torproject.org/projects/tor/ticket/21323
+// [1] https://trac.torproject.org/projects/tor/ticket/21323
 user_pref("security.mixed_content.block_active_content", true); /* default */
 
 // PREF: Block insecure passive content (images) on HTTPS pages.
@@ -399,22 +398,22 @@ user_pref("security.mixed_content.block_active_content", true); /* default */
 user_pref("security.mixed_content.upgrade_display_content", true);
 
 // PREF: Block unencrypted requests from Flash on encrypted pages to mitigate MitM attacks
-// https://bugzilla.mozilla.org/1190623
+// [1] https://bugzilla.mozilla.org/1190623
 user_pref("security.mixed_content.block_object_subrequest", true);
 
 // PREF: Block insecure downloads from secure sites
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
 user_pref("dom.block_download_insecure", true);
 
 // PREF: Disable bypassing 3rd party extension install prompts
-// https://bugzilla.mozilla.org/buglist.cgi?bug_id=1659530,1681331
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1659530,1681331
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 
 // PREF: Disable permissions delegation
 // Currently applies to cross-origin geolocation, camera, mic and screen-sharing
 // permissions, and fullscreen requests. Disabling delegation means any prompts
 // for these will show/use their correct 3rd party origin
-// https://groups.google.com/forum/#!topic/mozilla.dev.platform/BdFOMAuCGW8/discussion
+// [1] https://groups.google.com/forum/#!topic/mozilla.dev.platform/BdFOMAuCGW8/discussion
 user_pref("permissions.delegation.enabled", false);
 
 // PREF: Enforce TLS 1.0 and 1.1 downgrades as session only
@@ -432,7 +431,7 @@ user_pref("privacy.window.name.update.enabled", true);
 
 // PREF: Downgrade Cross-Origin (Third-Party) Referers
 // CROSS ORIGIN: control when to send a referer
-// https://github.com/arkenfox/user.js/issues/1077
+// [1] https://github.com/arkenfox/user.js/issues/1077
 // 0=always (default), 1=only if base domains match, 2=only if hosts match
 user_pref("network.http.referer.XOriginPolicy", 0);
 // Control the amount of information to send.
@@ -452,12 +451,12 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 // PREF: Enable FTP protocol
 // Firefox redirects any attempt to load a FTP resource to the default search engine if the FTP protocol is disabled.
-// https://www.ghacks.net/2018/02/20/firefox-60-with-new-preference-to-disable-ftp/
+// [1] https://www.ghacks.net/2018/02/20/firefox-60-with-new-preference-to-disable-ftp/
 // user_pref("network.ftp.enabled", true);
 
 // PREF: Decode URLs in other languages
 // I leave this off because it has unintended consequecnes when copy+paste links with underscores.
-// https://bugzilla.mozilla.org/show_bug.cgi?id=1320061
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1320061
 // user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
 // PREF: Number of usages of the web console.
@@ -472,8 +471,8 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // WARNING: Be sure to have alternate security measures if you disable Safe Browsing.
 // Increased privacy away from Google, but less protection against threats.
 // Privacy & Security>Security>... "Block dangerous and deceptive content"
-// https://www.wikiwand.com/en/Google_Safe_Browsing#/Privacy
-// https://ashkansoltani.org/2012/02/25/cookies-from-nowhere
+// [1] https://www.wikiwand.com/en/Google_Safe_Browsing#/Privacy
+// [2] https://ashkansoltani.org/2012/02/25/cookies-from-nowhere
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
 
@@ -495,7 +494,7 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
 // PREF: Disable 'ignore this warning' on Google Safe Browsing warnings
 // If clicked, it bypasses the block for that session. This is a means for admins to enforce SB.
-// https://bugzilla.mozilla.org/1226490
+// [1] https://bugzilla.mozilla.org/1226490
 // user_pref("browser.safebrowsing.allowOverride", false);
 // user_pref("browser.safebrowsing.blockedURIs.enabled", true);
 
@@ -511,8 +510,8 @@ user_pref("geo.provider.network.logging.enabled", false);
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
 // This includes updates for "revoked certificates".
-// https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/
-// https://trac.torproject.org/projects/tor/ticket/16931
+// [1] https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/
+// [2] https://trac.torproject.org/projects/tor/ticket/16931
 user_pref("extensions.blocklist.enabled", true);
 user_pref("extensions.webextensions.tabhide.enabled", false);
 
