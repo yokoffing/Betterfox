@@ -23,7 +23,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: 07 February 2021                                                *
+ * version: 15 February 2021                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -79,6 +79,7 @@ user_pref("privacy.cpd.cookies", true);
 user_pref("privacy.cpd.sessions", true);
 user_pref("privacy.cpd.siteSettings", false);
 user_pref("privacy.sanitize.timeSpan", 0);
+user_pref("privacy.history.custom", true);
 
 /*** PRELOADING ***/
 user_pref("network.dns.disablePrefetch", true);
@@ -180,32 +181,34 @@ user_pref("extensions.blocklist.enabled", true);
 user_pref("extensions.webextensions.tabhide.enabled", false);
 
 /** TELEMETRY ***/
-user_pref("datareporting.policy.dataSubmissionEnabled", false);
-user_pref("datareporting.healthreport.uploadEnabled", false);
-user_pref("browser.ping-centre.telemetry", false);
-user_pref("default-browser-agent.enabled", false);
-user_pref("app.shield.optoutstudies.enabled", false);
-user_pref("app.normandy.enabled", false);
-user_pref("app.normandy.api_url", "");
-user_pref("toolkit.telemetry.unified", false);
-user_pref("toolkit.telemetry.enabled", false);
-user_pref("toolkit.telemetry.archive.enabled", false);
-user_pref("toolkit.telemetry.newProfilePing.enabled", false);
-user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
-user_pref("toolkit.telemetry.updatePing.enabled", false);
-user_pref("toolkit.telemetry.bhrPing.enabled", false);
-user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
-user_pref("toolkit.telemetry.coverage.opt-out", true);
-user_pref("toolkit.coverage.endpoint.base", "");
-user_pref("browser.discovery.enabled", false);
-user_pref("breakpad.reportURL", "");
-user_pref("browser.tabs.crashReporting.sendReport", false);
-user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
-user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
-user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.telemetry", false);
-user_pref("extensions.abuseReport.enabled", false);
-user_pref("corroborator.enabled", false)
+pref("toolkit.telemetry.unified", false);
+pref("toolkit.telemetry.enabled", false);
+pref("toolkit.telemetry.server", "data:,");
+pref("toolkit.telemetry.archive.enabled", false);
+pref("toolkit.telemetry.newProfilePing.enabled", false);
+pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+pref("toolkit.telemetry.updatePing.enabled", false);
+pref("toolkit.telemetry.bhrPing.enabled", false);
+pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+pref("corroborator.enabled", false);
+pref("toolkit.telemetry.coverage.opt-out", true);
+pref("toolkit.coverage.opt-out", true);
+pref("toolkit.coverage.endpoint.base", "");
+pref("datareporting.healthreport.uploadEnabled", false);
+pref("datareporting.policy.dataSubmissionEnabled", false);
+pref("app.shield.optoutstudies.enabled", false);
+pref("browser.discovery.enabled", false);
+pref("breakpad.reportURL", "");
+pref("browser.tabs.crashReporting.sendReport", false);
+pref("browser.crashReports.unsubmittedCheck.enabled", false);
+pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+pref("default-browser-agent.enabled", false);
+pref("extensions.abuseReport.enabled", false);
+pref("app.normandy.enabled", false);
+pref("app.normandy.api_url", "");
+pref("browser.ping-centre.telemetry", false);
+pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+pref("browser.newtabpage.activity-stream.telemetry", false);
 
 /****************************************************************************
  * SECTION: PESKYFOX                                                        *
@@ -233,8 +236,8 @@ user_pref("browser.aboutConfig.showWarning", false);
 /** FULLSCREEN ***/
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
-user_pref("full-screen-api.warning.delay", 0);
-user_pref("full-screen-api.warning.timeout", 0);
+user_pref("full-screen-api.warning.delay", -1);
+user_pref("full-screen-api.warning.timeout", -1);
 
 /** NEW TAB PAGE ***/
 user_pref("browser.startup.page", 3);
@@ -308,6 +311,8 @@ user_pref("privacy.popups.showBrowserMessage", true);
 ****************************************************************************/
 /**
 *
+* You can view experimental prefs @ about:support
+*
 * user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 * user_pref("layout.css.focus-visible.enabled", true);
 * user_pref("layout.css.grid-template-masonry-value.enabled", true);
@@ -328,7 +333,9 @@ user_pref("privacy.popups.showBrowserMessage", true);
 * // [2] https://web.dev/schemeful-samesite/
 * // user_pref("network.cookie.sameSite.laxByDefault", true);
 * // user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-* // user_pref("network.cookie.sameSite.schemeful", false);
+* // Treat cookies from the same domain, but with different schemes (e.g. http://example.com and https://example.com)
+* // as cross-site instead of same-site. Improves security, but potentially introduces breakage.
+* // user_pref("network.cookie.sameSite.schemeful", true);
 *
 * // PREF: Enable theme for PDF viewer
 * // user_pref("pdfjs.viewerCssTheme", 1); /* light theme */
@@ -357,6 +364,9 @@ user_pref("privacy.popups.showBrowserMessage", true);
 * // user_pref("browser.proton.tabs.enabled", true);
 * // user_pref("browser.proton.appmenu.enabled", true);
 * // user_pref("browser.newtabpage.activity-stream.newNewtabExperience.enabled", true);
+* // user_pref("browser.proton.toolbar.enabled", true);
+* // user_pref("browser.proton.toolbar.version", 1);
+* // user_pref("browser.proton.contextmenus.enabled", true); // WINDOWS-ONLY
 * 
 * // PREF: Microphone and camera kill switch
 * // user_pref("privacy.webrtc.globalMuteToggles", true);
