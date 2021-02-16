@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 12 February 2021                                                *
+ * version: 15 February 2021                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -92,9 +92,11 @@ user_pref("privacy.purge_trackers.enabled", true);
 // user_pref("privacy.purge_trackers.logging.level", "All");  /* ??? */
 // user_pref("privacy.purge_trackers.consider_entity_list", false);  /* ??? */
 
-// PREF: Isolate cache per site + Disable offline cache
-// [1] https://github.com/arkenfox/user.js/issues/1055
+// PREF: Isolate cache per site
 user_pref("browser.cache.cache_isolation", true);
+
+// PREF: Enforce no offline cache storage (appCache)
+// [1] https://github.com/arkenfox/user.js/issues/1055
 user_pref("browser.cache.disk.enable", true); /* default */
 user_pref("browser.cache.offline.enable", true); /* default */
 user_pref("browser.cache.offline.storage.enable", false);
@@ -135,6 +137,9 @@ user_pref("privacy.cpd.siteSettings", false); // Site Preferences
 // The values 5 + 6 are not listed in the dropdown, which will display a
 // blank value if they are used, but they do work as advertised.
 user_pref("privacy.sanitize.timeSpan", 0);
+
+// PREF: Set History section to show all options
+user_pref("privacy.history.custom", true);
 
 /******************************************************************************
  * SECTION: PRELOADING/PREFETCHING                              *
@@ -519,44 +524,76 @@ user_pref("extensions.webextensions.tabhide.enabled", false);
  * SECTION: TELEMETRY                                                   *
 ******************************************************************************/
 
-// PREF: Disable new data submission, master kill switch
-// If disabled, no policy is shown or upload takes place, ever.
-// https://bugzilla.mozilla.org/1195552 ***/
-user_pref("datareporting.policy.dataSubmissionEnabled", false);
-
-// PREF: Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data.
-user_pref("datareporting.healthreport.uploadEnabled", false);
-
-// PREF: Disable PingCentre telemetry (used in several System Add-ons).
-// Currently blocked by 'datareporting.healthreport.uploadEnabled'
-user_pref("browser.ping-centre.telemetry", false);
-
-// PREF: Disable software that continually checks what default browser you are using
-user_pref("default-browser-agent.enabled", false);
-
-// PREF: Disable Mozilla performing studies
-user_pref("app.shield.optoutstudies.enabled", false);
-
 // PREF: Disable all the various Mozilla telemetry, studies, reports, etc.
-user_pref("app.normandy.enabled", false);
-user_pref("app.normandy.api_url", "");
-user_pref("toolkit.telemetry.unified", false);
-user_pref("toolkit.telemetry.enabled", false);
-user_pref("toolkit.telemetry.server", "data:,");
-user_pref("toolkit.telemetry.archive.enabled", false);
-user_pref("toolkit.telemetry.newProfilePing.enabled", false);
-user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
-user_pref("toolkit.telemetry.updatePing.enabled", false);
-user_pref("toolkit.telemetry.bhrPing.enabled", false);
-user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
-user_pref("toolkit.telemetry.coverage.opt-out", true);
-user_pref("toolkit.coverage.endpoint.base", "");
-user_pref("browser.discovery.enabled", false);
-user_pref("breakpad.reportURL", "");
-user_pref("browser.tabs.crashReporting.sendReport", false);
-user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
-user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
-user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.telemetry", false);
-user_pref("extensions.abuseReport.enabled", false);
-user_pref("corroborator.enabled", false)
+// Telemtry
+pref("toolkit.telemetry.unified", false);
+pref("toolkit.telemetry.enabled", false);
+pref("toolkit.telemetry.server", "data:,");
+pref("toolkit.telemetry.archive.enabled", false);
+pref("toolkit.telemetry.newProfilePing.enabled", false);
+pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+pref("toolkit.telemetry.updatePing.enabled", false);
+pref("toolkit.telemetry.bhrPing.enabled", false);
+pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+
+// Corroborator
+pref("corroborator.enabled", false);
+
+// Telemetry Coverage
+pref("toolkit.telemetry.coverage.opt-out", true);
+pref("toolkit.coverage.opt-out", true);
+pref("toolkit.coverage.endpoint.base", "");
+
+// Health Reports
+// [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data.
+pref("datareporting.healthreport.uploadEnabled", false);
+
+// New data submission, master kill switch
+// If disabled, no policy is shown or upload takes place, ever
+// [1] https://bugzilla.mozilla.org/1195552
+pref("datareporting.policy.dataSubmissionEnabled", false);
+
+// Studies
+// [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to install and run studies
+pref("app.shield.optoutstudies.enabled", false);
+
+// Personalized Extension Recommendations in about:addons and AMO
+// [NOTE] This pref has no effect when Health Reports are disabled.
+// [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to make personalized extension recommendations
+pref("browser.discovery.enabled", false);
+
+// Crash Reports
+pref("breakpad.reportURL", "");
+pref("browser.tabs.crashReporting.sendReport", false);
+pref("browser.crashReports.unsubmittedCheck.enabled", false);
+// backlogged crash reports
+pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+
+// disable Captive Portal detection
+// [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy
+// [2] https://wiki.mozilla.org/Necko/CaptivePortal
+// user_pref("captivedetect.canonicalURL", "");
+// user_pref("network.captive-portal-service.enabled", false);
+
+// disable Network Connectivity checks
+// [1] https://bugzilla.mozilla.org/1460537
+// user_pref("network.connectivity-service.enabled", false);
+
+// Software that continually reports what default browser you are using
+pref("default-browser-agent.enabled", false);
+
+// Report extensions for abuse
+pref("extensions.abuseReport.enabled", false);
+
+// Normandy/Shield [extensions tracking]
+// Shield is an telemetry system (including Heartbeat) that can also push and test "recipes"
+pref("app.normandy.enabled", false);
+pref("app.normandy.api_url", "");
+
+// disable PingCentre telemetry (used in several System Add-ons)
+// Currently blocked by 'datareporting.healthreport.uploadEnabled'
+pref("browser.ping-centre.telemetry", false);
+
+// disable Activity Stream telemetry 
+pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+pref("browser.newtabpage.activity-stream.telemetry", false);
