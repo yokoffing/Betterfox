@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 15 February 2021                                                *
+ * version: 17 February 2021                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -469,10 +469,17 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // user_pref("devtools.selfxss.count", 5);
 
 /******************************************************************************
- * SECTION: GOOGLE                                                            *
+ * SECTION: GOOGLE SAFE BROWSING (GSB)                                        *
 ******************************************************************************/
 
-// PREF: Disable Google Safe Browsing, master switch
+// PREF: Disable GSB checks for downloads (remote)
+// To verify the safety of certain executable files, Firefox may submit some information about the
+// file, including the name, origin, size and a cryptographic hash of the contents, to the Google
+// Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
+user_pref("browser.safebrowsing.downloads.remote.enabled", false);
+user_pref("browser.safebrowsing.downloads.remote.url", "");
+
+// PREF: Disable GSB, master switch
 // WARNING: Be sure to have alternate security measures if you disable Safe Browsing.
 // Increased privacy away from Google, but less protection against threats.
 // Privacy & Security>Security>... "Block dangerous and deceptive content"
@@ -481,18 +488,11 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
 
-// PREF: Disable Google Safe Browsing checking downloads local + remote, master switch
+// PREF: Prevent GSB from checking downloads local + remote, master switch
 // Privacy & Security>Security>... "Block dangerous downloads"
 user_pref("browser.safebrowsing.downloads.enabled", false);
 
-// PREF: Disable Google Safe Browsing checks for downloads (remote)
-// To verify the safety of certain executable files, Firefox may submit some information about the
-// file, including the name, origin, size and a cryptographic hash of the contents, to the Google
-// Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
-user_pref("browser.safebrowsing.downloads.remote.enabled", false);
-user_pref("browser.safebrowsing.downloads.remote.url", "");
-
-// PREF: Disable Google Safe Browsing checks for unwanted software
+// PREF: Disable GSB checks for unwanted software
 // Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
@@ -502,6 +502,40 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 // [1] https://bugzilla.mozilla.org/1226490
 // user_pref("browser.safebrowsing.allowOverride", false);
 // user_pref("browser.safebrowsing.blockedURIs.enabled", true);
+
+// PREF: Obliterate every trace of GSB from your browser
+// google
+user_pref("browser.safebrowsing.provider.google.advisoryURL", "");
+user_pref("browser.safebrowsing.provider.google.pver", "");
+user_pref("browser.safebrowsing.provider.google.advisoryName", "");
+user_pref("browser.safebrowsing.provider.google.gethashURL", "");
+user_pref("browser.safebrowsing.provider.google.lists", "");
+user_pref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
+user_pref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
+user_pref("browser.safebrowsing.provider.google.reportURL", "");
+user_pref("browser.safebrowsing.provider.google.updateURL", "");
+// google4
+user_pref("browser.safebrowsing.provider.google4.advisoryName", "");
+user_pref("browser.safebrowsing.provider.google4.advisoryURL", "");
+user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
+user_pref("browser.safebrowsing.provider.google4.lists", "");
+user_pref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
+user_pref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
+user_pref("browser.safebrowsing.provider.google4.reportURL", "");
+user_pref("browser.safebrowsing.provider.google4.updateURL", "");
+user_pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false);
+user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
+user_pref("browser.safebrowsing.provider.google4.pver", "");
+// mozilla
+user_pref("browser.safebrowsing.provider.mozilla.gethashURL", "");
+user_pref("browser.safebrowsing.provider.mozilla.lastupdatetime", "");
+user_pref("browser.safebrowsing.provider.mozilla.lists", "");
+user_pref("browser.safebrowsing.provider.mozilla.lists.base", "");
+user_pref("browser.safebrowsing.provider.mozilla.lists.content", "");
+user_pref("browser.safebrowsing.provider.mozilla.nextupdatetime", "");
+user_pref("browser.safebrowsing.provider.mozilla.pver", "");
+user_pref("browser.safebrowsing.provider.mozilla.updateURL", "");
+user_pref("browser.safebrowsing.reportPhishURL", "");
 
 /******************************************************************************
  * SECTION: MOZILLA                                                   *
@@ -519,6 +553,12 @@ user_pref("geo.provider.network.logging.enabled", false);
 // [2] https://trac.torproject.org/projects/tor/ticket/16931
 user_pref("extensions.blocklist.enabled", true);
 user_pref("extensions.webextensions.tabhide.enabled", false);
+
+// PREF: Disable automatic extension updates
+// user_pref("extensions.update.enabled", false);
+// user_pref("extensions.autoupdate.enabled", false);
+// user_pref("extensions.update.url", "");
+// user_pref("extensions.update.background.url", "");
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
@@ -597,3 +637,35 @@ pref("browser.ping-centre.telemetry", false);
 // disable Activity Stream telemetry 
 pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 pref("browser.newtabpage.activity-stream.telemetry", false);
+
+// backend telemetry
+user_pref("app.normandy.first_run", false);
+user_pref("app.normandy.shieldLearnMoreUrl", "");
+user_pref("browser.urlbar.eventTelemetry.enabled", false);
+user_pref("datareporting.healthreport.infoURL", "");
+user_pref("datareporting.policy.currentPolicyVersion", 0);
+user_pref("datareporting.policy.dataSubmissionEnabled", false);
+user_pref("datareporting.policy.dataSubmissionPolicyAcceptedVersion", 0);
+user_pref("datareporting.policy.dataSubmissionPolicyBypassNotification", false);
+user_pref("datareporting.policy.dataSubmissionPolicyNotifiedTime", "");
+user_pref("datareporting.policy.firstRunURL", "");
+user_pref("datareporting.policy.minimumPolicyVersion.channel-beta", 0);
+user_pref("datareporting.policy.minimumPolicyVersion", 0);
+user_pref("privacy.trackingprotection.origin_telemetry.enabled", false);
+user_pref("security.app_menu.recordEventTelemetry", false);
+user_pref("security.certerrors.recordEventTelemetry", false);
+user_pref("security.identitypopup.recordEventTelemetry", false);
+user_pref("security.protectionspopup.recordEventTelemetry", false);
+user_pref("telemetry.origin_telemetry_test_mode.enabled", false);
+user_pref("toolkit.coverage.enabled", false);
+user_pref("toolkit.telemetry.archive.enabled", false);
+user_pref("toolkit.telemetry.cachedClientID", "");
+user_pref("toolkit.telemetry.debugSlowSql", false);
+user_pref("toolkit.telemetry.ecosystemtelemetry.enabled", false); 
+user_pref("toolkit.telemetry.geckoview.streaming", false);
+user_pref("toolkit.telemetry.previousBuildID", "");
+user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
+user_pref("toolkit.telemetry.server_owner", "");
+user_pref("toolkit.telemetry.server", "");
+user_pref("toolkit.telemetry.testing.overrideProductsCheck", false);
+user_pref("toolkit.telemetry.unified", false);
