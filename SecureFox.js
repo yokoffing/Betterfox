@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 15 February 2021                                                *
+ * version: 17 February 2021                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -469,10 +469,17 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // user_pref("devtools.selfxss.count", 5);
 
 /******************************************************************************
- * SECTION: GOOGLE                                                            *
+ * SECTION: GOOGLE SAFE BROWSING (GSB)                                        *
 ******************************************************************************/
 
-// PREF: Disable Google Safe Browsing, master switch
+// PREF: Disable GSB checks for downloads (remote)
+// To verify the safety of certain executable files, Firefox may submit some information about the
+// file, including the name, origin, size and a cryptographic hash of the contents, to the Google
+// Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
+user_pref("browser.safebrowsing.downloads.remote.enabled", false);
+user_pref("browser.safebrowsing.downloads.remote.url", "");
+
+// PREF: Disable GSB, master switch
 // WARNING: Be sure to have alternate security measures if you disable Safe Browsing.
 // Increased privacy away from Google, but less protection against threats.
 // Privacy & Security>Security>... "Block dangerous and deceptive content"
@@ -481,18 +488,11 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
 
-// PREF: Disable Google Safe Browsing checking downloads local + remote, master switch
+// PREF: Prevent GSB from checking downloads local + remote, master switch
 // Privacy & Security>Security>... "Block dangerous downloads"
 user_pref("browser.safebrowsing.downloads.enabled", false);
 
-// PREF: Disable Google Safe Browsing checks for downloads (remote)
-// To verify the safety of certain executable files, Firefox may submit some information about the
-// file, including the name, origin, size and a cryptographic hash of the contents, to the Google
-// Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
-user_pref("browser.safebrowsing.downloads.remote.enabled", false);
-user_pref("browser.safebrowsing.downloads.remote.url", "");
-
-// PREF: Disable Google Safe Browsing checks for unwanted software
+// PREF: Disable GSB checks for unwanted software
 // Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
@@ -502,6 +502,40 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 // [1] https://bugzilla.mozilla.org/1226490
 // user_pref("browser.safebrowsing.allowOverride", false);
 // user_pref("browser.safebrowsing.blockedURIs.enabled", true);
+
+// PREF: Obliterate every trace of GSB from your browser
+// google
+user_pref("browser.safebrowsing.provider.google.advisoryURL", "");
+user_pref("browser.safebrowsing.provider.google.pver", "");
+user_pref("browser.safebrowsing.provider.google.advisoryName", "");
+user_pref("browser.safebrowsing.provider.google.gethashURL", "");
+user_pref("browser.safebrowsing.provider.google.lists", "");
+user_pref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
+user_pref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
+user_pref("browser.safebrowsing.provider.google.reportURL", "");
+user_pref("browser.safebrowsing.provider.google.updateURL", "");
+// google4
+user_pref("browser.safebrowsing.provider.google4.advisoryName", "");
+user_pref("browser.safebrowsing.provider.google4.advisoryURL", "");
+user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
+user_pref("browser.safebrowsing.provider.google4.lists", "");
+user_pref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
+user_pref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
+user_pref("browser.safebrowsing.provider.google4.reportURL", "");
+user_pref("browser.safebrowsing.provider.google4.updateURL", "");
+user_pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false);
+user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
+user_pref("browser.safebrowsing.provider.google4.pver", "");
+// mozilla
+user_pref("browser.safebrowsing.provider.mozilla.gethashURL", "");
+user_pref("browser.safebrowsing.provider.mozilla.lastupdatetime", "");
+user_pref("browser.safebrowsing.provider.mozilla.lists", "");
+user_pref("browser.safebrowsing.provider.mozilla.lists.base", "");
+user_pref("browser.safebrowsing.provider.mozilla.lists.content", "");
+user_pref("browser.safebrowsing.provider.mozilla.nextupdatetime", "");
+user_pref("browser.safebrowsing.provider.mozilla.pver", "");
+user_pref("browser.safebrowsing.provider.mozilla.updateURL", "");
+user_pref("browser.safebrowsing.reportPhishURL", "");
 
 /******************************************************************************
  * SECTION: MOZILLA                                                   *
