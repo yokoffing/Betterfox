@@ -566,48 +566,48 @@ user_pref("extensions.webextensions.tabhide.enabled", false);
 
 // PREF: Disable all the various Mozilla telemetry, studies, reports, etc.
 // Telemtry
-pref("toolkit.telemetry.unified", false);
-pref("toolkit.telemetry.enabled", false);
-pref("toolkit.telemetry.server", "data:,");
-pref("toolkit.telemetry.archive.enabled", false);
-pref("toolkit.telemetry.newProfilePing.enabled", false);
-pref("toolkit.telemetry.shutdownPingSender.enabled", false);
-pref("toolkit.telemetry.updatePing.enabled", false);
-pref("toolkit.telemetry.bhrPing.enabled", false);
-pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+user_pref("toolkit.telemetry.unified", false);
+user_pref("toolkit.telemetry.enabled", false);
+user_pref("toolkit.telemetry.server", "data:,");
+user_pref("toolkit.telemetry.archive.enabled", false);
+user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+user_pref("toolkit.telemetry.updatePing.enabled", false);
+user_pref("toolkit.telemetry.bhrPing.enabled", false);
+user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 
 // Corroborator
-pref("corroborator.enabled", false);
+user_pref("corroborator.enabled", false);
 
 // Telemetry Coverage
-pref("toolkit.telemetry.coverage.opt-out", true);
-pref("toolkit.coverage.opt-out", true);
-pref("toolkit.coverage.endpoint.base", "");
+user_pref("toolkit.telemetry.coverage.opt-out", true);
+user_pref("toolkit.coverage.opt-out", true);
+user_pref("toolkit.coverage.endpoint.base", "");
 
 // Health Reports
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data.
-pref("datareporting.healthreport.uploadEnabled", false);
+user_pref("datareporting.healthreport.uploadEnabled", false);
 
 // New data submission, master kill switch
 // If disabled, no policy is shown or upload takes place, ever
 // [1] https://bugzilla.mozilla.org/1195552
-pref("datareporting.policy.dataSubmissionEnabled", false);
+user_pref("datareporting.policy.dataSubmissionEnabled", false);
 
 // Studies
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to install and run studies
-pref("app.shield.optoutstudies.enabled", false);
+user_pref("app.shield.optoutstudies.enabled", false);
 
 // Personalized Extension Recommendations in about:addons and AMO
 // [NOTE] This pref has no effect when Health Reports are disabled.
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to make personalized extension recommendations
-pref("browser.discovery.enabled", false);
+user_pref("browser.discovery.enabled", false);
 
 // Crash Reports
-pref("breakpad.reportURL", "");
-pref("browser.tabs.crashReporting.sendReport", false);
-pref("browser.crashReports.unsubmittedCheck.enabled", false);
+user_pref("breakpad.reportURL", "");
+user_pref("browser.tabs.crashReporting.sendReport", false);
+user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 // backlogged crash reports
-pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
 // disable Captive Portal detection
 // [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy
@@ -620,23 +620,23 @@ pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 // user_pref("network.connectivity-service.enabled", false);
 
 // Software that continually reports what default browser you are using
-pref("default-browser-agent.enabled", false);
+user_pref("default-browser-agent.enabled", false);
 
 // Report extensions for abuse
-pref("extensions.abuseReport.enabled", false);
+user_pref("extensions.abuseReport.enabled", false);
 
 // Normandy/Shield [extensions tracking]
 // Shield is an telemetry system (including Heartbeat) that can also push and test "recipes"
-pref("app.normandy.enabled", false);
-pref("app.normandy.api_url", "");
+user_pref("app.normandy.enabled", false);
+user_pref("app.normandy.api_url", "");
 
 // disable PingCentre telemetry (used in several System Add-ons)
 // Currently blocked by 'datareporting.healthreport.uploadEnabled'
-pref("browser.ping-centre.telemetry", false);
+user_pref("browser.ping-centre.telemetry", false);
 
 // disable Activity Stream telemetry 
-pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-pref("browser.newtabpage.activity-stream.telemetry", false);
+user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
 // backend telemetry
 user_pref("app.normandy.first_run", false);
@@ -666,6 +666,4 @@ user_pref("toolkit.telemetry.geckoview.streaming", false);
 user_pref("toolkit.telemetry.previousBuildID", "");
 user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
 user_pref("toolkit.telemetry.server_owner", "");
-user_pref("toolkit.telemetry.server", "");
 user_pref("toolkit.telemetry.testing.overrideProductsCheck", false);
-user_pref("toolkit.telemetry.unified", false);
