@@ -554,6 +554,12 @@ user_pref("geo.provider.network.logging.enabled", false);
 user_pref("extensions.blocklist.enabled", true);
 user_pref("extensions.webextensions.tabhide.enabled", false);
 
+// PREF: Disable automatic extension updates
+// user_pref("extensions.update.enabled", false);
+// user_pref("extensions.autoupdate.enabled", false);
+// user_pref("extensions.update.url", "");
+// user_pref("extensions.update.background.url", "");
+
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
 ******************************************************************************/
