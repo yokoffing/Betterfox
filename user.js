@@ -23,7 +23,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: 15 February 2021                                                *
+ * version: 17 February 2021                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -173,6 +173,36 @@ user_pref("browser.safebrowsing.phishing.enabled", false);
 user_pref("browser.safebrowsing.downloads.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+// backend prefs
+user_pref("browser.safebrowsing.provider.google.advisoryURL", "");
+user_pref("browser.safebrowsing.provider.google.pver", "");
+user_pref("browser.safebrowsing.provider.google.advisoryName", "");
+user_pref("browser.safebrowsing.provider.google.gethashURL", "");
+user_pref("browser.safebrowsing.provider.google.lists", "");
+user_pref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
+user_pref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
+user_pref("browser.safebrowsing.provider.google.reportURL", "");
+user_pref("browser.safebrowsing.provider.google.updateURL", "");
+user_pref("browser.safebrowsing.provider.google4.advisoryName", "");
+user_pref("browser.safebrowsing.provider.google4.advisoryURL", "");
+user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
+user_pref("browser.safebrowsing.provider.google4.lists", "");
+user_pref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
+user_pref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
+user_pref("browser.safebrowsing.provider.google4.reportURL", "");
+user_pref("browser.safebrowsing.provider.google4.updateURL", "");
+user_pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false);
+user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
+user_pref("browser.safebrowsing.provider.google4.pver", "");
+user_pref("browser.safebrowsing.provider.mozilla.gethashURL", "");
+user_pref("browser.safebrowsing.provider.mozilla.lastupdatetime", "");
+user_pref("browser.safebrowsing.provider.mozilla.lists", "");
+user_pref("browser.safebrowsing.provider.mozilla.lists.base", "");
+user_pref("browser.safebrowsing.provider.mozilla.lists.content", "");
+user_pref("browser.safebrowsing.provider.mozilla.nextupdatetime", "");
+user_pref("browser.safebrowsing.provider.mozilla.pver", "");
+user_pref("browser.safebrowsing.provider.mozilla.updateURL", "");
+user_pref("browser.safebrowsing.reportPhishURL", "");
 
 /** MOZILLA ***/
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
@@ -181,34 +211,63 @@ user_pref("extensions.blocklist.enabled", true);
 user_pref("extensions.webextensions.tabhide.enabled", false);
 
 /** TELEMETRY ***/
-pref("toolkit.telemetry.unified", false);
-pref("toolkit.telemetry.enabled", false);
-pref("toolkit.telemetry.server", "data:,");
-pref("toolkit.telemetry.archive.enabled", false);
-pref("toolkit.telemetry.newProfilePing.enabled", false);
-pref("toolkit.telemetry.shutdownPingSender.enabled", false);
-pref("toolkit.telemetry.updatePing.enabled", false);
-pref("toolkit.telemetry.bhrPing.enabled", false);
-pref("toolkit.telemetry.firstShutdownPing.enabled", false);
-pref("corroborator.enabled", false);
-pref("toolkit.telemetry.coverage.opt-out", true);
-pref("toolkit.coverage.opt-out", true);
-pref("toolkit.coverage.endpoint.base", "");
-pref("datareporting.healthreport.uploadEnabled", false);
-pref("datareporting.policy.dataSubmissionEnabled", false);
-pref("app.shield.optoutstudies.enabled", false);
-pref("browser.discovery.enabled", false);
-pref("breakpad.reportURL", "");
-pref("browser.tabs.crashReporting.sendReport", false);
-pref("browser.crashReports.unsubmittedCheck.enabled", false);
-pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
-pref("default-browser-agent.enabled", false);
-pref("extensions.abuseReport.enabled", false);
-pref("app.normandy.enabled", false);
-pref("app.normandy.api_url", "");
-pref("browser.ping-centre.telemetry", false);
-pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-pref("browser.newtabpage.activity-stream.telemetry", false);
+user_pref("toolkit.telemetry.unified", false);
+user_pref("toolkit.telemetry.enabled", false);
+user_pref("toolkit.telemetry.server", "data:,");
+user_pref("toolkit.telemetry.archive.enabled", false);
+user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+user_pref("toolkit.telemetry.updatePing.enabled", false);
+user_pref("toolkit.telemetry.bhrPing.enabled", false);
+user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+user_pref("corroborator.enabled", false);
+user_pref("toolkit.telemetry.coverage.opt-out", true);
+user_pref("toolkit.coverage.opt-out", true);
+user_pref("toolkit.coverage.endpoint.base", "");
+user_pref("datareporting.healthreport.uploadEnabled", false);
+user_pref("datareporting.policy.dataSubmissionEnabled", false);
+user_pref("app.shield.optoutstudies.enabled", false);
+user_pref("browser.discovery.enabled", false);
+user_pref("breakpad.reportURL", "");
+user_pref("browser.tabs.crashReporting.sendReport", false);
+user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
+user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+user_pref("default-browser-agent.enabled", false);
+user_pref("extensions.abuseReport.enabled", false);
+user_pref("app.normandy.enabled", false);
+user_pref("app.normandy.api_url", "");
+user_pref("browser.ping-centre.telemetry", false);
+user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+user_pref("browser.newtabpage.activity-stream.telemetry", false);
+// backend
+user_pref("app.normandy.first_run", false);
+user_pref("app.normandy.shieldLearnMoreUrl", "");
+user_pref("browser.urlbar.eventTelemetry.enabled", false);
+user_pref("datareporting.healthreport.infoURL", "");
+user_pref("datareporting.policy.currentPolicyVersion", 0);
+user_pref("datareporting.policy.dataSubmissionEnabled", false);
+user_pref("datareporting.policy.dataSubmissionPolicyAcceptedVersion", 0);
+user_pref("datareporting.policy.dataSubmissionPolicyBypassNotification", false);
+user_pref("datareporting.policy.dataSubmissionPolicyNotifiedTime", "");
+user_pref("datareporting.policy.firstRunURL", "");
+user_pref("datareporting.policy.minimumPolicyVersion.channel-beta", 0);
+user_pref("datareporting.policy.minimumPolicyVersion", 0);
+user_pref("privacy.trackingprotection.origin_telemetry.enabled", false);
+user_pref("security.app_menu.recordEventTelemetry", false);
+user_pref("security.certerrors.recordEventTelemetry", false);
+user_pref("security.identitypopup.recordEventTelemetry", false);
+user_pref("security.protectionspopup.recordEventTelemetry", false);
+user_pref("telemetry.origin_telemetry_test_mode.enabled", false);
+user_pref("toolkit.coverage.enabled", false);
+user_pref("toolkit.telemetry.archive.enabled", false);
+user_pref("toolkit.telemetry.cachedClientID", "");
+user_pref("toolkit.telemetry.debugSlowSql", false);
+user_pref("toolkit.telemetry.ecosystemtelemetry.enabled", false); 
+user_pref("toolkit.telemetry.geckoview.streaming", false);
+user_pref("toolkit.telemetry.previousBuildID", "");
+user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
+user_pref("toolkit.telemetry.server_owner", "");
+user_pref("toolkit.telemetry.testing.overrideProductsCheck", false);
 
 /****************************************************************************
  * SECTION: PESKYFOX                                                        *
@@ -295,7 +354,6 @@ user_pref("pdfjs.defaultZoomValue", "page-width");
 user_pref("browser.link.open_newwindow", 3);
 user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("dom.disable_window_move_resize", true);
-user_pref("browser.tabs.closeWindowWithLastTab", false);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
