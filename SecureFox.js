@@ -326,6 +326,13 @@ user_pref("signon.management.page.breachAlertUrl", "");
 user_pref("browser.contentblocking.report.lockwise.enabled", false);
 user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
 
+// PREF: Disable Firefox built-in password generator
+// Create passwords with random characters and numbers.
+// [NOTE] Doesn't work with Lockwise disabled!
+// [1] https://wiki.mozilla.org/Toolkit:Password_Manager/Password_Generation
+user_pref("signon.generation.available", false);
+user_pref("signon.generation.enabled", false);
+
 // PREF: Disable password manager
 // NOTE” This does not clear any passwords already saved
 user_pref("signon.rememberSignons", false);
@@ -334,12 +341,6 @@ user_pref("signon.schemeUpgrades", false);
 user_pref("signon.showAutoCompleteFooter", false);
 user_pref("signon.autologin.proxy", false);
 user_pref("signon.debug", false);
-
-// PREF: Disable Firefox built-in password generator
-// [1] https://wiki.mozilla.org/Toolkit:Password_Manager/Password_Generation
-// NOTE: Create passwords with random characters and numbers
-user_pref("signon.generation.available", false);
-user_pref("signon.generation.enabled", false);
 
 // PREF: Disable Firefox import password from signons.sqlite file
 // [1] https://support.mozilla.org/en-US/questions/1020818
