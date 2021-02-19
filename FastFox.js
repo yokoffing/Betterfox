@@ -22,7 +22,7 @@
  *                                                                          *
 ****************************************************************************/
 
-// PREF: Force enable all Webrender prefs
+// PREF: force enable all Webrender prefs
 // [1] https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/
 // [2] https://wiki.mozilla.org/Platform/GFX/WebRender_Where
 // [3] https://www.reddit.com/r/firefox/comments/fo1jwz/make_firefox_faster/flhh5l2/
@@ -36,18 +36,18 @@
 // https://www.ghacks.net/2020/02/15/firefox-75-gets-lazy-loading-support-for-images/
 user_pref("dom.image-lazy-loading.enabled", true); /*default*/
 
-// PREF: Control how tabs are loaded when a session is restored.
+// PREF: control how tabs are loaded when a session is restored.
 // true=Tabs are not loaded until they are selected (default)
 // false=Tabs begin to load immediately.
 user_pref("browser.sessionstore.restore_on_demand", true);
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.restore_tabs_lazily", true);
 
-// PREF: Disable preSkeletonUI on startup
+// PREF: disable preSkeletonUI on startup
 // May set to "true" if your hardware is very old.
 user_pref("browser.startup.preXulSkeletonUI", false);
 
-// PREF: Process count
+// PREF: process count
 // Having more content processes can improve performance when using multiple tabs but
 // it will also use more memory. You can reduce the number of content processes if your
 // computer is running out of memory. If your computer's system information shows more
@@ -56,11 +56,11 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 // default = 8. -1 allows Firefox to use as many as it wants
 // user_pref("dom.ipc.processCount", 8);
 
-// PREF: Prevent FF from going offline
+// PREF: prevent FF from going offline
 // [1] https://lifehacker.com/stop-firefox-from-automatically-entering-work-offline-5714560
 // user_pref("network.manage-offline-status", false);
 
-// PREF: Disable Firefox animations 
+// PREF: disable animations 
 // Use for old, slow hardware if Firefox gives you laggy performance.
 // user_pref("toolkit.cosmeticAnimations.enabled", true);
 
