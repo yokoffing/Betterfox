@@ -32,7 +32,6 @@
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
-user_pref("javascript.options.warp", true);
 user_pref("dom.image-lazy-loading.enabled", true);
 user_pref("browser.sessionstore.restore_tabs_lazily", true);
 user_pref("browser.sessionstore.restore_on_demand", true);
@@ -53,7 +52,6 @@ user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
 user_pref("browser.send_pings", false);
-user_pref("browser.send_pings.require_same_host", true);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
 user_pref("security.pki.crlite_mode", 2);
@@ -140,7 +138,6 @@ user_pref("signon.formlessCapture.enabled", false);
 user_pref("extensions.fxmonitor.enabled", false);
 
 /** ADDRESS + CREDIT CARD MANAGER ***/
-/* NOTE: Remove everything below this line if you use this feature */
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.available", "off");
 user_pref("extensions.formautofill.creditCards.available", false);
@@ -152,7 +149,6 @@ user_pref("browser.formfill.enable", false);
 user_pref("network.auth.subresource-http-auth-allow", 1);
 user_pref("security.mixed_content.block_active_content", true);
 user_pref("security.mixed_content.upgrade_display_content", true);
-user_pref("security.mixed_content.block_object_subrequest", true);
 user_pref("dom.block_download_insecure", true);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
@@ -161,6 +157,11 @@ user_pref("dom.targetBlankNoOpener.enabled", true);
 user_pref("privacy.window.name.update.enabled", true);
 user_pref("network.http.referer.XOriginPolicy", 0);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+
+/** FLASH PLUGIN ***/
+user_pref("security.mixed_content.block_object_subrequest", true);
+user_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled", false);
+user_pref("plugin.state.flash", 0);
 
 /** GOOGLE SAFE BROWSING ***/
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
@@ -410,7 +411,6 @@ user_pref("privacy.popups.showBrowserMessage", true);
 * // user_pref("browser.proton.appmenu.enabled", true);
 * // user_pref("browser.newtabpage.activity-stream.newNewtabExperience.enabled", true);
 * // user_pref("browser.proton.toolbar.enabled", true);
-* // user_pref("browser.proton.toolbar.version", 1);
 * // user_pref("browser.proton.contextmenus.enabled", true); // WINDOWS-ONLY
 * 
 * // PREF: Microphone and camera kill switch
