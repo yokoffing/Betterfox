@@ -23,7 +23,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: 17 February 2021                                                *
+ * version: 19 February 2021                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -173,7 +173,6 @@ user_pref("browser.safebrowsing.phishing.enabled", false);
 user_pref("browser.safebrowsing.downloads.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
-// backend prefs
 user_pref("browser.safebrowsing.provider.google.advisoryURL", "");
 user_pref("browser.safebrowsing.provider.google.pver", "");
 user_pref("browser.safebrowsing.provider.google.advisoryName", "");
@@ -239,7 +238,6 @@ user_pref("app.normandy.api_url", "");
 user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
-// backend
 user_pref("app.normandy.first_run", false);
 user_pref("app.normandy.shieldLearnMoreUrl", "");
 user_pref("browser.urlbar.eventTelemetry.enabled", false);
@@ -327,7 +325,6 @@ user_pref("browser.download.hide_plugins_without_extensions", false);
 
 /** VARIOUS ***/
 user_pref("browser.tabs.unloadOnLowMemory", false);
-user_pref("browser.urlbar.suggest.bookmarks", true);
 user_pref("browser.urlbar.suggest.engines", false);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("permissions.default.desktop-notification", 2);
@@ -335,12 +332,9 @@ user_pref("dom.push.enabled", false);
 user_pref("dom.push.userAgentID", "");
 user_pref("media.autoplay.default", 1);
 user_pref("media.block-autoplay-until-in-foreground", true);
-user_pref("browser.backspace_action", 2);
-user_pref("ui.key.menuAccessKey", 0);
 user_pref("findbar.highlightAll", true);
 user_pref("layout.spellcheckDefault", 2);
 user_pref("accessibility.force_disabled", 1);
-user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.display.show_image_placeholders", false);
 user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
@@ -348,15 +342,9 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);
 /** PDF ***/
 user_pref("pdfjs.disabled", false);
 user_pref("browser.helperApps.showOpenOptionForPdfJS", true);
-user_pref("pdfjs.defaultZoomValue", "page-width");
 
 /** TAB BEHAVIOR ***/
-user_pref("browser.link.open_newwindow", 3);
-user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("dom.disable_window_move_resize", true);
-user_pref("browser.bookmarks.openInTabClosesMenu", false);
-user_pref("browser.tabs.loadBookmarksInBackground", true);
-user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("image.avif.enabled", true);
 user_pref("editor.truncate_user_pastes", false);
 user_pref("clipboard.plainTextOnly", true);
