@@ -32,7 +32,6 @@
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
-user_pref("gfx.webrender.all", true);
 user_pref("javascript.options.warp", true);
 user_pref("dom.image-lazy-loading.enabled", true);
 user_pref("browser.sessionstore.restore_tabs_lazily", true);
