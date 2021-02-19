@@ -1,18 +1,5 @@
 //
-/* You may copy+paste this file and leave it as it is.
- *
- * However, please confirm the following preferences:
- *
- * [1] Google Safe Browsing (disabled)
- * [2] Firefox Password Manager (disabled)
- * [3] Firefox Address and Credit Card Manager (disabled)
- *
- * [1] If you do NOT have a firewall or DNS-filtering for dangerous and
- * deceptive content, then delete all prefs related to Google Safe Browsing.
- * Trading a little bit of privacy for security is worth it.
- *
- * [2] & [3] If you use these native features of Firefox, please remove the
- * prefs as instructed below.
+/* You may copy+paste this file and use it as it is.
  *
  * If you make changes to your about:config while the program is running, the
  * changes will be overwritten by the user.js when the application restarts.
@@ -353,12 +340,12 @@ user_pref("dom.disable_open_during_load", true);
 user_pref("privacy.popups.showBrowserMessage", true);
 
 /****************************************************************************
- * SECTION: FIREFOX BETA & DEVELOPER                                        *
+ * SECTION: EXPERIMENTAL                                        *
 ****************************************************************************/
+/** You can view experimental prefs at about:support
+* [SETTING] about:support > Experimental Features ***/
+
 /**
-*
-* You can view experimental prefs @ about:support
-*
 * user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 * user_pref("layout.css.focus-visible.enabled", true);
 * user_pref("layout.css.grid-template-masonry-value.enabled", true);
@@ -371,8 +358,8 @@ user_pref("privacy.popups.showBrowserMessage", true);
 * // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1685575
 * // [2] https://hg.mozilla.org/mozilla-central/rev/37acd60f7bcc15481e8ebb231bb2f80fe9fd0a2e
 * // [3] https://www.reddit.com/r/firefox/comments/kzrmsb/enable_dynamic_first_party_isolation/gjtxyje/?context=3
-* // user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); /* default */
-* // user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); /* hidden */
+* // user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
+* // user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // hidden
 *
 * // PREF: Samesite Cookies
 * // [1] https://www.jardinesoftware.net/2019/10/28/samesite-by-default-in-2020/
@@ -387,7 +374,7 @@ user_pref("privacy.popups.showBrowserMessage", true);
 * // user_pref("pdfjs.viewerCssTheme", 1); /* light theme */
 * // user_pref("pdfjs.viewerCssTheme", 2); /* dark theme */
 *
-**/
+***/
 
 /****************************************************************************
  * SECTION: FIREFOX NIGHTLY                                                 *
@@ -411,7 +398,7 @@ user_pref("privacy.popups.showBrowserMessage", true);
 * // user_pref("browser.proton.appmenu.enabled", true);
 * // user_pref("browser.newtabpage.activity-stream.newNewtabExperience.enabled", true);
 * // user_pref("browser.proton.toolbar.enabled", true);
-* // user_pref("browser.proton.contextmenus.enabled", true); // WINDOWS-ONLY
+* // user_pref("browser.proton.contextmenus.enabled", true);
 * 
 * // PREF: Microphone and camera kill switch
 * // user_pref("privacy.webrtc.globalMuteToggles", true);
