@@ -23,15 +23,17 @@
 // Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
 // Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
 // been interacted with in the last 30 days.
+// [NOTE] FF86 Nightly: "Strict" tracking protection enables dFPI.
 // [1] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
-user_pref("browser.contentblocking.category", "strict");
+// [2] https://hg.mozilla.org/releases/mozilla-release/rev/10a638a8c0d0644fca190c3c54957139ab9e0063
+user_pref("browser.contentblocking.category", "custom");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
-// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false);
+// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 
 // PREF: Allow embedded tweets and Instagram posts to load in articles.
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
@@ -65,9 +67,9 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 // A more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
 // context. dFPI partitions user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
 // compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
-// FF86+: "Strict" tracking protection enables dFPI.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1625228
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1549587
+// [3] https://hg.mozilla.org/releases/mozilla-release/rev/10a638a8c0d0644fca190c3c54957139ab9e0063
 // 5=block cross site and social media trackers, and isolate remaining cookies (Dynamic First Party Isolation)
 user_pref("network.cookie.cookieBehavior", 5);
 
