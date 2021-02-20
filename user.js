@@ -23,7 +23,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: 19 February 2021                                                *
+ * version: 20 February 2021                                                *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -172,35 +172,6 @@ user_pref("browser.safebrowsing.phishing.enabled", false);
 user_pref("browser.safebrowsing.downloads.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
-user_pref("browser.safebrowsing.provider.google.advisoryURL", "");
-user_pref("browser.safebrowsing.provider.google.pver", "");
-user_pref("browser.safebrowsing.provider.google.advisoryName", "");
-user_pref("browser.safebrowsing.provider.google.gethashURL", "");
-user_pref("browser.safebrowsing.provider.google.lists", "");
-user_pref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
-user_pref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
-user_pref("browser.safebrowsing.provider.google.reportURL", "");
-user_pref("browser.safebrowsing.provider.google.updateURL", "");
-user_pref("browser.safebrowsing.provider.google4.advisoryName", "");
-user_pref("browser.safebrowsing.provider.google4.advisoryURL", "");
-user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
-user_pref("browser.safebrowsing.provider.google4.lists", "");
-user_pref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
-user_pref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
-user_pref("browser.safebrowsing.provider.google4.reportURL", "");
-user_pref("browser.safebrowsing.provider.google4.updateURL", "");
-user_pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false);
-user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
-user_pref("browser.safebrowsing.provider.google4.pver", "");
-user_pref("browser.safebrowsing.provider.mozilla.gethashURL", "");
-user_pref("browser.safebrowsing.provider.mozilla.lastupdatetime", "");
-user_pref("browser.safebrowsing.provider.mozilla.lists", "");
-user_pref("browser.safebrowsing.provider.mozilla.lists.base", "");
-user_pref("browser.safebrowsing.provider.mozilla.lists.content", "");
-user_pref("browser.safebrowsing.provider.mozilla.nextupdatetime", "");
-user_pref("browser.safebrowsing.provider.mozilla.pver", "");
-user_pref("browser.safebrowsing.provider.mozilla.updateURL", "");
-user_pref("browser.safebrowsing.reportPhishURL", "");
 
 /** MOZILLA ***/
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
@@ -237,34 +208,6 @@ user_pref("app.normandy.api_url", "");
 user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
-user_pref("app.normandy.first_run", false);
-user_pref("app.normandy.shieldLearnMoreUrl", "");
-user_pref("browser.urlbar.eventTelemetry.enabled", false);
-user_pref("datareporting.healthreport.infoURL", "");
-user_pref("datareporting.policy.currentPolicyVersion", 0);
-user_pref("datareporting.policy.dataSubmissionEnabled", false);
-user_pref("datareporting.policy.dataSubmissionPolicyAcceptedVersion", 0);
-user_pref("datareporting.policy.dataSubmissionPolicyBypassNotification", false);
-user_pref("datareporting.policy.dataSubmissionPolicyNotifiedTime", "");
-user_pref("datareporting.policy.firstRunURL", "");
-user_pref("datareporting.policy.minimumPolicyVersion.channel-beta", 0);
-user_pref("datareporting.policy.minimumPolicyVersion", 0);
-user_pref("privacy.trackingprotection.origin_telemetry.enabled", false);
-user_pref("security.app_menu.recordEventTelemetry", false);
-user_pref("security.certerrors.recordEventTelemetry", false);
-user_pref("security.identitypopup.recordEventTelemetry", false);
-user_pref("security.protectionspopup.recordEventTelemetry", false);
-user_pref("telemetry.origin_telemetry_test_mode.enabled", false);
-user_pref("toolkit.coverage.enabled", false);
-user_pref("toolkit.telemetry.archive.enabled", false);
-user_pref("toolkit.telemetry.cachedClientID", "");
-user_pref("toolkit.telemetry.debugSlowSql", false);
-user_pref("toolkit.telemetry.ecosystemtelemetry.enabled", false); 
-user_pref("toolkit.telemetry.geckoview.streaming", false);
-user_pref("toolkit.telemetry.previousBuildID", "");
-user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
-user_pref("toolkit.telemetry.server_owner", "");
-user_pref("toolkit.telemetry.testing.overrideProductsCheck", false);
 
 /****************************************************************************
  * SECTION: PESKYFOX                                                        *
