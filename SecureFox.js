@@ -40,6 +40,36 @@ user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
 user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hidden
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
+// PREF: Dynamic First-Party Isolation (dFPI)
+// A more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
+// context. dFPI partitions user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
+// compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
+// FPI is strong, but it comes at the expense of breakage (all cross-site logins won't work, e.g. Youtube and Google).
+// dFPI allows isolating most sites while applying a set of heuristics to allow sites through the isolation
+// in certain circumstances for usability.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1625228
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1549587
+// [3] https://www.reddit.com/r/firefox/comments/lnpns6/firefox_86_strict_enhanced_tracking_protection/go4ol26&context=3
+// 5=block cross site and social media trackers, and isolate remaining cookies (Dynamic First Party Isolation)
+user_pref("network.cookie.cookieBehavior", 5);
+
+// PREF: Network Partitioning
+// Network Partitioning will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
+// on a per-website basis rather than together in the same pool.
+// [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
+// [2] https://github.com/privacycg/storage-partitioning
+user_pref("privacy.partition.network_state", true); // default
+
+// PREF: Redirect tracking prevention + Purge site data of sites associated with tracking cookies automatically
+// All storage is cleared (more or less) daily from origins that are known trackers and that
+// haven’t received a top-level user interaction (including scroll) within the last 45 days.
+// [1] https://www.ghacks.net/2020/08/06/how-to-enable-redirect-tracking-in-firefox/
+// [2] https://www.cookiestatus.com/firefox/#other-first-party-storage
+// [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
+// [4] https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
+// [5] https://github.com/arkenfox/user.js/issues/1089
+user_pref("privacy.purge_trackers.enabled", true);
+
 // PREF: Disable Hyperlink Auditing (click tracking).
 user_pref("browser.send_pings", false);
 // Enforce same host just in case.
@@ -59,62 +89,18 @@ user_pref("dom.battery.enabled", false);
 user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 
-/******************************************************************************
- * SECTION: STORAGE                              *
-******************************************************************************/
-
-// PREF: Dynamic First-Party Isolation (dFPI)
-// A more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
-// context. dFPI partitions user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
-// compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1625228
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1549587
-// [3] https://hg.mozilla.org/releases/mozilla-release/rev/10a638a8c0d0644fca190c3c54957139ab9e0063
-// 5=block cross site and social media trackers, and isolate remaining cookies (Dynamic First Party Isolation)
-user_pref("network.cookie.cookieBehavior", 5);
-
-// PREF: Limit third-party cookies
-// Because of dFPI and our tracking protection(s), we will only clear nonsecure cookies each session.
-// user_pref("network.cookie.thirdparty.sessionOnly", false);
-// user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
-
-// PREF: Delete all cookies after a certain period of time
-// ALTERNATIVE: Use a cookie manager extension
-// user_pref("network.cookie.lifetimePolicy", 3);
-// user_pref("network.cookie.lifetime.days", 7);
-
-// PREF: Redirect tracking prevention + Purge site data of sites associated with tracking cookies automatically
-// All storage is cleared (more or less) daily from origins that are known trackers and that
-// haven’t received a top-level user interaction (including scroll) within the last 45 days.
-// [1] https://www.ghacks.net/2020/08/06/how-to-enable-redirect-tracking-in-firefox/
-// [2] https://www.cookiestatus.com/firefox/#other-first-party-storage
-// [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
-// [4] https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
-// [5] https://github.com/arkenfox/user.js/issues/1089
-user_pref("privacy.purge_trackers.enabled", true);
-
-// PREF: Isolate cache per site
-user_pref("browser.cache.cache_isolation", true);
-
-// PREF: Enforce no offline cache storage (appCache)
-// [1] https://github.com/arkenfox/user.js/issues/1055
-user_pref("browser.cache.disk.enable", true); // default
-user_pref("browser.cache.offline.enable", true); // default
-user_pref("browser.cache.offline.storage.enable", false);
-
-// PREF: Network Partitioning
-// Network Partitioning will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
-// on a per-website basis rather than together in the same pool.
-// [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
-// [2] https://github.com/privacycg/storage-partitioning
-user_pref("privacy.partition.network_state", true); // default 85+
-
 // PREF: Enable Local Storage Next Generation (LSNG) (DOMStorage) 
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 user_pref("dom.storage.next_gen", true);
 
+// PREF: Enforce no offline cache storage (appCache)
+// [1] https://github.com/arkenfox/user.js/issues/1055
+// user_pref("browser.cache.disk.enable", true); // default
+// user_pref("browser.cache.offline.enable", true); // default
+// user_pref("browser.cache.offline.storage.enable", false);
+
 /******************************************************************************
- * SECTION: CLEARING HISTORY DEFAULTS                           *
+ * SECTION: CLEARING DATA DEFAULTS                           *
 ******************************************************************************/
 
 // PREF: Reset default items to clear with Ctrl-Shift-Del
@@ -142,14 +128,23 @@ user_pref("privacy.sanitize.timeSpan", 0);
 // PREF: Set History section to show all options
 user_pref("privacy.history.custom", true);
 
-/******************************************************************************
- * SECTION: PRELOADING/PREFETCHING                              *
-******************************************************************************/
+// PREF: Limit third-party cookies
+// Because of dFPI and our tracking protection(s), we will only clear nonsecure cookies each session.
+// user_pref("network.cookie.thirdparty.sessionOnly", false);
+// user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
-// I have altered this section for a mixture of privacy and speed.
+// PREF: Delete all cookies after a certain period of time
+// ALTERNATIVE: Use a cookie manager extension
+// user_pref("network.cookie.lifetimePolicy", 3);
+// user_pref("network.cookie.lifetime.days", 7);
+
+/******************************************************************************
+ * SECTION: PRELOADING                                            *
+******************************************************************************/
+// [NOTE] I have altered this section for a mixture of privacy and speed.
 // Leave off any PREFETCH preferences if you use an adblock extension and/or DNS-level adblocking due to wonky page rendering.
 // All PREFETCH preferences continue to be disabled here and in the user.js, but other speed improvements are enabled.
-// NOTE: You can set uBlock Origin to do "Disable pre-fetching" in its settings. This overrides some settings below.
+// You can set uBlock Origin to do "Disable pre-fetching" in its settings. This overrides some settings below.
 
 // PREF: DNS prefetching
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
