@@ -89,16 +89,14 @@ user_pref("network.cookie.cookieBehavior", 5);
 // [4] https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
 // [5] https://github.com/arkenfox/user.js/issues/1089
 user_pref("privacy.purge_trackers.enabled", true);
-// user_pref("privacy.purge_trackers.logging.level", "All");  /* ??? */
-// user_pref("privacy.purge_trackers.consider_entity_list", false);  /* ??? */
 
 // PREF: Isolate cache per site
 user_pref("browser.cache.cache_isolation", true);
 
 // PREF: Enforce no offline cache storage (appCache)
 // [1] https://github.com/arkenfox/user.js/issues/1055
-user_pref("browser.cache.disk.enable", true); /* default */
-user_pref("browser.cache.offline.enable", true); /* default */
+user_pref("browser.cache.disk.enable", true); // default
+user_pref("browser.cache.offline.enable", true); // default
 user_pref("browser.cache.offline.storage.enable", false);
 
 // PREF: Network Partitioning
@@ -106,7 +104,7 @@ user_pref("browser.cache.offline.storage.enable", false);
 // on a per-website basis rather than together in the same pool.
 // [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
 // [2] https://github.com/privacycg/storage-partitioning
-user_pref("privacy.partition.network_state", true);
+user_pref("privacy.partition.network_state", true); // default 85+
 
 // PREF: Enable Local Storage Next Generation (LSNG) (DOMStorage) 
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
