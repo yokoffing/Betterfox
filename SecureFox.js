@@ -23,10 +23,10 @@
 // Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
 // Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
 // been interacted with in the last 30 days.
-// [NOTE] FF86 Nightly: "Strict" tracking protection enables dFPI.
+// [NOTE] FF86: "Strict" tracking protection enables dFPI.
 // [1] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
-// [2] https://hg.mozilla.org/releases/mozilla-release/rev/10a638a8c0d0644fca190c3c54957139ab9e0063
-user_pref("browser.contentblocking.category", "custom");
+// [2] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning#status_of_partitioning_in_firefox
+user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
