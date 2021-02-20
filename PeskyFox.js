@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: 19 February 2021                                                *
+ * version: February 2021                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -21,13 +21,17 @@
 
 // PREF: Enable a Light theme for browser and webpage content
 // [TEST] https://9to5mac.com/
-// user_pref("ui.systemUsesDarkTheme", 0);
-// user_pref("browser.in-content.dark-mode", false); /* removed? */
+// user_pref("ui.systemUsesDarkTheme", 0); // hidden
+// user_pref("browser.in-content.dark-mode", false); // hidden
+// user_pref("devtools.theme", "light"); // default
+// user_pref("pdfjs.viewerCssTheme", 1);
 
 // PREF: Enable a Dark theme for browser and webpage content
 // [TEST] https://9to5mac.com/
-// user_pref("ui.systemUsesDarkTheme", 1);
-// user_pref("browser.in-content.dark-mode", true); /* removed? */
+// user_pref("ui.systemUsesDarkTheme", 1); // hidden
+// user_pref("browser.in-content.dark-mode", true); // hidden
+// user_pref("devtools.theme", "dark");
+// user_pref("pdfjs.viewerCssTheme", 2);
 
 // PREF: Allow Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
