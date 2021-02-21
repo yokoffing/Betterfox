@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: 21 February 2021                                                *
+ * version: February 2021                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -29,6 +29,9 @@ user_pref("browser.startup.preXulSkeletonUI", false);
  * SECTION: SECUREFOX                                                       *
 ****************************************************************************/
 /** TRACKING PROTECTION ***/
+user_pref("privacy.partition.network_state", true);
+user_pref("network.cookie.cookieBehavior", 5);
+user_pref("privacy.purge_trackers.enabled", true);
 user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
@@ -38,9 +41,6 @@ user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.socialtracking.block_cookies.enabled", true);
 user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
-user_pref("network.cookie.cookieBehavior", 5);
-user_pref("privacy.partition.network_state", true);
-user_pref("privacy.purge_trackers.enabled", true);
 user_pref("browser.send_pings", false);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
