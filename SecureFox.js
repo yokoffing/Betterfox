@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 20 February 2021                                                *
+ * version: February 2021                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -19,48 +19,26 @@
  * SECTION: TRACKING PROTECTION                                             *
 ****************************************************************************/
 
-// PREF: Enhanced Tracking Protection (ETP)
-// Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
-// Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
-// been interacted with in the last 30 days.
-// [NOTE] FF86: "Strict" tracking protection enables dFPI.
-// [1] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
-// [2] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning#status_of_partitioning_in_firefox
-user_pref("browser.contentblocking.category", "strict");
-user_pref("privacy.trackingprotection.enabled", true);
-user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
-user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
-user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
-user_pref("privacy.trackingprotection.socialtracking.enabled", true);
-user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
-// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
-
-// PREF: Allow embedded tweets and Instagram posts to load in articles.
-// [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
-user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hidden
-user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
+// PREF: Network Partitioning
+// Network Partitioning will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
+// on a per-website basis rather than together in the same pool.
+// [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
+// [2] https://github.com/privacycg/storage-partitioning#introduction
+// [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
+// [4] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
+user_pref("privacy.partition.network_state", true); // default
 
 // PREF: Dynamic First-Party Isolation (dFPI)
 // A more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
 // context. dFPI partitions user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
 // compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
-// FPI is strong, but it comes at the expense of breakage (all cross-site logins won't work, e.g. Youtube and Google).
+// FPI is strong but it comes at the expense of breakage (all cross-site logins won't work, e.g. Youtube and Google).
 // dFPI allows isolating most sites while applying a set of heuristics to allow sites through the isolation
 // in certain circumstances for usability.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1625228
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1549587
-// [3] https://www.reddit.com/r/firefox/comments/lnpns6/firefox_86_strict_enhanced_tracking_protection/go4ol26&context=3
-// 5=block cross site and social media trackers, and isolate remaining cookies (Dynamic First Party Isolation)
+// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning#dynamic_state_partitioning
 user_pref("network.cookie.cookieBehavior", 5);
 
-// PREF: Network Partitioning
-// Network Partitioning will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
-// on a per-website basis rather than together in the same pool.
-// [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
-// [2] https://github.com/privacycg/storage-partitioning
-user_pref("privacy.partition.network_state", true); // default
-
-// PREF: Redirect tracking prevention + Purge site data of sites associated with tracking cookies automatically
+// PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
 // haven’t received a top-level user interaction (including scroll) within the last 45 days.
 // [1] https://www.ghacks.net/2020/08/06/how-to-enable-redirect-tracking-in-firefox/
@@ -70,16 +48,38 @@ user_pref("privacy.partition.network_state", true); // default
 // [5] https://github.com/arkenfox/user.js/issues/1089
 user_pref("privacy.purge_trackers.enabled", true);
 
-// PREF: Disable Hyperlink Auditing (click tracking).
+// PREF: Enhanced Tracking Protection (ETP)
+// Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
+// Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
+// been interacted with in the last 30 days.
+// [NOTE] FF86: "Strict" tracking protection enables dFPI.
+// [1] https://blog.mozilla.org/firefox/control-trackers-with-firefox/
+// [2] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
+// [3] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
+user_pref("browser.contentblocking.category", "strict");
+user_pref("privacy.trackingprotection.enabled", true);
+user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
+user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
+user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
+user_pref("privacy.trackingprotection.socialtracking.enabled", true); // default
+user_pref("privacy.socialtracking.block_cookies.enabled", true);
+// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
+
+// PREF: allow embedded tweets and Instagram posts
+// [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
+user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hidden
+user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
+
+// PREF: Hyperlink Auditing (click tracking).
 user_pref("browser.send_pings", false);
-// Enforce same host just in case.
+// enforce same host just in case.
 user_pref("browser.send_pings.require_same_host", true);
 
-// PREF: Disable sending additional analytics to web servers
+// PREF: sending additional analytics to web servers
 // [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
 user_pref("beacon.enabled", false);
 
-// PREF: Disable battery status tracking
+// PREF: battery status tracking
 user_pref("dom.battery.enabled", false);
 
 // PREF: CRLite
@@ -89,11 +89,11 @@ user_pref("dom.battery.enabled", false);
 user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 
-// PREF: Enable Local Storage Next Generation (LSNG) (DOMStorage) 
+// PREF: Local Storage Next Generation (LSNG) (DOMStorage) 
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 user_pref("dom.storage.next_gen", true);
 
-// PREF: Enforce no offline cache storage (appCache)
+// PREF: enforce no offline cache storage (appCache)
 // [1] https://github.com/arkenfox/user.js/issues/1055
 // user_pref("browser.cache.disk.enable", true); // default
 // user_pref("browser.cache.offline.enable", true); // default
@@ -103,7 +103,7 @@ user_pref("dom.storage.next_gen", true);
  * SECTION: CLEARING DATA DEFAULTS                           *
 ******************************************************************************/
 
-// PREF: Reset default items to clear with Ctrl-Shift-Del
+// PREF: reset default items to clear with Ctrl-Shift-Del
 // This dialog can also be accessed from the menu History>Clear Recent History
 // Firefox remembers your last choices. This will reset them when you start Firefox.
 // Regardless of what you set privacy.cpd.downloads to, as soon as the dialog
@@ -117,7 +117,7 @@ user_pref("privacy.cpd.cookies", false); // Cookies
 user_pref("privacy.cpd.sessions", false); // Active Logins
 user_pref("privacy.cpd.siteSettings", false); // Site Preferences
 
-// PREF: Reset default 'Time range to clear' for 'Clear Recent History'.
+// PREF: reset default 'Time range to clear' for 'Clear Recent History'.
 // Firefox remembers your last choice. This will reset the value when you start Firefox.
 // 0=everything, 1=last hour, 2=last two hours, 3=last four hours,
 // 4=today, 5=last five minutes, 6=last twenty-four hours
@@ -125,15 +125,15 @@ user_pref("privacy.cpd.siteSettings", false); // Site Preferences
 // blank value if they are used, but they do work as advertised.
 user_pref("privacy.sanitize.timeSpan", 0);
 
-// PREF: Set History section to show all options
+// PREF: set History section to show all options
 user_pref("privacy.history.custom", true);
 
-// PREF: Limit third-party cookies
+// PREF: limit third-party cookies
 // Because of dFPI and our tracking protection(s), we will only clear nonsecure cookies each session.
 // user_pref("network.cookie.thirdparty.sessionOnly", false);
 // user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
-// PREF: Delete all cookies after a certain period of time
+// PREF: delete all cookies after a certain period of time
 // ALTERNATIVE: Use a cookie manager extension
 // user_pref("network.cookie.lifetimePolicy", 3);
 // user_pref("network.cookie.lifetime.days", 7);
