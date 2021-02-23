@@ -469,14 +469,14 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
  * SECTION: GOOGLE SAFE BROWSING (GSB)                                        *
 ******************************************************************************/
 
-// PREF: Disable GSB checks for downloads (remote)
+// PREF: GSB checks for downloads (remote)
 // To verify the safety of certain executable files, Firefox may submit some information about the
 // file, including the name, origin, size and a cryptographic hash of the contents, to the Google
 // Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.url", "");
 
-// PREF: Disable GSB, master switch
+// PREF: GSB, master switch
 // WARNING: Be sure to have alternate security measures if you disable Safe Browsing.
 // Increased privacy away from Google, but less protection against threats.
 // Privacy & Security>Security>... "Block dangerous and deceptive content"
@@ -485,22 +485,22 @@ user_pref("browser.safebrowsing.downloads.remote.url", "");
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
 
-// PREF: Prevent GSB from checking downloads local + remote, master switch
+// PREF: GSB checking downloads local + remote, master switch
 // Privacy & Security>Security>... "Block dangerous downloads"
 user_pref("browser.safebrowsing.downloads.enabled", false);
 
-// PREF: Disable GSB checks for unwanted software
+// PREF: GSB checks for unwanted software
 // Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
-// PREF: Disable 'ignore this warning' on Google Safe Browsing warnings
+// PREF: 'ignore this warning' on Google Safe Browsing warnings
 // If clicked, it bypasses the block for that session. This is a means for admins to enforce SB.
 // [1] https://bugzilla.mozilla.org/1226490
 // user_pref("browser.safebrowsing.allowOverride", false);
 // user_pref("browser.safebrowsing.blockedURIs.enabled", true);
 
-// PREF: Obliterate every trace of GSB from your browser
+// PREF: obliterate every trace of GSB from your browser
 // google
 user_pref("browser.safebrowsing.provider.google.advisoryURL", "");
 user_pref("browser.safebrowsing.provider.google.pver", "");
@@ -561,7 +561,7 @@ user_pref("extensions.webextensions.tabhide.enabled", false);
  * SECTION: TELEMETRY                                                   *
 ******************************************************************************/
 
-// PREF: Disable all the various Mozilla telemetry, studies, reports, etc.
+// PREF: disable all the various Mozilla telemetry, studies, reports, etc.
 // Telemtry
 user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.enabled", false);
@@ -599,43 +599,47 @@ user_pref("app.shield.optoutstudies.enabled", false);
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to make personalized extension recommendations
 user_pref("browser.discovery.enabled", false);
 
-// Crash Reports
+// PREF: disable crash reports
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 // backlogged crash reports
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
-// disable Captive Portal detection
+// PREF: Captive Portal detection
+// [WARNING] May NOT be able to use your browser at hotels and coffee shops.
 // [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy
 // [2] https://wiki.mozilla.org/Necko/CaptivePortal
 // user_pref("captivedetect.canonicalURL", "");
 // user_pref("network.captive-portal-service.enabled", false);
 
-// disable Network Connectivity checks
+// PREF: Network Connectivity checks
 // [1] https://bugzilla.mozilla.org/1460537
 // user_pref("network.connectivity-service.enabled", false);
 
-// Software that continually reports what default browser you are using
+// PREF: software that continually reports what default browser you are using
 user_pref("default-browser-agent.enabled", false);
 
-// Report extensions for abuse
+// PREF: "report extensions for abuse"
 user_pref("extensions.abuseReport.enabled", false);
 
-// Normandy/Shield [extensions tracking]
+// PREF: Normandy/Shield [extensions tracking]
 // Shield is an telemetry system (including Heartbeat) that can also push and test "recipes"
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 
-// disable PingCentre telemetry (used in several System Add-ons)
+// PREF: PingCentre telemetry (used in several System Add-ons)
 // Currently blocked by 'datareporting.healthreport.uploadEnabled'
 user_pref("browser.ping-centre.telemetry", false);
 
-// disable Activity Stream telemetry 
+// PREF: Activity Stream telemetry 
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
-// backend telemetry
+// PREF: backend telemetry
+// [WARNING] One or more of these prefs breaks causes breakage with ETP.
+// I have not tested these individually, and you should be OK to not use them.
+/**
 user_pref("app.normandy.first_run", false);
 user_pref("app.normandy.shieldLearnMoreUrl", "");
 user_pref("browser.urlbar.eventTelemetry.enabled", false);
@@ -653,7 +657,7 @@ user_pref("security.app_menu.recordEventTelemetry", false);
 user_pref("security.certerrors.recordEventTelemetry", false);
 user_pref("security.identitypopup.recordEventTelemetry", false);
 user_pref("security.protectionspopup.recordEventTelemetry", false);
-user_pref("telemetry.origin_telemetry_test_mode.enabled", false);
+user_pref("telemetry.origin_telemetry_test_mode.enabled", false); // default
 user_pref("toolkit.coverage.enabled", false);
 user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.cachedClientID", "");
@@ -664,3 +668,4 @@ user_pref("toolkit.telemetry.previousBuildID", "");
 user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
 user_pref("toolkit.telemetry.server_owner", "");
 user_pref("toolkit.telemetry.testing.overrideProductsCheck", false);
+***/
