@@ -169,9 +169,6 @@ user_pref("browser.urlbar.suggest.engines", false);
 // PREF: disable dropdown suggestions with empty query
 user_pref("browser.urlbar.suggest.topsites", false);
 
-// PREF: Unhide parts of the url in the location bar
-// user_pref("browser.urlbar.trimURLs", false);
-
 // PREF: Set a default permission for Notifications
 // To add site exceptions: Page Info>Permissions>Receive Notifications.
 // To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings.
@@ -187,9 +184,11 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("dom.push.enabled", false);
 user_pref("dom.push.userAgentID", "");
 
-// PREF: Adjust HTML5 autoplay settings
+// PREF: do not autoplay media
 // 0=Allow all, 1=Block non-muted media (default), 5=Block all
-user_pref("media.autoplay.default", 1);
+// user_pref("media.autoplay.default", 5);
+// user_pref("media.autoplay.blocking_policy", 1); // default=0
+// user_pref("dom.user_activation.transient.timeout", "500"); // default=5000
 
 // PREF: Disable Reader mode
 // Firefox will not have to parse webpage for Reader when navigating.
