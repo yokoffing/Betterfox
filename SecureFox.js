@@ -197,6 +197,10 @@ user_pref("browser.newtab.preload", true); /* default */
  * SECTION: SEARCH / URL BAR                              *
 ******************************************************************************/
 
+// PREF: trim certain parts of the URL
+// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs#values
+user_pref("browser.urlbar.trimURLs", false);
+
 // PREF: Enable a seperate search engine for Private Windows
 // Remember to go into Preferences -> Search and select another search provider (like DuckDuckGo)
 user_pref("browser.search.separatePrivateDefault", true);
