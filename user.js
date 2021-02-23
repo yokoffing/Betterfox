@@ -71,7 +71,8 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
 user_pref("network.predictor.enable-prefetch", false);
 user_pref("browser.newtab.preload", true);
 
-/** SEARCH ***/
+/** SEARCH / URL BAR ***/
+user_pref("browser.urlbar.trimURLs", false);
 user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
