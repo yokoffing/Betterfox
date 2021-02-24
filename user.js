@@ -1,18 +1,5 @@
 //
-/* You may copy+paste this file and leave it as it is.
- *
- * However, please confirm the following preferences:
- *
- * [1] Google Safe Browsing (disabled)
- * [2] Firefox Password Manager (disabled)
- * [3] Firefox Address and Credit Card Manager (disabled)
- *
- * [1] If you do NOT have a firewall or DNS-filtering for dangerous and
- * deceptive content, then delete all prefs related to Google Safe Browsing.
- * Trading a little bit of privacy for security is worth it.
- *
- * [2] & [3] If you use these native features of Firefox, please remove the
- * prefs as instructed below.
+/* You may copy+paste this file and use it as it is.
  *
  * If you make changes to your about:config while the program is running, the
  * changes will be overwritten by the user.js when the application restarts.
@@ -23,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: 20 February 2021                                                *
+ * version: February 2021                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -32,7 +19,6 @@
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
-user_pref("javascript.options.warp", true);
 user_pref("dom.image-lazy-loading.enabled", true);
 user_pref("browser.sessionstore.restore_tabs_lazily", true);
 user_pref("browser.sessionstore.restore_on_demand", true);
@@ -42,34 +28,27 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
 ****************************************************************************/
-
 /** TRACKING PROTECTION ***/
-user_pref("browser.contentblocking.category", "custom");
+user_pref("privacy.partition.network_state", true);
+user_pref("network.cookie.cookieBehavior", 5);
+user_pref("privacy.purge_trackers.enabled", true);
+user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
+user_pref("privacy.socialtracking.block_cookies.enabled", true);
 user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
 user_pref("browser.send_pings", false);
-user_pref("browser.send_pings.require_same_host", true);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
 user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
-
-/** STORAGE ***/
-user_pref("network.cookie.cookieBehavior", 5);
-user_pref("privacy.purge_trackers.enabled", true);
-user_pref("browser.cache.cache_isolation", true);
-user_pref("browser.cache.disk.enable", true);
-user_pref("browser.cache.offline.enable", true);
-user_pref("browser.cache.offline.storage.enable", false);
-user_pref("privacy.partition.network_state", true);
 user_pref("dom.storage.next_gen", true);
 
-/** CLEARING HISTORY DEFAULTS ***/
+/** CLEARING DATA DEFAULTS ***/
 user_pref("privacy.cpd.history", true);
 user_pref("privacy.cpd.formdata", true);
 user_pref("privacy.cpd.offlineApps", true);
@@ -92,7 +71,8 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
 user_pref("network.predictor.enable-prefetch", false);
 user_pref("browser.newtab.preload", true);
 
-/** SEARCH ***/
+/** SEARCH / URL BAR ***/
+user_pref("browser.urlbar.trimURLs", false);
 user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
@@ -140,7 +120,6 @@ user_pref("signon.formlessCapture.enabled", false);
 user_pref("extensions.fxmonitor.enabled", false);
 
 /** ADDRESS + CREDIT CARD MANAGER ***/
-/* NOTE: Remove everything below this line if you use this feature */
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.available", "off");
 user_pref("extensions.formautofill.creditCards.available", false);
@@ -152,7 +131,6 @@ user_pref("browser.formfill.enable", false);
 user_pref("network.auth.subresource-http-auth-allow", 1);
 user_pref("security.mixed_content.block_active_content", true);
 user_pref("security.mixed_content.upgrade_display_content", true);
-user_pref("security.mixed_content.block_object_subrequest", true);
 user_pref("dom.block_download_insecure", true);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
@@ -161,6 +139,11 @@ user_pref("dom.targetBlankNoOpener.enabled", true);
 user_pref("privacy.window.name.update.enabled", true);
 user_pref("network.http.referer.XOriginPolicy", 0);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+
+/** FLASH PLUGIN ***/
+user_pref("security.mixed_content.block_object_subrequest", true);
+user_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled", false);
+user_pref("plugin.state.flash", 0);
 
 /** GOOGLE SAFE BROWSING ***/
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
@@ -272,7 +255,6 @@ user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("dom.push.enabled", false);
 user_pref("dom.push.userAgentID", "");
-user_pref("media.autoplay.default", 1);
 user_pref("media.block-autoplay-until-in-foreground", true);
 user_pref("findbar.highlightAll", true);
 user_pref("layout.spellcheckDefault", 2);
@@ -295,12 +277,12 @@ user_pref("dom.disable_open_during_load", true);
 user_pref("privacy.popups.showBrowserMessage", true);
 
 /****************************************************************************
- * SECTION: FIREFOX BETA & DEVELOPER                                        *
+ * SECTION: EXPERIMENTAL                                        *
 ****************************************************************************/
+/** You can view experimental prefs at about:support
+* [SETTING] about:support > Experimental Features ***/
+
 /**
-*
-* You can view experimental prefs @ about:support
-*
 * user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 * user_pref("layout.css.focus-visible.enabled", true);
 * user_pref("layout.css.grid-template-masonry-value.enabled", true);
@@ -313,8 +295,8 @@ user_pref("privacy.popups.showBrowserMessage", true);
 * // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1685575
 * // [2] https://hg.mozilla.org/mozilla-central/rev/37acd60f7bcc15481e8ebb231bb2f80fe9fd0a2e
 * // [3] https://www.reddit.com/r/firefox/comments/kzrmsb/enable_dynamic_first_party_isolation/gjtxyje/?context=3
-* // user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); /* default */
-* // user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); /* hidden */
+* // user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
+* // user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // hidden
 *
 * // PREF: Samesite Cookies
 * // [1] https://www.jardinesoftware.net/2019/10/28/samesite-by-default-in-2020/
@@ -329,7 +311,7 @@ user_pref("privacy.popups.showBrowserMessage", true);
 * // user_pref("pdfjs.viewerCssTheme", 1); /* light theme */
 * // user_pref("pdfjs.viewerCssTheme", 2); /* dark theme */
 *
-**/
+***/
 
 /****************************************************************************
  * SECTION: FIREFOX NIGHTLY                                                 *
@@ -353,8 +335,7 @@ user_pref("privacy.popups.showBrowserMessage", true);
 * // user_pref("browser.proton.appmenu.enabled", true);
 * // user_pref("browser.newtabpage.activity-stream.newNewtabExperience.enabled", true);
 * // user_pref("browser.proton.toolbar.enabled", true);
-* // user_pref("browser.proton.toolbar.version", 1);
-* // user_pref("browser.proton.contextmenus.enabled", true); // WINDOWS-ONLY
+* // user_pref("browser.proton.contextmenus.enabled", true);
 * 
 * // PREF: Microphone and camera kill switch
 * // user_pref("privacy.webrtc.globalMuteToggles", true);
