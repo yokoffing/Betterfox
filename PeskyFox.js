@@ -231,7 +231,7 @@ user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
 
 // PREF: print preview
-user_pref("print.tab_modal.enabled", true);
+user_pref("print.tab_modal.enabled", true); // default
 
 /****************************************************************************
  * SECTION: PDF                                                             *
