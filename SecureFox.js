@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: 17 February 2021                                                *
+ * version: February 2021                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -19,35 +19,69 @@
  * SECTION: TRACKING PROTECTION                                             *
 ****************************************************************************/
 
+// PREF: Network Partitioning
+// Network Partitioning will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
+// on a per-website basis rather than together in the same pool.
+// [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
+// [2] https://github.com/privacycg/storage-partitioning#introduction
+// [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
+// [4] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
+user_pref("privacy.partition.network_state", true); // default
+
+// PREF: Dynamic First-Party Isolation (dFPI) [aka Total Cookie Protection, Dynamic State Paritioning]
+// TL;DR: Every website gets its own “cookie jar,” preventing cookies from being used to track you from site to site.
+// A more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
+// context. dFPI partitions user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
+// compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
+// FPI is strong but it comes at the expense of breakage (all cross-site logins won't work, e.g. Youtube and Google).
+// dFPI allows isolating most sites while applying a set of heuristics to allow sites through the isolation
+// in certain circumstances for usability.
+// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning#dynamic_state_partitioning
+// [2] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
+user_pref("network.cookie.cookieBehavior", 5);
+
+// PREF: Redirect Tracking Prevention
+// All storage is cleared (more or less) daily from origins that are known trackers and that
+// haven’t received a top-level user interaction (including scroll) within the last 45 days.
+// [1] https://www.ghacks.net/2020/08/06/how-to-enable-redirect-tracking-in-firefox/
+// [2] https://www.cookiestatus.com/firefox/#other-first-party-storage
+// [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
+// [4] https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
+// [5] https://github.com/arkenfox/user.js/issues/1089
+user_pref("privacy.purge_trackers.enabled", true);
+
 // PREF: Enhanced Tracking Protection (ETP)
 // Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
 // Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
 // been interacted with in the last 30 days.
-// [1] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
-user_pref("browser.contentblocking.category", "custom");
+// [NOTE] FF86: "Strict" tracking protection enables dFPI.
+// [1] https://blog.mozilla.org/firefox/control-trackers-with-firefox/
+// [2] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
+// [3] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
+user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.enabled", true);
-user_pref("privacy.trackingprotection.pbmode.enabled", true); /* default */
-user_pref("privacy.trackingprotection.cryptomining.enabled", true); /* default */
-user_pref("privacy.trackingprotection.fingerprinting.enabled", true); /* default */
-user_pref("privacy.trackingprotection.socialtracking.enabled", true);
-user_pref("privacy.socialtracking.block_cookies.enabled", true); /* default */
-// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false);
+user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
+user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
+user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
+user_pref("privacy.trackingprotection.socialtracking.enabled", true); // default
+user_pref("privacy.socialtracking.block_cookies.enabled", true);
+// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 
-// PREF: Allow embedded tweets and Instagram posts to load in articles.
+// PREF: allow embedded tweets and Instagram posts
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
-user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); /* hidden */
-user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); /* hidden */
+user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hidden
+user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
-// PREF: Disable Hyperlink Auditing (click tracking).
+// PREF: Hyperlink Auditing (click tracking).
 user_pref("browser.send_pings", false);
-// Enforce same host just in case.
+// enforce same host just in case.
 user_pref("browser.send_pings.require_same_host", true);
 
-// PREF: Disable sending additional analytics to web servers
+// PREF: sending additional analytics to web servers
 // [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
 user_pref("beacon.enabled", false);
 
-// PREF: Disable battery status tracking
+// PREF: battery status tracking
 user_pref("dom.battery.enabled", false);
 
 // PREF: CRLite
@@ -57,66 +91,21 @@ user_pref("dom.battery.enabled", false);
 user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 
-/******************************************************************************
- * SECTION: STORAGE                              *
-******************************************************************************/
-
-// PREF: Dynamic First-Party Isolation (dFPI)
-// A more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
-// context. dFPI partitions user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
-// compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1625228
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1549587
-// 5=block cross site and social media trackers, and isolate remaining cookies (Dynamic First Party Isolation)
-user_pref("network.cookie.cookieBehavior", 5);
-
-// PREF: Limit third-party cookies
-// Because of dFPI and our tracking protection(s), we will only clear nonsecure cookies each session.
-// user_pref("network.cookie.thirdparty.sessionOnly", false);
-// user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
-
-// PREF: Delete all cookies after a certain period of time
-// ALTERNATIVE: Use a cookie manager extension
-// user_pref("network.cookie.lifetimePolicy", 3);
-// user_pref("network.cookie.lifetime.days", 7);
-
-// PREF: Redirect tracking prevention + Purge site data of sites associated with tracking cookies automatically
-// All storage is cleared (more or less) daily from origins that are known trackers and that
-// haven’t received a top-level user interaction (including scroll) within the last 45 days.
-// [1] https://www.ghacks.net/2020/08/06/how-to-enable-redirect-tracking-in-firefox/
-// [2] https://www.cookiestatus.com/firefox/#other-first-party-storage
-// [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
-// [4] https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
-// [5] https://github.com/arkenfox/user.js/issues/1089
-user_pref("privacy.purge_trackers.enabled", true);
-// user_pref("privacy.purge_trackers.logging.level", "All");  /* ??? */
-// user_pref("privacy.purge_trackers.consider_entity_list", false);  /* ??? */
-
-// PREF: Isolate cache per site
-user_pref("browser.cache.cache_isolation", true);
-
-// PREF: Enforce no offline cache storage (appCache)
-// [1] https://github.com/arkenfox/user.js/issues/1055
-user_pref("browser.cache.disk.enable", true); /* default */
-user_pref("browser.cache.offline.enable", true); /* default */
-user_pref("browser.cache.offline.storage.enable", false);
-
-// PREF: Network Partitioning
-// Network Partitioning will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
-// on a per-website basis rather than together in the same pool.
-// [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
-// [2] https://github.com/privacycg/storage-partitioning
-user_pref("privacy.partition.network_state", true);
-
-// PREF: Enable Local Storage Next Generation (LSNG) (DOMStorage) 
+// PREF: Local Storage Next Generation (LSNG) (DOMStorage) 
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 user_pref("dom.storage.next_gen", true);
 
+// PREF: enforce no offline cache storage (appCache)
+// [1] https://github.com/arkenfox/user.js/issues/1055
+// user_pref("browser.cache.disk.enable", true); // default
+// user_pref("browser.cache.offline.enable", true); // default
+// user_pref("browser.cache.offline.storage.enable", false);
+
 /******************************************************************************
- * SECTION: CLEARING HISTORY DEFAULTS                           *
+ * SECTION: CLEARING DATA DEFAULTS                           *
 ******************************************************************************/
 
-// PREF: Reset default items to clear with Ctrl-Shift-Del
+// PREF: reset default items to clear with Ctrl-Shift-Del
 // This dialog can also be accessed from the menu History>Clear Recent History
 // Firefox remembers your last choices. This will reset them when you start Firefox.
 // Regardless of what you set privacy.cpd.downloads to, as soon as the dialog
@@ -130,7 +119,7 @@ user_pref("privacy.cpd.cookies", false); // Cookies
 user_pref("privacy.cpd.sessions", false); // Active Logins
 user_pref("privacy.cpd.siteSettings", false); // Site Preferences
 
-// PREF: Reset default 'Time range to clear' for 'Clear Recent History'.
+// PREF: reset default 'Time range to clear' for 'Clear Recent History'.
 // Firefox remembers your last choice. This will reset the value when you start Firefox.
 // 0=everything, 1=last hour, 2=last two hours, 3=last four hours,
 // 4=today, 5=last five minutes, 6=last twenty-four hours
@@ -138,17 +127,26 @@ user_pref("privacy.cpd.siteSettings", false); // Site Preferences
 // blank value if they are used, but they do work as advertised.
 user_pref("privacy.sanitize.timeSpan", 0);
 
-// PREF: Set History section to show all options
+// PREF: set History section to show all options
 user_pref("privacy.history.custom", true);
 
-/******************************************************************************
- * SECTION: PRELOADING/PREFETCHING                              *
-******************************************************************************/
+// PREF: limit third-party cookies
+// Because of dFPI and our tracking protection(s), we will only clear nonsecure cookies each session.
+// user_pref("network.cookie.thirdparty.sessionOnly", false);
+// user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
-// I have altered this section for a mixture of privacy and speed.
+// PREF: delete all cookies after a certain period of time
+// ALTERNATIVE: Use a cookie manager extension
+// user_pref("network.cookie.lifetimePolicy", 3);
+// user_pref("network.cookie.lifetime.days", 7);
+
+/******************************************************************************
+ * SECTION: PRELOADING                                            *
+******************************************************************************/
+// [NOTE] I have altered this section for a mixture of privacy and speed.
 // Leave off any PREFETCH preferences if you use an adblock extension and/or DNS-level adblocking due to wonky page rendering.
 // All PREFETCH preferences continue to be disabled here and in the user.js, but other speed improvements are enabled.
-// NOTE: You can set uBlock Origin to do "Disable pre-fetching" in its settings. This overrides some settings below.
+// You can set uBlock Origin to do "Disable pre-fetching" in its settings. This overrides some settings below.
 
 // PREF: DNS prefetching
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
@@ -200,6 +198,10 @@ user_pref("browser.newtab.preload", true); /* default */
 /******************************************************************************
  * SECTION: SEARCH / URL BAR                              *
 ******************************************************************************/
+
+// PREF: trim certain parts of the URL
+// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs#values
+user_pref("browser.urlbar.trimURLs", false);
 
 // PREF: Enable a seperate search engine for Private Windows
 // Remember to go into Preferences -> Search and select another search provider (like DuckDuckGo)
@@ -326,6 +328,13 @@ user_pref("signon.management.page.breachAlertUrl", "");
 user_pref("browser.contentblocking.report.lockwise.enabled", false);
 user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
 
+// PREF: Disable Firefox built-in password generator
+// Create passwords with random characters and numbers.
+// [NOTE] Doesn't work with Lockwise disabled!
+// [1] https://wiki.mozilla.org/Toolkit:Password_Manager/Password_Generation
+user_pref("signon.generation.available", false);
+user_pref("signon.generation.enabled", false);
+
 // PREF: Disable password manager
 // NOTE” This does not clear any passwords already saved
 user_pref("signon.rememberSignons", false);
@@ -334,12 +343,6 @@ user_pref("signon.schemeUpgrades", false);
 user_pref("signon.showAutoCompleteFooter", false);
 user_pref("signon.autologin.proxy", false);
 user_pref("signon.debug", false);
-
-// PREF: Disable Firefox built-in password generator
-// [1] https://wiki.mozilla.org/Toolkit:Password_Manager/Password_Generation
-// NOTE: Create passwords with random characters and numbers
-user_pref("signon.generation.available", false);
-user_pref("signon.generation.enabled", false);
 
 // PREF: Disable Firefox import password from signons.sqlite file
 // [1] https://support.mozilla.org/en-US/questions/1020818
@@ -472,14 +475,14 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
  * SECTION: GOOGLE SAFE BROWSING (GSB)                                        *
 ******************************************************************************/
 
-// PREF: Disable GSB checks for downloads (remote)
+// PREF: GSB checks for downloads (remote)
 // To verify the safety of certain executable files, Firefox may submit some information about the
 // file, including the name, origin, size and a cryptographic hash of the contents, to the Google
 // Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.url", "");
 
-// PREF: Disable GSB, master switch
+// PREF: GSB, master switch
 // WARNING: Be sure to have alternate security measures if you disable Safe Browsing.
 // Increased privacy away from Google, but less protection against threats.
 // Privacy & Security>Security>... "Block dangerous and deceptive content"
@@ -488,22 +491,22 @@ user_pref("browser.safebrowsing.downloads.remote.url", "");
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
 
-// PREF: Prevent GSB from checking downloads local + remote, master switch
+// PREF: GSB checking downloads local + remote, master switch
 // Privacy & Security>Security>... "Block dangerous downloads"
 user_pref("browser.safebrowsing.downloads.enabled", false);
 
-// PREF: Disable GSB checks for unwanted software
+// PREF: GSB checks for unwanted software
 // Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
-// PREF: Disable 'ignore this warning' on Google Safe Browsing warnings
+// PREF: 'ignore this warning' on Google Safe Browsing warnings
 // If clicked, it bypasses the block for that session. This is a means for admins to enforce SB.
 // [1] https://bugzilla.mozilla.org/1226490
 // user_pref("browser.safebrowsing.allowOverride", false);
 // user_pref("browser.safebrowsing.blockedURIs.enabled", true);
 
-// PREF: Obliterate every trace of GSB from your browser
+// PREF: obliterate every trace of GSB from your browser
 // google
 user_pref("browser.safebrowsing.provider.google.advisoryURL", "");
 user_pref("browser.safebrowsing.provider.google.pver", "");
@@ -564,81 +567,85 @@ user_pref("extensions.webextensions.tabhide.enabled", false);
  * SECTION: TELEMETRY                                                   *
 ******************************************************************************/
 
-// PREF: Disable all the various Mozilla telemetry, studies, reports, etc.
+// PREF: disable all the various Mozilla telemetry, studies, reports, etc.
 // Telemtry
-pref("toolkit.telemetry.unified", false);
-pref("toolkit.telemetry.enabled", false);
-pref("toolkit.telemetry.server", "data:,");
-pref("toolkit.telemetry.archive.enabled", false);
-pref("toolkit.telemetry.newProfilePing.enabled", false);
-pref("toolkit.telemetry.shutdownPingSender.enabled", false);
-pref("toolkit.telemetry.updatePing.enabled", false);
-pref("toolkit.telemetry.bhrPing.enabled", false);
-pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+user_pref("toolkit.telemetry.unified", false);
+user_pref("toolkit.telemetry.enabled", false);
+user_pref("toolkit.telemetry.server", "data:,");
+user_pref("toolkit.telemetry.archive.enabled", false);
+user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+user_pref("toolkit.telemetry.updatePing.enabled", false);
+user_pref("toolkit.telemetry.bhrPing.enabled", false);
+user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 
 // Corroborator
-pref("corroborator.enabled", false);
+user_pref("corroborator.enabled", false);
 
 // Telemetry Coverage
-pref("toolkit.telemetry.coverage.opt-out", true);
-pref("toolkit.coverage.opt-out", true);
-pref("toolkit.coverage.endpoint.base", "");
+user_pref("toolkit.telemetry.coverage.opt-out", true);
+user_pref("toolkit.coverage.opt-out", true);
+user_pref("toolkit.coverage.endpoint.base", "");
 
 // Health Reports
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data.
-pref("datareporting.healthreport.uploadEnabled", false);
+user_pref("datareporting.healthreport.uploadEnabled", false);
 
 // New data submission, master kill switch
 // If disabled, no policy is shown or upload takes place, ever
 // [1] https://bugzilla.mozilla.org/1195552
-pref("datareporting.policy.dataSubmissionEnabled", false);
+user_pref("datareporting.policy.dataSubmissionEnabled", false);
 
 // Studies
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to install and run studies
-pref("app.shield.optoutstudies.enabled", false);
+user_pref("app.shield.optoutstudies.enabled", false);
 
 // Personalized Extension Recommendations in about:addons and AMO
 // [NOTE] This pref has no effect when Health Reports are disabled.
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to make personalized extension recommendations
-pref("browser.discovery.enabled", false);
+user_pref("browser.discovery.enabled", false);
 
-// Crash Reports
-pref("breakpad.reportURL", "");
-pref("browser.tabs.crashReporting.sendReport", false);
-pref("browser.crashReports.unsubmittedCheck.enabled", false);
+// PREF: disable crash reports
+user_pref("breakpad.reportURL", "");
+user_pref("browser.tabs.crashReporting.sendReport", false);
+user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 // backlogged crash reports
-pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
-// disable Captive Portal detection
+// PREF: Captive Portal detection
+// [WARNING] May NOT be able to use your browser at hotels and coffee shops.
 // [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy
 // [2] https://wiki.mozilla.org/Necko/CaptivePortal
 // user_pref("captivedetect.canonicalURL", "");
 // user_pref("network.captive-portal-service.enabled", false);
 
-// disable Network Connectivity checks
+// PREF: Network Connectivity checks
 // [1] https://bugzilla.mozilla.org/1460537
 // user_pref("network.connectivity-service.enabled", false);
 
-// Software that continually reports what default browser you are using
-pref("default-browser-agent.enabled", false);
+// PREF: software that continually reports what default browser you are using
+user_pref("default-browser-agent.enabled", false);
 
-// Report extensions for abuse
-pref("extensions.abuseReport.enabled", false);
+// PREF: "report extensions for abuse"
+user_pref("extensions.abuseReport.enabled", false);
 
-// Normandy/Shield [extensions tracking]
+// PREF: Normandy/Shield [extensions tracking]
 // Shield is an telemetry system (including Heartbeat) that can also push and test "recipes"
-pref("app.normandy.enabled", false);
-pref("app.normandy.api_url", "");
+user_pref("app.normandy.enabled", false);
+user_pref("app.normandy.api_url", "");
 
-// disable PingCentre telemetry (used in several System Add-ons)
+// PREF: PingCentre telemetry (used in several System Add-ons)
 // Currently blocked by 'datareporting.healthreport.uploadEnabled'
-pref("browser.ping-centre.telemetry", false);
+user_pref("browser.ping-centre.telemetry", false);
 
-// disable Activity Stream telemetry 
-pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-pref("browser.newtabpage.activity-stream.telemetry", false);
+// PREF: Activity Stream telemetry 
+user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
-// backend telemetry
+// PREF: backend telemetry
+// [WARNING] One or more of these prefs breaks causes breakage with ETP.
+// I have not tested these individually, and you should be OK to not use them.
+/**
 user_pref("app.normandy.first_run", false);
 user_pref("app.normandy.shieldLearnMoreUrl", "");
 user_pref("browser.urlbar.eventTelemetry.enabled", false);
@@ -656,7 +663,7 @@ user_pref("security.app_menu.recordEventTelemetry", false);
 user_pref("security.certerrors.recordEventTelemetry", false);
 user_pref("security.identitypopup.recordEventTelemetry", false);
 user_pref("security.protectionspopup.recordEventTelemetry", false);
-user_pref("telemetry.origin_telemetry_test_mode.enabled", false);
+user_pref("telemetry.origin_telemetry_test_mode.enabled", false); // default
 user_pref("toolkit.coverage.enabled", false);
 user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.cachedClientID", "");
@@ -666,6 +673,5 @@ user_pref("toolkit.telemetry.geckoview.streaming", false);
 user_pref("toolkit.telemetry.previousBuildID", "");
 user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
 user_pref("toolkit.telemetry.server_owner", "");
-user_pref("toolkit.telemetry.server", "");
 user_pref("toolkit.telemetry.testing.overrideProductsCheck", false);
-user_pref("toolkit.telemetry.unified", false);
+***/
