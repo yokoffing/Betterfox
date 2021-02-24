@@ -28,7 +28,8 @@
 // [4] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
 user_pref("privacy.partition.network_state", true); // default
 
-// PREF: Dynamic First-Party Isolation (dFPI)
+// PREF: Dynamic First-Party Isolation (dFPI) [aka Total Cookie Protection, Dynamic State Paritioning]
+// TL;DR: Every website gets its own “cookie jar,” preventing cookies from being used to track you from site to site.
 // A more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
 // context. dFPI partitions user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
 // compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
@@ -36,6 +37,7 @@ user_pref("privacy.partition.network_state", true); // default
 // dFPI allows isolating most sites while applying a set of heuristics to allow sites through the isolation
 // in certain circumstances for usability.
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning#dynamic_state_partitioning
+// [2] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
 user_pref("network.cookie.cookieBehavior", 5);
 
 // PREF: Redirect Tracking Prevention
