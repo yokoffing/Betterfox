@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: February 2021                                                   *
+ * version: March 2021                                                      *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -39,6 +39,17 @@ user_pref("privacy.partition.network_state", true); // default
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning#dynamic_state_partitioning
 // [2] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
 user_pref("network.cookie.cookieBehavior", 5);
+user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
+// user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // hidden? Nightly-only?
+
+// PREF: Samesite Cookies
+// [1] https://www.jardinesoftware.net/2019/10/28/samesite-by-default-in-2020/
+// [2] https://web.dev/schemeful-samesite/
+user_pref("network.cookie.sameSite.laxByDefault", true);
+user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+// treat cookies from the same domain, but with different schemes (e.g. http://example.com and https://example.com)
+// as cross-site instead of same-site. Improves security, but potentially introduces breakage.
+// user_pref("network.cookie.sameSite.schemeful", true);
 
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
