@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: 07 February 2021                                                *
+ * version: February 2021                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -21,13 +21,17 @@
 
 // PREF: Enable a Light theme for browser and webpage content
 // [TEST] https://9to5mac.com/
-// user_pref("ui.systemUsesDarkTheme", 0);
-// user_pref("browser.in-content.dark-mode", false); /* removed? */
+// user_pref("ui.systemUsesDarkTheme", 0); // hidden
+// user_pref("browser.in-content.dark-mode", false); // hidden
+// user_pref("devtools.theme", "light"); // default
+// user_pref("pdfjs.viewerCssTheme", 1);
 
 // PREF: Enable a Dark theme for browser and webpage content
 // [TEST] https://9to5mac.com/
-// user_pref("ui.systemUsesDarkTheme", 1);
-// user_pref("browser.in-content.dark-mode", true); /* removed? */
+// user_pref("ui.systemUsesDarkTheme", 1); // hidden
+// user_pref("browser.in-content.dark-mode", true); // hidden
+// user_pref("devtools.theme", "dark");
+// user_pref("pdfjs.viewerCssTheme", 2);
 
 // PREF: Allow Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
@@ -70,6 +74,9 @@ user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.delay", 0);
 user_pref("full-screen-api.warning.timeout", 0);
 
+// PREF: Hide bookmarks toolbar from new tab page 
+user_pref("browser.toolbars.bookmarks.visibility", "never");
+
 /****************************************************************************
  * SECTION: NEW TAB PAGE                                                    *
 ****************************************************************************/
@@ -102,7 +109,7 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited"
 // PREF: Hide "What's New"
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
-// PREF: Logo to always show?
+// PREF: Firefox logo to always show?
 // user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", true);
 
 // PREF: Bookmarks Toolbar visibility
@@ -123,14 +130,14 @@ user_pref("extensions.pocket.site", " ");
  * SECTION: DOWNLOADS                                 *
 ******************************************************************************/
 
-// PREF: Choose download location
-// SETTING: To set your default "downloads": General>Downloads>Save files to
+// PREF: choose download location
+// [SETTING] To set your default "downloads": General>Downloads>Save files to...
 // 0=desktop, 1=downloads (default), 2=last used
 // user_pref("browser.download.folderList", 1);
 
 // PREF: Enforce user interaction for security by always asking where to download.
-// SETTING: General>Downloads>Always ask you where to save files
-// If this value is false, the user is asked what to do.
+// [SETTING] General>Downloads>Always ask you where to save files
+// false=the user is asked what to do
 user_pref("browser.download.useDownloadDir", false);
 
 // PREF: Disable adding downloads to the system's "recent documents" list
@@ -147,23 +154,20 @@ user_pref("browser.download.hide_plugins_without_extensions", false);
  * SECTION: VARIOUS                                                         *
 ****************************************************************************/
 
-// PREF: Do not unload tabs on low memory
+// PREF: do not unload tabs on low memory
 // Firefox will detect if your computer’s memory is running low (less than 400MB)
 // and suspend tabs that you have not used in awhile.
 // https://support.mozilla.org/en-US/questions/1262073
 user_pref("browser.tabs.unloadOnLowMemory", false); /* default */
 
-// PREF: Dropdown options in the URL bar
+// PREF: dropdown options in the URL bar
 user_pref("browser.urlbar.suggest.bookmarks", true);
 user_pref("browser.urlbar.suggest.engines", false);
-// user_pref("browser.urlbar.suggest.history", true);
-// user_pref("browser.urlbar.suggest.openpage", true);
-// user_pref("browser.urlbar.suggest.searches", true);
-// Disable dropdown suggestions with empty query
+// user_pref("browser.urlbar.suggest.history", false);
+// user_pref("browser.urlbar.suggest.openpage", false);
+// user_pref("browser.urlbar.suggest.searches", false);
+// PREF: disable dropdown suggestions with empty query
 user_pref("browser.urlbar.suggest.topsites", false);
-
-// PREF: Unhide parts of the url in the location bar
-// user_pref("browser.urlbar.trimURLs", false);
 
 // PREF: Set a default permission for Notifications
 // To add site exceptions: Page Info>Permissions>Receive Notifications.
@@ -171,17 +175,20 @@ user_pref("browser.urlbar.suggest.topsites", false);
 // 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.desktop-notification", 2);
 
-// PREF: Disable Push API
+// PREF: disable Push API
 // Push is an API that allows websites to send you (subscribed) messages even when the site
 // isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
-// https://support.mozilla.org/en-US/kb/push-notifications-firefox
-// https://developer.mozilla.org/en-US/docs/Web/API/Push_API
+// [1] https://support.mozilla.org/en-US/kb/push-notifications-firefox
+// [2] https://developer.mozilla.org/en-US/docs/Web/API/Push_API
+// [3] https://www.reddit.com/r/firefox/comments/fbyzd4/the_most_private_browser_isnot_firefox/
 user_pref("dom.push.enabled", false);
 user_pref("dom.push.userAgentID", "");
 
-// PREF: Adjust HTML5 autoplay settings
+// PREF: do not autoplay media
 // 0=Allow all, 1=Block non-muted media (default), 5=Block all
-user_pref("media.autoplay.default", 1);
+// user_pref("media.autoplay.default", 5);
+// user_pref("media.autoplay.blocking_policy", 1); // default=0
+// user_pref("dom.user_activation.transient.timeout", "500"); // default=5000
 
 // PREF: Disable Reader mode
 // Firefox will not have to parse webpage for Reader when navigating.
@@ -223,6 +230,9 @@ user_pref("browser.display.show_image_placeholders", false);
 user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
 
+// PREF: print preview
+user_pref("print.tab_modal.enabled", true); // default
+
 /****************************************************************************
  * SECTION: PDF                                                             *
 ****************************************************************************/
@@ -237,8 +247,9 @@ user_pref("pdfjs.disabled", false);
 // include Content-Disposition:attachment. 
 user_pref("browser.helperApps.showOpenOptionForPdfJS", true); /*default*/
 
-// PREF: Default zoom for PDFs
-user_pref("pdfjs.defaultZoomValue", "page-width"); /* hidden */
+// PREF: Default zoom for PDFs // hidden pref
+// user_pref("pdfjs.defaultZoomValue", "page-width"); // for laptops and small screens
+// user_pref("pdfjs.defaultZoomValue", "page-fit"); // for larger screens and desktops
 
 /****************************************************************************
  * SECTION: TAB BEHAVIOR                                                    *
@@ -250,25 +261,19 @@ user_pref("pdfjs.defaultZoomValue", "page-width"); /* hidden */
 // PREF: Searches in the URL bar appear in a new tab
 // user_pref("browser.urlbar.openintab", true);
 
-// PREF: Control behavior of links that would normally open in a new window.
-// 1=Open in the current tab/window
-// 2=Open in a new window
-// 3=Open in a new tab in the current window (default)
+// PREF: Control behavior of links that would normally open in a new window
+// Pop-up windows are treated like regular tabs.
+// You can still right-click a link and open in a new window.
 user_pref("browser.link.open_newwindow", 3);
- 
+user_pref("browser.link.open_newwindow.restriction", 0);
+
 // PREF: This preference overrides <browser.link.open_newwindow> for external
 // links. Set if a different destination for external links is needed.
 // 1=Open in the current tab/window
 // 2=Open in a new window
 // 3=Open in a new tab in the current window
 // -1=no overrides (default)
-// user_pref("browser.link.open_newwindow.override.external", -1);
-
-// PREF: Open links targeting new windows in a new tab instead
-// Pop-up windows are treated like regular tabs
-// You can still right-click a link and open in a new window
-user_pref("browser.link.open_newwindow", 3);
-user_pref("browser.link.open_newwindow.restriction", 0);
+// user_pref("browser.link.open_newwindow.override.external", 2);
 
 // PREF: Prevent scripts from moving and resizing open windows
 user_pref("dom.disable_window_move_resize", true);
@@ -290,30 +295,25 @@ user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 
 // PREF: Stop websites from reloading pages automatically
-// https://www.ghacks.net/2018/08/19/stop-websites-from-reloading-pages-automatically/
+// [1] https://www.ghacks.net/2018/08/19/stop-websites-from-reloading-pages-automatically/
 // user_pref("accessibility.blockautorefresh", true);
 // user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
-// PREF: Color management
-// Force FF to show the same color profiles as Chromium
-// user_pref("gfx.color_management.mode", 1);
-// user_pref("gfx.color_management.enablev4", true);
-// user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
-
 // PREF: AVIF images
-// https://www.omgubuntu.co.uk/2021/01/firefox-86-avif-image-support
-user_pref("image.avif.enabled", true);
+// [1] https://www.omgubuntu.co.uk/2021/01/firefox-86-avif-image-support
+user_pref("image.avif.enabled", true); // default in 86+
 
-// [FF 77+] PREF: Prevent password truncation when submitting form data
-// https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
-user_pref("editor.truncate_user_pastes", false); /*default ? */
+// PREF: Prevent password truncation when submitting form data
+// [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
+user_pref("editor.truncate_user_pastes", false);
 
 // PREF: Adjust the minimum tab width
 // [!] Can be overridden by userChrome.css.
-// user_pref("browser.tabs.tabMinWidth", 100); // default=76
+// user_pref("browser.tabs.tabMinWidth", 120); // default=76
 
-// PREF: Reduce size of picture-in-picture icon on the first run
-// user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
+// PREF: reduce size of picture-in-picture icon on the first run
+user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
+// always show the toggle
 // user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
 
 // PREF: Plain Text only when copying text.
