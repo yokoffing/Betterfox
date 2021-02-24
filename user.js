@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: February 2021                                                   *
+ * version: March 2021                                                      *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -31,6 +31,8 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 /** TRACKING PROTECTION ***/
 user_pref("privacy.partition.network_state", true);
 user_pref("network.cookie.cookieBehavior", 5);
+user_pref("network.cookie.sameSite.laxByDefault", true);
+user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 user_pref("privacy.purge_trackers.enabled", true);
 user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.enabled", true);
@@ -275,72 +277,6 @@ user_pref("clipboard.plainTextOnly", true);
 user_pref("dom.popup_allowed_events", "click dblclick");
 user_pref("dom.disable_open_during_load", true);
 user_pref("privacy.popups.showBrowserMessage", true);
-
-/****************************************************************************
- * SECTION: EXPERIMENTAL                                        *
-****************************************************************************/
-/** You can view experimental prefs at about:support
-* [SETTING] about:support > Experimental Features ***/
-
-/**
-* user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
-* user_pref("layout.css.focus-visible.enabled", true);
-* user_pref("layout.css.grid-template-masonry-value.enabled", true);
-* user_pref("layout.css.constructable-stylesheets.enabled", true);
-* user_pref("media.videocontrols.picture-in-picture.allow-multiple", true);
-* user_pref("dom.input_events.beforeinput.enabled", true);
-* user_pref("dom.forms.inputmode", true);
-*
-* // PREF: Cookie isolation changes?
-* // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1685575
-* // [2] https://hg.mozilla.org/mozilla-central/rev/37acd60f7bcc15481e8ebb231bb2f80fe9fd0a2e
-* // [3] https://www.reddit.com/r/firefox/comments/kzrmsb/enable_dynamic_first_party_isolation/gjtxyje/?context=3
-* // user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
-* // user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // hidden
-*
-* // PREF: Samesite Cookies
-* // [1] https://www.jardinesoftware.net/2019/10/28/samesite-by-default-in-2020/
-* // [2] https://web.dev/schemeful-samesite/
-* // user_pref("network.cookie.sameSite.laxByDefault", true);
-* // user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-* // Treat cookies from the same domain, but with different schemes (e.g. http://example.com and https://example.com)
-* // as cross-site instead of same-site. Improves security, but potentially introduces breakage.
-* // user_pref("network.cookie.sameSite.schemeful", true);
-*
-* // PREF: Enable theme for PDF viewer
-* // user_pref("pdfjs.viewerCssTheme", 1); /* light theme */
-* // user_pref("pdfjs.viewerCssTheme", 2); /* dark theme */
-*
-***/
-
-/****************************************************************************
- * SECTION: FIREFOX NIGHTLY                                                 *
-****************************************************************************/
-/**
-* // PREF: Mozilla Translate
-* // user_pref("browser.translation.ui.show", true);
-* // user_pref("browser.translation.detectLanguage", true);
-*
-* // PREF: Enable QUIC protocol / HTTP3
-* // [1] https://quic.rocks
-* // user_pref("network.http.http3.enabled", true);
-*
-* // PREF: Evolution of ESNI for DNS-over-HTTPS
-* // user_pref("network.dns.echconfig.enabled", true);
-* // user_pref("network.dns.use_https_rr_as_altsvc", true);
-*
-* // PREF: Proton UI Redesign
-* // user_pref("browser.proton.enabled", true);
-* // user_pref("browser.proton.tabs.enabled", true);
-* // user_pref("browser.proton.appmenu.enabled", true);
-* // user_pref("browser.newtabpage.activity-stream.newNewtabExperience.enabled", true);
-* // user_pref("browser.proton.toolbar.enabled", true);
-* // user_pref("browser.proton.contextmenus.enabled", true);
-* 
-* // PREF: Microphone and camera kill switch
-* // user_pref("privacy.webrtc.globalMuteToggles", true);
-*
-**/
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
