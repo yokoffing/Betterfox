@@ -185,18 +185,19 @@ user_pref("network.http.speculative-parallel-limit", 0;
 // Helps the web page to render and get into the stable and interactive state faster.
 // [1] https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
-user_pref("network.preload", true); /* default */
+user_pref("network.preload", false;
 
 // PREF: Network predictor
 // Uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
 // so that the next time the user mouseovers a link to that webpage, this history can be used to predict what resources will
 // be needed rather than wait for the document to link those resources.
 // [1] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
-user_pref("network.predictor.enabled", true); /* default */
-user_pref("network.predictor.enable-hover-on-ssl", true);
+user_pref("network.predictor.enabled", false);
+user_pref("network.predictor.enable-hover-on-ssl", false);
 user_pref("network.predictor.enable-prefetch", false); /* default */
 
 // PREF: New tab tile ads and preload
+// [NOTE] Disabling this causes a delay when opening a new tab.
 // [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 // [2] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
 // [3] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
