@@ -154,10 +154,6 @@ user_pref("privacy.history.custom", true);
 /******************************************************************************
  * SECTION: PRELOADING                                            *
 ******************************************************************************/
-// [NOTE] I have altered this section for a mixture of privacy and speed.
-// Leave off any PREFETCH preferences if you use an adblock extension and/or DNS-level adblocking due to wonky page rendering.
-// All PREFETCH preferences continue to be disabled here and in the user.js, but other speed improvements are enabled.
-// You can set uBlock Origin to do "Disable pre-fetching" in its settings. This overrides some settings below.
 
 // PREF: DNS prefetching
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
@@ -182,7 +178,7 @@ user_pref("network.prefetch-next", false);
 // TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
-user_pref("network.http.speculative-parallel-limit", 6); /* default */
+user_pref("network.http.speculative-parallel-limit", 0;
 
 // PREF: Enable <link rel=preload>.
 // Developer hints to the browser to preload some resources with a higher priority and in advance.
