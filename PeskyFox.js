@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: February 2021                                                   *
+ * version: March 2021                                                      *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -142,10 +142,6 @@ user_pref("browser.download.useDownloadDir", false);
 
 // PREF: Disable adding downloads to the system's "recent documents" list
 user_pref("browser.download.manager.addToRecentDocs", false);
-
-// PREF: Disable hiding mime types (Options>General>Applications) not associated with a plugin
-// default=true
-user_pref("browser.download.hide_plugins_without_extensions", false);
 
 // PREF: Autohide download button
 // user_pref("browser.download.autohideButton", true);
