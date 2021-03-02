@@ -249,7 +249,6 @@ user_pref("extensions.pocket.site", " ");
 /** DOWNLOADS ***/
 user_pref("browser.download.useDownloadDir", false);
 user_pref("browser.download.manager.addToRecentDocs", false);
-user_pref("browser.download.hide_plugins_without_extensions", false);
 
 /** VARIOUS ***/
 user_pref("browser.tabs.unloadOnLowMemory", false);
