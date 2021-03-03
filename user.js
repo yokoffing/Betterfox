@@ -67,10 +67,10 @@ user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
-user_pref("network.http.speculative-parallel-limit", 6);
-user_pref("network.preload", true);
-user_pref("network.predictor.enabled", true);
-user_pref("network.predictor.enable-hover-on-ssl", true);
+user_pref("network.http.speculative-parallel-limit", 0);
+user_pref("network.preload", false);
+user_pref("network.predictor.enabled", false);
+user_pref("network.predictor.enable-hover-on-ssl", false);
 user_pref("network.predictor.enable-prefetch", false);
 user_pref("browser.newtab.preload", true);
 
