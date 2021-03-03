@@ -26,6 +26,7 @@
 // [2] https://github.com/privacycg/storage-partitioning#introduction
 // [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
 // [4] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
+// [5] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
 user_pref("privacy.partition.network_state", true); // default
 
 // PREF: Dynamic First-Party Isolation (dFPI) [aka Total Cookie Protection, Dynamic State Paritioning]
@@ -294,6 +295,7 @@ user_pref("dom.security.https_only_mode.upgrade_local", true);
 
 // PREF: DNS-over-HTTPS (DoH) provider
 // Mozilla uses Cloudfare by default. NextDNS is also an option.
+// [NOTE] You can set this to 0 if you are already using secure DNS for your entire network (e.g. OS-level, router-level).
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
