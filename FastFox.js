@@ -56,9 +56,24 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 // default = 8. -1 allows Firefox to use as many as it wants
 // user_pref("dom.ipc.processCount", 8);
 
-// PREF: prevent FF from going offline
-// [1] https://lifehacker.com/stop-firefox-from-automatically-entering-work-offline-5714560
-// user_pref("network.manage-offline-status", false);
+// PREF: increase active connections
+// [NOTE] Corresponds with changes made here: https://www.youtube.com/watch?v=jQPPJGkdbU0
+// According to the default value, there will be 6 active connections kept for future requests to a server.
+// If, at some point, more connections are needed, a delay will occur until there is a slot available.
+// To avoid any idle periods, we can set more alive connections, thus forcing the browser to load several elements of a website.
+// [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-persistent-connections-per-server
+// [WARNING] Don't go past 10 or websites may temporarily blacklist your IP!
+// default=6
+// user_pref("network.http.max-persistent-connections-per-server", 10);
+
+// PREF: increase communication channels
+// Perform this change in order to open communication channels with the server, and consequently load several elements of the website.
+// Increased browser speed shall be mainly observed in pages that contain data such as images and videos, which slow down loading times.
+// The range of value for this setting goes from 1 to 65535. However, it is rather unreasonable to increase it to the maximum
+// allowed value, and subsequently strain the system, so give it a try with a value of 1500.
+// [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-connections
+// default=900
+// user_pref("network.http.max-connections", 1500);
 
 // PREF: disable animations 
 // Use for old, slow hardware if Firefox gives you laggy performance.
