@@ -283,12 +283,16 @@ user_pref("dom.disable_window_move_resize", true);
 // PREF: Leave the browser window open even after you close the last tab
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 
-// PREF: Leave bookmarks menu open when selecting a site
-user_pref("browser.bookmarks.openInTabClosesMenu", false);
+// PREF: force tabs to load when opened in the background
+user_pref("browser.tabs.loadInBackground", true); // default
+user_pref("browser.tabs.loadDivertedInBackground", true);
 
 // PREF: Load bookmarks in the background using Bookmarks Menu
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
+
+// PREF: Leave bookmarks menu open when selecting a site
+user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
 // PREF: Stop websites from reloading pages automatically
 // [1] https://www.ghacks.net/2018/08/19/stop-websites-from-reloading-pages-automatically/
