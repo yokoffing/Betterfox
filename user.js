@@ -271,8 +271,14 @@ user_pref("browser.helperApps.showOpenOptionForPdfJS", true);
 
 /** TAB BEHAVIOR ***/
 user_pref("dom.disable_window_move_resize", true);
+user_pref("browser.tabs.loadInBackground", true);
+user_pref("browser.tabs.loadDivertedInBackground", true);
+user_pref("browser.tabs.loadBookmarksInBackground", true);
+user_pref("browser.tabs.loadBookmarksInTabs", true);
+user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("image.avif.enabled", true);
 user_pref("editor.truncate_user_pastes", false);
+user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
 user_pref("clipboard.plainTextOnly", true);
 user_pref("dom.popup_allowed_events", "click dblclick");
 user_pref("dom.disable_open_during_load", true);
