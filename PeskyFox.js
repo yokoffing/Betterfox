@@ -251,41 +251,57 @@ user_pref("browser.helperApps.showOpenOptionForPdfJS", true); /*default*/
  * SECTION: TAB BEHAVIOR                                                    *
 ****************************************************************************/
 
-// PREF: Searches from the search box appear in a new tab
+// PREF: search query in the search box appear in a new tab (instead of the current tab)
 // user_pref("browser.search.openintab", true);
 
-// PREF: Searches in the URL bar appear in a new tab
+// PREF: search query in the URL bar opens in a new tab (instead of the current tab)
 // user_pref("browser.urlbar.openintab", true);
 
-// PREF: Control behavior of links that would normally open in a new window
+// PREF: control behavior of links that would normally open in a new window
 // Pop-up windows are treated like regular tabs.
-// You can still right-click a link and open in a new window.
-user_pref("browser.link.open_newwindow", 3);
+// [NOTE] You can still right-click a link and open in a new window.
+// 3 (default) = in a new tab
+// 2 = in a new window
+// 1 = in the current tab
+user_pref("browser.link.open_newwindow", 3); // default
+
+// PREF: determine the behavior of pages opened by JavaScript (like popups)
+// 0 = force all new windows opened by JavaScript into tabs
+// 2 (default) = catch new windows opened by JavaScript that do not have specific values
+// set (how large the window should be, whether it should have a status bar, etc.) 
+// [NOTE] Most advertising popups also open in new windows with values set.
 user_pref("browser.link.open_newwindow.restriction", 0);
 
-// PREF: This preference overrides <browser.link.open_newwindow> for external
-// links. Set if a different destination for external links is needed.
+// PREF: override <browser.link.open_newwindow> for external links
+// Set if a different destination for external links is needed.
 // 1=Open in the current tab/window
 // 2=Open in a new window
 // 3=Open in a new tab in the current window
 // -1=no overrides (default)
-// user_pref("browser.link.open_newwindow.override.external", 2);
+user_pref("browser.link.open_newwindow.override.external", 2);
 
 // PREF: Prevent scripts from moving and resizing open windows
 user_pref("dom.disable_window_move_resize", true);
 
-// PREF: Insert tab immediately after the current tab
+// PREF: insert tab immediately after the current tab
 // Tap to Tab extension: set to "Put new tab at the end"
 // extension: https://addons.mozilla.org/en-US/firefox/addon/tap-to-tab
 // user_pref("browser.tabs.insertRelatedAfterCurrent", true); // default=true
 // user_pref("browser.tabs.insertAfterCurrent", true);
 
-// PREF: Leave the browser window open even after you close the last tab
+// PREF: leave the browser window open even after you close the last tab
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 
-// PREF: force tabs to load when opened in the background
+// PREF: tabs load when opened in the background
 user_pref("browser.tabs.loadInBackground", true); // default
-user_pref("browser.tabs.loadDivertedInBackground", true);
+
+// PREF: determine whether a link opens in the foreground or background on left-click
+// Determines behavior of pages normally meant to open in a new window (such as
+// target="_blank" or from an external program), but that have instead been loaded in a new tab.
+// true: Load the new tab in the background, leaving focus on the current tab
+// false (default): Load the new tab in the foreground, taking the focus from the current tab.
+// Note: Setting this preference to True will still bring the browser to the front when opening links from outside the browser.
+// user_pref("browser.tabs.loadDivertedInBackground", false); // default
 
 // PREF: Load bookmarks in the background using Bookmarks Menu
 user_pref("browser.tabs.loadBookmarksInBackground", true);
@@ -295,13 +311,14 @@ user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
 // PREF: Stop websites from reloading pages automatically
+// [WARNING] Breakage with some sites.
 // [1] https://www.ghacks.net/2018/08/19/stop-websites-from-reloading-pages-automatically/
 // user_pref("accessibility.blockautorefresh", true);
 // user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
 // PREF: AVIF images
 // [1] https://www.omgubuntu.co.uk/2021/01/firefox-86-avif-image-support
-user_pref("image.avif.enabled", true); // default in 86+
+user_pref("image.avif.enabled", true); // default
 
 // PREF: Prevent password truncation when submitting form data
 // [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
