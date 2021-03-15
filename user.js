@@ -271,8 +271,9 @@ user_pref("browser.helperApps.showOpenOptionForPdfJS", true);
 
 /** TAB BEHAVIOR ***/
 user_pref("dom.disable_window_move_resize", true);
+user_pref("browser.tabs.closeWindowWithLastTab", false);
 user_pref("browser.tabs.loadInBackground", true);
-user_pref("browser.tabs.loadDivertedInBackground", true);
+user_pref("browser.tabs.loadDivertedInBackground", false);
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
