@@ -28,6 +28,7 @@
 // user_pref("browser.newtabpage.activity-stream.newNewtabExperience.enabled", true);
 // user_pref("browser.proton.toolbar.enabled", true);
 // user_pref("browser.proton.contextmenus.enabled", true);
+// additional prefs: https://www.reddit.com/r/FirefoxCSS/comments/m5nr3r/would_my_css_be_affected_much_by_the_upcoming_new/gr1isp3/?context=3
 // user_pref("browser.proton.appmenu.enabled", true);
 // user_pref("browser.proton.contextmenus.enabled", true);
 // user_pref("browser.proton.doorhangers.enabled", true);
