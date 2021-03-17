@@ -11,7 +11,7 @@
  * TinkerFox                                                                *
  * "Audentes fortuna iuvat"                                                 *
  * priority: explore experimental prefs                                     *
- * version: February 2021                                                   *
+ * version: March 2021                                                      *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -21,12 +21,24 @@
  */
 
 // PREF: Proton UI Redesign
+// [NOTE] This fluctuates frequently.
 // user_pref("browser.proton.enabled", true);
 // user_pref("browser.proton.tabs.enabled", true);
 // user_pref("browser.proton.appmenu.enabled", true);
 // user_pref("browser.newtabpage.activity-stream.newNewtabExperience.enabled", true);
 // user_pref("browser.proton.toolbar.enabled", true);
 // user_pref("browser.proton.contextmenus.enabled", true);
+// user_pref("browser.proton.appmenu.enabled", true);
+// user_pref("browser.proton.contextmenus.enabled", true);
+// user_pref("browser.proton.doorhangers.enabled", true);
+// user_pref("browser.proton.enabled", true);
+// user_pref("browser.proton.places-tooltip.enabled", true);
+// user_pref("browser.proton.tabs.enabled", true);
+// user_pref("browser.proton.toolbar.enabled", true);
+// user_pref("browser.proton.urlbar.enabled", true);
+// user_pref("browser.proton.infobars.enabled", true);
+// user_pref("browser.proton.tabs.audio-tab", true);
+// user_pref("browser.proton.tabs.audio-tab-area", true);
 
 // PREF: about:home startup cache
 user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
