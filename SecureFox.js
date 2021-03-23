@@ -210,7 +210,7 @@ user_pref("browser.newtab.preload", true); /* default */
 
 // PREF: trim certain parts of the URL
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs#values
-user_pref("browser.urlbar.trimURLs", false);
+user_pref("browser.urlbar.trimURLs", true); /*default*/
 
 // PREF: Enable a seperate search engine for Private Windows
 // Remember to go into Preferences -> Search and select another search provider (like DuckDuckGo)
@@ -270,8 +270,8 @@ user_pref("network.IDN_show_punycode", true);
 ******************************************************************************/
 
 // PREF: Allow HTTPS-only connections
-// You can relax this setting per-website.
-// https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
+// [NOTE] You can relax this setting per-website.
+// [1] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 user_pref("dom.security.https_only_mode", true);
 user_pref("dom.security.https_only_mode_ever_enabled", true);
 
@@ -284,7 +284,8 @@ user_pref("dom.security.https_only_mode_ever_enabled", true);
 // sends HTTP requests in order to check if the server supports HTTPS or not.
 // This is done to avoid waiting for a timeout which takes 90 seconds.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
-user_pref("dom.security.https_only_mode_send_http_background_request", false);
+// [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
+// user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 // PREF: Enable HTTPS-Only mode for local resources
 user_pref("dom.security.https_only_mode.upgrade_local", true);
