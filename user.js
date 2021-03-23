@@ -88,7 +88,6 @@ user_pref("network.IDN_show_punycode", true);
 /** HTTPS-ONLY MODE ***/
 user_pref("dom.security.https_only_mode", true);
 user_pref("dom.security.https_only_mode_ever_enabled", true);
-user_pref("dom.security.https_only_mode_send_http_background_request", false);
 user_pref("dom.security.https_only_mode.upgrade_local", true);
 
 /** DNS-over-HTTPS (DOH) ***/
