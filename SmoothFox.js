@@ -11,7 +11,7 @@
  * SmoothFox                                                                *
  * "Faber est suae quisque fortunae."                                       *
  * priority: smooth scrolling                                               *
- * version: 29 December 2020                                                *
+ * version: March 2021                                                      *
  * url: https://github.com/hjstephens09/Better-Fox                          *
  ***************************************************************************/
 
@@ -31,3 +31,4 @@ user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 250);
 user_pref("general.smoothScroll.mouseWheel.durationMinMS", 125);
 user_pref("general.smoothScroll.stopDecelerationWeighting", "0.7");
 user_pref("mousewheel.min_line_scroll_amount", 25);
+user_pref("apz.overscroll.enabled", true); /*elastic overscroll*/
