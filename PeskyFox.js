@@ -278,7 +278,7 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 // 2=Open in a new window
 // 3=Open in a new tab in the current window
 // -1=no overrides (default)
-user_pref("browser.link.open_newwindow.override.external", 3);
+// user_pref("browser.link.open_newwindow.override.external", 3);
 
 // PREF: Prevent scripts from moving and resizing open windows
 user_pref("dom.disable_window_move_resize", true);
