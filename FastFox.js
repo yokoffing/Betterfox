@@ -11,7 +11,7 @@
  * FasterFox                                                                *
  * "Non ducor duco."                                                        *
  * priority: speedy browsing                                                *
- * version: 19 February 2021                                                *
+ * version: March 2021                                                      *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -27,9 +27,11 @@
 // [2] https://wiki.mozilla.org/Platform/GFX/WebRender_Where
 // [3] https://www.reddit.com/r/firefox/comments/fo1jwz/make_firefox_faster/flhh5l2/
 // user_pref("gfx.webrender.all", true);
-// If your hardware doesn't support Webrender, you can fallback to Webrender's software renderer.
+
+// PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [NOTE] Both preferences need to be "true" if you're using the software renderer.
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
+// user_pref("gfx.webrender.all", true);
 // user_pref("gfx.webrender.software", true);
 
 // PREF: Lazy Image Loading
@@ -54,7 +56,7 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 // than 8 GB of RAM, you would likely benefit from a high content process limit.
 // [1] https://support.mozilla.org/en-US/kb/performance-settings
 // default = 8. -1 allows Firefox to use as many as it wants
-// user_pref("dom.ipc.processCount", 8);
+// user_pref("dom.ipc.processCount", 16);
 
 // PREF: increase active connections
 // [NOTE] Corresponds with changes made here: https://www.youtube.com/watch?v=jQPPJGkdbU0
@@ -63,8 +65,7 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 // To avoid any idle periods, we can set more alive connections, thus forcing the browser to load several elements of a website.
 // [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-persistent-connections-per-server
 // [WARNING] Don't go past 10 or websites may temporarily blacklist your IP!
-// default=6
-// user_pref("network.http.max-persistent-connections-per-server", 10);
+// user_pref("network.http.max-persistent-connections-per-server", 10); // default=6
 
 // PREF: increase communication channels
 // Perform this change in order to open communication channels with the server, and consequently load several elements of the website.
@@ -72,11 +73,6 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 // The range of value for this setting goes from 1 to 65535. However, it is rather unreasonable to increase it to the maximum
 // allowed value, and subsequently strain the system, so give it a try with a value of 1500.
 // [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-connections
-// default=900
-// user_pref("network.http.max-connections", 1500);
-
-// PREF: disable animations 
-// Use for old, slow hardware if Firefox gives you laggy performance.
-// user_pref("toolkit.cosmeticAnimations.enabled", true);
+// user_pref("network.http.max-connections", 1500); // default=900
 
 
