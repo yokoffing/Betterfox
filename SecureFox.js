@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: February 2021                                                   *
+ * version: March 2021                                                      *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -26,6 +26,7 @@
 // [2] https://github.com/privacycg/storage-partitioning#introduction
 // [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
 // [4] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
+// [5] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
 user_pref("privacy.partition.network_state", true); // default
 
 // PREF: Dynamic First-Party Isolation (dFPI) [aka Total Cookie Protection, Dynamic State Paritioning]
@@ -39,6 +40,8 @@ user_pref("privacy.partition.network_state", true); // default
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning#dynamic_state_partitioning
 // [2] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
 user_pref("network.cookie.cookieBehavior", 5);
+user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
+// user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // hidden? Nightly-only?
 
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
@@ -58,14 +61,14 @@ user_pref("privacy.purge_trackers.enabled", true);
 // [1] https://blog.mozilla.org/firefox/control-trackers-with-firefox/
 // [2] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 // [3] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
-user_pref("browser.contentblocking.category", "strict");
+user_pref("browser.contentblocking.category", "custom");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
 user_pref("privacy.trackingprotection.socialtracking.enabled", true); // default
 user_pref("privacy.socialtracking.block_cookies.enabled", true);
-// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
+user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 
 // PREF: allow embedded tweets and Instagram posts
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
@@ -143,10 +146,6 @@ user_pref("privacy.history.custom", true);
 /******************************************************************************
  * SECTION: PRELOADING                                            *
 ******************************************************************************/
-// [NOTE] I have altered this section for a mixture of privacy and speed.
-// Leave off any PREFETCH preferences if you use an adblock extension and/or DNS-level adblocking due to wonky page rendering.
-// All PREFETCH preferences continue to be disabled here and in the user.js, but other speed improvements are enabled.
-// You can set uBlock Origin to do "Disable pre-fetching" in its settings. This overrides some settings below.
 
 // PREF: DNS prefetching
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
@@ -171,25 +170,26 @@ user_pref("network.prefetch-next", false);
 // TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
-user_pref("network.http.speculative-parallel-limit", 6); /* default */
+user_pref("network.http.speculative-parallel-limit", 0;
 
 // PREF: Enable <link rel=preload>.
 // Developer hints to the browser to preload some resources with a higher priority and in advance.
 // Helps the web page to render and get into the stable and interactive state faster.
 // [1] https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
-user_pref("network.preload", true); /* default */
+user_pref("network.preload", false;
 
 // PREF: Network predictor
 // Uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
 // so that the next time the user mouseovers a link to that webpage, this history can be used to predict what resources will
 // be needed rather than wait for the document to link those resources.
 // [1] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
-user_pref("network.predictor.enabled", true); /* default */
-user_pref("network.predictor.enable-hover-on-ssl", true);
+user_pref("network.predictor.enabled", false);
+user_pref("network.predictor.enable-hover-on-ssl", false);
 user_pref("network.predictor.enable-prefetch", false); /* default */
 
 // PREF: New tab tile ads and preload
+// [NOTE] Disabling this causes a delay when opening a new tab.
 // [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 // [2] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
 // [3] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
@@ -201,7 +201,7 @@ user_pref("browser.newtab.preload", true); /* default */
 
 // PREF: trim certain parts of the URL
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs#values
-user_pref("browser.urlbar.trimURLs", false);
+user_pref("browser.urlbar.trimURLs", true); /*default*/
 
 // PREF: Enable a seperate search engine for Private Windows
 // Remember to go into Preferences -> Search and select another search provider (like DuckDuckGo)
@@ -261,8 +261,8 @@ user_pref("network.IDN_show_punycode", true);
 ******************************************************************************/
 
 // PREF: Allow HTTPS-only connections
-// You can relax this setting per-website.
-// https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
+// [NOTE] You can relax this setting per-website.
+// [1] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 user_pref("dom.security.https_only_mode", true);
 user_pref("dom.security.https_only_mode_ever_enabled", true);
 
@@ -275,7 +275,8 @@ user_pref("dom.security.https_only_mode_ever_enabled", true);
 // sends HTTP requests in order to check if the server supports HTTPS or not.
 // This is done to avoid waiting for a timeout which takes 90 seconds.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
-user_pref("dom.security.https_only_mode_send_http_background_request", false);
+// [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
+// user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 // PREF: Enable HTTPS-Only mode for local resources
 user_pref("dom.security.https_only_mode.upgrade_local", true);
@@ -286,6 +287,7 @@ user_pref("dom.security.https_only_mode.upgrade_local", true);
 
 // PREF: DNS-over-HTTPS (DoH) provider
 // Mozilla uses Cloudfare by default. NextDNS is also an option.
+// [NOTE] You can set this to 0 if you are already using secure DNS for your entire network (e.g. OS-level, router-level).
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
