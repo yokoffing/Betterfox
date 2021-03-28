@@ -284,5 +284,23 @@ user_pref("dom.disable_open_during_load", true);
 user_pref("privacy.popups.showBrowserMessage", true);
 
 /****************************************************************************
+ * SECTION: TINKERFOX                                                       *
+****************************************************************************/
+user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
+user_pref("layout.css.constructable-stylesheets.enabled", true);
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
+/* user_pref("fission.autostart", true) Beta/Dev only */
+/* user_pref("fission.autostart.session", true) [LOCKED] Nightly only */
+user_pref("dom.forms.inputmode", true);
+
+/****************************************************************************
+ * SECTION: SMOOTHFOX                                                       *
+****************************************************************************/
+/** SMOOTH SCROLLING (OVERALL IMPROVEMENT OF DEFAULTS) ***/
+user_pref("general.smoothScroll", true);
+user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 150);
+user_pref("general.smoothScroll.mouseWheel.durationMinMS", 125);
+
+/****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
