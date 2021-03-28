@@ -44,6 +44,15 @@
 // PREF: about:home startup cache
 user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 
+// PREF: Samesite Cookies
+// [1] https://www.jardinesoftware.net/2019/10/28/samesite-by-default-in-2020/
+// [2] https://web.dev/schemeful-samesite/
+user_pref("network.cookie.sameSite.laxByDefault", true);
+user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+// treat cookies from the same domain, but with different schemes (e.g. http://example.com and https://example.com)
+// as cross-site instead of same-site. Improves security, but potentially introduces breakage.
+// user_pref("network.cookie.sameSite.schemeful", true);
+
 // PREF: CSS: Constructable Stylesheets
 user_pref("layout.css.constructable-stylesheets.enabled", true);
 
@@ -60,7 +69,7 @@ user_pref("fission.autostart", true)
 user_pref("network.http.http3.enabled", true);
 
 // PREF: Multiple Picture-in-Picture Support 
-user_pref("media.videocontrols.picture-in-picture.allow-multiple", true);
+// user_pref("media.videocontrols.picture-in-picture.allow-multiple", true);
 
 // PREF: Address Bar: show results during IME composition 
 // user_pref("browser.urlbar.keepPanelOpenDuringImeComposition", true);
@@ -72,7 +81,7 @@ user_pref("dom.forms.inputmode", true);
 // user_pref("dom.webgpu.enabled", true);
 
 // PREF: Microphone and camera kill switch
-user_pref("privacy.webrtc.globalMuteToggles", true);
+// user_pref("privacy.webrtc.globalMuteToggles", true);
 
 // PREF: Evolution of ESNI for DNS-over-HTTPS
 // user_pref("network.dns.echconfig.enabled", true);
