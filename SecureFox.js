@@ -43,15 +43,6 @@ user_pref("network.cookie.cookieBehavior", 5);
 user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
 // user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // hidden? Nightly-only?
 
-// PREF: Samesite Cookies
-// [1] https://www.jardinesoftware.net/2019/10/28/samesite-by-default-in-2020/
-// [2] https://web.dev/schemeful-samesite/
-user_pref("network.cookie.sameSite.laxByDefault", true);
-user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-// treat cookies from the same domain, but with different schemes (e.g. http://example.com and https://example.com)
-// as cross-site instead of same-site. Improves security, but potentially introduces breakage.
-// user_pref("network.cookie.sameSite.schemeful", true);
-
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
 // haven’t received a top-level user interaction (including scroll) within the last 45 days.
