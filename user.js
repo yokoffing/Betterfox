@@ -31,8 +31,6 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 /** TRACKING PROTECTION ***/
 user_pref("privacy.partition.network_state", true);
 user_pref("network.cookie.cookieBehavior", 5);
-user_pref("network.cookie.sameSite.laxByDefault", true);
-user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 user_pref("privacy.purge_trackers.enabled", true);
 user_pref("browser.contentblocking.category", "custom");
 user_pref("privacy.trackingprotection.enabled", true);
