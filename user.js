@@ -271,7 +271,6 @@ user_pref("browser.helperApps.showOpenOptionForPdfJS", true);
 /** TAB BEHAVIOR ***/
 user_pref("browser.link.open_newwindow", 3);
 user_pref("browser.link.open_newwindow.restriction", 0);
-user_pref("browser.link.open_newwindow.override.external", 3);
 user_pref("dom.disable_window_move_resize", true);
 user_pref("browser.tabs.closeWindowWithLastTab", false);
 user_pref("browser.tabs.loadInBackground", true);
