@@ -278,12 +278,12 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 // 2=Open in a new window
 // 3=Open in a new tab in the current window
 // -1=no overrides (default)
-user_pref("browser.link.open_newwindow.override.external", 2);
+user_pref("browser.link.open_newwindow.override.external", 3);
 
 // PREF: Prevent scripts from moving and resizing open windows
 user_pref("dom.disable_window_move_resize", true);
 
-// PREF: insert tab immediately after the current tab
+// PREF: insert new tabs immediately after the current tab
 // Tap to Tab extension: set to "Put new tab at the end"
 // extension: https://addons.mozilla.org/en-US/firefox/addon/tap-to-tab
 // user_pref("browser.tabs.insertRelatedAfterCurrent", true); // default=true
@@ -298,9 +298,9 @@ user_pref("browser.tabs.loadInBackground", true); // default
 // PREF: determine whether a link opens in the foreground or background on left-click
 // Determines behavior of pages normally meant to open in a new window (such as
 // target="_blank" or from an external program), but that have instead been loaded in a new tab.
-// true: Load the new tab in the background, leaving focus on the current tab
-// false (default): Load the new tab in the foreground, taking the focus from the current tab.
-// Note: Setting this preference to True will still bring the browser to the front when opening links from outside the browser.
+// true = Load the new tab in the background, leaving focus on the current tab
+// false (default) = Load the new tab in the foreground, taking the focus from the current tab.
+// [NOTE] Setting this preference to True will still bring the browser to the front when opening links from outside the browser.
 // user_pref("browser.tabs.loadDivertedInBackground", false); // default
 
 // PREF: Load bookmarks in the background using Bookmarks Menu
@@ -330,7 +330,7 @@ user_pref("editor.truncate_user_pastes", false);
 
 // PREF: reduce size of picture-in-picture icon on the first run
 user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
-// always show the toggle
+// PREF: always show the picture-in-picture toggle
 // user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
 
 // PREF: Plain Text only when copying text.
