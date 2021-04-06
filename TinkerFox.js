@@ -11,7 +11,7 @@
  * TinkerFox                                                                *
  * "Audentes fortuna iuvat"                                                 *
  * priority: explore experimental prefs                                     *
- * version: March 2021                                                      *
+ * version: April 2021                                                      *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -20,26 +20,29 @@
  * [SETTING] about:support > "Experimental Features"
  */
 
-// PREF: Proton UI Redesign
-// [NOTE] This fluctuates frequently.
-// user_pref("browser.proton.enabled", true);
-// user_pref("browser.proton.tabs.enabled", true);
-// user_pref("browser.proton.appmenu.enabled", true);
-// user_pref("browser.newtabpage.activity-stream.newNewtabExperience.enabled", true);
-// user_pref("browser.proton.toolbar.enabled", true);
-// user_pref("browser.proton.contextmenus.enabled", true);
-// additional prefs: https://www.reddit.com/r/FirefoxCSS/comments/m5nr3r/would_my_css_be_affected_much_by_the_upcoming_new/gr1isp3/?context=3
-// user_pref("browser.proton.appmenu.enabled", true);
-// user_pref("browser.proton.contextmenus.enabled", true);
-// user_pref("browser.proton.doorhangers.enabled", true);
-// user_pref("browser.proton.enabled", true);
-// user_pref("browser.proton.places-tooltip.enabled", true);
-// user_pref("browser.proton.tabs.enabled", true);
-// user_pref("browser.proton.toolbar.enabled", true);
-// user_pref("browser.proton.urlbar.enabled", true);
-// user_pref("browser.proton.infobars.enabled", true);
-// user_pref("browser.proton.tabs.audio-tab", true);
-// user_pref("browser.proton.tabs.audio-tab-area", true);
+/* PREF: Proton UI Redesign */
+/* [NOTE] This fluctuates frequently. */
+user_pref("browser.proton.enabled", true);
+user_pref("browser.proton.appmenu.enabled", true);
+user_pref("browser.newtabpage.activity-stream.newNewtabExperience.enabled", true);
+user_pref("browser.proton.contextmenus.enabled", true);
+user_pref("browser.proton.appmenu.enabled", true);
+user_pref("browser.proton.contextmenus.enabled", true);
+user_pref("browser.proton.doorhangers.enabled", true);
+user_pref("browser.proton.enabled", true);
+user_pref("browser.proton.places-tooltip.enabled", true);
+user_pref("browser.proton.tabs.enabled", true);
+user_pref("browser.proton.urlbar.enabled", true);
+user_pref("browser.proton.infobars.enabled", true);
+user_pref("browser.proton.tabs.audio-tab", true);
+user_pref("browser.proton.tabs.audio-tab-area", true);
+user_pref("browser.aboutwelcome.design," true);
+user_pref("browser.proton.modals.enabled," true);
+user_pref("browser.proton.places-tooltip.enabled", true);
+user_pref("browser.tabs.secondaryTextUnsupportedLocales", true);
+/* macOS only */
+user_pref("widget.macos.native-context-menus", true);
+user_pref("widget.macos.respect-system-appearance", true);
 
 // PREF: about:home startup cache
 user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
