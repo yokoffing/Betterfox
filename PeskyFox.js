@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: March 2021                                                      *
+ * version: April 2021                                                      *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -263,14 +263,13 @@ user_pref("browser.helperApps.showOpenOptionForPdfJS", true); /*default*/
 // 3 (default) = in a new tab
 // 2 = in a new window
 // 1 = in the current tab
-user_pref("browser.link.open_newwindow", 3); // default
+// user_pref("browser.link.open_newwindow", 3); // default
 
 // PREF: determine the behavior of pages opened by JavaScript (like popups)
+// 2 (default) = catch new windows opened by JavaScript that do not have specific values set (how large the window should be, whether it should have a status bar, etc.) 
 // 0 = force all new windows opened by JavaScript into tabs
-// 2 (default) = catch new windows opened by JavaScript that do not have specific values
-// set (how large the window should be, whether it should have a status bar, etc.) 
 // [NOTE] Most advertising popups also open in new windows with values set.
-user_pref("browser.link.open_newwindow.restriction", 0);
+// user_pref("browser.link.open_newwindow.restriction", 2);
 
 // PREF: override <browser.link.open_newwindow> for external links
 // Set if a different destination for external links is needed.
@@ -290,7 +289,7 @@ user_pref("dom.disable_window_move_resize", true);
 // user_pref("browser.tabs.insertAfterCurrent", true);
 
 // PREF: leave the browser window open even after you close the last tab
-user_pref("browser.tabs.closeWindowWithLastTab", false);
+// user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 // PREF: tabs load when opened in the background
 user_pref("browser.tabs.loadInBackground", true); // default
