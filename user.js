@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: March 2021                                                      *
+ * version: April 2021                                                      *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -267,10 +267,7 @@ user_pref("pdfjs.disabled", false);
 user_pref("browser.helperApps.showOpenOptionForPdfJS", true);
 
 /** TAB BEHAVIOR ***/
-user_pref("browser.link.open_newwindow", 3);
-user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("dom.disable_window_move_resize", true);
-user_pref("browser.tabs.closeWindowWithLastTab", false);
 user_pref("browser.tabs.loadInBackground", true);
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
