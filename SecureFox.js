@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: March 2021                                                      *
+ * version: May 2021                                                        *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -76,9 +76,9 @@ user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hi
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
 // PREF: Hyperlink Auditing (click tracking).
-user_pref("browser.send_pings", false);
+user_pref("browser.send_pings", false); // default
 // enforce same host just in case.
-user_pref("browser.send_pings.require_same_host", true);
+// user_pref("browser.send_pings.require_same_host", true);
 
 // PREF: sending additional analytics to web servers
 // [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
@@ -86,6 +86,12 @@ user_pref("beacon.enabled", false);
 
 // PREF: battery status tracking
 user_pref("dom.battery.enabled", false);
+
+// PREF: set a default permission for Virtual Reality
+// 0=always ask (default), 1=allow, 2=block
+// [SETTING] to add site exceptions: Ctrl+I>Permissions>Access Virtual Reality Devices
+// [SETTING] to manage site exceptions: Options>Privacy & Security>Permissions>Virtual Reality>Settings
+user_pref("permissions.default.xr", 2);
 
 // PREF: CRLite
 // This will reduce the number of times an OCSP server needs to be contacted and therefore increase privacy.
@@ -151,7 +157,7 @@ user_pref("privacy.history.custom", true);
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 user_pref("network.dns.disablePrefetch", true);
 // As a security measure, prefetching of embedded link hostnames is not done from documents loaded over HTTPS.
-user_pref("network.dns.disablePrefetchFromHTTPS", true); /* default */
+user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
 
 // PREF: Preload the autocomplete URL in the address bar.
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
@@ -186,7 +192,7 @@ user_pref("network.preload", false;
 // [1] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
 user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-hover-on-ssl", false);
-user_pref("network.predictor.enable-prefetch", false); /* default */
+user_pref("network.predictor.enable-prefetch", false); // default
 
 // PREF: New tab tile ads and preload
 // [NOTE] Disabling this causes a delay when opening a new tab.
@@ -292,7 +298,7 @@ user_pref("dom.security.https_only_mode.upgrade_local", true);
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
 user_pref("network.trr.mode", 3);
-user_pref("network.trr.send_user-agent_headers", false); /* default */
+user_pref("network.trr.send_user-agent_headers", false); // default
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
 // PREF: Force FF to always use your custom DNS resolver
@@ -399,13 +405,17 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
 
 // PREF: Block insecure active content (scripts) on HTTPS pages.
 // [1] https://trac.torproject.org/projects/tor/ticket/21323
-user_pref("security.mixed_content.block_active_content", true); /* default */
+user_pref("security.mixed_content.block_active_content", true); // default
 
 // PREF: Block insecure passive content (images) on HTTPS pages.
 // user_pref("security.mixed_content.block_display_content", true);
 
 // PREF: Upgrade passive content to use HTTPS on secure pages.
 user_pref("security.mixed_content.upgrade_display_content", true);
+
+// PREF: allow PDFs to load javascript
+// https://www.reddit.com/r/uBlockOrigin/comments/mulc86/firefox_88_now_supports_javascript_in_pdf_files/
+user_pref("pdfjs.enableScripting", false);
 
 // PREF: Block unencrypted requests from Flash on encrypted pages to mitigate MitM attacks
 // [1] https://bugzilla.mozilla.org/1190623
@@ -427,12 +437,12 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
 
 // PREF: Enforce TLS 1.0 and 1.1 downgrades as session only
-user_pref("security.tls.version.enable-deprecated", false); /* default */
+user_pref("security.tls.version.enable-deprecated", false); // default
 
 // PREF: Enable (limited but sufficient) window.opener protection
 // Makes rel=noopener implicit for target=_blank in anchor and area elements when no rel attribute is set.
 // https://jakearchibald.com/2016/performance-benefits-of-rel-noopener/
-user_pref("dom.targetBlankNoOpener.enabled", true); /* default */
+user_pref("dom.targetBlankNoOpener.enabled", true); // default
 
 // PREF: Enable "window.name" protection
 // If a new page from another domain is loaded into a tab, then window.name is set to an empty string. The original
@@ -510,37 +520,37 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
 // PREF: obliterate every trace of GSB from your browser
 // google
-user_pref("browser.safebrowsing.provider.google.advisoryURL", "");
-user_pref("browser.safebrowsing.provider.google.pver", "");
-user_pref("browser.safebrowsing.provider.google.advisoryName", "");
-user_pref("browser.safebrowsing.provider.google.gethashURL", "");
-user_pref("browser.safebrowsing.provider.google.lists", "");
-user_pref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
-user_pref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
-user_pref("browser.safebrowsing.provider.google.reportURL", "");
-user_pref("browser.safebrowsing.provider.google.updateURL", "");
+//user_pref("browser.safebrowsing.provider.google.advisoryURL", "");
+//user_pref("browser.safebrowsing.provider.google.pver", "");
+//user_pref("browser.safebrowsing.provider.google.advisoryName", "");
+//user_pref("browser.safebrowsing.provider.google.gethashURL", "");
+//user_pref("browser.safebrowsing.provider.google.lists", "");
+//user_pref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
+//user_pref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
+//user_pref("browser.safebrowsing.provider.google.reportURL", "");
+//user_pref("browser.safebrowsing.provider.google.updateURL", "");
 // google4
-user_pref("browser.safebrowsing.provider.google4.advisoryName", "");
-user_pref("browser.safebrowsing.provider.google4.advisoryURL", "");
-user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
-user_pref("browser.safebrowsing.provider.google4.lists", "");
-user_pref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
-user_pref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
-user_pref("browser.safebrowsing.provider.google4.reportURL", "");
-user_pref("browser.safebrowsing.provider.google4.updateURL", "");
-user_pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false);
-user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
-user_pref("browser.safebrowsing.provider.google4.pver", "");
+//user_pref("browser.safebrowsing.provider.google4.advisoryName", "");
+//user_pref("browser.safebrowsing.provider.google4.advisoryURL", "");
+//user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
+//user_pref("browser.safebrowsing.provider.google4.lists", "");
+//user_pref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
+//user_pref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
+//user_pref("browser.safebrowsing.provider.google4.reportURL", "");
+//user_pref("browser.safebrowsing.provider.google4.updateURL", "");
+//user_pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false);
+//user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
+//user_pref("browser.safebrowsing.provider.google4.pver", "");
 // mozilla
-user_pref("browser.safebrowsing.provider.mozilla.gethashURL", "");
-user_pref("browser.safebrowsing.provider.mozilla.lastupdatetime", "");
-user_pref("browser.safebrowsing.provider.mozilla.lists", "");
-user_pref("browser.safebrowsing.provider.mozilla.lists.base", "");
-user_pref("browser.safebrowsing.provider.mozilla.lists.content", "");
-user_pref("browser.safebrowsing.provider.mozilla.nextupdatetime", "");
-user_pref("browser.safebrowsing.provider.mozilla.pver", "");
-user_pref("browser.safebrowsing.provider.mozilla.updateURL", "");
-user_pref("browser.safebrowsing.reportPhishURL", "");
+//user_pref("browser.safebrowsing.provider.mozilla.gethashURL", "");
+//user_pref("browser.safebrowsing.provider.mozilla.lastupdatetime", "");
+//user_pref("browser.safebrowsing.provider.mozilla.lists", "");
+//user_pref("browser.safebrowsing.provider.mozilla.lists.base", "");
+//user_pref("browser.safebrowsing.provider.mozilla.lists.content", "");
+//user_pref("browser.safebrowsing.provider.mozilla.nextupdatetime", "");
+//user_pref("browser.safebrowsing.provider.mozilla.pver", "");
+//user_pref("browser.safebrowsing.provider.mozilla.updateURL", "");
+//user_pref("browser.safebrowsing.reportPhishURL", "");
 
 /******************************************************************************
  * SECTION: MOZILLA                                                   *
@@ -610,7 +620,7 @@ user_pref("browser.discovery.enabled", false);
 // PREF: disable crash reports
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
-user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
+user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // default
 // backlogged crash reports
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
