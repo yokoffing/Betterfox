@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: April 2021                                                      *
+ * version: May 2021                                                        *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -88,7 +88,6 @@ user_pref("browser.startup.page", 3);
 // user_pref("browser.startup.page", "about:home");
 
 // PREF: Disable Activity Stream Top Stories, Pocket-based and/or sponsored content
-user_pref("browser.library.activity-stream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
@@ -105,6 +104,9 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmark
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
+
+// PREF: welcome & what's new notices
+user_pref("browser.startup.homepage_override.mstone", "ignore"); // master switch
 
 // PREF: Hide "What's New"
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
