@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: March 2021                                                      *
+ * version: May 2021                                                        *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -88,7 +88,6 @@ user_pref("browser.startup.page", 3);
 // user_pref("browser.startup.page", "about:home");
 
 // PREF: Disable Activity Stream Top Stories, Pocket-based and/or sponsored content
-user_pref("browser.library.activity-stream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
@@ -105,6 +104,9 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmark
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
+
+// PREF: welcome & what's new notices
+user_pref("browser.startup.homepage_override.mstone", "ignore"); // master switch
 
 // PREF: Hide "What's New"
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
@@ -150,11 +152,19 @@ user_pref("browser.download.manager.addToRecentDocs", false);
  * SECTION: VARIOUS                                                         *
 ****************************************************************************/
 
+// PREF: add compact mode back to options
+user_pref("browser.compactmode.show", true);
+
+// PREF: restore "View image info"
+user_pref("browser.menu.showViewImageInfo", true);
+
 // PREF: do not unload tabs on low memory
 // Firefox will detect if your computer’s memory is running low (less than 400MB)
 // and suspend tabs that you have not used in awhile.
 // https://support.mozilla.org/en-US/questions/1262073
-user_pref("browser.tabs.unloadOnLowMemory", false); /* default */
+// Available for testing in Nightly:
+// https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
+// user_pref("browser.tabs.unloadOnLowMemory", false); // default
 
 // PREF: dropdown options in the URL bar
 user_pref("browser.urlbar.suggest.bookmarks", true);
@@ -263,14 +273,13 @@ user_pref("browser.helperApps.showOpenOptionForPdfJS", true); /*default*/
 // 3 (default) = in a new tab
 // 2 = in a new window
 // 1 = in the current tab
-user_pref("browser.link.open_newwindow", 3); // default
+// user_pref("browser.link.open_newwindow", 3); // default
 
 // PREF: determine the behavior of pages opened by JavaScript (like popups)
+// 2 (default) = catch new windows opened by JavaScript that do not have specific values set (how large the window should be, whether it should have a status bar, etc.) 
 // 0 = force all new windows opened by JavaScript into tabs
-// 2 (default) = catch new windows opened by JavaScript that do not have specific values
-// set (how large the window should be, whether it should have a status bar, etc.) 
 // [NOTE] Most advertising popups also open in new windows with values set.
-user_pref("browser.link.open_newwindow.restriction", 0);
+// user_pref("browser.link.open_newwindow.restriction", 2);
 
 // PREF: override <browser.link.open_newwindow> for external links
 // Set if a different destination for external links is needed.
@@ -290,7 +299,7 @@ user_pref("dom.disable_window_move_resize", true);
 // user_pref("browser.tabs.insertAfterCurrent", true);
 
 // PREF: leave the browser window open even after you close the last tab
-user_pref("browser.tabs.closeWindowWithLastTab", false);
+// user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 // PREF: tabs load when opened in the background
 user_pref("browser.tabs.loadInBackground", true); // default
