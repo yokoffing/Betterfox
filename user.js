@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: April 2021                                                      *
+ * version: May 2021                                                        *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -45,6 +45,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 user_pref("browser.send_pings", false);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
+user_pref("permissions.default.xr", 2);
 user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("dom.storage.next_gen", true);
@@ -131,6 +132,7 @@ user_pref("browser.formfill.enable", false);
 user_pref("network.auth.subresource-http-auth-allow", 1);
 user_pref("security.mixed_content.block_active_content", true);
 user_pref("security.mixed_content.upgrade_display_content", true);
+user_pref("pdfjs.enableScripting", false);
 user_pref("dom.block_download_insecure", true);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
@@ -223,7 +225,6 @@ user_pref("full-screen-api.warning.timeout", -1);
 
 /** NEW TAB PAGE ***/
 user_pref("browser.startup.page", 3);
-user_pref("browser.library.activity-stream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
@@ -235,6 +236,7 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmark
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
+user_pref("browser.startup.homepage_override.mstone", "ignore");
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 /*** POCKET ***/
@@ -248,7 +250,8 @@ user_pref("browser.download.useDownloadDir", false);
 user_pref("browser.download.manager.addToRecentDocs", false);
 
 /** VARIOUS ***/
-user_pref("browser.tabs.unloadOnLowMemory", false);
+user_pref("browser.compactmode.show", true);
+user_pref("browser.menu.showViewImageInfo", true);
 user_pref("browser.urlbar.suggest.engines", false);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("permissions.default.desktop-notification", 2);
