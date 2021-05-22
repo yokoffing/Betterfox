@@ -413,10 +413,6 @@ user_pref("security.mixed_content.block_active_content", true); // default
 // PREF: Upgrade passive content to use HTTPS on secure pages.
 user_pref("security.mixed_content.upgrade_display_content", true);
 
-// PREF: allow PDFs to load javascript
-// https://www.reddit.com/r/uBlockOrigin/comments/mulc86/firefox_88_now_supports_javascript_in_pdf_files/
-user_pref("pdfjs.enableScripting", false);
-
 // PREF: Block unencrypted requests from Flash on encrypted pages to mitigate MitM attacks
 // [1] https://bugzilla.mozilla.org/1190623
 user_pref("security.mixed_content.block_object_subrequest", true);
@@ -424,6 +420,10 @@ user_pref("security.mixed_content.block_object_subrequest", true);
 // PREF: Block insecure downloads from secure sites
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
 user_pref("dom.block_download_insecure", true);
+
+// PREF: allow PDFs to load javascript
+// https://www.reddit.com/r/uBlockOrigin/comments/mulc86/firefox_88_now_supports_javascript_in_pdf_files/
+user_pref("pdfjs.enableScripting", false);
 
 // PREF: Disable bypassing 3rd party extension install prompts
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1659530,1681331
