@@ -314,9 +314,9 @@ user_pref("browser.tabs.loadInBackground", true); // default
 
 // PREF: load bookmarks in the background using Bookmarks Menu
 user_pref("browser.tabs.loadBookmarksInBackground", true);
-// PREF: load bookmarks in tabs, not seperate  windows
+// PREF: load bookmarks in tabs, not separate  windows
 user_pref("browser.tabs.loadBookmarksInTabs", true);
-// PREF: leave bookmarks menu open when selecting a site
+// PREF: leave Bookmarks Menu open when selecting a site
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
 // PREF: Stop websites from reloading pages automatically
