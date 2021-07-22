@@ -141,11 +141,6 @@ user_pref("privacy.window.name.update.enabled", true);
 user_pref("network.http.referer.XOriginPolicy", 0);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
-/** FLASH PLUGIN ***/
-user_pref("security.mixed_content.block_object_subrequest", true);
-user_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled", false);
-user_pref("plugin.state.flash", 0);
-
 /** GOOGLE SAFE BROWSING ***/
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.url", "");
