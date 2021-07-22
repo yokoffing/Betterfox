@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: May 2021                                                        *
+ * version: July 2021                                                       *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -45,7 +45,6 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 user_pref("browser.send_pings", false);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
-user_pref("permissions.default.xr", 2);
 user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("dom.storage.next_gen", true);
