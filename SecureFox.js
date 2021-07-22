@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: May 2021                                                        *
+ * version: July 2021                                                       *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -91,7 +91,7 @@ user_pref("dom.battery.enabled", false);
 // 0=always ask (default), 1=allow, 2=block
 // [SETTING] to add site exceptions: Ctrl+I>Permissions>Access Virtual Reality Devices
 // [SETTING] to manage site exceptions: Options>Privacy & Security>Permissions>Virtual Reality>Settings
-user_pref("permissions.default.xr", 2);
+// user_pref("permissions.default.xr", 2);
 
 // PREF: CRLite
 // This will reduce the number of times an OCSP server needs to be contacted and therefore increase privacy.
@@ -413,10 +413,6 @@ user_pref("security.mixed_content.block_active_content", true); // default
 // PREF: Upgrade passive content to use HTTPS on secure pages.
 user_pref("security.mixed_content.upgrade_display_content", true);
 
-// PREF: Block unencrypted requests from Flash on encrypted pages to mitigate MitM attacks
-// [1] https://bugzilla.mozilla.org/1190623
-user_pref("security.mixed_content.block_object_subrequest", true);
-
 // PREF: Block insecure downloads from secure sites
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
 user_pref("dom.block_download_insecure", true);
@@ -517,40 +513,6 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 // [1] https://bugzilla.mozilla.org/1226490
 // user_pref("browser.safebrowsing.allowOverride", false);
 // user_pref("browser.safebrowsing.blockedURIs.enabled", true);
-
-// PREF: obliterate every trace of GSB from your browser
-// google
-//user_pref("browser.safebrowsing.provider.google.advisoryURL", "");
-//user_pref("browser.safebrowsing.provider.google.pver", "");
-//user_pref("browser.safebrowsing.provider.google.advisoryName", "");
-//user_pref("browser.safebrowsing.provider.google.gethashURL", "");
-//user_pref("browser.safebrowsing.provider.google.lists", "");
-//user_pref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
-//user_pref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
-//user_pref("browser.safebrowsing.provider.google.reportURL", "");
-//user_pref("browser.safebrowsing.provider.google.updateURL", "");
-// google4
-//user_pref("browser.safebrowsing.provider.google4.advisoryName", "");
-//user_pref("browser.safebrowsing.provider.google4.advisoryURL", "");
-//user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
-//user_pref("browser.safebrowsing.provider.google4.lists", "");
-//user_pref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
-//user_pref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
-//user_pref("browser.safebrowsing.provider.google4.reportURL", "");
-//user_pref("browser.safebrowsing.provider.google4.updateURL", "");
-//user_pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false);
-//user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
-//user_pref("browser.safebrowsing.provider.google4.pver", "");
-// mozilla
-//user_pref("browser.safebrowsing.provider.mozilla.gethashURL", "");
-//user_pref("browser.safebrowsing.provider.mozilla.lastupdatetime", "");
-//user_pref("browser.safebrowsing.provider.mozilla.lists", "");
-//user_pref("browser.safebrowsing.provider.mozilla.lists.base", "");
-//user_pref("browser.safebrowsing.provider.mozilla.lists.content", "");
-//user_pref("browser.safebrowsing.provider.mozilla.nextupdatetime", "");
-//user_pref("browser.safebrowsing.provider.mozilla.pver", "");
-//user_pref("browser.safebrowsing.provider.mozilla.updateURL", "");
-//user_pref("browser.safebrowsing.reportPhishURL", "");
 
 /******************************************************************************
  * SECTION: MOZILLA                                                   *
