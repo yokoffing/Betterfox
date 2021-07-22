@@ -266,13 +266,13 @@ user_pref("network.IDN_show_punycode", true);
  * SECTION: HTTPS-ONLY MODE                              *
 ******************************************************************************/
 
-// PREF: Allow HTTPS-only connections
-// [NOTE] You can relax this setting per-website.
+// PREF: HTTPS-only connections
+// Firefox asks for your permission before connecting to a website that doesn’t support secure connections.
 // [1] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 user_pref("dom.security.https_only_mode", true);
 user_pref("dom.security.https_only_mode_ever_enabled", true);
 
-// PREF: HTTPS-only connection in Private Browsing windows only.
+// PREF: HTTPS-only connection in Private Browsing windows only
 // user_pref("dom.security.https_only_mode_pbm", true);
 // user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 
@@ -282,10 +282,22 @@ user_pref("dom.security.https_only_mode_ever_enabled", true);
 // This is done to avoid waiting for a timeout which takes 90 seconds.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
-// user_pref("dom.security.https_only_mode_send_http_background_request", false);
+user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 // PREF: Enable HTTPS-Only mode for local resources
 user_pref("dom.security.https_only_mode.upgrade_local", true);
+
+/******************************************************************************
+ * SECTION: HTTPS FIRST                                   *
+******************************************************************************/
+// PREF: HTTPS-First Policy
+// Firefox attempts to make all connections to websites secure, and falls back to insecure
+// connections only when a website does not support it. Unlike HTTPS-Only Mode, Firefox
+// will NOT ask for your permission before connecting to a website that doesn’t support secure connections.
+// [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1706552
+// user_pref("dom.security.https_first", true);
+// user_pref("dom.security.https_first_pbm", true);
 
 /******************************************************************************
  * SECTION: DNS-over-HTTPS                                                    *
