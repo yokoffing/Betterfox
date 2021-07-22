@@ -615,37 +615,3 @@ user_pref("browser.ping-centre.telemetry", false);
 // PREF: Activity Stream telemetry 
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
-
-// PREF: backend telemetry
-// [WARNING] One or more of these prefs breaks causes breakage with ETP.
-// I have not tested these individually, and you should be OK to not use them.
-/**
-user_pref("app.normandy.first_run", false);
-user_pref("app.normandy.shieldLearnMoreUrl", "");
-user_pref("browser.urlbar.eventTelemetry.enabled", false);
-user_pref("datareporting.healthreport.infoURL", "");
-user_pref("datareporting.policy.currentPolicyVersion", 0);
-user_pref("datareporting.policy.dataSubmissionEnabled", false);
-user_pref("datareporting.policy.dataSubmissionPolicyAcceptedVersion", 0);
-user_pref("datareporting.policy.dataSubmissionPolicyBypassNotification", false);
-user_pref("datareporting.policy.dataSubmissionPolicyNotifiedTime", "");
-user_pref("datareporting.policy.firstRunURL", "");
-user_pref("datareporting.policy.minimumPolicyVersion.channel-beta", 0);
-user_pref("datareporting.policy.minimumPolicyVersion", 0);
-user_pref("privacy.trackingprotection.origin_telemetry.enabled", false);
-user_pref("security.app_menu.recordEventTelemetry", false);
-user_pref("security.certerrors.recordEventTelemetry", false);
-user_pref("security.identitypopup.recordEventTelemetry", false);
-user_pref("security.protectionspopup.recordEventTelemetry", false);
-user_pref("telemetry.origin_telemetry_test_mode.enabled", false); // default
-user_pref("toolkit.coverage.enabled", false);
-user_pref("toolkit.telemetry.archive.enabled", false);
-user_pref("toolkit.telemetry.cachedClientID", "");
-user_pref("toolkit.telemetry.debugSlowSql", false);
-user_pref("toolkit.telemetry.ecosystemtelemetry.enabled", false); 
-user_pref("toolkit.telemetry.geckoview.streaming", false);
-user_pref("toolkit.telemetry.previousBuildID", "");
-user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
-user_pref("toolkit.telemetry.server_owner", "");
-user_pref("toolkit.telemetry.testing.overrideProductsCheck", false);
-***/
