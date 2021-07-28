@@ -312,11 +312,11 @@ user_pref("browser.tabs.loadInBackground", true); // default
 // [NOTE] Setting this preference to True will still bring the browser to the front when opening links from outside the browser.
 // user_pref("browser.tabs.loadDivertedInBackground", false); // default
 
-// PREF: Load bookmarks in the background using Bookmarks Menu
+// PREF: load bookmarks in the background using Bookmarks Menu
 user_pref("browser.tabs.loadBookmarksInBackground", true);
+// PREF: load bookmarks in tabs, not separate  windows
 user_pref("browser.tabs.loadBookmarksInTabs", true);
-
-// PREF: Leave bookmarks menu open when selecting a site
+// PREF: leave Bookmarks Menu open when selecting a site
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
 // PREF: Stop websites from reloading pages automatically
