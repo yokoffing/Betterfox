@@ -417,6 +417,10 @@ user_pref("browser.formfill.enable", false);
 // [1] https://www.fxsitecompat.com/en-CA/docs/2015/http-auth-dialog-can-no-longer-be-triggered-by-cross-origin-resources/
 user_pref("network.auth.subresource-http-auth-allow", 1);
 
+// PREF: disable automatic authentication on Microsoft sites [WINDOWS]
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
+user_pref("network.http.windows-sso.enabled", false);
+
 // PREF: Block insecure active content (scripts) on HTTPS pages.
 // [1] https://trac.torproject.org/projects/tor/ticket/21323
 user_pref("security.mixed_content.block_active_content", true); // default
