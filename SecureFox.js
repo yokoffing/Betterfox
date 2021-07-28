@@ -104,11 +104,13 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 user_pref("dom.storage.next_gen", true);
 
-// PREF: enforce no offline cache storage (appCache)
-// [1] https://github.com/arkenfox/user.js/issues/1055
+// PREF: disable cache
 // user_pref("browser.cache.disk.enable", true); // default
-// user_pref("browser.cache.offline.enable", true); // default
-// user_pref("browser.cache.offline.storage.enable", false);
+
+// PREF: disable offline cache (appCache)
+// [WARNING] The API is easily fingerprinted, do not disable!
+// [1] https://github.com/arkenfox/user.js/issues/1055
+// user_pref("browser.cache.offline.enable", false); // default
 
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
