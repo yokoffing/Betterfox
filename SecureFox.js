@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: May 2021                                                        *
+ * version: July 2021                                                       *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -91,7 +91,7 @@ user_pref("dom.battery.enabled", false);
 // 0=always ask (default), 1=allow, 2=block
 // [SETTING] to add site exceptions: Ctrl+I>Permissions>Access Virtual Reality Devices
 // [SETTING] to manage site exceptions: Options>Privacy & Security>Permissions>Virtual Reality>Settings
-user_pref("permissions.default.xr", 2);
+// user_pref("permissions.default.xr", 2);
 
 // PREF: CRLite
 // This will reduce the number of times an OCSP server needs to be contacted and therefore increase privacy.
@@ -104,11 +104,13 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 user_pref("dom.storage.next_gen", true);
 
-// PREF: enforce no offline cache storage (appCache)
-// [1] https://github.com/arkenfox/user.js/issues/1055
+// PREF: disable cache
 // user_pref("browser.cache.disk.enable", true); // default
-// user_pref("browser.cache.offline.enable", true); // default
-// user_pref("browser.cache.offline.storage.enable", false);
+
+// PREF: disable offline cache (appCache)
+// [WARNING] The API is easily fingerprinted, do not disable!
+// [1] https://github.com/arkenfox/user.js/issues/1055
+// user_pref("browser.cache.offline.enable", false); // default
 
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
@@ -266,13 +268,13 @@ user_pref("network.IDN_show_punycode", true);
  * SECTION: HTTPS-ONLY MODE                              *
 ******************************************************************************/
 
-// PREF: Allow HTTPS-only connections
-// [NOTE] You can relax this setting per-website.
+// PREF: HTTPS-only connections
+// Firefox asks for your permission before connecting to a website that doesn’t support secure connections.
 // [1] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 user_pref("dom.security.https_only_mode", true);
 user_pref("dom.security.https_only_mode_ever_enabled", true);
 
-// PREF: HTTPS-only connection in Private Browsing windows only.
+// PREF: HTTPS-only connection in Private Browsing windows only
 // user_pref("dom.security.https_only_mode_pbm", true);
 // user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 
@@ -282,10 +284,22 @@ user_pref("dom.security.https_only_mode_ever_enabled", true);
 // This is done to avoid waiting for a timeout which takes 90 seconds.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
-// user_pref("dom.security.https_only_mode_send_http_background_request", false);
+user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 // PREF: Enable HTTPS-Only mode for local resources
 user_pref("dom.security.https_only_mode.upgrade_local", true);
+
+/******************************************************************************
+ * SECTION: HTTPS FIRST                                   *
+******************************************************************************/
+// PREF: HTTPS-First Policy
+// Firefox attempts to make all connections to websites secure, and falls back to insecure
+// connections only when a website does not support it. Unlike HTTPS-Only Mode, Firefox
+// will NOT ask for your permission before connecting to a website that doesn’t support secure connections.
+// [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1706552
+// user_pref("dom.security.https_first", true);
+// user_pref("dom.security.https_first_pbm", true);
 
 /******************************************************************************
  * SECTION: DNS-over-HTTPS                                                    *
@@ -403,6 +417,10 @@ user_pref("browser.formfill.enable", false);
 // [1] https://www.fxsitecompat.com/en-CA/docs/2015/http-auth-dialog-can-no-longer-be-triggered-by-cross-origin-resources/
 user_pref("network.auth.subresource-http-auth-allow", 1);
 
+// PREF: disable automatic authentication on Microsoft sites [WINDOWS]
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
+user_pref("network.http.windows-sso.enabled", false);
+
 // PREF: Block insecure active content (scripts) on HTTPS pages.
 // [1] https://trac.torproject.org/projects/tor/ticket/21323
 user_pref("security.mixed_content.block_active_content", true); // default
@@ -412,10 +430,6 @@ user_pref("security.mixed_content.block_active_content", true); // default
 
 // PREF: Upgrade passive content to use HTTPS on secure pages.
 user_pref("security.mixed_content.upgrade_display_content", true);
-
-// PREF: Block unencrypted requests from Flash on encrypted pages to mitigate MitM attacks
-// [1] https://bugzilla.mozilla.org/1190623
-user_pref("security.mixed_content.block_object_subrequest", true);
 
 // PREF: Block insecure downloads from secure sites
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
@@ -518,40 +532,6 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 // user_pref("browser.safebrowsing.allowOverride", false);
 // user_pref("browser.safebrowsing.blockedURIs.enabled", true);
 
-// PREF: obliterate every trace of GSB from your browser
-// google
-//user_pref("browser.safebrowsing.provider.google.advisoryURL", "");
-//user_pref("browser.safebrowsing.provider.google.pver", "");
-//user_pref("browser.safebrowsing.provider.google.advisoryName", "");
-//user_pref("browser.safebrowsing.provider.google.gethashURL", "");
-//user_pref("browser.safebrowsing.provider.google.lists", "");
-//user_pref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
-//user_pref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
-//user_pref("browser.safebrowsing.provider.google.reportURL", "");
-//user_pref("browser.safebrowsing.provider.google.updateURL", "");
-// google4
-//user_pref("browser.safebrowsing.provider.google4.advisoryName", "");
-//user_pref("browser.safebrowsing.provider.google4.advisoryURL", "");
-//user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
-//user_pref("browser.safebrowsing.provider.google4.lists", "");
-//user_pref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
-//user_pref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
-//user_pref("browser.safebrowsing.provider.google4.reportURL", "");
-//user_pref("browser.safebrowsing.provider.google4.updateURL", "");
-//user_pref("browser.safebrowsing.provider.google4.dataSharing.enabled", false);
-//user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
-//user_pref("browser.safebrowsing.provider.google4.pver", "");
-// mozilla
-//user_pref("browser.safebrowsing.provider.mozilla.gethashURL", "");
-//user_pref("browser.safebrowsing.provider.mozilla.lastupdatetime", "");
-//user_pref("browser.safebrowsing.provider.mozilla.lists", "");
-//user_pref("browser.safebrowsing.provider.mozilla.lists.base", "");
-//user_pref("browser.safebrowsing.provider.mozilla.lists.content", "");
-//user_pref("browser.safebrowsing.provider.mozilla.nextupdatetime", "");
-//user_pref("browser.safebrowsing.provider.mozilla.pver", "");
-//user_pref("browser.safebrowsing.provider.mozilla.updateURL", "");
-//user_pref("browser.safebrowsing.reportPhishURL", "");
-
 /******************************************************************************
  * SECTION: MOZILLA                                                   *
 ******************************************************************************/
@@ -574,6 +554,11 @@ user_pref("extensions.webextensions.tabhide.enabled", false);
 // user_pref("extensions.autoupdate.enabled", false);
 // user_pref("extensions.update.url", "");
 // user_pref("extensions.update.background.url", "");
+
+// PREF: disable auto-INSTALLING Firefox updates via a background service
+// [SETTING] General>Firefox Updates>Automatically install updates>When Firefox is not running
+// [1] https://support.mozilla.org/kb/enable-background-updates-firefox-windows ***/
+// user_pref("app.update.background.scheduling.enabled", false);
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
@@ -653,37 +638,3 @@ user_pref("browser.ping-centre.telemetry", false);
 // PREF: Activity Stream telemetry 
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
-
-// PREF: backend telemetry
-// [WARNING] One or more of these prefs breaks causes breakage with ETP.
-// I have not tested these individually, and you should be OK to not use them.
-/**
-user_pref("app.normandy.first_run", false);
-user_pref("app.normandy.shieldLearnMoreUrl", "");
-user_pref("browser.urlbar.eventTelemetry.enabled", false);
-user_pref("datareporting.healthreport.infoURL", "");
-user_pref("datareporting.policy.currentPolicyVersion", 0);
-user_pref("datareporting.policy.dataSubmissionEnabled", false);
-user_pref("datareporting.policy.dataSubmissionPolicyAcceptedVersion", 0);
-user_pref("datareporting.policy.dataSubmissionPolicyBypassNotification", false);
-user_pref("datareporting.policy.dataSubmissionPolicyNotifiedTime", "");
-user_pref("datareporting.policy.firstRunURL", "");
-user_pref("datareporting.policy.minimumPolicyVersion.channel-beta", 0);
-user_pref("datareporting.policy.minimumPolicyVersion", 0);
-user_pref("privacy.trackingprotection.origin_telemetry.enabled", false);
-user_pref("security.app_menu.recordEventTelemetry", false);
-user_pref("security.certerrors.recordEventTelemetry", false);
-user_pref("security.identitypopup.recordEventTelemetry", false);
-user_pref("security.protectionspopup.recordEventTelemetry", false);
-user_pref("telemetry.origin_telemetry_test_mode.enabled", false); // default
-user_pref("toolkit.coverage.enabled", false);
-user_pref("toolkit.telemetry.archive.enabled", false);
-user_pref("toolkit.telemetry.cachedClientID", "");
-user_pref("toolkit.telemetry.debugSlowSql", false);
-user_pref("toolkit.telemetry.ecosystemtelemetry.enabled", false); 
-user_pref("toolkit.telemetry.geckoview.streaming", false);
-user_pref("toolkit.telemetry.previousBuildID", "");
-user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
-user_pref("toolkit.telemetry.server_owner", "");
-user_pref("toolkit.telemetry.testing.overrideProductsCheck", false);
-***/
