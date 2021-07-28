@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: May 2021                                                        *
+ * version: July 2021                                                       *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -45,7 +45,6 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 user_pref("browser.send_pings", false);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
-user_pref("permissions.default.xr", 2);
 user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("dom.storage.next_gen", true);
@@ -87,6 +86,7 @@ user_pref("network.IDN_show_punycode", true);
 /** HTTPS-ONLY MODE ***/
 user_pref("dom.security.https_only_mode", true);
 user_pref("dom.security.https_only_mode_ever_enabled", true);
+user_pref("dom.security.https_only_mode_send_http_background_request", false);
 user_pref("dom.security.https_only_mode.upgrade_local", true);
 
 /** DNS-over-HTTPS (DOH) ***/
@@ -130,10 +130,11 @@ user_pref("browser.formfill.enable", false);
 
 /** MIXED CONTENT + CROSS-SITE ***/
 user_pref("network.auth.subresource-http-auth-allow", 1);
+user_pref("network.http.windows-sso.enabled", false);
 user_pref("security.mixed_content.block_active_content", true);
 user_pref("security.mixed_content.upgrade_display_content", true);
-user_pref("pdfjs.enableScripting", false);
 user_pref("dom.block_download_insecure", true);
+user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
 user_pref("security.tls.version.enable-deprecated", false);
@@ -141,11 +142,6 @@ user_pref("dom.targetBlankNoOpener.enabled", true);
 user_pref("privacy.window.name.update.enabled", true);
 user_pref("network.http.referer.XOriginPolicy", 0);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
-
-/** FLASH PLUGIN ***/
-user_pref("security.mixed_content.block_object_subrequest", true);
-user_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled", false);
-user_pref("plugin.state.flash", 0);
 
 /** GOOGLE SAFE BROWSING ***/
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
