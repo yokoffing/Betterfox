@@ -551,6 +551,11 @@ user_pref("extensions.webextensions.tabhide.enabled", false);
 // user_pref("extensions.update.url", "");
 // user_pref("extensions.update.background.url", "");
 
+// PREF: disable auto-INSTALLING Firefox updates via a background service
+// [SETTING] General>Firefox Updates>Automatically install updates>When Firefox is not running
+// [1] https://support.mozilla.org/kb/enable-background-updates-firefox-windows ***/
+// user_pref("app.update.background.scheduling.enabled", false);
+
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
 ******************************************************************************/
