@@ -66,7 +66,7 @@ user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
-user_pref("privacy.trackingprotection.socialtracking.enabled", true); // default
+user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
 // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 
