@@ -39,9 +39,9 @@ user_pref("privacy.partition.network_state", true); // default
 // in certain circumstances for usability.
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning#dynamic_state_partitioning
 // [2] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
-user_pref("network.cookie.cookieBehavior", 5);
+user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict"
 user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
-// user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // hidden? Nightly-only?
+user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // default
 
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
@@ -51,7 +51,7 @@ user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); //
 // [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
 // [4] https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
 // [5] https://github.com/arkenfox/user.js/issues/1089
-user_pref("privacy.purge_trackers.enabled", true);
+user_pref("privacy.purge_trackers.enabled", true); // default
 
 // PREF: Enhanced Tracking Protection (ETP)
 // Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
@@ -61,14 +61,14 @@ user_pref("privacy.purge_trackers.enabled", true);
 // [1] https://blog.mozilla.org/firefox/control-trackers-with-firefox/
 // [2] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 // [3] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
-user_pref("browser.contentblocking.category", "custom");
+user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
 user_pref("privacy.trackingprotection.socialtracking.enabled", true); // default
-user_pref("privacy.socialtracking.block_cookies.enabled", true);
-user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
+user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
+// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 
 // PREF: allow embedded tweets and Instagram posts
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
@@ -178,14 +178,15 @@ user_pref("network.prefetch-next", false);
 // TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
-user_pref("network.http.speculative-parallel-limit", 0;
+user_pref("network.http.speculative-parallel-limit", 0);
 
 // PREF: Enable <link rel=preload>.
 // Developer hints to the browser to preload some resources with a higher priority and in advance.
 // Helps the web page to render and get into the stable and interactive state faster.
+// [WARNING] Interferes with ad-blocking, so we disable this.
 // [1] https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
-user_pref("network.preload", true);
+user_pref("network.preload", false);
 
 // PREF: Network predictor
 // Uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
@@ -195,8 +196,8 @@ user_pref("network.preload", true);
 // [1] https://wiki.mozilla.org/Privacy/Reviews/Necko
 // [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
-user_pref("network.predictor.enabled", true);
-user_pref("network.predictor.enable-hover-on-ssl", true); // default
+user_pref("network.predictor.enabled", false);
+user_pref("network.predictor.enable-hover-on-ssl", false); // default
 user_pref("network.predictor.enable-prefetch", false); // default
 
 // PREF: New tab tile ads and preload
@@ -204,7 +205,7 @@ user_pref("network.predictor.enable-prefetch", false); // default
 // [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 // [2] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
 // [3] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
-user_pref("browser.newtab.preload", true); /* default */
+user_pref("browser.newtab.preload", true); // default
 
 /******************************************************************************
  * SECTION: SEARCH / URL BAR                              *
@@ -212,7 +213,7 @@ user_pref("browser.newtab.preload", true); /* default */
 
 // PREF: trim certain parts of the URL
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs#values
-user_pref("browser.urlbar.trimURLs", true); /*default*/
+user_pref("browser.urlbar.trimURLs", true); // default
 
 // PREF: Enable a seperate search engine for Private Windows
 // Remember to go into Preferences -> Search and select another search provider (like DuckDuckGo)
@@ -222,7 +223,7 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 // PREF: Disable live search engine suggestions (Google, Bing, etc.)
 // [!] Search engines keylog every character you type from the URL bar
 user_pref("browser.search.suggest.enabled", false);
-user_pref("browser.search.suggest.enabled.private", false);
+user_pref("browser.search.suggest.enabled.private", false); // default
 
 // PREF: URL bar suggestions (bookmarks, history, open tabs)
 // user_pref("browser.urlbar.suggest.searches", false);
@@ -235,10 +236,10 @@ user_pref("browser.search.suggest.enabled.private", false);
 // NOTE: Items (bookmarks/history/openpages) with a high "frequency"/"bonus" will always
 // be displayed (no we do not know how these are calculated or what the threshold is),
 // and this does not affect the search by search engine suggestion.
-// NOTE: This setting is only useful if you want to enable search engine keywords but
+// [NOTE] This setting is only useful if you want to enable search engine keywords but
 // you want to limit suggestions shown. (I like to set this to 1.)
 // default=10, disable=0
-// user_pref("browser.urlbar.maxRichResults", 0);
+// user_pref("browser.urlbar.maxRichResults", 5);
 
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
@@ -268,18 +269,31 @@ user_pref("security.insecure_connection_text.pbmode.enabled", true);
 user_pref("network.IDN_show_punycode", true);
 
 /******************************************************************************
+ * SECTION: HTTPS FIRST                                   *
+******************************************************************************/
+
+// PREF: HTTPS-First Policy
+// Firefox attempts to make all connections to websites secure, and falls back to insecure
+// connections only when a website does not support it. Unlike HTTPS-Only Mode, Firefox
+// will NOT ask for your permission before connecting to a website that doesn’t support secure connections.
+// [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1706552
+user_pref("dom.security.https_first", true);
+user_pref("dom.security.https_first_pbm", true); // default
+
+/******************************************************************************
  * SECTION: HTTPS-ONLY MODE                              *
 ******************************************************************************/
 
 // PREF: HTTPS-only connections
 // Firefox asks for your permission before connecting to a website that doesn’t support secure connections.
 // [1] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
-user_pref("dom.security.https_only_mode", true);
-user_pref("dom.security.https_only_mode_ever_enabled", true);
+// user_pref("dom.security.https_only_mode", true);
+// user_pref("dom.security.https_only_mode_ever_enabled", true);
 
 // PREF: HTTPS-only connection in Private Browsing windows only
-// user_pref("dom.security.https_only_mode_pbm", true);
-// user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
+user_pref("dom.security.https_only_mode_pbm", true);
+user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 
 // PREF: Disable HTTP background requests
 // When attempting to upgrade, if the server doesn't respond within 3 seconds, Firefox
@@ -291,18 +305,6 @@ user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 // PREF: Enable HTTPS-Only mode for local resources
 user_pref("dom.security.https_only_mode.upgrade_local", true);
-
-/******************************************************************************
- * SECTION: HTTPS FIRST                                   *
-******************************************************************************/
-// PREF: HTTPS-First Policy
-// Firefox attempts to make all connections to websites secure, and falls back to insecure
-// connections only when a website does not support it. Unlike HTTPS-Only Mode, Firefox
-// will NOT ask for your permission before connecting to a website that doesn’t support secure connections.
-// [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1706552
-// user_pref("dom.security.https_first", true);
-// user_pref("dom.security.https_first_pbm", true);
 
 /******************************************************************************
  * SECTION: DNS-over-HTTPS                                                    *
@@ -412,7 +414,7 @@ user_pref("browser.formfill.enable", false);
  * SECTION: MIXED CONTENT + CROSS-SITE                             *
 ******************************************************************************/
 
-// PREF: Limit (or disable) HTTP authentication credentials dialogs triggered by sub-resources
+// PREF: limit (or disable) HTTP authentication credentials dialogs triggered by sub-resources
 // Hardens against potential credentials phishing
 // 0=don't allow sub-resources to open HTTP authentication credentials dialogs
 // 1=don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
@@ -451,7 +453,7 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 // permissions, and fullscreen requests. Disabling delegation means any prompts
 // for these will show/use their correct 3rd party origin
 // [1] https://groups.google.com/forum/#!topic/mozilla.dev.platform/BdFOMAuCGW8/discussion
-user_pref("permissions.delegation.enabled", false);
+user_pref("permissions.delegation.enabled", false); // default
 
 // PREF: Enforce TLS 1.0 and 1.1 downgrades as session only
 user_pref("security.tls.version.enable-deprecated", false); // default
@@ -464,13 +466,13 @@ user_pref("dom.targetBlankNoOpener.enabled", true); // default
 // PREF: Enable "window.name" protection
 // If a new page from another domain is loaded into a tab, then window.name is set to an empty string. The original
 // string is restored if the tab reverts back to the original page. This change prevents some cross-site attacks.
-user_pref("privacy.window.name.update.enabled", true);
+user_pref("privacy.window.name.update.enabled", true); // default
 
 // PREF: Downgrade Cross-Origin (Third-Party) Referers
 // CROSS ORIGIN: control when to send a referer
 // [1] https://github.com/arkenfox/user.js/issues/1077
 // 0=always (default), 1=only if base domains match, 2=only if hosts match
-user_pref("network.http.referer.XOriginPolicy", 0);
+user_pref("network.http.referer.XOriginPolicy", 0); // default
 // Control the amount of information to send.
 // 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
@@ -542,15 +544,14 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
 // user_pref("permissions.default.geo", 0);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-// PREF: Disable logging geolocation to the console
-user_pref("geo.provider.network.logging.enabled", false);
+// PREF: enable logging geolocation to the console
+// user_pref("geo.provider.network.logging.enabled", true);
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
 // This includes updates for "revoked certificates".
 // [1] https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/
 // [2] https://trac.torproject.org/projects/tor/ticket/16931
-user_pref("extensions.blocklist.enabled", true);
-user_pref("extensions.webextensions.tabhide.enabled", false);
+user_pref("extensions.blocklist.enabled", true); // default
 
 // PREF: Disable automatic extension updates
 // user_pref("extensions.update.enabled", false);
