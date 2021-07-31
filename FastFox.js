@@ -26,7 +26,7 @@
 // [1] https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/
 // [2] https://wiki.mozilla.org/Platform/GFX/WebRender_Where
 // [3] https://www.reddit.com/r/firefox/comments/fo1jwz/make_firefox_faster/flhh5l2/
-// user_pref("gfx.webrender.all", true);
+user_pref("gfx.webrender.all", true);
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [NOTE] Both preferences need to be "true" if you're using the software renderer.
