@@ -26,20 +26,11 @@ user_pref("browser.startup.preXulSkeletonUI", false);
  * SECTION: SECUREFOX                                                       *
 ****************************************************************************/
 /** TRACKING PROTECTION ***/
-user_pref("privacy.partition.network_state", true);
-user_pref("network.cookie.cookieBehavior", 5);
-user_pref("privacy.purge_trackers.enabled", true);
-user_pref("browser.contentblocking.category", "custom");
+user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.enabled", true);
-user_pref("privacy.trackingprotection.pbmode.enabled", true);
-user_pref("privacy.trackingprotection.cryptomining.enabled", true);
-user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
-user_pref("privacy.socialtracking.block_cookies.enabled", true);
-user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
-user_pref("browser.send_pings", false);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
 user_pref("security.pki.crlite_mode", 2);
@@ -57,32 +48,29 @@ user_pref("privacy.cpd.siteSettings", false);
 user_pref("privacy.sanitize.timeSpan", 0);
 user_pref("privacy.history.custom", true);
 
-/*** PRELOADING ***/
+/** PRELOADING ***/
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.preload", false);
 user_pref("network.predictor.enabled", false);
-user_pref("network.predictor.enable-hover-on-ssl", false);
-user_pref("network.predictor.enable-prefetch", false);
-user_pref("browser.newtab.preload", true);
 
 /** SEARCH / URL BAR ***/
-user_pref("browser.urlbar.trimURLs", false);
 user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
-user_pref("browser.search.suggest.enabled.private", false);
 user_pref("browser.fixup.alternate.enabled", false);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
 user_pref("network.IDN_show_punycode", true);
 
+/** HTTPS FIRST POLICY ***/
+user_pref("dom.security.https_first", true);
+
 /** HTTPS-ONLY MODE ***/
-user_pref("dom.security.https_only_mode", true);
-user_pref("dom.security.https_only_mode_ever_enabled", true);
+user_pref("dom.security.https_only_mode_pbm", true);
+user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 user_pref("dom.security.https_only_mode_send_http_background_request", false);
 user_pref("dom.security.https_only_mode.upgrade_local", true);
 
@@ -128,16 +116,11 @@ user_pref("browser.formfill.enable", false);
 /** MIXED CONTENT + CROSS-SITE ***/
 user_pref("network.auth.subresource-http-auth-allow", 1);
 user_pref("network.http.windows-sso.enabled", false);
-user_pref("security.mixed_content.block_active_content", true);
 user_pref("security.mixed_content.upgrade_display_content", true);
 user_pref("dom.block_download_insecure", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
-user_pref("security.tls.version.enable-deprecated", false);
-user_pref("dom.targetBlankNoOpener.enabled", true);
-user_pref("privacy.window.name.update.enabled", true);
-user_pref("network.http.referer.XOriginPolicy", 0);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /** GOOGLE SAFE BROWSING ***/
@@ -153,9 +136,6 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
 /** MOZILLA ***/
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-user_pref("geo.provider.network.logging.enabled", false);
-user_pref("extensions.blocklist.enabled", true);
-user_pref("extensions.webextensions.tabhide.enabled", false);
 
 /** TELEMETRY ***/
 user_pref("toolkit.telemetry.unified", false);
