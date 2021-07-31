@@ -110,7 +110,7 @@ user_pref("dom.storage.next_gen", true);
 // PREF: disable offline cache (appCache)
 // [WARNING] The API is easily fingerprinted, do not disable!
 // [1] https://github.com/arkenfox/user.js/issues/1055
-// user_pref("browser.cache.offline.enable", false); // default
+// user_pref("browser.cache.offline.enable", false);
 
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
