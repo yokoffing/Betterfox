@@ -55,7 +55,6 @@ user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.preload", false);
-user_pref("network.predictor.enabled", false);
 
 /** SEARCH / URL BAR ***/
 user_pref("browser.search.separatePrivateDefault", true);
