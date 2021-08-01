@@ -155,6 +155,9 @@ user_pref("privacy.history.custom", true);
  * SECTION: PRELOADING                                            *
 ******************************************************************************/
 
+// You can customize this section to your comfort-level.
+// [WARNING] Some PREFs affect content-blocking.
+
 // PREF: DNS prefetching
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 user_pref("network.dns.disablePrefetch", true);
