@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: July 2021                                                       *
+ * version: August 2021                                                     *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -278,7 +278,7 @@ user_pref("security.insecure_connection_text.pbmode.enabled", true);
 user_pref("network.IDN_show_punycode", true);
 
 /******************************************************************************
- * SECTION: HTTPS FIRST                                   *
+ * SECTION: HTTPS-FIRST POLICY                          *
 ******************************************************************************/
 
 // PREF: HTTPS-First Policy
