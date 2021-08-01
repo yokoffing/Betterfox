@@ -65,7 +65,7 @@ user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
 user_pref("network.IDN_show_punycode", true);
 
-/** HTTPS FIRST POLICY ***/
+/** HTTPS-FIRST POLICY ***/
 user_pref("dom.security.https_first", true);
 
 /** HTTPS-ONLY MODE ***/
