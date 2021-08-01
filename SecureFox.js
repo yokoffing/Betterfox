@@ -178,7 +178,11 @@ user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 
 // PREF: Link-mouseover opening connection to linked server.
-// TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
+// To improve the loading speed, Firefox will open predictive connections to sites when the user hovers their mouse over
+// thumbnails on the New Tab Page or the user starts to search in the Search Bar, or in the search field on the Home or the
+// New Tab Page. In case the user follows through with the action, the page can begin loading faster since some of the work
+// was already started in advance.
+// [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
 user_pref("network.http.speculative-parallel-limit", 0);
