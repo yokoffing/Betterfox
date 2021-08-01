@@ -482,7 +482,6 @@ user_pref("network.http.referer.XOriginPolicy", 0); // default
 // 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
-
 /******************************************************************************
  * SECTION: VARIOUS                            *
 ******************************************************************************/
@@ -499,7 +498,7 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // user_pref("network.ftp.enabled", true);
 
 // PREF: Decode URLs in other languages
-// I leave this off because it has unintended consequecnes when copy+paste links with underscores.
+// [NOTE] I leave this off because it has unintended consequecnes when copy+paste links with underscores.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1320061
 // user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
@@ -591,7 +590,7 @@ user_pref("corroborator.enabled", false);
 // Telemetry Coverage
 user_pref("toolkit.telemetry.coverage.opt-out", true);
 user_pref("toolkit.coverage.opt-out", true);
-user_pref("toolkit.coverage.endpoint.base", "");
+// user_pref("toolkit.coverage.endpoint.base", "");
 
 // Health Reports
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data.
@@ -612,20 +611,21 @@ user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("browser.discovery.enabled", false);
 
 // PREF: disable crash reports
-user_pref("breakpad.reportURL", "");
+// user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // default
-// backlogged crash reports
+// PREF: backlogged crash reports
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
 // PREF: Captive Portal detection
-// [WARNING] May NOT be able to use your browser at hotels and coffee shops.
+// [WARNING] Do NOT use for mobile devices. May NOT be able to use Firefox on public wifi (hotels, coffee shops, etc).
 // [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy
 // [2] https://wiki.mozilla.org/Necko/CaptivePortal
 // user_pref("captivedetect.canonicalURL", "");
 // user_pref("network.captive-portal-service.enabled", false);
 
 // PREF: Network Connectivity checks
+// [WARNING] Do NOT use for mobile devices. May NOT be able to use Firefox on public wifi (hotels, coffee shops, etc).
 // [1] https://bugzilla.mozilla.org/1460537
 // user_pref("network.connectivity-service.enabled", false);
 
@@ -638,7 +638,7 @@ user_pref("extensions.abuseReport.enabled", false);
 // PREF: Normandy/Shield [extensions tracking]
 // Shield is an telemetry system (including Heartbeat) that can also push and test "recipes"
 user_pref("app.normandy.enabled", false);
-user_pref("app.normandy.api_url", "");
+// user_pref("app.normandy.api_url", "");
 
 // PREF: PingCentre telemetry (used in several System Add-ons)
 // Currently blocked by 'datareporting.healthreport.uploadEnabled'
