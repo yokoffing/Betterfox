@@ -178,7 +178,6 @@ user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 user_pref("browser.shell.checkDefaultBrowser", false);
-user_pref("identity.fxaccounts.enabled", false);
 user_pref("browser.aboutwelcome.enabled", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
@@ -230,22 +229,16 @@ user_pref("browser.urlbar.suggest.engines", false);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("dom.push.enabled", false);
-user_pref("dom.push.userAgentID", "");
-user_pref("media.block-autoplay-until-in-foreground", true);
 user_pref("findbar.highlightAll", true);
 user_pref("layout.spellcheckDefault", 2);
 user_pref("accessibility.force_disabled", 1);
+user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.display.show_image_placeholders", false);
 user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
 
-/** PDF ***/
-user_pref("pdfjs.disabled", false);
-user_pref("browser.helperApps.showOpenOptionForPdfJS", true);
-
 /** TAB BEHAVIOR ***/
 user_pref("dom.disable_window_move_resize", true);
-user_pref("browser.tabs.loadInBackground", true);
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
@@ -254,8 +247,6 @@ user_pref("editor.truncate_user_pastes", false);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
 user_pref("clipboard.plainTextOnly", true);
 user_pref("dom.popup_allowed_events", "click dblclick");
-user_pref("dom.disable_open_during_load", true);
-user_pref("privacy.popups.showBrowserMessage", true);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
