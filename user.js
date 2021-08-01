@@ -241,7 +241,7 @@ user_pref("image.avif.enabled", true);
 user_pref("editor.truncate_user_pastes", false);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
 user_pref("clipboard.plainTextOnly", true);
-user_pref("dom.popup_allowed_events", "click dblclick");
+user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
