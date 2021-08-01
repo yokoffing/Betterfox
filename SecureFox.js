@@ -19,6 +19,28 @@
  * SECTION: TRACKING PROTECTION                                             *
 ****************************************************************************/
 
+// PREF: Enhanced Tracking Protection (ETP)
+// Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
+// Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
+// been interacted with in the last 30 days.
+// [NOTE] FF86: "Strict" tracking protection enables dFPI.
+// [1] https://blog.mozilla.org/firefox/control-trackers-with-firefox/
+// [2] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
+// [3] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
+user_pref("browser.contentblocking.category", "strict");
+user_pref("privacy.trackingprotection.enabled", true);
+user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
+user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
+user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
+user_pref("privacy.trackingprotection.socialtracking.enabled", true);
+user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
+// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
+
+// PREF: allow embedded tweets and Instagram posts
+// [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
+user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hidden
+user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
+
 // PREF: Network Partitioning
 // Network Partitioning will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
 // on a per-website basis rather than together in the same pool.
@@ -52,28 +74,6 @@ user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.ena
 // [4] https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
 // [5] https://github.com/arkenfox/user.js/issues/1089
 user_pref("privacy.purge_trackers.enabled", true); // default
-
-// PREF: Enhanced Tracking Protection (ETP)
-// Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
-// Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
-// been interacted with in the last 30 days.
-// [NOTE] FF86: "Strict" tracking protection enables dFPI.
-// [1] https://blog.mozilla.org/firefox/control-trackers-with-firefox/
-// [2] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
-// [3] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
-user_pref("browser.contentblocking.category", "strict");
-user_pref("privacy.trackingprotection.enabled", true);
-user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
-user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
-user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
-user_pref("privacy.trackingprotection.socialtracking.enabled", true);
-user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
-// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
-
-// PREF: allow embedded tweets and Instagram posts
-// [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
-user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hidden
-user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
 // PREF: Hyperlink Auditing (click tracking).
 user_pref("browser.send_pings", false); // default
