@@ -183,7 +183,7 @@ user_pref("network.http.speculative-parallel-limit", 0);
 // PREF: Enable <link rel=preload>.
 // Developer hints to the browser to preload some resources with a higher priority and in advance.
 // Helps the web page to render and get into the stable and interactive state faster.
-// [WARNING] Interferes with ad-blocking, so we disable this.
+// [WARNING] Interferes with content blocking, so we disable this.
 // [1] https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
 user_pref("network.preload", false);
@@ -191,13 +191,15 @@ user_pref("network.preload", false);
 // PREF: Network predictor
 // Uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
 // so that the next time the user mouseovers a link to that webpage, this history can be used to predict what resources will
-// be needed rather than wait for the document to link those resources.
-// [NOTE] Only does pre-connect not prefetch.
+// be needed rather than wait for the document to link those resources. Only performs pre-connect, not prefetch. No data is actually
+// sent to the site until a user actively clicks a link.
+// [NOTE] I have NOT found any interference with content blocking using these setting.
+// [SETTINGS] uBlock Origin -> Settings -> Privacy -> uncheck "Disable pre-fetching"
 // [1] https://wiki.mozilla.org/Privacy/Reviews/Necko
 // [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
-user_pref("network.predictor.enabled", false);
-user_pref("network.predictor.enable-hover-on-ssl", false); // default
+user_pref("network.predictor.enabled", true); // default
+// user_pref("network.predictor.enable-hover-on-ssl", true);
 user_pref("network.predictor.enable-prefetch", false); // default
 
 // PREF: New tab tile ads and preload
