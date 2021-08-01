@@ -351,6 +351,6 @@ user_pref("clipboard.plainTextOnly", true);
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
 // (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
 // (recommended) user_pref("dom.popup_allowed_events", "dblclick");
-user_pref("dom.popup_allowed_events", "click dblclick");
+user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
 user_pref("dom.disable_open_during_load", true); // default
 user_pref("privacy.popups.showBrowserMessage", true); // default
