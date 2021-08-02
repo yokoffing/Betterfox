@@ -11,7 +11,7 @@
  * FasterFox                                                                *
  * "Non ducor duco."                                                        *
  * priority: speedy browsing                                                *
- * version: March 2021                                                      *
+ * version: August 2021                                                     *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -26,7 +26,7 @@
 // [1] https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/
 // [2] https://wiki.mozilla.org/Platform/GFX/WebRender_Where
 // [3] https://www.reddit.com/r/firefox/comments/fo1jwz/make_firefox_faster/flhh5l2/
-// user_pref("gfx.webrender.all", true);
+user_pref("gfx.webrender.all", true);
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [NOTE] Both preferences need to be "true" if you're using the software renderer.
@@ -36,14 +36,14 @@
 
 // PREF: Lazy Image Loading
 // https://www.ghacks.net/2020/02/15/firefox-75-gets-lazy-loading-support-for-images/
-user_pref("dom.image-lazy-loading.enabled", true); /*default*/
+user_pref("dom.image-lazy-loading.enabled", true); // default
 
 // PREF: control how tabs are loaded when a session is restored.
 // true=Tabs are not loaded until they are selected (default)
 // false=Tabs begin to load immediately.
-user_pref("browser.sessionstore.restore_on_demand", true);
+user_pref("browser.sessionstore.restore_on_demand", true); // default
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
-user_pref("browser.sessionstore.restore_tabs_lazily", true);
+user_pref("browser.sessionstore.restore_tabs_lazily", true); // default
 
 // PREF: disable preSkeletonUI on startup
 // May set to "true" if your hardware is very old.
