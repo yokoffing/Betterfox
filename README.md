@@ -15,8 +15,7 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 | [Fastfox](https://github.com/yokoffing/Better-Fox/blob/master/FastFox.js)   | Immensely increase Firefox's browsing speed. Give Chrome a run for its money!|
 | [SecureFox](https://github.com/yokoffing/Better-Fox/blob/master/SecureFox.js) | Remove Telemetry, Mozilla experiments, Google Safe Browsing, and search engine suggestions in URL bar. Auto-upgrade mixed content to HTTPS. Various privacy enhancements. |
 | [PeskyFox](https://github.com/yokoffing/Better-Fox/blob/master/PeskyFox.js)  | Unclutter the new tab page. Remove Pocket and form autofill. Prevent Firefox from serving annoying webpage notifications. |
-| [TinkerFox](https://github.com/yokoffing/Better-Fox/blob/master/TinkerFox.js)  | [optional] Test upcoming features in Firefox! |
-| [SmoothFox](https://github.com/yokoffing/Better-Fox/blob/master/SmoothFox.js) | [optional] Get Microsoft Edge-like smooth scrolling on your favorite browser. |
+| [SmoothFox](https://github.com/yokoffing/Better-Fox/blob/master/SmoothFox.js) | Get Microsoft Edge-like smooth scrolling on your favorite browser. |
 | [user.js](https://github.com/yokoffing/Better-Fox/blob/master/user.js) | All the essentails. None of the breakage. Users may download this list as their own user.js. |
 
 ## Who is this setup for?
