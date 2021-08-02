@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: May 2021                                                        *
+ * version: August 2021                                                     *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -44,7 +44,7 @@ user_pref("extensions.getAddons.showPane", false); /* hidden */
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
 // PREF: Disable Firefox accounts
-user_pref("identity.fxaccounts.enabled", false);
+// user_pref("identity.fxaccounts.enabled", false);
 
 // PREF: Disable about:welcome page
 user_pref("browser.aboutwelcome.enabled", false);
@@ -75,7 +75,7 @@ user_pref("full-screen-api.warning.delay", 0);
 user_pref("full-screen-api.warning.timeout", 0);
 
 // PREF: Hide bookmarks toolbar from new tab page 
-user_pref("browser.toolbars.bookmarks.visibility", "never");
+// user_pref("browser.toolbars.bookmarks.visibility", "never");
 
 /****************************************************************************
  * SECTION: NEW TAB PAGE                                                    *
@@ -167,11 +167,12 @@ user_pref("browser.menu.showViewImageInfo", true);
 // user_pref("browser.tabs.unloadOnLowMemory", false); // default
 
 // PREF: dropdown options in the URL bar
-user_pref("browser.urlbar.suggest.bookmarks", true);
+// user_pref("browser.urlbar.suggest.bookmarks", true);
 user_pref("browser.urlbar.suggest.engines", false);
 // user_pref("browser.urlbar.suggest.history", false);
-// user_pref("browser.urlbar.suggest.openpage", false);
+// user_pref("browser.urlbar.suggest.openpage", true);
 // user_pref("browser.urlbar.suggest.searches", false);
+
 // PREF: disable dropdown suggestions with empty query
 user_pref("browser.urlbar.suggest.topsites", false);
 
@@ -188,10 +189,11 @@ user_pref("permissions.default.desktop-notification", 2);
 // [2] https://developer.mozilla.org/en-US/docs/Web/API/Push_API
 // [3] https://www.reddit.com/r/firefox/comments/fbyzd4/the_most_private_browser_isnot_firefox/
 user_pref("dom.push.enabled", false);
-user_pref("dom.push.userAgentID", "");
+// user_pref("dom.push.userAgentID", "");
 
 // PREF: do not autoplay media
 // 0=Allow all, 1=Block non-muted media (default), 5=Block all
+user_pref("media.block-autoplay-until-in-foreground", true); // default
 // user_pref("media.autoplay.default", 5);
 // user_pref("media.autoplay.blocking_policy", 1); // default=0
 // user_pref("dom.user_activation.transient.timeout", "500"); // default=5000
@@ -203,10 +205,10 @@ user_pref("dom.push.userAgentID", "");
 
 // PREF: Disable backspace action
 // 0=previous page, 1=scroll up, 2=do nothing
-user_pref("browser.backspace_action", 2); /* default */
+user_pref("browser.backspace_action", 2); // default
 
 // PREF: Disable ALT key toggling the menu bar
-user_pref("ui.key.menuAccessKey", 0);
+// user_pref("ui.key.menuAccessKey", 0);
 
 // PREF: CTRL+TAB cycles tabs in chronological order instead of recently-
 // used order
@@ -246,12 +248,11 @@ user_pref("print.tab_modal.enabled", true); // default
 // PREF: Enforce Firefox's built-in PDF reader
 // This setting controls if the option "Display in Firefox" is available in the setting below
 // and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With").
-// default=false
-user_pref("pdfjs.disabled", false);
+user_pref("pdfjs.disabled", false); // default
 
 // PREF: Firefox now allows viewing of PDFs even if the response HTTP headers
 // include Content-Disposition:attachment. 
-user_pref("browser.helperApps.showOpenOptionForPdfJS", true); /*default*/
+user_pref("browser.helperApps.showOpenOptionForPdfJS", true); // default
 
 // PREF: Default zoom for PDFs // hidden pref
 // user_pref("pdfjs.defaultZoomValue", "page-width"); // for laptops and small screens
@@ -350,6 +351,6 @@ user_pref("clipboard.plainTextOnly", true);
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
 // (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
 // (recommended) user_pref("dom.popup_allowed_events", "dblclick");
-user_pref("dom.popup_allowed_events", "click dblclick");
-user_pref("dom.disable_open_during_load", true);
-user_pref("privacy.popups.showBrowserMessage", true);
+user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
+user_pref("dom.disable_open_during_load", true); // default
+user_pref("privacy.popups.showBrowserMessage", true); // default
