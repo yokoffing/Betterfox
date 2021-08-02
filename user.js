@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: July 2021                                                       *
+ * version: August 2021                                                     *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -19,9 +19,7 @@
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
-user_pref("dom.image-lazy-loading.enabled", true);
-user_pref("browser.sessionstore.restore_tabs_lazily", true);
-user_pref("browser.sessionstore.restore_on_demand", true);
+user_pref("gfx.webrender.all", true);
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.startup.preXulSkeletonUI", false);
 
@@ -29,20 +27,11 @@ user_pref("browser.startup.preXulSkeletonUI", false);
  * SECTION: SECUREFOX                                                       *
 ****************************************************************************/
 /** TRACKING PROTECTION ***/
-user_pref("privacy.partition.network_state", true);
-user_pref("network.cookie.cookieBehavior", 5);
-user_pref("privacy.purge_trackers.enabled", true);
-user_pref("browser.contentblocking.category", "custom");
+user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.enabled", true);
-user_pref("privacy.trackingprotection.pbmode.enabled", true);
-user_pref("privacy.trackingprotection.cryptomining.enabled", true);
-user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
-user_pref("privacy.socialtracking.block_cookies.enabled", true);
-user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
-user_pref("browser.send_pings", false);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
 user_pref("security.pki.crlite_mode", 2);
@@ -60,32 +49,28 @@ user_pref("privacy.cpd.siteSettings", false);
 user_pref("privacy.sanitize.timeSpan", 0);
 user_pref("privacy.history.custom", true);
 
-/*** PRELOADING ***/
+/** PRELOADING ***/
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.preload", false);
-user_pref("network.predictor.enabled", false);
-user_pref("network.predictor.enable-hover-on-ssl", false);
-user_pref("network.predictor.enable-prefetch", false);
-user_pref("browser.newtab.preload", true);
 
 /** SEARCH / URL BAR ***/
-user_pref("browser.urlbar.trimURLs", false);
 user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
-user_pref("browser.search.suggest.enabled.private", false);
 user_pref("browser.fixup.alternate.enabled", false);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
 user_pref("network.IDN_show_punycode", true);
 
+/** HTTPS-FIRST POLICY ***/
+user_pref("dom.security.https_first", true);
+
 /** HTTPS-ONLY MODE ***/
-user_pref("dom.security.https_only_mode", true);
-user_pref("dom.security.https_only_mode_ever_enabled", true);
+user_pref("dom.security.https_only_mode_pbm", true);
+user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 user_pref("dom.security.https_only_mode_send_http_background_request", false);
 user_pref("dom.security.https_only_mode.upgrade_local", true);
 
@@ -131,16 +116,11 @@ user_pref("browser.formfill.enable", false);
 /** MIXED CONTENT + CROSS-SITE ***/
 user_pref("network.auth.subresource-http-auth-allow", 1);
 user_pref("network.http.windows-sso.enabled", false);
-user_pref("security.mixed_content.block_active_content", true);
 user_pref("security.mixed_content.upgrade_display_content", true);
 user_pref("dom.block_download_insecure", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
-user_pref("security.tls.version.enable-deprecated", false);
-user_pref("dom.targetBlankNoOpener.enabled", true);
-user_pref("privacy.window.name.update.enabled", true);
-user_pref("network.http.referer.XOriginPolicy", 0);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /** GOOGLE SAFE BROWSING ***/
@@ -156,9 +136,6 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
 /** MOZILLA ***/
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-user_pref("geo.provider.network.logging.enabled", false);
-user_pref("extensions.blocklist.enabled", true);
-user_pref("extensions.webextensions.tabhide.enabled", false);
 
 /** TELEMETRY ***/
 user_pref("toolkit.telemetry.unified", false);
@@ -173,19 +150,15 @@ user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 user_pref("corroborator.enabled", false);
 user_pref("toolkit.telemetry.coverage.opt-out", true);
 user_pref("toolkit.coverage.opt-out", true);
-user_pref("toolkit.coverage.endpoint.base", "");
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("browser.discovery.enabled", false);
-user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
-user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 user_pref("default-browser-agent.enabled", false);
 user_pref("extensions.abuseReport.enabled", false);
 user_pref("app.normandy.enabled", false);
-user_pref("app.normandy.api_url", "");
 user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
@@ -200,7 +173,6 @@ user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 user_pref("browser.shell.checkDefaultBrowser", false);
-user_pref("identity.fxaccounts.enabled", false);
 user_pref("browser.aboutwelcome.enabled", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
@@ -252,22 +224,16 @@ user_pref("browser.urlbar.suggest.engines", false);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("dom.push.enabled", false);
-user_pref("dom.push.userAgentID", "");
-user_pref("media.block-autoplay-until-in-foreground", true);
 user_pref("findbar.highlightAll", true);
 user_pref("layout.spellcheckDefault", 2);
 user_pref("accessibility.force_disabled", 1);
+user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.display.show_image_placeholders", false);
 user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
 
-/** PDF ***/
-user_pref("pdfjs.disabled", false);
-user_pref("browser.helperApps.showOpenOptionForPdfJS", true);
-
 /** TAB BEHAVIOR ***/
 user_pref("dom.disable_window_move_resize", true);
-user_pref("browser.tabs.loadInBackground", true);
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
@@ -275,9 +241,7 @@ user_pref("image.avif.enabled", true);
 user_pref("editor.truncate_user_pastes", false);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
 user_pref("clipboard.plainTextOnly", true);
-user_pref("dom.popup_allowed_events", "click dblclick");
-user_pref("dom.disable_open_during_load", true);
-user_pref("privacy.popups.showBrowserMessage", true);
+user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
