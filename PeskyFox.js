@@ -314,7 +314,7 @@ user_pref("browser.tabs.loadInBackground", true); // default
 // user_pref("browser.tabs.loadDivertedInBackground", false); // default
 
 // PREF: load bookmarks in the background using Bookmarks Menu
-user_pref("browser.tabs.loadBookmarksInBackground", true);
+// user_pref("browser.tabs.loadBookmarksInBackground", true);
 // PREF: load bookmarks in tabs, not separate  windows
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 // PREF: leave Bookmarks Menu open when selecting a site
