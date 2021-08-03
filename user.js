@@ -234,7 +234,6 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);
 
 /** TAB BEHAVIOR ***/
 user_pref("dom.disable_window_move_resize", true);
-user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("image.avif.enabled", true);
