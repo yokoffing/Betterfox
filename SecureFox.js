@@ -155,33 +155,54 @@ user_pref("privacy.history.custom", true);
  * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
 
-// [NOTE] Firefox 85+ partitions pooled connections, prefetch connections, pre-connect connections, speculative connections, and TLS session identifiers.
+// [NOTE] Firefox 85+ partitions pooled connections, prefetch connections, pre-connect
+// connections, speculative connections, and TLS session identifiers.
 // You can customize this section to your comfort-level.
 
-// PREF: DNS prefetching
+// PREF: Network Predictor
+// Keeps track of components that were loaded during the visit of a page on the Internet so that the browser knows next time
+// which resources to request from the web server:
+// It uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
+// so that the next time the user mouseovers a link to that webpage, this history can be used to predict what resources will
+// be needed rather than wait for the document to link those resources.
+// Only performs pre-connect, not prefetch, by default. No data is actually sent to the site until a user actively clicks a link.
+// [NOTE] DNS pre-resolve and TCP preconnect (which includes SSL handshake). Honors settings in Private Browsing to erase data.
+// [1] https://wiki.mozilla.org/Privacy/Reviews/Necko
+// [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
+// [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
+// [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
+user_pref("network.predictor.enabled", true); // default
+user_pref("network.predictor.enable-hover-on-ssl", true);
+// Fetch critical resources on the page ahead of time as determined by the local file, to accelerate rendering of the page.
+user_pref("network.predictor.enable-prefetch", true);
+
+// PREF: DNS pre-resolve
+// Resolve hostnames ahead of time, to avoid DNS latency.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
+user_pref("network.dns.disablePrefetchFromHTTPS", false);
 
-// PREF: Preload the autocomplete URL in the address bar.
+// PREF: Preconnect to the autocomplete URL in the address bar
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
+// Connects to destination server ahead of time, to avoid TCP handshake latency.
 // NOTE: Firefox will do the server DNS lookup and TCP and TLS handshake but not start sending or receiving HTTP data.
 // [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
+user_pref("browser.urlbar.speculativeConnect.enabled", true); // default
 
 // PREF: Link prefetching <link rel="prefetch">
+// Fetch critical resources on the page ahead of time, to accelerate rendering of the page.
 // Websites can provide Firefox with hints as to which page is likely the be accessed next so that it is downloaded right away,
 // even if you don't request that link. The prefetch resource hint tells the browser to go grab a resource even though it
-// hasn’t been requested by the current page, and puts it into cache. The browser will request the resource at a very low
-// priority during idle time so that the resource doesn’t compete with anything needed for the current navigation.
+// hasn’t been requested by the current page, and puts it into cache. Firefox will request the resource at a low
+// priority and only during idle time so that the resource doesn’t compete with anything needed for the current navigation.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#Privacy_implications
 // [2] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 // [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
-user_pref("network.prefetch-next", false);
+user_pref("network.prefetch-next", true); // default
 
-// PREF: Link-mouseover opening connection to servers
+// PREF: Prefetch links upon hover
 // When you hover over links, connections are established to linked domains and servers automatically to speed up the loading
 // process should you click on the link. To improve the loading speed, Firefox will open predictive connections to sites when
 // the user hovers their mouse over. In case the user follows through with the action, the page can begin loading faster since
@@ -189,37 +210,22 @@ user_pref("network.prefetch-next", false);
 // [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
-user_pref("network.http.speculative-parallel-limit", 0);
+user_pref("network.http.speculative-parallel-limit", 6); // default
 
 // PREF: Preload <link rel=preload>
+// Fetch the entire page with all of its resources ahead of time, to enable instant navigation when triggered by the user.
 // Allows developers to hint to the browser to preload some resources with a higher priority and in advance, which helps the web page to
 // render and get into the stable and interactive state faster. This spec assumes that sometimes it’s best to always download an asset,
 // regardless of whether the browser thinks that’s a good idea or not(!). Unlike prefetching assets, which can be ignored, preloading assets
 // must be requested by the browser.
-// [WARNING] Interferes with content blocking, so we disable this.
+// [WARNING] Interferes with content blocking extensions, even if you utilize DNS-level blocking as well. Disable this!
 // [1] https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
 // [3] https://css-tricks.com/prefetching-preloading-prebrowsing/#future-option-preloading
 user_pref("network.preload", false);
 
-// PREF: Network predictor
-// Keeps track of components that were loaded during the visit of a page on the Internet so that the browser knows next time
-// which resources to request from the web server.
-// It uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
-// so that the next time the user mouseovers a link to that webpage, this history can be used to predict what resources will
-// be needed rather than wait for the document to link those resources. Only performs pre-connect, not prefetch. No data is actually
-// sent to the site until a user actively clicks a link.
-// [NOTE] I have NOT found any interference with content blocking using these setting.
-// [SETTINGS] uBlock Origin -> Settings -> Privacy -> uncheck "Disable pre-fetching"
-// [1] https://wiki.mozilla.org/Privacy/Reviews/Necko
-// [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
-// [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
-user_pref("network.predictor.enabled", true); // default
-// user_pref("network.predictor.enable-hover-on-ssl", true);
-user_pref("network.predictor.enable-prefetch", false); // default
-
 // PREF: New tab preload
-// [NOTE] Disabling this causes a delay when opening a new tab.
+// [WARNING] Disabling this causes a delay when opening a new tab.
 // [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 // [2] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
 // [3] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
