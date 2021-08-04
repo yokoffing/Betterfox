@@ -118,6 +118,10 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 // always, never, or newtab
 // user_pref("browser.toolbars.bookmarks.visibility", "newtab");
 
+// PREF: Keep search in the search box; prevent from jumping to address bar
+// [1] https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/
+// user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
+
 /******************************************************************************
  * SECTION: POCKET                                                            *
 ******************************************************************************/
