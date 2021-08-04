@@ -155,12 +155,13 @@ user_pref("privacy.history.custom", true);
  * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
 
+// [NOTE] Firefox 85+ partitions pooled connections, prefetch connections, pre-connect connections, speculative connections, and TLS session identifiers.
 // You can customize this section to your comfort-level.
-// [WARNING] Some PREFs affect content-blocking.
 
 // PREF: DNS prefetching
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
+// [3] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
 
@@ -170,18 +171,21 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
 // [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
-// PREF: Link prefetching
-// Along with the referral and URL-following implications, prefetching will generally cause the cookies of the prefetched
-// site to be accessed. (For example, if you google Amazon, the Google results page will prefetch www.amazon.com, causing
-// Amazon cookies to be sent back and forth.)
+// PREF: Link prefetching <link rel="prefetch">
+// Websites can provide Firefox with hints as to which page is likely the be accessed next so that it is downloaded right away,
+// even if you don't request that link. The prefetch resource hint tells the browser to go grab a resource even though it
+// hasn’t been requested by the current page, and puts it into cache. The browser will request the resource at a very low
+// priority during idle time so that the resource doesn’t compete with anything needed for the current navigation.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#Privacy_implications
+// [2] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
+// [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
 user_pref("network.prefetch-next", false);
 
-// PREF: Link-mouseover opening connection to linked server.
-// To improve the loading speed, Firefox will open predictive connections to sites when the user hovers their mouse over
-// thumbnails on the New Tab Page or the user starts to search in the Search Bar, or in the search field on the Home or the
-// New Tab Page. In case the user follows through with the action, the page can begin loading faster since some of the work
-// was already started in advance.
+// PREF: Link-mouseover opening connection to servers
+// When you hover over links, connections are established to linked domains and servers automatically to speed up the loading
+// process should you click on the link. To improve the loading speed, Firefox will open predictive connections to sites when
+// the user hovers their mouse over. In case the user follows through with the action, the page can begin loading faster since
+// some of the work was already started in advance.
 // [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
@@ -199,7 +203,9 @@ user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.preload", false);
 
 // PREF: Network predictor
-// Uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
+// Keeps track of components that were loaded during the visit of a page on the Internet so that the browser knows next time
+// which resources to request from the web server.
+// It uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
 // so that the next time the user mouseovers a link to that webpage, this history can be used to predict what resources will
 // be needed rather than wait for the document to link those resources. Only performs pre-connect, not prefetch. No data is actually
 // sent to the site until a user actively clicks a link.
@@ -212,7 +218,7 @@ user_pref("network.predictor.enabled", true); // default
 // user_pref("network.predictor.enable-hover-on-ssl", true);
 user_pref("network.predictor.enable-prefetch", false); // default
 
-// PREF: New tab tile ads and preload
+// PREF: New tab preload
 // [NOTE] Disabling this causes a delay when opening a new tab.
 // [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 // [2] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
