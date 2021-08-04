@@ -49,7 +49,7 @@ user_pref("privacy.cpd.siteSettings", false);
 user_pref("privacy.sanitize.timeSpan", 0);
 user_pref("privacy.history.custom", true);
 
-/** PRELOADING ***/
+/** SPECULATIVE CONNECTIONS ***/
 user_pref("network.dns.disablePrefetch", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
