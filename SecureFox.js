@@ -152,7 +152,7 @@ user_pref("privacy.history.custom", true);
 // user_pref("network.cookie.lifetime.days", 7);
 
 /******************************************************************************
- * SECTION: PRELOADING                                            *
+ * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
 
 // You can customize this section to your comfort-level.
@@ -160,8 +160,8 @@ user_pref("privacy.history.custom", true);
 
 // PREF: DNS prefetching
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
+// [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 user_pref("network.dns.disablePrefetch", true);
-// As a security measure, prefetching of embedded link hostnames is not done from documents loaded over HTTPS.
 user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
 
 // PREF: Preload the autocomplete URL in the address bar.
@@ -187,12 +187,15 @@ user_pref("network.prefetch-next", false);
 // [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
 user_pref("network.http.speculative-parallel-limit", 0);
 
-// PREF: Enable <link rel=preload>.
-// Developer hints to the browser to preload some resources with a higher priority and in advance.
-// Helps the web page to render and get into the stable and interactive state faster.
+// PREF: Preload <link rel=preload>
+// Allows developers to hint to the browser to preload some resources with a higher priority and in advance, which helps the web page to
+// render and get into the stable and interactive state faster. This spec assumes that sometimes it’s best to always download an asset,
+// regardless of whether the browser thinks that’s a good idea or not(!). Unlike prefetching assets, which can be ignored, preloading assets
+// must be requested by the browser.
 // [WARNING] Interferes with content blocking, so we disable this.
 // [1] https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
+// [3] https://css-tricks.com/prefetching-preloading-prebrowsing/#future-option-preloading
 user_pref("network.preload", false);
 
 // PREF: Network predictor
@@ -220,9 +223,9 @@ user_pref("browser.newtab.preload", true); // default
  * SECTION: SEARCH / URL BAR                              *
 ******************************************************************************/
 
-// PREF: trim certain parts of the URL
+// PREF: do not trim certain parts of the URL
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs#values
-user_pref("browser.urlbar.trimURLs", true); // default
+// user_pref("browser.urlbar.trimURLs", false);
 
 // PREF: Enable a seperate search engine for Private Windows
 // Remember to go into Preferences -> Search and select another search provider (like DuckDuckGo)
