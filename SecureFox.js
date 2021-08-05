@@ -172,9 +172,9 @@ user_pref("privacy.history.custom", true);
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
 user_pref("network.predictor.enabled", true); // default
-user_pref("network.predictor.enable-hover-on-ssl", true);
 // Fetch critical resources on the page ahead of time as determined by the local file, to accelerate rendering of the page.
-user_pref("network.predictor.enable-prefetch", true);
+// user_pref("network.predictor.enable-hover-on-ssl", true);
+// user_pref("network.predictor.enable-prefetch", true);
 
 // PREF: DNS pre-resolve
 // Resolve hostnames ahead of time, to avoid DNS latency.
@@ -182,7 +182,7 @@ user_pref("network.predictor.enable-prefetch", true);
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", false);
+user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
 
 // PREF: Preconnect to the autocomplete URL in the address bar
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
@@ -200,7 +200,7 @@ user_pref("browser.urlbar.speculativeConnect.enabled", true); // default
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#Privacy_implications
 // [2] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 // [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
-user_pref("network.prefetch-next", true); // default
+user_pref("network.prefetch-next", false);
 
 // PREF: Prefetch links upon hover
 // When you hover over links, connections are established to linked domains and servers automatically to speed up the loading
@@ -210,7 +210,7 @@ user_pref("network.prefetch-next", true); // default
 // [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
-user_pref("network.http.speculative-parallel-limit", 6); // default
+user_pref("network.http.speculative-parallel-limit", 0); // default=6
 
 // PREF: Preload <link rel=preload>
 // Fetch the entire page with all of its resources ahead of time, to enable instant navigation when triggered by the user.
