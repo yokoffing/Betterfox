@@ -46,7 +46,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // on a per-website basis rather than together in the same pool.
 // [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
 // [2] https://github.com/privacycg/storage-partitioning#introduction
-// [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
+// [3] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
 // [4] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
 // [5] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
 user_pref("privacy.partition.network_state", true); // default
@@ -60,7 +60,7 @@ user_pref("privacy.partition.network_state", true); // default
 // [NOTE] dFPI partitions all of the following caches by the top-level site being visited: HTTP cache, image cache,
 // favicon cache, HSTS cache, OCSP cache, style sheet cache, font cache, DNS cache, HTTP Authentication cache,
 // Alt-Svc cache, and TLS certificate cache.
-// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning#dynamic_state_partitioning
+// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
 // [2] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
 user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict"
 user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
