@@ -42,7 +42,7 @@ user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hi
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
 // PREF: Network Partitioning
-// Network Partitioning will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
+// Network Partitioning (isolation) will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
 // on a per-website basis rather than together in the same pool.
 // [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
 // [2] https://github.com/privacycg/storage-partitioning#introduction
@@ -53,15 +53,13 @@ user_pref("privacy.partition.network_state", true); // default
 
 // PREF: Dynamic First-Party Isolation (dFPI) [aka Total Cookie Protection, Dynamic State Paritioning]
 // Every website gets its own “cookie jar,” preventing cookies from being used to track you from site to site.
-// A more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
-// context. dFPI partitions user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
+// dFPI is a more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
+// context. dFPI isolates user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
 // compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
-// FPI is strong but it comes at the expense of breakage (all cross-site logins won't work, e.g. Youtube and Google).
-// dFPI allows isolating most sites while applying a set of heuristics to allow sites through the isolation
-// in certain circumstances for usability.
-// [NOTE] partitions all of the following caches by the top-level site being visited: HTTP cache, image cache,
+// dFPI isolates most sites while applying heuristics to allow sites through the isolation in certain circumstances for usability.
+// [NOTE] dFPI partitions all of the following caches by the top-level site being visited: HTTP cache, image cache,
 // favicon cache, HSTS cache, OCSP cache, style sheet cache, font cache, DNS cache, HTTP Authentication cache,
-Alt-Svc cache, and TLS certificate cache.
+// Alt-Svc cache, and TLS certificate cache.
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning#dynamic_state_partitioning
 // [2] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
 user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict"
