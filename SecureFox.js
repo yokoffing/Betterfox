@@ -52,13 +52,16 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 user_pref("privacy.partition.network_state", true); // default
 
 // PREF: Dynamic First-Party Isolation (dFPI) [aka Total Cookie Protection, Dynamic State Paritioning]
-// TL;DR: Every website gets its own “cookie jar,” preventing cookies from being used to track you from site to site.
+// Every website gets its own “cookie jar,” preventing cookies from being used to track you from site to site.
 // A more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
 // context. dFPI partitions user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
 // compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
 // FPI is strong but it comes at the expense of breakage (all cross-site logins won't work, e.g. Youtube and Google).
 // dFPI allows isolating most sites while applying a set of heuristics to allow sites through the isolation
 // in certain circumstances for usability.
+// [NOTE] partitions all of the following caches by the top-level site being visited: HTTP cache, image cache,
+// favicon cache, HSTS cache, OCSP cache, style sheet cache, font cache, DNS cache, HTTP Authentication cache,
+Alt-Svc cache, and TLS certificate cache.
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning#dynamic_state_partitioning
 // [2] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
 user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict"
@@ -155,9 +158,9 @@ user_pref("privacy.history.custom", true);
  * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
 
-// [NOTE] Firefox 85+ partitions pooled connections, prefetch connections, pre-connect
-// connections, speculative connections, and TLS session identifiers.
-// You can customize this section to your comfort-level.
+// [NOTE] Firefox 85+ partitions pooled connections, prefetch connections, pre-connect connections,
+// speculative connections, and TLS session identifiers. For more information, see "PREF: Dynamic
+// First-Party Isolation". You may customize this section to your comfort-level.
 
 // PREF: Network Predictor
 // Keeps track of components that were loaded during the visit of a page on the Internet so that the browser knows next time
@@ -176,7 +179,7 @@ user_pref("network.predictor.enabled", true); // default
 // user_pref("network.predictor.enable-hover-on-ssl", true);
 // user_pref("network.predictor.enable-prefetch", true);
 
-// PREF: DNS pre-resolve
+// PREF: DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time, to avoid DNS latency.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
@@ -187,7 +190,7 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
 // PREF: Preconnect to the autocomplete URL in the address bar
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
 // Connects to destination server ahead of time, to avoid TCP handshake latency.
-// NOTE: Firefox will do the server DNS lookup and TCP and TLS handshake but not start sending or receiving HTTP data.
+// [NOTE] Firefox will perform DNS lookup and TCP and TLS handshake, but will not start sending or receiving HTTP data.
 // [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
 user_pref("browser.urlbar.speculativeConnect.enabled", true); // default
 
@@ -197,6 +200,7 @@ user_pref("browser.urlbar.speculativeConnect.enabled", true); // default
 // even if you don't request that link. The prefetch resource hint tells the browser to go grab a resource even though it
 // hasn’t been requested by the current page, and puts it into cache. Firefox will request the resource at a low
 // priority and only during idle time so that the resource doesn’t compete with anything needed for the current navigation.
+// When the user clicks on a link, or initiates any kind of page load, link prefetching will stop and any prefetch hints will be discarded.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#Privacy_implications
 // [2] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 // [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
