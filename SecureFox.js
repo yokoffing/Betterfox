@@ -42,8 +42,8 @@ user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hi
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
 // PREF: Network Partitioning
-// Network Partitioning (isolation) will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
-// on a per-website basis rather than together in the same pool.
+// Network Partitioning (isolation) will allow Firefox to associate resources on a per-website basis rather than together
+// in the same pool. This includes like the cache, favicons, CSS files, images, and even speculative connections(!). 
 // [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
 // [2] https://github.com/privacycg/storage-partitioning#introduction
 // [3] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
@@ -52,7 +52,6 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 user_pref("privacy.partition.network_state", true); // default
 
 // PREF: Dynamic First-Party Isolation (dFPI) [aka Total Cookie Protection, Dynamic State Paritioning]
-// Every website gets its own “cookie jar,” preventing cookies from being used to track you from site to site.
 // dFPI is a more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
 // context. dFPI isolates user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
 // compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
@@ -157,8 +156,8 @@ user_pref("privacy.history.custom", true);
 ******************************************************************************/
 
 // [NOTE] Firefox 85+ partitions pooled connections, prefetch connections, pre-connect connections,
-// speculative connections, and TLS session identifiers. For more information, see "PREF: Dynamic
-// First-Party Isolation". You may customize this section to your comfort-level.
+// speculative connections, and TLS session identifiers. For more information, see "PREF: Network
+// Partitioning and "PREF: Dynamic First-Party Isolation". You may customize this section to your comfort-level.
 
 // PREF: Network Predictor
 // Keeps track of components that were loaded during the visit of a page on the Internet so that the browser knows next time
@@ -174,8 +173,8 @@ user_pref("privacy.history.custom", true);
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
 user_pref("network.predictor.enabled", true); // default
 // Fetch critical resources on the page ahead of time as determined by the local file, to accelerate rendering of the page.
-// user_pref("network.predictor.enable-hover-on-ssl", true);
-// user_pref("network.predictor.enable-prefetch", true);
+user_pref("network.predictor.enable-hover-on-ssl", true);
+user_pref("network.predictor.enable-prefetch", true);
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time, to avoid DNS latency.
@@ -183,7 +182,7 @@ user_pref("network.predictor.enabled", true); // default
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
+user_pref("network.dns.disablePrefetchFromHTTPS", false);
 
 // PREF: Preconnect to the autocomplete URL in the address bar
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
@@ -202,7 +201,7 @@ user_pref("browser.urlbar.speculativeConnect.enabled", true); // default
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#Privacy_implications
 // [2] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 // [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
-user_pref("network.prefetch-next", false);
+user_pref("network.prefetch-next", true); // default
 
 // PREF: Prefetch links upon hover
 // When you hover over links, connections are established to linked domains and servers automatically to speed up the loading
@@ -212,7 +211,7 @@ user_pref("network.prefetch-next", false);
 // [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
-user_pref("network.http.speculative-parallel-limit", 0); // default=6
+user_pref("network.http.speculative-parallel-limit", 6); // default
 
 // PREF: Preload <link rel=preload>
 // Fetch the entire page with all of its resources ahead of time, to enable instant navigation when triggered by the user.
