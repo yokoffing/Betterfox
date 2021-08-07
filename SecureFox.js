@@ -626,9 +626,10 @@ user_pref("datareporting.healthreport.uploadEnabled", false);
 // [1] https://bugzilla.mozilla.org/1195552
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 
-// Studies
+// PREF: Studies
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to install and run studies
 user_pref("app.shield.optoutstudies.enabled", false);
+// user_pref("messaging-system.rsexperimentloader.enabled", false); [???]
 
 // Personalized Extension Recommendations in about:addons and AMO
 // [NOTE] This pref has no effect when Health Reports are disabled.
