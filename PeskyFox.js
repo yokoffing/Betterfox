@@ -45,6 +45,7 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
 // PREF: Disable Firefox accounts
 // user_pref("identity.fxaccounts.enabled", false);
+// user_pref("identity.fxaccounts.toolbar.enabled", false);
 
 // PREF: Disable about:welcome page
 user_pref("browser.aboutwelcome.enabled", false);
