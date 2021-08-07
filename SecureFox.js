@@ -246,25 +246,9 @@ user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 
 // PREF: Disable live search engine suggestions (Google, Bing, etc.)
-// [!] Search engines keylog every character you type from the URL bar
+// [WARNING] Search engines keylog every character you type from the URL bar
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false); // default
-
-// PREF: URL bar suggestions (bookmarks, history, open tabs)
-// user_pref("browser.urlbar.suggest.searches", false);
-// user_pref("browser.urlbar.suggest.history", false);
-// user_pref("browser.urlbar.suggest.bookmark", false);
-// user_pref("browser.urlbar.suggest.openpage", false);
-
-// PREF: Location bar dropdown
-// This value controls the total number of entries to appear in the location bar dropdown.
-// NOTE: Items (bookmarks/history/openpages) with a high "frequency"/"bonus" will always
-// be displayed (no we do not know how these are calculated or what the threshold is),
-// and this does not affect the search by search engine suggestion.
-// [NOTE] This setting is only useful if you want to enable search engine keywords but
-// you want to limit suggestions shown. (I like to set this to 1.)
-// default=10, disable=0
-// user_pref("browser.urlbar.maxRichResults", 5);
 
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
