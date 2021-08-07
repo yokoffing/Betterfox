@@ -61,7 +61,10 @@ user_pref("extensions.getAddons.showPane", false);
 user_pref("security.dialog_enable_delay", 0);
 
 // PREF: Remove "addons.mozilla.org" from set of domains that extensions cannot access
+// [NOTE] May only work with privacy.resistfingerprinting enabled?
+// [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
 user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
+// user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
 
 // PREF: Disable Warnings
 user_pref("browser.tabs.warnOnClose", false);
