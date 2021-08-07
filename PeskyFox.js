@@ -180,13 +180,13 @@ user_pref("browser.urlbar.suggest.engines", false);
 // Disable dropdown suggestions with empty query
 user_pref("browser.urlbar.suggest.topsites", false);
 
-// PREF: Address bar dropdown
+// PREF: Address bar / URL bar dropdown
 // This value controls the total number of entries to appear in the location bar dropdown.
 // [NOTE] Items (bookmarks/history/openpages) with a high "frequency"/"bonus" will always
 // be displayed (no we do not know how these are calculated or what the threshold is),
 // and this does not affect the search by search engine suggestion.
 // default=10, disable=0
-// user_pref("browser.urlbar.maxRichResults", 5);
+// user_pref("browser.urlbar.maxRichResults", 1);
 
 // PREF: Set a default permission for Notifications
 // To add site exceptions: Page Info>Permissions>Receive Notifications.
