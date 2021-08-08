@@ -49,11 +49,11 @@ user_pref("privacy.cpd.siteSettings", false);
 user_pref("privacy.sanitize.timeSpan", 0);
 user_pref("privacy.history.custom", true);
 
-/** PRELOADING ***/
+/** SPECULATIVE CONNECTIONS ***/
+user_pref("network.predictor.enable-hover-on-ssl", true);
+user_pref("network.predictor.enable-prefetch", true);
 user_pref("network.dns.disablePrefetch", true);
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
-user_pref("network.prefetch-next", false);
-user_pref("network.http.speculative-parallel-limit", 0);
+user_pref("network.dns.disablePrefetchFromHTTPS", false);
 user_pref("network.preload", false);
 
 /** SEARCH / URL BAR ***/
@@ -77,6 +77,10 @@ user_pref("dom.security.https_only_mode.upgrade_local", true);
 /** DNS-over-HTTPS (DOH) ***/
 user_pref("network.trr.send_user-agent_headers", false);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+
+/** ESNI / ECH ***/
+user_pref("network.dns.echconfig.enabled", true);
+user_pref("network.dns.use_https_rr_as_altsvc", true);
 
 /** PASSWORDS AND AUTOFILL ***/
 user_pref("signon.autofillForms.http", false);
