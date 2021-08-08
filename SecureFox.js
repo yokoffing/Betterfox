@@ -41,19 +41,10 @@ user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
 user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hidden
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
-// PREF: Network Partitioning
-// Networking-related APIs are not intended to be used for websites to store data, but they can be abused for
-// cross-site tracking. Network APIs and caches are permanently partitioned by the top-level site.
-// Network Partitioning (isolation) will allow Firefox to associate resources on a per-website basis rather than together
-// in the same pool. This includes like the cache, favicons, CSS files, images, and even speculative connections(!). 
-// [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
-// [2] https://github.com/privacycg/storage-partitioning#introduction
-// [3] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
-// [4] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
-// [5] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
-user_pref("privacy.partition.network_state", true); // default
-
-// PREF: Dynamic First-Party Isolation (dFPI) [aka State Paritioning]
+// PREF: State Paritioning [aka Dynamic First-Party Isolation (dFPI)]
+// Firefox manages client-side state (i.e., data stored in the browser) to mitigate the ability of websites to abuse state
+// for cross-site tracking. This effort aims to achieve that by providing what is effectively a "different", isolated storage
+// location to every website a user visits.
 // dFPI is a more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
 // context. dFPI isolates user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
 // compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
@@ -61,11 +52,23 @@ user_pref("privacy.partition.network_state", true); // default
 // [NOTE] dFPI partitions all of the following caches by the top-level site being visited: HTTP cache, image cache,
 // favicon cache, HSTS cache, OCSP cache, style sheet cache, font cache, DNS cache, HTTP Authentication cache,
 // Alt-Svc cache, and TLS certificate cache.
-// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
-// [2] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1549587
+// [2] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
+// [3] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
+// [4] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
 user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict"
 user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
 user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // default
+
+// PREF: Network Partitioning
+// Networking-related APIs are not intended to be used for websites to store data, but they can be abused for
+// cross-site tracking. Network APIs and caches are permanently partitioned by the top-level site.
+// Network Partitioning (isolation) will allow Firefox to associate resources on a per-website basis rather than together
+// in the same pool. This includes cache, favicons, CSS files, images, and even speculative connections. 
+// [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
+// [2] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
+// [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
+user_pref("privacy.partition.network_state", true); // default
 
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
