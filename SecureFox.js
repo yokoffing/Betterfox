@@ -51,7 +51,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [5] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
 user_pref("privacy.partition.network_state", true); // default
 
-// PREF: Dynamic First-Party Isolation (dFPI) [aka Total Cookie Protection, Dynamic State Paritioning]
+// PREF: Dynamic First-Party Isolation (dFPI) [aka State Paritioning]
 // dFPI is a more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
 // context. dFPI isolates user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
 // compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
