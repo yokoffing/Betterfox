@@ -160,18 +160,19 @@ user_pref("privacy.history.custom", true);
  * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
 
-// [NOTE] Firefox 85+ partitions pooled connections, prefetch connections, pre-connect connections,
-// speculative connections, TLS session identifiers, and other connections. For more information, see "PREF: Network
-// Partitioning and "PREF: Dynamic First-Party Isolation". You may customize this section to your comfort-level.
+// [NOTE] Firefox 85+ partitions (isolates) pooled connections, prefetch connections, pre-connect connections,
+// speculative connections, TLS session identifiers, and other connections. We can take advantage of the speed of
+// pre-connections while preserving privacy. Users may harden these settings to their preference.
+// For more information, see "PREF: State Paritioning" and "PREF: Network Partitioning".
 
 // [NOTE] uBlock Origin overrides Firefox defaults and sets these settings to false. To enable:
 // [SETTINGS] uBlock Origin -> Extension options -> Settings -> Privacy -> uncheck "Disable pre-fetching"
 
 // PREF: Network Predictor
-// Keeps track of components that were loaded during the visit of a page on the Internet so that the browser knows next time
-// which resources to request from the web server:
-// It uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
-// so that the next time the user mouseovers a link to that webpage, this history can be used to predict what resources will
+// Keeps track of components that were loaded during page visits so that the browser knows next time
+// which resources to request from the server: It uses a local file to remember which resources were
+// needed when the user visits a webpage (such as image.jpg and script.js), so that the next time the
+// user mouseovers a link to that webpage, this history can be used to predict what resources will
 // be needed rather than wait for the document to link those resources.
 // Only performs pre-connect, not prefetch, by default. No data is actually sent to the site until a user actively clicks a link.
 // [NOTE] DNS pre-resolve and TCP preconnect (which includes SSL handshake). Honors settings in Private Browsing to erase data.
@@ -234,7 +235,7 @@ user_pref("network.http.speculative-parallel-limit", 6); // default
 user_pref("network.preload", false);
 
 // PREF: New tab preload
-// [WARNING] Disabling this causes a delay when opening a new tab.
+// [WARNING] Disabling this causes a delay when opening a new tab in Firefox.
 // [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 // [2] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
 // [3] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
