@@ -45,6 +45,7 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
 // PREF: Disable Firefox accounts
 // user_pref("identity.fxaccounts.enabled", false);
+// user_pref("identity.fxaccounts.toolbar.enabled", false);
 
 // PREF: Disable about:welcome page
 user_pref("browser.aboutwelcome.enabled", false);
@@ -60,7 +61,10 @@ user_pref("extensions.getAddons.showPane", false);
 user_pref("security.dialog_enable_delay", 0);
 
 // PREF: Remove "addons.mozilla.org" from set of domains that extensions cannot access
+// [NOTE] May only work with privacy.resistfingerprinting enabled?
+// [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
 user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
+// user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
 
 // PREF: Disable Warnings
 user_pref("browser.tabs.warnOnClose", false);
@@ -118,6 +122,10 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 // always, never, or newtab
 // user_pref("browser.toolbars.bookmarks.visibility", "newtab");
 
+// PREF: Keep search in the search box; prevent from jumping to address bar
+// [1] https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/
+// user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
+
 /******************************************************************************
  * SECTION: POCKET                                                            *
 ******************************************************************************/
@@ -166,15 +174,22 @@ user_pref("browser.menu.showViewImageInfo", true);
 // https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
 // user_pref("browser.tabs.unloadOnLowMemory", false); // default
 
-// PREF: dropdown options in the URL bar
+// PREF: URL bar suggestions (bookmarks, history, open tabs) / dropdown options in the URL bar
 // user_pref("browser.urlbar.suggest.bookmarks", true);
 user_pref("browser.urlbar.suggest.engines", false);
 // user_pref("browser.urlbar.suggest.history", false);
 // user_pref("browser.urlbar.suggest.openpage", true);
 // user_pref("browser.urlbar.suggest.searches", false);
-
-// PREF: disable dropdown suggestions with empty query
+// Disable dropdown suggestions with empty query
 user_pref("browser.urlbar.suggest.topsites", false);
+
+// PREF: Address bar / URL bar dropdown
+// This value controls the total number of entries to appear in the location bar dropdown.
+// [NOTE] Items (bookmarks/history/openpages) with a high "frequency"/"bonus" will always
+// be displayed (no we do not know how these are calculated or what the threshold is),
+// and this does not affect the search by search engine suggestion.
+// default=10, disable=0
+// user_pref("browser.urlbar.maxRichResults", 1);
 
 // PREF: Set a default permission for Notifications
 // To add site exceptions: Page Info>Permissions>Receive Notifications.
