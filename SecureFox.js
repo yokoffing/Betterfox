@@ -156,7 +156,7 @@ user_pref("privacy.history.custom", true);
 ******************************************************************************/
 
 // [NOTE] Firefox 85+ partitions pooled connections, prefetch connections, pre-connect connections,
-// speculative connections, and TLS session identifiers. For more information, see "PREF: Network
+// speculative connections, TLS session identifiers, and other connections. For more information, see "PREF: Network
 // Partitioning and "PREF: Dynamic First-Party Isolation". You may customize this section to your comfort-level.
 
 // [NOTE] uBlock Origin overrides Firefox defaults and sets these settings to false. To enable:
