@@ -159,6 +159,9 @@ user_pref("privacy.history.custom", true);
 // speculative connections, and TLS session identifiers. For more information, see "PREF: Network
 // Partitioning and "PREF: Dynamic First-Party Isolation". You may customize this section to your comfort-level.
 
+// [NOTE] uBlock Origin overrides Firefox defaults and sets these settings to false. To enable:
+// [SETTINGS] uBlock Origin -> Extension options -> Settings -> Privacy -> uncheck "Disable pre-fetching"
+
 // PREF: Network Predictor
 // Keeps track of components that were loaded during the visit of a page on the Internet so that the browser knows next time
 // which resources to request from the web server:
