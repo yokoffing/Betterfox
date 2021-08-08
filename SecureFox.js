@@ -42,24 +42,24 @@ user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hi
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
 // PREF: Network Partitioning
-// Network Partitioning will allow Firefox to save resources like the cache, favicons, CSS files, images, and more
-// on a per-website basis rather than together in the same pool.
+// Network Partitioning (isolation) will allow Firefox to associate resources on a per-website basis rather than together
+// in the same pool. This includes like the cache, favicons, CSS files, images, and even speculative connections(!). 
 // [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
 // [2] https://github.com/privacycg/storage-partitioning#introduction
-// [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
+// [3] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
 // [4] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
 // [5] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
 user_pref("privacy.partition.network_state", true); // default
 
-// PREF: Dynamic First-Party Isolation (dFPI) [aka Total Cookie Protection, Dynamic State Paritioning]
-// TL;DR: Every website gets its own “cookie jar,” preventing cookies from being used to track you from site to site.
-// A more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
-// context. dFPI partitions user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
+// PREF: Dynamic First-Party Isolation (dFPI) [aka State Paritioning]
+// dFPI is a more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
+// context. dFPI isolates user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
 // compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
-// FPI is strong but it comes at the expense of breakage (all cross-site logins won't work, e.g. Youtube and Google).
-// dFPI allows isolating most sites while applying a set of heuristics to allow sites through the isolation
-// in certain circumstances for usability.
-// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning#dynamic_state_partitioning
+// dFPI isolates most sites while applying heuristics to allow sites through the isolation in certain circumstances for usability.
+// [NOTE] dFPI partitions all of the following caches by the top-level site being visited: HTTP cache, image cache,
+// favicon cache, HSTS cache, OCSP cache, style sheet cache, font cache, DNS cache, HTTP Authentication cache,
+// Alt-Svc cache, and TLS certificate cache.
+// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
 // [2] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
 user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict"
 user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
@@ -152,65 +152,84 @@ user_pref("privacy.history.custom", true);
 // user_pref("network.cookie.lifetime.days", 7);
 
 /******************************************************************************
- * SECTION: PRELOADING                                            *
+ * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
 
-// You can customize this section to your comfort-level.
-// [WARNING] Some PREFs affect content-blocking.
+// [NOTE] Firefox 85+ partitions pooled connections, prefetch connections, pre-connect connections,
+// speculative connections, TLS session identifiers, and other connections. For more information, see "PREF: Network
+// Partitioning and "PREF: Dynamic First-Party Isolation". You may customize this section to your comfort-level.
 
-// PREF: DNS prefetching
-// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
-user_pref("network.dns.disablePrefetch", true);
-// As a security measure, prefetching of embedded link hostnames is not done from documents loaded over HTTPS.
-user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
+// [NOTE] uBlock Origin overrides Firefox defaults and sets these settings to false. To enable:
+// [SETTINGS] uBlock Origin -> Extension options -> Settings -> Privacy -> uncheck "Disable pre-fetching"
 
-// PREF: Preload the autocomplete URL in the address bar.
-// Firefox preloads URLs that autocomplete when a user types into the address bar.
-// NOTE: Firefox will do the server DNS lookup and TCP and TLS handshake but not start sending or receiving HTTP data.
-// [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
-
-// PREF: Link prefetching
-// Along with the referral and URL-following implications, prefetching will generally cause the cookies of the prefetched
-// site to be accessed. (For example, if you google Amazon, the Google results page will prefetch www.amazon.com, causing
-// Amazon cookies to be sent back and forth.)
-// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#Privacy_implications
-user_pref("network.prefetch-next", false);
-
-// PREF: Link-mouseover opening connection to linked server.
-// To improve the loading speed, Firefox will open predictive connections to sites when the user hovers their mouse over
-// thumbnails on the New Tab Page or the user starts to search in the Search Bar, or in the search field on the Home or the
-// New Tab Page. In case the user follows through with the action, the page can begin loading faster since some of the work
-// was already started in advance.
-// [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
-// [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
-// [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
-user_pref("network.http.speculative-parallel-limit", 0);
-
-// PREF: Enable <link rel=preload>.
-// Developer hints to the browser to preload some resources with a higher priority and in advance.
-// Helps the web page to render and get into the stable and interactive state faster.
-// [WARNING] Interferes with content blocking, so we disable this.
-// [1] https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
-user_pref("network.preload", false);
-
-// PREF: Network predictor
-// Uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
+// PREF: Network Predictor
+// Keeps track of components that were loaded during the visit of a page on the Internet so that the browser knows next time
+// which resources to request from the web server:
+// It uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
 // so that the next time the user mouseovers a link to that webpage, this history can be used to predict what resources will
-// be needed rather than wait for the document to link those resources. Only performs pre-connect, not prefetch. No data is actually
-// sent to the site until a user actively clicks a link.
-// [NOTE] I have NOT found any interference with content blocking using these setting.
-// [SETTINGS] uBlock Origin -> Settings -> Privacy -> uncheck "Disable pre-fetching"
+// be needed rather than wait for the document to link those resources.
+// Only performs pre-connect, not prefetch, by default. No data is actually sent to the site until a user actively clicks a link.
+// [NOTE] DNS pre-resolve and TCP preconnect (which includes SSL handshake). Honors settings in Private Browsing to erase data.
 // [1] https://wiki.mozilla.org/Privacy/Reviews/Necko
 // [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
+// [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
 user_pref("network.predictor.enabled", true); // default
-// user_pref("network.predictor.enable-hover-on-ssl", true);
-user_pref("network.predictor.enable-prefetch", false); // default
+// Fetch critical resources on the page ahead of time as determined by the local file, to accelerate rendering of the page.
+user_pref("network.predictor.enable-hover-on-ssl", true);
+user_pref("network.predictor.enable-prefetch", true);
 
-// PREF: New tab tile ads and preload
-// [NOTE] Disabling this causes a delay when opening a new tab.
+// PREF: DNS pre-resolve <link rel="dns-prefetch">
+// Resolve hostnames ahead of time, to avoid DNS latency.
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
+// [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
+// [3] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
+user_pref("network.dns.disablePrefetch", true);
+user_pref("network.dns.disablePrefetchFromHTTPS", false);
+
+// PREF: Preconnect to the autocomplete URL in the address bar
+// Firefox preloads URLs that autocomplete when a user types into the address bar.
+// Connects to destination server ahead of time, to avoid TCP handshake latency.
+// [NOTE] Firefox will perform DNS lookup and TCP and TLS handshake, but will not start sending or receiving HTTP data.
+// [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
+user_pref("browser.urlbar.speculativeConnect.enabled", true); // default
+
+// PREF: Link prefetching <link rel="prefetch">
+// Fetch critical resources on the page ahead of time, to accelerate rendering of the page.
+// Websites can provide Firefox with hints as to which page is likely the be accessed next so that it is downloaded right away,
+// even if you don't request that link. The prefetch resource hint tells the browser to go grab a resource even though it
+// hasn’t been requested by the current page, and puts it into cache. Firefox will request the resource at a low
+// priority and only during idle time so that the resource doesn’t compete with anything needed for the current navigation.
+// When the user clicks on a link, or initiates any kind of page load, link prefetching will stop and any prefetch hints will be discarded.
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#Privacy_implications
+// [2] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
+// [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
+user_pref("network.prefetch-next", true); // default
+
+// PREF: Prefetch links upon hover
+// When you hover over links, connections are established to linked domains and servers automatically to speed up the loading
+// process should you click on the link. To improve the loading speed, Firefox will open predictive connections to sites when
+// the user hovers their mouse over. In case the user follows through with the action, the page can begin loading faster since
+// some of the work was already started in advance.
+// [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
+// [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
+// [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
+user_pref("network.http.speculative-parallel-limit", 6); // default
+
+// PREF: Preload <link rel=preload>
+// Fetch the entire page with all of its resources ahead of time, to enable instant navigation when triggered by the user.
+// Allows developers to hint to the browser to preload some resources with a higher priority and in advance, which helps the web page to
+// render and get into the stable and interactive state faster. This spec assumes that sometimes it’s best to always download an asset,
+// regardless of whether the browser thinks that’s a good idea or not(!). Unlike prefetching assets, which can be ignored, preloading assets
+// must be requested by the browser.
+// [WARNING] Interferes with content blocking extensions, even if you utilize DNS-level blocking as well. Disable this!
+// [1] https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
+// [3] https://css-tricks.com/prefetching-preloading-prebrowsing/#future-option-preloading
+user_pref("network.preload", false);
+
+// PREF: New tab preload
+// [WARNING] Disabling this causes a delay when opening a new tab.
 // [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 // [2] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
 // [3] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
@@ -220,9 +239,9 @@ user_pref("browser.newtab.preload", true); // default
  * SECTION: SEARCH / URL BAR                              *
 ******************************************************************************/
 
-// PREF: trim certain parts of the URL
+// PREF: do not trim certain parts of the URL
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs#values
-user_pref("browser.urlbar.trimURLs", true); // default
+// user_pref("browser.urlbar.trimURLs", false);
 
 // PREF: Enable a seperate search engine for Private Windows
 // Remember to go into Preferences -> Search and select another search provider (like DuckDuckGo)
@@ -230,25 +249,9 @@ user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 
 // PREF: Disable live search engine suggestions (Google, Bing, etc.)
-// [!] Search engines keylog every character you type from the URL bar
+// [WARNING] Search engines keylog every character you type from the URL bar
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false); // default
-
-// PREF: URL bar suggestions (bookmarks, history, open tabs)
-// user_pref("browser.urlbar.suggest.searches", false);
-// user_pref("browser.urlbar.suggest.history", false);
-// user_pref("browser.urlbar.suggest.bookmark", false);
-// user_pref("browser.urlbar.suggest.openpage", false);
-
-// PREF: Location bar dropdown
-// This value controls the total number of entries to appear in the location bar dropdown.
-// NOTE: Items (bookmarks/history/openpages) with a high "frequency"/"bonus" will always
-// be displayed (no we do not know how these are calculated or what the threshold is),
-// and this does not affect the search by search engine suggestion.
-// [NOTE] This setting is only useful if you want to enable search engine keywords but
-// you want to limit suggestions shown. (I like to set this to 1.)
-// default=10, disable=0
-// user_pref("browser.urlbar.maxRichResults", 5);
 
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
@@ -336,13 +339,17 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 user_pref("network.trr.uri", "");
 user_pref("network.trr.custom_uri", "");
 
+/******************************************************************************
+ * SECTION: ESNI / ECH                            *
+******************************************************************************/
+
 // PREF: Enable Encrypted Client Hello (ECH)
-// [EXPERIMENTAL] Evolution of ESNI.
+// Evolution of ESNI.
 // [!] Breaks Discord login through Firefox.
 // ESNI: https://www.eff.org/deeplinks/2018/09/esni-privacy-protecting-upgrade-https/
 // ECH: https://blog.mozilla.org/security/2021/01/07/encrypted-client-hello-the-future-of-esni-in-firefox/
-// user_pref("network.dns.echconfig.enabled", true);
-// user_pref("network.dns.use_https_rr_as_altsvc", true);
+user_pref("network.dns.echconfig.enabled", true);
+user_pref("network.dns.use_https_rr_as_altsvc", true);
 
 /******************************************************************************
  * SECTION: PASSWORDS                             *
@@ -605,9 +612,10 @@ user_pref("datareporting.healthreport.uploadEnabled", false);
 // [1] https://bugzilla.mozilla.org/1195552
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 
-// Studies
+// PREF: Studies
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to install and run studies
 user_pref("app.shield.optoutstudies.enabled", false);
+// user_pref("messaging-system.rsexperimentloader.enabled", false); [???]
 
 // Personalized Extension Recommendations in about:addons and AMO
 // [NOTE] This pref has no effect when Health Reports are disabled.
