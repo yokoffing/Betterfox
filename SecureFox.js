@@ -42,6 +42,8 @@ user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hi
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
 // PREF: Network Partitioning
+// Networking-related APIs are not intended to be used for websites to store data, but they can be abused for
+// cross-site tracking. Network APIs and caches are permanently partitioned by the top-level site.
 // Network Partitioning (isolation) will allow Firefox to associate resources on a per-website basis rather than together
 // in the same pool. This includes like the cache, favicons, CSS files, images, and even speculative connections(!). 
 // [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
