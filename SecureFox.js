@@ -130,6 +130,9 @@ user_pref("network.cookie.sameSite.schemeful", true);
 // [1] https://github.com/arkenfox/user.js/issues/1055
 // user_pref("browser.cache.offline.enable", false);
 
+// PREF: WebRTC Global Mute Toggles
+user_pref("privacy.webrtc.globalMuteToggles", true);
+
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
 ******************************************************************************/
