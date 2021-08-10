@@ -41,6 +41,7 @@ user_pref("dom.storage.next_gen", true);
 user_pref("network.cookie.sameSite.laxByDefault", true);
 user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 user_pref("network.cookie.sameSite.schemeful", true);
+user_pref("privacy.webrtc.globalMuteToggles", true);
 
 /** CLEARING DATA DEFAULTS ***/
 user_pref("privacy.cpd.history", true);
@@ -249,6 +250,9 @@ user_pref("editor.truncate_user_pastes", false);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
 user_pref("clipboard.plainTextOnly", true);
 user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
+user_pref("layout.css.constructable-stylesheets.enabled", true);
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
+user_pref("dom.forms.inputmode", true);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
