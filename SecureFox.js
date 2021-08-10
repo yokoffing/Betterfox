@@ -115,6 +115,13 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 user_pref("dom.storage.next_gen", true);
 
+// PREF: SameStie Cookies
+// [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
+// [2] https://web.dev/samesite-cookies-explained/
+user_pref("network.cookie.sameSite.laxByDefault", true);
+user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+user_pref("network.cookie.sameSite.schemeful", true);
+
 // PREF: disable cache
 // user_pref("browser.cache.disk.enable", true); // default
 
