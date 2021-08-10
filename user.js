@@ -243,7 +243,6 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);
 user_pref("dom.disable_window_move_resize", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
-user_pref("image.avif.enabled", true);
 user_pref("editor.truncate_user_pastes", false);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
 user_pref("clipboard.plainTextOnly", true);
