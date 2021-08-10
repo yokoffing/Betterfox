@@ -309,6 +309,7 @@ user_pref("network.IDN_show_punycode", true);
 // connections only when a website does not support it. Unlike HTTPS-Only Mode, Firefox
 // will NOT ask for your permission before connecting to a website that doesn’t support secure connections.
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
+// [TEST] http://example.com [upgrade]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1706552
 user_pref("dom.security.https_first", true);
 user_pref("dom.security.https_first_pbm", true); // default
@@ -317,17 +318,24 @@ user_pref("dom.security.https_first_pbm", true); // default
  * SECTION: HTTPS-ONLY MODE                              *
 ******************************************************************************/
 
-// PREF: HTTPS-only connections
-// Firefox asks for your permission before connecting to a website that doesn’t support secure connections.
-// [1] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
-// user_pref("dom.security.https_only_mode", true);
-// user_pref("dom.security.https_only_mode_ever_enabled", true);
+// Firefox displays a warning page if HTTPS is not supported by a server. Options to use HTTP are then provided.
+// [NOTE] When "https_only_mode" (all windows) is true, "https_only_mode_pbm" (private windows only) is ignored.
+// [SETTING] to add site exceptions: Padlock>HTTPS-Only mode>On/Off/Off temporarily
+// [SETTING] Privacy & Security>HTTPS-Only Mode
+// [TEST] http://example.com [upgrade]
+// [TEST] http://neverssl.org/ [no upgrade]
+// [1] https://bugzilla.mozilla.org/1613063
+// [2] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 
-// PREF: HTTPS-only connection in Private Browsing windows only
+// PREF: Disable HTTPS-only Mode for Normal Browsing windows
+user_pref("dom.security.https_only_mode", false); // default
+user_pref("dom.security.https_only_mode_ever_enabled", false); // default
+
+// PREF: Enable HTTPS-only Mode for Private Browsing windows
 user_pref("dom.security.https_only_mode_pbm", true);
 user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 
-// PREF: Disable HTTP background requests
+// PREF: Disable HTTP background requests in HTTPS-only Mode
 // When attempting to upgrade, if the server doesn't respond within 3 seconds, Firefox
 // sends HTTP requests in order to check if the server supports HTTPS or not.
 // This is done to avoid waiting for a timeout which takes 90 seconds.
