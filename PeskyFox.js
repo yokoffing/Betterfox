@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: August 2021                                                     *
+ * version: September 2021                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -341,9 +341,12 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // user_pref("accessibility.blockautorefresh", true);
 // user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
-// PREF: AVIF images
+// PREF: AVIF image format
 // [1] https://www.omgubuntu.co.uk/2021/01/firefox-86-avif-image-support
 user_pref("image.avif.enabled", true); // default
+
+// PREF: JPEG XL image format
+user_pref("image.jxl.enabled", true);
 
 // PREF: Prevent password truncation when submitting form data
 // [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
