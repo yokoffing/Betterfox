@@ -11,7 +11,7 @@
  * FasterFox                                                                *
  * "Non ducor duco."                                                        *
  * priority: speedy browsing                                                *
- * version: August 2021                                                     *
+ * version: September 2021                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -31,7 +31,7 @@ user_pref("gfx.webrender.all", true);
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [NOTE] Both preferences need to be "true" if you're using the software renderer.
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
-// user_pref("gfx.webrender.all", true);
+user_pref("gfx.webrender.all", true);
 // user_pref("gfx.webrender.software", true);
 
 // PREF: Lazy Image Loading
@@ -48,6 +48,11 @@ user_pref("browser.sessionstore.restore_tabs_lazily", true); // default
 // PREF: disable preSkeletonUI on startup
 // May set to "true" if your hardware is very old.
 user_pref("browser.startup.preXulSkeletonUI", false);
+
+// PREF: about:home startup cache
+// A cache for the initial about:home document that is loaded by default at startup.
+// The purpose of the cache is to improve startup performance.
+user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 
 // PREF: process count
 // Having more content processes can improve performance when using multiple tabs but
