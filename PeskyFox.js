@@ -256,6 +256,18 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);
 // PREF: print preview
 user_pref("print.tab_modal.enabled", true); // default
 
+// PREF: CSS Constructable Stylesheets
+user_pref("layout.css.constructable-stylesheets.enabled", true);
+
+// PREF: CSS Masonry Layout
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
+
+// PREF: Web API inputmode
+user_pref("dom.forms.inputmode", true);
+
+// PREF: Web API WebGPU
+// user_pref("dom.webgpu.enabled", true);
+
 /****************************************************************************
  * SECTION: PDF                                                             *
 ****************************************************************************/
