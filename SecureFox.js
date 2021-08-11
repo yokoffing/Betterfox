@@ -590,7 +590,7 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
 // user_pref("permissions.default.geo", 0);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-// PREF: enable logging geolocation to the console
+// Enable logging geolocation to the console
 // user_pref("geo.provider.network.logging.enabled", true);
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
@@ -599,16 +599,21 @@ user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/
 // [2] https://trac.torproject.org/projects/tor/ticket/16931
 user_pref("extensions.blocklist.enabled", true); // default
 
+// PREF: disable auto-INSTALLING Firefox updates [NON-WINDOWS FF65+]
+// [NOTE] In FF65+ on Windows this SETTING (below) is now stored in a file and the pref was removed
+// [SETTING] General>Firefox Updates>Check for updates but let you choose to install them
+user_pref("app.update.auto", false);
+
+// PREF: disable auto-INSTALLING Firefox updates via a background service [FF90+] [WINDOWS]
+// [SETTING] General>Firefox Updates>Automatically install updates>When Firefox is not running
+// [1] https://support.mozilla.org/kb/enable-background-updates-firefox-windows ***/
+user_pref("app.update.background.scheduling.enabled", false);
+
 // PREF: Disable automatic extension updates
 // user_pref("extensions.update.enabled", false);
 // user_pref("extensions.autoupdate.enabled", false);
 // user_pref("extensions.update.url", "");
 // user_pref("extensions.update.background.url", "");
-
-// PREF: disable auto-INSTALLING Firefox updates via a background service
-// [SETTING] General>Firefox Updates>Automatically install updates>When Firefox is not running
-// [1] https://support.mozilla.org/kb/enable-background-updates-firefox-windows ***/
-// user_pref("app.update.background.scheduling.enabled", false);
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
