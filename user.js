@@ -145,6 +145,8 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
 /** MOZILLA ***/
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+user_pref("app.update.auto", false);
+user_pref("app.update.background.scheduling.enabled", false);
 
 /** TELEMETRY ***/
 user_pref("toolkit.telemetry.unified", false);
