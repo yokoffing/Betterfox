@@ -166,13 +166,13 @@ user_pref("browser.compactmode.show", true);
 // PREF: restore "View image info"
 user_pref("browser.menu.showViewImageInfo", true);
 
-// PREF: do not unload tabs on low memory
+// PREF: unload tabs on low memory
 // Firefox will detect if your computer’s memory is running low (less than 400MB)
 // and suspend tabs that you have not used in awhile.
 // https://support.mozilla.org/en-US/questions/1262073
 // Available for testing in Nightly:
 // https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
-// user_pref("browser.tabs.unloadOnLowMemory", false); // default
+user_pref("browser.tabs.unloadOnLowMemory", true);
 
 // PREF: URL bar suggestions (bookmarks, history, open tabs) / dropdown options in the URL bar
 // user_pref("browser.urlbar.suggest.bookmarks", true);
