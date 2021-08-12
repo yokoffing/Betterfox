@@ -231,6 +231,7 @@ user_pref("browser.download.manager.addToRecentDocs", false);
 /** VARIOUS ***/
 user_pref("browser.compactmode.show", true);
 user_pref("browser.menu.showViewImageInfo", true);
+user_pref("browser.tabs.unloadOnLowMemory", true);
 user_pref("browser.urlbar.suggest.engines", false);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("permissions.default.desktop-notification", 2);
