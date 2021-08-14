@@ -206,7 +206,8 @@ user_pref("network.predictor.enable-prefetch", true);
 // [NOTE] Only allowing secure requests.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
-// [3] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
+// [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
+// [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
 
@@ -218,37 +219,41 @@ user_pref("network.dns.disablePrefetchFromHTTPS", false);
 user_pref("browser.urlbar.speculativeConnect.enabled", true); // default
 
 // PREF: Link prefetching <link rel="prefetch">
-// Fetch critical resources on the page ahead of time, to accelerate rendering of the page.
-// Websites can provide Firefox with hints as to which page is likely the be accessed next so that it is downloaded right away,
-// even if you don't request that link. The prefetch resource hint tells the browser to go grab a resource even though it
-// hasn’t been requested by the current page, and puts it into cache. Firefox will request the resource at a low
-// priority and only during idle time so that the resource doesn’t compete with anything needed for the current navigation.
+// A directive that tells a browser to fetch a resource that will probably be needed for the next navigation.
+// The resource will be fetched with extremely low priority (since everything the browser knows
+// is needed in the current page is more important than a resource that we guess might be needed in the next one).
+// Prefetch’s main use case is speeding up the next navigation rather than the current one.
 // When the user clicks on a link, or initiates any kind of page load, link prefetching will stop and any prefetch hints will be discarded.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#Privacy_implications
 // [2] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 // [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
+// [4] https://3perf.com/blog/link-rels/#prefetch
 user_pref("network.prefetch-next", true); // default
 
 // PREF: Prefetch links upon hover
 // When you hover over links, connections are established to linked domains and servers automatically to speed up the loading
 // process should you click on the link. To improve the loading speed, Firefox will open predictive connections to sites when
 // the user hovers their mouse over. In case the user follows through with the action, the page can begin loading faster since
-// some of the work was already started in advance.
+// some of the work was already started in advance. Focuses on fetching a resource for the next navigation.
 // [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
-// [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
+// [2] https://www.keycdn.com/blog/resource-hints#prefetch
+// [3] https://3perf.com/blog/link-rels/#prefetch
 user_pref("network.http.speculative-parallel-limit", 6); // default
 
 // PREF: Preload <link rel=preload>
-// Fetch the entire page with all of its resources ahead of time, to enable instant navigation when triggered by the user.
-// Allows developers to hint to the browser to preload some resources with a higher priority and in advance, which helps the web page to
-// render and get into the stable and interactive state faster. This spec assumes that sometimes it’s best to always download an asset,
-// regardless of whether the browser thinks that’s a good idea or not(!). Unlike prefetching assets, which can be ignored, preloading assets
-// must be requested by the browser.
-// [WARNING] Interferes with content blocking extensions, even if you utilize DNS-level blocking as well. Disable this!
-// [1] https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
+// Tells the browser to download and cache a resource (like a script or a stylesheet) as soon as possible.
+// It’s helpful when you need that resource a few seconds after loading the page, and you want to speed it up.
+// The browser doesn’t do anything with the resource after downloading it. Scripts aren’t executed, stylesheets
+// aren’t applied. It’s just cached – so that when something else needs it, it’s available immediately.
+// Focuses on fetching a resource for the current navigation.
+// [WARNING] May possibly interfear with content blocking on the webpage.
+// [1] https://w3c.github.io/preload/
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
-// [3] https://css-tricks.com/prefetching-preloading-prebrowsing/#future-option-preloading
+// [3] https://3perf.com/blog/link-rels/#preload
+// [4] https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
+// [5] https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#how-can-preload-do-better
+// [6] https://www.keycdn.com/blog/resource-hints#preload
 user_pref("network.preload", false);
 
 // PREF: New tab preload
