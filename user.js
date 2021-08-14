@@ -55,10 +55,14 @@ user_pref("privacy.sanitize.timeSpan", 0);
 user_pref("privacy.history.custom", true);
 
 /** SPECULATIVE CONNECTIONS ***/
+user_pref("network.predictor.enabled", true);
 user_pref("network.predictor.enable-hover-on-ssl", true);
 user_pref("network.predictor.enable-prefetch", true);
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
+user_pref("browser.urlbar.speculativeConnect.enabled", true);
+user_pref("network.prefetch-next", true);
+user_pref("network.http.speculative-parallel-limit", 6);
 user_pref("network.preload", false);
 
 /** SEARCH / URL BAR ***/
