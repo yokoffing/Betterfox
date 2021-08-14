@@ -128,7 +128,6 @@ user_pref("browser.formfill.enable", false);
 
 /** MIXED CONTENT + CROSS-SITE ***/
 user_pref("network.auth.subresource-http-auth-allow", 1);
-user_pref("network.http.windows-sso.enabled", false);
 user_pref("security.mixed_content.upgrade_display_content", true);
 user_pref("dom.block_download_insecure", true);
 user_pref("pdfjs.enableScripting", false);
