@@ -471,7 +471,7 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
 
 // PREF: disable automatic authentication on Microsoft sites [WINDOWS]
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
-user_pref("network.http.windows-sso.enabled", false);
+// user_pref("network.http.windows-sso.enabled", false);
 
 // PREF: Block insecure active content (scripts) on HTTPS pages.
 // [1] https://trac.torproject.org/projects/tor/ticket/21323
