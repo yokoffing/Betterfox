@@ -234,7 +234,7 @@ user_pref("network.prefetch-next", true); // default
 // When you hover over links, connections are established to linked domains and servers automatically to speed up the loading
 // process should you click on the link. To improve the loading speed, Firefox will open predictive connections to sites when
 // the user hovers their mouse over. In case the user follows through with the action, the page can begin loading faster since
-// some of the work was already started in advance. Focuses on fetching a resource for the next navigation.
+// some of the work was already started in advance. Focuses on fetching a resource for the NEXT navigation.
 // [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // [2] https://www.keycdn.com/blog/resource-hints#prefetch
@@ -243,18 +243,20 @@ user_pref("network.http.speculative-parallel-limit", 6); // default
 
 // PREF: Preload <link rel=preload>
 // Tells the browser to download and cache a resource (like a script or a stylesheet) as soon as possible.
-// It’s helpful when you need that resource a few seconds after loading the page, and you want to speed it up.
 // The browser doesn’t do anything with the resource after downloading it. Scripts aren’t executed, stylesheets
 // aren’t applied. It’s just cached – so that when something else needs it, it’s available immediately.
-// Focuses on fetching a resource for the current navigation.
-// [WARNING] May possibly interfear with content blocking on the webpage.
-// [1] https://w3c.github.io/preload/
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
+// Focuses on fetching a resource for the CURRENT navigation.
+// [NOTE] Unlike other pre-connection tags (except modulepreload), this tag is mandatory for the browser.
+// A browser has to download the resource specified in <link rel="preload">. With other tags described here,
+// a browser is free to skip preloading the resource if it decides to (e.g. if the network is slow).
+// [TESTING] May possibly interfear with content blocking on the webpage.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
+// [2] https://w3c.github.io/preload/
 // [3] https://3perf.com/blog/link-rels/#preload
 // [4] https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
 // [5] https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#how-can-preload-do-better
 // [6] https://www.keycdn.com/blog/resource-hints#preload
-user_pref("network.preload", false);
+// user_pref("network.preload", false);
 
 // PREF: New tab preload
 // [WARNING] Disabling this causes a delay when opening a new tab in Firefox.
