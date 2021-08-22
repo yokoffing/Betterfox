@@ -260,13 +260,14 @@ user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
 ****************************************************************************/
 
 /** EDGE-LIKE SMOOTH SCROLLING ***/
-user_pref("general.smoothScroll", true);
-user_pref("general.smoothScroll.currentVelocityWeighting", "0.1");
-user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 250);
-user_pref("general.smoothScroll.mouseWheel.durationMinMS", 125);
-user_pref("general.smoothScroll.stopDecelerationWeighting", "0.7");
-user_pref("mousewheel.min_line_scroll_amount", 25);
-user_pref("apz.overscroll.enabled", true); /*elastic overscroll*/
+/* Uncomment to enable */
+// user_pref("general.smoothScroll", true);
+// user_pref("general.smoothScroll.currentVelocityWeighting", "0.1");
+// user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 250);
+// user_pref("general.smoothScroll.mouseWheel.durationMinMS", 125);
+// user_pref("general.smoothScroll.stopDecelerationWeighting", "0.7");
+// user_pref("mousewheel.min_line_scroll_amount", 25);
+// user_pref("apz.overscroll.enabled", true); /*elastic overscroll*/
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
