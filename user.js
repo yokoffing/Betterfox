@@ -76,7 +76,6 @@ user_pref("dom.security.https_first", true);
 user_pref("dom.security.https_only_mode_pbm", true);
 user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 user_pref("dom.security.https_only_mode_send_http_background_request", false);
-user_pref("dom.security.https_only_mode.upgrade_local", true);
 
 /** DNS-over-HTTPS (DOH) ***/
 user_pref("network.trr.send_user-agent_headers", false);
