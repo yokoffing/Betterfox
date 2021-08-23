@@ -247,7 +247,7 @@ user_pref("network.http.speculative-parallel-limit", 6); // default
 // aren’t applied. It’s just cached – so that when something else needs it, it’s available immediately.
 // Focuses on fetching a resource for the CURRENT navigation.
 // [NOTE] Unlike other pre-connection tags (except modulepreload), this tag is mandatory for the browser.
-// A browser has to download the resource specified in <link rel="preload">. With other tags described here,
+// A browser is required to download the resource specified in <link rel="preload">. With other tags described here,
 // a browser is free to skip preloading the resource if it decides to (e.g. if the network is slow).
 // [TESTING] May possibly interfear with content blocking on the webpage.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
@@ -354,7 +354,7 @@ user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 // PREF: Enable HTTPS-Only mode for local resources
-user_pref("dom.security.https_only_mode.upgrade_local", true);
+// user_pref("dom.security.https_only_mode.upgrade_local", true);
 
 /******************************************************************************
  * SECTION: DNS-over-HTTPS                                                    *
