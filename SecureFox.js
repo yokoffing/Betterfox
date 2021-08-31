@@ -256,7 +256,7 @@ user_pref("network.http.speculative-parallel-limit", 6); // default
 // [4] https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
 // [5] https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#how-can-preload-do-better
 // [6] https://www.keycdn.com/blog/resource-hints#preload
-// user_pref("network.preload", false);
+user_pref("network.preload", true); // default
 
 // PREF: New tab preload
 // [WARNING] Disabling this causes a delay when opening a new tab in Firefox.
