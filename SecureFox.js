@@ -196,10 +196,10 @@ user_pref("privacy.history.custom", true);
 // [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
-user_pref("network.predictor.enabled", true); // default
+user_pref("network.predictor.enabled", false);
 // Fetch critical resources on the page ahead of time as determined by the local file, to accelerate rendering of the page.
-user_pref("network.predictor.enable-hover-on-ssl", true);
-user_pref("network.predictor.enable-prefetch", true);
+// user_pref("network.predictor.enable-hover-on-ssl", true);
+// user_pref("network.predictor.enable-prefetch", true);
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time, to avoid DNS latency.
@@ -209,14 +209,14 @@ user_pref("network.predictor.enable-prefetch", true);
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", false);
+user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
 
 // PREF: Preconnect to the autocomplete URL in the address bar
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
 // Connects to destination server ahead of time, to avoid TCP handshake latency.
 // [NOTE] Firefox will perform DNS lookup and TCP and TLS handshake, but will not start sending or receiving HTTP data.
 // [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
-user_pref("browser.urlbar.speculativeConnect.enabled", true); // default
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
 // PREF: Link prefetching <link rel="prefetch">
 // A directive that tells a browser to fetch a resource that will probably be needed for the next navigation.
@@ -228,7 +228,7 @@ user_pref("browser.urlbar.speculativeConnect.enabled", true); // default
 // [2] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 // [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
 // [4] https://3perf.com/blog/link-rels/#prefetch
-user_pref("network.prefetch-next", true); // default
+user_pref("network.prefetch-next", false);
 
 // PREF: Prefetch links upon hover
 // When you hover over links, connections are established to linked domains and servers automatically to speed up the loading
@@ -239,7 +239,7 @@ user_pref("network.prefetch-next", true); // default
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // [2] https://www.keycdn.com/blog/resource-hints#prefetch
 // [3] https://3perf.com/blog/link-rels/#prefetch
-user_pref("network.http.speculative-parallel-limit", 6); // default
+user_pref("network.http.speculative-parallel-limit", 0);
 
 // PREF: Preload <link rel=preload>
 // Tells the browser to download and cache a resource (like a script or a stylesheet) as soon as possible.
@@ -256,7 +256,7 @@ user_pref("network.http.speculative-parallel-limit", 6); // default
 // [4] https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
 // [5] https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#how-can-preload-do-better
 // [6] https://www.keycdn.com/blog/resource-hints#preload
-user_pref("network.preload", true); // default
+user_pref("network.preload", false);
 
 // PREF: New tab preload
 // [WARNING] Disabling this causes a delay when opening a new tab in Firefox.
@@ -366,10 +366,10 @@ user_pref("dom.security.https_only_mode_send_http_background_request", false);
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
-user_pref("network.trr.mode", 3);
+user_pref("network.trr.mode", 2);
 user_pref("network.trr.request_timeout_ms", 4000); /* default=1500 */
 // user_pref("network.trr.request_timeout_mode_trronly_ms", 30000); // default
-user_pref("network.trr.send_user-agent_headers", false); // default
+// user_pref("network.trr.send_user-agent_headers", false); // default
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
 // PREF: Force FF to always use your custom DNS resolver
