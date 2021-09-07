@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: August 2021                                                     *
+ * version: September 2021                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -19,9 +19,9 @@
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
-user_pref("gfx.webrender.all", true);
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.startup.preXulSkeletonUI", false);
+user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
@@ -32,11 +32,16 @@ user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
+user_pref("fission.autostart", true);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
 user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("dom.storage.next_gen", true);
+user_pref("network.cookie.sameSite.laxByDefault", true);
+user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+user_pref("network.cookie.sameSite.schemeful", true);
+user_pref("privacy.webrtc.globalMuteToggles", true);
 
 /** CLEARING DATA DEFAULTS ***/
 user_pref("privacy.cpd.history", true);
@@ -50,10 +55,12 @@ user_pref("privacy.sanitize.timeSpan", 0);
 user_pref("privacy.history.custom", true);
 
 /** SPECULATIVE CONNECTIONS ***/
-user_pref("network.predictor.enable-hover-on-ssl", true);
-user_pref("network.predictor.enable-prefetch", true);
+user_pref("network.predictor.enabled", false);
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", false);
+user_pref("network.dns.disablePrefetchFromHTTPS", true);
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
+user_pref("network.prefetch-next", false);
+user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.preload", false);
 
 /** SEARCH / URL BAR ***/
@@ -72,9 +79,9 @@ user_pref("dom.security.https_first", true);
 user_pref("dom.security.https_only_mode_pbm", true);
 user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 user_pref("dom.security.https_only_mode_send_http_background_request", false);
-user_pref("dom.security.https_only_mode.upgrade_local", true);
 
 /** DNS-over-HTTPS (DOH) ***/
+user_pref("network.trr.request_timeout_ms", 4000);
 user_pref("network.trr.send_user-agent_headers", false);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
@@ -119,7 +126,6 @@ user_pref("browser.formfill.enable", false);
 
 /** MIXED CONTENT + CROSS-SITE ***/
 user_pref("network.auth.subresource-http-auth-allow", 1);
-user_pref("network.http.windows-sso.enabled", false);
 user_pref("security.mixed_content.upgrade_display_content", true);
 user_pref("dom.block_download_insecure", true);
 user_pref("pdfjs.enableScripting", false);
@@ -140,6 +146,8 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
 /** MOZILLA ***/
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+user_pref("app.update.auto", false);
+user_pref("app.update.background.scheduling.enabled", false);
 
 /** TELEMETRY ***/
 user_pref("toolkit.telemetry.unified", false);
@@ -224,6 +232,7 @@ user_pref("browser.download.manager.addToRecentDocs", false);
 /** VARIOUS ***/
 user_pref("browser.compactmode.show", true);
 user_pref("browser.menu.showViewImageInfo", true);
+user_pref("browser.tabs.unloadOnLowMemory", true);
 user_pref("browser.urlbar.suggest.engines", false);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("permissions.default.desktop-notification", 2);
@@ -235,16 +244,33 @@ user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.display.show_image_placeholders", false);
 user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
+user_pref("layout.css.constructable-stylesheets.enabled", true);
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
+user_pref("dom.forms.inputmode", true);
 
 /** TAB BEHAVIOR ***/
 user_pref("dom.disable_window_move_resize", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
-user_pref("image.avif.enabled", true);
+user_pref("image.jxl.enabled", true);
 user_pref("editor.truncate_user_pastes", false);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
 user_pref("clipboard.plainTextOnly", true);
 user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
+
+/****************************************************************************
+ * SECTION: SMOOTHFOX                                                       *
+****************************************************************************/
+
+/** EDGE-LIKE SMOOTH SCROLLING ***/
+/* Uncomment to enable */
+// user_pref("general.smoothScroll", true);
+// user_pref("general.smoothScroll.currentVelocityWeighting", "0.1");
+// user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 250);
+// user_pref("general.smoothScroll.mouseWheel.durationMinMS", 125);
+// user_pref("general.smoothScroll.stopDecelerationWeighting", "0.7");
+// user_pref("mousewheel.min_line_scroll_amount", 25);
+// user_pref("apz.overscroll.enabled", true); /*elastic overscroll*/
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
