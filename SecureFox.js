@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: August 2021                                                     *
+ * version: September 2021                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -41,17 +41,16 @@ user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
 user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hidden
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
-// PREF: Network Partitioning
-// Network Partitioning (isolation) will allow Firefox to associate resources on a per-website basis rather than together
-// in the same pool. This includes like the cache, favicons, CSS files, images, and even speculative connections(!). 
-// [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
-// [2] https://github.com/privacycg/storage-partitioning#introduction
-// [3] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
-// [4] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
-// [5] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
-user_pref("privacy.partition.network_state", true); // default
+// PREF: Site Isolation
+// Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
+// into a separate operating system process makes it harder for malicious sites to read another site’s private data.
+// [1] https://hacks.mozilla.org/2021/05/introducing-firefox-new-site-isolation-security-architecture/
+user_pref("fission.autostart", true);
 
-// PREF: Dynamic First-Party Isolation (dFPI) [aka State Paritioning]
+// PREF: State Paritioning [aka Dynamic First-Party Isolation (dFPI)]
+// Firefox manages client-side state (i.e., data stored in the browser) to mitigate the ability of websites to abuse state
+// for cross-site tracking. This effort aims to achieve that by providing what is effectively a "different", isolated storage
+// location to every website a user visits.
 // dFPI is a more web-compatible version of FPI, which double keys all third-party state by the origin of the top-level
 // context. dFPI isolates user's browsing data for each top-level eTLD+1, but is flexible enough to apply web
 // compatibility heuristics to address resulting breakage by dynamically modifying a frame's storage principal.
@@ -59,11 +58,23 @@ user_pref("privacy.partition.network_state", true); // default
 // [NOTE] dFPI partitions all of the following caches by the top-level site being visited: HTTP cache, image cache,
 // favicon cache, HSTS cache, OCSP cache, style sheet cache, font cache, DNS cache, HTTP Authentication cache,
 // Alt-Svc cache, and TLS certificate cache.
-// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
-// [2] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1549587
+// [2] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
+// [3] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
+// [4] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
 user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict"
 user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
 user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // default
+
+// PREF: Network Partitioning
+// Networking-related APIs are not intended to be used for websites to store data, but they can be abused for
+// cross-site tracking. Network APIs and caches are permanently partitioned by the top-level site.
+// Network Partitioning (isolation) will allow Firefox to associate resources on a per-website basis rather than together
+// in the same pool. This includes cache, favicons, CSS files, images, and even speculative connections. 
+// [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
+// [2] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
+// [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
+user_pref("privacy.partition.network_state", true); // default
 
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
@@ -104,6 +115,13 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 user_pref("dom.storage.next_gen", true);
 
+// PREF: SameStie Cookies
+// [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
+// [2] https://web.dev/samesite-cookies-explained/
+user_pref("network.cookie.sameSite.laxByDefault", true);
+user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+user_pref("network.cookie.sameSite.schemeful", true);
+
 // PREF: disable cache
 // user_pref("browser.cache.disk.enable", true); // default
 
@@ -111,6 +129,9 @@ user_pref("dom.storage.next_gen", true);
 // [WARNING] The API is easily fingerprinted, do not disable!
 // [1] https://github.com/arkenfox/user.js/issues/1055
 // user_pref("browser.cache.offline.enable", false);
+
+// PREF: WebRTC Global Mute Toggles
+user_pref("privacy.webrtc.globalMuteToggles", true);
 
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
@@ -155,18 +176,19 @@ user_pref("privacy.history.custom", true);
  * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
 
-// [NOTE] Firefox 85+ partitions pooled connections, prefetch connections, pre-connect connections,
-// speculative connections, TLS session identifiers, and other connections. For more information, see "PREF: Network
-// Partitioning and "PREF: Dynamic First-Party Isolation". You may customize this section to your comfort-level.
+// [NOTE] Firefox 85+ partitions (isolates) pooled connections, prefetch connections, pre-connect connections,
+// speculative connections, TLS session identifiers, and other connections. We can take advantage of the speed of
+// pre-connections while preserving privacy. Users may harden these settings to their preference.
+// For more information, see "PREF: State Paritioning" and "PREF: Network Partitioning".
 
 // [NOTE] uBlock Origin overrides Firefox defaults and sets these settings to false. To enable:
 // [SETTINGS] uBlock Origin -> Extension options -> Settings -> Privacy -> uncheck "Disable pre-fetching"
 
 // PREF: Network Predictor
-// Keeps track of components that were loaded during the visit of a page on the Internet so that the browser knows next time
-// which resources to request from the web server:
-// It uses a local file to remember which resources were needed when the user visits a webpage (such as image.jpg and script.js),
-// so that the next time the user mouseovers a link to that webpage, this history can be used to predict what resources will
+// Keeps track of components that were loaded during page visits so that the browser knows next time
+// which resources to request from the server: It uses a local file to remember which resources were
+// needed when the user visits a webpage (such as image.jpg and script.js), so that the next time the
+// user mouseovers a link to that webpage, this history can be used to predict what resources will
 // be needed rather than wait for the document to link those resources.
 // Only performs pre-connect, not prefetch, by default. No data is actually sent to the site until a user actively clicks a link.
 // [NOTE] DNS pre-resolve and TCP preconnect (which includes SSL handshake). Honors settings in Private Browsing to erase data.
@@ -174,62 +196,70 @@ user_pref("privacy.history.custom", true);
 // [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
-user_pref("network.predictor.enabled", true); // default
+user_pref("network.predictor.enabled", false);
 // Fetch critical resources on the page ahead of time as determined by the local file, to accelerate rendering of the page.
-user_pref("network.predictor.enable-hover-on-ssl", true);
-user_pref("network.predictor.enable-prefetch", true);
+// user_pref("network.predictor.enable-hover-on-ssl", true);
+// user_pref("network.predictor.enable-prefetch", true);
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time, to avoid DNS latency.
+// [NOTE] Only allowing secure requests.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
-// [3] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
+// [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
+// [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", false);
+user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
 
 // PREF: Preconnect to the autocomplete URL in the address bar
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
 // Connects to destination server ahead of time, to avoid TCP handshake latency.
 // [NOTE] Firefox will perform DNS lookup and TCP and TLS handshake, but will not start sending or receiving HTTP data.
 // [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
-user_pref("browser.urlbar.speculativeConnect.enabled", true); // default
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
 // PREF: Link prefetching <link rel="prefetch">
-// Fetch critical resources on the page ahead of time, to accelerate rendering of the page.
-// Websites can provide Firefox with hints as to which page is likely the be accessed next so that it is downloaded right away,
-// even if you don't request that link. The prefetch resource hint tells the browser to go grab a resource even though it
-// hasn’t been requested by the current page, and puts it into cache. Firefox will request the resource at a low
-// priority and only during idle time so that the resource doesn’t compete with anything needed for the current navigation.
+// A directive that tells a browser to fetch a resource that will probably be needed for the next navigation.
+// The resource will be fetched with extremely low priority (since everything the browser knows
+// is needed in the current page is more important than a resource that we guess might be needed in the next one).
+// Prefetch’s main use case is speeding up the next navigation rather than the current one.
 // When the user clicks on a link, or initiates any kind of page load, link prefetching will stop and any prefetch hints will be discarded.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#Privacy_implications
 // [2] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 // [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
-user_pref("network.prefetch-next", true); // default
+// [4] https://3perf.com/blog/link-rels/#prefetch
+user_pref("network.prefetch-next", false);
 
 // PREF: Prefetch links upon hover
 // When you hover over links, connections are established to linked domains and servers automatically to speed up the loading
 // process should you click on the link. To improve the loading speed, Firefox will open predictive connections to sites when
 // the user hovers their mouse over. In case the user follows through with the action, the page can begin loading faster since
-// some of the work was already started in advance.
+// some of the work was already started in advance. Focuses on fetching a resource for the NEXT navigation.
 // [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
-// [2] https://www.ghacks.net/2015/08/16/block-firefox-from-connecting-to-sites-when-you-hover-over-links
-user_pref("network.http.speculative-parallel-limit", 6); // default
+// [2] https://www.keycdn.com/blog/resource-hints#prefetch
+// [3] https://3perf.com/blog/link-rels/#prefetch
+user_pref("network.http.speculative-parallel-limit", 0);
 
 // PREF: Preload <link rel=preload>
-// Fetch the entire page with all of its resources ahead of time, to enable instant navigation when triggered by the user.
-// Allows developers to hint to the browser to preload some resources with a higher priority and in advance, which helps the web page to
-// render and get into the stable and interactive state faster. This spec assumes that sometimes it’s best to always download an asset,
-// regardless of whether the browser thinks that’s a good idea or not(!). Unlike prefetching assets, which can be ignored, preloading assets
-// must be requested by the browser.
-// [WARNING] Interferes with content blocking extensions, even if you utilize DNS-level blocking as well. Disable this!
-// [1] https://www.janbambas.cz/firefox-enables-link-rel-preload-support/
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
-// [3] https://css-tricks.com/prefetching-preloading-prebrowsing/#future-option-preloading
+// Tells the browser to download and cache a resource (like a script or a stylesheet) as soon as possible.
+// The browser doesn’t do anything with the resource after downloading it. Scripts aren’t executed, stylesheets
+// aren’t applied. It’s just cached – so that when something else needs it, it’s available immediately.
+// Focuses on fetching a resource for the CURRENT navigation.
+// [NOTE] Unlike other pre-connection tags (except modulepreload), this tag is mandatory for the browser.
+// A browser is required to download the resource specified in <link rel="preload">. With other tags described here,
+// a browser is free to skip preloading the resource if it decides to (e.g. if the network is slow).
+// [TESTING] May possibly interfear with content blocking on the webpage.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
+// [2] https://w3c.github.io/preload/
+// [3] https://3perf.com/blog/link-rels/#preload
+// [4] https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
+// [5] https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#how-can-preload-do-better
+// [6] https://www.keycdn.com/blog/resource-hints#preload
 user_pref("network.preload", false);
 
 // PREF: New tab preload
-// [WARNING] Disabling this causes a delay when opening a new tab.
+// [WARNING] Disabling this causes a delay when opening a new tab in Firefox.
 // [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 // [2] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
 // [3] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
@@ -289,6 +319,7 @@ user_pref("network.IDN_show_punycode", true);
 // connections only when a website does not support it. Unlike HTTPS-Only Mode, Firefox
 // will NOT ask for your permission before connecting to a website that doesn’t support secure connections.
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
+// [TEST] http://example.com [upgrade]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1706552
 user_pref("dom.security.https_first", true);
 user_pref("dom.security.https_first_pbm", true); // default
@@ -297,17 +328,24 @@ user_pref("dom.security.https_first_pbm", true); // default
  * SECTION: HTTPS-ONLY MODE                              *
 ******************************************************************************/
 
-// PREF: HTTPS-only connections
-// Firefox asks for your permission before connecting to a website that doesn’t support secure connections.
-// [1] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
-// user_pref("dom.security.https_only_mode", true);
-// user_pref("dom.security.https_only_mode_ever_enabled", true);
+// Firefox displays a warning page if HTTPS is not supported by a server. Options to use HTTP are then provided.
+// [NOTE] When "https_only_mode" (all windows) is true, "https_only_mode_pbm" (private windows only) is ignored.
+// [SETTING] to add site exceptions: Padlock>HTTPS-Only mode>On/Off/Off temporarily
+// [SETTING] Privacy & Security>HTTPS-Only Mode
+// [TEST] http://example.com [upgrade]
+// [TEST] http://neverssl.org/ [no upgrade]
+// [1] https://bugzilla.mozilla.org/1613063
+// [2] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 
-// PREF: HTTPS-only connection in Private Browsing windows only
+// PREF: Disable HTTPS-only Mode for Normal Browsing windows
+user_pref("dom.security.https_only_mode", false); // default
+user_pref("dom.security.https_only_mode_ever_enabled", false); // default
+
+// PREF: Enable HTTPS-only Mode for Private Browsing windows
 user_pref("dom.security.https_only_mode_pbm", true);
 user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 
-// PREF: Disable HTTP background requests
+// PREF: Disable HTTP background requests in HTTPS-only Mode
 // When attempting to upgrade, if the server doesn't respond within 3 seconds, Firefox
 // sends HTTP requests in order to check if the server supports HTTPS or not.
 // This is done to avoid waiting for a timeout which takes 90 seconds.
@@ -316,7 +354,7 @@ user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 // PREF: Enable HTTPS-Only mode for local resources
-user_pref("dom.security.https_only_mode.upgrade_local", true);
+// user_pref("dom.security.https_only_mode.upgrade_local", true);
 
 /******************************************************************************
  * SECTION: DNS-over-HTTPS                                                    *
@@ -328,8 +366,10 @@ user_pref("dom.security.https_only_mode.upgrade_local", true);
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
-user_pref("network.trr.mode", 3);
-user_pref("network.trr.send_user-agent_headers", false); // default
+user_pref("network.trr.mode", 2);
+user_pref("network.trr.request_timeout_ms", 4000); /* default=1500 */
+// user_pref("network.trr.request_timeout_mode_trronly_ms", 30000); // default
+// user_pref("network.trr.send_user-agent_headers", false); // default
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
 // PREF: Force FF to always use your custom DNS resolver
@@ -440,7 +480,7 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
 
 // PREF: disable automatic authentication on Microsoft sites [WINDOWS]
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
-user_pref("network.http.windows-sso.enabled", false);
+// user_pref("network.http.windows-sso.enabled", false);
 
 // PREF: Block insecure active content (scripts) on HTTPS pages.
 // [1] https://trac.torproject.org/projects/tor/ticket/21323
@@ -559,7 +599,7 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
 // user_pref("permissions.default.geo", 0);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-// PREF: enable logging geolocation to the console
+// Enable logging geolocation to the console
 // user_pref("geo.provider.network.logging.enabled", true);
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
@@ -568,16 +608,21 @@ user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/
 // [2] https://trac.torproject.org/projects/tor/ticket/16931
 user_pref("extensions.blocklist.enabled", true); // default
 
+// PREF: disable auto-INSTALLING Firefox updates [NON-WINDOWS FF65+]
+// [NOTE] In FF65+ on Windows this SETTING (below) is now stored in a file and the pref was removed
+// [SETTING] General>Firefox Updates>Check for updates but let you choose to install them
+user_pref("app.update.auto", false);
+
+// PREF: disable auto-INSTALLING Firefox updates via a background service [FF90+] [WINDOWS]
+// [SETTING] General>Firefox Updates>Automatically install updates>When Firefox is not running
+// [1] https://support.mozilla.org/kb/enable-background-updates-firefox-windows ***/
+user_pref("app.update.background.scheduling.enabled", false);
+
 // PREF: Disable automatic extension updates
 // user_pref("extensions.update.enabled", false);
 // user_pref("extensions.autoupdate.enabled", false);
 // user_pref("extensions.update.url", "");
 // user_pref("extensions.update.background.url", "");
-
-// PREF: disable auto-INSTALLING Firefox updates via a background service
-// [SETTING] General>Firefox Updates>Automatically install updates>When Firefox is not running
-// [1] https://support.mozilla.org/kb/enable-background-updates-firefox-windows ***/
-// user_pref("app.update.background.scheduling.enabled", false);
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
