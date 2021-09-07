@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: August 2021                                                     *
+ * version: September 2021                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -166,13 +166,13 @@ user_pref("browser.compactmode.show", true);
 // PREF: restore "View image info"
 user_pref("browser.menu.showViewImageInfo", true);
 
-// PREF: do not unload tabs on low memory
+// PREF: unload tabs on low memory
 // Firefox will detect if your computer’s memory is running low (less than 400MB)
 // and suspend tabs that you have not used in awhile.
 // https://support.mozilla.org/en-US/questions/1262073
 // Available for testing in Nightly:
 // https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
-// user_pref("browser.tabs.unloadOnLowMemory", false); // default
+user_pref("browser.tabs.unloadOnLowMemory", true);
 
 // PREF: URL bar suggestions (bookmarks, history, open tabs) / dropdown options in the URL bar
 // user_pref("browser.urlbar.suggest.bookmarks", true);
@@ -255,6 +255,18 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);
 
 // PREF: print preview
 user_pref("print.tab_modal.enabled", true); // default
+
+// PREF: CSS Constructable Stylesheets
+user_pref("layout.css.constructable-stylesheets.enabled", true);
+
+// PREF: CSS Masonry Layout
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
+
+// PREF: Web API inputmode
+user_pref("dom.forms.inputmode", true);
+
+// PREF: Web API WebGPU
+// user_pref("dom.webgpu.enabled", true);
 
 /****************************************************************************
  * SECTION: PDF                                                             *
@@ -341,9 +353,12 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // user_pref("accessibility.blockautorefresh", true);
 // user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
-// PREF: AVIF images
+// PREF: AVIF image format
 // [1] https://www.omgubuntu.co.uk/2021/01/firefox-86-avif-image-support
 user_pref("image.avif.enabled", true); // default
+
+// PREF: JPEG XL image format
+user_pref("image.jxl.enabled", true);
 
 // PREF: Prevent password truncation when submitting form data
 // [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
