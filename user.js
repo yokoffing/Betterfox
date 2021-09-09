@@ -67,6 +67,7 @@ user_pref("network.preload", false);
 user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.urlbar.groupLabels.enabled", false);
 user_pref("browser.fixup.alternate.enabled", false);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
