@@ -283,6 +283,9 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false); // default
 
+// PREF: disable Firefox Suggest
+user_pref("browser.urlbar.groupLabels.enabled", false);
+
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
 // request (e.g. by adding www or .com). This is inconsistent use (e.g. FQDNs), does not work
