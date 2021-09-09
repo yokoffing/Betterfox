@@ -596,10 +596,11 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
  * SECTION: MOZILLA                                                   *
 ******************************************************************************/
 
+// PREF: Disable annoying location requests from websites
+user_pref("permissions.default.geo", 2);
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
-// user_pref("permissions.default.geo", 0);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-// Enable logging geolocation to the console
+// PREF: Enable logging geolocation to the console
 // user_pref("geo.provider.network.logging.enabled", true);
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
