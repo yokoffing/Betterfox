@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: September 2021                                                  *
+ * version: October 2021                                                    *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -169,10 +169,9 @@ user_pref("browser.menu.showViewImageInfo", true);
 // PREF: unload tabs on low memory
 // Firefox will detect if your computer’s memory is running low (less than 400MB)
 // and suspend tabs that you have not used in awhile.
-// https://support.mozilla.org/en-US/questions/1262073
-// Available for testing in Nightly:
-// https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
-user_pref("browser.tabs.unloadOnLowMemory", true);
+// [1] https://support.mozilla.org/en-US/questions/1262073
+// [2] https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
+user_pref("browser.tabs.unloadOnLowMemory", true); // default
 
 // PREF: URL bar suggestions (bookmarks, history, open tabs) / dropdown options in the URL bar
 // user_pref("browser.urlbar.suggest.bookmarks", true);
