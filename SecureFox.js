@@ -369,7 +369,7 @@ user_pref("dom.security.https_only_mode_send_http_background_request", false);
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
-user_pref("network.trr.mode", 2);
+user_pref("network.trr.mode", 3);
 user_pref("network.trr.request_timeout_ms", 4000); /* default=1500 */
 // user_pref("network.trr.request_timeout_mode_trronly_ms", 30000); // default
 // user_pref("network.trr.send_user-agent_headers", false); // default
@@ -379,6 +379,7 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 // You will type between the "" for both prefs.
 // I recommend creating your own URI with NextDNS for both privacy and security.
 // https://nextdns.io
+// [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
 user_pref("network.trr.uri", "");
 user_pref("network.trr.custom_uri", "");
 
