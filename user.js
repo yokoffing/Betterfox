@@ -86,10 +86,6 @@ user_pref("network.trr.request_timeout_ms", 4000);
 user_pref("network.trr.send_user-agent_headers", false);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
-/** ESNI / ECH ***/
-user_pref("network.dns.echconfig.enabled", true);
-user_pref("network.dns.use_https_rr_as_altsvc", true);
-
 /** PASSWORDS AND AUTOFILL ***/
 user_pref("signon.autofillForms.http", false);
 user_pref("security.insecure_field_warning.contextual.enabled", true);
