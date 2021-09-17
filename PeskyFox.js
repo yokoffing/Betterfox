@@ -56,9 +56,9 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", fa
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("extensions.getAddons.showPane", false);
 
-// PREF: Delay of security dialog when downloading extensions
+// PREF: Remove delay of security dialog when downloading extensions
 // default=1000
-user_pref("security.dialog_enable_delay", 0);
+// user_pref("security.dialog_enable_delay", 0);
 
 // PREF: Remove "addons.mozilla.org" from set of domains that extensions cannot access
 // [NOTE] May only work with privacy.resistfingerprinting enabled?
