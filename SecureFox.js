@@ -392,11 +392,10 @@ user_pref("network.trr.custom_uri", "");
 
 // PREF: Enable Encrypted Client Hello (ECH)
 // Evolution of ESNI.
-// [!] Breaks Discord login through Firefox.
 // ESNI: https://www.eff.org/deeplinks/2018/09/esni-privacy-protecting-upgrade-https/
 // ECH: https://blog.mozilla.org/security/2021/01/07/encrypted-client-hello-the-future-of-esni-in-firefox/
-user_pref("network.dns.echconfig.enabled", true);
-user_pref("network.dns.use_https_rr_as_altsvc", true);
+// user_pref("network.dns.echconfig.enabled", true);
+// user_pref("network.dns.use_https_rr_as_altsvc", true); /* default */
 
 /******************************************************************************
  * SECTION: PASSWORDS                             *
