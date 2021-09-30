@@ -30,7 +30,7 @@ user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
-user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com");
+user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
 user_pref("fission.autostart", true);
 user_pref("beacon.enabled", false);
