@@ -38,6 +38,7 @@ user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
 
 // PREF: allow embedded tweets and Instagram posts
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
+// [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // hidden
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
