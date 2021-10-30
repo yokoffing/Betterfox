@@ -399,6 +399,11 @@ user_pref("network.trr.custom_uri", "");
 // user_pref("network.dns.echconfig.enabled", true);
 // user_pref("network.dns.use_https_rr_as_altsvc", true); // default
 
+// PREF: disable HTTP Alternative Services [FF37+]
+// [WHY] Already isolated by network partitioning (FF85+) or FPI ***/
+// user_pref("network.http.altsvc.enabled", false);
+// user_pref("network.http.altsvc.oe", false);
+
 /******************************************************************************
  * SECTION: PASSWORDS                             *
 ******************************************************************************/
