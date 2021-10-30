@@ -286,6 +286,8 @@ user_pref("browser.search.suggest.enabled.private", false); // default
 
 // PREF: disable Firefox Suggest
 user_pref("browser.urlbar.groupLabels.enabled", false);
+user_pref("browser.urlbar.suggest.quicksuggest", false);
+user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
@@ -394,8 +396,8 @@ user_pref("network.trr.custom_uri", "");
 // PREF: Enable Encrypted Client Hello (ECH)
 // [1] https://blog.cloudflare.com/encrypted-client-hello/
 // [2] https://www.youtube.com/watch?v=tfyrVYqXQRE
-user_pref("network.dns.echconfig.enabled", true);
-// user_pref("network.dns.use_https_rr_as_altsvc", true); /* default */
+// user_pref("network.dns.echconfig.enabled", true);
+// user_pref("network.dns.use_https_rr_as_altsvc", true); // default
 
 /******************************************************************************
  * SECTION: PASSWORDS                             *
