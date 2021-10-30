@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: September 2021                                                  *
+ * version: October 2021                                                    *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -38,7 +38,8 @@ user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
 
 // PREF: allow embedded tweets and Instagram posts
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
-user_pref("urlclassifier.trackingSkipURLs", "*.twitter.com, *.twimg.com"); // hidden
+// [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
+user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // hidden
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
 // PREF: Site Isolation
@@ -120,7 +121,7 @@ user_pref("dom.storage.next_gen", true);
 // [2] https://web.dev/samesite-cookies-explained/
 user_pref("network.cookie.sameSite.laxByDefault", true);
 user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-user_pref("network.cookie.sameSite.schemeful", true);
+user_pref("network.cookie.sameSite.schemeful", false);
 
 // PREF: disable cache
 // user_pref("browser.cache.disk.enable", true); // default
@@ -283,6 +284,11 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false); // default
 
+// PREF: disable Firefox Suggest
+user_pref("browser.urlbar.groupLabels.enabled", false);
+user_pref("browser.urlbar.suggest.quicksuggest", false);
+user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
 // request (e.g. by adding www or .com). This is inconsistent use (e.g. FQDNs), does not work
@@ -371,11 +377,15 @@ user_pref("network.trr.request_timeout_ms", 4000); /* default=1500 */
 // user_pref("network.trr.request_timeout_mode_trronly_ms", 30000); // default
 // user_pref("network.trr.send_user-agent_headers", false); // default
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+// Temporary workaround for DNS leak with DOH active:
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1730418
+// user_pref("network.dns.upgrade_with_https_rr", false);
 
 // PREF: Force FF to always use your custom DNS resolver
 // You will type between the "" for both prefs.
 // I recommend creating your own URI with NextDNS for both privacy and security.
 // https://nextdns.io
+// [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
 user_pref("network.trr.uri", "");
 user_pref("network.trr.custom_uri", "");
 
@@ -384,12 +394,15 @@ user_pref("network.trr.custom_uri", "");
 ******************************************************************************/
 
 // PREF: Enable Encrypted Client Hello (ECH)
-// Evolution of ESNI.
-// [!] Breaks Discord login through Firefox.
-// ESNI: https://www.eff.org/deeplinks/2018/09/esni-privacy-protecting-upgrade-https/
-// ECH: https://blog.mozilla.org/security/2021/01/07/encrypted-client-hello-the-future-of-esni-in-firefox/
-user_pref("network.dns.echconfig.enabled", true);
-user_pref("network.dns.use_https_rr_as_altsvc", true);
+// [1] https://blog.cloudflare.com/encrypted-client-hello/
+// [2] https://www.youtube.com/watch?v=tfyrVYqXQRE
+// user_pref("network.dns.echconfig.enabled", true);
+// user_pref("network.dns.use_https_rr_as_altsvc", true); // default
+
+// PREF: disable HTTP Alternative Services [FF37+]
+// [WHY] Already isolated by network partitioning (FF85+) or FPI ***/
+// user_pref("network.http.altsvc.enabled", false);
+// user_pref("network.http.altsvc.oe", false);
 
 /******************************************************************************
  * SECTION: PASSWORDS                             *
@@ -596,10 +609,11 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
  * SECTION: MOZILLA                                                   *
 ******************************************************************************/
 
+// PREF: Disable annoying location requests from websites
+user_pref("permissions.default.geo", 2);
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
-// user_pref("permissions.default.geo", 0);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-// Enable logging geolocation to the console
+// PREF: Enable logging geolocation to the console
 // user_pref("geo.provider.network.logging.enabled", true);
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
