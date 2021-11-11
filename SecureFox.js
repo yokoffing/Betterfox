@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: October 2021                                                    *
+ * version: November 2021                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -204,7 +204,8 @@ user_pref("network.predictor.enabled", false);
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time, to avoid DNS latency.
-// [NOTE] Only allowing secure requests.
+// In order to reduce latency, Firefox will proactively perform domain name resolution on links that
+// the user may choose to follow as well as URLs for items referenced by elements in a web page.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
@@ -220,7 +221,8 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
 // PREF: Link prefetching <link rel="prefetch">
-// A directive that tells a browser to fetch a resource that will probably be needed for the next navigation.
+// Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
+// A directive that tells a browser to fetch a resource that will likely be needed for the next navigation.
 // The resource will be fetched with extremely low priority (since everything the browser knows
 // is needed in the current page is more important than a resource that we guess might be needed in the next one).
 // Prefetch’s main use case is speeding up the next navigation rather than the current one.
@@ -237,6 +239,7 @@ user_pref("network.prefetch-next", false);
 // the user hovers their mouse over. In case the user follows through with the action, the page can begin loading faster since
 // some of the work was already started in advance. Focuses on fetching a resource for the NEXT navigation.
 // [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
+// [?] Only affects the new tab page? https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections?redirectslug=how-stop-firefox-automatically-making-connections&redirectlocale=en-US#:~:text=Speculative%20pre%2Dconnections
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // [2] https://www.keycdn.com/blog/resource-hints#prefetch
 // [3] https://3perf.com/blog/link-rels/#prefetch
