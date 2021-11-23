@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: October 2021                                                    *
+ * version: December 2021                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -40,7 +40,6 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("dom.storage.next_gen", true);
 user_pref("network.cookie.sameSite.laxByDefault", true);
 user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-user_pref("network.cookie.sameSite.schemeful", false);
 user_pref("privacy.webrtc.globalMuteToggles", true);
 
 /** CLEARING DATA DEFAULTS ***/
