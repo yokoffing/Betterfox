@@ -121,7 +121,7 @@ user_pref("dom.storage.next_gen", true);
 // [2] https://web.dev/samesite-cookies-explained/
 user_pref("network.cookie.sameSite.laxByDefault", true);
 user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-user_pref("network.cookie.sameSite.schemeful", false);
+user_pref("network.cookie.sameSite.schemeful", false); // default
 
 // PREF: disable cache
 // user_pref("browser.cache.disk.enable", true); // default
