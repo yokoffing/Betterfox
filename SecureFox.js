@@ -132,7 +132,7 @@ user_pref("network.cookie.sameSite.schemeful", false); // default
 // user_pref("browser.cache.offline.enable", false);
 
 // PREF: WebRTC Global Mute Toggles
-user_pref("privacy.webrtc.globalMuteToggles", true);
+// user_pref("privacy.webrtc.globalMuteToggles", true);
 
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
