@@ -345,11 +345,11 @@ user_pref("dom.security.https_first_pbm", true); // default
 // [1] https://bugzilla.mozilla.org/1613063
 // [2] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 
-// PREF: Disable HTTPS-only Mode for Normal Browsing windows
+// PREF: disable HTTPS-only Mode for Normal Browsing windows
 user_pref("dom.security.https_only_mode", false); // default
 user_pref("dom.security.https_only_mode_ever_enabled", false); // default
 
-// PREF: Enable HTTPS-only Mode for Private Browsing windows
+// PREF: enable HTTPS-only Mode for Private Browsing windows
 user_pref("dom.security.https_only_mode_pbm", true);
 user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 
