@@ -136,7 +136,7 @@ user_pref("dom.storage.next_gen", true); // default
 
 // PREF: set third-party cookies to session-only
 user_pref("network.cookie.thirdparty.sessionOnly", true);
-// user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true); // default
+user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
 // PREF: delete all cookies after a certain period of time
 // ALTERNATIVE: Use a cookie manager extension
