@@ -114,7 +114,7 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 
 // PREF: Local Storage Next Generation (LSNG) (DOMStorage) 
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
-user_pref("dom.storage.next_gen", true);
+user_pref("dom.storage.next_gen", true); // default
 
 // PREF: SameStie Cookies
 // [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
