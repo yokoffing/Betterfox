@@ -510,7 +510,7 @@ user_pref("security.mixed_content.upgrade_display_content", true);
 
 // PREF: Block insecure downloads from secure sites
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
-user_pref("dom.block_download_insecure", true);
+user_pref("dom.block_download_insecure", true); // default
 
 // PREF: allow PDFs to load javascript
 // https://www.reddit.com/r/uBlockOrigin/comments/mulc86/firefox_88_now_supports_javascript_in_pdf_files/
