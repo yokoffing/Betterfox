@@ -134,6 +134,15 @@ user_pref("network.cookie.sameSite.schemeful", false); // default
 // PREF: WebRTC Global Mute Toggles
 // user_pref("privacy.webrtc.globalMuteToggles", true);
 
+// PREF: set third-party cookies to session-only
+user_pref("network.cookie.thirdparty.sessionOnly", true);
+// user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true); // default
+
+// PREF: delete all cookies after a certain period of time
+// ALTERNATIVE: Use a cookie manager extension
+// user_pref("network.cookie.lifetimePolicy", 3);
+// user_pref("network.cookie.lifetime.days", 7);
+
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
 ******************************************************************************/
@@ -162,16 +171,6 @@ user_pref("privacy.sanitize.timeSpan", 0);
 
 // PREF: set History section to show all options
 user_pref("privacy.history.custom", true);
-
-// PREF: limit third-party cookies
-// Because of dFPI and our tracking protection(s), we will only clear nonsecure cookies each session.
-// user_pref("network.cookie.thirdparty.sessionOnly", false);
-// user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
-
-// PREF: delete all cookies after a certain period of time
-// ALTERNATIVE: Use a cookie manager extension
-// user_pref("network.cookie.lifetimePolicy", 3);
-// user_pref("network.cookie.lifetime.days", 7);
 
 /******************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                           *
