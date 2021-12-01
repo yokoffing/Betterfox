@@ -38,6 +38,7 @@ user_pref("dom.battery.enabled", false);
 user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("network.cookie.thirdparty.sessionOnly", true);
+user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true)
 
 /** CLEARING DATA DEFAULTS ***/
 user_pref("privacy.cpd.history", true);
