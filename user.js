@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: October 2021                                                    *
+ * version: December 2021                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -32,16 +32,14 @@ user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
-user_pref("fission.autostart", true);
+user_pref("privacy.partition.network_state.ocsp_cache", true);
+user_pref("privacy.partition.serviceWorkers", true);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
 user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
-user_pref("dom.storage.next_gen", true);
-user_pref("network.cookie.sameSite.laxByDefault", true);
-user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-user_pref("network.cookie.sameSite.schemeful", false);
-user_pref("privacy.webrtc.globalMuteToggles", true);
+user_pref("network.cookie.thirdparty.sessionOnly", true);
+user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
 /** CLEARING DATA DEFAULTS ***/
 user_pref("privacy.cpd.history", true);
@@ -56,6 +54,7 @@ user_pref("privacy.history.custom", true);
 
 /** SPECULATIVE CONNECTIONS ***/
 user_pref("network.predictor.enabled", false);
+user_pref("network.predictor.enable-prefetch", false);
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
@@ -68,8 +67,8 @@ user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.groupLabels.enabled", false);
-user_pref("browser.urlbar.suggest.quicksuggest", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.fixup.alternate.enabled", false);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
@@ -84,7 +83,6 @@ user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 /** DNS-over-HTTPS (DOH) ***/
-user_pref("network.trr.request_timeout_ms", 4000);
 user_pref("network.trr.send_user-agent_headers", false);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
@@ -126,7 +124,6 @@ user_pref("browser.formfill.enable", false);
 /** MIXED CONTENT + CROSS-SITE ***/
 user_pref("network.auth.subresource-http-auth-allow", 1);
 user_pref("security.mixed_content.upgrade_display_content", true);
-user_pref("dom.block_download_insecure", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
@@ -188,7 +185,6 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("browser.aboutwelcome.enabled", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
-user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
 
 /** WARNINGS ***/
 user_pref("browser.tabs.warnOnClose", false);
@@ -226,6 +222,7 @@ user_pref("extensions.pocket.site", " ");
 
 /** DOWNLOADS ***/
 user_pref("browser.download.useDownloadDir", false);
+user_pref("browser.download.alwaysOpenPanel", false);
 user_pref("browser.download.manager.addToRecentDocs", false);
 
 /** VARIOUS ***/
