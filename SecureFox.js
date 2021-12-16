@@ -63,6 +63,7 @@ user_pref("fission.autostart", true); // default
 // [2] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
 // [3] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
 // [4] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
+// [5] https://github.com/arkenfox/user.js/issues/1281
 user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict"
 user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
 user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // default
@@ -76,6 +77,8 @@ user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.ena
 // [2] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
 // [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
 user_pref("privacy.partition.network_state", true); // default
+user_pref("privacy.partition.network_state.ocsp_cache", true);
+user_pref("privacy.partition.serviceWorkers", true);
 
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
@@ -198,8 +201,8 @@ user_pref("privacy.history.custom", true);
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
 user_pref("network.predictor.enabled", false);
 // Fetch critical resources on the page ahead of time as determined by the local file, to accelerate rendering of the page.
-// user_pref("network.predictor.enable-hover-on-ssl", true);
-// user_pref("network.predictor.enable-prefetch", true);
+// user_pref("network.predictor.enable-hover-on-ssl", false);
+user_pref("network.predictor.enable-prefetch", false);
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time, to avoid DNS latency.
@@ -288,8 +291,8 @@ user_pref("browser.search.suggest.enabled.private", false); // default
 
 // PREF: disable Firefox Suggest
 user_pref("browser.urlbar.groupLabels.enabled", false);
-user_pref("browser.urlbar.suggest.quicksuggest", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
