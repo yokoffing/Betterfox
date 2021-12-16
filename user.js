@@ -21,6 +21,7 @@
 ****************************************************************************/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.startup.preXulSkeletonUI", false);
+user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
@@ -237,6 +238,8 @@ user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.display.show_image_placeholders", false);
 user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
+user_pref("layout.css.constructable-stylesheets.enabled", true);
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.forms.inputmode", true);
 
 /** TAB BEHAVIOR ***/
