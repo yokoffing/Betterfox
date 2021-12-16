@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: October 2021                                                    *
+ * version: December 2021                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -46,7 +46,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
 // into a separate operating system process makes it harder for malicious sites to read another site’s private data.
 // [1] https://hacks.mozilla.org/2021/05/introducing-firefox-new-site-isolation-security-architecture/
-user_pref("fission.autostart", true);
+user_pref("fission.autostart", true); // default
 
 // PREF: State Paritioning [aka Dynamic First-Party Isolation (dFPI)]
 // Firefox manages client-side state (i.e., data stored in the browser) to mitigate the ability of websites to abuse state
@@ -63,6 +63,7 @@ user_pref("fission.autostart", true);
 // [2] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
 // [3] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
 // [4] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
+// [5] https://github.com/arkenfox/user.js/issues/1281
 user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict"
 user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
 user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // default
@@ -76,6 +77,8 @@ user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.ena
 // [2] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
 // [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
 user_pref("privacy.partition.network_state", true); // default
+user_pref("privacy.partition.network_state.ocsp_cache", true);
+user_pref("privacy.partition.serviceWorkers", true);
 
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
@@ -114,14 +117,14 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 
 // PREF: Local Storage Next Generation (LSNG) (DOMStorage) 
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
-user_pref("dom.storage.next_gen", true);
+user_pref("dom.storage.next_gen", true); // default
 
 // PREF: SameStie Cookies
 // [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
 // [2] https://web.dev/samesite-cookies-explained/
-user_pref("network.cookie.sameSite.laxByDefault", true);
-user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-user_pref("network.cookie.sameSite.schemeful", false);
+// user_pref("network.cookie.sameSite.laxByDefault", true);
+// user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+// user_pref("network.cookie.sameSite.schemeful", false); // default
 
 // PREF: disable cache
 // user_pref("browser.cache.disk.enable", true); // default
@@ -132,7 +135,16 @@ user_pref("network.cookie.sameSite.schemeful", false);
 // user_pref("browser.cache.offline.enable", false);
 
 // PREF: WebRTC Global Mute Toggles
-user_pref("privacy.webrtc.globalMuteToggles", true);
+// user_pref("privacy.webrtc.globalMuteToggles", true);
+
+// PREF: set third-party cookies to session-only
+user_pref("network.cookie.thirdparty.sessionOnly", true);
+user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
+
+// PREF: delete all cookies after a certain period of time
+// ALTERNATIVE: Use a cookie manager extension
+// user_pref("network.cookie.lifetimePolicy", 3);
+// user_pref("network.cookie.lifetime.days", 7);
 
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
@@ -163,16 +175,6 @@ user_pref("privacy.sanitize.timeSpan", 0);
 // PREF: set History section to show all options
 user_pref("privacy.history.custom", true);
 
-// PREF: limit third-party cookies
-// Because of dFPI and our tracking protection(s), we will only clear nonsecure cookies each session.
-// user_pref("network.cookie.thirdparty.sessionOnly", false);
-// user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
-
-// PREF: delete all cookies after a certain period of time
-// ALTERNATIVE: Use a cookie manager extension
-// user_pref("network.cookie.lifetimePolicy", 3);
-// user_pref("network.cookie.lifetime.days", 7);
-
 /******************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
@@ -199,12 +201,13 @@ user_pref("privacy.history.custom", true);
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
 user_pref("network.predictor.enabled", false);
 // Fetch critical resources on the page ahead of time as determined by the local file, to accelerate rendering of the page.
-// user_pref("network.predictor.enable-hover-on-ssl", true);
-// user_pref("network.predictor.enable-prefetch", true);
+// user_pref("network.predictor.enable-hover-on-ssl", false);
+user_pref("network.predictor.enable-prefetch", false);
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time, to avoid DNS latency.
-// [NOTE] Only allowing secure requests.
+// In order to reduce latency, Firefox will proactively perform domain name resolution on links that
+// the user may choose to follow as well as URLs for items referenced by elements in a web page.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
@@ -220,7 +223,8 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
 // PREF: Link prefetching <link rel="prefetch">
-// A directive that tells a browser to fetch a resource that will probably be needed for the next navigation.
+// Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
+// A directive that tells a browser to fetch a resource that will likely be needed for the next navigation.
 // The resource will be fetched with extremely low priority (since everything the browser knows
 // is needed in the current page is more important than a resource that we guess might be needed in the next one).
 // Prefetch’s main use case is speeding up the next navigation rather than the current one.
@@ -237,6 +241,7 @@ user_pref("network.prefetch-next", false);
 // the user hovers their mouse over. In case the user follows through with the action, the page can begin loading faster since
 // some of the work was already started in advance. Focuses on fetching a resource for the NEXT navigation.
 // [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
+// [?] Only affects the new tab page? https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections?redirectslug=how-stop-firefox-automatically-making-connections&redirectlocale=en-US#:~:text=Speculative%20pre%2Dconnections
 // [1] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // [2] https://www.keycdn.com/blog/resource-hints#prefetch
 // [3] https://3perf.com/blog/link-rels/#prefetch
@@ -286,8 +291,8 @@ user_pref("browser.search.suggest.enabled.private", false); // default
 
 // PREF: disable Firefox Suggest
 user_pref("browser.urlbar.groupLabels.enabled", false);
-user_pref("browser.urlbar.suggest.quicksuggest", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
@@ -343,11 +348,11 @@ user_pref("dom.security.https_first_pbm", true); // default
 // [1] https://bugzilla.mozilla.org/1613063
 // [2] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 
-// PREF: Disable HTTPS-only Mode for Normal Browsing windows
+// PREF: disable HTTPS-only Mode for Normal Browsing windows
 user_pref("dom.security.https_only_mode", false); // default
 user_pref("dom.security.https_only_mode_ever_enabled", false); // default
 
-// PREF: Enable HTTPS-only Mode for Private Browsing windows
+// PREF: enable HTTPS-only Mode for Private Browsing windows
 user_pref("dom.security.https_only_mode_pbm", true);
 user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 
@@ -507,7 +512,7 @@ user_pref("security.mixed_content.upgrade_display_content", true);
 
 // PREF: Block insecure downloads from secure sites
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
-user_pref("dom.block_download_insecure", true);
+user_pref("dom.block_download_insecure", true); // default
 
 // PREF: allow PDFs to load javascript
 // https://www.reddit.com/r/uBlockOrigin/comments/mulc86/firefox_88_now_supports_javascript_in_pdf_files/
@@ -522,7 +527,7 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 // permissions, and fullscreen requests. Disabling delegation means any prompts
 // for these will show/use their correct 3rd party origin
 // [1] https://groups.google.com/forum/#!topic/mozilla.dev.platform/BdFOMAuCGW8/discussion
-user_pref("permissions.delegation.enabled", false); // default
+user_pref("permissions.delegation.enabled", false);
 
 // PREF: Enforce TLS 1.0 and 1.1 downgrades as session only
 user_pref("security.tls.version.enable-deprecated", false); // default
