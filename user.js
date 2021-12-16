@@ -32,6 +32,8 @@ user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
+user_pref("privacy.partition.network_state.ocsp_cache", true);
+user_pref("privacy.partition.serviceWorkers", true);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
 user_pref("security.pki.crlite_mode", 2);
@@ -52,6 +54,7 @@ user_pref("privacy.history.custom", true);
 
 /** SPECULATIVE CONNECTIONS ***/
 user_pref("network.predictor.enabled", false);
+user_pref("network.predictor.enable-prefetch", false);
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
@@ -64,8 +67,8 @@ user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.groupLabels.enabled", false);
-user_pref("browser.urlbar.suggest.quicksuggest", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.fixup.alternate.enabled", false);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
