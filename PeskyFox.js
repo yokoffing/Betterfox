@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: October 2021                                                    *
+ * version: December 2021                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -149,6 +149,7 @@ user_pref("extensions.pocket.site", " ");
 // [SETTING] General>Downloads>Always ask you where to save files
 // false=the user is asked what to do
 user_pref("browser.download.useDownloadDir", false);
+user_pref("browser.download.alwaysOpenPanel", false); 
 
 // PREF: Disable adding downloads to the system's "recent documents" list
 user_pref("browser.download.manager.addToRecentDocs", false);
