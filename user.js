@@ -222,6 +222,7 @@ user_pref("extensions.pocket.site", " ");
 
 /** DOWNLOADS ***/
 user_pref("browser.download.useDownloadDir", false);
+user_pref("browser.download.alwaysOpenPanel", false);
 user_pref("browser.download.manager.addToRecentDocs", false);
 
 /** VARIOUS ***/
