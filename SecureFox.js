@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: December 2021                                                   *
+ * version: January 2021                                                    *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -288,6 +288,11 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 // [WARNING] Search engines keylog every character you type from the URL bar
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false); // default
+
+// PREF: disable location bar leaking single words to a DNS provider after searching
+// 0=never resolve single words, 1=heuristic (default), 2=always resolve
+// [1] https://bugzilla.mozilla.org/1642623
+user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 
 // PREF: disable Firefox Suggest
 user_pref("browser.urlbar.groupLabels.enabled", false);
