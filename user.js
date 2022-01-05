@@ -178,6 +178,7 @@ user_pref("browser.newtabpage.activity-stream.telemetry", false);
 ****************************************************************************/
 
 /** MOZILLA UI ***/
+user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false);
