@@ -23,20 +23,16 @@
 // [TEST] https://9to5mac.com/
 // user_pref("ui.systemUsesDarkTheme", 0); // hidden
 // user_pref("browser.in-content.dark-mode", false); // hidden
-// user_pref("devtools.theme", "light"); // default
-// user_pref("pdfjs.viewerCssTheme", 1);
 
 // PREF: Enable a Dark theme for browser and webpage content
 // [TEST] https://9to5mac.com/
 // user_pref("ui.systemUsesDarkTheme", 1); // hidden
 // user_pref("browser.in-content.dark-mode", true); // hidden
-// user_pref("devtools.theme", "dark");
-// user_pref("pdfjs.viewerCssTheme", 2);
 
 // PREF: Choose what theme Firefox follows by default
 // Dark (0), Light (1), System (2), or Browser (3) (default)
 // [1] https://www.reddit.com/r/firefox/comments/rfj6yc/how_to_stop_firefoxs_dark_theme_from_overriding/hoe82i5/?context=3
-// user_pref("layout.css.prefers-color-scheme.content-override", 2);
+user_pref("layout.css.prefers-color-scheme.content-override", 2);
 
 // PREF: Allow Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
