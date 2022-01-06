@@ -36,8 +36,7 @@ user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
 user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
 // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 
-// PREF: allow embedded tweets and Instagram posts
-// [OUTDATED] Firefox now loads these widgets while blocking cookies, trackers, etc.
+// PREF: allow embedded tweets and Reddit posts
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
 // user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // hidden
