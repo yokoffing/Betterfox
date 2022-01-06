@@ -27,20 +27,21 @@
 // [1] https://blog.mozilla.org/firefox/control-trackers-with-firefox/
 // [2] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 // [3] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
-user_pref("browser.contentblocking.category", "strict");
+user_pref("browser.contentblocking.category", "custom");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
-user_pref("privacy.trackingprotection.socialtracking.enabled", true);
+// user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
 // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 
 // PREF: allow embedded tweets and Instagram posts
+// [OUTDATED] Firefox now loads these widgets while blocking cookies, trackers, etc.
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
-user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // hidden
-user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
+// user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // hidden
+// user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
 // PREF: Site Isolation
 // Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
