@@ -36,6 +36,11 @@ user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
 user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
+
+/** DISK AVOIDANCE ***/
+user_pref("browser.cache.disk.enable", false);
+user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
+user_pref("media.memory_cache_max_size", 65536);
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
