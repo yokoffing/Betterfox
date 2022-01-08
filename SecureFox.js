@@ -108,13 +108,6 @@ user_pref("dom.battery.enabled", false);
 // [SETTING] to manage site exceptions: Options>Privacy & Security>Permissions>Virtual Reality>Settings
 // user_pref("permissions.default.xr", 2);
 
-// PREF: CRLite
-// This will reduce the number of times an OCSP server needs to be contacted and therefore increase privacy.
-// [1] https://blog.mozilla.org/security/2020/01/09/crlite-part-2-end-to-end-design/
-// [2] https://github.com/arkenfox/user.js/issues/1065
-user_pref("security.pki.crlite_mode", 2);
-user_pref("security.remote_settings.crlite_filters.enabled", true);
-
 // PREF: Local Storage Next Generation (LSNG) (DOMStorage) 
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 user_pref("dom.storage.next_gen", true); // default
@@ -130,7 +123,34 @@ user_pref("dom.storage.next_gen", true); // default
 // user_pref("privacy.webrtc.globalMuteToggles", true);
 
 /****************************************************************************
- * SECTION: DISK AVOIDANCE                                             *
+ * SECTION: CERTS / HPKP (HTTP Public Key Pinning)                         *
+****************************************************************************/
+
+// PREF: disable or limit SHA-1 certificates
+// 0 = allow all
+// 1 = block all
+// 3 = only allow locally-added roots (e.g. anti-virus) (default)
+// 4 = only allow locally-added roots or for certs in 2015 and earlier
+// If you have problems, update your software: SHA-1 is obsolete
+// [1] https://blog.mozilla.org/security/2016/10/18/phasing-out-sha-1-on-the-public-web/ 
+user_pref("security.pki.sha1_enforcement_level", 1);
+
+// PREF: enable strict pinning
+// PKP (Public Key Pinning) 0=disabled, 1=allow user MiTM (such as your antivirus), 2=strict
+// If you rely on an AV (antivirus) to protect your web browsing
+// by inspecting ALL your web traffic, then leave at current default=1
+// [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16206
+user_pref("security.cert_pinning.enforcement_level", 2);
+
+// PREF: CRLite
+// This will reduce the number of times an OCSP server needs to be contacted and therefore increase privacy.
+// [1] https://blog.mozilla.org/security/2020/01/09/crlite-part-2-end-to-end-design/
+// [2] https://github.com/arkenfox/user.js/issues/1065
+user_pref("security.pki.crlite_mode", 2);
+user_pref("security.remote_settings.crlite_filters.enabled", true);
+
+/****************************************************************************
+ * SECTION: DISK AVOIDANCE                                                 *
 ****************************************************************************/
 
 // PREF: disable disk cache
