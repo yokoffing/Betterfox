@@ -332,7 +332,7 @@ user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 // and is a security risk (e.g. common typos & malicious sites set up to exploit this).
 user_pref("browser.fixup.alternate.enabled", false);
 
-// PREF: "Not Secure" text in the URL bar on HTTP sites
+// PREF: display "Not Secure" text on HTTP sites
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
 
@@ -349,6 +349,23 @@ user_pref("security.insecure_connection_text.pbmode.enabled", true);
 // [3] CVE-2017-5383: https://www.mozilla.org/security/advisories/mfsa2017-02/
 // [4] https://www.xudongz.com/blog/2017/idn-phishing/
 user_pref("network.IDN_show_punycode", true);
+
+// PREF: display warning on the padlock for "broken security"
+// Bug: warning padlock not indicated for subresources on a secure page! [2]
+// [1] https://wiki.mozilla.org/Security:Renegotiation
+// [2] https://bugzilla.mozilla.org/1353705
+user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
+
+// PREF: control "Add Security Exception" dialog on SSL warnings
+// 0=do neither, 1=pre-populate url, 2=pre-populate url + pre-fetch cert (default)
+// [1] https://github.com/pyllyukko/user.js/issues/210
+user_pref("browser.ssl_override_behavior", 1);
+
+// PREF: display advanced information on Insecure Connection warning pages
+// only works when it's possible to add an exception
+// i.e. it doesn't work for HSTS discrepancies (https://subdomain.preloaded-hsts.badssl.com/)
+// [TEST] https://expired.badssl.com/ ***/
+user_pref("browser.xul.error_pages.expert_bad_cert", true);
 
 /******************************************************************************
  * SECTION: HTTPS-FIRST POLICY                          *
@@ -578,7 +595,7 @@ user_pref("privacy.window.name.update.enabled", true); // default
 user_pref("network.http.referer.XOriginPolicy", 0); // default
 // Control the amount of information to send.
 // 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
-user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+// user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /******************************************************************************
  * SECTION: VARIOUS                            *
