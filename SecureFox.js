@@ -150,6 +150,31 @@ user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 
 /****************************************************************************
+ * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
+****************************************************************************/
+
+// PREF: require safe negotiation
+// Blocks connections (SSL_ERROR_UNSAFE_NEGOTIATION) to servers that don't support RFC 5746 [2]
+// as they're potentially vulnerable to a MiTM attack [3]. A server without RFC 5746 can be
+// safe from the attack if it disables renegotiations but the problem is that the browser can't
+// know that. Setting this pref to true is the only way for the browser to ensure there will be
+// no unsafe renegotiations on the channel between the browser and the server.
+// [STATS] SSL Labs (July 2021) reports over 99% of top sites have secure renegotiation [4]
+// [1] https://wiki.mozilla.org/Security:Renegotiation
+// [2] https://datatracker.ietf.org/doc/html/rfc5746
+// [3] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555
+// [4] https://www.ssllabs.com/ssl-pulse/
+user_pref("security.ssl.require_safe_negotiation", true);
+
+// PREF: disable TLS1.3 0-RTT (round-trip time) [FF51+]
+// This data is not forward secret, as it is encrypted solely under keys derived using
+// the offered PSK. There are no guarantees of non-replay between connections
+// [1] https://github.com/tlswg/tls13-spec/issues/1001
+// [2] https://www.rfc-editor.org/rfc/rfc9001.html#name-replay-attacks-with-0-rtt
+// [3] https://blog.cloudflare.com/tls-1-3-overview-and-q-and-a/
+user_pref("security.tls.enable_0rtt_data", false);
+
+/****************************************************************************
  * SECTION: DISK AVOIDANCE                                                 *
 ****************************************************************************/
 
@@ -686,6 +711,16 @@ user_pref("permissions.default.geo", 2);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 // PREF: Enable logging geolocation to the console
 // user_pref("geo.provider.network.logging.enabled", true);
+
+// PREF: disable using the OS's geolocation service
+user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
+user_pref("geo.provider.use_corelocation", false); // [MAC]
+user_pref("geo.provider.use_gpsd", false); // [LINUX]
+
+// PREF: disable region updates
+// [1] https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
+user_pref("browser.region.network.url", "");
+user_pref("browser.region.update.enabled", false);
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
 // This includes updates for "revoked certificates".
