@@ -738,6 +738,10 @@ user_pref("app.update.auto", false);
 // [1] https://support.mozilla.org/kb/enable-background-updates-firefox-windows ***/
 user_pref("app.update.background.scheduling.enabled", false);
 
+// PREF: disable search engine updates (e.g. OpenSearch)
+// [NOTE] This does not affect Mozilla's built-in or Web Extension search engines
+user_pref("browser.search.update", false);
+
 // PREF: Disable automatic extension updates
 // user_pref("extensions.update.enabled", false);
 // user_pref("extensions.autoupdate.enabled", false);
