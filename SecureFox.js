@@ -126,16 +126,40 @@ user_pref("dom.storage.next_gen", true); // default
 // user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 // user_pref("network.cookie.sameSite.schemeful", false); // default
 
-// PREF: disable cache
-// user_pref("browser.cache.disk.enable", true); // default
+// PREF: WebRTC Global Mute Toggles
+// user_pref("privacy.webrtc.globalMuteToggles", true);
+
+/****************************************************************************
+ * SECTION: DISK AVOIDANCE                                             *
+****************************************************************************/
+
+// PREF: disable disk cache
+// [NOTE] If you think disk cache helps perf, then feel free to override this
+user_pref("browser.cache.disk.enable", false);
+
+// PREF: disable media cache from writing to disk in Private Browsing
+// [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
+user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
+user_pref("media.memory_cache_max_size", 65536);
+
+// PREF: disable storing extra session data
+// define on which sites to save extra session data such as form content, cookies and POST data
+// 0=everywhere, 1=unencrypted sites, 2=nowhere
+// user_pref("browser.sessionstore.privacy_level", 2);
+
+// PREF: set the minimum interval between session save operations
+// Increasing this can help on older machines and some websites, as well as reducing writes
+// [1] https://bugzilla.mozilla.org/1304389
+// user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
+
+// PREF: disable automatic Firefox start and session restore after reboot [WINDOWS]
+// [1] https://bugzilla.mozilla.org/603903
+// user_pref("toolkit.winRegisterApplicationRestart", false);
 
 // PREF: disable offline cache (appCache)
 // [WARNING] The API is easily fingerprinted, do not disable!
 // [1] https://github.com/arkenfox/user.js/issues/1055
 // user_pref("browser.cache.offline.enable", false);
-
-// PREF: WebRTC Global Mute Toggles
-// user_pref("privacy.webrtc.globalMuteToggles", true);
 
 // PREF: set third-party cookies to session-only
 user_pref("network.cookie.thirdparty.sessionOnly", true);
