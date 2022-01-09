@@ -770,7 +770,7 @@ user_pref("corroborator.enabled", false);
 // Telemetry Coverage
 user_pref("toolkit.telemetry.coverage.opt-out", true);
 user_pref("toolkit.coverage.opt-out", true);
-// user_pref("toolkit.coverage.endpoint.base", "");
+user_pref("toolkit.coverage.endpoint.base", "");
 
 // Health Reports
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data.
@@ -819,7 +819,7 @@ user_pref("extensions.abuseReport.enabled", false);
 // PREF: Normandy/Shield [extensions tracking]
 // Shield is an telemetry system (including Heartbeat) that can also push and test "recipes"
 user_pref("app.normandy.enabled", false);
-// user_pref("app.normandy.api_url", "");
+user_pref("app.normandy.api_url", "");
 
 // PREF: PingCentre telemetry (used in several System Add-ons)
 // Currently blocked by 'datareporting.healthreport.uploadEnabled'
