@@ -143,7 +143,6 @@ user_pref("security.mixed_content.upgrade_display_content", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
-user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /** GOOGLE SAFE BROWSING ***/
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
