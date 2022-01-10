@@ -99,7 +99,6 @@ user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 /** DNS-over-HTTPS (DOH) ***/
-user_pref("network.trr.send_user-agent_headers", false);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
 /** PASSWORDS AND AUTOFILL ***/
