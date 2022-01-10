@@ -469,9 +469,8 @@ user_pref("dom.security.https_only_mode_send_http_background_request", false);
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
 user_pref("network.trr.mode", 2);
-user_pref("network.trr.request_timeout_ms", 4000); /* default=1500 */
-// user_pref("network.trr.request_timeout_mode_trronly_ms", 30000); // default
-// user_pref("network.trr.send_user-agent_headers", false); // default
+// user_pref("network.trr.request_timeout_ms", 4000); /* default=1500 */
+user_pref("network.trr.send_user-agent_headers", false); // default
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 // Temporary workaround for DNS leak with DOH active:
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1730418
