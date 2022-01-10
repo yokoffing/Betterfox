@@ -264,7 +264,7 @@ user_pref("layout.css.constructable-stylesheets.enabled", true);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 // PREF: Web API inputmode
-user_pref("dom.forms.inputmode", true);
+user_pref("dom.forms.inputmode", true); // default
 
 // PREF: Web API WebGPU
 // user_pref("dom.webgpu.enabled", true);
