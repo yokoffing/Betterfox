@@ -30,6 +30,7 @@ user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 user_pref("browser.contentblocking.category", "custom");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", false);
+user_pref("privacy.trackingprotection.lower_network_priority", true);
 user_pref("network.cookie.cookieBehavior", 5);
 user_pref("privacy.partition.network_state.ocsp_cache", true);
 user_pref("privacy.partition.serviceWorkers", true);
@@ -142,6 +143,13 @@ user_pref("security.mixed_content.upgrade_display_content", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
+
+/** HEADERS / REFERERS ***/
+user_pref("network.http.referer.defaultPolicy.pbmode", 1)
+user_pref("network.http.referer.defaultPolicy.trackers", 0)
+user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 0)
+user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
 
 /** GOOGLE SAFE BROWSING ***/
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
