@@ -36,6 +36,9 @@ user_pref("privacy.trackingprotection.socialtracking.enabled", false);
 user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
 // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 
+// PREF: Lower the priority of network loads for resources on the tracking protection list.
+user_pref("privacy.trackingprotection.lower_network_priority", true);
+
 // PREF: allow embedded tweets and Reddit posts
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
@@ -79,6 +82,11 @@ user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.ena
 user_pref("privacy.partition.network_state", true); // default
 user_pref("privacy.partition.network_state.ocsp_cache", true);
 user_pref("privacy.partition.serviceWorkers", true);
+
+// PREF: Smartblock
+[1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
+[2] https://www.youtube.com/watch?v=VE8SrClOTgw
+user_pref("extensions.webcompat.enable_shims", true); // default
 
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
@@ -632,14 +640,40 @@ user_pref("dom.targetBlankNoOpener.enabled", true); // default
 // string is restored if the tab reverts back to the original page. This change prevents some cross-site attacks.
 user_pref("privacy.window.name.update.enabled", true); // default
 
-// PREF: Downgrade Cross-Origin (Third-Party) Referers
-// CROSS ORIGIN: control when to send a referer
-// [1] https://github.com/arkenfox/user.js/issues/1077
+/******************************************************************************
+ * SECTION: HEADERS / REFERERS                                             *
+******************************************************************************/
+
+// PREF: Set the default Referrer Policy; to be used unless overriden by the site.
+// 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
+// 3=no-referrer-when-downgrade.
+// [1] https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/
+// [2] https://web.dev/referrer-best-practices/
+// [3] https://plausible.io/blog/referrer-policy
+user_pref("network.http.referer.defaultPolicy", 2) // default
+user_pref("network.http.referer.defaultPolicy.pbmode", 1)
+
+// PREF: Set the default Referrer Policy applied to third-party trackers when the
+// default cookie policy is set to reject third-party trackers; to be used
+// unless overriden by the site.
+// [NOTE] Trim referrers from trackers to origins by default ***/
+// 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
+// 3=no-referrer-when-downgrade.
+user_pref("network.http.referer.defaultPolicy.trackers", 0)
+user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 0)
+
+// PREF: control when to send a cross-origin referer
 // 0=always (default), 1=only if base domains match, 2=only if hosts match
-user_pref("network.http.referer.XOriginPolicy", 0); // default
-// Control the amount of information to send.
-// 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
-// user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+// [NOTE] Known to cause issues with some sites (e.g., Vimeo, iCloud, Instagram) ***/
+// user_pref("network.http.referer.XOriginPolicy", 2);
+
+// PREF: control the amount of cross-origin information to send
+// 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port ***/
+user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+
+// PREF: disable relaxing referer for cross-site navigations
+user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
+user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // default
 
 /******************************************************************************
  * SECTION: VARIOUS                            *
