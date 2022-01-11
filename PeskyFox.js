@@ -150,13 +150,13 @@ user_pref("extensions.pocket.site", " ");
 // [SETTING] General>Downloads>Always ask you where to save files
 // false=the user is asked what to do
 user_pref("browser.download.useDownloadDir", false);
-user_pref("browser.download.alwaysOpenPanel", false); 
+// user_pref("browser.download.alwaysOpenPanel", false); 
 
 // PREF: Disable adding downloads to the system's "recent documents" list
 user_pref("browser.download.manager.addToRecentDocs", false);
 
 // PREF: Autohide download button
-// user_pref("browser.download.autohideButton", true);
+user_pref("browser.download.autohideButton", true); // default
 
 /****************************************************************************
  * SECTION: VARIOUS                                                         *
