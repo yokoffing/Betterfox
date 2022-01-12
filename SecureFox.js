@@ -161,6 +161,13 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
 ****************************************************************************/
 
+// PREF: display warning on the padlock for "broken security"
+// Bug: warning padlock not indicated for subresources on a secure page! [2]
+// [TEST] (January 2022) https://www.unibs.it/it
+// [1] https://wiki.mozilla.org/Security:Renegotiation
+// [2] https://bugzilla.mozilla.org/1353705
+user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
+
 // PREF: require safe negotiation
 // Blocks connections (SSL_ERROR_UNSAFE_NEGOTIATION) to servers that don't support RFC 5746 [2]
 // as they're potentially vulnerable to a MiTM attack [3]. A server without RFC 5746 can be
@@ -172,7 +179,18 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 // [2] https://datatracker.ietf.org/doc/html/rfc5746
 // [3] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555
 // [4] https://www.ssllabs.com/ssl-pulse/
-user_pref("security.ssl.require_safe_negotiation", true);
+// user_pref("security.ssl.require_safe_negotiation", true);
+
+// PREF: display advanced information on Insecure Connection warning pages
+// only works when it's possible to add an exception
+// i.e. it doesn't work for HSTS discrepancies (https://subdomain.preloaded-hsts.badssl.com/)
+// [TEST] https://expired.badssl.com/ ***/
+user_pref("browser.xul.error_pages.expert_bad_cert", true);
+
+// PREF: control "Add Security Exception" dialog on SSL warnings
+// 0=do neither, 1=pre-populate url, 2=pre-populate url + pre-fetch cert (default)
+// [1] https://github.com/pyllyukko/user.js/issues/210
+user_pref("browser.ssl_override_behavior", 1);
 
 // PREF: disable TLS1.3 0-RTT (round-trip time) [FF51+]
 // This data is not forward secret, as it is encrypted solely under keys derived using
@@ -402,23 +420,6 @@ user_pref("security.insecure_connection_text.pbmode.enabled", true);
 // [3] CVE-2017-5383: https://www.mozilla.org/security/advisories/mfsa2017-02/
 // [4] https://www.xudongz.com/blog/2017/idn-phishing/
 user_pref("network.IDN_show_punycode", true);
-
-// PREF: display warning on the padlock for "broken security"
-// Bug: warning padlock not indicated for subresources on a secure page! [2]
-// [1] https://wiki.mozilla.org/Security:Renegotiation
-// [2] https://bugzilla.mozilla.org/1353705
-user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
-
-// PREF: control "Add Security Exception" dialog on SSL warnings
-// 0=do neither, 1=pre-populate url, 2=pre-populate url + pre-fetch cert (default)
-// [1] https://github.com/pyllyukko/user.js/issues/210
-user_pref("browser.ssl_override_behavior", 1);
-
-// PREF: display advanced information on Insecure Connection warning pages
-// only works when it's possible to add an exception
-// i.e. it doesn't work for HSTS discrepancies (https://subdomain.preloaded-hsts.badssl.com/)
-// [TEST] https://expired.badssl.com/ ***/
-user_pref("browser.xul.error_pages.expert_bad_cert", true);
 
 /******************************************************************************
  * SECTION: HTTPS-FIRST POLICY                          *
