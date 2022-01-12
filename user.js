@@ -44,7 +44,9 @@ user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 
 /** SSL / TLS ***/
-user_pref("security.ssl.require_safe_negotiation", true);
+user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
+user_pref("browser.xul.error_pages.expert_bad_cert", true);
+user_pref("browser.ssl_override_behavior", 1);
 user_pref("security.tls.enable_0rtt_data", false);
 
 /** DISK AVOIDANCE ***/
@@ -87,9 +89,6 @@ user_pref("browser.fixup.alternate.enabled", false);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
 user_pref("network.IDN_show_punycode", true);
-user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
-user_pref("browser.ssl_override_behavior", 1);
-user_pref("browser.xul.error_pages.expert_bad_cert", true);
 
 /** HTTPS-FIRST POLICY ***/
 user_pref("dom.security.https_first", true);
