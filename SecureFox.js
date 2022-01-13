@@ -670,7 +670,7 @@ user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1)
 
 // PREF: control the amount of cross-origin information to send
 // 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port ***/
-user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+// user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 // PREF: disable relaxing referer for cross-site navigations
 user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
