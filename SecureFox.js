@@ -179,7 +179,7 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 // [2] https://datatracker.ietf.org/doc/html/rfc5746
 // [3] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555
 // [4] https://www.ssllabs.com/ssl-pulse/
-// user_pref("security.ssl.require_safe_negotiation", true);
+user_pref("security.ssl.require_safe_negotiation", true);
 
 // PREF: display advanced information on Insecure Connection warning pages
 // only works when it's possible to add an exception
