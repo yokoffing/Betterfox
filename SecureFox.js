@@ -27,12 +27,12 @@
 // [1] https://blog.mozilla.org/firefox/control-trackers-with-firefox/
 // [2] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 // [3] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
-user_pref("browser.contentblocking.category", "custom");
+user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
-user_pref("privacy.trackingprotection.socialtracking.enabled", false);
+user_pref("privacy.trackingprotection.socialtracking.enabled", true); // enabled with "Strict"
 user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
 // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 
@@ -648,11 +648,12 @@ user_pref("privacy.window.name.update.enabled", true); // default
 // PREF: Set the default Referrer Policy; to be used unless overriden by the site.
 // 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
 // 3=no-referrer-when-downgrade.
+// [TEST https://www.sportskeeda.com/mma/news-joe-rogan-accuses-cnn-altering-video-color-make-look-sick
 // [1] https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/
 // [2] https://web.dev/referrer-best-practices/
 // [3] https://plausible.io/blog/referrer-policy
 user_pref("network.http.referer.defaultPolicy", 2) // default
-// user_pref("network.http.referer.defaultPolicy.pbmode", 1)
+user_pref("network.http.referer.defaultPolicy.pbmode", 2) // default
 
 // PREF: Set the default Referrer Policy applied to third-party trackers when the
 // default cookie policy is set to reject third-party trackers; to be used
