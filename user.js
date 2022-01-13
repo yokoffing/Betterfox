@@ -29,7 +29,6 @@ user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 /** TRACKING PROTECTION ***/
 user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.enabled", true);
-user_pref("privacy.trackingprotection.socialtracking.enabled", false);
 user_pref("privacy.trackingprotection.lower_network_priority", true);
 user_pref("network.cookie.cookieBehavior", 5);
 user_pref("privacy.partition.network_state.ocsp_cache", true);
