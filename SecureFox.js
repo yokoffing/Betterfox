@@ -652,7 +652,7 @@ user_pref("privacy.window.name.update.enabled", true); // default
 // [2] https://web.dev/referrer-best-practices/
 // [3] https://plausible.io/blog/referrer-policy
 user_pref("network.http.referer.defaultPolicy", 2) // default
-user_pref("network.http.referer.defaultPolicy.pbmode", 1)
+// user_pref("network.http.referer.defaultPolicy.pbmode", 1)
 
 // PREF: Set the default Referrer Policy applied to third-party trackers when the
 // default cookie policy is set to reject third-party trackers; to be used
