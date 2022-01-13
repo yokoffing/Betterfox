@@ -660,8 +660,8 @@ user_pref("network.http.referer.defaultPolicy.pbmode", 1)
 // [NOTE] Trim referrers from trackers to origins by default ***/
 // 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
 // 3=no-referrer-when-downgrade.
-user_pref("network.http.referer.defaultPolicy.trackers", 0)
-user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 0)
+user_pref("network.http.referer.defaultPolicy.trackers", 1)
+user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1)
 
 // PREF: control when to send a cross-origin referer
 // 0=always (default), 1=only if base domains match, 2=only if hosts match
