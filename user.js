@@ -27,7 +27,7 @@ user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
  * SECTION: SECUREFOX                                                       *
 ****************************************************************************/
 /** TRACKING PROTECTION ***/
-user_pref("browser.contentblocking.category", "custom");
+user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.socialtracking.enabled", false);
 user_pref("privacy.trackingprotection.lower_network_priority", true);
@@ -45,6 +45,7 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 
 /** SSL / TLS ***/
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
+user_pref("security.ssl.require_safe_negotiation", true);
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("browser.ssl_override_behavior", 1);
 user_pref("security.tls.enable_0rtt_data", false);
