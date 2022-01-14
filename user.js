@@ -53,6 +53,7 @@ user_pref("security.tls.enable_0rtt_data", false);
 user_pref("browser.cache.disk.enable", false);
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 user_pref("media.memory_cache_max_size", 65536);
+user_pref("browser.sessionstore.privacy_level", 2);
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
