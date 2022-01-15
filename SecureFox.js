@@ -126,9 +126,9 @@ user_pref("dom.storage.next_gen", true); // default
 // PREF: SameStie Cookies
 // [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
 // [2] https://web.dev/samesite-cookies-explained/
-// user_pref("network.cookie.sameSite.laxByDefault", true);
-// user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-// user_pref("network.cookie.sameSite.schemeful", false); // default
+user_pref("network.cookie.sameSite.laxByDefault", true); // default
+user_pref("network.cookie.sameSite.noneRequiresSecure", true); // default
+user_pref("network.cookie.sameSite.schemeful", false); // default
 
 // PREF: WebRTC Global Mute Toggles
 // user_pref("privacy.webrtc.globalMuteToggles", true);
@@ -655,8 +655,8 @@ user_pref("privacy.window.name.update.enabled", true); // default
 // [1] https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/
 // [2] https://web.dev/referrer-best-practices/
 // [3] https://plausible.io/blog/referrer-policy
-user_pref("network.http.referer.defaultPolicy", 2) // default
-user_pref("network.http.referer.defaultPolicy.pbmode", 2) // default
+user_pref("network.http.referer.defaultPolicy", 2); // default
+user_pref("network.http.referer.defaultPolicy.pbmode", 2); // default
 
 // PREF: Set the default Referrer Policy applied to third-party trackers when the
 // default cookie policy is set to reject third-party trackers; to be used
@@ -664,8 +664,8 @@ user_pref("network.http.referer.defaultPolicy.pbmode", 2) // default
 // [NOTE] Trim referrers from trackers to origins by default ***/
 // 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
 // 3=no-referrer-when-downgrade.
-user_pref("network.http.referer.defaultPolicy.trackers", 1)
-user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1)
+user_pref("network.http.referer.defaultPolicy.trackers", 1);
+user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 
 // PREF: control when to send a cross-origin referer
 // 0=always (default), 1=only if base domains match, 2=only if hosts match
@@ -677,7 +677,7 @@ user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1)
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 // PREF: disable relaxing referer for cross-site navigations
-user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // default in v. 97?
+user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // default in v. 97
 user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // default
 
 /******************************************************************************
