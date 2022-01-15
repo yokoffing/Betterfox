@@ -40,6 +40,9 @@ user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
 user_pref("privacy.trackingprotection.lower_network_priority", true);
 
 // PREF: allow embedded tweets and Reddit posts
+// [TEST] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
+// [TEST] https://www.ndtv.com/entertainment/bharti-singh-and-husband-haarsh-limbachiyaa-announce-pregnancy-see-trending-post-2646359
+// [TEST] https://www.thelineofbestfit.com/news/latest-news/cher-and-saweetie-unite-for-new-mac-cosmetics-campaign
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // hidden
