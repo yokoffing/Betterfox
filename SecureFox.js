@@ -42,8 +42,8 @@ user_pref("privacy.trackingprotection.lower_network_priority", true);
 // PREF: allow embedded tweets and Reddit posts
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
-// user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // hidden
-// user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
+user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // hidden
+user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
 
 // PREF: Site Isolation
 // Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
@@ -84,8 +84,8 @@ user_pref("privacy.partition.network_state.ocsp_cache", true);
 user_pref("privacy.partition.serviceWorkers", true);
 
 // PREF: Smartblock
-[1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
-[2] https://www.youtube.com/watch?v=VE8SrClOTgw
+// [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
+// [2] https://www.youtube.com/watch?v=VE8SrClOTgw
 user_pref("extensions.webcompat.enable_shims", true); // default
 
 // PREF: Redirect Tracking Prevention
