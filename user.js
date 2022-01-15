@@ -148,7 +148,6 @@ user_pref("permissions.delegation.enabled", false);
 user_pref("network.http.referer.defaultPolicy.trackers", 1);
 user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
-user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
 
 /** GOOGLE SAFE BROWSING ***/
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
