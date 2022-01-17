@@ -169,7 +169,6 @@ user_pref("geo.provider.use_gpsd", false); /* LINUX */
 user_pref("browser.region.network.url", "");
 user_pref("browser.region.update.enabled", false);
 user_pref("app.update.auto", false);
-user_pref("app.update.background.scheduling.enabled", false);
 user_pref("browser.search.update", false);
 
 /** TELEMETRY ***/
