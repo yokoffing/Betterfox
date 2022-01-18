@@ -435,6 +435,8 @@ user_pref("network.IDN_show_punycode", true);
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
 // [TEST] http://example.com [upgrade]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1706552
+// [2] https://web.dev/why-https-matters/
+// [3] https://www.cloudflare.com/learning/ssl/why-use-https/
 user_pref("dom.security.https_first", true);
 user_pref("dom.security.https_first_pbm", true); // default
 
@@ -450,6 +452,8 @@ user_pref("dom.security.https_first_pbm", true); // default
 // [TEST] http://neverssl.org/ [no upgrade]
 // [1] https://bugzilla.mozilla.org/1613063
 // [2] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
+// [3] https://web.dev/why-https-matters/
+// [4] https://www.cloudflare.com/learning/ssl/why-use-https/
 
 // PREF: disable HTTPS-only Mode for Normal Browsing windows
 user_pref("dom.security.https_only_mode", false); // default
