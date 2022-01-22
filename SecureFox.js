@@ -249,6 +249,26 @@ user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
  * SECTION: CLEARING DATA DEFAULTS                           *
 ******************************************************************************/
 
+// PREF: enable Firefox to clear items on shutdown
+// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes ***/
+user_pref("privacy.sanitize.sanitizeOnShutdown", true);
+
+// PREF: set what items to clear on shutdown
+// These items do not use exceptions, it is all or nothing
+// [NOTE] If "history" is true, downloads will also be cleared
+// [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
+// [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
+// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
+// [1] https://en.wikipedia.org/wiki/Basic_access_authentication ***/
+user_pref("privacy.clearOnShutdown.cache", true);     // [DEFAULT]
+user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT]
+user_pref("privacy.clearOnShutdown.formdata", true);  // [DEFAULT]
+user_pref("privacy.clearOnShutdown.history", true);   // [DEFAULT]
+user_pref("privacy.clearOnShutdown.sessions", true);  // [DEFAULT]
+user_pref("privacy.clearOnShutdown.offlineApps", false); // [DEFAULT]
+user_pref("privacy.clearOnShutdown.cookies", false);
+// user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT]
+
 // PREF: reset default items to clear with Ctrl-Shift-Del
 // This dialog can also be accessed from the menu History>Clear Recent History
 // Firefox remembers your last choices. This will reset them when you start Firefox.
