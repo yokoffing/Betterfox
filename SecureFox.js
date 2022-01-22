@@ -214,13 +214,18 @@ user_pref("browser.cache.disk.enable", false);
 // PREF: disable media cache from writing to disk in Private Browsing
 // [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
-user_pref("media.memory_cache_max_size", 131072); /*16x default size of 8192 [performance enhancement]*/
-// 65536 is another option
+user_pref("media.memory_cache_max_size", 65536); // 8x default size of 8192 [performance enhancement]
 
 // PREF: disable storing extra session data
 // define on which sites to save extra session data such as form content, cookies and POST data
 // 0=everywhere, 1=unencrypted sites, 2=nowhere
 user_pref("browser.sessionstore.privacy_level", 2);
+
+// PREF: disable shortcut favicons from being stored in profile
+user_pref("browser.shell.shortcutFavicons", false);
+
+// PREF: disable page thumbnails capturing
+user_pref("browser.pagethumbnails.capturing_disabled", true); // [depreciated?]
 
 // PREF: set the minimum interval between session save operations
 // Increasing this can help on older machines and some websites, as well as reducing writes
