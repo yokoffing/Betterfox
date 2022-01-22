@@ -35,7 +35,8 @@ user_pref("privacy.partition.serviceWorkers", true);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
 
-/** CERTS / HPKP ***/
+/** OCSP & CERTS / HPKP ***/
+user_pref("security.OCSP.enabled", 0);
 user_pref("security.pki.sha1_enforcement_level", 1);
 user_pref("security.cert_pinning.enforcement_level", 2);
 user_pref("security.pki.crlite_mode", 2);
