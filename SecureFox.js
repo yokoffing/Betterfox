@@ -241,33 +241,12 @@ user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
 // PREF: delete all cookies after a certain period of time
-// ALTERNATIVE: Use a cookie manager extension
 // user_pref("network.cookie.lifetimePolicy", 3);
 // user_pref("network.cookie.lifetime.days", 7);
 
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
 ******************************************************************************/
-
-// PREF: enable Firefox to clear items on shutdown
-// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes ***/
-user_pref("privacy.sanitize.sanitizeOnShutdown", true);
-
-// PREF: set what items to clear on shutdown
-// These items do not use exceptions, it is all or nothing
-// [NOTE] If "history" is true, downloads will also be cleared
-// [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
-// [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
-// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
-// [1] https://en.wikipedia.org/wiki/Basic_access_authentication ***/
-user_pref("privacy.clearOnShutdown.cache", true);     // [DEFAULT]
-user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT]
-user_pref("privacy.clearOnShutdown.formdata", true);  // [DEFAULT]
-user_pref("privacy.clearOnShutdown.history", true);   // [DEFAULT]
-user_pref("privacy.clearOnShutdown.sessions", true);  // [DEFAULT]
-user_pref("privacy.clearOnShutdown.offlineApps", false); // [DEFAULT]
-user_pref("privacy.clearOnShutdown.cookies", false);
-// user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT]
 
 // PREF: reset default items to clear with Ctrl-Shift-Del
 // This dialog can also be accessed from the menu History>Clear Recent History
@@ -291,28 +270,43 @@ user_pref("privacy.cpd.sessions", false); // Active Logins [DEFAULT]
 // blank value if they are used, but they do work as advertised.
 user_pref("privacy.sanitize.timeSpan", 0);
 
+// PREF: keep cookies until the browser is closed, then delete everything minus exceptions
+user_pref("network.cookie.lifetimePolicy", 2);
+
+// PREF: this way of sanitizing would override the exceptions set by the users and just delete everything,
+// therefore we tell it to delete everything but ignore data needed to stay logged into websites set
+// manually as exceptions.
+
+// PREF: enable Firefox to clear items on shutdown
+// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes ***/
+// user_pref("privacy.sanitize.sanitizeOnShutdown", true);
+
+// PREF: set what items to clear on shutdown
+// These items do not use exceptions, it is all or nothing
+// [NOTE] If "history" is true, downloads will also be cleared
+// [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
+// [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
+// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
+// [1] https://en.wikipedia.org/wiki/Basic_access_authentication ***/
+user_pref("privacy.clearOnShutdown.cache", true);     // [DEFAULT]
+user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT]
+user_pref("privacy.clearOnShutdown.formdata", true);  // [DEFAULT]
+user_pref("privacy.clearOnShutdown.history", true);   // [DEFAULT]
+user_pref("privacy.clearOnShutdown.sessions", true);  // [DEFAULT]
+user_pref("privacy.clearOnShutdown.offlineApps", false); // [DEFAULT]
+user_pref("privacy.clearOnShutdown.cookies", false);
+// user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT]
+
 // PREF: set History section to show all options
 user_pref("privacy.history.custom", true);
 
 /* override recipe: enable session restore ***/
-user_pref("browser.startup.page", 3); // 0102
-  // user_pref("browser.privatebrowsing.autostart", false); // 0110 required if you had it set as true
-  // user_pref("places.history.enabled", true); // 0862 required if you had it set as false
-  // user_pref("browser.sessionstore.privacy_level", 0); // 1003 optional [to restore cookies/formdata]
-  // user_pref("network.cookie.lifetimePolicy", 0); // 2801  optional [so cookies persist]
-user_pref("privacy.clearOnShutdown.history", false); // 2811
-  // user_pref("privacy.clearOnShutdown.cookies", false); // 2811 optional: default false arkenfox v94
-  // user_pref("privacy.clearOnShutdown.formdata", false); // 2811 optional
-user_pref("privacy.cpd.history", false); // 2812 to match when you use Ctrl-Shift-Del
-  // user_pref("privacy.cpd.cookies", false); // 2812 optional: default false arkenfox v94
-  // user_pref("privacy.cpd.formdata", false); // 2812 optional
-
 /* override recipe: keep some cookies (+ other optional site data) on exit ***/
-user_pref("network.cookie.lifetimePolicy", 2); // 2801
+user_pref("browser.startup.page", 3);
+  // user_pref("places.history.enabled", true);
+  // user_pref("network.cookie.lifetimePolicy", 2); // session cookies
 user_pref("privacy.clearOnShutdown.cookies", false); // 2811
-  // user_pref("privacy.clearOnShutdown.offlineApps", false); // 2811 optional
-user_pref("privacy.cpd.cookies", false); // 2812 Ctrl-Shift-Del
-  // user_pref("privacy.cpd.offlineApps", false); // 2812 Ctrl-Shift-Del optional
+user_pref("privacy.clearOnShutdown.offlineApps", false); // 2811 optional
 
 /******************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                           *
