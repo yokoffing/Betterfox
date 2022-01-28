@@ -82,6 +82,9 @@ user_pref("full-screen-api.warning.timeout", 0);
 // PREF: Hide bookmarks toolbar from new tab page 
 // user_pref("browser.toolbars.bookmarks.visibility", "never");
 
+// PREF: Hide "More from Mozilla" in Settings
+user_pref("browser.preferences.moreFromMozilla", false);
+
 /****************************************************************************
  * SECTION: NEW TAB PAGE                                                    *
 ****************************************************************************/
