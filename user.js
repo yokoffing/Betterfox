@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: December 2021                                                   *
+ * version: January 2022                                                    *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -28,16 +28,32 @@ user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 ****************************************************************************/
 /** TRACKING PROTECTION ***/
 user_pref("browser.contentblocking.category", "strict");
-user_pref("privacy.trackingprotection.enabled", true);
-user_pref("privacy.trackingprotection.socialtracking.enabled", true);
-user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com");
-user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
+user_pref("privacy.trackingprotection.lower_network_priority", true);
 user_pref("privacy.partition.network_state.ocsp_cache", true);
 user_pref("privacy.partition.serviceWorkers", true);
 user_pref("beacon.enabled", false);
 user_pref("dom.battery.enabled", false);
+
+/** OCSP & CERTS / HPKP ***/
+user_pref("security.OCSP.enabled", 0);
+user_pref("security.pki.sha1_enforcement_level", 1);
+user_pref("security.cert_pinning.enforcement_level", 2);
 user_pref("security.pki.crlite_mode", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
+
+/** SSL / TLS ***/
+user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
+user_pref("browser.xul.error_pages.expert_bad_cert", true);
+user_pref("browser.ssl_override_behavior", 1);
+user_pref("security.tls.enable_0rtt_data", false);
+
+/** DISK AVOIDANCE ***/
+user_pref("browser.cache.disk.enable", false);
+user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
+user_pref("media.memory_cache_max_size", 65536);
+user_pref("browser.sessionstore.privacy_level", 2);
+user_pref("browser.shell.shortcutFavicons", false);
+user_pref("browser.pagethumbnails.capturing_disabled", true);
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 
@@ -66,6 +82,7 @@ user_pref("network.preload", false);
 user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 user_pref("browser.urlbar.groupLabels.enabled", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
@@ -83,7 +100,6 @@ user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 /** DNS-over-HTTPS (DOH) ***/
-user_pref("network.trr.send_user-agent_headers", false);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
 /** PASSWORDS AND AUTOFILL ***/
@@ -127,6 +143,10 @@ user_pref("security.mixed_content.upgrade_display_content", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
+
+/** HEADERS / REFERERS ***/
+user_pref("network.http.referer.defaultPolicy.trackers", 1);
+user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /** GOOGLE SAFE BROWSING ***/
@@ -143,8 +163,11 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 /** MOZILLA ***/
 user_pref("permissions.default.geo", 2);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-user_pref("app.update.auto", false);
-user_pref("app.update.background.scheduling.enabled", false);
+user_pref("geo.provider.ms-windows-location", false); /* WINDOWS */
+user_pref("geo.provider.use_corelocation", false); /* MAC */
+user_pref("geo.provider.use_gpsd", false); /* LINUX */
+user_pref("browser.region.network.url", "");
+user_pref("browser.region.update.enabled", false);
 
 /** TELEMETRY ***/
 user_pref("toolkit.telemetry.unified", false);
@@ -159,6 +182,7 @@ user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 user_pref("corroborator.enabled", false);
 user_pref("toolkit.telemetry.coverage.opt-out", true);
 user_pref("toolkit.coverage.opt-out", true);
+user_pref("toolkit.coverage.endpoint.base", "");
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 user_pref("app.shield.optoutstudies.enabled", false);
@@ -168,6 +192,7 @@ user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 user_pref("default-browser-agent.enabled", false);
 user_pref("extensions.abuseReport.enabled", false);
 user_pref("app.normandy.enabled", false);
+user_pref("app.normandy.api_url", "");
 user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
@@ -177,6 +202,7 @@ user_pref("browser.newtabpage.activity-stream.telemetry", false);
 ****************************************************************************/
 
 /** MOZILLA UI ***/
+user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false);
@@ -241,7 +267,6 @@ user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
 user_pref("layout.css.constructable-stylesheets.enabled", true);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
-user_pref("dom.forms.inputmode", true);
 
 /** TAB BEHAVIOR ***/
 user_pref("dom.disable_window_move_resize", true);
@@ -251,7 +276,7 @@ user_pref("image.jxl.enabled", true);
 user_pref("editor.truncate_user_pastes", false);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
 user_pref("clipboard.plainTextOnly", true);
-user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
+user_pref("dom.popup_allowed_events", "click dblclick");
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
@@ -266,6 +291,11 @@ user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
 // user_pref("general.smoothScroll.stopDecelerationWeighting", "0.7");
 // user_pref("mousewheel.min_line_scroll_amount", 25);
 // user_pref("apz.overscroll.enabled", true); /*elastic overscroll*/
+
+/****************************************************************************
+ * START: MY OVERRIDES                                                      *
+****************************************************************************/
+/** Enter your personal prefs below this line ***/
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
