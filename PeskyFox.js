@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: December 2021                                                   *
+ * version: January 2022                                                    *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -23,15 +23,16 @@
 // [TEST] https://9to5mac.com/
 // user_pref("ui.systemUsesDarkTheme", 0); // hidden
 // user_pref("browser.in-content.dark-mode", false); // hidden
-// user_pref("devtools.theme", "light"); // default
-// user_pref("pdfjs.viewerCssTheme", 1);
 
 // PREF: Enable a Dark theme for browser and webpage content
 // [TEST] https://9to5mac.com/
 // user_pref("ui.systemUsesDarkTheme", 1); // hidden
 // user_pref("browser.in-content.dark-mode", true); // hidden
-// user_pref("devtools.theme", "dark");
-// user_pref("pdfjs.viewerCssTheme", 2);
+
+// PREF: Choose what theme Firefox follows by default
+// Dark (0), Light (1), System (2), or Browser (3) (default)
+// [1] https://www.reddit.com/r/firefox/comments/rfj6yc/how_to_stop_firefoxs_dark_theme_from_overriding/hoe82i5/?context=3
+user_pref("layout.css.prefers-color-scheme.content-override", 2);
 
 // PREF: Allow Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
@@ -80,6 +81,9 @@ user_pref("full-screen-api.warning.timeout", 0);
 
 // PREF: Hide bookmarks toolbar from new tab page 
 // user_pref("browser.toolbars.bookmarks.visibility", "never");
+
+// PREF: Hide "More from Mozilla" in Settings
+user_pref("browser.preferences.moreFromMozilla", false);
 
 /****************************************************************************
  * SECTION: NEW TAB PAGE                                                    *
@@ -149,13 +153,15 @@ user_pref("extensions.pocket.site", " ");
 // [SETTING] General>Downloads>Always ask you where to save files
 // false=the user is asked what to do
 user_pref("browser.download.useDownloadDir", false);
-user_pref("browser.download.alwaysOpenPanel", false); 
+
+// PREF: disable downloads panel opening on every download
+user_pref("browser.download.alwaysOpenPanel", false);
 
 // PREF: Disable adding downloads to the system's "recent documents" list
 user_pref("browser.download.manager.addToRecentDocs", false);
 
 // PREF: Autohide download button
-// user_pref("browser.download.autohideButton", true);
+user_pref("browser.download.autohideButton", true); // default
 
 /****************************************************************************
  * SECTION: VARIOUS                                                         *
@@ -263,7 +269,7 @@ user_pref("layout.css.constructable-stylesheets.enabled", true);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 // PREF: Web API inputmode
-user_pref("dom.forms.inputmode", true);
+user_pref("dom.forms.inputmode", true); // default
 
 // PREF: Web API WebGPU
 // user_pref("dom.webgpu.enabled", true);
