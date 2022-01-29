@@ -832,20 +832,17 @@ user_pref("browser.region.update.enabled", false);
 // [2] https://trac.torproject.org/projects/tor/ticket/16931
 user_pref("extensions.blocklist.enabled", true); // default
 
-// PREF: disable auto-INSTALLING Firefox updates [NON-WINDOWS FF65+]
+// PREF: disable auto-INSTALLING Firefox updates [NON-WINDOWS] [move to Pesky]
 // [NOTE] In FF65+ on Windows this SETTING (below) is now stored in a file and the pref was removed
 // [SETTING] General>Firefox Updates>Check for updates but let you choose to install them
-user_pref("app.update.auto", false);
+// user_pref("app.update.auto", false);
 
-// PREF: disable search engine updates (e.g. OpenSearch)
+// PREF: disable search engine updates (e.g. OpenSearch) [move to Pesky]
 // [NOTE] This does not affect Mozilla's built-in or Web Extension search engines
-user_pref("browser.search.update", false);
+// user_pref("browser.search.update", false);
 
-// PREF: Disable automatic extension updates
+// PREF: Disable automatic extension updates [move to Pesky]
 // user_pref("extensions.update.enabled", false);
-// user_pref("extensions.autoupdate.enabled", false);
-// user_pref("extensions.update.url", "");
-// user_pref("extensions.update.background.url", "");
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
