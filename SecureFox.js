@@ -37,6 +37,7 @@ user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
 // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 
 // PREF: Lower the priority of network loads for resources on the tracking protection list.
+// [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
 user_pref("privacy.trackingprotection.lower_network_priority", true);
 
 // PREF: allow embedded tweets and Reddit posts
