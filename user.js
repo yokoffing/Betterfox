@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: January 2022                                                    *
+ * version: February 2022                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -38,8 +38,6 @@ user_pref("dom.battery.enabled", false);
 user_pref("security.OCSP.enabled", 0);
 user_pref("security.pki.sha1_enforcement_level", 1);
 user_pref("security.cert_pinning.enforcement_level", 2);
-user_pref("security.pki.crlite_mode", 2);
-user_pref("security.remote_settings.crlite_filters.enabled", true);
 
 /** SSL / TLS ***/
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
