@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: January 2022                                                    *
+ * version: February 2022                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -86,7 +86,7 @@ user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.ena
 user_pref("privacy.partition.network_state", true); // default
 user_pref("privacy.partition.network_state.ocsp_cache", true);
 user_pref("privacy.partition.serviceWorkers", true);
-// user_pref("privacy.partition.bloburl_per_agent_cluster", true); // currently the only non-partitioned item in TCP is blobs
+user_pref("privacy.partition.bloburl_per_agent_cluster", true); // currently the only non-partitioned item in TCP is blobs
 
 // PREF: Smartblock
 // [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
@@ -744,7 +744,7 @@ user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 // PREF: disable relaxing referer for cross-site navigations
-user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // default in v. 97
+user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
 user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // default
 
 /******************************************************************************
