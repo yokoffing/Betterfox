@@ -497,6 +497,7 @@ user_pref("network.IDN_show_punycode", true);
 // will NOT ask for your permission before connecting to a website that doesn’t support secure connections.
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
 // [TEST] http://example.com [upgrade]
+// [TEST] http://httpforever.com/ [no upgrade]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1706552
 // [2] https://web.dev/why-https-matters/
 // [3] https://www.cloudflare.com/learning/ssl/why-use-https/
@@ -512,7 +513,7 @@ user_pref("dom.security.https_first_pbm", true); // default
 // [SETTING] to add site exceptions: Padlock>HTTPS-Only mode>On/Off/Off temporarily
 // [SETTING] Privacy & Security>HTTPS-Only Mode
 // [TEST] http://example.com [upgrade]
-// [TEST] http://neverssl.org/ [no upgrade]
+// [TEST] http://httpforever.com/ [no upgrade]
 // [1] https://bugzilla.mozilla.org/1613063
 // [2] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 // [3] https://web.dev/why-https-matters/
