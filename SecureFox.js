@@ -146,9 +146,13 @@ user_pref("network.cookie.sameSite.schemeful", false); // default
 // 0=disabled, 1=enabled (default), 2=enabled for EV certificates only
 // OCSP (non-stapled) leaks information about the sites you visit to the CA (cert authority)
 // It's a trade-off between security (checking) and privacy (leaking info to the CA)
+// Unlike Chrome, Firefox’s default settings also query OCSP responders to confirm the validity
+// of SSL/TLS certificates. However, because OCSP query failures are so common, Firefox
+// (like other browsers) implements a “soft-fail” policy. 
 // [NOTE] This pref only controls OCSP fetching and does not affect OCSP stapling
 // [SETTING] Privacy & Security>Security>Certificates>Query OCSP responder servers...
-// [1] https://en.wikipedia.org/wiki/Ocsp ***/
+// [1] https://en.wikipedia.org/wiki/Ocsp
+// [2] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
 user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
 
 // PREF: set OCSP fetch failures (non-stapled, see 1211) to hard-fail
@@ -157,7 +161,8 @@ user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
 // It is pointless to soft-fail when an OCSP fetch fails: you cannot confirm a cert is still valid (it
 // could have been revoked) and/or you could be under attack (e.g. malicious blocking of OCSP servers)
 // [1] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
-// [2] https://www.imperialviolet.org/2014/04/19/revchecking.html ***/
+// [2] https://www.imperialviolet.org/2014/04/19/revchecking.html
+// [3] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
 // user_pref("security.OCSP.require", true);
 
 // PREF: disable or limit SHA-1 certificates
