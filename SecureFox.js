@@ -414,14 +414,14 @@ user_pref("network.prefetch-next", false);
 user_pref("network.http.speculative-parallel-limit", 0);
 
 // PREF: Preload <link rel=preload>
-// Tells the browser to download and cache a resource (like a script or a stylesheet) as soon as possible.
+// This tells the browser to download and cache a resource (like a script or a stylesheet) as soon as possible.
 // The browser doesn’t do anything with the resource after downloading it. Scripts aren’t executed, stylesheets
 // aren’t applied. It’s just cached – so that when something else needs it, it’s available immediately.
 // Focuses on fetching a resource for the CURRENT navigation.
 // [NOTE] Unlike other pre-connection tags (except modulepreload), this tag is mandatory for the browser.
 // A browser is required to download the resource specified in <link rel="preload">. With other tags described here,
 // a browser is free to skip preloading the resource if it decides to (e.g. if the network is slow).
-// [TESTING] May possibly interfear with content blocking on the webpage.
+// [WARNING] Leaving this enabled will interfere with content blocking, especially with cosmetic filters.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
 // [2] https://w3c.github.io/preload/
 // [3] https://3perf.com/blog/link-rels/#preload
