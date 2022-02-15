@@ -788,8 +788,8 @@ user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true);
 // To verify the safety of certain executable files, Firefox may submit some information about the
 // file, including the name, origin, size and a cryptographic hash of the contents, to the Google
 // Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
-user_pref("browser.safebrowsing.downloads.remote.enabled", false);
-user_pref("browser.safebrowsing.downloads.remote.url", "");
+user_pref("browser.safebrowsing.downloads.remote.enabled", false); // default
+// user_pref("browser.safebrowsing.downloads.remote.url", "");
 
 // PREF: GSB, master switch
 // WARNING: Be sure to have alternate security measures if you disable Safe Browsing.
