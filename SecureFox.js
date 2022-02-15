@@ -437,6 +437,9 @@ user_pref("network.preload", false);
 // [3] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
 user_pref("browser.newtab.preload", true); // default
 
+// PREF: disable mousedown speculative connections on bookmarks and history
+user_pref("browser.places.speculativeConnect.enabled", false);
+
 /******************************************************************************
  * SECTION: SEARCH / URL BAR                              *
 ******************************************************************************/
