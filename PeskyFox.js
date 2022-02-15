@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: January 2022                                                    *
+ * version: February 2022                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -55,7 +55,12 @@ user_pref("browser.aboutwelcome.enabled", false);
 // https://support.mozilla.org/en-US/kb/extension-recommendations
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
-user_pref("extensions.getAddons.showPane", false);
+
+// PREF: Hide bookmarks toolbar from new tab page 
+// user_pref("browser.toolbars.bookmarks.visibility", "never");
+
+// PREF: Hide "More from Mozilla" in Settings
+user_pref("browser.preferences.moreFromMozilla", false);
 
 // PREF: Remove delay of security dialog when downloading extensions
 // default=1000
@@ -78,12 +83,6 @@ user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.delay", 0);
 user_pref("full-screen-api.warning.timeout", 0);
-
-// PREF: Hide bookmarks toolbar from new tab page 
-// user_pref("browser.toolbars.bookmarks.visibility", "never");
-
-// PREF: Hide "More from Mozilla" in Settings
-user_pref("browser.preferences.moreFromMozilla", false);
 
 /****************************************************************************
  * SECTION: NEW TAB PAGE                                                    *
