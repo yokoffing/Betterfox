@@ -151,8 +151,6 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
 
 /** GOOGLE SAFE BROWSING ***/
-user_pref("browser.safebrowsing.downloads.remote.enabled", false);
-user_pref("browser.safebrowsing.downloads.remote.url", "");
 /* WARNING: Be sure to have alternate security measures if you disable Safe Browsing! */
 /* NOTE: Remove everything below this line if you use this feature */
 user_pref("browser.safebrowsing.malware.enabled", false);
