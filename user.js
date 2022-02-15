@@ -210,6 +210,7 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("browser.aboutwelcome.enabled", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+user_pref("browser.preferences.moreFromMozilla", false);
 
 /** WARNINGS ***/
 user_pref("browser.tabs.warnOnClose", false);
@@ -220,8 +221,8 @@ user_pref("browser.aboutConfig.showWarning", false);
 /** FULLSCREEN ***/
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
-user_pref("full-screen-api.warning.delay", -1);
-user_pref("full-screen-api.warning.timeout", -1);
+user_pref("full-screen-api.warning.delay", 0);
+user_pref("full-screen-api.warning.timeout", 0);
 
 /** NEW TAB PAGE ***/
 user_pref("browser.startup.page", 3);
