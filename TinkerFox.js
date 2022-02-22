@@ -11,7 +11,7 @@
  * TinkerFox                                                                *
  * "Audentes fortuna iuvat"                                                 *
  * priority: explore experimental prefs                                     *
- * version: April 2021                                                      *
+ * version: February 2022                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -36,8 +36,8 @@ user_pref("browser.proton.urlbar.enabled", true);
 user_pref("browser.proton.infobars.enabled", true);
 user_pref("browser.proton.tabs.audio-tab", true);
 user_pref("browser.proton.tabs.audio-tab-area", true);
-user_pref("browser.aboutwelcome.design," true);
-user_pref("browser.proton.modals.enabled," true);
+user_pref("browser.aboutwelcome.design", true);
+user_pref("browser.proton.modals.enabled", true);
 user_pref("browser.proton.places-tooltip.enabled", true);
 user_pref("browser.tabs.secondaryTextUnsupportedLocales", true);
 /* macOS only */
