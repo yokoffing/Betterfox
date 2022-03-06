@@ -88,11 +88,22 @@ user_pref("full-screen-api.warning.timeout", 0);
  * SECTION: NEW TAB PAGE                                                    *
 ****************************************************************************/
 
-// PREF: Set START page (0=blank, 1=home, 2=last visited page, 3=resume previous session)
-user_pref("browser.startup.page", 3);
+// PREF: Set startup page
+// 0=blank, 1=home, 2=last visited page, 3=resume previous session
+// [NOTE] Session Restore is cleared with history and not used in Private Browsing mode
+// [SETTING] General>Startup>Restore previous session
+// user_pref("browser.startup.page", 3); // default
 
-// PREF: Set HOME page
-// user_pref("browser.startup.page", "about:home");
+// PREF: set HOME+NEWWINDOW page
+// about:home=Activity Stream, custom URL, about:blank
+// [SETTING] Home>New Windows and Tabs>Homepage and new windows
+// user_pref("browser.startup.homepage", "about:blank");
+
+// PREF: set NEWTAB page
+// true=Activity Stream (default, see 0105), false=blank page
+// [SETTING] Home>New Windows and Tabs>New tabs
+// user_pref("browser.newtabpage.enabled", false);
+// user_pref("browser.newtab.preload", false);
 
 // PREF: Disable Activity Stream Top Stories, Pocket-based and/or sponsored content
 user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
