@@ -535,6 +535,10 @@ user_pref("dom.security.https_only_mode_ever_enabled", false); // default
 user_pref("dom.security.https_only_mode_pbm", true);
 user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
 
+// PREF: Offer suggestion for HTTPS site when available
+// [1] https://nitter.winscloud.net/leli_gibts_scho/status/1371458534186057731
+user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
+
 // PREF: Disable HTTP background requests in HTTPS-only Mode
 // When attempting to upgrade, if the server doesn't respond within 3 seconds, Firefox
 // sends HTTP requests in order to check if the server supports HTTPS or not.
