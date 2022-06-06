@@ -254,7 +254,6 @@ user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("dom.push.enabled", false);
 user_pref("findbar.highlightAll", true);
-user_pref("layout.spellcheckDefault", 2);
 user_pref("accessibility.force_disabled", 1);
 user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.display.show_image_placeholders", false);
