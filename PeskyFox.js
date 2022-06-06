@@ -273,7 +273,7 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);
 user_pref("print.tab_modal.enabled", true); // default
 
 // PREF: CSS Constructable Stylesheets
-user_pref("layout.css.constructable-stylesheets.enabled", true);
+user_pref("layout.css.constructable-stylesheets.enabled", true); // default
 
 // PREF: CSS Masonry Layout
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
