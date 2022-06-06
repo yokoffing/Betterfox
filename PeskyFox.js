@@ -89,7 +89,7 @@ user_pref("full-screen-api.warning.timeout", 0);
 // 0=blank, 1=home, 2=last visited page, 3=resume previous session
 // [NOTE] Session Restore is cleared with history and not used in Private Browsing mode
 // [SETTING] General>Startup>Restore previous session
-// user_pref("browser.startup.page", 3); // default
+// user_pref("browser.startup.page", 3);
 
 // PREF: set HOME+NEWWINDOW page
 // about:home=Activity Stream, custom URL, about:blank
