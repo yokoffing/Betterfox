@@ -93,13 +93,10 @@ user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
 user_pref("network.IDN_show_punycode", true);
 
-/** HTTPS-FIRST POLICY ***/
-user_pref("dom.security.https_first", true);
-
 /** HTTPS-ONLY MODE ***/
-user_pref("dom.security.https_only_mode_pbm", true);
-user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
-user_pref("dom.security.https_only_mode_send_http_background_request", false);
+user_pref("dom.security.https_only_mode", true);
+user_pref("dom.security.https_only_mode_ever_enabled", true);
+user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 /** DNS-over-HTTPS (DOH) ***/
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
