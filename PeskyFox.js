@@ -173,6 +173,10 @@ user_pref("browser.download.manager.addToRecentDocs", false);
 // PREF: Autohide download button
 user_pref("browser.download.autohideButton", true); // default
 
+// PREF: enable user interaction for security by always asking how to handle new mimetypes
+// [SETTING] General>Files and Applications>What should Firefox do with other files
+user_pref("browser.download.always_ask_before_handling_new_types", true);
+
 /****************************************************************************
  * SECTION: VARIOUS                                                         *
 ****************************************************************************/
