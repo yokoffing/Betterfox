@@ -528,7 +528,7 @@ user_pref("network.IDN_show_punycode", true);
 // [3] https://web.dev/why-https-matters/
 // [4] https://www.cloudflare.com/learning/ssl/why-use-https/
 
-// PREF: enable HTTPS-only Mode for Normal Browsing windows
+// PREF: enable HTTPS-only Mode
 user_pref("dom.security.https_only_mode", true);
 
 // PREF: Offer suggestion for HTTPS site when available
@@ -756,8 +756,8 @@ user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 // PREF: disable relaxing referer for cross-site navigations
-user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
-user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // default
+// user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // default with "Strict"
+// user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // default
 
 /******************************************************************************
  * SECTION: VARIOUS                            *
