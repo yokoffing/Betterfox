@@ -267,7 +267,6 @@ user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.display.show_image_placeholders", false);
 user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
-user_pref("layout.css.constructable-stylesheets.enabled", true);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 /** TAB BEHAVIOR ***/
