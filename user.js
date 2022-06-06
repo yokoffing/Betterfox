@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: February 2022                                                   *
+ * version: June 2022                                                       *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -19,9 +19,8 @@
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
-user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.startup.preXulSkeletonUI", false);
-user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
+user_pref("dom.enable_web_task_scheduling", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
