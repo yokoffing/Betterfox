@@ -252,6 +252,7 @@ user_pref("extensions.pocket.site", " ");
 user_pref("browser.download.useDownloadDir", false);
 user_pref("browser.download.alwaysOpenPanel", false);
 user_pref("browser.download.manager.addToRecentDocs", false);
+user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 /** VARIOUS ***/
 user_pref("browser.compactmode.show", true);
