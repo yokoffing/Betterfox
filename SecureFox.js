@@ -84,9 +84,9 @@ user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.ena
 // [2] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
 // [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
 user_pref("privacy.partition.network_state", true); // default
-user_pref("privacy.partition.network_state.ocsp_cache", true);
+user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
 user_pref("privacy.partition.serviceWorkers", true);
-user_pref("privacy.partition.bloburl_per_agent_cluster", true); // currently the only non-partitioned item in TCP is blobs
+user_pref("privacy.partition.bloburl_per_agent_cluster", true);
 
 // PREF: Smartblock
 // [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
