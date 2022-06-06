@@ -11,7 +11,7 @@
  * FasterFox                                                                *
  * "Non ducor duco."                                                        *
  * priority: speedy browsing                                                *
- * version: September 2021                                                  *
+ * version: June 2022                                                       *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -33,7 +33,6 @@ user_pref("gfx.webrender.all", true);
 // [NOTE] Both preferences need to be "true" if you're using the software renderer.
 // DISABLING WILL NOT BE SUPPORTED SOON | https://groups.google.com/a/mozilla.org/g/dev-platform/c/__ZtiiEn0u0/m/fbTlD-I4AAAJ?pli=1
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
-user_pref("gfx.webrender.all", true);
 // user_pref("gfx.webrender.software", true);
 
 // PREF: Lazy Image Loading
@@ -44,17 +43,22 @@ user_pref("dom.image-lazy-loading.enabled", true); // default
 // true=Tabs are not loaded until they are selected (default)
 // false=Tabs begin to load immediately.
 user_pref("browser.sessionstore.restore_on_demand", true); // default
-user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
+// user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.restore_tabs_lazily", true); // default
 
 // PREF: disable preSkeletonUI on startup
 // May set to "true" if your hardware is very old.
 user_pref("browser.startup.preXulSkeletonUI", false);
 
+// PREF: Prioritized Task Scheduling API
+// [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
+// [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
+user_pref("dom.enable_web_task_scheduling", true);
+
 // PREF: about:home startup cache
 // A cache for the initial about:home document that is loaded by default at startup.
 // The purpose of the cache is to improve startup performance.
-user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
+// user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 
 // PREF: process count
 // Having more content processes can improve performance when using multiple tabs but
@@ -63,23 +67,5 @@ user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 // than 8 GB of RAM, you would likely benefit from a high content process limit.
 // [1] https://support.mozilla.org/en-US/kb/performance-settings
 // default = 8. -1 allows Firefox to use as many as it wants
-// user_pref("dom.ipc.processCount", 16);
-
-// PREF: increase active connections
-// [NOTE] Corresponds with changes made here: https://www.youtube.com/watch?v=jQPPJGkdbU0
-// According to the default value, there will be 6 active connections kept for future requests to a server.
-// If, at some point, more connections are needed, a delay will occur until there is a slot available.
-// To avoid any idle periods, we can set more alive connections, thus forcing the browser to load several elements of a website.
-// [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-persistent-connections-per-server
-// [WARNING] Don't go past 10 or websites may temporarily blacklist your IP!
-// user_pref("network.http.max-persistent-connections-per-server", 10); // default=6
-
-// PREF: increase communication channels
-// Perform this change in order to open communication channels with the server, and consequently load several elements of the website.
-// Increased browser speed shall be mainly observed in pages that contain data such as images and videos, which slow down loading times.
-// The range of value for this setting goes from 1 to 65535. However, it is rather unreasonable to increase it to the maximum
-// allowed value, and subsequently strain the system, so give it a try with a value of 1500.
-// [1] https://www.download3k.com/articles/How-To-Optimize-Firefox-By-Tweaking-Hidden-Settings-In-The-about-config-Page-01955#Network.http.max-connections
-// user_pref("network.http.max-connections", 1500); // default=900
-
+// user_pref("dom.ipc.processCount", 12);
 
