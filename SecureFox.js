@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: February 2022                                                   *
+ * version: June 2022                                                       *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -128,9 +128,9 @@ user_pref("dom.storage.next_gen", true); // default
 // PREF: SameStie Cookies
 // [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
 // [2] https://web.dev/samesite-cookies-explained/
-user_pref("network.cookie.sameSite.laxByDefault", true); // default
-user_pref("network.cookie.sameSite.noneRequiresSecure", true); // default
-user_pref("network.cookie.sameSite.schemeful", false); // default
+user_pref("network.cookie.sameSite.laxByDefault", true);
+user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+user_pref("network.cookie.sameSite.schemeful", true);
 
 // PREF: WebRTC Global Mute Toggles
 // user_pref("privacy.webrtc.globalMuteToggles", true);
