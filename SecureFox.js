@@ -509,8 +509,8 @@ user_pref("network.IDN_show_punycode", true);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1706552
 // [2] https://web.dev/why-https-matters/
 // [3] https://www.cloudflare.com/learning/ssl/why-use-https/
-user_pref("dom.security.https_first", true);
-user_pref("dom.security.https_first_pbm", true); // default
+// user_pref("dom.security.https_first", true);
+// user_pref("dom.security.https_first_pbm", true); // default
 
 /******************************************************************************
  * SECTION: HTTPS-ONLY MODE                              *
@@ -522,18 +522,14 @@ user_pref("dom.security.https_first_pbm", true); // default
 // [SETTING] Privacy & Security>HTTPS-Only Mode
 // [TEST] http://example.com [upgrade]
 // [TEST] http://httpforever.com/ [no upgrade]
+// [TEST] http://speedofanimals.com [no upgrade]
 // [1] https://bugzilla.mozilla.org/1613063
 // [2] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 // [3] https://web.dev/why-https-matters/
 // [4] https://www.cloudflare.com/learning/ssl/why-use-https/
 
-// PREF: disable HTTPS-only Mode for Normal Browsing windows
-user_pref("dom.security.https_only_mode", false); // default
-user_pref("dom.security.https_only_mode_ever_enabled", false); // default
-
-// PREF: enable HTTPS-only Mode for Private Browsing windows
-user_pref("dom.security.https_only_mode_pbm", true);
-user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
+// PREF: enable HTTPS-only Mode for Normal Browsing windows
+user_pref("dom.security.https_only_mode", true);
 
 // PREF: Offer suggestion for HTTPS site when available
 // [1] https://nitter.winscloud.net/leli_gibts_scho/status/1371458534186057731
@@ -543,9 +539,12 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // When attempting to upgrade, if the server doesn't respond within 3 seconds, Firefox
 // sends HTTP requests in order to check if the server supports HTTPS or not.
 // This is done to avoid waiting for a timeout which takes 90 seconds.
+// Firefox only sends top level domain when falling back to http.
+// [WARNING] Disabling causes long timeouts when no path to HTTPS is present.
+// [NOTE] Use "Manage Exceptions" for sites known for no HTTPS. Test site: 
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
-user_pref("dom.security.https_only_mode_send_http_background_request", false);
+// user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 // PREF: Enable HTTPS-Only mode for local resources
 // user_pref("dom.security.https_only_mode.upgrade_local", true);
