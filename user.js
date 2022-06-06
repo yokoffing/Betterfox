@@ -280,20 +280,6 @@ user_pref("clipboard.plainTextOnly", true);
 user_pref("dom.popup_allowed_events", "click dblclick");
 
 /****************************************************************************
- * SECTION: SMOOTHFOX                                                       *
-****************************************************************************/
-
-/** EDGE-LIKE SMOOTH SCROLLING ***/
-/* Uncomment to enable */
-// user_pref("general.smoothScroll", true);
-// user_pref("general.smoothScroll.currentVelocityWeighting", "0.1");
-// user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 250);
-// user_pref("general.smoothScroll.mouseWheel.durationMinMS", 125);
-// user_pref("general.smoothScroll.stopDecelerationWeighting", "0.7");
-// user_pref("mousewheel.min_line_scroll_amount", 25);
-// user_pref("apz.overscroll.enabled", true); /*elastic overscroll*/
-
-/****************************************************************************
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
 /** Enter your personal prefs below this line ***/
