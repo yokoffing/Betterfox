@@ -48,9 +48,6 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 // user_pref("identity.fxaccounts.enabled", false);
 // user_pref("identity.fxaccounts.toolbar.enabled", false);
 
-// PREF: Disable about:welcome page
-user_pref("browser.aboutwelcome.enabled", false);
-
 // PREF: Disable Extension Recommendations (CFR: "Contextual Feature Recommender")
 // https://support.mozilla.org/en-US/kb/extension-recommendations
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
