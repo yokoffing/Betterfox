@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: January 2022                                                    *
+ * version: February 2022                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -48,14 +48,16 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 // user_pref("identity.fxaccounts.enabled", false);
 // user_pref("identity.fxaccounts.toolbar.enabled", false);
 
-// PREF: Disable about:welcome page
-user_pref("browser.aboutwelcome.enabled", false);
-
 // PREF: Disable Extension Recommendations (CFR: "Contextual Feature Recommender")
 // https://support.mozilla.org/en-US/kb/extension-recommendations
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
-user_pref("extensions.getAddons.showPane", false);
+
+// PREF: Hide bookmarks toolbar from new tab page 
+// user_pref("browser.toolbars.bookmarks.visibility", "never");
+
+// PREF: Hide "More from Mozilla" in Settings
+user_pref("browser.preferences.moreFromMozilla", false);
 
 // PREF: Remove delay of security dialog when downloading extensions
 // default=1000
@@ -79,21 +81,26 @@ user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.delay", 0);
 user_pref("full-screen-api.warning.timeout", 0);
 
-// PREF: Hide bookmarks toolbar from new tab page 
-// user_pref("browser.toolbars.bookmarks.visibility", "never");
-
-// PREF: Hide "More from Mozilla" in Settings
-user_pref("browser.preferences.moreFromMozilla", false);
-
 /****************************************************************************
  * SECTION: NEW TAB PAGE                                                    *
 ****************************************************************************/
 
-// PREF: Set START page (0=blank, 1=home, 2=last visited page, 3=resume previous session)
-user_pref("browser.startup.page", 3);
+// PREF: Set startup page
+// 0=blank, 1=home, 2=last visited page, 3=resume previous session
+// [NOTE] Session Restore is cleared with history and not used in Private Browsing mode
+// [SETTING] General>Startup>Restore previous session
+// user_pref("browser.startup.page", 3);
 
-// PREF: Set HOME page
-// user_pref("browser.startup.page", "about:home");
+// PREF: set HOME+NEWWINDOW page
+// about:home=Activity Stream, custom URL, about:blank
+// [SETTING] Home>New Windows and Tabs>Homepage and new windows
+// user_pref("browser.startup.homepage", "about:blank");
+
+// PREF: set NEWTAB page
+// true=Activity Stream (default, see 0105), false=blank page
+// [SETTING] Home>New Windows and Tabs>New tabs
+// user_pref("browser.newtabpage.enabled", false);
+// user_pref("browser.newtab.preload", false);
 
 // PREF: Disable Activity Stream Top Stories, Pocket-based and/or sponsored content
 user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
@@ -162,6 +169,10 @@ user_pref("browser.download.manager.addToRecentDocs", false);
 
 // PREF: Autohide download button
 user_pref("browser.download.autohideButton", true); // default
+
+// PREF: enable user interaction for security by always asking how to handle new mimetypes
+// [SETTING] General>Files and Applications>What should Firefox do with other files
+user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 /****************************************************************************
  * SECTION: VARIOUS                                                         *
@@ -263,7 +274,7 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);
 user_pref("print.tab_modal.enabled", true); // default
 
 // PREF: CSS Constructable Stylesheets
-user_pref("layout.css.constructable-stylesheets.enabled", true);
+user_pref("layout.css.constructable-stylesheets.enabled", true); // default
 
 // PREF: CSS Masonry Layout
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
