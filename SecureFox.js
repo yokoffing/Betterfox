@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: January 2022                                                    *
+ * version: June 2022                                                       *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -37,6 +37,7 @@ user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
 // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 
 // PREF: Lower the priority of network loads for resources on the tracking protection list.
+// [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
 user_pref("privacy.trackingprotection.lower_network_priority", true);
 
 // PREF: allow embedded tweets and Reddit posts
@@ -83,9 +84,9 @@ user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.ena
 // [2] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
 // [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
 user_pref("privacy.partition.network_state", true); // default
-user_pref("privacy.partition.network_state.ocsp_cache", true);
+user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
 user_pref("privacy.partition.serviceWorkers", true);
-// user_pref("privacy.partition.bloburl_per_agent_cluster", true); // currently the only non-partitioned item in TCP is blobs
+user_pref("privacy.partition.bloburl_per_agent_cluster", true);
 
 // PREF: Smartblock
 // [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
@@ -127,9 +128,9 @@ user_pref("dom.storage.next_gen", true); // default
 // PREF: SameStie Cookies
 // [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
 // [2] https://web.dev/samesite-cookies-explained/
-user_pref("network.cookie.sameSite.laxByDefault", true); // default
-user_pref("network.cookie.sameSite.noneRequiresSecure", true); // default
-user_pref("network.cookie.sameSite.schemeful", false); // default
+user_pref("network.cookie.sameSite.laxByDefault", true);
+user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+user_pref("network.cookie.sameSite.schemeful", true);
 
 // PREF: WebRTC Global Mute Toggles
 // user_pref("privacy.webrtc.globalMuteToggles", true);
@@ -145,9 +146,13 @@ user_pref("network.cookie.sameSite.schemeful", false); // default
 // 0=disabled, 1=enabled (default), 2=enabled for EV certificates only
 // OCSP (non-stapled) leaks information about the sites you visit to the CA (cert authority)
 // It's a trade-off between security (checking) and privacy (leaking info to the CA)
+// Unlike Chrome, Firefox’s default settings also query OCSP responders to confirm the validity
+// of SSL/TLS certificates. However, because OCSP query failures are so common, Firefox
+// (like other browsers) implements a “soft-fail” policy. 
 // [NOTE] This pref only controls OCSP fetching and does not affect OCSP stapling
 // [SETTING] Privacy & Security>Security>Certificates>Query OCSP responder servers...
-// [1] https://en.wikipedia.org/wiki/Ocsp ***/
+// [1] https://en.wikipedia.org/wiki/Ocsp
+// [2] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
 user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
 
 // PREF: set OCSP fetch failures (non-stapled, see 1211) to hard-fail
@@ -156,7 +161,8 @@ user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
 // It is pointless to soft-fail when an OCSP fetch fails: you cannot confirm a cert is still valid (it
 // could have been revoked) and/or you could be under attack (e.g. malicious blocking of OCSP servers)
 // [1] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
-// [2] https://www.imperialviolet.org/2014/04/19/revchecking.html ***/
+// [2] https://www.imperialviolet.org/2014/04/19/revchecking.html
+// [3] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
 // user_pref("security.OCSP.require", true);
 
 // PREF: disable or limit SHA-1 certificates
@@ -408,14 +414,14 @@ user_pref("network.prefetch-next", false);
 user_pref("network.http.speculative-parallel-limit", 0);
 
 // PREF: Preload <link rel=preload>
-// Tells the browser to download and cache a resource (like a script or a stylesheet) as soon as possible.
+// This tells the browser to download and cache a resource (like a script or a stylesheet) as soon as possible.
 // The browser doesn’t do anything with the resource after downloading it. Scripts aren’t executed, stylesheets
 // aren’t applied. It’s just cached – so that when something else needs it, it’s available immediately.
 // Focuses on fetching a resource for the CURRENT navigation.
 // [NOTE] Unlike other pre-connection tags (except modulepreload), this tag is mandatory for the browser.
 // A browser is required to download the resource specified in <link rel="preload">. With other tags described here,
 // a browser is free to skip preloading the resource if it decides to (e.g. if the network is slow).
-// [TESTING] May possibly interfear with content blocking on the webpage.
+// [WARNING] Leaving this enabled will interfere with content blocking, especially with cosmetic filters.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
 // [2] https://w3c.github.io/preload/
 // [3] https://3perf.com/blog/link-rels/#preload
@@ -430,6 +436,9 @@ user_pref("network.preload", false);
 // [2] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
 // [3] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
 user_pref("browser.newtab.preload", true); // default
+
+// PREF: disable mousedown speculative connections on bookmarks and history
+user_pref("browser.places.speculativeConnect.enabled", false);
 
 /******************************************************************************
  * SECTION: SEARCH / URL BAR                              *
@@ -496,11 +505,12 @@ user_pref("network.IDN_show_punycode", true);
 // will NOT ask for your permission before connecting to a website that doesn’t support secure connections.
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
 // [TEST] http://example.com [upgrade]
+// [TEST] http://httpforever.com/ [no upgrade]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1706552
 // [2] https://web.dev/why-https-matters/
 // [3] https://www.cloudflare.com/learning/ssl/why-use-https/
-user_pref("dom.security.https_first", true);
-user_pref("dom.security.https_first_pbm", true); // default
+// user_pref("dom.security.https_first", true);
+// user_pref("dom.security.https_first_pbm", true); // default
 
 /******************************************************************************
  * SECTION: HTTPS-ONLY MODE                              *
@@ -511,27 +521,30 @@ user_pref("dom.security.https_first_pbm", true); // default
 // [SETTING] to add site exceptions: Padlock>HTTPS-Only mode>On/Off/Off temporarily
 // [SETTING] Privacy & Security>HTTPS-Only Mode
 // [TEST] http://example.com [upgrade]
-// [TEST] http://neverssl.org/ [no upgrade]
+// [TEST] http://httpforever.com/ [no upgrade]
+// [TEST] http://speedofanimals.com [no upgrade]
 // [1] https://bugzilla.mozilla.org/1613063
 // [2] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 // [3] https://web.dev/why-https-matters/
 // [4] https://www.cloudflare.com/learning/ssl/why-use-https/
 
-// PREF: disable HTTPS-only Mode for Normal Browsing windows
-user_pref("dom.security.https_only_mode", false); // default
-user_pref("dom.security.https_only_mode_ever_enabled", false); // default
+// PREF: enable HTTPS-only Mode
+user_pref("dom.security.https_only_mode", true);
 
-// PREF: enable HTTPS-only Mode for Private Browsing windows
-user_pref("dom.security.https_only_mode_pbm", true);
-user_pref("dom.security.https_only_mode_ever_enabled_pbm", true);
+// PREF: Offer suggestion for HTTPS site when available
+// [1] https://nitter.winscloud.net/leli_gibts_scho/status/1371458534186057731
+user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: Disable HTTP background requests in HTTPS-only Mode
 // When attempting to upgrade, if the server doesn't respond within 3 seconds, Firefox
 // sends HTTP requests in order to check if the server supports HTTPS or not.
 // This is done to avoid waiting for a timeout which takes 90 seconds.
+// Firefox only sends top level domain when falling back to http.
+// [WARNING] Disabling causes long timeouts when no path to HTTPS is present.
+// [NOTE] Use "Manage Exceptions" for sites known for no HTTPS. Test site: 
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
-user_pref("dom.security.https_only_mode_send_http_background_request", false);
+// user_pref("dom.security.https_only_mode_send_http_background_request", false);
 
 // PREF: Enable HTTPS-Only mode for local resources
 // user_pref("dom.security.https_only_mode.upgrade_local", true);
@@ -743,8 +756,8 @@ user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 // PREF: disable relaxing referer for cross-site navigations
-user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // default in v. 97
-user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // default
+// user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // default with "Strict"
+// user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // default
 
 /******************************************************************************
  * SECTION: VARIOUS                            *
@@ -778,8 +791,8 @@ user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true);
 // To verify the safety of certain executable files, Firefox may submit some information about the
 // file, including the name, origin, size and a cryptographic hash of the contents, to the Google
 // Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
-user_pref("browser.safebrowsing.downloads.remote.enabled", false);
-user_pref("browser.safebrowsing.downloads.remote.url", "");
+user_pref("browser.safebrowsing.downloads.remote.enabled", false); // default
+// user_pref("browser.safebrowsing.downloads.remote.url", "");
 
 // PREF: GSB, master switch
 // WARNING: Be sure to have alternate security measures if you disable Safe Browsing.
