@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: June 2022                                                       *
+ * version: July 2022                                                       *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -270,8 +270,8 @@ user_pref("browser.pagethumbnails.capturing_disabled", true); // [depreciated?]
 // user_pref("browser.cache.offline.enable", false);
 
 // PREF: set third-party cookies to session-only
-user_pref("network.cookie.thirdparty.sessionOnly", true);
-user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
+// user_pref("network.cookie.thirdparty.sessionOnly", true); // slated for removal
+// user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true); // slated for removal
 
 // PREF: delete all cookies after a certain period of time
 // user_pref("network.cookie.lifetimePolicy", 3);
