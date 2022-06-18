@@ -37,6 +37,8 @@ user_pref("dom.battery.enabled", false);
 user_pref("security.OCSP.enabled", 0);
 user_pref("security.pki.sha1_enforcement_level", 1);
 user_pref("security.cert_pinning.enforcement_level", 2);
+user_pref("security.remote_settings.crlite_filters.enabled", true);
+user_pref("security.pki.crlite_mode", 2);
 
 /** SSL / TLS ***/
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
