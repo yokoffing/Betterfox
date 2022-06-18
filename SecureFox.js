@@ -160,6 +160,7 @@ user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
 // Setting this pref to true tells Firefox to instead terminate the connection (=hard-fail)
 // It is pointless to soft-fail when an OCSP fetch fails: you cannot confirm a cert is still valid (it
 // could have been revoked) and/or you could be under attack (e.g. malicious blocking of OCSP servers)
+// [WARNING] Expect breakage
 // [1] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
 // [2] https://www.imperialviolet.org/2014/04/19/revchecking.html
 // [3] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
@@ -182,11 +183,11 @@ user_pref("security.pki.sha1_enforcement_level", 1);
 user_pref("security.cert_pinning.enforcement_level", 2);
 
 // PREF: CRLite
-// This will reduce the number of times an OCSP server needs to be contacted and therefore increase privacy.
-// [1] https://blog.mozilla.org/security/2020/01/09/crlite-part-2-end-to-end-design/
-// [2] https://github.com/arkenfox/user.js/issues/1065
-user_pref("security.pki.crlite_mode", 2);
+// In FF84+ it covers valid certs and in mode 2 doesn't fall back to OCSP
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1429800,1670985
+// [2] https://blog.mozilla.org/security/tag/crlite/ ***/
 user_pref("security.remote_settings.crlite_filters.enabled", true);
+user_pref("security.pki.crlite_mode", 2);
 
 /****************************************************************************
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
