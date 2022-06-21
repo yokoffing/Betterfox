@@ -380,7 +380,7 @@ user_pref("network.predictor.enable-prefetch", false);
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
+user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
 
 // PREF: Preconnect to the autocomplete URL in the address bar
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
