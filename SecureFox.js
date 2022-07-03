@@ -306,7 +306,6 @@ user_pref("privacy.sanitize.timeSpan", 0);
 // This infographic is most helpful:
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1765533#c1
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);
-user_pref("network.cookie.lifetimePolicy", 0); /* Keep until FF 103+ */
 
 // PREF: SANITIZE ON SHUTDOWN: RESPECTS SITE EXCEPTIONS FF102+
 // Set cookies and site data to clear on shutdown
@@ -329,9 +328,9 @@ user_pref("privacy.clearOnShutdown.cookies", true);
 // [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
 // [1] https://en.wikipedia.org/wiki/Basic_access_authentication
 // user_pref("privacy.clearOnShutdown.cache", true);     // [DEFAULT: true]
-   // user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT: true]
 user_pref("privacy.clearOnShutdown.formdata", true);  // [DEFAULT: true]
 // user_pref("privacy.clearOnShutdown.history", true);   // [DEFAULT: true]
+   // user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT: true]
 // user_pref("privacy.clearOnShutdown.sessions", true);  // [DEFAULT: true]
    // user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
 
