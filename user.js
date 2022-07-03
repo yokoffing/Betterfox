@@ -63,7 +63,13 @@ user_pref("privacy.cpd.cookies", true);
 user_pref("privacy.cpd.sessions", true);
 user_pref("privacy.cpd.siteSettings", false);
 user_pref("privacy.sanitize.timeSpan", 0);
-user_pref("privacy.history.custom", true);
+
+/** SHUTDOWN & SANITIZING ***/
+/* Add sites that you want to stay logged into and not cleared upon exit: */
+/* [SETTING] Privacy & Security>Cookies and Site Data>Manage Exceptions */
+user_pref("privacy.clearOnShutdown.cookies", true);
+user_pref("privacy.clearOnShutdown.cache", true);
+user_pref("privacy.clearOnShutdown.offlineApps", true);
 
 /** SPECULATIVE CONNECTIONS ***/
 user_pref("network.predictor.enabled", false);
