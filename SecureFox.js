@@ -322,7 +322,6 @@ user_pref("privacy.clearOnShutdown.offlineApps", true);
 user_pref("privacy.clearOnShutdown.formdata", true);
 
 // PREF: delete sessions and site settings on exit
-// [WARNING] Do not toggle unless you want everything cleared!
 // [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
 // [NOTE] "siteSettings": e.g., webpage zoom preferences
 // [1] https://en.wikipedia.org/wiki/Basic_access_authentication
