@@ -319,7 +319,7 @@ user_pref("privacy.clearOnShutdown.offlineApps", true);
 // [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
 // user_pref("privacy.clearOnShutdown.history", true);
     // user_pref("privacy.clearOnShutdown.downloads", true);
-// user_pref("privacy.clearOnShutdown.formdata", true);
+user_pref("privacy.clearOnShutdown.formdata", true);
 
 // PREF: delete sessions and site settings on exit
 // [WARNING] Do not toggle unless you want everything cleared!
