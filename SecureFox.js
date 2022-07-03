@@ -280,12 +280,12 @@ user_pref("browser.pagethumbnails.capturing_disabled", true); // [depreciated?]
 // Regardless of what you set privacy.cpd.downloads to, as soon as the dialog
 // for "Clear Recent History" is opened, it is synced to the same as 'history'.
 // user_pref("privacy.cpd.downloads", true); // not used, see note above
-user_pref("privacy.cpd.history", true); // Browsing & Download History [DEFAULT]
-user_pref("privacy.cpd.formdata", true); // Form & Search History [DEFAULT]
-user_pref("privacy.cpd.offlineApps", false); // Offline Website Data [DEFAULT]
-user_pref("privacy.cpd.cache", true); // Cache [DEFAULT]
-user_pref("privacy.cpd.cookies", false); // Cookies
-user_pref("privacy.cpd.sessions", false); // Active Logins [DEFAULT]
+// user_pref("privacy.cpd.history", true); // Browsing & Download History [DEFAULT]
+// user_pref("privacy.cpd.formdata", true); // Form & Search History [DEFAULT]
+// user_pref("privacy.cpd.offlineApps", false); // Offline Website Data [DEFAULT]
+// user_pref("privacy.cpd.cache", true); // Cache [DEFAULT]
+// user_pref("privacy.cpd.cookies", false); // Cookies
+// user_pref("privacy.cpd.sessions", false); // Active Logins [DEFAULT]
 // user_pref("privacy.cpd.siteSettings", false); // Site Preferences [DEFAULT]
 
 // PREF: reset default 'Time range to clear' for 'Clear Recent History'.
@@ -296,43 +296,38 @@ user_pref("privacy.cpd.sessions", false); // Active Logins [DEFAULT]
 // blank value if they are used, but they do work as advertised.
 user_pref("privacy.sanitize.timeSpan", 0);
 
-// PREF: keep cookies until the browser is closed, then delete everything minus exceptions
-[tweak this]
-
-// PREF: this way of sanitizing would override the exceptions set by the users and just delete everything,
-// therefore we tell it to delete everything but ignore data needed to stay logged into websites set
-// manually as exceptions.
-
-// PREF: enable Firefox to clear items on shutdown
-// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes ***/
-// user_pref("privacy.sanitize.sanitizeOnShutdown", true);
-
-// PREF: set what items to clear on shutdown
-// These items do not use exceptions, it is all or nothing
-// [NOTE] If "history" is true, downloads will also be cleared
-// [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
-// [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
-// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
-// [1] https://en.wikipedia.org/wiki/Basic_access_authentication ***/
-user_pref("privacy.clearOnShutdown.cache", true);     // [DEFAULT]
-user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT]
-user_pref("privacy.clearOnShutdown.formdata", true);  // [DEFAULT]
-user_pref("privacy.clearOnShutdown.history", true);   // [DEFAULT]
-user_pref("privacy.clearOnShutdown.sessions", true);  // [DEFAULT]
-user_pref("privacy.clearOnShutdown.offlineApps", false); // [DEFAULT]
-user_pref("privacy.clearOnShutdown.cookies", false);
-// user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT]
-
 // PREF: set History section to show all options
-user_pref("privacy.history.custom", true);
+// user_pref("privacy.history.custom", true);
 
-/* override recipe: enable session restore ***/
-/* override recipe: keep some cookies (+ other optional site data) on exit ***/
-user_pref("browser.startup.page", 3);
-  // user_pref("places.history.enabled", true);
-  // user_pref("network.cookie.lifetimePolicy", 2); // session cookies
-user_pref("privacy.clearOnShutdown.cookies", false); // 2811
-user_pref("privacy.clearOnShutdown.offlineApps", false); // 2811 optional
+/******************************************************************************
+ * SECTION: SHUTDOWN & SANITIZING                           *
+******************************************************************************/
+
+// PREF: delete cookies, cache, and site data on exit (minus site exceptions)
+// Add sites that you want to stay logged into and not cleared upon exit:
+// [SETTING] Privacy & Security>Cookies and Site Data>Manage Exceptions
+// [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1681493,1681495,1681498,1759665
+// [2] https://github.com/arkenfox/user.js/issues/1491
+user_pref("network.cookie.lifetimePolicy", 0); /* Keep until FF 104+ */
+user_pref("privacy.clearOnShutdown.cookies", true);
+user_pref("privacy.clearOnShutdown.cache", true);
+user_pref("privacy.clearOnShutdown.offlineApps", true);
+
+// PREF: optionally, delete browser history and form/search history on exit
+// [NOTE] If "history" is true, downloads will also be cleared
+// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
+// user_pref("privacy.clearOnShutdown.history", true);
+    // user_pref("privacy.clearOnShutdown.downloads", true);
+// user_pref("privacy.clearOnShutdown.formdata", true);
+
+// PREF: delete sessions and site settings on exit
+// [WARNING] Do not toggle unless you want everything cleared!
+// [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
+// [NOTE] "siteSettings": e.g., webpage zoom preferences
+// [1] https://en.wikipedia.org/wiki/Basic_access_authentication
+// user_pref("privacy.clearOnShutdown.sessions", true);
+    // user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT]
 
 /******************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                           *
