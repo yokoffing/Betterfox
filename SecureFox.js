@@ -125,7 +125,7 @@ user_pref("dom.battery.enabled", false);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 user_pref("dom.storage.next_gen", true); // default
 
-// PREF: SameStie Cookies
+// PREF: SameSties
 // [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
 // [2] https://web.dev/samesite-cookies-explained/
 user_pref("network.cookie.sameSite.laxByDefault", true);
@@ -270,14 +270,6 @@ user_pref("browser.pagethumbnails.capturing_disabled", true); // [depreciated?]
 // [1] https://github.com/arkenfox/user.js/issues/1055
 // user_pref("browser.cache.offline.enable", false);
 
-// PREF: set third-party cookies to session-only
-// user_pref("network.cookie.thirdparty.sessionOnly", true); // slated for removal
-// user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true); // slated for removal
-
-// PREF: delete all cookies after a certain period of time
-// user_pref("network.cookie.lifetimePolicy", 3);
-// user_pref("network.cookie.lifetime.days", 7);
-
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
 ******************************************************************************/
@@ -305,7 +297,7 @@ user_pref("privacy.cpd.sessions", false); // Active Logins [DEFAULT]
 user_pref("privacy.sanitize.timeSpan", 0);
 
 // PREF: keep cookies until the browser is closed, then delete everything minus exceptions
-user_pref("network.cookie.lifetimePolicy", 2);
+[tweak this]
 
 // PREF: this way of sanitizing would override the exceptions set by the users and just delete everything,
 // therefore we tell it to delete everything but ignore data needed to stay logged into websites set
