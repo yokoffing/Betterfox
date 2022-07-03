@@ -303,7 +303,10 @@ user_pref("privacy.sanitize.timeSpan", 0);
  * SECTION: SHUTDOWN & SANITIZING                           *
 ******************************************************************************/
 
-// PREF: delete cookies, cache, and site data on exit (minus site exceptions)
+// This infographic is most helpful:
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1765533#c1
+
+// PREF: Site Data - delete cookies, cache, and site data on exit (respects site exceptions)
 // Add sites that you want to stay logged into and not cleared upon exit:
 // [SETTING] Privacy & Security>Cookies and Site Data>Manage Exceptions
 // [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
@@ -314,14 +317,14 @@ user_pref("privacy.clearOnShutdown.cookies", true);
 user_pref("privacy.clearOnShutdown.cache", true);
 user_pref("privacy.clearOnShutdown.offlineApps", true);
 
-// PREF: optionally, delete browser history and form/search history on exit
+// PREF: History - delete browser history and form/search history on exit
 // [NOTE] If "history" is true, downloads will also be cleared
 // [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
 // user_pref("privacy.clearOnShutdown.history", true);
     // user_pref("privacy.clearOnShutdown.downloads", true);
 user_pref("privacy.clearOnShutdown.formdata", true);
 
-// PREF: delete sessions and site settings on exit
+// PREF: Site Permissions - delete sessions and site settings on exit
 // [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
 // [NOTE] "siteSettings": e.g., webpage zoom preferences
 // [1] https://en.wikipedia.org/wiki/Basic_access_authentication
