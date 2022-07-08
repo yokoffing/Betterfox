@@ -155,7 +155,7 @@ user_pref("network.cookie.sameSite.schemeful", true);
 // [2] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
 user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
 
-// PREF: set OCSP fetch failures (non-stapled, see 1211) to hard-fail
+// PREF: set OCSP fetch failures to hard-fail
 // When a CA cannot be reached to validate a cert, Firefox just continues the connection (=soft-fail)
 // Setting this pref to true tells Firefox to instead terminate the connection (=hard-fail)
 // It is pointless to soft-fail when an OCSP fetch fails: you cannot confirm a cert is still valid (it
@@ -216,7 +216,7 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 // PREF: display advanced information on Insecure Connection warning pages
 // only works when it's possible to add an exception
 // i.e. it doesn't work for HSTS discrepancies (https://subdomain.preloaded-hsts.badssl.com/)
-// [TEST] https://expired.badssl.com/ ***/
+// [TEST] https://expired.badssl.com/
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 
 // PREF: control "Add Security Exception" dialog on SSL warnings
