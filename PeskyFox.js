@@ -205,6 +205,11 @@ user_pref("browser.urlbar.suggest.topsites", false);
 // user_pref("browser.urlbar.autoFill", true); [DEFAULT]
 // user_pref("browser.urlbar.autoFill.adaptiveHistory.enabled", false);
 
+PREF: Quick Actions in the URL Bar
+// [1] https://www.ghacks.net/2022/07/19/mozilla-is-testing-quick-actions-in-firefoxs-address-bar/
+// user_pref("browser.urlbar.quickactions.enabled", false);
+// user_pref("browser.urlbar.shortcuts.quickactions", false);
+
 // PREF: Address bar / URL bar dropdown
 // This value controls the total number of entries to appear in the location bar dropdown.
 // [NOTE] Items (bookmarks/history/openpages) with a high "frequency"/"bonus" will always
