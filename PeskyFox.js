@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: February 2022                                                   *
+ * version: July 2022                                                       *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -199,6 +199,11 @@ user_pref("browser.urlbar.suggest.engines", false);
 // user_pref("browser.urlbar.suggest.searches", false);
 // Disable dropdown suggestions with empty query
 user_pref("browser.urlbar.suggest.topsites", false);
+
+// PREF: Adaptive History Autofill
+// [1] https://docs.google.com/document/u/1/d/e/2PACX-1vRBLr_2dxus-aYhZRUkW9Q3B1K0uC-a0qQyE3kQDTU3pcNpDHb36-Pfo9fbETk89e7Jz4nkrqwRhi4j/pub
+// user_pref("browser.urlbar.autoFill", true); [DEFAULT]
+// user_pref("browser.urlbar.autoFill.adaptiveHistory.enabled", false);
 
 // PREF: Address bar / URL bar dropdown
 // This value controls the total number of entries to appear in the location bar dropdown.
