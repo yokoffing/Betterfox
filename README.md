@@ -40,3 +40,5 @@ Check out our [wiki](https://github.com/yokoffing/Better-Fox/wiki)!
 
 ## Credit
 Where there is similiarity to other authors, credit goes to them.
+
+<div align='center'><a href='https://www.websitecounterfree.com'><img src='https://www.websitecounterfree.com/c.php?d=9&id=19653&s=1' border='0' alt='Free Website Counter'></a><br / >
