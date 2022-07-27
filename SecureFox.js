@@ -127,7 +127,7 @@ user_pref("dom.battery.enabled", false);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 user_pref("dom.storage.next_gen", true); // default
 
-// PREF: SameSties
+// PREF: SameSite Cookies
 // [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
 // [2] https://web.dev/samesite-cookies-explained/
 user_pref("network.cookie.sameSite.laxByDefault", true);
