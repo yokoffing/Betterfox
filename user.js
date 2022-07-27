@@ -35,7 +35,6 @@ user_pref("dom.battery.enabled", false);
 
 /** OCSP & CERTS / HPKP ***/
 user_pref("security.OCSP.enabled", 0);
-user_pref("security.pki.sha1_enforcement_level", 1);
 user_pref("security.cert_pinning.enforcement_level", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("security.pki.crlite_mode", 2);
@@ -55,9 +54,11 @@ user_pref("browser.shell.shortcutFavicons", false);
 user_pref("browser.pagethumbnails.capturing_disabled", true);
 
 /** SHUTDOWN & SANITIZING ***/
+/* NOTE: Add site exceptions: https://github.com/yokoffing/Better-Fox/blob/9c068d1b7f51207d4d9ba448b7a0e80f7ea7c910/SecureFox.js#L305-L318 */
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 user_pref("privacy.clearOnShutdown.cookies", true);
 user_pref("privacy.clearOnShutdown.offlineApps", true);
+user_pref("privacy.clearOnShutdown.cache", true);
 user_pref("privacy.clearOnShutdown.formdata", true);
 
 /** SPECULATIVE CONNECTIONS ***/
@@ -138,7 +139,6 @@ user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /** GOOGLE SAFE BROWSING ***/
-/* WARNING: Be sure to have alternate security measures if you disable Safe Browsing! */
 /* NOTE: Remove everything below this line if you use this feature */
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
