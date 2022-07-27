@@ -320,10 +320,10 @@ user_pref("privacy.clearOnShutdown.cache", true);
 // [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
 // [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
 // [1] https://en.wikipedia.org/wiki/Basic_access_authentication
-user_pref("privacy.clearOnShutdown.formdata", true);  // [DEFAULT: true]
-// user_pref("privacy.clearOnShutdown.history", true);   // [DEFAULT: true]
-   // user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT: true]
-// user_pref("privacy.clearOnShutdown.sessions", true);  // [DEFAULT: true]
+// user_pref("privacy.clearOnShutdown.formdata", true);  // [DEFAULT: true]
+user_pref("privacy.clearOnShutdown.history", false);   // [DEFAULT: true]
+   user_pref("privacy.clearOnShutdown.downloads", false); // [DEFAULT: true]
+user_pref("privacy.clearOnShutdown.sessions", false); // [DEFAULT: true]
    // user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
 
 /******************************************************************************
