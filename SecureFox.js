@@ -308,7 +308,7 @@ user_pref("privacy.sanitize.timeSpan", 0);
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 
 // PREF: SANITIZE ON SHUTDOWN: RESPECTS SITE EXCEPTIONS FF102+
-// Set cookies and site data to clear on shutdown
+// Set cookies, site data, and cache to clear on shutdown
 // [NOTE] Exceptions: A "cookie" block permission also controls "offlineApps" (see note below).
 // serviceWorkers require an "Allow" permission. For cross-domain logins, add exceptions for
 // both sites e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
