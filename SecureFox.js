@@ -185,7 +185,7 @@ user_pref("security.cert_pinning.enforcement_level", 2);
 // PREF: CRLite
 // In FF84+ it covers valid certs and in mode 2 doesn't fall back to OCSP
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1429800,1670985
-// [2] https://blog.mozilla.org/security/tag/crlite/ ***/
+// [2] https://blog.mozilla.org/security/tag/crlite/
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("security.pki.crlite_mode", 2);
 
