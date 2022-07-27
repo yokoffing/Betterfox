@@ -54,16 +54,6 @@ user_pref("browser.sessionstore.privacy_level", 2);
 user_pref("browser.shell.shortcutFavicons", false);
 user_pref("browser.pagethumbnails.capturing_disabled", true);
 
-/** CLEARING DATA DEFAULTS ***/
-user_pref("privacy.cpd.history", true);
-user_pref("privacy.cpd.formdata", true);
-user_pref("privacy.cpd.offlineApps", true);
-user_pref("privacy.cpd.cache", true);
-user_pref("privacy.cpd.cookies", true);
-user_pref("privacy.cpd.sessions", true);
-user_pref("privacy.cpd.siteSettings", false);
-user_pref("privacy.sanitize.timeSpan", 0);
-
 /** SHUTDOWN & SANITIZING ***/
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 user_pref("privacy.clearOnShutdown.cookies", true);
