@@ -33,12 +33,14 @@ user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
 user_pref("privacy.trackingprotection.socialtracking.enabled", true); // enabled with "Strict"
-user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
+user_pref("privacy.socialtracking.block_cookies.enabled", true); // default(?)
 // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
+user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
+user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 
 // PREF: Lower the priority of network loads for resources on the tracking protection list.
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
-user_pref("privacy.trackingprotection.lower_network_priority", true);
+// user_pref("privacy.trackingprotection.lower_network_priority", true);
 
 // PREF: allow embedded tweets and Reddit posts
 // [TEST] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
