@@ -166,15 +166,6 @@ user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
 // [3] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
 // user_pref("security.OCSP.require", true);
 
-// PREF: disable or limit SHA-1 certificates
-// 0 = allow all
-// 1 = block all
-// 3 = only allow locally-added roots (e.g. anti-virus) (default)
-// 4 = only allow locally-added roots or for certs in 2015 and earlier
-// If you have problems, update your software: SHA-1 is obsolete
-// [1] https://blog.mozilla.org/security/2016/10/18/phasing-out-sha-1-on-the-public-web/ 
-user_pref("security.pki.sha1_enforcement_level", 1);
-
 // PREF: enable strict pinning
 // PKP (Public Key Pinning) 0=disabled, 1=allow user MiTM (such as your antivirus), 2=strict
 // If you rely on an AV (antivirus) to protect your web browsing
