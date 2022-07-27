@@ -309,9 +309,8 @@ user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 
 // PREF: SANITIZE ON SHUTDOWN: RESPECTS SITE EXCEPTIONS FF102+
 // Set cookies, site data, and cache to clear on shutdown
-// [NOTE] Exceptions: A "cookie" block permission also controls "offlineApps" (see note below).
-// serviceWorkers require an "Allow" permission. For cross-domain logins, add exceptions for
-// both sites e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
+// For cross-domain logins, add exceptions for both sites:
+// e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
 // [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
 // [WARNING] Be selective with what cookies you keep, as they also disable partitioning (1)
 // [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
