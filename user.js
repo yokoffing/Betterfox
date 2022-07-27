@@ -59,6 +59,8 @@ user_pref("privacy.clearOnShutdown.cookies", true);
 user_pref("privacy.clearOnShutdown.offlineApps", true);
 user_pref("privacy.clearOnShutdown.cache", true);
 user_pref("privacy.clearOnShutdown.formdata", true);
+user_pref("privacy.clearOnShutdown.history", false);
+user_pref("privacy.clearOnShutdown.downloads", false);
 
 /** SPECULATIVE CONNECTIONS ***/
 user_pref("network.predictor.enabled", false);
