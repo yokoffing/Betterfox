@@ -446,7 +446,7 @@ user_pref("browser.search.suggest.enabled.private", false); // default
 // PREF: disable location bar leaking single words to a DNS provider after searching
 // 0=never resolve single words, 1=heuristic (default), 2=always resolve
 // [1] https://bugzilla.mozilla.org/1642623
-user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
+// user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0); // default FF104+
 
 // PREF: disable Firefox Suggest
 user_pref("browser.urlbar.groupLabels.enabled", false);
