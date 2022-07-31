@@ -73,7 +73,7 @@ user_pref("fission.autostart", true); // default
 // [3] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
 // [4] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
 // [5] https://github.com/arkenfox/user.js/issues/1281
-user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict"
+user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict", DEFAULT FF103+
 user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
 user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // default
 
@@ -822,6 +822,7 @@ user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("geo.provider.use_corelocation", false); // [MAC]
 user_pref("geo.provider.use_gpsd", false); // [LINUX]
+user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 
 // PREF: disable region updates
 // [1] https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
