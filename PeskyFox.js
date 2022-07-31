@@ -299,18 +299,24 @@ user_pref("dom.forms.inputmode", true); // default
  * SECTION: PDF                                                             *
 ****************************************************************************/
 
-// PREF: Enforce Firefox's built-in PDF reader
+// PREF: enforce Firefox's built-in PDF reader
 // This setting controls if the option "Display in Firefox" is available in the setting below
 // and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With").
 user_pref("pdfjs.disabled", false); // default
 
-// PREF: Firefox now allows viewing of PDFs even if the response HTTP headers
+// PREF: allow viewing of PDFs even if the response HTTP headers
 // include Content-Disposition:attachment. 
 user_pref("browser.helperApps.showOpenOptionForPdfJS", true); // default
 
-// PREF: Default zoom for PDFs // hidden pref
+// PREF: Default zoom for PDFs [HIDDEN PREF]
 // user_pref("pdfjs.defaultZoomValue", "page-width"); // for laptops and small screens
 // user_pref("pdfjs.defaultZoomValue", "page-fit"); // for larger screens and desktops
+
+// PREF: open PDFs inline (FF103+)
+user_pref("browser.download.open_pdf_attachments_inline", true);
+
+// PREF: add basic text to PDFs (FF103+)
+user_pref("pdfjs.annotationEditorEnabled", true);
 
 /****************************************************************************
  * SECTION: TAB BEHAVIOR                                                    *
