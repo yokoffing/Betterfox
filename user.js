@@ -54,12 +54,14 @@ user_pref("browser.pagethumbnails.capturing_disabled", true);
 /** SHUTDOWN & SANITIZING ***/
 /* NOTE: Add site exceptions: https://github.com/yokoffing/Better-Fox/blob/9c068d1b7f51207d4d9ba448b7a0e80f7ea7c910/SecureFox.js#L305-L318 */
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);
-user_pref("privacy.clearOnShutdown.cookies", true);
 user_pref("privacy.clearOnShutdown.offlineApps", true);
+user_pref("privacy.clearOnShutdown.cookies", true);
 user_pref("privacy.clearOnShutdown.cache", true);
 user_pref("privacy.clearOnShutdown.formdata", true);
 user_pref("privacy.clearOnShutdown.history", false);
-user_pref("privacy.clearOnShutdown.downloads", false);
+user_pref("privacy.clearOnShutdown.downloads", true);
+user_pref("privacy.clearOnShutdown.sessions", true);
+user_pref("privacy.clearOnShutdown.siteSettings", false);
 
 /** SPECULATIVE CONNECTIONS ***/
 user_pref("network.predictor.enabled", false);
