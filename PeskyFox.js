@@ -70,10 +70,10 @@ user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.moz
 // user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
 
 // PREF: Disable Warnings
-user_pref("browser.tabs.warnOnClose", false);
-user_pref("browser.tabs.warnOnCloseOtherTabs", false);
-user_pref("browser.tabs.warnOnOpen", false);
-user_pref("browser.aboutConfig.showWarning", false);
+user_pref("browser.tabs.warnOnClose", false); // default FF94+
+// user_pref("browser.tabs.warnOnCloseOtherTabs", false);
+// user_pref("browser.tabs.warnOnOpen", false);
+// user_pref("browser.aboutConfig.showWarning", false);
 
 // PREF: Disable fullscreen delay and notice
 user_pref("full-screen-api.transition-duration.enter", "0 0");
