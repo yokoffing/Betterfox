@@ -249,6 +249,9 @@ user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
+/** PDF ***/
+user_pref("pdfjs.annotationEditorEnabled", true);
+
 /** TAB BEHAVIOR ***/
 user_pref("dom.disable_window_move_resize", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
