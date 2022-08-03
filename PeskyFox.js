@@ -239,6 +239,17 @@ user_pref("media.block-autoplay-until-in-foreground", true); // default
 // user_pref("media.autoplay.default", 5);
 // user_pref("dom.user_activation.transient.timeout", "500"); // default=5000
 
+// PREF: disable all DRM content (EME: Encryption Media Extension)
+// EME is a JavaScript API for playing DRMed (not free) video content in HTML.
+// A DRM component called a Content Decryption Module (CDM) decrypts, decodes, and displays the video.
+// [SETUP-WEB] e.g. Netflix, Amazon Prime, Hulu, HBO, Disney+, Showtime, Starz, DirectTV
+// [SETTING] General>DRM Content>Play DRM-controlled content
+// [TEST] https://bitmovin.com/demos/drm
+// [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
+user_pref("media.eme.enabled", false);
+// Optionally hide the setting which also disables the DRM prompt
+// user_pref("browser.eme.ui.enabled", false);
+
 // PREF: disable autoplay of HTML5 media if you interacted with the site [FF78+]
 // 0=sticky (default), 1=transient, 2=user
 // Firefox's Autoplay Policy Documentation (PDF) is linked below via SUMO
