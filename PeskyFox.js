@@ -237,8 +237,14 @@ user_pref("dom.push.enabled", false);
 // 0=Allow all, 1=Block non-muted media (default), 5=Block all
 user_pref("media.block-autoplay-until-in-foreground", true); // default
 // user_pref("media.autoplay.default", 5);
-// user_pref("media.autoplay.blocking_policy", 1); // default=0
 // user_pref("dom.user_activation.transient.timeout", "500"); // default=5000
+
+// PREF: disable autoplay of HTML5 media if you interacted with the site [FF78+]
+// 0=sticky (default), 1=transient, 2=user
+// Firefox's Autoplay Policy Documentation (PDF) is linked below via SUMO
+// [NOTE] If you have trouble with some video sites, then add an exception (2030)
+// [1] https://support.mozilla.org/questions/1293231
+user_pref("media.autoplay.blocking_policy", 2);
 
 // PREF: Disable Reader mode
 // Firefox will not have to parse webpage for Reader when navigating.
