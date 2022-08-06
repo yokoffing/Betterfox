@@ -546,7 +546,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // This is done to avoid waiting for a timeout which takes 90 seconds.
 // Firefox only sends top level domain when falling back to http.
 // [WARNING] Disabling causes long timeouts when no path to HTTPS is present.
-// [NOTE] Use "Manage Exceptions" for sites known for no HTTPS. Test site: 
+// [NOTE] Use "Manage Exceptions" for sites known for no HTTPS. 
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
 // user_pref("dom.security.https_only_mode_send_http_background_request", false);
