@@ -230,6 +230,22 @@ user_pref("browser.ssl_override_behavior", 1);
 user_pref("security.tls.enable_0rtt_data", false);
 
 /****************************************************************************
+ * SECTION: FONTS                                                          *
+****************************************************************************/
+// PREF: disable rendering of SVG OpenType fonts
+user_pref("gfx.font_rendering.opentype_svg.enabled", false);
+
+// PREF: limit font visibility (Windows, Mac, some Linux) [FF94+]
+// Uses hardcoded lists with two parts: kBaseFonts + kLangPackFonts [1], bundled fonts are auto-allowed
+// In Normal windows: uses the first applicable: RFP (4506) over TP over Standard
+// In Private Browsing windows: uses the most restrictive between normal and private
+// 1=only base system fonts, 2=also fonts from optional language packs, 3=also user-installed fonts
+// [1] https://searchfox.org/mozilla-central/search?path=StandardFonts*.inc
+    // user_pref("layout.css.font-visibility.private", 1);
+    // user_pref("layout.css.font-visibility.standard", 1);
+    // user_pref("layout.css.font-visibility.trackingprotection", 1);
+
+/****************************************************************************
  * SECTION: DISK AVOIDANCE                                                 *
 ****************************************************************************/
 
@@ -747,6 +763,57 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // PREF: disable relaxing referer for cross-site navigations
 // user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // default with "Strict"
 // user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // default
+
+/******************************************************************************
+ * SECTION: WEBRTC                                                            *
+******************************************************************************/
+
+// PREF: disable WebRTC (Web Real-Time Communication)
+// Firefox uses mDNS hostname obfuscation on desktop (except Windows7/8) and the
+// private IP is NEVER exposed, except if required in TRUSTED scenarios; i.e. after
+// you grant device (microphone or camera) access
+// [SETUP-HARDEN] Test first. Windows7/8 users only: behind a proxy who never use WebRTC
+// [TEST] https://browserleaks.com/webrtc
+// [1] https://groups.google.com/g/discuss-webrtc/c/6stQXi72BEU/m/2FwZd24UAQAJ
+// [2] https://datatracker.ietf.org/doc/html/draft-ietf-mmusic-mdns-ice-candidates#section-3.1.1
+   // user_pref("media.peerconnection.enabled", false);
+
+// PREF: force WebRTC inside the proxy [FF70+]
+user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
+
+// PREF: force a single network interface for ICE candidates generation [FF42+]
+// When using a system-wide proxy, it uses the proxy interface
+// [1] https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate
+// [2] https://wiki.mozilla.org/Media/WebRTC/Privacy
+user_pref("media.peerconnection.ice.default_address_only", true);
+
+// PREF: force exclusion of private IPs from ICE candidates [FF51+]
+// [SETUP-HARDEN] This will protect your private IP even in TRUSTED scenarios after you
+// grant device access, but often results in breakage on video-conferencing platforms
+   // user_pref("media.peerconnection.ice.no_host", true);
+
+/******************************************************************************
+ * SECTION: PLUGINS                                                           *
+******************************************************************************/
+
+// PREF: disable GMP (Gecko Media Plugins)
+// [1] https://wiki.mozilla.org/GeckoMediaPlugins
+   // user_pref("media.gmp-provider.enabled", false);
+
+// PREF: disable widevine CDM (Content Decryption Module)
+// [NOTE] This is covered by the EME master switch
+   // user_pref("media.gmp-widevinecdm.enabled", false);
+
+// PREF: disable all DRM content (EME: Encryption Media Extension)
+// EME is a JavaScript API for playing DRMed (not free) video content in HTML.
+// A DRM component called a Content Decryption Module (CDM) decrypts, decodes, and displays the video.
+// [SETUP-WEB] e.g. Netflix, Amazon Prime, Hulu, HBO, Disney+, Showtime, Starz, DirectTV
+// [SETTING] General>DRM Content>Play DRM-controlled content
+// [TEST] https://bitmovin.com/demos/drm
+// [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
+// user_pref("media.eme.enabled", false);
+// Optionally hide the setting which also disables the DRM prompt
+// user_pref("browser.eme.ui.enabled", false);
 
 /******************************************************************************
  * SECTION: VARIOUS                            *
