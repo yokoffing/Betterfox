@@ -157,6 +157,9 @@ user_pref("network.cookie.sameSite.schemeful", true);
 // [2] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
 user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
 
+// PREF: Enterprise Root Certificates of the operating system is not automatically activated
+// user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
+
 // PREF: set OCSP fetch failures to hard-fail
 // When a CA cannot be reached to validate a cert, Firefox just continues the connection (=soft-fail)
 // Setting this pref to true tells Firefox to instead terminate the connection (=hard-fail)
