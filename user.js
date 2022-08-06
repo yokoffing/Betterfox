@@ -43,6 +43,12 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("browser.ssl_override_behavior", 1);
 user_pref("security.tls.enable_0rtt_data", false);
 
+/** FONTS ***/
+user_pref("gfx.font_rendering.opentype_svg.enabled", false);
+user_pref("layout.css.font-visibility.private", 1);
+user_pref("layout.css.font-visibility.standard", 1);
+user_pref("layout.css.font-visibility.trackingprotection", 1);
+
 /** DISK AVOIDANCE ***/
 user_pref("browser.cache.disk.enable", false);
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
@@ -130,6 +136,10 @@ user_pref("permissions.delegation.enabled", false);
 user_pref("network.http.referer.defaultPolicy.trackers", 1);
 user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+
+/** WEBRTC ***/
+user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
+user_pref("media.peerconnection.ice.default_address_only", true);
 
 /** GOOGLE SAFE BROWSING ***/
 /* NOTE: Remove everything below this line if you use this feature */
