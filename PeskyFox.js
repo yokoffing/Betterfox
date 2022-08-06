@@ -245,18 +245,7 @@ user_pref("media.block-autoplay-until-in-foreground", true); // default
 // Firefox's Autoplay Policy Documentation (PDF) is linked below via SUMO
 // [NOTE] If you have trouble with some video sites (e.g. YouTube), then add an exception (see previous PREF)
 // [1] https://support.mozilla.org/questions/1293231
-user_pref("media.autoplay.blocking_policy", 2);
-
-// PREF: disable all DRM content (EME: Encryption Media Extension)
-// EME is a JavaScript API for playing DRMed (not free) video content in HTML.
-// A DRM component called a Content Decryption Module (CDM) decrypts, decodes, and displays the video.
-// [SETUP-WEB] e.g. Netflix, Amazon Prime, Hulu, HBO, Disney+, Showtime, Starz, DirectTV
-// [SETTING] General>DRM Content>Play DRM-controlled content
-// [TEST] https://bitmovin.com/demos/drm
-// [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
-user_pref("media.eme.enabled", false);
-// Optionally hide the setting which also disables the DRM prompt
-// user_pref("browser.eme.ui.enabled", false);
+// user_pref("media.autoplay.blocking_policy", 2);
 
 // PREF: Disable Reader mode
 // Firefox will not have to parse webpage for Reader when navigating.
