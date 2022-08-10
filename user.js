@@ -43,12 +43,6 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("browser.ssl_override_behavior", 1);
 user_pref("security.tls.enable_0rtt_data", false);
 
-/** FONTS ***/
-user_pref("gfx.font_rendering.opentype_svg.enabled", false);
-user_pref("layout.css.font-visibility.private", 1);
-user_pref("layout.css.font-visibility.standard", 1);
-user_pref("layout.css.font-visibility.trackingprotection", 1);
-
 /** DISK AVOIDANCE ***/
 user_pref("browser.cache.disk.enable", false);
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
