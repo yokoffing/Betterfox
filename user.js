@@ -249,6 +249,7 @@ user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 /** PDF ***/
 user_pref("pdfjs.annotationEditorEnabled", true);
+user_pref("browser.download.open_pdf_attachments_inline", true);
 
 /** TAB BEHAVIOR ***/
 user_pref("dom.disable_window_move_resize", true);
