@@ -236,7 +236,7 @@ user_pref("security.tls.enable_0rtt_data", false);
  * SECTION: FONTS                                                          *
 ****************************************************************************/
 // PREF: disable rendering of SVG OpenType fonts
-user_pref("gfx.font_rendering.opentype_svg.enabled", false);
+// user_pref("gfx.font_rendering.opentype_svg.enabled", false);
 
 // PREF: limit font visibility (Windows, Mac, some Linux) [FF94+]
 // Uses hardcoded lists with two parts: kBaseFonts + kLangPackFonts [1], bundled fonts are auto-allowed
