@@ -20,6 +20,7 @@
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
 user_pref("dom.enable_web_task_scheduling", true);
+user_pref("gfx.offscreencanvas.enabled", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
