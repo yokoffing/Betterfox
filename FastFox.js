@@ -11,7 +11,7 @@
  * FasterFox                                                                *
  * "Non ducor duco."                                                        *
  * priority: speedy browsing                                                *
- * version: June 2022                                                       *
+ * version: August 2022                                                     *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -27,7 +27,7 @@
 // [1] https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/
 // [2] https://wiki.mozilla.org/Platform/GFX/WebRender_Where
 // [3] https://www.reddit.com/r/firefox/comments/fo1jwz/make_firefox_faster/flhh5l2/
-user_pref("gfx.webrender.all", true);
+// user_pref("gfx.webrender.all", true);
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [NOTE] Both preferences need to be "true" if you're using the software renderer.
@@ -48,24 +48,21 @@ user_pref("browser.sessionstore.restore_tabs_lazily", true); // default
 
 // PREF: disable preSkeletonUI on startup
 // May set to "true" if your hardware is very old.
-user_pref("browser.startup.preXulSkeletonUI", false);
+// user_pref("browser.startup.preXulSkeletonUI", false);
 
 // PREF: Prioritized Task Scheduling API
 // [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 user_pref("dom.enable_web_task_scheduling", true);
 
+// PREF: OffscreenCanvas
+// [1] https://yashints.dev/blog/2019/05/11/offscreen-canvas
+// [2] https://www.youtube.com/watch?v=CWvRA9E0DqU
+// [3] https://developer.chrome.com/blog/offscreen-canvas/
+// [4] https://groups.google.com/a/mozilla.org/g/dev-platform/c/kp9SZL-0wW0
+user_pref("gfx.offscreencanvas.enabled", true);
+
 // PREF: about:home startup cache
 // A cache for the initial about:home document that is loaded by default at startup.
 // The purpose of the cache is to improve startup performance.
 // user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
-
-// PREF: process count
-// Having more content processes can improve performance when using multiple tabs but
-// it will also use more memory. You can reduce the number of content processes if your
-// computer is running out of memory. If your computer's system information shows more
-// than 8 GB of RAM, you would likely benefit from a high content process limit.
-// [1] https://support.mozilla.org/en-US/kb/performance-settings
-// default = 8. -1 allows Firefox to use as many as it wants
-// user_pref("dom.ipc.processCount", 12);
-
