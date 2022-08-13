@@ -235,6 +235,7 @@ user_pref("security.tls.enable_0rtt_data", false);
 /****************************************************************************
  * SECTION: FONTS                                                          *
 ****************************************************************************/
+
 // PREF: disable rendering of SVG OpenType fonts
 // user_pref("gfx.font_rendering.opentype_svg.enabled", false);
 
@@ -247,6 +248,32 @@ user_pref("security.tls.enable_0rtt_data", false);
     // user_pref("layout.css.font-visibility.private", 1);
     // user_pref("layout.css.font-visibility.standard", 1);
     // user_pref("layout.css.font-visibility.trackingprotection", 1);
+
+/****************************************************************************
+ * SECTION: RESIST FINGERPRINTING (RFP)                                     *
+****************************************************************************/
+
+// PREF: set new window size rounding max values [FF55+]
+// [SETUP-CHROME] sizes round down in hundreds: width to 200s and height to 100s, to fit your screen
+// [1] https://bugzilla.mozilla.org/1330882
+user_pref("privacy.window.maxInnerWidth", 1600);
+user_pref("privacy.window.maxInnerHeight", 900);
+
+// PREF: disable showing about:blank as soon as possible during startup [FF60+]
+// When default true this no longer masks the RFP chrome resizing activity
+// [1] https://bugzilla.mozilla.org/1448423
+user_pref("browser.startup.blankWindow", false);
+
+// PREF: disable using system colors
+// [SETTING] General>Language and Appearance>Fonts and Colors>Colors>Use system colors
+user_pref("browser.display.use_system_colors", false); // [DEFAULT false NON-WINDOWS]
+
+// PREF: enforce non-native widget theme
+// Security: removes/reduces system API calls, e.g. win32k API [1]
+// Fingerprinting: provides a uniform look and feel across platforms [2]
+// [1] https://bugzilla.mozilla.org/1381938
+// [2] https://bugzilla.mozilla.org/1411425
+user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
 
 /****************************************************************************
  * SECTION: DISK AVOIDANCE                                                 *
