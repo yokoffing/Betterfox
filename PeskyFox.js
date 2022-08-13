@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: February 2022                                                   *
+ * version: July 2022                                                       *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -70,10 +70,10 @@ user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.moz
 // user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
 
 // PREF: Disable Warnings
-user_pref("browser.tabs.warnOnClose", false);
-user_pref("browser.tabs.warnOnCloseOtherTabs", false);
-user_pref("browser.tabs.warnOnOpen", false);
-user_pref("browser.aboutConfig.showWarning", false);
+user_pref("browser.tabs.warnOnClose", false); // default FF94+
+// user_pref("browser.tabs.warnOnCloseOtherTabs", false);
+// user_pref("browser.tabs.warnOnOpen", false);
+// user_pref("browser.aboutConfig.showWarning", false);
 
 // PREF: Disable fullscreen delay and notice
 user_pref("full-screen-api.transition-duration.enter", "0 0");
@@ -200,6 +200,16 @@ user_pref("browser.urlbar.suggest.engines", false);
 // Disable dropdown suggestions with empty query
 user_pref("browser.urlbar.suggest.topsites", false);
 
+// PREF: Adaptive History Autofill
+// [1] https://docs.google.com/document/u/1/d/e/2PACX-1vRBLr_2dxus-aYhZRUkW9Q3B1K0uC-a0qQyE3kQDTU3pcNpDHb36-Pfo9fbETk89e7Jz4nkrqwRhi4j/pub
+// user_pref("browser.urlbar.autoFill", true); [DEFAULT]
+// user_pref("browser.urlbar.autoFill.adaptiveHistory.enabled", false);
+
+// PREF: Quick Actions in the URL Bar
+// [1] https://www.ghacks.net/2022/07/19/mozilla-is-testing-quick-actions-in-firefoxs-address-bar/
+// user_pref("browser.urlbar.quickactions.enabled", false);
+// user_pref("browser.urlbar.shortcuts.quickactions", false);
+
 // PREF: Address bar / URL bar dropdown
 // This value controls the total number of entries to appear in the location bar dropdown.
 // [NOTE] Items (bookmarks/history/openpages) with a high "frequency"/"bonus" will always
@@ -223,12 +233,19 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("dom.push.enabled", false);
 // user_pref("dom.push.userAgentID", "");
 
-// PREF: do not autoplay media
+// PREF: do not autoplay media audio
+// [NOTE] You can set exceptions under site permissions
+// [SETTING] Privacy & Security>Permissions>Autoplay>Settings>Default for all websites
 // 0=Allow all, 1=Block non-muted media (default), 5=Block all
+user_pref("media.autoplay.default", 1); // default
 user_pref("media.block-autoplay-until-in-foreground", true); // default
-// user_pref("media.autoplay.default", 5);
-// user_pref("media.autoplay.blocking_policy", 1); // default=0
-// user_pref("dom.user_activation.transient.timeout", "500"); // default=5000
+
+// PREF: disable autoplay of HTML5 media if you interacted with the site [FF78+]
+// 0=sticky (default), 1=transient, 2=user
+// Firefox's Autoplay Policy Documentation (PDF) is linked below via SUMO
+// [NOTE] If you have trouble with some video sites (e.g. YouTube), then add an exception (see previous PREF)
+// [1] https://support.mozilla.org/questions/1293231
+// user_pref("media.autoplay.blocking_policy", 2);
 
 // PREF: Disable Reader mode
 // Firefox will not have to parse webpage for Reader when navigating.
@@ -251,7 +268,7 @@ user_pref("findbar.highlightAll", true);
 
 // PREF: Spell-check
 // 0=none, 1-multi-line, 2=multi-line & single-line
-user_pref("layout.spellcheckDefault", 2);
+// user_pref("layout.spellcheckDefault", 1); // default
 
 // PREF: Disable Accessibility services
 user_pref("accessibility.force_disabled", 1);
@@ -289,18 +306,24 @@ user_pref("dom.forms.inputmode", true); // default
  * SECTION: PDF                                                             *
 ****************************************************************************/
 
-// PREF: Enforce Firefox's built-in PDF reader
+// PREF: enforce Firefox's built-in PDF reader
 // This setting controls if the option "Display in Firefox" is available in the setting below
 // and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With").
 user_pref("pdfjs.disabled", false); // default
 
-// PREF: Firefox now allows viewing of PDFs even if the response HTTP headers
+// PREF: allow viewing of PDFs even if the response HTTP headers
 // include Content-Disposition:attachment. 
 user_pref("browser.helperApps.showOpenOptionForPdfJS", true); // default
 
-// PREF: Default zoom for PDFs // hidden pref
+// PREF: Default zoom for PDFs [HIDDEN PREF]
 // user_pref("pdfjs.defaultZoomValue", "page-width"); // for laptops and small screens
 // user_pref("pdfjs.defaultZoomValue", "page-fit"); // for larger screens and desktops
+
+// PREF: open PDFs inline (FF103+)
+user_pref("browser.download.open_pdf_attachments_inline", true);
+
+// PREF: add basic text to PDFs (FF103+)
+user_pref("pdfjs.annotationEditorEnabled", true);
 
 /****************************************************************************
  * SECTION: TAB BEHAVIOR                                                    *
@@ -324,7 +347,7 @@ user_pref("browser.helperApps.showOpenOptionForPdfJS", true); // default
 // 2 (default) = catch new windows opened by JavaScript that do not have specific values set (how large the window should be, whether it should have a status bar, etc.) 
 // 0 = force all new windows opened by JavaScript into tabs
 // [NOTE] Most advertising popups also open in new windows with values set.
-// user_pref("browser.link.open_newwindow.restriction", 2);
+user_pref("browser.link.open_newwindow.restriction", 0);
 
 // PREF: override <browser.link.open_newwindow> for external links
 // Set if a different destination for external links is needed.
