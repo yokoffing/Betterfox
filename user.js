@@ -64,11 +64,6 @@ user_pref("browser.sessionstore.privacy_level", 2);
 user_pref("browser.shell.shortcutFavicons", false);
 user_pref("browser.pagethumbnails.capturing_disabled", true);
 
-/** SHUTDOWN & SANITIZING ***/
-/* NOTE: Add site exceptions: https://github.com/yokoffing/Better-Fox/blob/9c068d1b7f51207d4d9ba448b7a0e80f7ea7c910/SecureFox.js#L305-L318 */
-user_pref("privacy.sanitize.sanitizeOnShutdown", true);
-user_pref("privacy.clearOnShutdown.history", false);
-
 /** SPECULATIVE CONNECTIONS ***/
 user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-prefetch", false);
