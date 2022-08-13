@@ -268,7 +268,7 @@ user_pref("findbar.highlightAll", true);
 
 // PREF: Spell-check
 // 0=none, 1-multi-line, 2=multi-line & single-line
-user_pref("layout.spellcheckDefault", 2);
+// user_pref("layout.spellcheckDefault", 1); // default
 
 // PREF: Disable Accessibility services
 user_pref("accessibility.force_disabled", 1);
