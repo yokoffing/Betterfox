@@ -27,6 +27,9 @@ user_pref("gfx.offscreencanvas.enabled", true);
 ****************************************************************************/
 /** TRACKING PROTECTION ***/
 user_pref("browser.contentblocking.category", "strict");
+user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com");
+user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
+/* Use Privacy Essentails list for social tracking: https://github.com/yokoffing/filterlists/blob/main/PrivacyEssentials.txt */
 user_pref("privacy.partition.serviceWorkers", true);
 user_pref("privacy.partition.bloburl_per_agent_cluster", true);
 user_pref("beacon.enabled", false);
