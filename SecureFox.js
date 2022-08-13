@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: June 2022                                                       *
+ * version: July 2022                                                       *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -33,17 +33,19 @@ user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
 user_pref("privacy.trackingprotection.socialtracking.enabled", true); // enabled with "Strict"
-user_pref("privacy.socialtracking.block_cookies.enabled", true); // default
+user_pref("privacy.socialtracking.block_cookies.enabled", true); // default(?)
 // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
+user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
+user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 
 // PREF: Lower the priority of network loads for resources on the tracking protection list.
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
-user_pref("privacy.trackingprotection.lower_network_priority", true);
+// user_pref("privacy.trackingprotection.lower_network_priority", true);
 
 // PREF: allow embedded tweets and Reddit posts
-// [TEST] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
-// [TEST] https://www.ndtv.com/entertainment/bharti-singh-and-husband-haarsh-limbachiyaa-announce-pregnancy-see-trending-post-2646359
-// [TEST] https://www.thelineofbestfit.com/news/latest-news/cher-and-saweetie-unite-for-new-mac-cosmetics-campaign
+// [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
+// [TEST - instagram embed] https://www.ndtv.com/entertainment/bharti-singh-and-husband-haarsh-limbachiyaa-announce-pregnancy-see-trending-post-2646359
+// [TEST - tweet embed] https://www.newsweek.com/cryptic-tweet-britney-spears-shows-elton-john-collab-may-date-back-2015-1728036
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // hidden
@@ -71,7 +73,7 @@ user_pref("fission.autostart", true); // default
 // [3] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
 // [4] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
 // [5] https://github.com/arkenfox/user.js/issues/1281
-user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict"
+user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict", DEFAULT FF103+
 user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
 user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // default
 
@@ -125,7 +127,7 @@ user_pref("dom.battery.enabled", false);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 user_pref("dom.storage.next_gen", true); // default
 
-// PREF: SameStie Cookies
+// PREF: SameSite Cookies
 // [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
 // [2] https://web.dev/samesite-cookies-explained/
 user_pref("network.cookie.sameSite.laxByDefault", true);
@@ -155,24 +157,19 @@ user_pref("network.cookie.sameSite.schemeful", true);
 // [2] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
 user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
 
-// PREF: set OCSP fetch failures (non-stapled, see 1211) to hard-fail
+// PREF: Enterprise Root Certificates of the operating system is not automatically activated
+// user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
+
+// PREF: set OCSP fetch failures to hard-fail
 // When a CA cannot be reached to validate a cert, Firefox just continues the connection (=soft-fail)
 // Setting this pref to true tells Firefox to instead terminate the connection (=hard-fail)
 // It is pointless to soft-fail when an OCSP fetch fails: you cannot confirm a cert is still valid (it
 // could have been revoked) and/or you could be under attack (e.g. malicious blocking of OCSP servers)
+// [WARNING] Expect breakage
 // [1] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
 // [2] https://www.imperialviolet.org/2014/04/19/revchecking.html
 // [3] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
 // user_pref("security.OCSP.require", true);
-
-// PREF: disable or limit SHA-1 certificates
-// 0 = allow all
-// 1 = block all
-// 3 = only allow locally-added roots (e.g. anti-virus) (default)
-// 4 = only allow locally-added roots or for certs in 2015 and earlier
-// If you have problems, update your software: SHA-1 is obsolete
-// [1] https://blog.mozilla.org/security/2016/10/18/phasing-out-sha-1-on-the-public-web/ 
-user_pref("security.pki.sha1_enforcement_level", 1);
 
 // PREF: enable strict pinning
 // PKP (Public Key Pinning) 0=disabled, 1=allow user MiTM (such as your antivirus), 2=strict
@@ -181,12 +178,16 @@ user_pref("security.pki.sha1_enforcement_level", 1);
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16206
 user_pref("security.cert_pinning.enforcement_level", 2);
 
-// PREF: CRLite
-// This will reduce the number of times an OCSP server needs to be contacted and therefore increase privacy.
-// [1] https://blog.mozilla.org/security/2020/01/09/crlite-part-2-end-to-end-design/
-// [2] https://github.com/arkenfox/user.js/issues/1065
-user_pref("security.pki.crlite_mode", 2);
+// PREF: enable CRLite
+// In FF84+ it covers valid certs and in mode 2 doesn't fall back to OCSP
+// 0 = disabled
+// 1 = consult CRLite but only collect telemetry
+// 2 = consult CRLite and enforce both "Revoked" and "Not Revoked" results
+// 3 = consult CRLite and enforce "Not Revoked" results, but defer to OCSP for "Revoked" (FF99+, default FF100+)
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1429800,1670985,1753071
+// [2] https://blog.mozilla.org/security/tag/crlite/ ***/
 user_pref("security.remote_settings.crlite_filters.enabled", true);
+user_pref("security.pki.crlite_mode", 2);
 
 /****************************************************************************
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
@@ -215,7 +216,7 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 // PREF: display advanced information on Insecure Connection warning pages
 // only works when it's possible to add an exception
 // i.e. it doesn't work for HSTS discrepancies (https://subdomain.preloaded-hsts.badssl.com/)
-// [TEST] https://expired.badssl.com/ ***/
+// [TEST] https://expired.badssl.com/
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 
 // PREF: control "Add Security Exception" dialog on SSL warnings
@@ -230,6 +231,49 @@ user_pref("browser.ssl_override_behavior", 1);
 // [2] https://www.rfc-editor.org/rfc/rfc9001.html#name-replay-attacks-with-0-rtt
 // [3] https://blog.cloudflare.com/tls-1-3-overview-and-q-and-a/
 user_pref("security.tls.enable_0rtt_data", false);
+
+/****************************************************************************
+ * SECTION: FONTS                                                          *
+****************************************************************************/
+
+// PREF: disable rendering of SVG OpenType fonts
+user_pref("gfx.font_rendering.opentype_svg.enabled", false);
+
+// PREF: limit font visibility (Windows, Mac, some Linux) [FF94+]
+// Uses hardcoded lists with two parts: kBaseFonts + kLangPackFonts [1], bundled fonts are auto-allowed
+// In Normal windows: uses the first applicable: RFP (4506) over TP over Standard
+// In Private Browsing windows: uses the most restrictive between normal and private
+// 1=only base system fonts, 2=also fonts from optional language packs, 3=also user-installed fonts
+// [1] https://searchfox.org/mozilla-central/search?path=StandardFonts*.inc
+user_pref("layout.css.font-visibility.private", 1);
+user_pref("layout.css.font-visibility.standard", 1);
+user_pref("layout.css.font-visibility.trackingprotection", 1);
+
+/****************************************************************************
+ * SECTION: RESIST FINGERPRINTING (RFP)                                     *
+****************************************************************************/
+
+// PREF: set new window size rounding max values [FF55+]
+// [SETUP-CHROME] sizes round down in hundreds: width to 200s and height to 100s, to fit your screen
+// [1] https://bugzilla.mozilla.org/1330882
+user_pref("privacy.window.maxInnerWidth", 1600);
+user_pref("privacy.window.maxInnerHeight", 900);
+
+// PREF: disable showing about:blank as soon as possible during startup [FF60+]
+// When default true this no longer masks the RFP chrome resizing activity
+// [1] https://bugzilla.mozilla.org/1448423
+user_pref("browser.startup.blankWindow", false);
+
+// PREF: disable using system colors
+// [SETTING] General>Language and Appearance>Fonts and Colors>Colors>Use system colors
+user_pref("browser.display.use_system_colors", false); // [DEFAULT false NON-WINDOWS]
+
+// PREF: enforce non-native widget theme
+// Security: removes/reduces system API calls, e.g. win32k API [1]
+// Fingerprinting: provides a uniform look and feel across platforms [2]
+// [1] https://bugzilla.mozilla.org/1381938
+// [2] https://bugzilla.mozilla.org/1411425
+user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
 
 /****************************************************************************
  * SECTION: DISK AVOIDANCE                                                 *
@@ -269,14 +313,6 @@ user_pref("browser.pagethumbnails.capturing_disabled", true); // [depreciated?]
 // [1] https://github.com/arkenfox/user.js/issues/1055
 // user_pref("browser.cache.offline.enable", false);
 
-// PREF: set third-party cookies to session-only
-user_pref("network.cookie.thirdparty.sessionOnly", true);
-user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
-
-// PREF: delete all cookies after a certain period of time
-// user_pref("network.cookie.lifetimePolicy", 3);
-// user_pref("network.cookie.lifetime.days", 7);
-
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
 ******************************************************************************/
@@ -287,12 +323,12 @@ user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
 // Regardless of what you set privacy.cpd.downloads to, as soon as the dialog
 // for "Clear Recent History" is opened, it is synced to the same as 'history'.
 // user_pref("privacy.cpd.downloads", true); // not used, see note above
-user_pref("privacy.cpd.history", true); // Browsing & Download History [DEFAULT]
-user_pref("privacy.cpd.formdata", true); // Form & Search History [DEFAULT]
-user_pref("privacy.cpd.offlineApps", false); // Offline Website Data [DEFAULT]
-user_pref("privacy.cpd.cache", true); // Cache [DEFAULT]
-user_pref("privacy.cpd.cookies", false); // Cookies
-user_pref("privacy.cpd.sessions", false); // Active Logins [DEFAULT]
+// user_pref("privacy.cpd.history", true); // Browsing & Download History [DEFAULT]
+// user_pref("privacy.cpd.formdata", true); // Form & Search History [DEFAULT]
+// user_pref("privacy.cpd.offlineApps", false); // Offline Website Data [DEFAULT]
+// user_pref("privacy.cpd.cache", true); // Cache [DEFAULT]
+// user_pref("privacy.cpd.cookies", false); // Cookies
+// user_pref("privacy.cpd.sessions", false); // Active Logins [DEFAULT]
 // user_pref("privacy.cpd.siteSettings", false); // Site Preferences [DEFAULT]
 
 // PREF: reset default 'Time range to clear' for 'Clear Recent History'.
@@ -303,43 +339,42 @@ user_pref("privacy.cpd.sessions", false); // Active Logins [DEFAULT]
 // blank value if they are used, but they do work as advertised.
 user_pref("privacy.sanitize.timeSpan", 0);
 
-// PREF: keep cookies until the browser is closed, then delete everything minus exceptions
-user_pref("network.cookie.lifetimePolicy", 2);
+// PREF: set History section to show all options
+// user_pref("privacy.history.custom", true);
 
-// PREF: this way of sanitizing would override the exceptions set by the users and just delete everything,
-// therefore we tell it to delete everything but ignore data needed to stay logged into websites set
-// manually as exceptions.
-
+/******************************************************************************
+ * SECTION: SHUTDOWN & SANITIZING                           *
+******************************************************************************/
 // PREF: enable Firefox to clear items on shutdown
-// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes ***/
-// user_pref("privacy.sanitize.sanitizeOnShutdown", true);
+// This infographic is most helpful:
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1765533#c1
+user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 
-// PREF: set what items to clear on shutdown
-// These items do not use exceptions, it is all or nothing
+// PREF: SANITIZE ON SHUTDOWN: RESPECTS SITE EXCEPTIONS FF102+
+// Set cookies, site data, and cache to clear on shutdown
+// For cross-domain logins, add exceptions for both sites:
+// e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
+// [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
+// [WARNING] Be selective with what cookies you keep, as they also disable partitioning (1)
+// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
+// [SETTING] to add site exceptions: Ctrl+I>Permissions>Cookies>Allow (when on the website in question)
+// [SETTING] to manage site exceptions: Options>Privacy & Security>Permissions>Settings
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1767271
+user_pref("privacy.clearOnShutdown.offlineApps", true);
+user_pref("privacy.clearOnShutdown.cookies", true);
+user_pref("privacy.clearOnShutdown.cache", true);
+
+// PREF: SANITIZE ON SHUTDOWN: ALL OR NOTHING
+// Set/enforce what items to clear on shutdown
 // [NOTE] If "history" is true, downloads will also be cleared
 // [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
-// [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
 // [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
-// [1] https://en.wikipedia.org/wiki/Basic_access_authentication ***/
-user_pref("privacy.clearOnShutdown.cache", true);     // [DEFAULT]
-user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT]
-user_pref("privacy.clearOnShutdown.formdata", true);  // [DEFAULT]
-user_pref("privacy.clearOnShutdown.history", true);   // [DEFAULT]
-user_pref("privacy.clearOnShutdown.sessions", true);  // [DEFAULT]
-user_pref("privacy.clearOnShutdown.offlineApps", false); // [DEFAULT]
-user_pref("privacy.clearOnShutdown.cookies", false);
-// user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT]
-
-// PREF: set History section to show all options
-user_pref("privacy.history.custom", true);
-
-/* override recipe: enable session restore ***/
-/* override recipe: keep some cookies (+ other optional site data) on exit ***/
-user_pref("browser.startup.page", 3);
-  // user_pref("places.history.enabled", true);
-  // user_pref("network.cookie.lifetimePolicy", 2); // session cookies
-user_pref("privacy.clearOnShutdown.cookies", false); // 2811
-user_pref("privacy.clearOnShutdown.offlineApps", false); // 2811 optional
+// [1] https://en.wikipedia.org/wiki/Basic_access_authentication
+// user_pref("privacy.clearOnShutdown.formdata", true);  // [DEFAULT: true]
+user_pref("privacy.clearOnShutdown.history", false);   // [DEFAULT: true]
+   user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT: true]
+user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT: true]
+   // user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
 
 /******************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                           *
@@ -379,7 +414,7 @@ user_pref("network.predictor.enable-prefetch", false);
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true); // default
+user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
 
 // PREF: Preconnect to the autocomplete URL in the address bar
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
@@ -461,7 +496,7 @@ user_pref("browser.search.suggest.enabled.private", false); // default
 // PREF: disable location bar leaking single words to a DNS provider after searching
 // 0=never resolve single words, 1=heuristic (default), 2=always resolve
 // [1] https://bugzilla.mozilla.org/1642623
-user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
+// user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0); // default FF104+
 
 // PREF: disable Firefox Suggest
 user_pref("browser.urlbar.groupLabels.enabled", false);
@@ -475,7 +510,7 @@ user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 // as the 411 for DNS errors?), privacy issues (why connect to sites you didn't
 // intend to), can leak sensitive data (e.g. query strings: e.g. Princeton attack),
 // and is a security risk (e.g. common typos & malicious sites set up to exploit this).
-user_pref("browser.fixup.alternate.enabled", false);
+user_pref("browser.fixup.alternate.enabled", false); // [DEFAULT FF104+]
 
 // PREF: display "Not Secure" text on HTTP sites
 user_pref("security.insecure_connection_text.enabled", true);
@@ -541,7 +576,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // This is done to avoid waiting for a timeout which takes 90 seconds.
 // Firefox only sends top level domain when falling back to http.
 // [WARNING] Disabling causes long timeouts when no path to HTTPS is present.
-// [NOTE] Use "Manage Exceptions" for sites known for no HTTPS. Test site: 
+// [NOTE] Use "Manage Exceptions" for sites known for no HTTPS. 
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
 // user_pref("dom.security.https_only_mode_send_http_background_request", false);
@@ -760,6 +795,57 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // default
 
 /******************************************************************************
+ * SECTION: WEBRTC                                                            *
+******************************************************************************/
+
+// PREF: disable WebRTC (Web Real-Time Communication)
+// Firefox uses mDNS hostname obfuscation on desktop (except Windows7/8) and the
+// private IP is NEVER exposed, except if required in TRUSTED scenarios; i.e. after
+// you grant device (microphone or camera) access
+// [SETUP-HARDEN] Test first. Windows7/8 users only: behind a proxy who never use WebRTC
+// [TEST] https://browserleaks.com/webrtc
+// [1] https://groups.google.com/g/discuss-webrtc/c/6stQXi72BEU/m/2FwZd24UAQAJ
+// [2] https://datatracker.ietf.org/doc/html/draft-ietf-mmusic-mdns-ice-candidates#section-3.1.1
+   // user_pref("media.peerconnection.enabled", false);
+
+// PREF: force WebRTC inside the proxy [FF70+]
+user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
+
+// PREF: force a single network interface for ICE candidates generation [FF42+]
+// When using a system-wide proxy, it uses the proxy interface
+// [1] https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate
+// [2] https://wiki.mozilla.org/Media/WebRTC/Privacy
+user_pref("media.peerconnection.ice.default_address_only", true);
+
+// PREF: force exclusion of private IPs from ICE candidates [FF51+]
+// [SETUP-HARDEN] This will protect your private IP even in TRUSTED scenarios after you
+// grant device access, but often results in breakage on video-conferencing platforms
+   // user_pref("media.peerconnection.ice.no_host", true);
+
+/******************************************************************************
+ * SECTION: PLUGINS                                                           *
+******************************************************************************/
+
+// PREF: disable GMP (Gecko Media Plugins)
+// [1] https://wiki.mozilla.org/GeckoMediaPlugins
+   // user_pref("media.gmp-provider.enabled", false);
+
+// PREF: disable widevine CDM (Content Decryption Module)
+// [NOTE] This is covered by the EME master switch
+   // user_pref("media.gmp-widevinecdm.enabled", false);
+
+// PREF: disable all DRM content (EME: Encryption Media Extension)
+// EME is a JavaScript API for playing DRMed (not free) video content in HTML.
+// A DRM component called a Content Decryption Module (CDM) decrypts, decodes, and displays the video.
+// [SETUP-WEB] e.g. Netflix, Amazon Prime, Hulu, HBO, Disney+, Showtime, Starz, DirectTV
+// [SETTING] General>DRM Content>Play DRM-controlled content
+// [TEST] https://bitmovin.com/demos/drm
+// [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
+// user_pref("media.eme.enabled", false);
+// Optionally hide the setting which also disables the DRM prompt
+// user_pref("browser.eme.ui.enabled", false);
+
+/******************************************************************************
  * SECTION: VARIOUS                            *
 ******************************************************************************/
 
@@ -833,10 +919,11 @@ user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("geo.provider.use_corelocation", false); // [MAC]
 user_pref("geo.provider.use_gpsd", false); // [LINUX]
+user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 
 // PREF: disable region updates
 // [1] https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
-user_pref("browser.region.network.url", "");
+// user_pref("browser.region.network.url", "");
 user_pref("browser.region.update.enabled", false);
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
@@ -879,7 +966,7 @@ user_pref("corroborator.enabled", false);
 // Telemetry Coverage
 user_pref("toolkit.telemetry.coverage.opt-out", true);
 user_pref("toolkit.coverage.opt-out", true);
-user_pref("toolkit.coverage.endpoint.base", "");
+// user_pref("toolkit.coverage.endpoint.base", "");
 
 // Health Reports
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data.
@@ -928,7 +1015,7 @@ user_pref("extensions.abuseReport.enabled", false);
 // PREF: Normandy/Shield [extensions tracking]
 // Shield is an telemetry system (including Heartbeat) that can also push and test "recipes"
 user_pref("app.normandy.enabled", false);
-user_pref("app.normandy.api_url", "");
+// user_pref("app.normandy.api_url", "");
 
 // PREF: PingCentre telemetry (used in several System Add-ons)
 // Currently blocked by 'datareporting.healthreport.uploadEnabled'
