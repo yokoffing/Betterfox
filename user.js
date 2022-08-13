@@ -265,6 +265,7 @@ user_pref("pdfjs.annotationEditorEnabled", true);
 user_pref("browser.download.open_pdf_attachments_inline", true);
 
 /** TAB BEHAVIOR ***/
+user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("dom.disable_window_move_resize", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
