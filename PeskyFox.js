@@ -347,7 +347,7 @@ user_pref("pdfjs.annotationEditorEnabled", true);
 // 2 (default) = catch new windows opened by JavaScript that do not have specific values set (how large the window should be, whether it should have a status bar, etc.) 
 // 0 = force all new windows opened by JavaScript into tabs
 // [NOTE] Most advertising popups also open in new windows with values set.
-// user_pref("browser.link.open_newwindow.restriction", 2);
+user_pref("browser.link.open_newwindow.restriction", 0);
 
 // PREF: override <browser.link.open_newwindow> for external links
 // Set if a different destination for external links is needed.
