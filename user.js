@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora."                                                            *
- * version: July 2022                                                       *
+ * version: September 2022                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -33,7 +33,6 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 user_pref("privacy.partition.serviceWorkers", true);
 user_pref("privacy.partition.bloburl_per_agent_cluster", true);
 user_pref("beacon.enabled", false);
-user_pref("dom.battery.enabled", false);
 
 /** OCSP & CERTS / HPKP ***/
 user_pref("security.OCSP.enabled", 0);
@@ -74,7 +73,6 @@ user_pref("network.dns.disablePrefetch", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 user_pref("network.http.speculative-parallel-limit", 0);
-user_pref("network.preload", false);
 user_pref("browser.places.speculativeConnect.enabled", false);
 
 /** SEARCH / URL BAR ***/
@@ -132,7 +130,6 @@ user_pref("browser.formfill.enable", false);
 
 /** MIXED CONTENT + CROSS-SITE ***/
 user_pref("network.auth.subresource-http-auth-allow", 1);
-user_pref("security.mixed_content.upgrade_display_content", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
@@ -208,7 +205,6 @@ user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.tabs.warnOnCloseOtherTabs", false);
 user_pref("browser.tabs.warnOnOpen", false);
-user_pref("browser.aboutConfig.showWarning", false);
 
 /** FULLSCREEN ***/
 user_pref("full-screen-api.transition-duration.enter", "0 0");
@@ -253,7 +249,6 @@ user_pref("dom.push.enabled", false);
 user_pref("findbar.highlightAll", true);
 user_pref("accessibility.force_disabled", 1);
 user_pref("browser.bookmarks.max_backups", 2);
-user_pref("browser.display.show_image_placeholders", false);
 user_pref("view_source.wrap_long_lines", true);
 user_pref("devtools.debugger.ui.editor-wrapping", true);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
@@ -267,7 +262,6 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("dom.disable_window_move_resize", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
-user_pref("image.jxl.enabled", true);
 user_pref("editor.truncate_user_pastes", false);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
 user_pref("clipboard.plainTextOnly", true);
