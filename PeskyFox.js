@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas."                                               *
  * priority: remove annoyances                                              *
- * version: July 2022                                                       *
+ * version: September 2022                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -182,7 +182,7 @@ user_pref("browser.download.always_ask_before_handling_new_types", true);
 user_pref("browser.compactmode.show", true);
 
 // PREF: restore "View image info"
-user_pref("browser.menu.showViewImageInfo", true);
+// user_pref("browser.menu.showViewImageInfo", true);
 
 // PREF: unload tabs on low memory
 // Firefox will detect if your computer’s memory is running low (less than 400MB)
@@ -281,7 +281,7 @@ user_pref("browser.bookmarks.max_backups", 2);
 // user_pref("toolkit.zoomManager.zoomValues", ".3,.5,.67,.8,.9,.95,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,2,2.4,3");
 
 // PREF: Hide image placeholders
-user_pref("browser.display.show_image_placeholders", false);
+// user_pref("browser.display.show_image_placeholders", false);
 
 // PREF: Wrap long lines of text when using source / debugger
 user_pref("view_source.wrap_long_lines", true);
@@ -398,7 +398,7 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("image.avif.enabled", true); // default
 
 // PREF: JPEG XL image format
-user_pref("image.jxl.enabled", true);
+// user_pref("image.jxl.enabled", true);
 
 // PREF: Prevent password truncation when submitting form data
 // [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
