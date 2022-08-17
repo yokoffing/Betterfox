@@ -9,7 +9,7 @@
 
 /****************************************************************************
  * PeskyFox                                                                 *
- * "Aquila non capit muscas."                                               *
+ * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
  * version: September 2022                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *
