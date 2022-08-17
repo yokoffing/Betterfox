@@ -9,21 +9,27 @@
 
 /****************************************************************************
  * SmoothFox                                                                *
- * "Faber est suae quisque fortunae."                                       *
- * priority: smooth scrolling                                               *
- * version: March 2021                                                      *
- * url: https://github.com/hjstephens09/Better-Fox                          *
+ * "Faber est suae quisque fortunae"                                        *
+ * priority: better scrolling                                               *
+ * version: August 2022                                                     *
+ * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
 /****************************************************************************
- * SECTION: SMOOTH SCROLLING (OVERALL IMPROVEMENT OF DEFAULTS)              *
+ * OPTION 1: SMOOTH SCROLLING (SIMPLE ADJUSTMENT)                           *
+****************************************************************************/
+user_pref("general.smoothScroll", true);
+user_pref("mousewheel.min_line_scroll_amount", 30);
+
+/****************************************************************************
+ * OPTION 2: SMOOTH SCROLLING (OVERALL IMPROVEMENT OF DEFAULTS)             *
 ****************************************************************************/
 user_pref("general.smoothScroll", true);
 user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 150);
 user_pref("general.smoothScroll.mouseWheel.durationMinMS", 125);
 
 /******************************************************************************
- * SECTION: EDGE-LIKE SMOOTH SCROLLING                                        *
+ * OPTION 3: EDGE-LIKE SMOOTH SCROLLING                                       *
 ******************************************************************************/
 user_pref("general.smoothScroll", true);
 user_pref("general.smoothScroll.currentVelocityWeighting", "0.1");
