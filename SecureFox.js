@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur."                                              *     
  * priority: provide sensible security and privacy                          *  
- * version: July 2022                                                       *
+ * version: September 2022                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -115,7 +115,9 @@ user_pref("browser.send_pings", false); // default
 user_pref("beacon.enabled", false);
 
 // PREF: battery status tracking
-user_pref("dom.battery.enabled", false);
+// Pref remains, but depreciated
+// [1] https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API#browser_compatibility
+// user_pref("dom.battery.enabled", false);
 
 // PREF: set a default permission for Virtual Reality
 // 0=always ask (default), 1=allow, 2=block
@@ -456,14 +458,14 @@ user_pref("network.http.speculative-parallel-limit", 0);
 // [NOTE] Unlike other pre-connection tags (except modulepreload), this tag is mandatory for the browser.
 // A browser is required to download the resource specified in <link rel="preload">. With other tags described here,
 // a browser is free to skip preloading the resource if it decides to (e.g. if the network is slow).
-// [WARNING] Leaving this enabled will interfere with content blocking, especially with cosmetic filters.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload
 // [2] https://w3c.github.io/preload/
 // [3] https://3perf.com/blog/link-rels/#preload
 // [4] https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
 // [5] https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#how-can-preload-do-better
 // [6] https://www.keycdn.com/blog/resource-hints#preload
-user_pref("network.preload", false);
+// [7] https://github.com/arkenfox/user.js/issues/1098#issue-791949341
+// user_pref("network.preload", false);
 
 // PREF: New tab preload
 // [WARNING] Disabling this causes a delay when opening a new tab in Firefox.
@@ -723,8 +725,8 @@ user_pref("security.mixed_content.block_active_content", true); // default
 // PREF: Block insecure passive content (images) on HTTPS pages.
 // user_pref("security.mixed_content.block_display_content", true);
 
-// PREF: Upgrade passive content to use HTTPS on secure pages.
-user_pref("security.mixed_content.upgrade_display_content", true);
+// PREF: upgrade passive content to use HTTPS on secure pages
+// user_pref("security.mixed_content.upgrade_display_content", true);
 
 // PREF: Block insecure downloads from secure sites
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
