@@ -9,7 +9,7 @@
 
 /****************************************************************************
  * SecureFox                                                                *
- * "Natura non constristatur."                                              *     
+ * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
  * version: September 2022                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
