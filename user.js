@@ -9,7 +9,7 @@
 
 /****************************************************************************
  * BetterFox                                                                *
- * "Ad meliora."                                                            *
+ * "Ad meliora"                                                             *
  * version: September 2022                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
