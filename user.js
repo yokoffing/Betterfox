@@ -201,11 +201,6 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", fa
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("browser.preferences.moreFromMozilla", false);
 
-/** WARNINGS ***/
-user_pref("browser.tabs.warnOnClose", false);
-user_pref("browser.tabs.warnOnCloseOtherTabs", false);
-user_pref("browser.tabs.warnOnOpen", false);
-
 /** FULLSCREEN ***/
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
@@ -241,7 +236,6 @@ user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 /** VARIOUS ***/
 user_pref("browser.compactmode.show", true);
-user_pref("browser.menu.showViewImageInfo", true);
 user_pref("browser.urlbar.suggest.engines", false);
 user_pref("browser.urlbar.suggest.topsites", false);
 user_pref("permissions.default.desktop-notification", 2);
