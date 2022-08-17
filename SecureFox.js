@@ -505,6 +505,9 @@ user_pref("browser.urlbar.groupLabels.enabled", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 
+// PREF: calculator in URL bar
+user_pref("browser.urlbar.suggest.calculator", true);
+
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
 // request (e.g. by adding www or .com). This is inconsistent use (e.g. FQDNs), does not work
@@ -515,8 +518,9 @@ user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.fixup.alternate.enabled", false); // [DEFAULT FF104+]
 
 // PREF: display "Not Secure" text on HTTP sites
-user_pref("security.insecure_connection_text.enabled", true);
-user_pref("security.insecure_connection_text.pbmode.enabled", true);
+// No longer needed with HTTPS-Only
+// user_pref("security.insecure_connection_text.enabled", true);
+// user_pref("security.insecure_connection_text.pbmode.enabled", true);
 
 // PREF: Disable location bar autofill
 // https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete
