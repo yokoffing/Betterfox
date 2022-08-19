@@ -505,9 +505,6 @@ user_pref("browser.urlbar.groupLabels.enabled", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 
-// PREF: calculator in URL bar
-user_pref("browser.urlbar.suggest.calculator", true);
-
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
 // request (e.g. by adding www or .com). This is inconsistent use (e.g. FQDNs), does not work
