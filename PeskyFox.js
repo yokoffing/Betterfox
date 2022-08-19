@@ -175,6 +175,105 @@ user_pref("browser.download.autohideButton", true); // default
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 /****************************************************************************
+ * SECTION: PDF                                                             *
+****************************************************************************/
+
+// PREF: enforce Firefox's built-in PDF reader
+// This setting controls if the option "Display in Firefox" is available in the setting below
+// and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With").
+user_pref("pdfjs.disabled", false); // default
+
+// PREF: allow viewing of PDFs even if the response HTTP headers
+// include Content-Disposition:attachment. 
+user_pref("browser.helperApps.showOpenOptionForPdfJS", true); // default
+
+// PREF: Default zoom for PDFs [HIDDEN PREF]
+// user_pref("pdfjs.defaultZoomValue", "page-width"); // for laptops and small screens
+// user_pref("pdfjs.defaultZoomValue", "page-fit"); // for larger screens and desktops
+
+// PREF: open PDFs inline (FF103+)
+user_pref("browser.download.open_pdf_attachments_inline", true);
+
+// PREF: add basic text to PDFs (FF103+)
+user_pref("pdfjs.annotationEditorEnabled", true);
+
+/****************************************************************************
+ * SECTION: TAB BEHAVIOR                                                    *
+****************************************************************************/
+
+// PREF: search query in the search box appear in a new tab (instead of the current tab)
+// user_pref("browser.search.openintab", true);
+
+// PREF: search query in the URL bar opens in a new tab (instead of the current tab)
+// user_pref("browser.urlbar.openintab", true);
+
+// PREF: control behavior of links that would normally open in a new window
+// Pop-up windows are treated like regular tabs.
+// [NOTE] You can still right-click a link and open in a new window.
+// 3 (default) = in a new tab
+// 2 = in a new window
+// 1 = in the current tab
+// user_pref("browser.link.open_newwindow", 3); // default
+
+// PREF: determine the behavior of pages opened by JavaScript (like popups)
+// 2 (default) = catch new windows opened by JavaScript that do not have specific values set (how large the window should be, whether it should have a status bar, etc.) 
+// 0 = force all new windows opened by JavaScript into tabs
+// [NOTE] Most advertising popups also open in new windows with values set.
+user_pref("browser.link.open_newwindow.restriction", 0);
+
+// PREF: override <browser.link.open_newwindow> for external links
+// Set if a different destination for external links is needed.
+// 1=Open in the current tab/window
+// 2=Open in a new window
+// 3=Open in a new tab in the current window
+// -1=no overrides (default)
+// user_pref("browser.link.open_newwindow.override.external", 3);
+
+// PREF: Prevent scripts from moving and resizing open windows
+user_pref("dom.disable_window_move_resize", true);
+
+// PREF: insert new tabs immediately after the current tab
+// Tap to Tab extension: set to "Put new tab at the end"
+// extension: https://addons.mozilla.org/en-US/firefox/addon/tap-to-tab
+// user_pref("browser.tabs.insertRelatedAfterCurrent", true); // default=true
+// user_pref("browser.tabs.insertAfterCurrent", true);
+
+// PREF: leave the browser window open even after you close the last tab
+// user_pref("browser.tabs.closeWindowWithLastTab", false);
+
+// PREF: tabs load when opened in the background
+user_pref("browser.tabs.loadInBackground", true); // default
+
+// PREF: determine whether a link opens in the foreground or background on left-click
+// Determines behavior of pages normally meant to open in a new window (such as
+// target="_blank" or from an external program), but that have instead been loaded in a new tab.
+// true = Load the new tab in the background, leaving focus on the current tab
+// false (default) = Load the new tab in the foreground, taking the focus from the current tab.
+// [NOTE] Setting this preference to True will still bring the browser to the front when opening links from outside the browser.
+// user_pref("browser.tabs.loadDivertedInBackground", false); // default
+
+// PREF: load bookmarks in the background using Bookmarks Menu
+// user_pref("browser.tabs.loadBookmarksInBackground", true);
+// PREF: load bookmarks in tabs, not separate  windows
+user_pref("browser.tabs.loadBookmarksInTabs", true);
+// PREF: leave Bookmarks Menu open when selecting a site
+user_pref("browser.bookmarks.openInTabClosesMenu", false);
+
+// PREF: Stop websites from reloading pages automatically
+// [WARNING] Breakage with some sites.
+// [1] https://www.ghacks.net/2018/08/19/stop-websites-from-reloading-pages-automatically/
+// user_pref("accessibility.blockautorefresh", true);
+// user_pref("browser.meta_refresh_when_inactive.disabled", true);
+
+// PREF: Limit events that can cause a pop-up
+// Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
+// (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
+// (recommended) user_pref("dom.popup_allowed_events", "dblclick");
+user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
+user_pref("dom.disable_open_during_load", true); // default
+user_pref("privacy.popups.showBrowserMessage", true); // default
+
+/****************************************************************************
  * SECTION: VARIOUS                                                         *
 ****************************************************************************/
 
@@ -319,102 +418,3 @@ user_pref("editor.truncate_user_pastes", false);
 
 // PREF: Plain Text only when copying text.
 user_pref("clipboard.plainTextOnly", true);
-
-/****************************************************************************
- * SECTION: PDF                                                             *
-****************************************************************************/
-
-// PREF: enforce Firefox's built-in PDF reader
-// This setting controls if the option "Display in Firefox" is available in the setting below
-// and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With").
-user_pref("pdfjs.disabled", false); // default
-
-// PREF: allow viewing of PDFs even if the response HTTP headers
-// include Content-Disposition:attachment. 
-user_pref("browser.helperApps.showOpenOptionForPdfJS", true); // default
-
-// PREF: Default zoom for PDFs [HIDDEN PREF]
-// user_pref("pdfjs.defaultZoomValue", "page-width"); // for laptops and small screens
-// user_pref("pdfjs.defaultZoomValue", "page-fit"); // for larger screens and desktops
-
-// PREF: open PDFs inline (FF103+)
-user_pref("browser.download.open_pdf_attachments_inline", true);
-
-// PREF: add basic text to PDFs (FF103+)
-user_pref("pdfjs.annotationEditorEnabled", true);
-
-/****************************************************************************
- * SECTION: TAB BEHAVIOR                                                    *
-****************************************************************************/
-
-// PREF: search query in the search box appear in a new tab (instead of the current tab)
-// user_pref("browser.search.openintab", true);
-
-// PREF: search query in the URL bar opens in a new tab (instead of the current tab)
-// user_pref("browser.urlbar.openintab", true);
-
-// PREF: control behavior of links that would normally open in a new window
-// Pop-up windows are treated like regular tabs.
-// [NOTE] You can still right-click a link and open in a new window.
-// 3 (default) = in a new tab
-// 2 = in a new window
-// 1 = in the current tab
-// user_pref("browser.link.open_newwindow", 3); // default
-
-// PREF: determine the behavior of pages opened by JavaScript (like popups)
-// 2 (default) = catch new windows opened by JavaScript that do not have specific values set (how large the window should be, whether it should have a status bar, etc.) 
-// 0 = force all new windows opened by JavaScript into tabs
-// [NOTE] Most advertising popups also open in new windows with values set.
-user_pref("browser.link.open_newwindow.restriction", 0);
-
-// PREF: override <browser.link.open_newwindow> for external links
-// Set if a different destination for external links is needed.
-// 1=Open in the current tab/window
-// 2=Open in a new window
-// 3=Open in a new tab in the current window
-// -1=no overrides (default)
-// user_pref("browser.link.open_newwindow.override.external", 3);
-
-// PREF: Prevent scripts from moving and resizing open windows
-user_pref("dom.disable_window_move_resize", true);
-
-// PREF: insert new tabs immediately after the current tab
-// Tap to Tab extension: set to "Put new tab at the end"
-// extension: https://addons.mozilla.org/en-US/firefox/addon/tap-to-tab
-// user_pref("browser.tabs.insertRelatedAfterCurrent", true); // default=true
-// user_pref("browser.tabs.insertAfterCurrent", true);
-
-// PREF: leave the browser window open even after you close the last tab
-// user_pref("browser.tabs.closeWindowWithLastTab", false);
-
-// PREF: tabs load when opened in the background
-user_pref("browser.tabs.loadInBackground", true); // default
-
-// PREF: determine whether a link opens in the foreground or background on left-click
-// Determines behavior of pages normally meant to open in a new window (such as
-// target="_blank" or from an external program), but that have instead been loaded in a new tab.
-// true = Load the new tab in the background, leaving focus on the current tab
-// false (default) = Load the new tab in the foreground, taking the focus from the current tab.
-// [NOTE] Setting this preference to True will still bring the browser to the front when opening links from outside the browser.
-// user_pref("browser.tabs.loadDivertedInBackground", false); // default
-
-// PREF: load bookmarks in the background using Bookmarks Menu
-// user_pref("browser.tabs.loadBookmarksInBackground", true);
-// PREF: load bookmarks in tabs, not separate  windows
-user_pref("browser.tabs.loadBookmarksInTabs", true);
-// PREF: leave Bookmarks Menu open when selecting a site
-user_pref("browser.bookmarks.openInTabClosesMenu", false);
-
-// PREF: Stop websites from reloading pages automatically
-// [WARNING] Breakage with some sites.
-// [1] https://www.ghacks.net/2018/08/19/stop-websites-from-reloading-pages-automatically/
-// user_pref("accessibility.blockautorefresh", true);
-// user_pref("browser.meta_refresh_when_inactive.disabled", true);
-
-// PREF: Limit events that can cause a pop-up
-// Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
-// (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
-// (recommended) user_pref("dom.popup_allowed_events", "dblclick");
-user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
-user_pref("dom.disable_open_during_load", true); // default
-user_pref("privacy.popups.showBrowserMessage", true); // default
