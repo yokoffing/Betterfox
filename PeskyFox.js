@@ -302,6 +302,24 @@ user_pref("dom.forms.inputmode", true); // default
 // PREF: Web API WebGPU
 // user_pref("dom.webgpu.enabled", true);
 
+// PREF: AVIF image format
+// [1] https://www.omgubuntu.co.uk/2021/01/firefox-86-avif-image-support
+user_pref("image.avif.enabled", true); // default
+
+// PREF: JPEG XL image format
+// user_pref("image.jxl.enabled", true);
+
+// PREF: Prevent password truncation when submitting form data
+// [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
+user_pref("editor.truncate_user_pastes", false);
+
+// PREF: Adjust the minimum tab width
+// [!] Can be overridden by userChrome.css.
+// user_pref("browser.tabs.tabMinWidth", 120); // default=76
+
+// PREF: Plain Text only when copying text.
+user_pref("clipboard.plainTextOnly", true);
+
 /****************************************************************************
  * SECTION: PDF                                                             *
 ****************************************************************************/
@@ -393,31 +411,7 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // user_pref("accessibility.blockautorefresh", true);
 // user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
-// PREF: AVIF image format
-// [1] https://www.omgubuntu.co.uk/2021/01/firefox-86-avif-image-support
-user_pref("image.avif.enabled", true); // default
-
-// PREF: JPEG XL image format
-// user_pref("image.jxl.enabled", true);
-
-// PREF: Prevent password truncation when submitting form data
-// [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
-user_pref("editor.truncate_user_pastes", false);
-
-// PREF: Adjust the minimum tab width
-// [!] Can be overridden by userChrome.css.
-// user_pref("browser.tabs.tabMinWidth", 120); // default=76
-
-// PREF: reduce size of picture-in-picture icon on the first run
-user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
-// PREF: always show the picture-in-picture toggle
-// user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
-
-// PREF: Plain Text only when copying text.
-user_pref("clipboard.plainTextOnly", true);
-
 // PREF: Limit events that can cause a pop-up
-// Really cuts down on pop-ups Private Browsing websites... Thank me later.
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
 // (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
 // (recommended) user_pref("dom.popup_allowed_events", "dblclick");
