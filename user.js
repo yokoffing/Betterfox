@@ -192,6 +192,7 @@ user_pref("browser.newtabpage.activity-stream.telemetry", false);
 /** MOZILLA UI ***/
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("browser.compactmode.show", true);
 user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
@@ -205,6 +206,10 @@ user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.delay", 0);
 user_pref("full-screen-api.warning.timeout", 0);
+
+/** URL BAR ***/
+user_pref("browser.urlbar.suggest.engines", false);
+user_pref("browser.urlbar.suggest.topsites", false);
 
 /** NEW TAB PAGE ***/
 user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
@@ -233,19 +238,6 @@ user_pref("browser.download.alwaysOpenPanel", false);
 user_pref("browser.download.manager.addToRecentDocs", false);
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 
-/** VARIOUS ***/
-user_pref("browser.compactmode.show", true);
-user_pref("browser.urlbar.suggest.engines", false);
-user_pref("browser.urlbar.suggest.topsites", false);
-user_pref("permissions.default.desktop-notification", 2);
-user_pref("dom.push.enabled", false);
-user_pref("findbar.highlightAll", true);
-user_pref("accessibility.force_disabled", 1);
-user_pref("browser.bookmarks.max_backups", 2);
-user_pref("view_source.wrap_long_lines", true);
-user_pref("devtools.debugger.ui.editor-wrapping", true);
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
-
 /** PDF ***/
 user_pref("pdfjs.annotationEditorEnabled", true);
 user_pref("browser.download.open_pdf_attachments_inline", true);
@@ -257,9 +249,15 @@ user_pref("browser.urlbar.openintab", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("editor.truncate_user_pastes", false);
-user_pref("media.videocontrols.picture-in-picture.video-toggle.has-used", true);
 user_pref("clipboard.plainTextOnly", true);
 user_pref("dom.popup_allowed_events", "click dblclick");
+
+/** UNCATEGORIZED ***/
+user_pref("permissions.default.desktop-notification", 2);
+user_pref("dom.push.enabled", false);
+user_pref("findbar.highlightAll", true);
+user_pref("accessibility.force_disabled", 1);
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
