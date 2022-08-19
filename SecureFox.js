@@ -594,40 +594,46 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
  * SECTION: DNS-over-HTTPS                                                    *
 ******************************************************************************/
 
-// PREF: DNS-over-HTTPS (DoH) provider
+// PREF: DNS-over-HTTPS (DoH) mode
 // Mozilla uses Cloudfare by default. NextDNS is also an option.
 // [NOTE] You can set this to 0 if you are already using secure DNS for your entire network (e.g. OS-level, router-level).
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
-user_pref("network.trr.mode", 2);
-// user_pref("network.trr.request_timeout_ms", 4000); /* default=1500 */
-user_pref("network.trr.send_user-agent_headers", false); // default
-user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
-// Temporary workaround for DNS leak with DOH active:
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1730418
-// user_pref("network.dns.upgrade_with_https_rr", false);
+   // user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
+user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 
-// PREF: Force FF to always use your custom DNS resolver
+// PREF: DoH resolver
 // You will type between the "" for both prefs.
 // I recommend creating your own URI with NextDNS for both privacy and security.
 // https://nextdns.io
 // [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
-user_pref("network.trr.uri", "");
-user_pref("network.trr.custom_uri", "");
+user_pref("network.trr.uri", "https://xxxx/dns-query");
+user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
+user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+
+// PREF: DoH resolver list
+/ "[{ \"name\": \"Cloudflare\", \"url\": \"https://mozilla.cloudflare-dns.com/dns-query\" },{ \"name\": \"NextDNS\", \"url\": \"https://trr.dns.nextdns.io/\" }]"
+***/
+   // user_pref("network.trr.resolvers", "[{ \"name\": \"<NAME1>\", \"url\": \"https://<URL1>\" }, { \"name\": \"<NAME2>\", \"url\": \"https://<URL2>\" }]");
+   // user_pref("network.trr.resolvers", "[{ \"name\": \"<NextDNS Custom>\", \"url\": \"https://dns.nextdns.io/7ad2e5/FF_WINDOWS\" }]");
+
+// PREF: Temporary workaround for DNS leak with DOH active [NO LONGER NEEDED]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1730418
+// user_pref("network.dns.upgrade_with_https_rr", false);
 
 /******************************************************************************
  * SECTION: ESNI / ECH                            *
 ******************************************************************************/
 
-// PREF: Enable Encrypted Client Hello (ECH)
+// PREF: enable Encrypted Client Hello (ECH)
 // [1] https://blog.cloudflare.com/encrypted-client-hello/
 // [2] https://www.youtube.com/watch?v=tfyrVYqXQRE
 // user_pref("network.dns.echconfig.enabled", true);
 // user_pref("network.dns.use_https_rr_as_altsvc", true); // default
 
 // PREF: disable HTTP Alternative Services [FF37+]
-// [WHY] Already isolated by network partitioning (FF85+) or FPI ***/
+// [WHY] Already isolated by network partitioning (FF85+) or FPI 
 // user_pref("network.http.altsvc.enabled", false);
 // user_pref("network.http.altsvc.oe", false);
 
