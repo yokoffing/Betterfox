@@ -82,7 +82,6 @@ user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.groupLabels.enabled", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
-user_pref("browser.urlbar.suggest.calculator", true);
 user_pref("network.IDN_show_punycode", true);
 
 /** HTTPS-ONLY MODE ***/
@@ -210,6 +209,7 @@ user_pref("full-screen-api.warning.timeout", 0);
 /** URL BAR ***/
 user_pref("browser.urlbar.suggest.engines", false);
 user_pref("browser.urlbar.suggest.topsites", false);
+user_pref("browser.urlbar.suggest.calculator", true);
 
 /** NEW TAB PAGE ***/
 user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
