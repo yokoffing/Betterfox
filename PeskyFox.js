@@ -37,6 +37,9 @@ user_pref("layout.css.prefers-color-scheme.content-override", 2);
 // PREF: Allow Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
+// PREF: add compact mode back to options
+user_pref("browser.compactmode.show", true);
+
 // PREF: Mozilla VPN
 user_pref("browser.privatebrowsing.vpnpromourl", "");
 
@@ -80,6 +83,55 @@ user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.delay", 0);
 user_pref("full-screen-api.warning.timeout", 0);
+
+/****************************************************************************
+ * SECTION: URL BAR                                                         *
+****************************************************************************/
+
+// PREF: URL bar suggestions (bookmarks, history, open tabs) / dropdown options in the URL bar
+// user_pref("browser.urlbar.suggest.bookmarks", true);
+user_pref("browser.urlbar.suggest.engines", false);
+// user_pref("browser.urlbar.suggest.history", false);
+// user_pref("browser.urlbar.suggest.openpage", true);
+// user_pref("browser.urlbar.suggest.searches", false);
+// Disable dropdown suggestions with empty query
+user_pref("browser.urlbar.suggest.topsites", false);
+
+// PREF: Adaptive History Autofill
+// [1] https://docs.google.com/document/u/1/d/e/2PACX-1vRBLr_2dxus-aYhZRUkW9Q3B1K0uC-a0qQyE3kQDTU3pcNpDHb36-Pfo9fbETk89e7Jz4nkrqwRhi4j/pub
+// user_pref("browser.urlbar.autoFill", true); [DEFAULT]
+// user_pref("browser.urlbar.autoFill.adaptiveHistory.enabled", false);
+
+// PREF: Quick Actions in the URL Bar
+// [1] https://www.ghacks.net/2022/07/19/mozilla-is-testing-quick-actions-in-firefoxs-address-bar/
+// user_pref("browser.urlbar.quickactions.enabled", false);
+// user_pref("browser.urlbar.shortcuts.quickactions", false);
+
+// PREF: Address bar / URL bar dropdown
+// This value controls the total number of entries to appear in the location bar dropdown.
+// [NOTE] Items (bookmarks/history/openpages) with a high "frequency"/"bonus" will always
+// be displayed (no we do not know how these are calculated or what the threshold is),
+// and this does not affect the search by search engine suggestion.
+// default=10, disable=0
+// user_pref("browser.urlbar.maxRichResults", 1);
+
+/****************************************************************************
+ * SECTION: AUTOPLAY                                                        *
+****************************************************************************/
+
+// PREF: do not autoplay media audio
+// [NOTE] You can set exceptions under site permissions
+// [SETTING] Privacy & Security>Permissions>Autoplay>Settings>Default for all websites
+// 0=Allow all, 1=Block non-muted media (default), 5=Block all
+user_pref("media.autoplay.default", 1); // default
+user_pref("media.block-autoplay-until-in-foreground", true); // default
+
+// PREF: disable autoplay of HTML5 media if you interacted with the site [FF78+]
+// 0=sticky (default), 1=transient, 2=user
+// Firefox's Autoplay Policy Documentation (PDF) is linked below via SUMO
+// [NOTE] If you have trouble with some video sites (e.g. YouTube), then add an exception (see previous PREF)
+// [1] https://support.mozilla.org/questions/1293231
+// user_pref("media.autoplay.blocking_policy", 2);
 
 /****************************************************************************
  * SECTION: NEW TAB PAGE                                                    *
@@ -273,16 +325,6 @@ user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
 user_pref("dom.disable_open_during_load", true); // default
 user_pref("privacy.popups.showBrowserMessage", true); // default
 
-/****************************************************************************
- * SECTION: VARIOUS                                                         *
-****************************************************************************/
-
-// PREF: add compact mode back to options
-user_pref("browser.compactmode.show", true);
-
-// PREF: restore "View image info"
-// user_pref("browser.menu.showViewImageInfo", true);
-
 // PREF: unload tabs on low memory
 // Firefox will detect if your computer’s memory is running low (less than 400MB)
 // and suspend tabs that you have not used in awhile.
@@ -290,32 +332,12 @@ user_pref("browser.compactmode.show", true);
 // [2] https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
 user_pref("browser.tabs.unloadOnLowMemory", true); // default
 
-// PREF: URL bar suggestions (bookmarks, history, open tabs) / dropdown options in the URL bar
-// user_pref("browser.urlbar.suggest.bookmarks", true);
-user_pref("browser.urlbar.suggest.engines", false);
-// user_pref("browser.urlbar.suggest.history", false);
-// user_pref("browser.urlbar.suggest.openpage", true);
-// user_pref("browser.urlbar.suggest.searches", false);
-// Disable dropdown suggestions with empty query
-user_pref("browser.urlbar.suggest.topsites", false);
+/****************************************************************************
+ * SECTION: UNCATEGORIZED                                                   *
+****************************************************************************/
 
-// PREF: Adaptive History Autofill
-// [1] https://docs.google.com/document/u/1/d/e/2PACX-1vRBLr_2dxus-aYhZRUkW9Q3B1K0uC-a0qQyE3kQDTU3pcNpDHb36-Pfo9fbETk89e7Jz4nkrqwRhi4j/pub
-// user_pref("browser.urlbar.autoFill", true); [DEFAULT]
-// user_pref("browser.urlbar.autoFill.adaptiveHistory.enabled", false);
-
-// PREF: Quick Actions in the URL Bar
-// [1] https://www.ghacks.net/2022/07/19/mozilla-is-testing-quick-actions-in-firefoxs-address-bar/
-// user_pref("browser.urlbar.quickactions.enabled", false);
-// user_pref("browser.urlbar.shortcuts.quickactions", false);
-
-// PREF: Address bar / URL bar dropdown
-// This value controls the total number of entries to appear in the location bar dropdown.
-// [NOTE] Items (bookmarks/history/openpages) with a high "frequency"/"bonus" will always
-// be displayed (no we do not know how these are calculated or what the threshold is),
-// and this does not affect the search by search engine suggestion.
-// default=10, disable=0
-// user_pref("browser.urlbar.maxRichResults", 1);
+// PREF: restore "View image info"
+// user_pref("browser.menu.showViewImageInfo", true);
 
 // PREF: Set a default permission for Notifications
 // To add site exceptions: Page Info>Permissions>Receive Notifications.
@@ -331,20 +353,6 @@ user_pref("permissions.default.desktop-notification", 2);
 // [3] https://www.reddit.com/r/firefox/comments/fbyzd4/the_most_private_browser_isnot_firefox/
 user_pref("dom.push.enabled", false);
 // user_pref("dom.push.userAgentID", "");
-
-// PREF: do not autoplay media audio
-// [NOTE] You can set exceptions under site permissions
-// [SETTING] Privacy & Security>Permissions>Autoplay>Settings>Default for all websites
-// 0=Allow all, 1=Block non-muted media (default), 5=Block all
-user_pref("media.autoplay.default", 1); // default
-user_pref("media.block-autoplay-until-in-foreground", true); // default
-
-// PREF: disable autoplay of HTML5 media if you interacted with the site [FF78+]
-// 0=sticky (default), 1=transient, 2=user
-// Firefox's Autoplay Policy Documentation (PDF) is linked below via SUMO
-// [NOTE] If you have trouble with some video sites (e.g. YouTube), then add an exception (see previous PREF)
-// [1] https://support.mozilla.org/questions/1293231
-// user_pref("media.autoplay.blocking_policy", 2);
 
 // PREF: Disable Reader mode
 // Firefox will not have to parse webpage for Reader when navigating.
