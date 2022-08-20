@@ -16,33 +16,14 @@
  ***************************************************************************/
 
 /****************************************************************************
- * OPTION 1: SMOOTH SCROLLING (SIMPLE ADJUSTMENT)                           *
+ * OPTION 1: SMOOTH SCROLLING                                               *
 ****************************************************************************/
-user_pref("general.smoothScroll", true);
-
-// Insant scroll:
-user_pref("mousewheel.min_line_scroll_amount", 30);
-// or
-user_pref("mousewheel.default.delta_multiplier_y", 300);
-
-// Prettier, bounce scroll:
+user_pref("general.smoothScroll", true); // DEFAULT
 user_pref("mousewheel.default.delta_multiplier_y", 250);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
 
 /****************************************************************************
- * OPTION 2: SMOOTH SCROLLING (OVERALL IMPROVEMENT OF DEFAULTS)             *
+ * OPTION 2: INSTANT SCROLLING (SIMPLE ADJUSTMENT)                          *
 ****************************************************************************/
-user_pref("general.smoothScroll", true);
-user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 150);
-user_pref("general.smoothScroll.mouseWheel.durationMinMS", 125);
-
-/******************************************************************************
- * OPTION 3: EDGE-LIKE SMOOTH SCROLLING                                       *
-******************************************************************************/
-user_pref("general.smoothScroll", true);
-user_pref("general.smoothScroll.currentVelocityWeighting", "0.1");
-user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 250);
-user_pref("general.smoothScroll.mouseWheel.durationMinMS", 125);
-user_pref("general.smoothScroll.stopDecelerationWeighting", "0.7");
-user_pref("mousewheel.min_line_scroll_amount", 25);
-user_pref("apz.overscroll.enabled", true); /*elastic overscroll*/
+user_pref("general.smoothScroll", true); // DEFAULT
+user_pref("mousewheel.default.delta_multiplier_y", 300);
