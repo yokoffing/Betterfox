@@ -19,9 +19,12 @@
  * OPTION 1: SMOOTH SCROLLING (SIMPLE ADJUSTMENT)                           *
 ****************************************************************************/
 user_pref("general.smoothScroll", true);
+
 // Insant scroll:
 user_pref("mousewheel.min_line_scroll_amount", 30);
 // or
+user_pref("mousewheel.default.delta_multiplier_y", 300);
+
 // Prettier, bounce scroll:
 user_pref("mousewheel.default.delta_multiplier_y", 250);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
