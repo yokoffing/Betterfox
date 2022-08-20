@@ -11,7 +11,7 @@
  * SmoothFox                                                                *
  * "Faber est suae quisque fortunae"                                        *
  * priority: better scrolling                                               *
- * version: August 2022                                                     *
+ * version: September 2022                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -20,6 +20,8 @@
 ****************************************************************************/
 user_pref("general.smoothScroll", true);
 user_pref("mousewheel.min_line_scroll_amount", 30);
+// or
+user_pref("mousewheel.default.delta_multiplier_y", 325);
 
 /****************************************************************************
  * OPTION 2: SMOOTH SCROLLING (OVERALL IMPROVEMENT OF DEFAULTS)             *
