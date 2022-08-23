@@ -935,6 +935,12 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 // user_pref("browser.region.network.url", "");
 user_pref("browser.region.update.enabled", false);
 
+// PREF: Set a default permission for Notifications
+// To add site exceptions: Page Info>Permissions>Receive Notifications.
+// To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings.
+// 0=always ask (default), 1=allow, 2=block
+user_pref("permissions.default.desktop-notification", 2);
+
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
 // This includes updates for "revoked certificates".
 // [1] https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/
