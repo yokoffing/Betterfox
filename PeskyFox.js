@@ -342,12 +342,6 @@ user_pref("browser.tabs.unloadOnLowMemory", true); // default
 // PREF: restore "View image info"
 // user_pref("browser.menu.showViewImageInfo", true);
 
-// PREF: Set a default permission for Notifications
-// To add site exceptions: Page Info>Permissions>Receive Notifications.
-// To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings.
-// 0=always ask (default), 1=allow, 2=block
-user_pref("permissions.default.desktop-notification", 2);
-
 // PREF: disable Push API
 // Push is an API that allows websites to send you (subscribed) messages even when the site
 // isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
