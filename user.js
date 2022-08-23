@@ -151,6 +151,7 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
 /** MOZILLA ***/
 user_pref("permissions.default.geo", 2);
+user_pref("permissions.default.desktop-notification", 2);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("geo.provider.ms-windows-location", false); /* WINDOWS */
 user_pref("geo.provider.use_corelocation", false); /* MAC */
@@ -252,7 +253,6 @@ user_pref("clipboard.plainTextOnly", true);
 user_pref("dom.popup_allowed_events", "click dblclick");
 
 /** UNCATEGORIZED ***/
-user_pref("permissions.default.desktop-notification", 2);
 user_pref("dom.push.enabled", false);
 user_pref("findbar.highlightAll", true);
 user_pref("accessibility.force_disabled", 1);
