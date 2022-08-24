@@ -230,7 +230,7 @@ user_pref("browser.download.autohideButton", true); // default
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 // PREF: autohide the downloads button
-user_pref("browser.download.autohideButton", true);
+user_pref("browser.download.autohideButton", true); // DEFAULT
 
 /****************************************************************************
  * SECTION: PDF                                                             *
