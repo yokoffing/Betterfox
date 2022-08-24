@@ -809,7 +809,7 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // PREF: enable Container Tabs and its UI setting [FF50+]
 // [SETTING] General>Tabs>Enable Container Tabs
 // [1] https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers
-user_pref("privacy.userContext.enabled", true);
+// user_pref("privacy.userContext.enabled", true);
 user_pref("privacy.userContext.ui.enabled", true);
 
 // PREF: set behavior on "+ Tab" button to display container menu on left click [FF74+]
