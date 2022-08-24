@@ -229,6 +229,9 @@ user_pref("browser.download.autohideButton", true); // default
 // [SETTING] General>Files and Applications>What should Firefox do with other files
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 
+// PREF: autohide the downloads button
+user_pref("browser.download.autohideButton", true);
+
 /****************************************************************************
  * SECTION: PDF                                                             *
 ****************************************************************************/
