@@ -475,7 +475,7 @@ user_pref("network.http.speculative-parallel-limit", 0);
 // [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 // [2] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
 // [3] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
-user_pref("browser.newtab.preload", true); // default
+user_pref("browser.newtab.preload", false);
 
 // PREF: disable mousedown speculative connections on bookmarks and history
 user_pref("browser.places.speculativeConnect.enabled", false);
