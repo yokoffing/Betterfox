@@ -21,6 +21,7 @@
 ****************************************************************************/
 user_pref("dom.enable_web_task_scheduling", true);
 user_pref("gfx.offscreencanvas.enabled", true);
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
@@ -262,7 +263,6 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 user_pref("dom.push.enabled", false);
 user_pref("findbar.highlightAll", true);
 user_pref("accessibility.force_disabled", 1);
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
