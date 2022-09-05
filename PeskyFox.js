@@ -397,24 +397,11 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);
 // PREF: print preview
 user_pref("print.tab_modal.enabled", true); // default
 
-// PREF: CSS Constructable Stylesheets
-user_pref("layout.css.constructable-stylesheets.enabled", true); // default
-
-// PREF: CSS Masonry Layout
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
-
 // PREF: Web API inputmode
 user_pref("dom.forms.inputmode", true); // default
 
 // PREF: Web API WebGPU
 // user_pref("dom.webgpu.enabled", true);
-
-// PREF: AVIF image format
-// [1] https://www.omgubuntu.co.uk/2021/01/firefox-86-avif-image-support
-user_pref("image.avif.enabled", true); // default
-
-// PREF: JPEG XL image format
-// user_pref("image.jxl.enabled", true);
 
 // PREF: Prevent password truncation when submitting form data
 // [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
