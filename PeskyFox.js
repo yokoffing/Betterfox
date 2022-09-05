@@ -85,6 +85,24 @@ user_pref("full-screen-api.warning.delay", 0);
 user_pref("full-screen-api.warning.timeout", 0);
 
 /****************************************************************************
+ * SECTION: FONT APPEARANCE                                                 *
+****************************************************************************/
+
+// PREF: smoother font
+// [1] https://www.reddit.com/r/firefox/comments/wvs04y/windows_11_firefox_v104_font_rendering_different/?context=3
+      user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
+      user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
+          // user_pref("gfx.font_rendering.cleartype_params.gamma", 1750);
+
+// PREF: use DirectWrite everywhere like Chrome
+// [1] https://www.reddit.com/r/firefox/comments/wvs04y/comment/ilklzy1/?context=3
+      user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
+          // user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 50);
+
+// PREF: use Mac OS X Appearance panel text smoothing setting when rendering text
+      // user_pref("gfx.use_text_smoothing_setting", true);
+
+/****************************************************************************
  * SECTION: URL BAR                                                         *
 ****************************************************************************/
 
