@@ -397,6 +397,7 @@ user_pref("findbar.highlightAll", true);
 
 // PREF: Disable Accessibility services
 user_pref("accessibility.force_disabled", 1);
+user_pref("devtools.accessibility.enabled", false);
 
 // PREF: Limit the number of bookmark backups Firefox keeps
 user_pref("browser.bookmarks.max_backups", 2);
