@@ -27,7 +27,7 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 | [PeskyFox](https://github.com/yokoffing/Better-Fox/blob/master/PeskyFox.js)  | Unclutter the new tab page. Remove Pocket and form autofill. Prevent Firefox from serving annoying webpage notifications. |
 | [SmoothFox](https://github.com/yokoffing/Better-Fox/blob/master/SmoothFox.js) | Get Microsoft Edge-like smooth scrolling on your favorite browser. |
 | [user.js](https://github.com/yokoffing/Better-Fox/blob/master/user.js) | All the essentails. None of the breakage. Users may download this list as their own user.js. |
-| [LibreWolf.Overrides.cfg](https://github.com/yokoffing/Better-Fox/blob/master/librewolf.overrides.cfg) | :new: Do you prefer [LibreWolf](https://librewolf.net/)? Well, take a few [overrides](https://librewolf.net/docs/settings/) to enhance your preferred Firefox fork! |
+| [LibreWolf.Overrides.cfg](https://github.com/yokoffing/Better-Fox/blob/master/librewolf.overrides.cfg) | :new: :new: :new: Do you prefer [LibreWolf](https://librewolf.net/)? Well, here's a few [overrides](https://librewolf.net/docs/settings/) to enhance your favorite Firefox fork! |
 
 ## Who is this setup for?
 **If you want a secure, blazing fast browsing experience, and don't want to deal with breakage, this setup is for you.** My objective is to make the defaults sufficient enough for the average privacy-minded user, but remain trouble-free enough that my grandmother could use it. <strike>(That puts a whole new twist on being a foxy grandma!)</strike> Edit: Sorry for the dad joke 😓
