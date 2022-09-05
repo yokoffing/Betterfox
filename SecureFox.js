@@ -9,9 +9,9 @@
 
 /****************************************************************************
  * SecureFox                                                                *
- * "Natura non constristatur."                                              *     
+ * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: July 2022                                                       *
+ * version: September 2022                                                  *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -33,14 +33,16 @@ user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
 user_pref("privacy.trackingprotection.socialtracking.enabled", true); // enabled with "Strict"
-user_pref("privacy.socialtracking.block_cookies.enabled", true); // default(?)
-// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
+user_pref("privacy.socialtracking.block_cookies.enabled", true); // enabled with "Strict"
+   // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
 user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
+user_pref("privacy.trackingprotection.emailtracking.enabled", true); // EXPERIMENTAL
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1773695
 
 // PREF: Lower the priority of network loads for resources on the tracking protection list.
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
-// user_pref("privacy.trackingprotection.lower_network_priority", true);
+   // user_pref("privacy.trackingprotection.lower_network_priority", true);
 
 // PREF: allow embedded tweets and Reddit posts
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
@@ -48,8 +50,8 @@ user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 // [TEST - tweet embed] https://www.newsweek.com/cryptic-tweet-britney-spears-shows-elton-john-collab-may-date-back-2015-1728036
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
-user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // hidden
-user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
+user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // MANUAL
+user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // MANUAL
 
 // PREF: Site Isolation
 // Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
@@ -89,6 +91,7 @@ user_pref("privacy.partition.network_state", true); // default
 user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
 user_pref("privacy.partition.serviceWorkers", true);
 user_pref("privacy.partition.bloburl_per_agent_cluster", true);
+user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 
 // PREF: Smartblock
 // [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
@@ -115,7 +118,9 @@ user_pref("browser.send_pings", false); // default
 user_pref("beacon.enabled", false);
 
 // PREF: battery status tracking
-user_pref("dom.battery.enabled", false);
+// Pref remains, but depreciated
+// [1] https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API#browser_compatibility
+// user_pref("dom.battery.enabled", false);
 
 // PREF: set a default permission for Virtual Reality
 // 0=always ask (default), 1=allow, 2=block
@@ -130,9 +135,9 @@ user_pref("dom.storage.next_gen", true); // default
 // PREF: SameSite Cookies
 // [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
 // [2] https://web.dev/samesite-cookies-explained/
-user_pref("network.cookie.sameSite.laxByDefault", true);
-user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-user_pref("network.cookie.sameSite.schemeful", true);
+// user_pref("network.cookie.sameSite.laxByDefault", true);
+// user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+// user_pref("network.cookie.sameSite.schemeful", true); // DEFAULT 104+
 
 // PREF: WebRTC Global Mute Toggles
 // user_pref("privacy.webrtc.globalMuteToggles", true);
@@ -456,21 +461,21 @@ user_pref("network.http.speculative-parallel-limit", 0);
 // [NOTE] Unlike other pre-connection tags (except modulepreload), this tag is mandatory for the browser.
 // A browser is required to download the resource specified in <link rel="preload">. With other tags described here,
 // a browser is free to skip preloading the resource if it decides to (e.g. if the network is slow).
-// [WARNING] Leaving this enabled will interfere with content blocking, especially with cosmetic filters.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1639607
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload
 // [2] https://w3c.github.io/preload/
 // [3] https://3perf.com/blog/link-rels/#preload
 // [4] https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
 // [5] https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#how-can-preload-do-better
 // [6] https://www.keycdn.com/blog/resource-hints#preload
-user_pref("network.preload", false);
+// [7] https://github.com/arkenfox/user.js/issues/1098#issue-791949341
+// user_pref("network.preload", false);
 
 // PREF: New tab preload
 // [WARNING] Disabling this causes a delay when opening a new tab in Firefox.
 // [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 // [2] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-source
 // [3] https://gecko.readthedocs.org/en/latest/browser/browser/DirectoryLinksProvider.html#browser-newtabpage-directory-ping
-user_pref("browser.newtab.preload", true); // default
+user_pref("browser.newtab.preload", false);
 
 // PREF: disable mousedown speculative connections on bookmarks and history
 user_pref("browser.places.speculativeConnect.enabled", false);
@@ -513,8 +518,9 @@ user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.fixup.alternate.enabled", false); // [DEFAULT FF104+]
 
 // PREF: display "Not Secure" text on HTTP sites
-user_pref("security.insecure_connection_text.enabled", true);
-user_pref("security.insecure_connection_text.pbmode.enabled", true);
+// No longer needed with HTTPS-Only
+// user_pref("security.insecure_connection_text.enabled", true);
+// user_pref("security.insecure_connection_text.pbmode.enabled", true);
 
 // PREF: Disable location bar autofill
 // https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete
@@ -570,16 +576,17 @@ user_pref("dom.security.https_only_mode", true);
 // [1] https://nitter.winscloud.net/leli_gibts_scho/status/1371458534186057731
 user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
-// PREF: Disable HTTP background requests in HTTPS-only Mode
-// When attempting to upgrade, if the server doesn't respond within 3 seconds, Firefox
-// sends HTTP requests in order to check if the server supports HTTPS or not.
+// PREF: HTTP background requests in HTTPS-only Mode
+// When attempting to upgrade, if the server doesn't respond within 3 seconds[=default time],
+// Firefox sends HTTP requests in order to check if the server supports HTTPS or not.
 // This is done to avoid waiting for a timeout which takes 90 seconds.
 // Firefox only sends top level domain when falling back to http.
 // [WARNING] Disabling causes long timeouts when no path to HTTPS is present.
 // [NOTE] Use "Manage Exceptions" for sites known for no HTTPS. 
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
-// user_pref("dom.security.https_only_mode_send_http_background_request", false);
+user_pref("dom.security.https_only_mode_send_http_background_request", true); // DEFAULT
+         // user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 500); // default=3000
 
 // PREF: Enable HTTPS-Only mode for local resources
 // user_pref("dom.security.https_only_mode.upgrade_local", true);
@@ -588,40 +595,46 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
  * SECTION: DNS-over-HTTPS                                                    *
 ******************************************************************************/
 
-// PREF: DNS-over-HTTPS (DoH) provider
+// PREF: DNS-over-HTTPS (DoH) mode
 // Mozilla uses Cloudfare by default. NextDNS is also an option.
 // [NOTE] You can set this to 0 if you are already using secure DNS for your entire network (e.g. OS-level, router-level).
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
-user_pref("network.trr.mode", 2);
-// user_pref("network.trr.request_timeout_ms", 4000); /* default=1500 */
-user_pref("network.trr.send_user-agent_headers", false); // default
-user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
-// Temporary workaround for DNS leak with DOH active:
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1730418
-// user_pref("network.dns.upgrade_with_https_rr", false);
+   // user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
+user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 
-// PREF: Force FF to always use your custom DNS resolver
+// PREF: DoH resolver
 // You will type between the "" for both prefs.
 // I recommend creating your own URI with NextDNS for both privacy and security.
 // https://nextdns.io
 // [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
-user_pref("network.trr.uri", "");
-user_pref("network.trr.custom_uri", "");
+user_pref("network.trr.uri", "https://xxxx/dns-query");
+user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
+user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+
+// PREF: DoH resolver list
+/ "[{ \"name\": \"Cloudflare\", \"url\": \"https://mozilla.cloudflare-dns.com/dns-query\" },{ \"name\": \"NextDNS\", \"url\": \"https://trr.dns.nextdns.io/\" }]"
+***/
+   // user_pref("network.trr.resolvers", "[{ \"name\": \"<NAME1>\", \"url\": \"https://<URL1>\" }, { \"name\": \"<NAME2>\", \"url\": \"https://<URL2>\" }]");
+   // user_pref("network.trr.resolvers", "[{ \"name\": \"<NextDNS Custom>\", \"url\": \"https://dns.nextdns.io/7ad2e5/FF_WINDOWS\" }]");
+
+// PREF: Temporary workaround for DNS leak with DOH active [NO LONGER NEEDED]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1730418
+// user_pref("network.dns.upgrade_with_https_rr", false);
 
 /******************************************************************************
  * SECTION: ESNI / ECH                            *
 ******************************************************************************/
 
-// PREF: Enable Encrypted Client Hello (ECH)
+// PREF: enable Encrypted Client Hello (ECH)
 // [1] https://blog.cloudflare.com/encrypted-client-hello/
 // [2] https://www.youtube.com/watch?v=tfyrVYqXQRE
 // user_pref("network.dns.echconfig.enabled", true);
 // user_pref("network.dns.use_https_rr_as_altsvc", true); // default
 
 // PREF: disable HTTP Alternative Services [FF37+]
-// [WHY] Already isolated by network partitioning (FF85+) or FPI ***/
+// [WHY] Already isolated by network partitioning (FF85+) or FPI 
 // user_pref("network.http.altsvc.enabled", false);
 // user_pref("network.http.altsvc.oe", false);
 
@@ -723,8 +736,8 @@ user_pref("security.mixed_content.block_active_content", true); // default
 // PREF: Block insecure passive content (images) on HTTPS pages.
 // user_pref("security.mixed_content.block_display_content", true);
 
-// PREF: Upgrade passive content to use HTTPS on secure pages.
-user_pref("security.mixed_content.upgrade_display_content", true);
+// PREF: upgrade passive content to use HTTPS on secure pages
+// user_pref("security.mixed_content.upgrade_display_content", true);
 
 // PREF: Block insecure downloads from secure sites
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
@@ -793,6 +806,20 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // PREF: disable relaxing referer for cross-site navigations
 // user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // default with "Strict"
 // user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // default
+
+/******************************************************************************
+ * SECTION: CONTAINERS                                                        *
+******************************************************************************/
+// PREF: enable Container Tabs and its UI setting [FF50+]
+// [SETTING] General>Tabs>Enable Container Tabs
+// [1] https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers
+user_pref("privacy.userContext.enabled", true);
+user_pref("privacy.userContext.ui.enabled", true);
+
+// PREF: set behavior on "+ Tab" button to display container menu on left click [FF74+]
+// [NOTE] The menu is always shown on long press and right click
+// [SETTING] General>Tabs>Enable Container Tabs>Settings>Select a container for each new tab ***/
+   // user_pref("privacy.userContext.newTabContainerOnLeftClick.enabled", true);
 
 /******************************************************************************
  * SECTION: WEBRTC                                                            *
@@ -925,6 +952,12 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 // [1] https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
 // user_pref("browser.region.network.url", "");
 user_pref("browser.region.update.enabled", false);
+
+// PREF: Set a default permission for Notifications
+// To add site exceptions: Page Info>Permissions>Receive Notifications.
+// To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings.
+// 0=always ask (default), 1=allow, 2=block
+user_pref("permissions.default.desktop-notification", 2);
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
 // This includes updates for "revoked certificates".
