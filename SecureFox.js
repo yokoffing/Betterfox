@@ -33,10 +33,12 @@ user_pref("privacy.trackingprotection.pbmode.enabled", true); // default
 user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
 user_pref("privacy.trackingprotection.socialtracking.enabled", true); // enabled with "Strict"
-user_pref("privacy.socialtracking.block_cookies.enabled", true); // default(?)
+user_pref("privacy.socialtracking.block_cookies.enabled", true); // enabled with "Strict"
    // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
 user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
+user_pref("privacy.trackingprotection.emailtracking.enabled", true); // EXPERIMENTAL
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1773695
 
 // PREF: Lower the priority of network loads for resources on the tracking protection list.
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
