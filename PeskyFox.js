@@ -343,8 +343,8 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // PREF: Limit events that can cause a pop-up
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
 // (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
-// (recommended) user_pref("dom.popup_allowed_events", "dblclick");
-user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
+// (alternate) user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
+user_pref("dom.popup_allowed_events", "click dblclick");
 user_pref("dom.disable_open_during_load", true); // default
 user_pref("privacy.popups.showBrowserMessage", true); // default
 
@@ -403,7 +403,7 @@ user_pref("browser.bookmarks.max_backups", 2);
 
 // PREF: Allow for more granular control of zoom levels
 // Especially useful if you want to set your default zoom to a custom level
-// user_pref("toolkit.zoomManager.zoomValues", ".3,.5,.67,.8,.9,.95,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,2,2.4,3");
+      // user_pref("toolkit.zoomManager.zoomValues", ".3,.5,.67,.8,.9,.95,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,2,2.4,3");
 
 // PREF: Hide image placeholders
 // user_pref("browser.display.show_image_placeholders", false);
@@ -427,7 +427,7 @@ user_pref("editor.truncate_user_pastes", false);
 
 // PREF: Adjust the minimum tab width
 // [!] Can be overridden by userChrome.css.
-// user_pref("browser.tabs.tabMinWidth", 120); // default=76
+      // user_pref("browser.tabs.tabMinWidth", 120); // default=76
 
 // PREF: Plain Text only when copying text.
 user_pref("clipboard.plainTextOnly", true);
