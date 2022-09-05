@@ -89,6 +89,7 @@ user_pref("privacy.partition.network_state", true); // default
 user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
 user_pref("privacy.partition.serviceWorkers", true);
 user_pref("privacy.partition.bloburl_per_agent_cluster", true);
+user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 
 // PREF: Smartblock
 // [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
