@@ -576,16 +576,18 @@ user_pref("dom.security.https_only_mode", true);
 // [1] https://nitter.winscloud.net/leli_gibts_scho/status/1371458534186057731
 user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
-// PREF: Disable HTTP background requests in HTTPS-only Mode
-// When attempting to upgrade, if the server doesn't respond within 3 seconds, Firefox
-// sends HTTP requests in order to check if the server supports HTTPS or not.
+// PREF: HTTP background requests in HTTPS-only Mode
+// When attempting to upgrade, if the server doesn't respond within 3 seconds[=default time],
+// Firefox sends HTTP requests in order to check if the server supports HTTPS or not.
 // This is done to avoid waiting for a timeout which takes 90 seconds.
 // Firefox only sends top level domain when falling back to http.
 // [WARNING] Disabling causes long timeouts when no path to HTTPS is present.
 // [NOTE] Use "Manage Exceptions" for sites known for no HTTPS. 
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
-// user_pref("dom.security.https_only_mode_send_http_background_request", false);
+user_pref("dom.security.https_only_mode_send_http_background_request", true); // DEFAULT
+         // user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 500); // default=3000
+
 
 // PREF: Enable HTTPS-Only mode for local resources
 // user_pref("dom.security.https_only_mode.upgrade_local", true);
