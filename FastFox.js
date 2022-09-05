@@ -77,6 +77,11 @@ user_pref("gfx.offscreencanvas.enabled", true);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1072107
 user_pref("layout.css.font-loading-api.workers.enabled", true);
 
+// PREF: Enable animation-composition
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1785329
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
+user_pref("layout.css.animation-composition.enabled", true);
+
 // PREF: Shadowrealms
 // [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md
 user_pref("javascript.options.experimental.shadow_realms", true);
@@ -88,12 +93,3 @@ user_pref("javascript.options.experimental.shadow_realms", true);
 // PREF: Wasm Function References
 // [1] https://github.com/WebAssembly/function-references/blob/master/proposals/function-references/Overview.md
         // user_pref("javascript.options.wasm_function_references", true);
-
-// PREF: Array Find Last
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1775026
-        // user_pref("javascript.options.experimental.array_find_last", true);
-
-// PREF: Enable animation-composition
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1785329
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
-        // user_pref("layout.css.animation-composition.enabled", true); // In stable, but needed?
