@@ -112,11 +112,10 @@ user_pref("browser.urlbar.suggest.engines", false);
 // user_pref("browser.urlbar.suggest.history", false);
 // user_pref("browser.urlbar.suggest.openpage", true);
 // user_pref("browser.urlbar.suggest.searches", false);
-// Disable dropdown suggestions with empty query
+// Disable dropdown suggestions with empty query:
 user_pref("browser.urlbar.suggest.topsites", false);
-
-// PREF: calculator in URL bar
 user_pref("browser.urlbar.suggest.calculator", true);
+user_pref("browser.urlbar.unitConversion.enabled", true);
 
 // PREF: Adaptive History Autofill
 // [1] https://docs.google.com/document/u/1/d/e/2PACX-1vRBLr_2dxus-aYhZRUkW9Q3B1K0uC-a0qQyE3kQDTU3pcNpDHb36-Pfo9fbETk89e7Jz4nkrqwRhi4j/pub
