@@ -268,6 +268,7 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 user_pref("dom.push.enabled", false);
 user_pref("findbar.highlightAll", true);
 user_pref("accessibility.force_disabled", 1);
+user_pref("devtools.accessibility.enabled", false);
 
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
