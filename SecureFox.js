@@ -34,13 +34,13 @@ user_pref("privacy.trackingprotection.cryptomining.enabled", true); // default
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // default
 user_pref("privacy.trackingprotection.socialtracking.enabled", true); // enabled with "Strict"
 user_pref("privacy.socialtracking.block_cookies.enabled", true); // default(?)
-// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
+   // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
 user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 
 // PREF: Lower the priority of network loads for resources on the tracking protection list.
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
-// user_pref("privacy.trackingprotection.lower_network_priority", true);
+   // user_pref("privacy.trackingprotection.lower_network_priority", true);
 
 // PREF: allow embedded tweets and Reddit posts
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
@@ -48,8 +48,8 @@ user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 // [TEST - tweet embed] https://www.newsweek.com/cryptic-tweet-britney-spears-shows-elton-john-collab-may-date-back-2015-1728036
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
-user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // hidden
-user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // hidden
+user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // MANUAL
+user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // MANUAL
 
 // PREF: Site Isolation
 // Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
@@ -133,9 +133,9 @@ user_pref("dom.storage.next_gen", true); // default
 // PREF: SameSite Cookies
 // [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
 // [2] https://web.dev/samesite-cookies-explained/
-user_pref("network.cookie.sameSite.laxByDefault", true);
-user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-user_pref("network.cookie.sameSite.schemeful", true);
+// user_pref("network.cookie.sameSite.laxByDefault", true);
+// user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+// user_pref("network.cookie.sameSite.schemeful", true); // DEFAULT 104+
 
 // PREF: WebRTC Global Mute Toggles
 // user_pref("privacy.webrtc.globalMuteToggles", true);
