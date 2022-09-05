@@ -19,9 +19,11 @@
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
+user_pref("image.jxl.enabled", true);
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
 user_pref("gfx.offscreencanvas.enabled", true);
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
+user_pref("layout.css.font-loading-api.workers.enabled", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
@@ -76,6 +78,7 @@ user_pref("network.dns.disablePrefetch", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 user_pref("network.http.speculative-parallel-limit", 0);
+user_pref("browser.newtab.preload", false);
 user_pref("browser.places.speculativeConnect.enabled", false);
 
 /** SEARCH / URL BAR ***/
