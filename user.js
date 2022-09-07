@@ -35,7 +35,6 @@ user_pref("privacy.trackingprotection.emailtracking.enabled", true);
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
 /* Use Privacy Essentails list for social tracking: https://github.com/yokoffing/filterlists/blob/main/PrivacyEssentials.txt */
-user_pref("privacy.partition.serviceWorkers", true);
 user_pref("privacy.partition.bloburl_per_agent_cluster", true);
 user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 user_pref("beacon.enabled", false);
