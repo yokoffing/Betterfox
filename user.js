@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora"                                                             *
- * version: September 2022                                                  *
+ * version: October 2022                                                    *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -52,7 +52,6 @@ user_pref("browser.ssl_override_behavior", 1);
 user_pref("security.tls.enable_0rtt_data", false);
 
 /** FONTS ***/
-user_pref("gfx.font_rendering.opentype_svg.enabled", false);
 user_pref("layout.css.font-visibility.private", 1);
 user_pref("layout.css.font-visibility.standard", 1);
 user_pref("layout.css.font-visibility.trackingprotection", 1);
@@ -202,6 +201,8 @@ user_pref("browser.newtabpage.activity-stream.telemetry", false);
 /** MOZILLA UI ***/
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("accessibility.force_disabled", 1);
+user_pref("devtools.accessibility.enabled", false);
 user_pref("browser.compactmode.show", true);
 user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false);
@@ -266,8 +267,6 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 /** UNCATEGORIZED ***/
 user_pref("dom.push.enabled", false);
 user_pref("findbar.highlightAll", true);
-user_pref("accessibility.force_disabled", 1);
-user_pref("devtools.accessibility.enabled", false);
 
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
