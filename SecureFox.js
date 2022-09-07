@@ -11,7 +11,7 @@
  * SecureFox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: September 2022                                                  *
+ * version: October 2022                                                    *
  * url: https://github.com/yokoffing/Better-Fox                             *                   
 ****************************************************************************/
 
@@ -87,9 +87,9 @@ user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.ena
 // [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
 // [2] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
 // [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
-user_pref("privacy.partition.network_state", true); // default
+user_pref("privacy.partition.network_state", true); // DEFAULT
 user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
-user_pref("privacy.partition.serviceWorkers", true);
+user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
 user_pref("privacy.partition.bloburl_per_agent_cluster", true);
 user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 
