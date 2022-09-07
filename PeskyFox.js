@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: September 2022                                                  *
+ * version: October 2022                                                    *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -36,6 +36,10 @@ user_pref("layout.css.prefers-color-scheme.content-override", 2);
 
 // PREF: Allow Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+// PREF: Disable Accessibility services
+user_pref("accessibility.force_disabled", 1);
+user_pref("devtools.accessibility.enabled", false);
 
 // PREF: add compact mode back to options
 user_pref("browser.compactmode.show", true);
@@ -393,10 +397,6 @@ user_pref("findbar.highlightAll", true);
 // PREF: Spell-check
 // 0=none, 1-multi-line, 2=multi-line & single-line
 // user_pref("layout.spellcheckDefault", 1); // default
-
-// PREF: Disable Accessibility services
-user_pref("accessibility.force_disabled", 1);
-user_pref("devtools.accessibility.enabled", false);
 
 // PREF: Limit the number of bookmark backups Firefox keeps
 user_pref("browser.bookmarks.max_backups", 2);
