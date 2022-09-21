@@ -936,6 +936,21 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
  * SECTION: MOZILLA                                                   *
 ******************************************************************************/
 
+// PREF: disable Push API
+// Push is an API that allows websites to send you (subscribed) messages even when the site
+// isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
+// [1] https://support.mozilla.org/en-US/kb/push-notifications-firefox
+// [2] https://developer.mozilla.org/en-US/docs/Web/API/Push_API
+// [3] https://www.reddit.com/r/firefox/comments/fbyzd4/the_most_private_browser_isnot_firefox/
+user_pref("dom.push.enabled", false);
+      // user_pref("dom.push.userAgentID", "");
+
+// PREF: Set a default permission for Notifications
+// To add site exceptions: Page Info>Permissions>Receive Notifications.
+// To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings.
+// 0=always ask (default), 1=allow, 2=block
+user_pref("permissions.default.desktop-notification", 2);
+
 // PREF: Disable annoying location requests from websites
 user_pref("permissions.default.geo", 2);
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
@@ -953,12 +968,6 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 // [1] https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
 // user_pref("browser.region.network.url", "");
 user_pref("browser.region.update.enabled", false);
-
-// PREF: Set a default permission for Notifications
-// To add site exceptions: Page Info>Permissions>Receive Notifications.
-// To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings.
-// 0=always ask (default), 1=allow, 2=block
-user_pref("permissions.default.desktop-notification", 2);
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
 // This includes updates for "revoked certificates".
