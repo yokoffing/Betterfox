@@ -159,8 +159,9 @@ user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", fa
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
 /** MOZILLA ***/
-user_pref("permissions.default.geo", 2);
+user_pref("dom.push.enabled", false);
 user_pref("permissions.default.desktop-notification", 2);
+user_pref("permissions.default.geo", 2);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("geo.provider.ms-windows-location", false); /* WINDOWS */
 user_pref("geo.provider.use_corelocation", false); /* MAC */
@@ -211,6 +212,7 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("browser.preferences.moreFromMozilla", false);
+user_pref("findbar.highlightAll", true);
 
 /** FULLSCREEN ***/
 user_pref("full-screen-api.transition-duration.enter", "0 0");
@@ -264,9 +266,22 @@ user_pref("editor.truncate_user_pastes", false);
 user_pref("clipboard.plainTextOnly", true);
 user_pref("dom.popup_allowed_events", "click dblclick");
 
-/** UNCATEGORIZED ***/
-user_pref("dom.push.enabled", false);
-user_pref("findbar.highlightAll", true);
+/****************************************************************************
+ * SECTION: SMOOTHFOX                                                       *
+****************************************************************************/
+
+/* Uncomment to enable */
+
+// user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
+// user_pref("general.smoothScroll.msdPhysics.enabled", true);
+// user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 600);
+// user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 650);
+// user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25);
+// user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 2.0);
+// user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 250);
+// user_pref("general.smoothScroll.currentVelocityWeighting", 1.0);
+// user_pref("general.smoothScroll.stopDecelerationWeighting", 1.0);
+// user_pref("mousewheel.default.delta_multiplier_y", 280);
 
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
