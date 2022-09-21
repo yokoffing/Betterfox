@@ -366,15 +366,6 @@ user_pref("browser.tabs.unloadOnLowMemory", true); // default
 // PREF: restore "View image info"
 // user_pref("browser.menu.showViewImageInfo", true);
 
-// PREF: disable Push API
-// Push is an API that allows websites to send you (subscribed) messages even when the site
-// isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
-// [1] https://support.mozilla.org/en-US/kb/push-notifications-firefox
-// [2] https://developer.mozilla.org/en-US/docs/Web/API/Push_API
-// [3] https://www.reddit.com/r/firefox/comments/fbyzd4/the_most_private_browser_isnot_firefox/
-user_pref("dom.push.enabled", false);
-// user_pref("dom.push.userAgentID", "");
-
 // PREF: Disable Reader mode
 // Firefox will not have to parse webpage for Reader when navigating.
 // Minimal performance impact.
