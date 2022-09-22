@@ -97,36 +97,12 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
 /** PASSWORDS AND AUTOFILL ***/
-user_pref("signon.autofillForms.http", false);
-user_pref("security.insecure_field_warning.contextual.enabled", true);
 user_pref("signon.privateBrowsingCapture.enabled", false);
-/* NOTE: Remove everything below this line if you use Firefox's password manager */
-user_pref("signon.management.page.breach-alerts.enabled", false); 
-user_pref("signon.management.page.breachAlertUrl", "");
-user_pref("browser.contentblocking.report.lockwise.enabled", false);
-user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
-user_pref("signon.rememberSignons", false);
-user_pref("signon.rememberSignons.visibilityToggle", false);
-user_pref("signon.schemeUpgrades", false);
-user_pref("signon.showAutoCompleteFooter", false);
-user_pref("signon.autologin.proxy", false);
-user_pref("signon.debug", false);
-user_pref("signon.generation.available", false);
-user_pref("signon.generation.enabled", false);
-user_pref("signon.management.page.fileImport.enabled", false);
-user_pref("signon.importedFromSqlite", false);
-user_pref("signon.recipes.path", "");
 user_pref("signon.autofillForms", false);
-user_pref("signon.autofillForms.autocompleteOff", true);
-user_pref("signon.showAutoCompleteOrigins", false);
-user_pref("signon.storeWhenAutocompleteOff", false);
-user_pref("signon.formlessCapture.enabled", false);
-user_pref("extensions.fxmonitor.enabled", false);
+user_pref("signon.rememberSignons", false);
 
 /** ADDRESS + CREDIT CARD MANAGER ***/
 user_pref("extensions.formautofill.addresses.enabled", false);
-user_pref("extensions.formautofill.available", "off");
-user_pref("extensions.formautofill.creditCards.available", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
 user_pref("extensions.formautofill.heuristics.enabled", false);
 user_pref("browser.formfill.enable", false);
