@@ -220,9 +220,6 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 /*** POCKET ***/
 user_pref("extensions.pocket.enabled", false);
-user_pref("extensions.pocket.api"," ");
-user_pref("extensions.pocket.oAuthConsumerKey", " ");
-user_pref("extensions.pocket.site", " ");
 
 /** DOWNLOADS ***/
 user_pref("browser.download.useDownloadDir", false);
@@ -246,8 +243,7 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
-
-/* Uncomment to enable */
+/** Uncomment each pref to enable ***/
 
 // user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
 // user_pref("general.smoothScroll.msdPhysics.enabled", true);
