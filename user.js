@@ -97,6 +97,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
 /** PASSWORDS AND AUTOFILL ***/
+user_pref("signon.formlessCapture.enabled", false);
 user_pref("signon.privateBrowsingCapture.enabled", false);
 user_pref("signon.autofillForms", false);
 user_pref("signon.rememberSignons", false);
