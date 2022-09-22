@@ -219,9 +219,9 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 // PREF: Disable built-in Pocket extension
 user_pref("extensions.pocket.enabled", false);
-user_pref("extensions.pocket.api"," ");
-user_pref("extensions.pocket.oAuthConsumerKey", " ");
-user_pref("extensions.pocket.site", " ");
+      // user_pref("extensions.pocket.api"," ");
+      // user_pref("extensions.pocket.oAuthConsumerKey", " ");
+      // user_pref("extensions.pocket.site", " ");
 
 /******************************************************************************
  * SECTION: DOWNLOADS                                 *
