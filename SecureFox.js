@@ -96,6 +96,7 @@ user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", t
 // PREF: Smartblock
 // [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
 // [2] https://www.youtube.com/watch?v=VE8SrClOTgw
+// [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
 user_pref("extensions.webcompat.enable_shims", true); // default
 
 // PREF: Redirect Tracking Prevention
@@ -469,7 +470,7 @@ user_pref("network.http.speculative-parallel-limit", 0);
 // [5] https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#how-can-preload-do-better
 // [6] https://www.keycdn.com/blog/resource-hints#preload
 // [7] https://github.com/arkenfox/user.js/issues/1098#issue-791949341
-// user_pref("network.preload", false);
+      // user_pref("network.preload", false);
 
 // PREF: New tab preload
 // [WARNING] Disabling this causes a delay when opening a new tab in Firefox.
@@ -643,61 +644,62 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
  * SECTION: PASSWORDS                             *
 ******************************************************************************/
 
-// PREF: Disable autofilling saved passwords on HTTP pages and show warning
-// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1217152,1319119
-user_pref("signon.autofillForms.http", false);
-user_pref("security.insecure_field_warning.contextual.enabled", true);
-
-// Disable capturing credentials in private browsing
+// PREF: Disable capturing credentials in private browsing
 user_pref("signon.privateBrowsingCapture.enabled", false);
-
-// PREF: Disable Firefox Lockwise (about:logins)
-// [1] https://lockwise.firefox.com/
-// [2] https://support.mozilla.org/en-US/kb/firefox-lockwise-managing-account-data
-user_pref("signon.management.page.breach-alerts.enabled", false); 
-user_pref("signon.management.page.breachAlertUrl", "");
-user_pref("browser.contentblocking.report.lockwise.enabled", false);
-user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
-
-// PREF: Disable Firefox built-in password generator
-// Create passwords with random characters and numbers.
-// [NOTE] Doesn't work with Lockwise disabled!
-// [1] https://wiki.mozilla.org/Toolkit:Password_Manager/Password_Generation
-user_pref("signon.generation.available", false);
-user_pref("signon.generation.enabled", false);
-
-// PREF: Disable password manager
-// NOTE” This does not clear any passwords already saved
-user_pref("signon.rememberSignons", false);
-user_pref("signon.rememberSignons.visibilityToggle", false);
-user_pref("signon.schemeUpgrades", false);
-user_pref("signon.showAutoCompleteFooter", false);
-user_pref("signon.autologin.proxy", false);
-user_pref("signon.debug", false);
-
-// PREF: Disable Firefox import password from signons.sqlite file
-// [1] https://support.mozilla.org/en-US/questions/1020818
-user_pref("signon.management.page.fileImport.enabled", false);
-user_pref("signon.importedFromSqlite", false);
-user_pref("signon.recipes.path", "");
 
 // PREF: Disable auto-filling username & password form fields
 // Can leak in cross-site forms and be spoofed
 // NOTE: Username and password is still available when you enter the field
 user_pref("signon.autofillForms", false);
-user_pref("signon.autofillForms.autocompleteOff", true);
-user_pref("signon.showAutoCompleteOrigins", false);
+      // user_pref("signon.autofillForms.autocompleteOff", true);
+      // user_pref("signon.showAutoCompleteOrigins", false);
+
+// PREF: Disable autofilling saved passwords on HTTP pages and show warning
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1217152,1319119
+      // user_pref("signon.autofillForms.http", false);
+      // user_pref("security.insecure_field_warning.contextual.enabled", true);
+
+// PREF: Disable password manager
+// [NOTE] This does not clear any passwords already saved
+user_pref("signon.rememberSignons", false);
+      // user_pref("signon.rememberSignons.visibilityToggle", false);
+      // user_pref("signon.schemeUpgrades", false);
+      // user_pref("signon.showAutoCompleteFooter", false);
+      // user_pref("signon.autologin.proxy", false);
+         // user_pref("signon.debug", false);
+
+// PREF: Disable Firefox built-in password generator
+// Create passwords with random characters and numbers.
+// [NOTE] Doesn't work with Lockwise disabled!
+// [1] https://wiki.mozilla.org/Toolkit:Password_Manager/Password_Generation
+      // user_pref("signon.generation.available", false);
+      // user_pref("signon.generation.enabled", false);
+
+// PREF: Disable Firefox Lockwise (about:logins)
+// [NOTE] No usernames or passwords are sent to third-party sites
+// [1] https://lockwise.firefox.com/
+// [2] https://support.mozilla.org/en-US/kb/firefox-lockwise-managing-account-data
+      // user_pref("signon.management.page.breach-alerts.enabled", false); 
+         // user_pref("signon.management.page.breachAlertUrl", "");
+      // user_pref("browser.contentblocking.report.lockwise.enabled", false);
+         // user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
+
+// PREF: Disable Firefox import password from signons.sqlite file
+// [1] https://support.mozilla.org/en-US/questions/1020818
+      // user_pref("signon.management.page.fileImport.enabled", false);
+      // user_pref("signon.importedFromSqlite", false);
+         // user_pref("signon.recipes.path", "");
 
 // PREF: Disable websites autocomplete
 // Don't let sites dictate use of saved logins and passwords. 
-user_pref("signon.storeWhenAutocompleteOff", false);
+      // user_pref("signon.storeWhenAutocompleteOff", false);
 
 // PREF: Disable formless login capture
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
 user_pref("signon.formlessCapture.enabled", false);
 
 // PREF: Disable Firefox Monitor
-user_pref("extensions.fxmonitor.enabled", false);
+      // user_pref("extensions.fxmonitor.enabled", false);
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
