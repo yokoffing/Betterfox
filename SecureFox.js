@@ -644,6 +644,10 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
  * SECTION: PASSWORDS                             *
 ******************************************************************************/
 
+// PREF: Disable formless login capture
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
+user_pref("signon.formlessCapture.enabled", false);
+
 // PREF: Disable capturing credentials in private browsing
 user_pref("signon.privateBrowsingCapture.enabled", false);
 
@@ -693,10 +697,6 @@ user_pref("signon.rememberSignons", false);
 // PREF: Disable websites autocomplete
 // Don't let sites dictate use of saved logins and passwords. 
       // user_pref("signon.storeWhenAutocompleteOff", false);
-
-// PREF: Disable formless login capture
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
-user_pref("signon.formlessCapture.enabled", false);
 
 // PREF: Disable Firefox Monitor
       // user_pref("extensions.fxmonitor.enabled", false);
