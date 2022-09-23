@@ -261,6 +261,12 @@ user_pref("layout.css.font-visibility.trackingprotection", 1);
  * SECTION: RESIST FINGERPRINTING (RFP)                                     *
 ****************************************************************************/
 
+// PREF: enable advanced fingerprinting protection 
+// [WARNING] Leave disabled unless you're okay with all the drawbacks
+// [1] https://librewolf.net/docs/faq/#what-are-the-most-common-downsides-of-rfp-resist-fingerprinting
+// [2] https://old.reddit.com/r/firefox/comments/wuqpgi/comment/ile3whx/?context=3
+      // user_pref("privacy.resistFingerprinting", true);
+
 // PREF: set new window size rounding max values [FF55+]
 // [SETUP-CHROME] sizes round down in hundreds: width to 200s and height to 100s, to fit your screen
 // [1] https://bugzilla.mozilla.org/1330882
