@@ -56,27 +56,24 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 
-// PREF: Hide bookmarks toolbar from new tab page 
-// user_pref("browser.toolbars.bookmarks.visibility", "never");
-
 // PREF: Hide "More from Mozilla" in Settings
 user_pref("browser.preferences.moreFromMozilla", false);
 
 // PREF: Remove delay of security dialog when downloading extensions
 // default=1000
-// user_pref("security.dialog_enable_delay", 0);
+      // user_pref("security.dialog_enable_delay", 300);
 
-// PREF: Remove "addons.mozilla.org" from set of domains that extensions cannot access
+// PREF: Remove "addons.mozilla.org" from set of domains that extensions cannot access [not working?]
 // [NOTE] May only work with privacy.resistfingerprinting enabled?
 // [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
-user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
-// user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
+      // user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
+      // user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
 
 // PREF: Disable Warnings
 user_pref("browser.tabs.warnOnClose", false); // default FF94+
-// user_pref("browser.tabs.warnOnCloseOtherTabs", false);
-// user_pref("browser.tabs.warnOnOpen", false);
-// user_pref("browser.aboutConfig.showWarning", false);
+      // user_pref("browser.tabs.warnOnCloseOtherTabs", false);
+      // user_pref("browser.tabs.warnOnOpen", false);
+      // user_pref("browser.aboutConfig.showWarning", false);
 
 // PREF: Disable fullscreen delay and notice
 user_pref("full-screen-api.transition-duration.enter", "0 0");
@@ -203,11 +200,11 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 // PREF: Bookmarks Toolbar visibility
 // always, never, or newtab
-// user_pref("browser.toolbars.bookmarks.visibility", "newtab");
+      // user_pref("browser.toolbars.bookmarks.visibility", "newtab");
 
 // PREF: Keep search in the search box; prevent from jumping to address bar
 // [1] https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/
-// user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
+      // user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
 
 /******************************************************************************
  * SECTION: POCKET                                                            *
