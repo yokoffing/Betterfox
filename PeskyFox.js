@@ -360,30 +360,30 @@ user_pref("browser.tabs.unloadOnLowMemory", true); // default
 ****************************************************************************/
 
 // PREF: restore "View image info"
-// user_pref("browser.menu.showViewImageInfo", true);
+      // user_pref("browser.menu.showViewImageInfo", true);
 
 // PREF: Disable Reader mode
 // Firefox will not have to parse webpage for Reader when navigating.
 // Minimal performance impact.
-// user_pref("reader.parse-on-load.enabled", false);
+      // user_pref("reader.parse-on-load.enabled", false);
 
 // PREF: Disable backspace action
 // 0=previous page, 1=scroll up, 2=do nothing
 user_pref("browser.backspace_action", 2); // default
 
 // PREF: Disable ALT key toggling the menu bar
-// user_pref("ui.key.menuAccessKey", 0);
+      // user_pref("ui.key.menuAccessKey", 0);
 
 // PREF: CTRL+TAB cycles tabs in chronological order instead of recently-
 // used order
-// user_pref("browser.ctrlTab.recentlyUsedOrder", false);
+      // user_pref("browser.ctrlTab.recentlyUsedOrder", false);
 
 // PREF: Show all matches in Findbar
 user_pref("findbar.highlightAll", true);
 
 // PREF: Spell-check
 // 0=none, 1-multi-line, 2=multi-line & single-line
-// user_pref("layout.spellcheckDefault", 1); // default
+      // user_pref("layout.spellcheckDefault", 1); // default
 
 // PREF: Limit the number of bookmark backups Firefox keeps
 user_pref("browser.bookmarks.max_backups", 2);
