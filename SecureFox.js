@@ -163,8 +163,9 @@ user_pref("dom.storage.next_gen", true); // default
 // [2] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
 user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
 
-// PREF: Enterprise Root Certificates of the operating system is not automatically activated
-// user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
+// PREF: disable Enterprise Root Certificates of the operating system
+      // user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
+user_pref("security.enterprise_roots.enabled", false); // DEFAULT
 
 // PREF: set OCSP fetch failures to hard-fail
 // When a CA cannot be reached to validate a cert, Firefox just continues the connection (=soft-fail)
@@ -175,7 +176,7 @@ user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
 // [1] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
 // [2] https://www.imperialviolet.org/2014/04/19/revchecking.html
 // [3] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
-// user_pref("security.OCSP.require", true);
+      // user_pref("security.OCSP.require", true);
 
 // PREF: enable strict pinning
 // PKP (Public Key Pinning) 0=disabled, 1=allow user MiTM (such as your antivirus), 2=strict
@@ -217,7 +218,7 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 // [2] https://datatracker.ietf.org/doc/html/rfc5746
 // [3] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555
 // [4] https://www.ssllabs.com/ssl-pulse/
-// user_pref("security.ssl.require_safe_negotiation", true);
+      // user_pref("security.ssl.require_safe_negotiation", true);
 
 // PREF: display advanced information on Insecure Connection warning pages
 // only works when it's possible to add an exception
@@ -488,14 +489,20 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 
 // PREF: do not trim certain parts of the URL
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs#values
-// user_pref("browser.urlbar.trimURLs", false);
+      // user_pref("browser.urlbar.trimURLs", false);
 
-// PREF: Enable a seperate search engine for Private Windows
-// Remember to go into Preferences -> Search and select another search provider (like DuckDuckGo)
+// PREF: enable a seperate search engine for Private Windows
+// [SETTINGS] Preferences -> Search and select another search provider (like DuckDuckGo)
 user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 
-// PREF: Disable live search engine suggestions (Google, Bing, etc.)
+// PREF: enable option to add custom search
+// [SETTINGS] Settings -> Search -> Search Shortcuts -> Add
+// [EXAMPLE] https://lite.duckduckgo.com/lite/
+// [1] https://reddit.com/r/firefox/comments/xkzswb/adding_firefox_search_engine_manually/
+user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
+
+// PREF: disable live search engine suggestions (Google, Bing, etc.)
 // [WARNING] Search engines keylog every character you type from the URL bar
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false); // default
