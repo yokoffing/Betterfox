@@ -36,13 +36,18 @@ user_pref("privacy.trackingprotection.socialtracking.enabled", true); // enabled
 user_pref("privacy.socialtracking.block_cookies.enabled", true); // enabled with "Strict"
    // user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
-user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 user_pref("privacy.trackingprotection.emailtracking.enabled", true); // EXPERIMENTAL
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1773695
 
+// PREF: query stripping
+// We set the same query stripping list that Brave uses:
+// https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc
+user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
+user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
+
 // PREF: Lower the priority of network loads for resources on the tracking protection list.
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
-   // user_pref("privacy.trackingprotection.lower_network_priority", true);
+      // user_pref("privacy.trackingprotection.lower_network_priority", true);
 
 // PREF: allow embedded tweets and Reddit posts
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
