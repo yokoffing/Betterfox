@@ -938,6 +938,11 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
  * SECTION: MOZILLA                                                   *
 ******************************************************************************/
 
+// PREF: disable Firefox accounts
+// [ALTERNATIVE] Use xBrowserSync
+// [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
+      // user_pref("identity.fxaccounts.enabled", false);
+
 // PREF: disable Push API
 // Push is an API that allows websites to send you (subscribed) messages even when the site
 // isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
