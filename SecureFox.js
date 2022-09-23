@@ -610,8 +610,8 @@ user_pref("dom.security.https_only_mode_send_http_background_request", true); //
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
-   // user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
-user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
+      // user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
+      // user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 
 // PREF: DoH resolver
 // You will type between the "" for both prefs.
@@ -622,15 +622,24 @@ user_pref("network.trr.uri", "https://xxxx/dns-query");
 user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
+// PREF: enable Oblivious DoH
+// [1] https://blog.cloudflare.com/oblivious-dns/
+// [2] https://www.reddit.com/r/firefox/comments/xc9y4g/how_to_enable_oblivious_doh_odoh_for_enhanced_dns/
+      // user_pref("network.trr.mode", 3);
+      // user_pref("network.trr.odoh.enabled", true);
+      // user_pref("network.trr.odoh.configs_uri", "https://odoh.cloudflare-dns.com/.well-known/odohconfigs");
+      // user_pref("network.trr.odoh.target_host", "https://odoh.cloudflare-dns.com/");
+      // user_pref("network.trr.odoh.target_path", "dns-query");
+      // user_pref("network.trr.odoh.proxy_uri", "https://odoh1.surfdomeinen.nl/proxy");
+
 // PREF: DoH resolver list
-/ "[{ \"name\": \"Cloudflare\", \"url\": \"https://mozilla.cloudflare-dns.com/dns-query\" },{ \"name\": \"NextDNS\", \"url\": \"https://trr.dns.nextdns.io/\" }]"
-***/
-   // user_pref("network.trr.resolvers", "[{ \"name\": \"<NAME1>\", \"url\": \"https://<URL1>\" }, { \"name\": \"<NAME2>\", \"url\": \"https://<URL2>\" }]");
-   // user_pref("network.trr.resolvers", "[{ \"name\": \"<NextDNS Custom>\", \"url\": \"https://dns.nextdns.io/7ad2e5/FF_WINDOWS\" }]");
+// [EXAMPLE] "[{ \"name\": \"Cloudflare\", \"url\": \"https://mozilla.cloudflare-dns.com/dns-query\" },{ \"name\": \"NextDNS\", \"url\": \"https://trr.dns.nextdns.io/\" }]"
+      // user_pref("network.trr.resolvers", "[{ \"name\": \"<NAME1>\", \"url\": \"https://<URL1>\" }, { \"name\": \"<NAME2>\", \"url\": \"https://<URL2>\" }]");
+      // user_pref("network.trr.resolvers", "[{ \"name\": \"<NextDNS Custom>\", \"url\": \"https://dns.nextdns.io/7ad2e5/FF_WINDOWS\" }]");
 
 // PREF: Temporary workaround for DNS leak with DOH active [NO LONGER NEEDED]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1730418
-// user_pref("network.dns.upgrade_with_https_rr", false);
+      // user_pref("network.dns.upgrade_with_https_rr", false);
 
 /******************************************************************************
  * SECTION: ESNI / ECH                            *
