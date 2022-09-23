@@ -180,10 +180,10 @@ user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 
 // PREF: Disable Activity Stream snippets
 // Runs code received from a server (aka Remote Code Execution) and sends information back to a metrics server.
-user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
+user_pref("browser.newtabpage.activity-stream.feeds.snippets", false); // DEFAULT
 
 // PREF: Hide Activity Stream content
-user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // DEFAULT
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
