@@ -51,10 +51,6 @@ user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false); /* hidden */
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
-// PREF: Disable Firefox accounts
-// user_pref("identity.fxaccounts.enabled", false);
-// user_pref("identity.fxaccounts.toolbar.enabled", false);
-
 // PREF: Disable Extension Recommendations (CFR: "Contextual Feature Recommender")
 // https://support.mozilla.org/en-US/kb/extension-recommendations
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
