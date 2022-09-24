@@ -731,6 +731,7 @@ user_pref("signon.rememberSignons", false);
 // PREF: enable native password manager [OVERRIDE]
 user_pref("signon.rememberSignons", true);
 user_pref("signon.autofillForms", true);
+user_pref("browser.formfill.enable", true);
 // enable autofill on page load:
       // user_pref("signon.autofillForms.autocompleteOff", true);
       // user_pref("signon.showAutoCompleteOrigins", false);
