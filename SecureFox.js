@@ -927,36 +927,50 @@ user_pref("media.peerconnection.ice.default_address_only", true);
  * SECTION: GOOGLE SAFE BROWSING (GSB)                                        *
 ******************************************************************************/
 
-// PREF: GSB checks for downloads (remote)
-// To verify the safety of certain executable files, Firefox may submit some information about the
-// file, including the name, origin, size and a cryptographic hash of the contents, to the Google
-// Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
-user_pref("browser.safebrowsing.downloads.remote.enabled", false); // default
-// user_pref("browser.safebrowsing.downloads.remote.url", "");
-
-// PREF: GSB, master switch
-// WARNING: Be sure to have alternate security measures if you disable Safe Browsing.
+// PREF: disable GSB (master switch)
 // Increased privacy away from Google, but less protection against threats.
-// Privacy & Security>Security>... "Block dangerous and deceptive content"
+// [WARNING] Be sure to have alternate security measures if you disable Safe Browsing.
+// [SETTING] Privacy & Security>Security>... Block dangerous and deceptive content
 // [1] https://www.wikiwand.com/en/Google_Safe_Browsing#/Privacy
 // [2] https://ashkansoltani.org/2012/02/25/cookies-from-nowhere
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
+      // user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
+      // user_pref("browser.safebrowsing.provider.google4.updateURL", "");
+      // user_pref("browser.safebrowsing.provider.google.gethashURL", "");
+      // user_pref("browser.safebrowsing.provider.google.updateURL", "");
 
-// PREF: GSB checking downloads local + remote, master switch
-// Privacy & Security>Security>... "Block dangerous downloads"
+// PREF: disable GSB checking downloads (master switch)
+// This is the master switch for the safebrowsing.downloads prefs
+// [SETTING] Privacy & Security>Security>... "Block dangerous downloads"
 user_pref("browser.safebrowsing.downloads.enabled", false);
-
-// PREF: GSB checks for unwanted software
+      
+// PREF: disable GSB checks for downloads (remote)
+// To verify the safety of certain executable files, Firefox may submit some information about the
+// file, including the name, origin, size and a cryptographic hash of the contents, to the Google
+// Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
+user_pref("browser.safebrowsing.downloads.remote.enabled", false); // DEFAULT
+      // user_pref("browser.safebrowsing.downloads.remote.url", "");
 // Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
-// PREF: 'ignore this warning' on Google Safe Browsing warnings
+// PREF: disable 'ignore this warning' on GSB warnings
 // If clicked, it bypasses the block for that session. This is a means for admins to enforce SB.
 // [1] https://bugzilla.mozilla.org/1226490
-// user_pref("browser.safebrowsing.allowOverride", false);
-// user_pref("browser.safebrowsing.blockedURIs.enabled", true);
+user_pref("browser.safebrowsing.blockedURIs.enabled", false);
+user_pref("browser.safebrowsing.allowOverride", true); // DEFAULT
+
+// PREF: enforce GSB (local checks only)
+// [NOTE] All the checks made by GSB will be performed locally, 
+// as if you enabled Safe Browsing in about:preferences#privacy
+// If you want to re-enable GSB, insert the following prefs in your overrides:
+user_pref("browser.safebrowsing.malware.enabled", true);
+user_pref("browser.safebrowsing.phishing.enabled", true);
+user_pref("browser.safebrowsing.blockedURIs.enabled", true); // DEFAULT
+user_pref("browser.safebrowsing.allowOverride", false);
+// If you also want Safe Browsing to locally check your downloads, add:
+      // user_pref("browser.safebrowsing.downloads.enabled", false);
 
 /******************************************************************************
  * SECTION: MOZILLA                                                   *
