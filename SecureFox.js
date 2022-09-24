@@ -364,36 +364,33 @@ user_pref("privacy.sanitize.timeSpan", 0);
 /******************************************************************************
  * SECTION: SHUTDOWN & SANITIZING                           *
 ******************************************************************************/
-// PREF: enable Firefox to clear items on shutdown
-// This infographic is most helpful:
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1765533#c1
+
+// PREF: clear browsing data on shutdown, while respecting site exceptions
+// Set cookies, site data, cache, etc. to clear on shutdown
+// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
+// [INFOGRAPHIC] https://bugzilla.mozilla.org/show_bug.cgi?id=1765533#c1
+// [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
+// [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication (1), not logins via cookies
+// [1] https://en.wikipedia.org/wiki/Basic_access_authentication
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 
-// PREF: SANITIZE ON SHUTDOWN: RESPECTS SITE EXCEPTIONS FF102+
-// Set cookies, site data, and cache to clear on shutdown
+// Uncomment individual prefs to disable clearing on shutdown:
+// [NOTE] If "history" is true, downloads will also be cleared
+user_pref("privacy.clearOnShutdown.offlineApps", true);
+// user_pref("privacy.clearOnShutdown.history", false);
+      // user_pref("privacy.clearOnShutdown.downloads", false);
+// user_pref("privacy.clearOnShutdown.formdata", false);
+// user_pref("privacy.clearOnShutdown.sessions", false);
+user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
+
+// PREF: configure site exceptions
+// Currently, there is no way to add sites via about:config
+// [SETTING] to manage site exceptions: Options>Privacy & Security>Cookies & Site Data>Manage Exceptions
+// [SETTING] to add site exceptions: Ctrl+I>Permissions>Cookies>Allow (when on the website in question)
 // For cross-domain logins, add exceptions for both sites:
 // e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
-// [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
 // [WARNING] Be selective with what cookies you keep, as they also disable partitioning (1)
-// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
-// [SETTING] to add site exceptions: Ctrl+I>Permissions>Cookies>Allow (when on the website in question)
-// [SETTING] to manage site exceptions: Options>Privacy & Security>Permissions>Settings
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1767271
-user_pref("privacy.clearOnShutdown.offlineApps", true);
-user_pref("privacy.clearOnShutdown.cookies", true);
-user_pref("privacy.clearOnShutdown.cache", true);
-
-// PREF: SANITIZE ON SHUTDOWN: ALL OR NOTHING
-// Set/enforce what items to clear on shutdown
-// [NOTE] If "history" is true, downloads will also be cleared
-// [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
-// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
-// [1] https://en.wikipedia.org/wiki/Basic_access_authentication
-// user_pref("privacy.clearOnShutdown.formdata", true);  // [DEFAULT: true]
-user_pref("privacy.clearOnShutdown.history", false);   // [DEFAULT: true]
-   user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT: true]
-user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT: true]
-   // user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
 
 /******************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                           *
