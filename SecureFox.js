@@ -674,26 +674,26 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
  * SECTION: PASSWORDS                             *
 ******************************************************************************/
 
-// PREF: Disable formless login capture
+// PREF: disable formless login capture
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
 user_pref("signon.formlessCapture.enabled", false);
 
-// PREF: Disable capturing credentials in private browsing
+// PREF: disable capturing credentials in private browsing
 user_pref("signon.privateBrowsingCapture.enabled", false);
 
-// PREF: Disable auto-filling username & password form fields
+// PREF: disable auto-filling username & password form fields
 // Can leak in cross-site forms and be spoofed
 // NOTE: Username and password is still available when you enter the field
 user_pref("signon.autofillForms", false);
       // user_pref("signon.autofillForms.autocompleteOff", true);
       // user_pref("signon.showAutoCompleteOrigins", false);
 
-// PREF: Disable autofilling saved passwords on HTTP pages and show warning
+// PREF: disable autofilling saved passwords on HTTP pages and show warning
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1217152,1319119
       // user_pref("signon.autofillForms.http", false);
       // user_pref("security.insecure_field_warning.contextual.enabled", true);
 
-// PREF: Disable password manager
+// PREF: disable password manager
 // [NOTE] This does not clear any passwords already saved
 user_pref("signon.rememberSignons", false);
       // user_pref("signon.rememberSignons.visibilityToggle", false);
@@ -702,14 +702,14 @@ user_pref("signon.rememberSignons", false);
       // user_pref("signon.autologin.proxy", false);
          // user_pref("signon.debug", false);
 
-// PREF: Disable Firefox built-in password generator
+// PREF: disable Firefox built-in password generator
 // Create passwords with random characters and numbers.
 // [NOTE] Doesn't work with Lockwise disabled!
 // [1] https://wiki.mozilla.org/Toolkit:Password_Manager/Password_Generation
       // user_pref("signon.generation.available", false);
       // user_pref("signon.generation.enabled", false);
 
-// PREF: Disable Firefox Lockwise (about:logins)
+// PREF: disable Firefox Lockwise (about:logins)
 // [NOTE] No usernames or passwords are sent to third-party sites
 // [1] https://lockwise.firefox.com/
 // [2] https://support.mozilla.org/en-US/kb/firefox-lockwise-managing-account-data
@@ -718,18 +718,22 @@ user_pref("signon.rememberSignons", false);
       // user_pref("browser.contentblocking.report.lockwise.enabled", false);
          // user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
 
-// PREF: Disable Firefox import password from signons.sqlite file
+// PREF: disable Firefox import password from signons.sqlite file
 // [1] https://support.mozilla.org/en-US/questions/1020818
       // user_pref("signon.management.page.fileImport.enabled", false);
       // user_pref("signon.importedFromSqlite", false);
          // user_pref("signon.recipes.path", "");
 
-// PREF: Disable websites autocomplete
+// PREF: disable websites autocomplete
 // Don't let sites dictate use of saved logins and passwords. 
       // user_pref("signon.storeWhenAutocompleteOff", false);
 
-// PREF: Disable Firefox Monitor
+// PREF: disable Firefox Monitor
       // user_pref("extensions.fxmonitor.enabled", false);
+      
+// PREF: enable native password manager [OVERRIDE]
+user_pref("signon.rememberSignons", true);
+user_pref("signon.autofillForms", true);
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
