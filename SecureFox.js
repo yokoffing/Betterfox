@@ -968,7 +968,7 @@ user_pref("browser.safebrowsing.allowOverride", true); // DEFAULT
 // If you want to re-enable GSB, insert the following prefs in your overrides:
 user_pref("browser.safebrowsing.malware.enabled", true);
 user_pref("browser.safebrowsing.phishing.enabled", true);
-user_pref("browser.safebrowsing.blockedURIs.enabled", true); // DEFAULT
+user_pref("browser.safebrowsing.blockedURIs.enabled", true);
 user_pref("browser.safebrowsing.allowOverride", false);
 // If you also want Safe Browsing to locally check your downloads, add:
       // user_pref("browser.safebrowsing.downloads.enabled", false);
