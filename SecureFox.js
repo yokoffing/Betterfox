@@ -740,8 +740,6 @@ user_pref("signon.autofillForms", true);
 // [1] https://wiki.mozilla.org/Firefox/Features/Form_Autofill
 // [2] https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
 user_pref("extensions.formautofill.addresses.enabled", false);
-user_pref("extensions.formautofill.available", "off");
-user_pref("extensions.formautofill.creditCards.available", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
 user_pref("extensions.formautofill.heuristics.enabled", false);
 user_pref("browser.formfill.enable", false);
