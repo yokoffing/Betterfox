@@ -55,9 +55,14 @@ user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twim
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // MANUAL
 
 // PREF: lower the priority of network loads for resources on the tracking protection list
-// Applicable because we allow for some social embeds
+// [NOTE] Applicable because we allow for some social embeds
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
 user_pref("privacy.trackingprotection.lower_network_priority", true);
+
+// PREF: disable allowance for embedded tweets, Instagram, and Reddit posts [OVERRIDE]
+user_pref("urlclassifier.trackingSkipURLs", "");
+user_pref("urlclassifier.features.socialtracking.skipURLs", "");
+user_pref("privacy.trackingprotection.lower_network_priority", false);
 
 // PREF: Site Isolation
 // Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
@@ -962,7 +967,7 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 user_pref("browser.safebrowsing.allowOverride", true); // DEFAULT
 
-// PREF: enforce GSB (local checks only)
+// PREF: enforce GSB (local checks only) [OVERRIDE]
 // [NOTE] All the checks made by GSB will be performed locally, 
 // as if you enabled Safe Browsing in about:preferences#privacy
 // If you want to re-enable GSB, insert the following prefs in your overrides:
