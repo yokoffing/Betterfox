@@ -730,6 +730,9 @@ user_pref("signon.rememberSignons", false);
 // PREF: enable native password manager [OVERRIDE]
 user_pref("signon.rememberSignons", true);
 user_pref("signon.autofillForms", true);
+// enable autofill on page load:
+      // user_pref("signon.autofillForms.autocompleteOff", true);
+      // user_pref("signon.showAutoCompleteOrigins", false);
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
