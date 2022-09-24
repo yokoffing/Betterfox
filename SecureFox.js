@@ -305,7 +305,7 @@ user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
 ****************************************************************************/
 
 // PREF: disable disk cache
-// [NOTE] If you think disk cache helps perf, then feel free to override this
+// [NOTE] If you think disk cache helps performance, then feel free to override this
 user_pref("browser.cache.disk.enable", false);
 
 // PREF: disable media cache from writing to disk in Private Browsing
@@ -401,11 +401,6 @@ user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
 /******************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
-
-// [NOTE] Firefox 85+ partitions (isolates) pooled connections, prefetch connections, pre-connect connections,
-// speculative connections, TLS session identifiers, and other connections. We can take advantage of the speed of
-// pre-connections while preserving privacy. Users may harden these settings to their preference.
-// For more information, see "PREF: State Paritioning" and "PREF: Network Partitioning".
 
 // [NOTE] uBlock Origin overrides Firefox defaults and sets these settings to false. To enable:
 // [SETTINGS] uBlock Origin -> Extension options -> Settings -> Privacy -> uncheck "Disable pre-fetching"
@@ -527,9 +522,10 @@ user_pref("browser.search.suggest.enabled.private", false); // default
 // user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0); // default FF104+
 
 // PREF: disable Firefox Suggest
-user_pref("browser.urlbar.groupLabels.enabled", false);
+// [1] https://github.com/arkenfox/user.js/issues/1257
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
+      // user_pref("browser.urlbar.groupLabels.enabled", false);
 
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
