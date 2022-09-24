@@ -318,7 +318,8 @@ user_pref("media.memory_cache_max_size", 65536); // 8x default size of 8192 [per
 // 0=everywhere, 1=unencrypted sites, 2=nowhere
 user_pref("browser.sessionstore.privacy_level", 2);
 
-// PREF: disable shortcut favicons from being stored in profile
+// PREF: disable shortcut favicons from being stored in profile [broken?]
+// Doesn't seem to work on any configurations
       // user_pref("browser.shell.shortcutFavicons", false);
 
 // PREF: disable page thumbnails capturing
