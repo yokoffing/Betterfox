@@ -943,6 +943,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [SETTING] Privacy & Security>Security>... Block dangerous and deceptive content
 // [1] https://www.wikiwand.com/en/Google_Safe_Browsing#/Privacy
 // [2] https://ashkansoltani.org/2012/02/25/cookies-from-nowhere
+// [3] https://blog.cryptographyengineering.com/2019/10/13/dear-apple-safe-browsing-might-not-be-that-safe/
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
       // user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
