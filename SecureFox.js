@@ -952,7 +952,7 @@ user_pref("browser.safebrowsing.downloads.enabled", false);
 // Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
 user_pref("browser.safebrowsing.downloads.remote.enabled", false); // DEFAULT
       // user_pref("browser.safebrowsing.downloads.remote.url", "");
-// Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
+// [SETTING] Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
