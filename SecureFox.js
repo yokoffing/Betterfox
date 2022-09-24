@@ -45,11 +45,7 @@ user_pref("privacy.trackingprotection.emailtracking.enabled", true); // EXPERIME
 user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
 
-// PREF: Lower the priority of network loads for resources on the tracking protection list.
-// [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
-      // user_pref("privacy.trackingprotection.lower_network_priority", true);
-
-// PREF: allow embedded tweets and Reddit posts
+// PREF: allow embedded tweets, Instagram, and Reddit posts
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
 // [TEST - instagram embed] https://www.ndtv.com/entertainment/bharti-singh-and-husband-haarsh-limbachiyaa-announce-pregnancy-see-trending-post-2646359
 // [TEST - tweet embed] https://www.newsweek.com/cryptic-tweet-britney-spears-shows-elton-john-collab-may-date-back-2015-1728036
@@ -57,6 +53,11 @@ user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // MANUAL
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // MANUAL
+
+// PREF: lower the priority of network loads for resources on the tracking protection list
+// Applicable because we allow for some social embeds
+// [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
+user_pref("privacy.trackingprotection.lower_network_priority", true);
 
 // PREF: Site Isolation
 // Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
