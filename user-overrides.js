@@ -1,11 +1,11 @@
 
+
 /****************************************************************************
  *                                                                         *
- *  [NOTE] These are a backup of personal prefs.    				    *
- *  Do not copy+paste unless you know what you're doing.  			    *
+ *  [NOTE] These are a backup of personal prefs.    			     	           *
+ *  Do not copy+paste unless you know what you're doing.  			           *
  *                                                                         *
 ****************************************************************************/
-
 
 
 /****************************************************************************
@@ -13,9 +13,8 @@
 ****************************************************************************/
 /** Enter your personal prefs below this line ***/
 
-
 /** FASTFOX ***/
-user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true); // only load pin tabs once selected
+user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true); // only load pinned tabs once selected
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 
 /** SECUREFOX ***/
@@ -33,7 +32,7 @@ user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra harden
 user_pref("browser.safebrowsing.downloads.remote.url", ""); // extra hardening
 
 /** PESKYFOX ***/
-/* user_pref("browser.urlbar.openintab", true); */ // spawn new tab when typing in URL bar
+/* user_pref("browser.urlbar.openintab", true); */ // spawn new tab when typing in URL bar, instead of using current tab
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("browser.urlbar.suggest.bookmark", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.engines", false); // hide URL bar dropdown suggestions
