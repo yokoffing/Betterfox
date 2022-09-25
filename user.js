@@ -35,10 +35,6 @@ user_pref("privacy.trackingprotection.emailtracking.enabled", true);
 user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
-/**
-* Use Privacy Essentails list for social tracking protection:
-* https://github.com/yokoffing/filterlists/blob/main/PrivacyEssentials.txt
-***/
 user_pref("privacy.trackingprotection.lower_network_priority", true);
 user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 user_pref("beacon.enabled", false);
