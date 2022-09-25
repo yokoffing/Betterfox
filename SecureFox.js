@@ -855,8 +855,10 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
  * SECTION: CONTAINERS                                                        *
 ******************************************************************************/
 // PREF: enable Container Tabs and its UI setting [FF50+]
+// You may still want to download Multi-Account Containers for extra options (2)
 // [SETTING] General>Tabs>Enable Container Tabs
 // [1] https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers
+// [2] https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/
 user_pref("privacy.userContext.enabled", true);
 user_pref("privacy.userContext.ui.enabled", true);
 
@@ -864,6 +866,8 @@ user_pref("privacy.userContext.ui.enabled", true);
 // [NOTE] The menu is always shown on long press and right click
 // [SETTING] General>Tabs>Enable Container Tabs>Settings>Select a container for each new tab ***/
    // user_pref("privacy.userContext.newTabContainerOnLeftClick.enabled", true);
+   
+   https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search
 
 /******************************************************************************
  * SECTION: WEBRTC                                                            *
