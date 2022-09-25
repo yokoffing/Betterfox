@@ -101,7 +101,7 @@ user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.ena
 user_pref("privacy.partition.network_state", true); // DEFAULT
 user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
 user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
-user_pref("privacy.partition.bloburl_per_agent_cluster", true);
+      // user_pref("privacy.partition.bloburl_per_agent_cluster", true); [regressions]
 user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 
 // PREF: Smartblock
