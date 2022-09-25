@@ -157,45 +157,42 @@ user_pref("dom.storage.next_gen", true); // default
 /****************************************************************************
  * SECTION: OSCP & CERTS / HPKP (HTTP Public Key Pinning)                   *
 ****************************************************************************/
+
 // PREF: OCSP (Online Certificate Status Protocol)
+// OCSP leaks your IP and domains you visit to the CA when OCSP Stapling is not available on visited host
+// OCSP is vulnerable to replay attacks when nonce is not configured on the OCSP responder
+// OCSP adds latency
+// Short-lived certificates are not checked for revocation (security.pki.cert_short_lifetime_in_days, default:10)
+// Firefox falls back on plain OCSP when must-staple is not configured on the host certificate
 // [1] https://scotthelme.co.uk/revocation-is-broken/
 // [2] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
 
 // PREF: enforce OCSP fetching to confirm current validity of certificates
-// 0=disabled, 1=enabled (default), 2=enabled for EV certificates only
 // OCSP (non-stapled) leaks information about the sites you visit to the CA (cert authority)
 // It's a trade-off between security (checking) and privacy (leaking info to the CA)
 // Unlike Chrome, Firefox’s default settings also query OCSP responders to confirm the validity
 // of SSL/TLS certificates. However, because OCSP query failures are so common, Firefox
-// (like other browsers) implements a “soft-fail” policy. 
+// (like other browsers) implements a “soft-fail” policy
 // [NOTE] This pref only controls OCSP fetching and does not affect OCSP stapling
 // [SETTING] Privacy & Security>Security>Certificates>Query OCSP responder servers...
 // [1] https://en.wikipedia.org/wiki/Ocsp
 // [2] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
+// 0=disabled, 1=enabled (default), 2=enabled for EV certificates only
 user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
-
-// PREF: disable Enterprise Root Certificates of the operating system
-      // user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
-user_pref("security.enterprise_roots.enabled", false); // DEFAULT
 
 // PREF: set OCSP fetch failures to hard-fail
 // When a CA cannot be reached to validate a cert, Firefox just continues the connection (=soft-fail)
 // Setting this pref to true tells Firefox to instead terminate the connection (=hard-fail)
 // It is pointless to soft-fail when an OCSP fetch fails: you cannot confirm a cert is still valid (it
 // could have been revoked) and/or you could be under attack (e.g. malicious blocking of OCSP servers)
-// [WARNING] Expect breakage
+// [WARNING] Expect breakage:
+// security.OCSP.require will make the connection fail when the OCSP responder is unavailable
+// security.OCSP.require is known to break browsing on some captive portals
 // [1] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
 // [2] https://www.imperialviolet.org/2014/04/19/revchecking.html
 // [3] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
       // user_pref("security.OCSP.require", true);
-
-// PREF: enable strict pinning
-// PKP (Public Key Pinning) 0=disabled, 1=allow user MiTM (such as your antivirus), 2=strict
-// If you rely on an AV (antivirus) to protect your web browsing
-// by inspecting ALL your web traffic, then leave at current default=1
-// [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16206
-user_pref("security.cert_pinning.enforcement_level", 2);
-
+      
 // PREF: enable CRLite
 // In FF84+ it covers valid certs and in mode 2 doesn't fall back to OCSP
 // 0 = disabled
@@ -206,6 +203,17 @@ user_pref("security.cert_pinning.enforcement_level", 2);
 // [2] https://blog.mozilla.org/security/tag/crlite/ ***/
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("security.pki.crlite_mode", 2);
+
+// PREF: enable strict pinning
+// PKP (Public Key Pinning) 0=disabled, 1=allow user MiTM (such as your antivirus), 2=strict
+// If you rely on an AV (antivirus) to protect your web browsing
+// by inspecting ALL your web traffic, then leave at current default=1
+// [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16206
+user_pref("security.cert_pinning.enforcement_level", 2);
+
+// PREF: disable Enterprise Root Certificates of the operating system
+user_pref("security.enterprise_roots.enabled", false); // DEFAULT
+      // user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
 
 /****************************************************************************
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
