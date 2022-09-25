@@ -614,10 +614,10 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
 user_pref("dom.security.https_only_mode_send_http_background_request", true); // DEFAULT
-         // user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 500); // default=3000
+         // user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 1250); // default=3000
 
 // PREF: Enable HTTPS-Only mode for local resources
-// user_pref("dom.security.https_only_mode.upgrade_local", true);
+      // user_pref("dom.security.https_only_mode.upgrade_local", true);
 
 /******************************************************************************
  * SECTION: DNS-over-HTTPS                                                    *
