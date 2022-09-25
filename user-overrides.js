@@ -2,8 +2,8 @@
 
 /****************************************************************************
  *                                                                         *
- *  [NOTE] These are a backup of personal prefs.    			     	           *
- *  Do not copy+paste unless you know what you're doing.  			           *
+ *  [NOTE] These are a backup of personal prefs.                           *
+ *  Do not copy+paste unless you know what you're doing.                   *
  *                                                                         *
 ****************************************************************************/
 
