@@ -741,8 +741,8 @@ user_pref("signon.rememberSignons", true);
 user_pref("signon.autofillForms", true);
 user_pref("browser.formfill.enable", true);
 // enable autofill on page load:
-      // user_pref("signon.autofillForms.autocompleteOff", true);
-      // user_pref("signon.showAutoCompleteOrigins", false);
+      // user_pref("signon.autofillForms.autocompleteOff", false);
+      // user_pref("signon.showAutoCompleteOrigins", true);
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
