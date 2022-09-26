@@ -421,15 +421,19 @@ user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
 // user mouseovers a link to that webpage, this history can be used to predict what resources will
 // be needed rather than wait for the document to link those resources.
 // Only performs pre-connect, not prefetch, by default. No data is actually sent to the site until a user actively clicks a link.
-// [NOTE] DNS pre-resolve and TCP preconnect (which includes SSL handshake). Honors settings in Private Browsing to erase data.
+// [NOTE] DNS pre-resolve and TCP preconnect (which includes SSL handshake).
+// still opening TCP connections and doing SSL handshakes, there is still information leakage about your browsing patterns. This obviously isn't desirable from a privacy perspective.
+// 
+// turning off DNS prefetching (which RAS can do) disables the DNS prefetching behavior of the Network Predictor???
 // [1] https://wiki.mozilla.org/Privacy/Reviews/Necko
 // [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
 user_pref("network.predictor.enabled", false);
 // Fetch critical resources on the page ahead of time as determined by the local file, to accelerate rendering of the page.
-// user_pref("network.predictor.enable-hover-on-ssl", false);
 user_pref("network.predictor.enable-prefetch", false);
+// Activate upon hover on links
+// user_pref("network.predictor.enable-hover-on-ssl", false);
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time, to avoid DNS latency.
