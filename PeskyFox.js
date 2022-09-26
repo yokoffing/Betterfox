@@ -415,3 +415,6 @@ user_pref("editor.truncate_user_pastes", false);
 
 // PREF: Plain Text only when copying text.
 user_pref("clipboard.plainTextOnly", true);
+
+// PREF: remove underlined characters from various settings
+      // user_pref("ui.key.menuAccessKey", 0);
