@@ -445,7 +445,6 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
 // PREF: Preload <link rel=preload>
 // This tells the browser that the resource should be loaded as part of the current navigation
 // and it should start fetching it ASAP. This attribute can be applied to CSS, fonts, images, JavaScript files and more.
-//
 // This tells the browser to download and cache a resource (like a script or a stylesheet) as soon as possible.
 // The browser doesn’t do anything with the resource after downloading it. Scripts aren’t executed, stylesheets
 // aren’t applied. It’s just cached – so that when something else needs it, it’s available immediately.
@@ -470,6 +469,9 @@ user_pref("network.preload", true); // DEFAULT
 // [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
+// PREF: disable mousedown speculative connections on bookmarks and history
+user_pref("browser.places.speculativeConnect.enabled", false);
+
 // PREF: Link prefetching <link rel="prefetch">
 // Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
 // A directive that tells a browser to fetch a resource that will likely be needed for the next navigation.
@@ -489,14 +491,11 @@ user_pref("network.prefetch-next", false);
 // needed when the user visits a webpage (such as image.jpg and script.js), so that the next time the
 // user prepares to go to that webpage (upon navigation? URL bar? mouseover?), this history can be used
 // to predict what resources will be needed rather than wait for the document to link those resources.
-//
-// NP only performs pre-connect, not prefetch, by default, including DNS pre-resolve and TCP preconnect
+/// NP only performs pre-connect, not prefetch, by default, including DNS pre-resolve and TCP preconnect
 // (which includes SSL handshake). No data is actually sent to the site until a user actively clicks
 // a link. However, NP is still opening TCP connections and doing SSL handshakes, so there is still
 // information leakage about your browsing patterns. This isn't desirable from a privacy perspective.
-// 
 // [NOTE] Disabling DNS prefetching disables the DNS prefetching behavior of NP
-//
 // [1] https://wiki.mozilla.org/Privacy/Reviews/Necko
 // [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
@@ -517,9 +516,6 @@ user_pref("network.predictor.enable-prefetch", false); // DEFAULT
 // faster since some of the work was already started in advance. Focuses on fetching a resource
 // for the NEXT navigation.
 user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
-
-// PREF: disable mousedown speculative connections on bookmarks and history
-user_pref("browser.places.speculativeConnect.enabled", false);
 
 /******************************************************************************
  * SECTION: SEARCH / URL BAR                              *
