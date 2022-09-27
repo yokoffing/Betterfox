@@ -399,18 +399,12 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);
 // PREF: print preview
 user_pref("print.tab_modal.enabled", true); // default
 
-// PREF: Web API inputmode
-user_pref("dom.forms.inputmode", true); // default
-
-// PREF: Web API WebGPU
-// user_pref("dom.webgpu.enabled", true);
-
-// PREF: Prevent password truncation when submitting form data
+// PREF: prevent password truncation when submitting form data
 // [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
 user_pref("editor.truncate_user_pastes", false);
 
-// PREF: Adjust the minimum tab width
-// [!] Can be overridden by userChrome.css.
+// PREF: adjust the minimum tab width
+// Can be overridden by userChrome.css
       // user_pref("browser.tabs.tabMinWidth", 120); // default=76
 
 // PREF: Plain Text only when copying text.
@@ -418,3 +412,6 @@ user_pref("clipboard.plainTextOnly", true);
 
 // PREF: remove underlined characters from various settings
       // user_pref("ui.key.menuAccessKey", 0);
+
+// PREF: zoom only text on webpage, not other elements
+      // user_pref("browser.zoom.full", false);
