@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora"                                                             *
- * version: October 2022                                                    *
+ * version: October 2022b                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -70,14 +70,14 @@ user_pref("browser.sessionstore.privacy_level", 2);
 user_pref("browser.pagethumbnails.capturing_disabled", true);
 
 /** SPECULATIVE CONNECTIONS ***/
-user_pref("network.predictor.enabled", false);
-user_pref("network.predictor.enable-prefetch", false);
+user_pref("browser.newtab.preload", false);
+user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.dns.disablePrefetch", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
-user_pref("network.prefetch-next", false);
-user_pref("network.http.speculative-parallel-limit", 0);
-user_pref("browser.newtab.preload", false);
 user_pref("browser.places.speculativeConnect.enabled", false);
+user_pref("network.prefetch-next", false);
+user_pref("network.predictor.enabled", false);
+user_pref("network.predictor.enable-prefetch", false);
 
 /** SEARCH / URL BAR ***/
 user_pref("browser.search.separatePrivateDefault", true);
