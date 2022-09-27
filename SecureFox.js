@@ -684,13 +684,50 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 // PREF: enable Encrypted Client Hello (ECH)
 // [1] https://blog.cloudflare.com/encrypted-client-hello/
 // [2] https://www.youtube.com/watch?v=tfyrVYqXQRE
-// user_pref("network.dns.echconfig.enabled", true);
-// user_pref("network.dns.use_https_rr_as_altsvc", true); // default
+      // user_pref("network.dns.echconfig.enabled", true);
+      // user_pref("network.dns.use_https_rr_as_altsvc", true); // DEFAULT
 
 // PREF: disable HTTP Alternative Services [FF37+]
-// [WHY] Already isolated by network partitioning (FF85+) or FPI 
-// user_pref("network.http.altsvc.enabled", false);
-// user_pref("network.http.altsvc.oe", false);
+// [WHY] Already isolated by network partitioning (FF85+)
+      // user_pref("network.http.altsvc.enabled", false);
+      // user_pref("network.http.altsvc.oe", false);
+
+/******************************************************************************
+ * SECTION: PROXY / SOCKS / IPv6                           *
+******************************************************************************/
+
+// PREF: disable IPv6
+// IPv6 can be abused, especially with MAC addresses, and can leak with VPNs: assuming
+// your ISP and/or router and/or website is IPv6 capable. Most sites will fall back to IPv4
+// [STATS] Firefox telemetry (July 2021) shows ~10% of all connections are IPv6
+// [NOTE] This is an application level fallback. Disabling IPv6 is best done at an
+// OS/network level, and/or configured properly in VPN setups. If you are not masking your IP,
+// then this won't make much difference. If you are masking your IP, then it can only help.
+// [NOTE] However, many VPN options now provide IPv6 coverage.
+// [NOTE] PHP defaults to IPv6 with "localhost". Use "php -S 127.0.0.1:PORT"
+// [TEST] https://ipleak.org/
+// [1] https://www.internetsociety.org/tag/ipv6-security/ (Myths 2,4,5,6)
+      // user_pref("network.dns.disableIPv6", true);
+
+// PREF: set the proxy server to do any DNS lookups when using SOCKS
+// e.g. in Tor, this stops your local DNS server from knowing your Tor destination
+// as a remote Tor node will handle the DNS request
+// [1] https://trac.torproject.org/projects/tor/wiki/doc/TorifyHOWTO/WebBrowsers
+// [SETTING] Settings>Network Settings>Proxy DNS when using SOCKS v5
+user_pref("network.proxy.socks_remote_dns", true);
+
+// PREF: disable using UNC (Uniform Naming Convention) paths [FF61+]
+// [SETUP-CHROME] Can break extensions for profiles on network shares
+// [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/26424
+user_pref("network.file.disable_unc_paths", true); // [HIDDEN PREF]
+
+// PREF: disable GIO as a potential proxy bypass vector
+// Gvfs/GIO has a set of supported protocols like obex, network, archive, computer,
+// dav, cdda, gphoto2, trash, etc. By default only sftp is accepted (FF87+)
+// [1] https://bugzilla.mozilla.org/1433507
+// [2] https://en.wikipedia.org/wiki/GVfs
+// [3] https://en.wikipedia.org/wiki/GIO_(software) ***/
+user_pref("network.gio.supported-protocols", ""); // [HIDDEN PREF]
 
 /******************************************************************************
  * SECTION: PASSWORDS                             *
