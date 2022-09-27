@@ -459,6 +459,7 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
 // [6] https://www.keycdn.com/blog/resource-hints#preload
 // [7] https://github.com/arkenfox/user.js/issues/1098#issue-791949341
 // [8] https://yashints.dev/blog/2018/10/06/web-perf-2#preload
+// [9] https://web.dev/preload-critical-assets/
 user_pref("network.preload", true); // DEFAULT
 
 // PREF: Preconnect to the autocomplete URL in the address bar
