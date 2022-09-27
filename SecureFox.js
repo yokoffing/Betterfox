@@ -505,7 +505,7 @@ user_pref("network.predictor.enabled", false);
 
 // PREF: NP fetches resources on the page ahead of time, to accelerate rendering of the page
 // Performs both pre-connect and prefetch
-user_pref("network.predictor.enable-prefetch", false); // DEFAULT
+user_pref("network.predictor.enable-prefetch", false);
 
 // PREF: NP activates upon hovered links:
 // The next time the user mouseovers a link to that webpage, history is used to predict what
