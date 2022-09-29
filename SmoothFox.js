@@ -18,34 +18,24 @@
 /****************************************************************************
  * OPTION 1: INSTANT SCROLLING (SIMPLE ADJUSTMENT)                          *
 ****************************************************************************/
+// recommended for 60hz displays
 user_pref("general.smoothScroll", true); // DEFAULT
-user_pref("mousewheel.default.delta_multiplier_y", 300);  // 250-500
+user_pref("mousewheel.default.delta_multiplier_y", 275);  // 250-500
 
 /****************************************************************************
  * OPTION 2: SMOOTH SCROLLING                                               *
 ****************************************************************************/
+// recommended for 90hz+ displays
 user_pref("general.smoothScroll", true); // DEFAULT
 user_pref("mousewheel.default.delta_multiplier_y", 250);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
 
 /****************************************************************************
- * OPTION 3: EDGE-LIKE SMOOTH SCROLLING                                     *
-****************************************************************************/
-user_pref("general.smoothScroll", true); // DEFAULT
-user_pref("mousewheel.default.delta_multiplier_y", 250);
-user_pref("general.smoothScroll.msdPhysics.enabled", true);
-user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 250);
-user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 400);
-user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 400);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 120);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 0.4);
-user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 5000);
-
-/****************************************************************************
- * OPTION 4: NATURAL SMOOTH SCROLLING [MODIFIED]                            *
+ * OPTION 3: NATURAL SMOOTH SCROLLING [MODIFIED]                            *
 ****************************************************************************/
 // from https://github.com/AveYo/fox/blob/main/Natural%20Smooth%20Scrolling%20for%20user.js
-// Largely matches Chrome flags: Windows Scrolling Personality and Smooth Scrolling
+// largely matches Chrome flags: Windows Scrolling Personality and Smooth Scrolling
+// recommended for 90hz+ displays
 user_pref("general.smoothScroll", true); // DEFAULT
 user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
