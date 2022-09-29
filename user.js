@@ -249,6 +249,7 @@ user_pref("dom.popup_allowed_events", "click dblclick");
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
 // see https://github.com/yokoffing/BetterFox/blob/master/SmoothFox.js
+// Enter your scrolling prefs below this line:
 
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
