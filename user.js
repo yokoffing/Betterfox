@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterFox                                                                *
  * "Ad meliora"                                                             *
- * version: October 2022                                                    *
+ * version: October 2022b                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
  * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
@@ -70,14 +70,14 @@ user_pref("browser.sessionstore.privacy_level", 2);
 user_pref("browser.pagethumbnails.capturing_disabled", true);
 
 /** SPECULATIVE CONNECTIONS ***/
-user_pref("network.predictor.enabled", false);
-user_pref("network.predictor.enable-prefetch", false);
+user_pref("browser.newtab.preload", false);
+user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.dns.disablePrefetch", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
-user_pref("network.prefetch-next", false);
-user_pref("network.http.speculative-parallel-limit", 0);
-user_pref("browser.newtab.preload", false);
 user_pref("browser.places.speculativeConnect.enabled", false);
+user_pref("network.prefetch-next", false);
+user_pref("network.predictor.enabled", false);
+user_pref("network.predictor.enable-prefetch", false);
 
 /** SEARCH / URL BAR ***/
 user_pref("browser.search.separatePrivateDefault", true);
@@ -94,6 +94,11 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 /** DNS-over-HTTPS (DOH) ***/
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+
+/** PROXY / SOCKS / IPv6 ***/
+user_pref("network.proxy.socks_remote_dns", true);
+user_pref("network.file.disable_unc_paths", true);
+user_pref("network.gio.supported-protocols", "");
 
 /** PASSWORDS AND AUTOFILL ***/
 user_pref("signon.formlessCapture.enabled", false);
@@ -243,23 +248,13 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
-/** Uncomment each pref to enable ***/
-
-// user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
-// user_pref("general.smoothScroll.msdPhysics.enabled", true);
-// user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 600);
-// user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 650);
-// user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25);
-// user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 2.0);
-// user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 250);
-// user_pref("general.smoothScroll.currentVelocityWeighting", 1.0);
-// user_pref("general.smoothScroll.stopDecelerationWeighting", 1.0);
-// user_pref("mousewheel.default.delta_multiplier_y", 280);
+// see https://github.com/yokoffing/BetterFox/blob/master/SmoothFox.js
+// Enter your scrolling prefs below this line:
 
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
-/** Enter your personal prefs below this line ***/
+// Enter your personal prefs below this line:
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
