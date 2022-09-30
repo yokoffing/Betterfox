@@ -11,7 +11,7 @@
  * PeskyFox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: September 2022                                                  *
+ * version: October 2022                                                    *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -37,6 +37,10 @@ user_pref("layout.css.prefers-color-scheme.content-override", 2);
 // PREF: Allow Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
+// PREF: Disable Accessibility services
+user_pref("accessibility.force_disabled", 1);
+user_pref("devtools.accessibility.enabled", false);
+
 // PREF: add compact mode back to options
 user_pref("browser.compactmode.show", true);
 
@@ -47,36 +51,29 @@ user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false); /* hidden */
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
-// PREF: Disable Firefox accounts
-// user_pref("identity.fxaccounts.enabled", false);
-// user_pref("identity.fxaccounts.toolbar.enabled", false);
-
 // PREF: Disable Extension Recommendations (CFR: "Contextual Feature Recommender")
 // https://support.mozilla.org/en-US/kb/extension-recommendations
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
-
-// PREF: Hide bookmarks toolbar from new tab page 
-// user_pref("browser.toolbars.bookmarks.visibility", "never");
 
 // PREF: Hide "More from Mozilla" in Settings
 user_pref("browser.preferences.moreFromMozilla", false);
 
 // PREF: Remove delay of security dialog when downloading extensions
 // default=1000
-// user_pref("security.dialog_enable_delay", 0);
+      // user_pref("security.dialog_enable_delay", 300);
 
-// PREF: Remove "addons.mozilla.org" from set of domains that extensions cannot access
+// PREF: Remove "addons.mozilla.org" from set of domains that extensions cannot access [not working?]
 // [NOTE] May only work with privacy.resistfingerprinting enabled?
 // [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
-user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
-// user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
+      // user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
+      // user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
 
 // PREF: Disable Warnings
 user_pref("browser.tabs.warnOnClose", false); // default FF94+
-// user_pref("browser.tabs.warnOnCloseOtherTabs", false);
-// user_pref("browser.tabs.warnOnOpen", false);
-// user_pref("browser.aboutConfig.showWarning", false);
+      // user_pref("browser.tabs.warnOnCloseOtherTabs", false);
+      // user_pref("browser.tabs.warnOnOpen", false);
+      // user_pref("browser.aboutConfig.showWarning", false);
 
 // PREF: Disable fullscreen delay and notice
 user_pref("full-screen-api.transition-duration.enter", "0 0");
@@ -89,17 +86,17 @@ user_pref("full-screen-api.warning.timeout", 0);
 ****************************************************************************/
 
 // PREF: smoother font
-// [1] https://www.reddit.com/r/firefox/comments/wvs04y/windows_11_firefox_v104_font_rendering_different/?context=3
+// [1] https://old.reddit.com/r/firefox/comments/wvs04y/windows_11_firefox_v104_font_rendering_different/?context=3
       user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
       user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
           // user_pref("gfx.font_rendering.cleartype_params.gamma", 1750);
 
 // PREF: use DirectWrite everywhere like Chrome
-// [1] https://www.reddit.com/r/firefox/comments/wvs04y/comment/ilklzy1/?context=3
+// [1] https://old.reddit.com/r/firefox/comments/wvs04y/comment/ilklzy1/?context=3
       user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
           // user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 50);
 
-// PREF: use Mac OS X Appearance panel text smoothing setting when rendering text
+// PREF: use macOS Appearance Panel text smoothing setting when rendering text
       // user_pref("gfx.use_text_smoothing_setting", true);
 
 /****************************************************************************
@@ -183,10 +180,10 @@ user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 
 // PREF: Disable Activity Stream snippets
 // Runs code received from a server (aka Remote Code Execution) and sends information back to a metrics server.
-user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
+user_pref("browser.newtabpage.activity-stream.feeds.snippets", false); // DEFAULT
 
 // PREF: Hide Activity Stream content
-user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // DEFAULT
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
@@ -203,11 +200,11 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 // PREF: Bookmarks Toolbar visibility
 // always, never, or newtab
-// user_pref("browser.toolbars.bookmarks.visibility", "newtab");
+      // user_pref("browser.toolbars.bookmarks.visibility", "newtab");
 
 // PREF: Keep search in the search box; prevent from jumping to address bar
 // [1] https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/
-// user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
+      // user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
 
 /******************************************************************************
  * SECTION: POCKET                                                            *
@@ -215,9 +212,9 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 // PREF: Disable built-in Pocket extension
 user_pref("extensions.pocket.enabled", false);
-user_pref("extensions.pocket.api"," ");
-user_pref("extensions.pocket.oAuthConsumerKey", " ");
-user_pref("extensions.pocket.site", " ");
+      // user_pref("extensions.pocket.api"," ");
+      // user_pref("extensions.pocket.oAuthConsumerKey", " ");
+      // user_pref("extensions.pocket.site", " ");
 
 /******************************************************************************
  * SECTION: DOWNLOADS                                 *
@@ -360,43 +357,30 @@ user_pref("browser.tabs.unloadOnLowMemory", true); // default
 ****************************************************************************/
 
 // PREF: restore "View image info"
-// user_pref("browser.menu.showViewImageInfo", true);
-
-// PREF: disable Push API
-// Push is an API that allows websites to send you (subscribed) messages even when the site
-// isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
-// [1] https://support.mozilla.org/en-US/kb/push-notifications-firefox
-// [2] https://developer.mozilla.org/en-US/docs/Web/API/Push_API
-// [3] https://www.reddit.com/r/firefox/comments/fbyzd4/the_most_private_browser_isnot_firefox/
-user_pref("dom.push.enabled", false);
-// user_pref("dom.push.userAgentID", "");
+      // user_pref("browser.menu.showViewImageInfo", true);
 
 // PREF: Disable Reader mode
 // Firefox will not have to parse webpage for Reader when navigating.
 // Minimal performance impact.
-// user_pref("reader.parse-on-load.enabled", false);
+      // user_pref("reader.parse-on-load.enabled", false);
 
 // PREF: Disable backspace action
 // 0=previous page, 1=scroll up, 2=do nothing
 user_pref("browser.backspace_action", 2); // default
 
 // PREF: Disable ALT key toggling the menu bar
-// user_pref("ui.key.menuAccessKey", 0);
+      // user_pref("ui.key.menuAccessKey", 0);
 
 // PREF: CTRL+TAB cycles tabs in chronological order instead of recently-
 // used order
-// user_pref("browser.ctrlTab.recentlyUsedOrder", false);
+      // user_pref("browser.ctrlTab.recentlyUsedOrder", false);
 
 // PREF: Show all matches in Findbar
 user_pref("findbar.highlightAll", true);
 
 // PREF: Spell-check
 // 0=none, 1-multi-line, 2=multi-line & single-line
-// user_pref("layout.spellcheckDefault", 1); // default
-
-// PREF: Disable Accessibility services
-user_pref("accessibility.force_disabled", 1);
-user_pref("devtools.accessibility.enabled", false);
+      // user_pref("layout.spellcheckDefault", 1); // default
 
 // PREF: Limit the number of bookmark backups Firefox keeps
 user_pref("browser.bookmarks.max_backups", 2);
@@ -406,7 +390,7 @@ user_pref("browser.bookmarks.max_backups", 2);
       // user_pref("toolkit.zoomManager.zoomValues", ".3,.5,.67,.8,.9,.95,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,2,2.4,3");
 
 // PREF: Hide image placeholders
-// user_pref("browser.display.show_image_placeholders", false);
+      // user_pref("browser.display.show_image_placeholders", false);
 
 // PREF: Wrap long lines of text when using source / debugger
 user_pref("view_source.wrap_long_lines", true);
@@ -415,19 +399,19 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);
 // PREF: print preview
 user_pref("print.tab_modal.enabled", true); // default
 
-// PREF: Web API inputmode
-user_pref("dom.forms.inputmode", true); // default
-
-// PREF: Web API WebGPU
-// user_pref("dom.webgpu.enabled", true);
-
-// PREF: Prevent password truncation when submitting form data
+// PREF: prevent password truncation when submitting form data
 // [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
 user_pref("editor.truncate_user_pastes", false);
 
-// PREF: Adjust the minimum tab width
-// [!] Can be overridden by userChrome.css.
+// PREF: adjust the minimum tab width
+// Can be overridden by userChrome.css
       // user_pref("browser.tabs.tabMinWidth", 120); // default=76
 
 // PREF: Plain Text only when copying text.
 user_pref("clipboard.plainTextOnly", true);
+
+// PREF: remove underlined characters from various settings
+      // user_pref("ui.key.menuAccessKey", 0);
+
+// PREF: zoom only text on webpage, not other elements
+      // user_pref("browser.zoom.full", false);
