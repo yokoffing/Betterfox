@@ -54,6 +54,7 @@ Check out our [wiki](https://github.com/yokoffing/Betterfox/wiki) for extension 
 
 ## Mentions
 * [pyllyukko](https://github.com/pyllyukko/user.js/#other-documentation) user.js [comparator](https://jm42.github.io/compare-user.js/)
+* [FMHY Browser Tools](https://github.com/nbats/FMHYedit/blob/main/AdblockVPNGuide.md#-browser-tools)
 * [Narsil desktop_user.js](https://git.nixnet.services/Narsil/desktop_user.js#thanks)
 * [Ghostery Desktop Browser](https://github.com/ghostery/user-agent-desktop#community)
 * [Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-Fix/wiki/Tips#privacy)
