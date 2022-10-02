@@ -35,13 +35,12 @@ user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra harden
 user_pref("browser.safebrowsing.downloads.remote.url", ""); // extra hardening
 
 /** PESKYFOX ***/
-// user_pref("browser.urlbar.openintab", true); // spawn new tab when typing in URL bar, instead of using current tab
-user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // FF Home>Recent Activity>Sponsored shortcuts
-user_pref("browser.newtabpage.activity-stream.showSponsored", false); // FF Home>Recent Activity>Sponsored Stories  
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
+user_pref("browser.newtabpage.activity-stream.showSponsored", false); //  Settings>Home>Firefox Home Content>Recent Activity>Recommended by Pocket>Sponsored Stories  
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false); // Settings>Home>Firefox Home Content>Recent Activity>Bookmarks
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false); // Settings>Home>Firefox Home Content>Recent Activity>Most Recent Download
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false); // Settings>Home>Firefox Home Content>Recent Activity>Visited Pages
+// user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // hidden
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true); // font improvement
 user_pref("browser.urlbar.suggest.bookmark", false); // hide URL bar dropdown suggestions
@@ -57,6 +56,7 @@ user_pref("devtools.popups.debug", true); // Auto-open DevTools for popups
 user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
+// user_pref("browser.urlbar.openintab", true); // spawn new tab when typing in URL bar, instead of using current tab
 
 // Custom monospace font
 // Enforce one custom monospace font (or neither one!) depending on the machine:
