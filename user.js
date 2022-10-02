@@ -8,12 +8,12 @@
  */
 
 /****************************************************************************
- * BetterFox                                                                *
+ * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: October 2022b                                                   *
- * url: https://github.com/yokoffing/Better-Fox                             *
- * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
- * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
+ * version: November 2022                                                   *
+ * url: https://github.com/yokoffing/Betterfox                              *
+ * license: https://github.com/yokoffing/Betterfox/blob/master/LICENSE      *
+ * README: https://github.com/yokoffing/Betterfox/blob/master/README.md     *
 ****************************************************************************/
 
 /****************************************************************************
