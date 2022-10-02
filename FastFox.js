@@ -8,11 +8,11 @@
  */
 
 /****************************************************************************
- * FasterFox                                                                *
+ * Fastfox                                                                  *
  * "Non ducor duco."                                                        *
  * priority: speedy browsing                                                *
- * version: September 2022                                                  *
- * url: https://github.com/yokoffing/Better-Fox                             *
+ * version: November 2022                                                   *
+ * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
 /****************************************************************************
