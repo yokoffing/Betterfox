@@ -8,11 +8,11 @@
  */
 
 /****************************************************************************
- * PeskyFox                                                                 *
+ * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: October 2022                                                    *
- * url: https://github.com/yokoffing/Better-Fox                             *
+ * version: November 2022                                                   *
+ * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
 /****************************************************************************
