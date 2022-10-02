@@ -51,31 +51,35 @@ user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false); /* hidden */
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
-// PREF: Disable Extension Recommendations (CFR: "Contextual Feature Recommender")
+// PREF: disable Extension Recommendations (CFR: "Contextual Feature Recommender")
 // https://support.mozilla.org/en-US/kb/extension-recommendations
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 
-// PREF: Hide "More from Mozilla" in Settings
+// PREF: hide "More from Mozilla" in Settings
 user_pref("browser.preferences.moreFromMozilla", false);
 
-// PREF: Remove delay of security dialog when downloading extensions
+// PREF: remove delay of security dialog when downloading extensions
 // default=1000
       // user_pref("security.dialog_enable_delay", 300);
 
-// PREF: Remove "addons.mozilla.org" from set of domains that extensions cannot access [not working?]
+// PREF: remove "addons.mozilla.org" from set of domains that extensions cannot access [not working?]
 // [NOTE] May only work with privacy.resistfingerprinting enabled?
 // [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
       // user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
       // user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
 
-// PREF: Disable Warnings
-user_pref("browser.tabs.warnOnClose", false); // default FF94+
+// PREF: do not require signing for extensions
+// [1] https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox?as=u&utm_source=inproduct
+      // user_pref("xpinstall.signatures.required", false);
+
+// PREF: disable Warnings
+user_pref("browser.tabs.warnOnClose", false); // DEFAULT [FF94+]
       // user_pref("browser.tabs.warnOnCloseOtherTabs", false);
       // user_pref("browser.tabs.warnOnOpen", false);
       // user_pref("browser.aboutConfig.showWarning", false);
 
-// PREF: Disable fullscreen delay and notice
+// PREF: disable fullscreen delay and notice
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.delay", 0);
@@ -83,9 +87,12 @@ user_pref("full-screen-api.warning.timeout", 0);
 
 // PREF: welcome & what's new notices
       // user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
+            // user_pref("startup.homepage_welcome_url", "");
+            // user_pref("startup.homepage_welcome_url.additional", "");
+            // user_pref("startup.homepage_override_url", ""); // What's New page after updates
 
-// PREF: Hide "What's New"
-      // user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's New toolbar icon
+// PREF: disable "What's New" toolbar icon
+      // user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
