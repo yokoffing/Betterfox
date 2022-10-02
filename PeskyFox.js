@@ -81,6 +81,12 @@ user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.delay", 0);
 user_pref("full-screen-api.warning.timeout", 0);
 
+// PREF: welcome & what's new notices
+      // user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
+
+// PREF: Hide "What's New"
+      // user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's New toolbar icon
+
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
 ****************************************************************************/
@@ -191,12 +197,6 @@ user_pref("browser.newtabpage.activity-stream.feeds.snippets", false); // [DEFAU
       
 // PREF: Firefox logo to always show
       // user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", true);
-
-// PREF: welcome & what's new notices
-      // user_pref("browser.startup.homepage_override.mstone", "ignore"); // master switch
-
-// PREF: Hide "What's New"
-      // user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's New toolbar icon
 
 // PREF: Bookmarks Toolbar visibility
 // always, never, or newtab
