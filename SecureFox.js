@@ -102,6 +102,7 @@ user_pref("privacy.partition.network_state", true); // DEFAULT
 user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
 user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
       // user_pref("privacy.partition.bloburl_per_agent_cluster", true); [regressions]
+// enable APS (Always Partitioning Storage) [FF104+]
 user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 
 // PREF: Smartblock
@@ -232,7 +233,7 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 // safe from the attack if it disables renegotiations but the problem is that the browser can't
 // know that. Setting this pref to true is the only way for the browser to ensure there will be
 // no unsafe renegotiations on the channel between the browser and the server.
-// [STATS] SSL Labs (January 2022) reports that over 99.2% of top sites have secure renegotiation [4]
+// [STATS] SSL Labs (Sept 2022) reports that over 99.3% of top sites have secure renegotiation [4]
 // [1] https://wiki.mozilla.org/Security:Renegotiation
 // [2] https://datatracker.ietf.org/doc/html/rfc5746
 // [3] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555
@@ -699,7 +700,7 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 // PREF: disable IPv6
 // IPv6 can be abused, especially with MAC addresses, and can leak with VPNs: assuming
 // your ISP and/or router and/or website is IPv6 capable. Most sites will fall back to IPv4
-// [STATS] Firefox telemetry (July 2021) shows ~10% of all connections are IPv6
+// [STATS] Firefox telemetry (Sept 2022) shows ~8% of all successful connections are IPv6
 // [NOTE] This is an application level fallback. Disabling IPv6 is best done at an
 // OS/network level, and/or configured properly in VPN setups. If you are not masking your IP,
 // then this won't make much difference. If you are masking your IP, then it can only help.
@@ -1186,6 +1187,6 @@ user_pref("app.normandy.api_url", "");
 // Currently blocked by 'datareporting.healthreport.uploadEnabled'
 user_pref("browser.ping-centre.telemetry", false);
 
-// PREF: Activity Stream telemetry 
-user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+// PREF: disable Firefox Home (Activity Stream) telemetry 
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
+user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
