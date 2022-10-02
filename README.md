@@ -40,24 +40,34 @@ The guiding principle is: "If it breaks it, it doesn't make it!" So things like 
 Betterfox was created with a [less is more](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e) mentality (i.e., keeping in mind [the law of diminishing returns](https://www.investopedia.com/terms/l/lawofdiminishingmarginalreturn.asp)). Most repos I've encountered have niche privacy and security concerns with little regard for speed, annoyances, or mainstream use. The average user doesn't need all `prefs` altered to get the results they want.
 
 ## Assumptions
-That being said, Betterfox does make some assumptions:
-* You should have [uBlock Origin](https://github.com/yokoffing/Betterfox/wiki/uBlock-Origin), [AdGuard](https://addons.mozilla.org/en-US/firefox/addon/adguard-adblocker/), or [Ghostery](https://github.com/yokoffing/Betterfox/wiki/Ghostery) for browser-level content blocking.
-* Betterfox [allows](https://github.com/yokoffing/BetterFox/blob/eb0b47f40d18be328b9e499163ae199e7f2ef91e/SecureFox.js#L48-L55) for **embedded tweets, instagram, and reddit posts** to load on webpages, even though these requests are usually blocked when using Firefox's **Strict** Tracking Protection. To revert this behavior, add [these prefs](https://github.com/yokoffing/Betterfox/blob/5d16f192d4c7fb36cf723f2aedf118bc62bfd115/SecureFox.js#L62-L65) to the bottom of your `user.js`.
-   * We suggest that you [selectively allow](https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-quick-guide) these requests in uBlock Origin with [medium mode](https://github.com/gorhill/uBlock/wiki/Blocking-mode:-medium-mode) enabled + add the [Privacy Essentials](https://github.com/yokoffing/filterlists/blob/main/PrivacyEssentials.txt) filter to your [custom lists](https://github.com/gorhill/uBlock/wiki/Dashboard:-Filter-lists#3rd-party-filter-lists).
+That being said, Betterfox makes the following assumptions:
+* Betterfox [allows](https://github.com/yokoffing/BetterFox/blob/eb0b47f40d18be328b9e499163ae199e7f2ef91e/SecureFox.js#L48-L55) for **embedded tweets, instagram, and reddit posts** to load on webpages, even though these requests are usually blocked when using Firefox's [Strict Enhanced Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection). To revert this behavior, add [these prefs](https://github.com/yokoffing/Betterfox/blob/5d16f192d4c7fb36cf723f2aedf118bc62bfd115/SecureFox.js#L62-L65) to the bottom of your `user.js`.
+   * Advanced users: We suggest that you [selectively allow](https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-quick-guide) these requests in [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with [medium mode](https://github.com/gorhill/uBlock/wiki/Blocking-mode:-medium-mode) enabled + add the [Privacy Essentials](https://github.com/yokoffing/filterlists/blob/main/PrivacyEssentials.txt) filter to your [custom lists](https://github.com/gorhill/uBlock/wiki/Dashboard:-Filter-lists#3rd-party-filter-lists).
 * **Google Safe Browsing** (GSB) is disabled. Please use DNS-level protection like [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration guide [here](https://github.com/yokoffing/NextDNS-Config). If you do not have other means of protection, then enable GSB locally by adding [these prefs](https://github.com/yokoffing/Betterfox/blob/b354f21405fcfedee8ae9a132eac8d243b59ced7/SecureFox.js#L974-L983) to your overrides.
 * The native **password manager** is also disabled. If you don't use something like [KeePass](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/), [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/), or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager), then add [these prefs](https://github.com/yokoffing/Betterfox/blob/d754c8de3ad9bcae782d99284e2c62514ae484f8/SecureFox.js#L739-L745) to re-enable native password management.
 * **Firefox Sync** is disabled. To restore functionality, change [this pref](https://github.com/yokoffing/Betterfox/blob/b354f21405fcfedee8ae9a132eac8d243b59ced7/SecureFox.js#L989-L992) to `true`, or use a addon like [xBrowserSync](https://addons.mozilla.org/en-US/firefox/addon/xbs/).
+* **Site notifications** are disabled. To enable, change `dom.push.enabled` to `true` and `permissions.default.desktop-notification` to `0`.
+* **Location requests** are rejected. To allow by default, change `permissions.default.geo` to `2`.
 * If your threat level calls for _anonymity_ and not just reasonable _privacy,_ please use the [TOR browser](https://www.torproject.org). :thumbsup:
 
-## [Wiki](https://github.com/yokoffing/Betterfox/wiki)
-Check out our [wiki](https://github.com/yokoffing/Betterfox/wiki) for extension recommendations and DNS preferences!
-
 ## Mentions
-* [pyllyukko](https://github.com/pyllyukko/user.js/#other-documentation) user.js [comparator](https://jm42.github.io/compare-user.js/)
+
+User comments:
+[1](https://old.reddit.com/r/firefox/comments/xsw0zt/comment/iqo0dbv/?context=3)
+[2](https://old.reddit.com/r/technology/comments/m4qdvt/google_accused_of_tracking_users_in_incognito/gqwzzgr/?context=2) [3](https://old.reddit.com/r/Ubuntu/comments/pke4wz/suspicious_file_found_after_using_brave/hc568jg/?context=2)
+
+#### Guides
 * [FMHY Browser Tools](https://github.com/nbats/FMHYedit/blob/main/AdblockVPNGuide.md#-browser-tools)
-* [Narsil desktop_user.js](https://git.nixnet.services/Narsil/desktop_user.js#thanks)
-* [Ghostery Desktop Browser](https://github.com/ghostery/user-agent-desktop#community)
 * [Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-Fix/wiki/Tips#privacy)
+* [Narsil/desktop_user.js](https://git.nixnet.services/Narsil/desktop_user.js#thanks)
+* [pyllyukko/user.js](https://github.com/pyllyukko/user.js/#other-documentation) [comparator](https://jm42.github.io/compare-user.js/)
+
+#### Podcasts
+* [GhoSTORIES with Franz & Pete, S2|E6, 17:05](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh)
+
+#### Contributor
+* [Ghostery Desktop Browser](https://github.com/ghostery/user-agent-desktop#community) | [pull requests](https://github.com/ghostery/user-agent-desktop/issues?q=is%3Apr+is%3Aissue+author%3Ayokoffing+)
+  * [Betterfox compared with arkenfox](https://github.com/ghostery/user-agent-desktop/issues/486) (outdated)
 
 ## Credit
 * Many thanks to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://docs.openwebsandbox.org/learn/ows-articles/what-is-the-open-web).
