@@ -36,6 +36,12 @@ user_pref("browser.safebrowsing.downloads.remote.url", ""); // extra hardening
 
 /** PESKYFOX ***/
 // user_pref("browser.urlbar.openintab", true); // spawn new tab when typing in URL bar, instead of using current tab
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // FF Home>Recent Activity>Sponsored shortcuts
+user_pref("browser.newtabpage.activity-stream.showSponsored", false); // FF Home>Recent Activity>Sponsored Stories  
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true); // font improvement
 user_pref("browser.urlbar.suggest.bookmark", false); // hide URL bar dropdown suggestions
