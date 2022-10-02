@@ -158,53 +158,49 @@ user_pref("media.block-autoplay-until-in-foreground", true); // default
 // 0=blank, 1=home, 2=last visited page, 3=resume previous session
 // [NOTE] Session Restore is cleared with history and not used in Private Browsing mode
 // [SETTING] General>Startup>Restore previous session
-// user_pref("browser.startup.page", 3);
+      // user_pref("browser.startup.page", 3);
 
 // PREF: set HOME+NEWWINDOW page
 // about:home=Activity Stream, custom URL, about:blank
 // [SETTING] Home>New Windows and Tabs>Homepage and new windows
-// user_pref("browser.startup.homepage", "about:blank");
+      // user_pref("browser.startup.homepage", "about:blank");
 
 // PREF: set NEWTAB page
-// true=Activity Stream (default, see 0105), false=blank page
+// true=Firefox Home, false=blank page
 // [SETTING] Home>New Windows and Tabs>New tabs
-// user_pref("browser.newtabpage.enabled", false);
-// user_pref("browser.newtab.preload", false);
+      // user_pref("browser.newtabpage.enabled", false);
 
-// PREF: Disable Activity Stream Top Stories, Pocket-based and/or sponsored content
+// PREF: Home / New Tab page items
+// [SETTINGS] Home>Firefox Home Content
 user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
-user_pref("browser.newtabpage.activity-stream.showSponsored", false);
-user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
-user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
-user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
+user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);  // Shortcuts
+      // user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // [FF83+] Sponsored shortcuts
+user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);  // Recommended by Pocket
+      // user_pref("browser.newtabpage.activity-stream.showSponsored", false); // [FF58+] Sponsored Stories   
+user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // Recent Activity [DEFAULT]
+      // user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
+      // user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
+      // user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+      // user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
+user_pref("browser.newtabpage.activity-stream.feeds.snippets", false); // [DEFAULT]
 
-// PREF: Disable Activity Stream snippets
-// Runs code received from a server (aka Remote Code Execution) and sends information back to a metrics server.
-user_pref("browser.newtabpage.activity-stream.feeds.snippets", false); // DEFAULT
-
-// PREF: Hide Activity Stream content
-user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // DEFAULT
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
+// PREF: keep search in the search box; prevent from jumping to address bar
+// [1] https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/
+      // user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
+      
+// PREF: Firefox logo to always show
+      // user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", true);
 
 // PREF: welcome & what's new notices
-user_pref("browser.startup.homepage_override.mstone", "ignore"); // master switch
+      // user_pref("browser.startup.homepage_override.mstone", "ignore"); // master switch
 
 // PREF: Hide "What's New"
-user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
-
-// PREF: Firefox logo to always show?
-// user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", true);
+      // user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's New toolbar icon
 
 // PREF: Bookmarks Toolbar visibility
 // always, never, or newtab
       // user_pref("browser.toolbars.bookmarks.visibility", "newtab");
-
-// PREF: Keep search in the search box; prevent from jumping to address bar
-// [1] https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/
-      // user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
 
 /******************************************************************************
  * SECTION: POCKET                                                            *
