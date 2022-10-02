@@ -214,8 +214,6 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
-user_pref("browser.startup.homepage_override.mstone", "ignore");
-user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 /*** POCKET ***/
 user_pref("extensions.pocket.enabled", false);
