@@ -11,7 +11,7 @@
  * SmoothFox                                                                *
  * "Faber est suae quisque fortunae"                                        *
  * priority: better scrolling                                               *
- * version: October 2022                                                    *
+ * version: October 2022b                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
@@ -35,7 +35,7 @@ user_pref("general.smoothScroll.msdPhysics.enabled", true);
 ****************************************************************************/
 // from https://github.com/AveYo/fox/blob/main/Natural%20Smooth%20Scrolling%20for%20user.js
 // largely matches Chrome flags: Windows Scrolling Personality and Smooth Scrolling
-// recommended for 90hz+ displays
+// recommended for 120hz+ displays
 user_pref("general.smoothScroll", true); // DEFAULT
 user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
