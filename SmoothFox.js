@@ -8,10 +8,10 @@
  */
 
 /****************************************************************************
- * SmoothFox                                                                *
+ * Smoothfox                                                                *
  * "Faber est suae quisque fortunae"                                        *
  * priority: better scrolling                                               *
- * version: October 2022b                                                   *
+ * version: November 2022                                                   *
  * url: https://github.com/yokoffing/Better-Fox                             *
  ***************************************************************************/
 
