@@ -52,7 +52,6 @@ user_pref("browser.urlbar.maxRichResults", 1); // minimum suggestion needed for 
 user_pref("browser.bookmarks.max_backups", 2); // minimize disk use
 user_pref("view_source.wrap_long_lines", true); // wrap source lines
 user_pref("devtools.debugger.ui.editor-wrapping", true); // wrap lines in devtools
-user_pref("devtools.popups.debug", true); // Auto-open DevTools for popups
 user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
