@@ -196,7 +196,7 @@ user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
 // [1] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
 // [2] https://www.imperialviolet.org/2014/04/19/revchecking.html
 // [3] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
-      // user_pref("security.OCSP.require", true);
+//user_pref("security.OCSP.require", true);
       
 // PREF: enable CRLite
 // In FF84+ it covers valid certs and in mode 2 doesn't fall back to OCSP
@@ -218,7 +218,7 @@ user_pref("security.cert_pinning.enforcement_level", 2);
 
 // PREF: disable Enterprise Root Certificates of the operating system
 user_pref("security.enterprise_roots.enabled", false); // DEFAULT
-      // user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
+    //user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
 
 /****************************************************************************
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
@@ -242,7 +242,7 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 // [2] https://datatracker.ietf.org/doc/html/rfc5746
 // [3] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555
 // [4] https://www.ssllabs.com/ssl-pulse/
-      // user_pref("security.ssl.require_safe_negotiation", true);
+//user_pref("security.ssl.require_safe_negotiation", true);
 
 // PREF: display advanced information on Insecure Connection warning pages
 // only works when it's possible to add an exception
@@ -312,7 +312,7 @@ user_pref("layout.css.font-visibility.resistFingerprinting", 1); // DEFAULT
 // Fingerprinting: provides a uniform look and feel across platforms [2]
 // [1] https://bugzilla.mozilla.org/1381938
 // [2] https://bugzilla.mozilla.org/1411425
-user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
+//user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
 
 /****************************************************************************
  * SECTION: DISK AVOIDANCE                                                 *
@@ -420,7 +420,6 @@ user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 // e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
 // [WARNING] Be selective with what cookies you keep, as they also disable partitioning [1]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1767271
-// [2] https://github.com/arkenfox/user.js/issues/1291#issuecomment-986104313
 
 /******************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                           *
