@@ -23,13 +23,18 @@ user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("privacy.userContext.enabled", false); // disable Containers
-    //user_pref("browser.cache.disk.enable", true); // re-enable disk cache; more efficient to keep the browser cache; cleared on shutdown
-user_pref("privacy.sanitize.sanitizeOnShutdown", true); // clear browsing data on shutdown
-user_pref("privacy.clearOnShutdown.offlineApps", true); // clear browsing data on shutdown
+    //user_pref("browser.cache.disk.enable", true); // re-enable disk cache for lower-end PC; more efficient to keep the browser cache; cleared on shutdown
+    //user_pref("media.cache_readahead_limit", 99999); // playback for higher-end PC
+    //user_pref("media.cache_resume_threshold", 99999); // playback for higher-end PC
+    //user_pref("media.cache_size", 2048000); // playback for higher-end PC
+    //user_pref("media.memory_cache_max_size", 512000); // memory cache; playback for higher-end PC
+    //user_pref("media.memory_caches_combined_limit_kb", 2560000); // memory cache; playback for higher-end PC
+user_pref("privacy.sanitize.sanitizeOnShutdown", true); // clear browsing data on shutdown      //  REMOVE WHEN NOV. UPDATE IS PUSHED
+user_pref("privacy.clearOnShutdown.offlineApps", true); // disable if login issue after restart; localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
 user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 1000); // decrease timer for HTTP background request
     //user_pref("media.eme.enabled", false); // disable all DRM content
     //user_pref("browser.eme.ui.enabled", false); // DRM cotent: hide the setting which also disables the webpage DRM prompt
-user_pref("browser.safebrowsing.provider.google4.gethashURL", ""); // extra hardening
+user_pref("browser.safebrowsing.provider.google4.gethashURL", ""); // extra hardening; probably privacy theater
 user_pref("browser.safebrowsing.provider.google4.updateURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google.gethashURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra hardening
