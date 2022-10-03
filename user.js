@@ -64,6 +64,10 @@ user_pref("browser.sessionstore.privacy_level", 2);
 user_pref("browser.pagethumbnails.capturing_disabled", true);
 user_pref("browser.sessionstore.interval", 30000);
 
+/** SHUTDOWN & SANITIZING ***/
+user_pref("privacy.history.custom", true);
+//user_pref("privacy.sanitize.sanitizeOnShutdown", true);
+
 /** SPECULATIVE CONNECTIONS ***/
 user_pref("browser.newtab.preload", false);
 user_pref("network.http.speculative-parallel-limit", 0);
