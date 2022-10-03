@@ -269,7 +269,7 @@ user_pref("security.tls.enable_0rtt_data", false);
 
 // PREF: disable rendering of SVG OpenType fonts
 // [1] https://github.com/arkenfox/user.js/issues/1529
-      // user_pref("gfx.font_rendering.opentype_svg.enabled", false);
+//user_pref("gfx.font_rendering.opentype_svg.enabled", false);
 
 // PREF: limit font visibility (Windows, Mac, some Linux) [FF94+]
 // Uses hardcoded lists with two parts: kBaseFonts + kLangPackFonts [1], bundled fonts are auto-allowed
@@ -277,7 +277,7 @@ user_pref("security.tls.enable_0rtt_data", false);
 // In Private Browsing windows: uses the most restrictive between normal and private
 // 1=only base system fonts, 2=also fonts from optional language packs, 3=also user-installed fonts
 // [1] https://searchfox.org/mozilla-central/search?path=StandardFonts*.inc
-      // user_pref("layout.css.font-visibility.standard", 1); // Normal Browsing windows with tracking protection disabled(?)
+//user_pref("layout.css.font-visibility.standard", 1); // Normal Browsing windows with tracking protection disabled(?)
 user_pref("layout.css.font-visibility.trackingprotection", 1); // Normal Browsing windows with tracking protection enabled
 user_pref("layout.css.font-visibility.private", 1); // Private Browsing windows
 user_pref("layout.css.font-visibility.resistFingerprinting", 1); // DEFAULT
@@ -290,22 +290,22 @@ user_pref("layout.css.font-visibility.resistFingerprinting", 1); // DEFAULT
 // [WARNING] Leave disabled unless you're okay with all the drawbacks
 // [1] https://librewolf.net/docs/faq/#what-are-the-most-common-downsides-of-rfp-resist-fingerprinting
 // [2] https://old.reddit.com/r/firefox/comments/wuqpgi/comment/ile3whx/?context=3
-      // user_pref("privacy.resistFingerprinting", true);
+//user_pref("privacy.resistFingerprinting", true);
 
 // PREF: set new window size rounding max values [FF55+]
 // [SETUP-CHROME] sizes round down in hundreds: width to 200s and height to 100s, to fit your screen
 // [1] https://bugzilla.mozilla.org/1330882
-user_pref("privacy.window.maxInnerWidth", 1600);
-user_pref("privacy.window.maxInnerHeight", 900);
+//user_pref("privacy.window.maxInnerWidth", 1600);
+//user_pref("privacy.window.maxInnerHeight", 900);
 
 // PREF: disable showing about:blank as soon as possible during startup [FF60+]
 // When default true this no longer masks the RFP chrome resizing activity
 // [1] https://bugzilla.mozilla.org/1448423
-user_pref("browser.startup.blankWindow", false);
+//user_pref("browser.startup.blankWindow", false);
 
 // PREF: disable using system colors
 // [SETTING] General>Language and Appearance>Fonts and Colors>Colors>Use system colors
-user_pref("browser.display.use_system_colors", false); // [DEFAULT false NON-WINDOWS]
+//user_pref("browser.display.use_system_colors", false); // [DEFAULT false NON-WINDOWS]
 
 // PREF: enforce non-native widget theme
 // Security: removes/reduces system API calls, e.g. win32k API [1]
@@ -353,6 +353,7 @@ user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
 //user_pref("toolkit.winRegisterApplicationRestart", false);
 
 // PREF: increase media cache limits
+// For higher-end PCs; helps with video playback/buffering
 //user_pref("media.cache_readahead_limit", 99999); // 60
 //user_pref("media.cache_resume_threshold", 99999); // 30
 //user_pref("media.cache_size", 2048000); // 512000
@@ -363,61 +364,63 @@ user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
  * SECTION: CLEARING DATA DEFAULTS                           *
 ******************************************************************************/
 
-// PREF: reset default items to clear with Ctrl-Shift-Del
-// This dialog can also be accessed from the menu History>Clear Recent History
-// Firefox remembers your last choices. This will reset them when you start Firefox.
-// Regardless of what you set privacy.cpd.downloads to, as soon as the dialog
-// for "Clear Recent History" is opened, it is synced to the same as 'history'.
-// user_pref("privacy.cpd.downloads", true); // not used, see note above
-// user_pref("privacy.cpd.history", true); // Browsing & Download History [DEFAULT]
-// user_pref("privacy.cpd.formdata", true); // Form & Search History [DEFAULT]
-// user_pref("privacy.cpd.offlineApps", false); // Offline Website Data [DEFAULT]
-// user_pref("privacy.cpd.cache", true); // Cache [DEFAULT]
-// user_pref("privacy.cpd.cookies", false); // Cookies
-// user_pref("privacy.cpd.sessions", false); // Active Logins [DEFAULT]
-// user_pref("privacy.cpd.siteSettings", false); // Site Preferences [DEFAULT]
-
 // PREF: reset default 'Time range to clear' for 'Clear Recent History'.
 // Firefox remembers your last choice. This will reset the value when you start Firefox.
 // 0=everything, 1=last hour, 2=last two hours, 3=last four hours,
 // 4=today, 5=last five minutes, 6=last twenty-four hours
 // The values 5 + 6 are not listed in the dropdown, which will display a
 // blank value if they are used, but they do work as advertised.
-user_pref("privacy.sanitize.timeSpan", 0);
+//user_pref("privacy.sanitize.timeSpan", 0);
 
-// PREF: set History section to show all options
-// user_pref("privacy.history.custom", true);
+// PREF: reset default items to clear with Ctrl-Shift-Del
+// This dialog can also be accessed from the menu History>Clear Recent History
+// Firefox remembers your last choices. This will reset them when you start Firefox.
+// Regardless of what you set privacy.cpd.downloads to, as soon as the dialog
+// for "Clear Recent History" is opened, it is synced to the same as 'history'.
+//user_pref("privacy.cpd.history", true); // Browsing & Download History [DEFAULT]
+//user_pref("privacy.cpd.formdata", true); // Form & Search History [DEFAULT]
+//user_pref("privacy.cpd.cache", true); // Cache [DEFAULT]
+//user_pref("privacy.cpd.cookies", true); // Cookies [DEFAULT]
+//user_pref("privacy.cpd.sessions", false); // Active Logins [DEFAULT]
+//user_pref("privacy.cpd.offlineApps", false); // Offline Website Data [DEFAULT]
+//user_pref("privacy.cpd.siteSettings", false); // Site Preferences [DEFAULT]
 
 /******************************************************************************
  * SECTION: SHUTDOWN & SANITIZING                           *
 ******************************************************************************/
 
+// PREF: set History section to show all options
+// Settings>Privacy>History>Use custom settings for history
+// [INFOGRAPHIC] https://bugzilla.mozilla.org/show_bug.cgi?id=1765533#c1
+user_pref("privacy.history.custom", true);
+
 // PREF: clear browsing data on shutdown, while respecting site exceptions
 // Set cookies, site data, cache, etc. to clear on shutdown
 // [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
-// [INFOGRAPHIC] https://bugzilla.mozilla.org/show_bug.cgi?id=1765533#c1
+// [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
 // [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
-// [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication (1), not logins via cookies
+// Clearing "offlineApps" may affect login items after browser restart [2]
 // [1] https://en.wikipedia.org/wiki/Basic_access_authentication
+// [2] https://github.com/arkenfox/user.js/issues/1291
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 
 // Uncomment individual prefs to disable clearing on shutdown:
 // [NOTE] If "history" is true, downloads will also be cleared
-user_pref("privacy.clearOnShutdown.offlineApps", true);
-// user_pref("privacy.clearOnShutdown.history", false);
-      // user_pref("privacy.clearOnShutdown.downloads", false);
-// user_pref("privacy.clearOnShutdown.formdata", false);
-// user_pref("privacy.clearOnShutdown.sessions", false);
-user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
+//user_pref("privacy.clearOnShutdown.history", true); // [DEFAULT]
+//user_pref("privacy.clearOnShutdown.formdata", true); // [DEFAULT]
+//user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT]
+//user_pref("privacy.clearOnShutdown.offlineApps", false); // [DEFAULT]
+//user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT]
 
 // PREF: configure site exceptions
-// Currently, there is no way to add sites via about:config
+// [NOTE] Currently, there is no way to add sites via about:config
 // [SETTING] to manage site exceptions: Options>Privacy & Security>Cookies & Site Data>Manage Exceptions
 // [SETTING] to add site exceptions: Ctrl+I>Permissions>Cookies>Allow (when on the website in question)
 // For cross-domain logins, add exceptions for both sites:
 // e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
-// [WARNING] Be selective with what cookies you keep, as they also disable partitioning (1)
+// [WARNING] Be selective with what cookies you keep, as they also disable partitioning [1]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1767271
+// [2] https://github.com/arkenfox/user.js/issues/1291#issuecomment-986104313
 
 /******************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                           *
