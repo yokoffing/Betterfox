@@ -65,10 +65,12 @@ user_pref("urlclassifier.trackingSkipURLs", "");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "");
 user_pref("privacy.trackingprotection.lower_network_priority", false);
 
-// PREF: Site Isolation
+// PREF: Site Isolation (Sandboxing)
 // Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
 // into a separate operating system process makes it harder for malicious sites to read another site’s private data.
 // [1] https://hacks.mozilla.org/2021/05/introducing-firefox-new-site-isolation-security-architecture/
+// [2] https://hacks.mozilla.org/2022/05/improved-process-isolation-in-firefox-100/
+// [3] https://hacks.mozilla.org/2021/12/webassembly-and-back-again-fine-grained-sandboxing-in-firefox-95/
 user_pref("fission.autostart", true); // default
 
 // PREF: State Paritioning [aka Dynamic First-Party Isolation (dFPI)]
@@ -87,6 +89,7 @@ user_pref("fission.autostart", true); // default
 // [3] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
 // [4] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
 // [5] https://github.com/arkenfox/user.js/issues/1281
+// [6] https://hacks.mozilla.org/2022/02/improving-the-storage-access-api-in-firefox/
 user_pref("network.cookie.cookieBehavior", 5); // changes to 5 when Enhanced Tracking Protection is set to "Strict", DEFAULT FF103+
 user_pref("browser.contentblocking.state-partitioning.mvp.ui.enabled", true); // default 
 user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // default
