@@ -56,12 +56,6 @@ user_pref("layout.css.font-visibility.private", 1);
 user_pref("layout.css.font-visibility.standard", 1);
 user_pref("layout.css.font-visibility.trackingprotection", 1);
 
-/** RSP ***/
-user_pref("privacy.window.maxInnerWidth", 1600);
-user_pref("privacy.window.maxInnerHeight", 900);
-user_pref("browser.startup.blankWindow", false);
-user_pref("browser.display.use_system_colors", false);
-
 /** DISK AVOIDANCE ***/
 user_pref("browser.cache.disk.enable", false);
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
