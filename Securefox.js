@@ -352,6 +352,13 @@ user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
 // [1] https://bugzilla.mozilla.org/603903
 //user_pref("toolkit.winRegisterApplicationRestart", false);
 
+// PREF: increase media cache limits
+//user_pref("media.cache_readahead_limit", 99999); // 60
+//user_pref("media.cache_resume_threshold", 99999); // 30
+//user_pref("media.cache_size", 2048000); // 512000
+//user_pref("media.memory_cache_max_size", 512000); // 65536
+//user_pref("media.memory_caches_combined_limit_kb", 2560000); // 524288
+
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
 ******************************************************************************/
