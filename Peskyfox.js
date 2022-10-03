@@ -181,7 +181,7 @@ user_pref("media.block-autoplay-until-in-foreground", true); // default
 // PREF: set NEWTAB page
 // true=Firefox Home, false=blank page
 // [SETTING] Home>New Windows and Tabs>New tabs
-      // user_pref("browser.newtabpage.enabled", false);
+user_pref("browser.newtabpage.enabled", true); // DEFAULT
 
 // PREF: Home / New Tab page items
 // [SETTINGS] Home>Firefox Home Content
