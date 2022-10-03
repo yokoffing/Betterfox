@@ -40,7 +40,7 @@ user_pref("browser.newtabpage.activity-stream.showSponsored", false); //  Settin
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false); // Settings>Home>Firefox Home Content>Recent Activity>Bookmarks
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false); // Settings>Home>Firefox Home Content>Recent Activity>Most Recent Download
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false); // Settings>Home>Firefox Home Content>Recent Activity>Visited Pages
-// user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // hidden
+// user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // Settings>Home>Firefox Home Content>Recent Activity>Pages Saved to Pocket
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true); // font improvement
 user_pref("browser.urlbar.suggest.bookmark", false); // hide URL bar dropdown suggestions
