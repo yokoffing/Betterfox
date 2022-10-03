@@ -64,7 +64,7 @@ User comments:
 * [pyllyukko/user.js](https://github.com/pyllyukko/user.js/#other-documentation) [comparator](https://jm42.github.io/compare-user.js/)
 
 #### Podcasts
-* [GhoSTORIES with Franz & Pete, S2|E6, 17:05](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh)
+* [GhoSTORIES with Franz & Pete, S2|E6, 17:05-18:40](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh)
 
 #### Contributor
 * [Ghostery](https://github.com/ghostery/user-agent-desktop#community) [desktop browser](https://github.com/ghostery/user-agent-desktop/issues?q=is%3Apr+is%3Aissue+author%3Ayokoffing+)
