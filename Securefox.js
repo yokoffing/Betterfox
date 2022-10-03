@@ -319,7 +319,10 @@ user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
 ****************************************************************************/
 
 // PREF: disable disk cache
-// [NOTE] If you think disk cache helps performance, then feel free to override this
+// [NOTE] If you're thinking it would be more efficient to keep the browser cache instead of
+// having to re-download objects for the websites you visit frequently, you're right;
+// however doing so can compromise your privacy.
+// [NOTE] If you think disk cache helps performance, then feel free to override this.
 user_pref("browser.cache.disk.enable", false);
 
 // PREF: disable media cache from writing to disk in Private Browsing
@@ -332,9 +335,10 @@ user_pref("media.memory_cache_max_size", 65536); // 8x default size of 8192 [per
 // 0=everywhere, 1=unencrypted sites, 2=nowhere
 user_pref("browser.sessionstore.privacy_level", 2);
 
-// PREF: disable shortcut favicons from being stored in profile [broken?]
-// Doesn't seem to work on any configurations
-      // user_pref("browser.shell.shortcutFavicons", false);
+// PREF: disable fetching and permanently storing favicons for Windows .URL shortcuts created by drag and drop
+// [NOTE] .URL shortcut files will be created with a generic icon
+// Favicons are stored as .ico files in $profile_dir\shortcutCache
+//user_pref("browser.shell.shortcutFavicons", false);
 
 // PREF: disable page thumbnails capturing
 user_pref("browser.pagethumbnails.capturing_disabled", true); // [depreciated?]
@@ -342,16 +346,16 @@ user_pref("browser.pagethumbnails.capturing_disabled", true); // [depreciated?]
 // PREF: set the minimum interval between session save operations
 // Increasing this can help on older machines and some websites, as well as reducing writes
 // [1] https://bugzilla.mozilla.org/1304389
-// user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
+user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
 
 // PREF: disable automatic Firefox start and session restore after reboot [WINDOWS]
 // [1] https://bugzilla.mozilla.org/603903
-// user_pref("toolkit.winRegisterApplicationRestart", false);
+//user_pref("toolkit.winRegisterApplicationRestart", false);
 
 // PREF: disable offline cache (appCache)
 // [WARNING] The API is easily fingerprinted, do not disable!
 // [1] https://github.com/arkenfox/user.js/issues/1055
-// user_pref("browser.cache.offline.enable", false);
+//user_pref("browser.cache.offline.enable", false);
 
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
