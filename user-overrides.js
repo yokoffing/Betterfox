@@ -70,3 +70,4 @@ user_pref("ui.key.menuAccessKey",                                               
 // WINDOWS-only prefs; uncomment to enable:
 //user_pref("gfx.font_rendering.cleartype_params.rendering_mode",						5);	// font improvement [WINDOWS-only]
 //user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families",		""); // font improvement [WINDOWS-only]
+//space
