@@ -185,7 +185,8 @@ user_pref("browser.newtabpage.enabled", true); // DEFAULT
 
 // PREF: Home / New Tab page items
 // [SETTINGS] Home>Firefox Home Content
-user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
+// [1] https://github.com/arkenfox/user.js/issues/1556
+//user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);  // Shortcuts
       // user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // [FF83+] Sponsored shortcuts
