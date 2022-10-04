@@ -49,6 +49,11 @@ user_pref("browser.sessionstore.restore_tabs_lazily", true); // default
 // PREF: disable preSkeletonUI on startup
 // May set to "true" if your hardware is very old.
   // user_pref("browser.startup.preXulSkeletonUI", false);
+  
+// PREF: set the minimum interval between session save operations
+// Increasing this can help on older machines and some websites, as well as reducing writes
+// [1] https://bugzilla.mozilla.org/1304389
+//user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
 
 // PREF: JPEG XL image format
 user_pref("image.jxl.enabled", true);
