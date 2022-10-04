@@ -431,7 +431,8 @@ user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 // PREF: New tab preload
 // [WARNING] Disabling this may cause a delay when opening a new tab in Firefox
 // [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
-user_pref("browser.newtab.preload", false);
+// [2] https://github.com/arkenfox/user.js/issues/1556
+//user_pref("browser.newtab.preload", false);
 
 // PREF: Speculative connections on New Tab page
 // Firefox will open predictive connections to sites when the user hovers their mouse over thumbnails
