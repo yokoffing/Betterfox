@@ -69,7 +69,6 @@ user_pref("privacy.history.custom", true);
 //user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 
 /** SPECULATIVE CONNECTIONS ***/
-user_pref("browser.newtab.preload", false);
 user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.dns.disablePrefetch", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
