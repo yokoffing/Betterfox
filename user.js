@@ -62,7 +62,6 @@ user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 user_pref("media.memory_cache_max_size", 65536);
 user_pref("browser.sessionstore.privacy_level", 2);
 user_pref("browser.pagethumbnails.capturing_disabled", true);
-user_pref("browser.sessionstore.interval", 30000);
 
 /** SHUTDOWN & SANITIZING ***/
 user_pref("privacy.history.custom", true);
