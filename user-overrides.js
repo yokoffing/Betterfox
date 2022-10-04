@@ -34,8 +34,8 @@ user_pref("dom.security.https_only_fire_http_request_background_timer_ms",  			1
 //user_pref("browser.eme.ui.enabled",                                       			false); // DRM cotent: hide the setting which also disables the webpage DRM prompt
 user_pref("browser.safebrowsing.provider.google4.gethashURL",               			""); // extra hardening
 user_pref("browser.safebrowsing.provider.google4.updateURL",                			""); // extra hardening
-user_pref("browser.safebrowsing.provider.google.gethashURL",                			""); // extra hardening
-user_pref("browser.safebrowsing.provider.google.updateURL",                 			""); // extra hardening
+user_pref("browser.safebrowsing.provider.google.gethashURL",							""); // extra hardening
+user_pref("browser.safebrowsing.provider.google.updateURL",								""); // extra hardening
 
 /** PESKYFOX ***/
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites",                   false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
