@@ -1098,7 +1098,7 @@ user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/
 // PREF: Enable logging geolocation to the console
 //user_pref("geo.provider.network.logging.enabled", true);
 
-// PREF: re-enable location requests from websites
+// PREF: re-enable location requests from websites [OVERRIDE]
 user_pref("permissions.default.geo", 0);
 
 // PREF: disable using the OS's geolocation service
