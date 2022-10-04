@@ -343,11 +343,6 @@ user_pref("browser.sessionstore.privacy_level", 2);
 // PREF: disable page thumbnails capturing
 user_pref("browser.pagethumbnails.capturing_disabled", true); // [depreciated?]
 
-// PREF: set the minimum interval between session save operations
-// Increasing this can help on older machines and some websites, as well as reducing writes
-// [1] https://bugzilla.mozilla.org/1304389
-//user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
-
 // PREF: disable automatic Firefox start and session restore after reboot [WINDOWS]
 // [1] https://bugzilla.mozilla.org/603903
 //user_pref("toolkit.winRegisterApplicationRestart", false);
