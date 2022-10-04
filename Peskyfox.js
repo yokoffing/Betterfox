@@ -59,11 +59,11 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 // PREF: hide "More from Mozilla" in Settings
 user_pref("browser.preferences.moreFromMozilla", false);
 
-// PREF: remove delay of security dialog when downloading extensions
+// PREF: lower delay of security dialog when downloading extensions
 // default=1000
-      // user_pref("security.dialog_enable_delay", 300);
+//user_pref("security.dialog_enable_delay", 300);
 
-// PREF: remove "addons.mozilla.org" from set of domains that extensions cannot access [not working?]
+// PREF: remove "addons.mozilla.org" from set of domains that extensions cannot access
 // [NOTE] May only work with privacy.resistfingerprinting enabled?
 // [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
       // user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
@@ -74,10 +74,10 @@ user_pref("browser.preferences.moreFromMozilla", false);
       // user_pref("xpinstall.signatures.required", false);
 
 // PREF: disable Warnings
-user_pref("browser.tabs.warnOnClose", false); // DEFAULT [FF94+]
-      // user_pref("browser.tabs.warnOnCloseOtherTabs", false);
-      // user_pref("browser.tabs.warnOnOpen", false);
-      // user_pref("browser.aboutConfig.showWarning", false);
+//user_pref("browser.tabs.warnOnClose", false); // DEFAULT [FF94+]
+//user_pref("browser.tabs.warnOnCloseOtherTabs", false);
+//user_pref("browser.tabs.warnOnOpen", false);
+//user_pref("browser.aboutConfig.showWarning", false);
 
 // PREF: disable fullscreen delay and notice
 user_pref("full-screen-api.transition-duration.enter", "0 0");
