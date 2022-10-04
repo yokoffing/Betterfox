@@ -68,5 +68,5 @@ user_pref("ui.key.menuAccessKey",                                               
 //user_pref("layout.css.font-visibility.trackingprotection",                            3); // breaks using custom font on pages
 
 // WINDOWS-only prefs; uncomment to enable:
-//user_pref("gfx.font_rendering.cleartype_params.rendering_mode",                       5);	// font improvement [WINDOWS-only]
+//user_pref("gfx.font_rendering.cleartype_params.rendering_mode",                       5); // font improvement [WINDOWS-only]
 //user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families",       ""); // font improvement [WINDOWS-only]
