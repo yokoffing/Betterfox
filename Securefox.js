@@ -108,6 +108,7 @@ user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
       // user_pref("privacy.partition.bloburl_per_agent_cluster", true); [regressions]
 // enable APS (Always Partitioning Storage) [FF104+]
 user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
+user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [[FF105+]
 
 // PREF: Smartblock
 // [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
