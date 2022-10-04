@@ -62,12 +62,11 @@ user_pref("ui.key.menuAccessKey",                                               
 
 // Custom monospace font
 // Enforce one custom monospace font (or neither one!) depending on the machine:
-//user_pref("font.name.monospace.x-western",											"SF Mono"); // preferred font [macOS]
-//user_pref("font.name.monospace.x-western",											"Cascadia Mono"); // preferred font [WINDOWS]
+//user_pref("font.name.monospace.x-western",                                            "SF Mono"); // preferred font [macOS]
+//user_pref("font.name.monospace.x-western",                                            "Cascadia Mono"); // preferred font [WINDOWS]
 // then uncomment:
-//user_pref("layout.css.font-visibility.trackingprotection",							3); // breaks using custom font on pages
+//user_pref("layout.css.font-visibility.trackingprotection",                            3); // breaks using custom font on pages
 
 // WINDOWS-only prefs; uncomment to enable:
-//user_pref("gfx.font_rendering.cleartype_params.rendering_mode",						5);	// font improvement [WINDOWS-only]
-//user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families",		""); // font improvement [WINDOWS-only]
-//space
+//user_pref("gfx.font_rendering.cleartype_params.rendering_mode",                       5);	// font improvement [WINDOWS-only]
+//user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families",       ""); // font improvement [WINDOWS-only]
