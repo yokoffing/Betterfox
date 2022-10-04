@@ -1079,7 +1079,7 @@ user_pref("identity.fxaccounts.enabled", false);
 // [2] https://developer.mozilla.org/en-US/docs/Web/API/Push_API
 // [3] https://www.reddit.com/r/firefox/comments/fbyzd4/the_most_private_browser_isnot_firefox/
 user_pref("dom.push.enabled", false);
-      // user_pref("dom.push.userAgentID", "");
+//user_pref("dom.push.userAgentID", "");
 
 // PREF: Set a default permission for Notifications
 // To add site exceptions: Page Info>Permissions>Receive Notifications.
@@ -1087,12 +1087,19 @@ user_pref("dom.push.enabled", false);
 // 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.desktop-notification", 2);
 
-// PREF: Disable annoying location requests from websites
+// PREF: enable site notification [OVERRIDE]
+user_pref("dom.push.enabled", true);
+user_pref("permissions.default.desktop-notification", 0);
+
+// PREF: disable annoying location requests from websites
 user_pref("permissions.default.geo", 2);
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 // PREF: Enable logging geolocation to the console
-// user_pref("geo.provider.network.logging.enabled", true);
+//user_pref("geo.provider.network.logging.enabled", true);
+
+// PREF: re-enable location requests from websites
+user_pref("permissions.default.geo", 0);
 
 // PREF: disable using the OS's geolocation service
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
@@ -1109,19 +1116,19 @@ user_pref("browser.region.update.enabled", false);
 // This includes updates for "revoked certificates".
 // [1] https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/
 // [2] https://trac.torproject.org/projects/tor/ticket/16931
-user_pref("extensions.blocklist.enabled", true); // default
+//user_pref("extensions.blocklist.enabled", true); // DEFAULT
 
-// PREF: disable auto-INSTALLING Firefox updates [NON-WINDOWS] [move to Pesky]
+// PREF: disable auto-INSTALLING Firefox updates [NON-WINDOWS]
 // [NOTE] In FF65+ on Windows this SETTING (below) is now stored in a file and the pref was removed
 // [SETTING] General>Firefox Updates>Check for updates but let you choose to install them
-// user_pref("app.update.auto", false);
+//user_pref("app.update.auto", false);
 
-// PREF: disable search engine updates (e.g. OpenSearch) [move to Pesky]
+// PREF: disable search engine updates (e.g. OpenSearch)
 // [NOTE] This does not affect Mozilla's built-in or Web Extension search engines
-// user_pref("browser.search.update", false);
+//user_pref("browser.search.update", false);
 
 // PREF: Disable automatic extension updates [move to Pesky]
-// user_pref("extensions.update.enabled", false);
+//user_pref("extensions.update.enabled", false);
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
