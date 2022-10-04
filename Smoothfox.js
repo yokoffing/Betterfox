@@ -19,16 +19,16 @@
  * OPTION 1: INSTANT SCROLLING (SIMPLE ADJUSTMENT)                                      *
 ****************************************************************************************/
 // recommended for 60hz displays
-user_pref("general.smoothScroll",                                       true); // DEFAULT
-user_pref("mousewheel.default.delta_multiplier_y",                      275);  // 250-500
+user_pref("general.smoothScroll",                       true); // DEFAULT
+user_pref("mousewheel.default.delta_multiplier_y",      275);  // 250-500
 
 /****************************************************************************************
  * OPTION 2: SMOOTH SCROLLING                                                           *
 ****************************************************************************************/
 // recommended for 90hz+ displays
-user_pref("general.smoothScroll",                                       true); // DEFAULT
-user_pref("mousewheel.default.delta_multiplier_y",                      265); // 250-500
-user_pref("general.smoothScroll.msdPhysics.enabled",                    true);
+user_pref("general.smoothScroll",                       true); // DEFAULT
+user_pref("mousewheel.default.delta_multiplier_y",      265); // 250-500
+user_pref("general.smoothScroll.msdPhysics.enabled",    true);
 
 /****************************************************************************************
  * OPTION 3: NATURAL SMOOTH SCROLLING [MODIFIED]                                        *
