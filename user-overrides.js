@@ -52,7 +52,7 @@ user_pref("browser.urlbar.suggest.history",                                     
 user_pref("browser.urlbar.suggest.openpage",                                            false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.topsites",                                            false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.maxRichResults",                                              1); // minimum suggestion needed for URL bar autofill
-user_pref("browser.bookmarks.max_backups",                                              2); // minimize disk use
+user_pref("browser.bookmarks.max_backups",                                              0); // minimize disk use; manually back-up
 user_pref("view_source.wrap_long_lines",                                                true);  // wrap source lines
 user_pref("devtools.debugger.ui.editor-wrapping",                                       true);  // wrap lines in devtools
 user_pref("reader.color_scheme",                                                        "auto"); // match system theme for when reader is enabled
