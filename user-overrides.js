@@ -63,7 +63,7 @@ user_pref("ui.key.menuAccessKey",                                       0); // r
 // Custom monospace font
 // Enforce one custom monospace font (or neither one!) depending on the machine:
 //user_pref("font.name.monospace.x-western",                            "SF Mono"); // preferred font [macOS]
-//user_pref("font.name.monospace.x-western",                            "Cascadia Mono"); // preferred font [WINDOWS]
+//user_pref("font.name.monospace.x-western",                            "Cascadia Code"); // preferred font [WINDOWS]
 // then uncomment:
 //user_pref("layout.css.font-visibility.trackingprotection",            3); // breaks using custom font on pages
 
