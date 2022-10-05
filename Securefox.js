@@ -1021,6 +1021,8 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [1] https://www.wikiwand.com/en/Google_Safe_Browsing#/Privacy
 // [2] https://ashkansoltani.org/2012/02/25/cookies-from-nowhere
 // [3] https://blog.cryptographyengineering.com/2019/10/13/dear-apple-safe-browsing-might-not-be-that-safe/
+// [4] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1752006
+// [5] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1767546
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
       // user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
