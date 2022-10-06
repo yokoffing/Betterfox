@@ -69,7 +69,9 @@ User comments:
 
 #### Contributions
 * [Ghostery](https://github.com/ghostery/user-agent-desktop#community) [desktop browser](https://github.com/ghostery/user-agent-desktop/issues?q=is%3Apr+is%3Aissue+author%3Ayokoffing+)
-  * [Betterfox compared with arkenfox](https://github.com/ghostery/user-agent-desktop/issues/486) (outdated)
+  * [Fingerprinting protection: Betterfox and arkenfox](https://github.com/ghostery/user-agent-desktop/issues/486) (dated)
+* [Orion Browser](https://orionfeedback.org/?author=yokoffing)
+* [Kagi Search Engine](https://kagifeedback.org/?author=yokoffing)
 
 ## Credit
 * Many thanks to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://docs.openwebsandbox.org/learn/ows-articles/what-is-the-open-web).
