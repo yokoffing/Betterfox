@@ -50,7 +50,7 @@ That being said, Betterfox makes the following assumptions:
 * **Firefox Sync** is disabled. To restore functionality, change [this pref](https://github.com/yokoffing/Betterfox/blob/b354f21405fcfedee8ae9a132eac8d243b59ced7/SecureFox.js#L989-L992) to `true`, or use a addon like [xBrowserSync](https://addons.mozilla.org/en-US/firefox/addon/xbs/).
 * **Site notifications** are disabled. To enable, add [these prefs](https://github.com/yokoffing/Betterfox/blob/82dc44a55844d2830bba37576e47367206f70e63/Securefox.js#L1090-L1092) to your overrides section.
 * **Location requests** are rejected. To re-enable, add [this](https://github.com/yokoffing/Betterfox/blob/82dc44a55844d2830bba37576e47367206f70e63/Securefox.js#L1101-L1102) to the bottom of the `user.js`.
-* If your threat level calls for _anonymity_ and not just reasonable _privacy,_ please use the [TOR browser](https://www.torproject.org). :thumbsup:
+* If your threat level calls for _anonymity_ and not just reasonable _privacy_,<sup>[1](https://thenewoil.org/secprivanon.html)</sup> please use the [TOR browser](https://www.torproject.org). :thumbsup:
 
 ## Mentions
 
