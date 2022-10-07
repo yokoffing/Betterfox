@@ -22,7 +22,7 @@ user_pref("signon.management.page.breach-alerts.enabled",               false); 
 user_pref("signon.generation.enabled",                                  false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("privacy.userContext.enabled",                                false); // disable Containers
 //user_pref("browser.cache.disk.enable",                                true);  // re-enable disk cache for lower-end PC; more efficient to keep the browser cache; cleared on shutdown
-//user_pref("browser.cache.memory.capacity",                            1024000); // -1; 512000=512MB, 1024000=1GB
+//user_pref("browser.cache.memory.capacity",                            1024000); // -1; 256000=256MB, 512000=512MB, 1024000=1GB
 //user_pref("media.cache_readahead_limit",                              99999); // playback for higher-end PC
 //user_pref("media.cache_resume_threshold",                             99999); // playback for higher-end PC
 //user_pref("media.cache_size",                                         2048000); // playback for higher-end PC
