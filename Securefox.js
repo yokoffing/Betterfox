@@ -355,6 +355,7 @@ user_pref("browser.pagethumbnails.capturing_disabled", true); // [depreciated?]
 //user_pref("media.cache_size", 2048000); // 512000
 //user_pref("media.memory_cache_max_size", 512000); // 65536
 //user_pref("media.memory_caches_combined_limit_kb", 2560000); // 524288
+//user_pref("browser.cache.memory.capacity", 1024000); // -1; 512000=512MB, 1024000=1GB
 
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
