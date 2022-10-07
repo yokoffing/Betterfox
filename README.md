@@ -38,7 +38,7 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 ## about:Privacy
 The guiding principle is: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here ([why?](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)). Betterfox is designed to set-and-forget, not to troubleshoot and tinker. You can compare different user.js files [here](https://jm42.github.io/compare-user.js).
 
-Betterfox was created with a [less is more](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e) mentality (i.e., keeping in mind [the law of diminishing returns](https://www.investopedia.com/terms/l/lawofdiminishingmarginalreturn.asp)). Most repos I've encountered have niche privacy and security concerns with little regard for speed, annoyances, or mainstream use. The average user doesn't need all `prefs` altered to get the results they want.
+Betterfox was created with a [less is more](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e) mentality (i.e., keeping in mind [the law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png)). Most repos I've encountered have niche privacy and security concerns with little regard for speed, annoyances, or mainstream use. The average user doesn't need all `prefs` altered to get the results they want.
 
 ## Assumptions
 That being said, Betterfox makes the following assumptions:
