@@ -38,7 +38,7 @@ user_pref("browser.contentblocking.category", "strict");
 //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // DEFAULT
 //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // enabled with "Strict"
 //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
-user_pref("privacy.trackingprotection.emailtracking.enabled", true); // EXPERIMENTAL
+user_pref("privacy.trackingprotection.emailtracking.enabled", true); // IN BETA
 
 // PREF: query stripping
 // We set the same query stripping list that Brave uses [1]
