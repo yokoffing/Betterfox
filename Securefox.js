@@ -274,7 +274,7 @@ user_pref("security.tls.enable_0rtt_data", false);
 //user_pref("layout.css.font-visibility.standard", 1); // Normal Browsing windows with tracking protection disabled(?)
 user_pref("layout.css.font-visibility.trackingprotection", 1); // Normal Browsing windows with tracking protection enabled
 user_pref("layout.css.font-visibility.private", 1); // Private Browsing windows
-user_pref("layout.css.font-visibility.resistFingerprinting", 1); // DEFAULT
+//user_pref("layout.css.font-visibility.resistFingerprinting", 1); // DEFAULT
 
 /****************************************************************************
  * SECTION: RESIST FINGERPRINTING (RFP)                                     *
