@@ -59,7 +59,7 @@ User comments:
 [2](https://old.reddit.com/r/technology/comments/m4qdvt/google_accused_of_tracking_users_in_incognito/gqwzzgr/?context=2) [3](https://old.reddit.com/r/Ubuntu/comments/pke4wz/suspicious_file_found_after_using_brave/hc568jg/?context=2)
 
 #### Guides
-* [FMHY Browser Tools](https://github.com/nbats/FMHYedit/blob/main/AdblockVPNGuide.md#-browser-tools)
+* [FMHY Browser Tools: Privacy Hardened Firefox](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/storage/#wiki_privacy_hardened_firefox)
 * [Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-Fix/wiki/Tips#privacy)
 * [Narsil/desktop_user.js](https://git.nixnet.services/Narsil/desktop_user.js#thanks)
 * [pyllyukko/user.js](https://github.com/pyllyukko/user.js) [comparator](https://jm42.github.io/compare-user.js/)
