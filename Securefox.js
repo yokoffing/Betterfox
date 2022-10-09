@@ -245,9 +245,11 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 
 // PREF: control "Add Security Exception" dialog on SSL warnings
+// [NOTE] the code behind this was removed in FF68 [2]
 // 0=do neither, 1=pre-populate url, 2=pre-populate url + pre-fetch cert (default)
 // [1] https://github.com/pyllyukko/user.js/issues/210
-user_pref("browser.ssl_override_behavior", 1);
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1530348
+//user_pref("browser.ssl_override_behavior", 1);
 
 // PREF: disable TLS1.3 0-RTT (round-trip time) [FF51+]
 // This data is not forward secret, as it is encrypted solely under keys derived using
