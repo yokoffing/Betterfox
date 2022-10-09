@@ -88,9 +88,9 @@ user_pref("full-screen-api.warning.timeout", 0);
 
 // PREF: welcome & what's new notices
 //user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
-    // user_pref("startup.homepage_welcome_url", "");
-    // user_pref("startup.homepage_welcome_url.additional", "");
-    // user_pref("startup.homepage_override_url", ""); // What's New page after updates
+    //user_pref("startup.homepage_welcome_url", "");
+    //user_pref("startup.homepage_welcome_url.additional", "");
+    //user_pref("startup.homepage_override_url", ""); // What's New page after updates
 
 // PREF: disable "What's New" toolbar icon
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
