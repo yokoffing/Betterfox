@@ -105,9 +105,9 @@ user_pref("privacy.trackingprotection.lower_network_priority", false);
 // [2] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
 // [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
 //user_pref("privacy.partition.network_state", true); // DEFAULT
+    //user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
     //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
-//user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
-//user_pref("privacy.partition.bloburl_per_agent_cluster", true); [REGRESSIONS]
+    //user_pref("privacy.partition.bloburl_per_agent_cluster", true); [REGRESSIONS]
 // enable APS (Always Partitioning Storage) [FF104+]
 user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [[FF105+]
