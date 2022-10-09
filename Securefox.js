@@ -327,7 +327,7 @@ user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 user_pref("media.memory_cache_max_size", 65536); // 8x default size of 8192 [performance enhancement]
 
 // PREF: disable storing extra session data
-// define on which sites to save extra session data such as form content, cookies and POST data
+// Dictates whether sites may save extra session data such as form content, cookies and POST data
 // 0=everywhere, 1=unencrypted sites, 2=nowhere
 user_pref("browser.sessionstore.privacy_level", 2);
 
