@@ -730,7 +730,7 @@ user_pref("network.file.disable_unc_paths", true); // [HIDDEN PREF]
 // dav, cdda, gphoto2, trash, etc. By default only sftp is accepted (FF87+)
 // [1] https://bugzilla.mozilla.org/1433507
 // [2] https://en.wikipedia.org/wiki/GVfs
-// [3] https://en.wikipedia.org/wiki/GIO_(software) ***/
+// [3] https://en.wikipedia.org/wiki/GIO_(software)
 user_pref("network.gio.supported-protocols", ""); // [HIDDEN PREF]
 
 /******************************************************************************
