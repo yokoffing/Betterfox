@@ -95,6 +95,9 @@ user_pref("full-screen-api.warning.timeout", 0);
 // PREF: disable "What's New" toolbar icon
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
+// PREF: Show all matches in Findbar
+user_pref("findbar.highlightAll", true);
+
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
 ****************************************************************************/
@@ -313,8 +316,8 @@ user_pref("dom.disable_window_move_resize", true);
 // PREF: insert new tabs immediately after the current tab
 // Tap to Tab extension: set to "Put new tab at the end"
 // extension: https://addons.mozilla.org/en-US/firefox/addon/tap-to-tab
-//user_pref("browser.tabs.insertRelatedAfterCurrent", true); // DEFAULT
 //user_pref("browser.tabs.insertAfterCurrent", true);
+    //user_pref("browser.tabs.insertRelatedAfterCurrent", true); // DEFAULT
 
 // PREF: leave the browser window open even after you close the last tab
 //user_pref("browser.tabs.closeWindowWithLastTab", false);
@@ -356,7 +359,7 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 // and suspend tabs that you have not used in awhile.
 // [1] https://support.mozilla.org/en-US/questions/1262073
 // [2] https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
-user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
+//user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
 
 /****************************************************************************
  * SECTION: UNCATEGORIZED                                                   *
@@ -380,9 +383,6 @@ user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
 // PREF: CTRL+TAB cycles tabs in chronological order instead of recently-
 // used order
 //user_pref("browser.ctrlTab.recentlyUsedOrder", false);
-
-// PREF: Show all matches in Findbar
-user_pref("findbar.highlightAll", true);
 
 // PREF: Spell-check
 // 0=none, 1-multi-line, 2=multi-line & single-line
