@@ -282,6 +282,13 @@ user_pref("pdfjs.annotationEditorEnabled", true);
  * SECTION: TAB BEHAVIOR                                                    *
 ****************************************************************************/
 
+// PREF: unload tabs on low memory
+// Firefox will detect if your computer’s memory is running low (less than 400MB)
+// and suspend tabs that you have not used in awhile.
+// [1] https://support.mozilla.org/en-US/questions/1262073
+// [2] https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
+//user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
+
 // PREF: search query in the search box appear in a new tab (instead of the current tab)
 / user_pref("browser.search.openintab", true);
 
@@ -346,6 +353,13 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 //user_pref("accessibility.blockautorefresh", true);
 //user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
+// PREF: prevent password truncation when submitting form data
+// [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
+user_pref("editor.truncate_user_pastes", false);
+
+// PREF: Plain Text only when copying text.
+user_pref("clipboard.plainTextOnly", true);
+
 // PREF: Limit events that can cause a pop-up
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
 // (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
@@ -353,13 +367,6 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("dom.popup_allowed_events", "click dblclick");
 //user_pref("dom.disable_open_during_load", true); // DEFAULT
 //user_pref("privacy.popups.showBrowserMessage", true); // DEFAULT
-
-// PREF: unload tabs on low memory
-// Firefox will detect if your computer’s memory is running low (less than 400MB)
-// and suspend tabs that you have not used in awhile.
-// [1] https://support.mozilla.org/en-US/questions/1262073
-// [2] https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
-//user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
 
 /****************************************************************************
  * SECTION: UNCATEGORIZED                                                   *
@@ -399,22 +406,15 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 //user_pref("browser.display.show_image_placeholders", false);
 
 // PREF: Wrap long lines of text when using source / debugger
-user_pref("view_source.wrap_long_lines", true);
-user_pref("devtools.debugger.ui.editor-wrapping", true);
+//user_pref("view_source.wrap_long_lines", true);
+//user_pref("devtools.debugger.ui.editor-wrapping", true);
 
 // PREF: print preview
 //user_pref("print.tab_modal.enabled", true); // DEFAULT
 
-// PREF: prevent password truncation when submitting form data
-// [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
-user_pref("editor.truncate_user_pastes", false);
-
 // PREF: adjust the minimum tab width
 // Can be overridden by userChrome.css
 //user_pref("browser.tabs.tabMinWidth", 120); // default=76
-
-// PREF: Plain Text only when copying text.
-user_pref("clipboard.plainTextOnly", true);
 
 // PREF: remove underlined characters from various settings
 //user_pref("ui.key.menuAccessKey", 0);
