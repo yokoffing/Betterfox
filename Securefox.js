@@ -158,7 +158,7 @@ user_pref("beacon.enabled", false);
  * SECTION: OSCP & CERTS / HPKP (HTTP Public Key Pinning)                   *
 ****************************************************************************/
 
-// PREF: OCSP (Online Certificate Status Protocol)
+// OCSP (Online Certificate Status Protocol)
 // OCSP leaks your IP and domains you visit to the CA when OCSP Stapling is not available on visited host
 // OCSP is vulnerable to replay attacks when nonce is not configured on the OCSP responder
 // OCSP adds latency
@@ -167,7 +167,7 @@ user_pref("beacon.enabled", false);
 // [1] https://scotthelme.co.uk/revocation-is-broken/
 // [2] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
 
-// PREF: enforce OCSP fetching to confirm current validity of certificates
+// PREF: disable OCSP fetching to confirm current validity of certificates
 // OCSP (non-stapled) leaks information about the sites you visit to the CA (cert authority)
 // It's a trade-off between security (checking) and privacy (leaking info to the CA)
 // Unlike Chrome, Firefox’s default settings also query OCSP responders to confirm the validity
