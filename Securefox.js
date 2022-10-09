@@ -158,7 +158,7 @@ user_pref("beacon.enabled", false);
  * SECTION: OSCP & CERTS / HPKP (HTTP Public Key Pinning)                   *
 ****************************************************************************/
 
-// OCSP (Online Certificate Status Protocol)
+// Online Certificate Status Protocol (OCSP)
 // OCSP leaks your IP and domains you visit to the CA when OCSP Stapling is not available on visited host
 // OCSP is vulnerable to replay attacks when nonce is not configured on the OCSP responder
 // OCSP adds latency
