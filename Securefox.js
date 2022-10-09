@@ -552,6 +552,7 @@ user_pref("browser.search.suggest.enabled", false);
 
 // PREF: disable Firefox Suggest
 // [1] https://github.com/arkenfox/user.js/issues/1257
+//user_pref("browser.urlbar.quicksuggest.enabled", false); // controls whether the UI is shown
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
     //user_pref("browser.urlbar.groupLabels.enabled", false);
@@ -1089,7 +1090,7 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 
 // PREF: disable region updates
 // [1] https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
-// user_pref("browser.region.network.url", "");
+//user_pref("browser.region.network.url", "");
 user_pref("browser.region.update.enabled", false);
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
