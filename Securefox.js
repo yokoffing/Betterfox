@@ -41,7 +41,6 @@ user_pref("privacy.trackingprotection.emailtracking.enabled", true); // IN BETA
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // enabled with "Strict"
-//user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
 
 // PREF: query stripping
 // We set the same query stripping list that Brave uses [1]
@@ -106,7 +105,7 @@ user_pref("privacy.trackingprotection.lower_network_priority", false);
 // [2] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
 // [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
 //user_pref("privacy.partition.network_state", true); // DEFAULT
-//user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
+    //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
 //user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
 //user_pref("privacy.partition.bloburl_per_agent_cluster", true); [REGRESSIONS]
 // enable APS (Always Partitioning Storage) [FF104+]
