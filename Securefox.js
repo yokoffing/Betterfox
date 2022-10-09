@@ -36,10 +36,12 @@ user_pref("browser.contentblocking.category", "strict");
     //user_pref("privacy.socialtracking.block_cookies.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.cryptomining.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // DEFAULT
-//user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // DEFAULT
-//user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // enabled with "Strict"
-//user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
 user_pref("privacy.trackingprotection.emailtracking.enabled", true); // IN BETA
+//user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // DEFAULT
+    //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // DEFAULT
+    //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // DEFAULT
+    //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // enabled with "Strict"
+//user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
 
 // PREF: query stripping
 // We set the same query stripping list that Brave uses [1]
