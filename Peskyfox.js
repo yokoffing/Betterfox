@@ -290,7 +290,7 @@ user_pref("pdfjs.annotationEditorEnabled", true);
 //user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
 
 // PREF: search query in the search box appear in a new tab (instead of the current tab)
-/ user_pref("browser.search.openintab", true);
+// user_pref("browser.search.openintab", true);
 
 // PREF: search query in the URL bar opens in a new tab (instead of the current tab)
 //user_pref("browser.urlbar.openintab", true);
