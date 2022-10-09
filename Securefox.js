@@ -61,7 +61,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // PREF: lower the priority of network loads for resources on the tracking protection list
 // [NOTE] Applicable because we allow for some social embeds
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
-user_pref("privacy.trackingprotection.lower_network_priority", true);
+//user_pref("privacy.trackingprotection.lower_network_priority", true);
 
 // PREF: disable allowance for embedded tweets, Instagram, and Reddit posts [OVERRIDE]
 user_pref("urlclassifier.trackingSkipURLs", "");
