@@ -140,9 +140,10 @@ user_pref("dom.push.enabled", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-user_pref("geo.provider.ms-windows-location", false); /* WINDOWS */
-user_pref("geo.provider.use_corelocation", false); /* MAC */
-user_pref("geo.provider.use_gpsd", false); /* LINUX */
+user_pref("geo.provider.ms-windows-location", false); // WINDOWS
+user_pref("geo.provider.use_corelocation", false); // MAC
+user_pref("geo.provider.use_gpsd", false); // LINUX
+user_pref("geo.provider.use_geoclue", false); // LINUX
 user_pref("browser.region.network.url", "");
 user_pref("browser.region.update.enabled", false);
 
