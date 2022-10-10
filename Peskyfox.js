@@ -181,6 +181,8 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 // PREF: set HOME+NEWWINDOW page to blank tab
 // about:home=Activity Stream, custom URL, about:blank
 // [SETTING] Home>New Windows and Tabs>Homepage and new windows
+// [Custom URLs] Set two or more websites in Home Page Field – delimited by |
+// [1] https://support.mozilla.org/en-US/questions/1271888#answer-1262899
 //user_pref("browser.startup.homepage", "about:blank");
 
 // PREF: set NEWTAB page to blank tab
