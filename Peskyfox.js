@@ -86,13 +86,13 @@ user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.delay", 0);
 user_pref("full-screen-api.warning.timeout", 0);
 
-// PREF: welcome & what's new notices
+// PREF: disable welcome notices
 //user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
     //user_pref("startup.homepage_welcome_url", "");
     //user_pref("startup.homepage_welcome_url.additional", "");
     //user_pref("startup.homepage_override_url", ""); // What's New page after updates
 
-// PREF: disable "What's New" toolbar icon
+// PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
 // PREF: Show all matches in Findbar
