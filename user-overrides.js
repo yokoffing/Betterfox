@@ -61,6 +61,7 @@ user_pref("reader.color_scheme",                                        "auto");
 user_pref("browser.zoom.full",                                          false); // text-only zoom, not all elements on page
 user_pref("ui.key.menuAccessKey",                                       0); // remove underlined characters from various settings
 user_pref("general.autoScroll",                                         false); // disable unintentional behavior for middle click
+user_pref("browser.tabs.closeWindowWithLastTab                          true); // keep window open when closing last tab
 //user_pref("browser.urlbar.openintab",                                 true); // spawn new tab when typing in URL bar, instead of using current tab
 
 // Custom monospace font
