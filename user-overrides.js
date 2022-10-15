@@ -13,6 +13,7 @@
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand",         true);  // only load pinned tabs once selected
 user_pref("reader.parse-on-load.enabled",                               false); // disable reader mode
+user_pref("browser.sessionstore.interval",                              30000); // set minimum interval between session save operations 
 
 /** SECUREFOX ***/
 user_pref("browser.search.separatePrivateDefault",                      false); // disable separate search engine
@@ -21,7 +22,7 @@ user_pref("browser.urlbar.showSearchSuggestionsFirst",                  false); 
 user_pref("signon.management.page.breach-alerts.enabled",               false); // extra hardening
 user_pref("signon.generation.enabled",                                  false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("privacy.userContext.enabled",                                false); // disable Containers
-//user_pref("browser.cache.memory.capacity",                            1024000); // -1; 256000=256MB, 512000=512MB, 1024000=1GB
+//user_pref("browser.cache.memory.capacity",                            1024000); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB
 //user_pref("media.memory_cache_max_size",                              512000); // memory cache; playback for higher-end PC
 //user_pref("media.memory_caches_combined_limit_kb",                    2560000); // memory cache; playback for higher-end PC
 //user_pref("media.cache_readahead_limit",                              99999); // media cache; playback for higher-end PC
@@ -55,6 +56,7 @@ user_pref("browser.urlbar.maxRichResults",                              1); // m
 user_pref("browser.bookmarks.max_backups",                              0); // minimize disk use; manually back-up
 user_pref("view_source.wrap_long_lines",                                true);  // wrap source lines
 user_pref("devtools.debugger.ui.editor-wrapping",                       true);  // wrap lines in devtools
+user_pref("network.manage-offline-status",                              false); // see https://bugzilla.mozilla.org/show_bug.cgi?id=620472
 user_pref("reader.color_scheme",                                        "auto"); // match system theme for when reader is enabled
 user_pref("browser.zoom.full",                                          false); // text-only zoom, not all elements on page
 user_pref("ui.key.menuAccessKey",                                       0); // remove underlined characters from various settings
