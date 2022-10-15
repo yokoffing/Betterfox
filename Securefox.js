@@ -252,13 +252,13 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1530348
 //user_pref("browser.ssl_override_behavior", 1);
 
-// PREF: disable TLS1.3 0-RTT (round-trip time) [FF51+]
+// PREF: disable TLS 1.3 0-RTT (round-trip time) [FF51+]
 // This data is not forward secret, as it is encrypted solely under keys derived using
 // the offered PSK. There are no guarantees of non-replay between connections
 // [1] https://github.com/tlswg/tls13-spec/issues/1001
 // [2] https://www.rfc-editor.org/rfc/rfc9001.html#name-replay-attacks-with-0-rtt
 // [3] https://blog.cloudflare.com/tls-1-3-overview-and-q-and-a/
-user_pref("security.tls.enable_0rtt_data", false);
+user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve tls 1.3 security
 
 /****************************************************************************
  * SECTION: FONTS                                                          *
