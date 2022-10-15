@@ -59,6 +59,7 @@ user_pref("devtools.debugger.ui.editor-wrapping",                       true);  
 user_pref("reader.color_scheme",                                        "auto"); // match system theme for when reader is enabled
 user_pref("browser.zoom.full",                                          false); // text-only zoom, not all elements on page
 user_pref("ui.key.menuAccessKey",                                       0); // remove underlined characters from various settings
+user_pref("general.autoScroll",                                         false); // disable unintentional behavior for middle click
 //user_pref("browser.urlbar.openintab",                                 true); // spawn new tab when typing in URL bar, instead of using current tab
 
 // Custom monospace font
