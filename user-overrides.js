@@ -39,6 +39,7 @@ user_pref("browser.safebrowsing.provider.google.gethashURL",            ""); // 
 user_pref("browser.safebrowsing.provider.google.updateURL",             ""); // extra hardening
 
 /** PESKYFOX ***/
+//user_pref("xpinstall.signatures.required",                            false); // [ESR/DEV/NIGHTLY]
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites",   false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
 user_pref("browser.newtabpage.activity-stream.showSponsored",           false); // Settings>Home>Firefox Home Content>Recent Activity>Recommended by Pocket>Sponsored Stories  
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false); // Settings>Home>Firefox Home Content>Recent Activity>Bookmarks
@@ -71,5 +72,5 @@ user_pref("browser.tabs.closeWindowWithLastTab",                        true); /
 //user_pref("layout.css.font-visibility.trackingprotection",            3); // breaks using custom font on pages
 
 // WINDOWS-only prefs; uncomment to enable:
-//user_pref("gfx.font_rendering.cleartype_params.rendering_mode",       5); // font improvement [WINDOWS-only]
-//user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families",  ""); // font improvement [WINDOWS-only]
+//user_pref("gfx.font_rendering.cleartype_params.rendering_mode",       5); // font improvement [WINDOWS]
+//user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families",  ""); // font improvement [WINDOWS]
