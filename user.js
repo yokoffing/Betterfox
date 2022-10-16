@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: November 2022                                                   *
+ * version: November 2022b                                                  *
  * url: https://github.com/yokoffing/Betterfox                              *
  * license: https://github.com/yokoffing/Betterfox/blob/master/LICENSE      *
  * README: https://github.com/yokoffing/Betterfox/blob/master/README.md     *
@@ -118,7 +118,6 @@ user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /** CONTAINERS ***/
-user_pref("privacy.userContext.enabled", true);
 user_pref("privacy.userContext.ui.enabled", true);
 
 /** WEBRTC ***/
