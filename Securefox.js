@@ -11,7 +11,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: November 2022                                                   *
+ * version: December 2022                                                   *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
