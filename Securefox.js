@@ -11,7 +11,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: November 2022                                                   *
+ * version: November 2022b                                                  *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -1052,6 +1052,9 @@ user_pref("browser.safebrowsing.allowOverride", false);
 // PREF: disable Firefox accounts
 // [ALTERNATIVE] Use xBrowserSync
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
+user_pref("identity.fxaccounts.enabled", false);
+
+// PREF: enable Firefox accounts [OVERRIDE]
 user_pref("identity.fxaccounts.enabled", false);
 
 // PREF: disable Push API
