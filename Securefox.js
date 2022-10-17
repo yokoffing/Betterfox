@@ -11,7 +11,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: November 2022b                                                  *
+ * version: November 2022                                                   *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -418,11 +418,11 @@ user_pref("privacy.history.custom", true);
  * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
 
-// PREF: New tab preload
+// PREF: new tab preload
 // [WARNING] Disabling this may cause a delay when opening a new tab in Firefox
 // [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 // [2] https://github.com/arkenfox/user.js/issues/1556
-//user_pref("browser.newtab.preload", false);
+//user_pref("browser.newtab.preload", true); // DEFAULT
 
 // PREF: Speculative connections on New Tab page
 // Firefox will open predictive connections to sites when the user hovers their mouse over thumbnails
@@ -916,8 +916,8 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // [SETTING] General>Tabs>Enable Container Tabs
 // [1] https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers
 // [2] https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/
-user_pref("privacy.userContext.enabled", true);
 user_pref("privacy.userContext.ui.enabled", true);
+//user_pref("privacy.userContext.enabled", true);
 
 // PREF: set behavior on "+ Tab" button to display container menu on left click [FF74+]
 // [NOTE] The menu is always shown on long press and right click
