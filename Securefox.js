@@ -1055,7 +1055,7 @@ user_pref("browser.safebrowsing.allowOverride", false);
 user_pref("identity.fxaccounts.enabled", false);
 
 // PREF: enable Firefox accounts [OVERRIDE]
-user_pref("identity.fxaccounts.enabled", false);
+user_pref("identity.fxaccounts.enabled", true);
 
 // PREF: disable Push API
 // Push is an API that allows websites to send you (subscribed) messages even when the site
