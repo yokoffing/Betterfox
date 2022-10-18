@@ -60,7 +60,7 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 // PREF: hide "More from Mozilla" in Settings
 user_pref("browser.preferences.moreFromMozilla", false);
 
-// PREF: disable Firefox View
+// PREF: disable Firefox View [FF106+]
 user_pref("browser.tabs.firefox-view", false);
 
 // PREF: lower delay of security dialog when downloading extensions
