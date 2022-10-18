@@ -11,7 +11,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: November 2022                                                   *
+ * version: December 2022                                                   *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -59,6 +59,9 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 
 // PREF: hide "More from Mozilla" in Settings
 user_pref("browser.preferences.moreFromMozilla", false);
+
+// PREF: disable Firefox View
+user_pref("browser.tabs.firefox-view", false);
 
 // PREF: lower delay of security dialog when downloading extensions
 // default=1000
