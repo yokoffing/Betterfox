@@ -63,11 +63,6 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
 //user_pref("privacy.trackingprotection.lower_network_priority", true);
 
-// PREF: disable allowance for embedded tweets, Instagram, and Reddit posts [OVERRIDE]
-user_pref("urlclassifier.trackingSkipURLs", "");
-user_pref("urlclassifier.features.socialtracking.skipURLs", "");
-user_pref("privacy.trackingprotection.lower_network_priority", false);
-
 // PREF: Site Isolation (Sandboxing)
 // Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
 // into a separate operating system process makes it harder for malicious sites to read another site’s private data.
@@ -794,14 +789,6 @@ user_pref("signon.rememberSignons", false);
 
 // PREF: disable Firefox Monitor
 //user_pref("extensions.fxmonitor.enabled", false);
-      
-// PREF: enable native password manager [OVERRIDE]
-user_pref("signon.rememberSignons", true);
-user_pref("signon.autofillForms", true);
-user_pref("browser.formfill.enable", true);
-// enable autofill on page load:
-//user_pref("signon.autofillForms.autocompleteOff", false);
-//user_pref("signon.showAutoCompleteOrigins", true);
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
@@ -1034,17 +1021,6 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 //user_pref("browser.safebrowsing.allowOverride", true); // DEFAULT
 
-// PREF: enforce GSB (local checks only) [OVERRIDE]
-// [NOTE] All the checks made by GSB will be performed locally, 
-// as if you enabled Safe Browsing in about:preferences#privacy
-// If you want to re-enable GSB, insert the following prefs in your overrides:
-user_pref("browser.safebrowsing.malware.enabled", true);
-user_pref("browser.safebrowsing.phishing.enabled", true);
-user_pref("browser.safebrowsing.blockedURIs.enabled", true);
-user_pref("browser.safebrowsing.allowOverride", false);
-// If you also want Safe Browsing to locally check your downloads, uncomment:
-//user_pref("browser.safebrowsing.downloads.enabled", false);
-
 /******************************************************************************
  * SECTION: MOZILLA                                                   *
 ******************************************************************************/
@@ -1052,9 +1028,6 @@ user_pref("browser.safebrowsing.allowOverride", false);
 // PREF: disable Firefox accounts
 // [ALTERNATIVE] Use xBrowserSync
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
-user_pref("identity.fxaccounts.enabled", false);
-
-// PREF: enable Firefox accounts [OVERRIDE]
 user_pref("identity.fxaccounts.enabled", false);
 
 // PREF: disable Push API
@@ -1072,19 +1045,12 @@ user_pref("dom.push.enabled", false);
 // 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.desktop-notification", 2);
 
-// PREF: enable site notification [OVERRIDE]
-user_pref("dom.push.enabled", true);
-user_pref("permissions.default.desktop-notification", 0);
-
 // PREF: disable annoying location requests from websites
 user_pref("permissions.default.geo", 2);
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 // PREF: Enable logging geolocation to the console
 //user_pref("geo.provider.network.logging.enabled", true);
-
-// PREF: re-enable location requests from websites [OVERRIDE]
-user_pref("permissions.default.geo", 0);
 
 // PREF: disable using the OS's geolocation service
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
