@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: December 2022                                                   *
+ * version: October 2022c                                                   *
  * url: https://github.com/yokoffing/Betterfox                              *
  * license: https://github.com/yokoffing/Betterfox/blob/master/LICENSE      *
  * README: https://github.com/yokoffing/Betterfox/blob/master/README.md     *
