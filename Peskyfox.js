@@ -11,7 +11,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: December 2022                                                   *
+ * version: November 2022c                                                  *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
