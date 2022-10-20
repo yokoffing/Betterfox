@@ -60,6 +60,7 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devto
 user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
+user_pref("browser.privatebrowsing.enable-new-indicator", false); // disable text in tab bar
 user_pref("layout.css.has-selector.enabled", true); // :has() CSS
 //user_pref("browser.tabs.closeWindowWithLastTab", true); // keep window open when closing last tab
 //user_pref("browser.urlbar.openintab", true); // spawn new tab when typing in URL bar, instead of using current tab
