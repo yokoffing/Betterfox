@@ -64,6 +64,12 @@ user_pref("browser.preferences.moreFromMozilla", false);
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
 user_pref("browser.tabs.firefox-view", false);
 
+// PREF: disable hide Firefox's List All Tabs icon
+// true=always show tab overflow dropdown (FF106+ default)
+// false=only display tab dropdown when there are too many tabs
+// [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
+user_pref("browser.tabs.tabmanager.enabled", false);
+
 // PREF: lower delay of security dialog when downloading extensions
 // default=1000
 //user_pref("security.dialog_enable_delay", 300);
