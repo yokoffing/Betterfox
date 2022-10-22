@@ -113,6 +113,15 @@ user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exe
 // [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
 //user_pref("extensions.webcompat.enable_shims", true); // enabled with "Strict"
 
+// PREF: Cookie Banner handling [FF107+]
+// [1]
+// [2] https://phabricator.services.mozilla.com/D153642
+// 0=
+// 1=
+// 2=
+//user_pref("cookiebanners.service.mode", 1);
+//user_pref("cookiebanners.service.mode.privateBrowsing", 1); // DEFAULT
+
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
 // haven’t received a top-level user interaction (including scroll) within the last 45 days.
