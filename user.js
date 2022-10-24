@@ -102,6 +102,7 @@ user_pref("signon.formlessCapture.enabled", false);
 user_pref("signon.privateBrowsingCapture.enabled", false);
 user_pref("signon.autofillForms", false);
 user_pref("signon.rememberSignons", false);
+user_pref("layout.forms.reveal-password-button.enabled", true);
 
 /** ADDRESS + CREDIT CARD MANAGER ***/
 user_pref("extensions.formautofill.addresses.enabled", false);
