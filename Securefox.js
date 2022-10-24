@@ -114,40 +114,21 @@ user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exe
 //user_pref("extensions.webcompat.enable_shims", true); // enabled with "Strict"
 
 // PREF: Cookie Banner handling [FF107+]
-// Controls the cookie banner handling mode in normal browsing
 // [1] https://phabricator.services.mozilla.com/D153642
 // 0: Disables all cookie banner handling (default)
 // 1: Reject-all if possible, otherwise do nothing
 // 2: Reject-all if possible, otherwise accept-all
-//user_pref("cookiebanners.service.mode", 1);
-//user_pref("cookiebanners.service.mode.privateBrowsing", 1); // DEFAULT
+user_pref("cookiebanners.service.mode", 1);
+user_pref("cookiebanners.service.mode.privateBrowsing", 1); // DEFAULT [NIGHTLY]
+    user_pref("cookiebanners.bannerClicking.enabled", true); // DEFAULT [NIGHTLY]
+    //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
 
-// Enables use of global CookieBannerRules, which apply to all sites. This is
-// used for click rules that can handle common Consent Management Providers (CMP).
+// PREF: enable global CookieBannerRules
+// This is used for click rules that can handle common Consent Management Providers (CMP).
 // [NOTE] Enabling this (when the cookie handling feature is enabled) may
 // negatively impact site performance since it requires us to run rule-defined
 // query selectors for every page.
 //user_pref("cookiebanners.service.enableGlobalRules", true);
-
-// Enables the cookie banner cookie injector. The cookie banner cookie injector
-// depends on the above `cookiebanners.service.mode` pref: it would be disabled
-// if the servcie mode is disabled.
-//user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
-
-// By default, how many seconds in the future cookies should expire after they
-// have been injected. Defaults to 12 months. Individual cookie rules may
-// override this.
-// 2629800=1 month; 604800=1 week; 86400=1 day
-//user_pref("cookiebanners.cookieInjector.defaultExpiryRelative", 31536000); // DEFAULT
-
-// Enables the cookie banner auto clicking. The cookie banner auto clicking
-// depends on the above `cookiebanners.service.mode` pref: it would be disabled
-// if the servcie mode is disabled.
-//user_pref("cookiebanners.bannerClicking.enabled", true); // DEFAULT
-
-// The maximum time in ms for detecting banner and button elements for cookie
-// banner auto clicking.
-//user_pref("cookiebanners.bannerClicking.timeout", 3000); // DEFAULT
 
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
