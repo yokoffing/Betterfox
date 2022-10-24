@@ -43,7 +43,7 @@ Betterfox was created with a [less is more](https://medium.com/the-mission/less-
 If you use any of the features below, please view the [sticky](https://github.com/yokoffing/Betterfox/issues/87) to restore functionality.
 * **Google Safe Browsing** (GSB) is disabled. We recommend use DNS-level protection like [NextDNS](https://nextdns.io/?from=xujj63g5), so check out our configuration guide [here](https://github.com/yokoffing/NextDNS-Config). If you have no other form of protection, then please re-enable GSB.
 * The native **password manager** is also disabled. If you don't use something like [KeePass](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/), [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/), or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager), then re-enable Firefox's password management.
-* **Firefox Sync** is disabled.
+* **Firefox Sync** and **Firefox View**is disabled.
 * **Site notifications** are disabled.
 * **Location requests** are rejected.
 * **Embedded tweets, instagram, and reddit posts** load on webpages, even though these requests are usually blocked when using Firefox's [Strict Enhanced Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection).
