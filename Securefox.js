@@ -163,6 +163,12 @@ user_pref("beacon.enabled", false);
 //user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 //user_pref("network.cookie.sameSite.schemeful", true); // DEFAULT 104+
 
+// PREF: enable Global Privacy Control (GPC)
+// [1] https://globalprivacycontrol.org/
+// [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
+//user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
+//user_pref("privacy.globalprivacycontrol.enabled", true);
+
 // PREF: WebRTC Global Mute Toggles
 //user_pref("privacy.webrtc.globalMuteToggles", true);
 
