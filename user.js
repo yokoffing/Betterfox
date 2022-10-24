@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: November 2022b                                                  *
+ * version: October 2022c                                                   *
  * url: https://github.com/yokoffing/Betterfox                              *
  * license: https://github.com/yokoffing/Betterfox/blob/master/LICENSE      *
  * README: https://github.com/yokoffing/Betterfox/blob/master/README.md     *
@@ -189,6 +189,8 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("browser.preferences.moreFromMozilla", false);
+user_pref("browser.tabs.firefox-view", false);
+user_pref("browser.tabs.tabmanager.enabled", false);
 user_pref("findbar.highlightAll", true);
 
 /** FULLSCREEN ***/
@@ -217,7 +219,6 @@ user_pref("browser.download.manager.addToRecentDocs", false);
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 /** PDF ***/
-user_pref("pdfjs.annotationEditorEnabled", true);
 user_pref("browser.download.open_pdf_attachments_inline", true);
 
 /** TAB BEHAVIOR ***/
@@ -232,7 +233,7 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
-// see https://github.com/yokoffing/BetterFox/blob/master/SmoothFox.js
+// see https://github.com/yokoffing/Betterfox/blob/master/Smoothfox.js
 // Enter your scrolling prefs below this line:
 
 /****************************************************************************
