@@ -11,7 +11,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: November 2022b                                                  *
+ * version: October 2022c                                                   *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -63,11 +63,6 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
 //user_pref("privacy.trackingprotection.lower_network_priority", true);
 
-// PREF: disable allowance for embedded tweets, Instagram, and Reddit posts [OVERRIDE]
-user_pref("urlclassifier.trackingSkipURLs", "");
-user_pref("urlclassifier.features.socialtracking.skipURLs", "");
-user_pref("privacy.trackingprotection.lower_network_priority", false);
-
 // PREF: Site Isolation (Sandboxing)
 // Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
 // into a separate operating system process makes it harder for malicious sites to read another site’s private data.
@@ -118,6 +113,23 @@ user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exe
 // [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
 //user_pref("extensions.webcompat.enable_shims", true); // enabled with "Strict"
 
+// PREF: Cookie Banner handling [FF107+]
+// [1] https://phabricator.services.mozilla.com/D153642
+// 0: Disables all cookie banner handling (default)
+// 1: Reject-all if possible, otherwise do nothing
+// 2: Reject-all if possible, otherwise accept-all
+user_pref("cookiebanners.service.mode", 1);
+user_pref("cookiebanners.service.mode.privateBrowsing", 1); // DEFAULT [NIGHTLY]
+    user_pref("cookiebanners.bannerClicking.enabled", true); // DEFAULT [NIGHTLY]
+    //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
+
+// PREF: enable global CookieBannerRules
+// This is used for click rules that can handle common Consent Management Providers (CMP).
+// [NOTE] Enabling this (when the cookie handling feature is enabled) may
+// negatively impact site performance since it requires us to run rule-defined
+// query selectors for every page.
+//user_pref("cookiebanners.service.enableGlobalRules", true);
+
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
 // haven’t received a top-level user interaction (including scroll) within the last 45 days.
@@ -150,6 +162,12 @@ user_pref("beacon.enabled", false);
 //user_pref("network.cookie.sameSite.laxByDefault", true);
 //user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 //user_pref("network.cookie.sameSite.schemeful", true); // DEFAULT 104+
+
+// PREF: enable Global Privacy Control (GPC)
+// [1] https://globalprivacycontrol.org/
+// [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
+//user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
+//user_pref("privacy.globalprivacycontrol.enabled", true);
 
 // PREF: WebRTC Global Mute Toggles
 //user_pref("privacy.webrtc.globalMuteToggles", true);
@@ -418,11 +436,11 @@ user_pref("privacy.history.custom", true);
  * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
 
-// PREF: New tab preload
+// PREF: new tab preload
 // [WARNING] Disabling this may cause a delay when opening a new tab in Firefox
 // [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
 // [2] https://github.com/arkenfox/user.js/issues/1556
-//user_pref("browser.newtab.preload", false);
+//user_pref("browser.newtab.preload", true); // DEFAULT
 
 // PREF: Speculative connections on New Tab page
 // Firefox will open predictive connections to sites when the user hovers their mouse over thumbnails
@@ -794,14 +812,6 @@ user_pref("signon.rememberSignons", false);
 
 // PREF: disable Firefox Monitor
 //user_pref("extensions.fxmonitor.enabled", false);
-      
-// PREF: enable native password manager [OVERRIDE]
-user_pref("signon.rememberSignons", true);
-user_pref("signon.autofillForms", true);
-user_pref("browser.formfill.enable", true);
-// enable autofill on page load:
-//user_pref("signon.autofillForms.autocompleteOff", false);
-//user_pref("signon.showAutoCompleteOrigins", true);
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
@@ -916,8 +926,8 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // [SETTING] General>Tabs>Enable Container Tabs
 // [1] https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers
 // [2] https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/
-user_pref("privacy.userContext.enabled", true);
 user_pref("privacy.userContext.ui.enabled", true);
+//user_pref("privacy.userContext.enabled", true);
 
 // PREF: set behavior on "+ Tab" button to display container menu on left click [FF74+]
 // [NOTE] The menu is always shown on long press and right click
@@ -1034,17 +1044,6 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 //user_pref("browser.safebrowsing.allowOverride", true); // DEFAULT
 
-// PREF: enforce GSB (local checks only) [OVERRIDE]
-// [NOTE] All the checks made by GSB will be performed locally, 
-// as if you enabled Safe Browsing in about:preferences#privacy
-// If you want to re-enable GSB, insert the following prefs in your overrides:
-user_pref("browser.safebrowsing.malware.enabled", true);
-user_pref("browser.safebrowsing.phishing.enabled", true);
-user_pref("browser.safebrowsing.blockedURIs.enabled", true);
-user_pref("browser.safebrowsing.allowOverride", false);
-// If you also want Safe Browsing to locally check your downloads, uncomment:
-//user_pref("browser.safebrowsing.downloads.enabled", false);
-
 /******************************************************************************
  * SECTION: MOZILLA                                                   *
 ******************************************************************************/
@@ -1053,9 +1052,6 @@ user_pref("browser.safebrowsing.allowOverride", false);
 // [ALTERNATIVE] Use xBrowserSync
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
 user_pref("identity.fxaccounts.enabled", false);
-
-// PREF: enable Firefox accounts [OVERRIDE]
-user_pref("identity.fxaccounts.enabled", true);
 
 // PREF: disable Push API
 // Push is an API that allows websites to send you (subscribed) messages even when the site
@@ -1072,19 +1068,12 @@ user_pref("dom.push.enabled", false);
 // 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.desktop-notification", 2);
 
-// PREF: enable site notification [OVERRIDE]
-user_pref("dom.push.enabled", true);
-user_pref("permissions.default.desktop-notification", 0);
-
 // PREF: disable annoying location requests from websites
 user_pref("permissions.default.geo", 2);
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 // PREF: Enable logging geolocation to the console
 //user_pref("geo.provider.network.logging.enabled", true);
-
-// PREF: re-enable location requests from websites [OVERRIDE]
-user_pref("permissions.default.geo", 0);
 
 // PREF: disable using the OS's geolocation service
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
