@@ -70,6 +70,9 @@ user_pref("browser.tabs.firefox-view", false);
 // [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
 user_pref("browser.tabs.tabmanager.enabled", false);
 
+// PREF: disable Unified Extensions button [NIGHTLY]
+user_pref("extensions.unifiedExtensions.enabled", false);
+
 // PREF: lower delay of security dialog when downloading extensions
 // default=1000
 //user_pref("security.dialog_enable_delay", 300);
