@@ -11,7 +11,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: October 2022c                                                   *
+ * version: 107                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -64,7 +64,7 @@ user_pref("browser.preferences.moreFromMozilla", false);
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
 user_pref("browser.tabs.firefox-view", false);
 
-// PREF: disable hide Firefox's List All Tabs icon
+// PREF: only show List All Tabs icon when needed
 // true=always show tab overflow dropdown (FF106+ default)
 // false=only display tab dropdown when there are too many tabs
 // [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
