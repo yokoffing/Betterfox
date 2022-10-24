@@ -11,7 +11,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: October 2022c                                                   *
+ * version: 107                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -812,6 +812,10 @@ user_pref("signon.rememberSignons", false);
 
 // PREF: disable Firefox Monitor
 //user_pref("extensions.fxmonitor.enabled", false);
+
+// PREF: show Reveal Password icon
+user_pref("layout.forms.reveal-password-button.enabled", true);
+//user_pref("layout.forms.reveal-password-context-menu.enabled", false); // DEFAULT
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
