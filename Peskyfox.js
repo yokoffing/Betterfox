@@ -11,7 +11,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: November 2022                                                   *
+ * version: October 2022c                                                   *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -59,6 +59,16 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 
 // PREF: hide "More from Mozilla" in Settings
 user_pref("browser.preferences.moreFromMozilla", false);
+
+// PREF: disable Firefox View [FF106+]
+// [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
+user_pref("browser.tabs.firefox-view", false);
+
+// PREF: disable hide Firefox's List All Tabs icon
+// true=always show tab overflow dropdown (FF106+ default)
+// false=only display tab dropdown when there are too many tabs
+// [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
+user_pref("browser.tabs.tabmanager.enabled", false);
 
 // PREF: lower delay of security dialog when downloading extensions
 // default=1000
@@ -277,9 +287,6 @@ user_pref("browser.download.always_ask_before_handling_new_types", true);
 // PREF: open PDFs inline (FF103+)
 user_pref("browser.download.open_pdf_attachments_inline", true);
 
-// PREF: add basic text to PDFs (FF103+)
-user_pref("pdfjs.annotationEditorEnabled", true);
-
 /****************************************************************************
  * SECTION: TAB BEHAVIOR                                                    *
 ****************************************************************************/
@@ -423,3 +430,9 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 
 // PREF: zoom only text on webpage, not other elements
 //user_pref("browser.zoom.full", false);
+
+// PREF: enable :has() CSS relational pseudo-class
+// [EXPERIMENTAL] Needed for some extensions, filters, and customizations
+// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
+// [2] https://caniuse.com/css-has
+//user_pref("layout.css.has-selector.enabled", true);
