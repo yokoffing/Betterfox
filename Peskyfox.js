@@ -60,10 +60,6 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 // PREF: hide "More from Mozilla" in Settings
 user_pref("browser.preferences.moreFromMozilla", false);
 
-// PREF: disable Firefox View [FF106+]
-// [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
-user_pref("browser.tabs.firefox-view", false);
-
 // PREF: only show List All Tabs icon when needed
 // true=always show tab overflow dropdown (FF106+ default)
 // false=only display tab dropdown when there are too many tabs
