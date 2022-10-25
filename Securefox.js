@@ -807,11 +807,15 @@ user_pref("signon.rememberSignons", false);
     //user_pref("signon.recipes.path", "");
 
 // PREF: disable websites autocomplete
-// Don't let sites dictate use of saved logins and passwords. 
+// Don't let sites dictate use of saved logins and passwords
 //user_pref("signon.storeWhenAutocompleteOff", false);
 
 // PREF: disable Firefox Monitor
 //user_pref("extensions.fxmonitor.enabled", false);
+
+// PREF: prevent password truncation when submitting form data
+// [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
+user_pref("editor.truncate_user_pastes", false);
 
 // PREF: show Reveal Password icon
 user_pref("layout.forms.reveal-password-button.enabled", true);
