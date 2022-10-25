@@ -103,6 +103,9 @@ user_pref("full-screen-api.warning.timeout", 0);
 // PREF: Show all matches in Findbar
 user_pref("findbar.highlightAll", true);
 
+// PREF: disable private windows being separate from normal windows in taskbar [WINDOWS]
+//user_pref("browser.privateWindowSeparation.enabled", false);
+
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
 ****************************************************************************/
