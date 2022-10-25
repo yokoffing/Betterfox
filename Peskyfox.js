@@ -67,11 +67,7 @@ user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.tabs.tabmanager.enabled", false);
 
 // PREF: disable Unified Extensions button [NIGHTLY]
-user_pref("extensions.unifiedExtensions.enabled", false);
-
-// PREF: lower delay of security dialog when downloading extensions
-// default=1000
-//user_pref("security.dialog_enable_delay", 300);
+//user_pref("extensions.unifiedExtensions.enabled", false);
 
 // PREF: remove "addons.mozilla.org" from set of domains that extensions cannot access
 // [NOTE] May only work with privacy.resistfingerprinting enabled? + DEV/NIGHTLY-only?
