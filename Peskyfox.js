@@ -361,10 +361,6 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 //user_pref("accessibility.blockautorefresh", true);
 //user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
-// PREF: prevent password truncation when submitting form data
-// [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
-user_pref("editor.truncate_user_pastes", false);
-
 // PREF: Plain Text only when copying text.
 user_pref("clipboard.plainTextOnly", true);
 
