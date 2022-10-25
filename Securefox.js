@@ -1057,6 +1057,10 @@ user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
 user_pref("identity.fxaccounts.enabled", false);
 
+// PREF: disable Firefox View [FF106+]
+// [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
+user_pref("browser.tabs.firefox-view", false);
+
 // PREF: disable Push API
 // Push is an API that allows websites to send you (subscribed) messages even when the site
 // isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
