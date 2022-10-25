@@ -24,7 +24,7 @@ user_pref("signon.management.page.breach-alerts.enabled", false); // extra harde
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);  // clear browsing data on shutdown
 user_pref("privacy.clearOnShutdown.offlineApps", true);  // disable if login issue after restart
-user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 1500); // decrease timer for HTTP background request
+//user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 1500); // decrease timer for HTTP background request
 user_pref("browser.safebrowsing.provider.google4.gethashURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google4.updateURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google.gethashURL", ""); // extra hardening
