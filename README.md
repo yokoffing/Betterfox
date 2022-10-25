@@ -40,7 +40,7 @@ The guiding principle is: "If it breaks it, it doesn't make it!" So things like 
 Betterfox was created with a [less is more](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e) mentality (i.e., keeping in mind [the law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png)). Most repos I've encountered have niche privacy and security concerns with little regard for speed, annoyances, or mainstream use. The average user doesn't need all `prefs` altered to get the results they want.
 
 ## Assumptions
-If you use any of the features below, please view the [sticky](https://github.com/yokoffing/Betterfox/issues/87) to restore functionality.
+If you use any of the features below, please view the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to restore functionality.
 * **Google Safe Browsing** (GSB) is disabled. We recommend use DNS-level protection like [NextDNS](https://nextdns.io/?from=xujj63g5), so check out our configuration guide [here](https://github.com/yokoffing/NextDNS-Config). If you have no other form of protection, then please re-enable GSB.
 * The native **password manager** is also disabled. If you don't use something like [KeePass](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/), [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/), or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager), then re-enable Firefox's password management.
 * **Firefox Sync** and **Firefox View** are disabled.
@@ -49,7 +49,7 @@ If you use any of the features below, please view the [sticky](https://github.co
 * **Embedded tweets, instagram, and reddit posts** load on webpages, even though these requests are usually blocked when using Firefox's [Strict Enhanced Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection).
    * Advanced users: We suggest that you [selectively allow](https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-quick-guide) these requests in [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with [medium mode](https://github.com/gorhill/uBlock/wiki/Blocking-mode:-medium-mode) enabled + add the [Privacy Essentials](https://github.com/yokoffing/filterlists/blob/main/privacy_essentials.txt) filter to your [custom lists](https://github.com/gorhill/uBlock/wiki/Dashboard:-Filter-lists#3rd-party-filter-lists).
 * Since Firefox implemented [state](https://github.com/yokoffing/Betterfox/blob/537eb902106f5cacebfd7a77555193ba4573dc6e/SecureFox.js#L73-L88) and [network](https://github.com/yokoffing/Betterfox/blob/537eb902106f5cacebfd7a77555193ba4573dc6e/SecureFox.js#L93-L100) partitioning, it is recommended but no longer necessary to **clear browsing data** after every session.
-* If your threat level calls for _anonymity_ and not just reasonable _privacy_,<sup>[1](https://thenewoil.org/secprivanon.html)</sup> please use the [TOR browser](https://www.torproject.org). :thumbsup:
+* If your threat level calls for _anonymity_ and not just reasonable _privacy_,<sup>[1](https://thenewoil.org/secprivanon.html)</sup> please use the [TOR browser](https://www.torproject.org).
 
 ## Mentions
 
