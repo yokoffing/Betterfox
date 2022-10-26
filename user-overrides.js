@@ -24,11 +24,12 @@ user_pref("signon.management.page.breach-alerts.enabled", false); // extra harde
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);  // clear browsing data on shutdown
 user_pref("privacy.clearOnShutdown.offlineApps", true);  // disable if login issue after restart
-//user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 1500); // decrease timer for HTTP background request
 user_pref("browser.safebrowsing.provider.google4.gethashURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google4.updateURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google.gethashURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra hardening
+//user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
+//user_pref("network.trr.uri", "dns.nextdns.io/*****"); // DoH
 //user_pref("browser.cache.memory.capacity", 1024000); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB
 //user_pref("media.memory_cache_max_size", 512000); // memory cache; playback for higher-end PC
 //user_pref("media.memory_caches_combined_limit_kb", 2560000); // memory cache; playback for higher-end PC
