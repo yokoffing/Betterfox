@@ -80,19 +80,25 @@ user_pref("gfx.offscreencanvas.enabled", true);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1072107
 user_pref("layout.css.font-loading-api.workers.enabled", true);
 
-// PREF: Enable animation-composition
+// PREF: enable animation-composition
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1785329
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
 user_pref("layout.css.animation-composition.enabled", true);
 
-// PREF: Wasm GC [NIGHTLY/DEV]
+// PREF: enable importMaps [FF108+]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1688879
+// [2] https://github.com/WICG/import-maps#the-basic-idea
+// [3] https://caniuse.com/import-maps
+user_pref("dom.importMaps.enabled", true);
+
+// PREF: Shadowrealms [NIGHTLY/DEV]
+// [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
+//user_pref("javascript.options.experimental.shadow_realms", true);
+
+// PREF: Wasm GC [NIGHTLY]
 // [1] https://github.com/WebAssembly/gc/blob/main/proposals/gc/Overview.md
 //user_pref("javascript.options.wasm_gc", true);
 
-// PREF: Wasm Function References [NIGHTLY/DEV]
+// PREF: Wasm Function References [NIGHTLY]
 // [1] https://github.com/WebAssembly/function-references/blob/master/proposals/function-references/Overview.md
 //user_pref("javascript.options.wasm_function_references", true);
-
-// PREF: Shadowrealms [NIGHTLY/DEV]
-// [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md
-//user_pref("javascript.options.experimental.shadow_realms", true);
