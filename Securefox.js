@@ -679,8 +679,8 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // https://nextdns.io
 // [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
 //user_pref("network.trr.uri", "https://xxxx/dns-query");
-//user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
-//user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+    //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
+user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
 // PREF: enable Oblivious DoH
 // [1] https://blog.cloudflare.com/oblivious-dns/
