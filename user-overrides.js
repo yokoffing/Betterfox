@@ -29,7 +29,7 @@ user_pref("browser.safebrowsing.provider.google4.updateURL", ""); // extra harde
 user_pref("browser.safebrowsing.provider.google.gethashURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra hardening
 //user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
-//user_pref("network.trr.uri", "dns.nextdns.io/*****"); // DoH
+//user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
 //user_pref("browser.cache.memory.capacity", 1024000); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB
 //user_pref("media.memory_cache_max_size", 512000); // memory cache; playback for higher-end PC
 //user_pref("media.memory_caches_combined_limit_kb", 2560000); // memory cache; playback for higher-end PC
