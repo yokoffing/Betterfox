@@ -11,7 +11,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: October 2022c                                                               *
+ * version: 106                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -85,13 +85,14 @@ user_pref("layout.css.font-loading-api.workers.enabled", true);
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
 user_pref("layout.css.animation-composition.enabled", true);
 
-// PREF: enable importMaps [FF108+]
+// PREF: enable importMaps [FF108+] [NIGHTLY]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1688879
 // [2] https://github.com/WICG/import-maps#the-basic-idea
 // [3] https://caniuse.com/import-maps
 user_pref("dom.importMaps.enabled", true);
+//user_pref("javascript.options.experimental.import_assertions", true);
 
-// PREF: Shadowrealms [NIGHTLY/DEV]
+// PREF: Shadowrealms [NIGHTLY]
 // [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
 //user_pref("javascript.options.experimental.shadow_realms", true);
 
