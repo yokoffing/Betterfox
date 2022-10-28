@@ -11,7 +11,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: October 2022c                                                   *
+ * version: 106                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -113,14 +113,15 @@ user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exe
 // [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
 //user_pref("extensions.webcompat.enable_shims", true); // enabled with "Strict"
 
-// PREF: Cookie Banner handling [FF107+]
+// PREF: Cookie Banner handling [NIGHTLY] [FF___+]
 // [1] https://phabricator.services.mozilla.com/D153642
+// [2] https://github.com/mozilla/cookie-banner-rules-list
 // 0: Disables all cookie banner handling (default)
 // 1: Reject-all if possible, otherwise do nothing
 // 2: Reject-all if possible, otherwise accept-all
 user_pref("cookiebanners.service.mode", 1);
-user_pref("cookiebanners.service.mode.privateBrowsing", 1); // DEFAULT [NIGHTLY]
-    user_pref("cookiebanners.bannerClicking.enabled", true); // DEFAULT [NIGHTLY]
+user_pref("cookiebanners.service.mode.privateBrowsing", 1);
+    user_pref("cookiebanners.bannerClicking.enabled", true);
     //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
 
 // PREF: enable global CookieBannerRules
@@ -678,8 +679,8 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // https://nextdns.io
 // [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
 //user_pref("network.trr.uri", "https://xxxx/dns-query");
-//user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
-//user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+    //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
+user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
 // PREF: enable Oblivious DoH
 // [1] https://blog.cloudflare.com/oblivious-dns/
@@ -807,11 +808,19 @@ user_pref("signon.rememberSignons", false);
     //user_pref("signon.recipes.path", "");
 
 // PREF: disable websites autocomplete
-// Don't let sites dictate use of saved logins and passwords. 
+// Don't let sites dictate use of saved logins and passwords
 //user_pref("signon.storeWhenAutocompleteOff", false);
 
 // PREF: disable Firefox Monitor
 //user_pref("extensions.fxmonitor.enabled", false);
+
+// PREF: prevent password truncation when submitting form data
+// [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
+user_pref("editor.truncate_user_pastes", false);
+
+// PREF: show Reveal Password icon
+user_pref("layout.forms.reveal-password-button.enabled", true);
+//user_pref("layout.forms.reveal-password-context-menu.enabled", false); // DEFAULT
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
@@ -1052,6 +1061,10 @@ user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 // [ALTERNATIVE] Use xBrowserSync
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
 user_pref("identity.fxaccounts.enabled", false);
+
+// PREF: disable Firefox View [FF106+]
+// [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
+user_pref("browser.tabs.firefox-view", false);
 
 // PREF: disable Push API
 // Push is an API that allows websites to send you (subscribed) messages even when the site
