@@ -122,7 +122,7 @@ user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exe
 user_pref("cookiebanners.service.mode", 1);
 user_pref("cookiebanners.service.mode.privateBrowsing", 1);
     user_pref("cookiebanners.bannerClicking.enabled", true);
-    user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
+    //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
 
 // PREF: enable global CookieBannerRules
 // This is used for click rules that can handle common Consent Management Providers (CMP).
