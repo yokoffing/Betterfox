@@ -24,11 +24,12 @@ user_pref("signon.management.page.breach-alerts.enabled", false); // extra harde
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);  // clear browsing data on shutdown
 user_pref("privacy.clearOnShutdown.offlineApps", true);  // disable if login issue after restart
-user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 1500); // decrease timer for HTTP background request
 user_pref("browser.safebrowsing.provider.google4.gethashURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google4.updateURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google.gethashURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra hardening
+//user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
+//user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
 //user_pref("browser.cache.memory.capacity", 1024000); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB
 //user_pref("media.memory_cache_max_size", 512000); // memory cache; playback for higher-end PC
 //user_pref("media.memory_caches_combined_limit_kb", 2560000); // memory cache; playback for higher-end PC
@@ -37,6 +38,7 @@ user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra harden
 //user_pref("media.cache_size", 2048000); // media cache; playback for higher-end PC
 
 /** PESKYFOX ***/
+user_pref("browser.theme.dark-private-windows", false); // disable private windows always being dark
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Settings>Home>Firefox Home Content>Recent Activity>Recommended by Pocket>Sponsored Stories  
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false); // Settings>Home>Firefox Home Content>Recent Activity>Bookmarks
@@ -57,7 +59,6 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devto
 user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
-user_pref("browser.privatebrowsing.enable-new-indicator", false); // disable text in tab bar
 //user_pref("browser.tabs.closeWindowWithLastTab", true); // keep window open when closing last tab
 //user_pref("browser.urlbar.openintab", true); // spawn new tab when typing in URL bar, instead of using current tab
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
