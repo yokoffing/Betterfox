@@ -103,11 +103,13 @@ user_pref("full-screen-api.warning.timeout", 0);
 // PREF: Show all matches in Findbar
 user_pref("findbar.highlightAll", true);
 
-// PREF: private browsing changes [FF106+]
-// disable private windows being separate from normal windows in taskbar [WINDOWS]
+// Private Browsing changes [FF106+]
+// PREF: disable private windows being separate from normal windows in taskbar [WINDOWS]
 //user_pref("browser.privateWindowSeparation.enabled", false);
-// disable "private window" indicator in tab bar
+// PREF: disable "private window" indicator in tab bar
 //user_pref("browser.privatebrowsing.enable-new-indicator", false);
+// PREF: disable always using dark theme for private browsing windows
+//user_pref("browser.theme.dark-private-windows", false);
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
