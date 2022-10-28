@@ -11,7 +11,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: October 2022c                                                   *
+ * version: 106                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -60,19 +60,14 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 // PREF: hide "More from Mozilla" in Settings
 user_pref("browser.preferences.moreFromMozilla", false);
 
-// PREF: disable Firefox View [FF106+]
-// [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
-user_pref("browser.tabs.firefox-view", false);
-
-// PREF: disable hide Firefox's List All Tabs icon
+// PREF: only show List All Tabs icon when needed
 // true=always show tab overflow dropdown (FF106+ default)
 // false=only display tab dropdown when there are too many tabs
 // [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
 user_pref("browser.tabs.tabmanager.enabled", false);
 
-// PREF: lower delay of security dialog when downloading extensions
-// default=1000
-//user_pref("security.dialog_enable_delay", 300);
+// PREF: disable Unified Extensions button [NIGHTLY]
+//user_pref("extensions.unifiedExtensions.enabled", false);
 
 // PREF: remove "addons.mozilla.org" from set of domains that extensions cannot access
 // [NOTE] May only work with privacy.resistfingerprinting enabled? + DEV/NIGHTLY-only?
@@ -107,6 +102,14 @@ user_pref("full-screen-api.warning.timeout", 0);
 
 // PREF: Show all matches in Findbar
 user_pref("findbar.highlightAll", true);
+
+// Private Browsing changes [FF106+]
+// PREF: disable private windows being separate from normal windows in taskbar [WINDOWS]
+//user_pref("browser.privateWindowSeparation.enabled", false);
+// PREF: disable "private window" indicator in tab bar
+user_pref("browser.privatebrowsing.enable-new-indicator", false);
+// PREF: disable always using dark theme for private browsing windows
+//user_pref("browser.theme.dark-private-windows", false);
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
@@ -206,9 +209,9 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 //user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false); /// unnecessary?
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);  // Shortcuts
-      //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // [FF83+] Sponsored shortcuts
+      //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts [FF83+]
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);  // Recommended by Pocket
-      //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // [FF58+] Sponsored Stories   
+      //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
 //user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // Recent Activity [DEFAULT]
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
@@ -361,10 +364,6 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // [1] https://www.ghacks.net/2018/08/19/stop-websites-from-reloading-pages-automatically/
 //user_pref("accessibility.blockautorefresh", true);
 //user_pref("browser.meta_refresh_when_inactive.disabled", true);
-
-// PREF: prevent password truncation when submitting form data
-// [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
-user_pref("editor.truncate_user_pastes", false);
 
 // PREF: Plain Text only when copying text.
 user_pref("clipboard.plainTextOnly", true);
