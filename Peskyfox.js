@@ -107,7 +107,7 @@ user_pref("findbar.highlightAll", true);
 // PREF: disable private windows being separate from normal windows in taskbar [WINDOWS]
 //user_pref("browser.privateWindowSeparation.enabled", false);
 // PREF: disable "private window" indicator in tab bar
-//user_pref("browser.privatebrowsing.enable-new-indicator", false);
+user_pref("browser.privatebrowsing.enable-new-indicator", false);
 // PREF: disable always using dark theme for private browsing windows
 //user_pref("browser.theme.dark-private-windows", false);
 
