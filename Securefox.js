@@ -113,16 +113,16 @@ user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exe
 // [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
 //user_pref("extensions.webcompat.enable_shims", true); // enabled with "Strict"
 
-// PREF: Cookie Banner handling [NIGHTLY] [FF10_?+]
+// PREF: Cookie Banner handling [NIGHTLY] [FF___+]
 // [1] https://phabricator.services.mozilla.com/D153642
 // [2] https://github.com/mozilla/cookie-banner-rules-list
 // 0: Disables all cookie banner handling (default)
 // 1: Reject-all if possible, otherwise do nothing
 // 2: Reject-all if possible, otherwise accept-all
 user_pref("cookiebanners.service.mode", 1);
-user_pref("cookiebanners.service.mode.privateBrowsing", 1); // DEFAULT [NIGHTLY]
+user_pref("cookiebanners.service.mode.privateBrowsing", 1);
     user_pref("cookiebanners.bannerClicking.enabled", true);
-    user_pref("cookiebanners.cookieInjector.enabled", true);
+    user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
 
 // PREF: enable global CookieBannerRules
 // This is used for click rules that can handle common Consent Management Providers (CMP).
