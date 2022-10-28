@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 107                                                             *
+ * version: 106                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * license: https://github.com/yokoffing/Betterfox/blob/master/LICENSE      *
  * README: https://github.com/yokoffing/Betterfox/blob/master/README.md     *
@@ -38,9 +38,6 @@ user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twim
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
 user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false);
-user_pref("cookiebanners.service.mode", 1);
-user_pref("cookiebanners.service.mode.privateBrowsing", 1);
-user_pref("cookiebanners.bannerClicking.enabled", true);
 user_pref("beacon.enabled", false);
 
 /** OCSP & CERTS / HPKP ***/
