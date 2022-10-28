@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: October 2022c                                                   *
+ * version: 106                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * license: https://github.com/yokoffing/Betterfox/blob/master/LICENSE      *
  * README: https://github.com/yokoffing/Betterfox/blob/master/README.md     *
@@ -25,6 +25,7 @@ user_pref("dom.enable_web_task_scheduling", true);
 user_pref("gfx.offscreencanvas.enabled", true);
 user_pref("layout.css.font-loading-api.workers.enabled", true);
 user_pref("layout.css.animation-composition.enabled", true);
+user_pref("dom.importMaps.enabled", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
@@ -99,6 +100,8 @@ user_pref("signon.formlessCapture.enabled", false);
 user_pref("signon.privateBrowsingCapture.enabled", false);
 user_pref("signon.autofillForms", false);
 user_pref("signon.rememberSignons", false);
+user_pref("editor.truncate_user_pastes", false);
+user_pref("layout.forms.reveal-password-button.enabled", true);
 
 /** ADDRESS + CREDIT CARD MANAGER ***/
 user_pref("extensions.formautofill.addresses.enabled", false);
@@ -134,6 +137,7 @@ user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 
 /** MOZILLA ***/
 user_pref("identity.fxaccounts.enabled", false);
+user_pref("browser.tabs.firefox-view", false);
 user_pref("dom.push.enabled", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
@@ -189,9 +193,9 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("browser.preferences.moreFromMozilla", false);
-user_pref("browser.tabs.firefox-view", false);
 user_pref("browser.tabs.tabmanager.enabled", false);
 user_pref("findbar.highlightAll", true);
+user_pref("browser.privatebrowsing.enable-new-indicator", false);
 
 /** FULLSCREEN ***/
 user_pref("full-screen-api.transition-duration.enter", "0 0");
@@ -226,9 +230,9 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("dom.disable_window_move_resize", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
-user_pref("editor.truncate_user_pastes", false);
 user_pref("clipboard.plainTextOnly", true);
 user_pref("dom.popup_allowed_events", "click dblclick");
+user_pref("layout.css.has-selector.enabled", true);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
