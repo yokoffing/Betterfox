@@ -549,10 +549,13 @@ user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs#values
 //user_pref("browser.urlbar.trimURLs", false);
 
-// PREF: enable a seperate search engine for Private Windows
-// [SETTINGS] Preferences -> Search and select another search provider (like DuckDuckGo)
-user_pref("browser.search.separatePrivateDefault", true);
+// PREF: enable seperate search engine for Private Windows
+// [SETTINGS] Preferences>Search>Default Search Engine>"Use this search engine in Private Windows"
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
+// [SETTINGS] "Choose a different default search engine for Private Windows only"
+user_pref("browser.search.separatePrivateDefault", true);
+// enable prompt for searching in a Private Window when using normal browsing window URL bar
+//user_pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // HIDDEN
 
 // PREF: enable option to add custom search
 // [SETTINGS] Settings -> Search -> Search Shortcuts -> Add
