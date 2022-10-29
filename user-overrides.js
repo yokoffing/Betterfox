@@ -38,7 +38,7 @@ user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra harden
 //user_pref("media.cache_size", 2048000); // media cache; playback for higher-end PC
 
 /** PESKYFOX ***/
-user_pref("browser.theme.dark-private-windows", false); // disable private windows always being dark
+//user_pref("browser.theme.dark-private-windows", false); // disable private windows always being dark
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Settings>Home>Firefox Home Content>Recent Activity>Recommended by Pocket>Sponsored Stories  
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false); // Settings>Home>Firefox Home Content>Recent Activity>Bookmarks
