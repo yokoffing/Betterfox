@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 106                                                             *
+ * version: 107                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * license: https://github.com/yokoffing/Betterfox/blob/master/LICENSE      *
  * README: https://github.com/yokoffing/Betterfox/blob/master/README.md     *
@@ -75,7 +75,6 @@ user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-prefetch", false);
 
 /** SEARCH / URL BAR ***/
-user_pref("browser.search.separatePrivateDefault", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 user_pref("browser.search.suggest.enabled", false);
