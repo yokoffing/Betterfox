@@ -553,7 +553,7 @@ user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
 // [SETTINGS] Preferences>Search>Default Search Engine>"Use this search engine in Private Windows"
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 // [SETTINGS] "Choose a different default search engine for Private Windows only"
-user_pref("browser.search.separatePrivateDefault", true);
+//user_pref("browser.search.separatePrivateDefault", true); // DEFAULT
 // enable prompt for searching in a Private Window when using normal browsing window URL bar
 // [1] https://old.reddit.com/r/firefox/comments/yg8jyh/different_private_search_option_gone_firefox_106/
 //user_pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // HIDDEN
