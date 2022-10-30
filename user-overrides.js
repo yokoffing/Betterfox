@@ -14,11 +14,10 @@
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true); // only load pinned tabs once selected
 user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
-    //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
+//user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 
 /** SECUREFOX ***/
-user_pref("browser.search.separatePrivateDefault", false); // disable separate search engine
-user_pref("browser.search.separatePrivateDefault.ui.enabled", false); // disable separate search engine
+user_pref("browser.search.separatePrivateDefault.ui.enabled", true); // separate search engine UI
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
@@ -51,6 +50,7 @@ user_pref("browser.urlbar.suggest.bookmark", false); // hide URL bar dropdown su
 user_pref("browser.urlbar.suggest.engines", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.history", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.openpage", false); // hide URL bar dropdown suggestions
+user_pref("browser.urlbar.suggest.searches", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.topsites", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.maxRichResults", 1); // minimum suggestion needed for URL bar autofill
 user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually back-up
@@ -62,6 +62,16 @@ user_pref("general.autoScroll", false); // disable unintentional behavior for mi
 user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately" 
 //user_pref("browser.tabs.closeWindowWithLastTab", true); // keep window open when closing last tab
 //user_pref("browser.urlbar.openintab", true); // spawn new tab when typing in URL bar, instead of using current tab
+
+/** NIGHTLY - DELETE IF NOT NIGHTLY ***/
+user_pref("javascript.options.experimental.import_assertions", true);
+user_pref("javascript.options.experimental.shadow_realms", true);
+user_pref("javascript.options.wasm_gc", true);
+user_pref("javascript.options.wasm_function_references", true);
+user_pref("cookiebanners.service.mode", 1);
+user_pref("privacy.userContext.enabled", false);
+user_pref("browser.urlbar.suggest.quickactions", false);
+user_pref("extensions.unifiedExtensions.enabled", false);
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 
 // Custom monospace font
