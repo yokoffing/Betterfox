@@ -11,7 +11,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 106                                                             *
+ * version: 107                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -138,6 +138,7 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.suggest.history", false);
 //user_pref("browser.urlbar.suggest.openpage", true);
+//user_pref("browser.urlbar.suggest.quickactions", false); // [NIGHTLY]
 //user_pref("browser.urlbar.suggest.searches", false);
 // Disable dropdown suggestions with empty query:
 user_pref("browser.urlbar.suggest.topsites", false);
