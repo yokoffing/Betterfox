@@ -19,28 +19,43 @@
  * SECTION: MOZILLA UI                                                      *
 ****************************************************************************/
 
-// PREF: Enable a Light theme for browser and webpage content
+// PREF: enable a Light theme for browser and webpage content
 // [TEST] https://9to5mac.com/
 //user_pref("ui.systemUsesDarkTheme", 0); // HIDDEN
 //user_pref("browser.in-content.dark-mode", false); // HIDDEN
 
-// PREF: Enable a Dark theme for browser and webpage content
+// PREF: enable a Dark theme for browser and webpage content
 // [TEST] https://9to5mac.com/
 //user_pref("ui.systemUsesDarkTheme", 1); // HIDDEN
 //user_pref("browser.in-content.dark-mode", true); // HIDDEN
 
-// PREF: Choose what theme Firefox follows by default
+// PREF: choose what theme Firefox follows by default
 // Dark (0), Light (1), System (2), or Browser (3) (default)
 // [1] https://www.reddit.com/r/firefox/comments/rfj6yc/how_to_stop_firefoxs_dark_theme_from_overriding/hoe82i5/?context=3
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 
-// PREF: Allow Firefox to use userChome, userContent, etc.
+// PREF: enable Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-// PREF: Disable Accessibility services
+// PREF: enable CSS moz document rules
+// Still needed for Stylus?
+// [1] https://old.reddit.com/r/FirefoxCSS/comments/8x2q97/reenabling_mozdocument_rules_in_firefox_61/
+//user_pref("layout.css.moz-document.content.enabled", true);
+
+// PREF: disable annoying update restart prompts
+// Delay update available prompts for ~1 week
+// Will still show green arrow in menu bar
+user_pref("app.update.suppressPrompts", true);
+
+// PREF: disable Accessibility services
 // Performance improvement
 user_pref("accessibility.force_disabled", 1);
 user_pref("devtools.accessibility.enabled", false);
+
+// PREF: don't focus elements on click, only on tab
+// Helps to eliminate ugly 1px dotted outline
+// default=1
+//user_pref("accessibility.mouse_focuses_formcontrol", 0);
 
 // PREF: add compact mode back to options
 user_pref("browser.compactmode.show", true);
@@ -48,7 +63,7 @@ user_pref("browser.compactmode.show", true);
 // PREF: Mozilla VPN
 user_pref("browser.privatebrowsing.vpnpromourl", "");
 
-// PREF: Disable about:addons' Recommendations pane (uses Google Analytics)
+// PREF: disable about:addons' Recommendations pane (uses Google Analytics)
 user_pref("extensions.getAddons.showPane", false); // HIDDEN
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
@@ -100,7 +115,7 @@ user_pref("full-screen-api.warning.timeout", 0);
 // PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
-// PREF: Show all matches in Findbar
+// PREF: show all matches in Findbar
 user_pref("findbar.highlightAll", true);
 
 // Private Browsing changes [FF106+]
@@ -118,15 +133,19 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 // PREF: smoother font
 // [1] https://old.reddit.com/r/firefox/comments/wvs04y/windows_11_firefox_v104_font_rendering_different/?context=3
 //user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
-//user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
-    //user_pref("gfx.font_rendering.cleartype_params.gamma", 1750);
 
 // PREF: use DirectWrite everywhere like Chrome [WINDOWS]
 // [1] https://old.reddit.com/r/firefox/comments/wvs04y/comment/ilklzy1/?context=3
+//user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 //user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
+//user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
+//user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
+// Some users find these helpful:
+    //user_pref("gfx.font_rendering.cleartype_params.gamma", 1750);
     //user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 50);
+    //user_pref("gfx.font_rendering.cleartype_params.pixel_structure", 1);
 
-// PREF: use macOS Appearance Panel text smoothing setting when rendering text [MACOS]
+// PREF: use macOS Appearance Panel text smoothing setting when rendering text [macOS]
 //user_pref("gfx.use_text_smoothing_setting", true);
 
 /****************************************************************************
@@ -404,6 +423,10 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 // 0=none, 1-multi-line, 2=multi-line & single-line
 //user_pref("layout.spellcheckDefault", 1); // DEFAULT
 
+// PREF: Spell Checker underline styles
+// [1] https://kb.mozillazine.org/Ui.SpellCheckerUnderlineStyle#Possible_values_and_their_effects
+//user_pref("ui.SpellCheckerUnderlineStyle", 1);
+
 // PREF: Limit the number of bookmark backups Firefox keeps
 //user_pref("browser.bookmarks.max_backups", 1);
 
@@ -435,4 +458,9 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 // [EXPERIMENTAL] Needed for some extensions, filters, and customizations
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
 // [2] https://caniuse.com/css-has
-//user_pref("layout.css.has-selector.enabled", true);
+user_pref("layout.css.has-selector.enabled", true);
+
+// PREF: disable when dragging a scrollbar, if the mouse moves
+// too far from the scrollbar, the scrollbar will snap back to the top [LINUX?]
+// default=6
+//user_pref("slider.snapMultiplier", 0);
