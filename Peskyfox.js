@@ -441,6 +441,14 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 //user_pref("view_source.wrap_long_lines", true);
 //user_pref("devtools.debugger.ui.editor-wrapping", true);
 
+// PREF: enable ASRouter Devtools at about:newtab#devtools (useful if you're making your own CSS theme)
+// [1] https://firefox-source-docs.mozilla.org/browser/components/newtab/content-src/asrouter/docs/debugging-docs.html
+//user_pref("browser.newtabpage.activity-stream.asrouter.devtoolsEnabled", true);
+// show user agent styles in the inspector
+//user_pref("devtools.inspector.showUserAgentStyles", true);
+// show native anonymous content (like scrollbars or tooltips) and user agent shadow roots (like the components of an <input> element) in the inspector
+//user_pref("devtools.inspector.showAllAnonymousContent", true);
+
 // PREF: print preview
 //user_pref("print.tab_modal.enabled", true); // DEFAULT
 
