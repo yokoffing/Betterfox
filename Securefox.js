@@ -317,18 +317,22 @@ user_pref("layout.css.font-visibility.private", 1); // Private Browsing windows
 // PREF: disable showing about:blank as soon as possible during startup [FF60+]
 // When default true this no longer masks the RFP chrome resizing activity
 // [1] https://bugzilla.mozilla.org/1448423
-//user_pref("browser.startup.blankWindow", false);
+user_pref("browser.startup.blankWindow", false);
 
-// PREF: disable using system colors
+// PREF: disable ICC color management
+// Use a color calibrator for best results [WINDOWS]
+// Also may help improve font rendering on WINDOWS
 // [SETTING] General>Language and Appearance>Fonts and Colors>Colors>Use system colors
-//user_pref("browser.display.use_system_colors", false); // [DEFAULT false NON-WINDOWS]
+// default=false NON-WINDOWS
+// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/3.5/ICC_color_correction_in_Firefox
+user_pref("browser.display.use_system_colors", false);
 
 // PREF: enforce non-native widget theme
 // Security: removes/reduces system API calls, e.g. win32k API [1]
 // Fingerprinting: provides a uniform look and feel across platforms [2]
 // [1] https://bugzilla.mozilla.org/1381938
 // [2] https://bugzilla.mozilla.org/1411425
-//user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
+//user_pref("widget.non-native-theme.enabled", true); // DEFAULT
 
 /****************************************************************************
  * SECTION: DISK AVOIDANCE                                                 *
