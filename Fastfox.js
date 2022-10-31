@@ -11,7 +11,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 106                                                                         *
+ * version: 107                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -33,7 +33,7 @@
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
 //user_pref("gfx.webrender.software", true);
 
-// PREF: Lazy Image Loading
+// PREF: enable Lazy Image Loading
 // https://www.ghacks.net/2020/02/15/firefox-75-gets-lazy-loading-support-for-images/
 //user_pref("dom.image-lazy-loading.enabled", true); // DEFAULT
 
@@ -45,8 +45,7 @@
 //user_pref("browser.sessionstore.restore_tabs_lazily", true); // DEFAULT
 
 // PREF: disable preSkeletonUI on startup
-// May set to "true" if your hardware is very old.
-//user_pref("browser.startup.preXulSkeletonUI", false);
+user_pref("browser.startup.preXulSkeletonUI", false);
   
 // PREF: set the minimum interval between session save operations
 // Increasing this can help on older machines and some websites, as well as reducing writes
