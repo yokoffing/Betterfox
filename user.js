@@ -19,6 +19,7 @@
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
+user_pref("browser.startup.preXulSkeletonUI", false);
 user_pref("image.jxl.enabled", true);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
@@ -54,6 +55,10 @@ user_pref("security.tls.enable_0rtt_data", false);
 /** FONTS ***/
 user_pref("layout.css.font-visibility.private", 1);
 user_pref("layout.css.font-visibility.trackingprotection", 1);
+
+/** RFP ***/
+user_pref("browser.startup.blankWindow", false);
+user_pref("browser.display.use_system_colors", false);
 
 /** DISK AVOIDANCE ***/
 user_pref("browser.cache.disk.enable", false);
