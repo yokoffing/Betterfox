@@ -17,7 +17,6 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 
 /** SECUREFOX ***/
-user_pref("browser.search.separatePrivateDefault.ui.enabled", true); // separate search engine UI
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
@@ -29,15 +28,14 @@ user_pref("browser.safebrowsing.provider.google.gethashURL", ""); // extra harde
 user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra hardening
 //user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 //user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
-//user_pref("browser.cache.memory.capacity", 1024000); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB
-//user_pref("media.memory_cache_max_size", 512000); // memory cache; playback for higher-end PC
-//user_pref("media.memory_caches_combined_limit_kb", 2560000); // memory cache; playback for higher-end PC
-//user_pref("media.cache_readahead_limit", 99999); // media cache; playback for higher-end PC
-//user_pref("media.cache_resume_threshold", 99999); // media cache; playback for higher-end PC
-//user_pref("media.cache_size", 2048000); // media cache; playback for higher-end PC
+user_pref("browser.cache.memory.capacity", 1024000); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB
+user_pref("media.memory_cache_max_size", 512000); // memory cache; playback for higher-end PC
+user_pref("media.memory_caches_combined_limit_kb", 2560000); // memory cache; playback for higher-end PC
+user_pref("media.cache_readahead_limit", 99999); // media cache; playback for higher-end PC
+user_pref("media.cache_resume_threshold", 99999); // media cache; playback for higher-end PC
+user_pref("media.cache_size", 2048000); // media cache; playback for higher-end PC
 
 /** PESKYFOX ***/
-//user_pref("browser.theme.dark-private-windows", false); // disable private windows always being dark
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Settings>Home>Firefox Home Content>Recent Activity>Recommended by Pocket>Sponsored Stories  
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false); // Settings>Home>Firefox Home Content>Recent Activity>Bookmarks
@@ -59,11 +57,12 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devto
 user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
-user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately" 
+user_pref("ui.SpellCheckerUnderlineStyle", 1);
+user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
 //user_pref("browser.tabs.closeWindowWithLastTab", true); // keep window open when closing last tab
 //user_pref("browser.urlbar.openintab", true); // spawn new tab when typing in URL bar, instead of using current tab
 
-/** NIGHTLY - DELETE IF NOT NIGHTLY ***/
+/** DELETE IF NOT NIGHTLY ***/
 user_pref("javascript.options.experimental.import_assertions", true);
 user_pref("javascript.options.experimental.shadow_realms", true);
 user_pref("javascript.options.wasm_gc", true);
@@ -74,13 +73,15 @@ user_pref("browser.urlbar.suggest.quickactions", false);
 user_pref("extensions.unifiedExtensions.enabled", false);
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 
-// Custom monospace font
-// Enforce one custom monospace font (or neither one!) depending on the machine:
-//user_pref("font.name.monospace.x-western", "SF Mono"); // preferred font [macOS]
+/** DELETE IF NOT WINDOWS ***/
+// PREF: Use DirectWrite instead of GDI
+user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
+user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
+user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
+user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.monospace.x-western", "Cascadia Code"); // preferred font [WINDOWS]
-// then uncomment:
 //user_pref("layout.css.font-visibility.trackingprotection", 3); // breaks using custom font on pages
 
-// WINDOWS-only prefs; uncomment to enable:
-//user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5); // font improvement [WINDOWS]
-//user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", ""); // font improvement [WINDOWS]
+/** DELETE IF NOT macOS ***/
+//user_pref("font.name.monospace.x-western", "Cascadia Code"); // preferred font [WINDOWS]
+//user_pref("layout.css.font-visibility.trackingprotection", 3); // breaks using custom font on pages
