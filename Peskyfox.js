@@ -335,12 +335,6 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 // 1 = in the current tab
 //user_pref("browser.link.open_newwindow", 3); // DEFAULT
 
-// PREF: determine the behavior of pages opened by JavaScript (like popups)
-// 2 (default) = catch new windows opened by JavaScript that do not have specific values set (how large the window should be, whether it should have a status bar, etc.) 
-// 0 = force all new windows opened by JavaScript into tabs
-// [NOTE] Most advertising popups also open in new windows with values set.
-user_pref("browser.link.open_newwindow.restriction", 0);
-
 // PREF: override <browser.link.open_newwindow> for external links
 // Set if a different destination for external links is needed.
 // 3=Open in a new tab in the current window
@@ -349,22 +343,14 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 // -1=no overrides (default)
 //user_pref("browser.link.open_newwindow.override.external", -1); // DEFAULT
 
-// PREF: Prevent scripts from moving and resizing open windows
-user_pref("dom.disable_window_move_resize", true);
-
-// PREF: insert new tabs immediately after the current tab
-//user_pref("browser.tabs.insertAfterCurrent", true);
-
- // PREF: insert new tabs after groups like it 
-//user_pref("browser.tabs.insertRelatedAfterCurrent", true); // DEFAULT
-
-// PREF: leave the browser window open even after you close the last tab
-//user_pref("browser.tabs.closeWindowWithLastTab", false);
-
-// PREF: tabs load when opened in the background
+// PREF: determine whether a link opens in the foreground or background on left-click
+// [SETTINGS] Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
+// true(default) = opens new tabs by left-click in the background, leaving focus on the current tab;
+// false = opens new tabs by left-click in the foreground, putting focus on the new tab;
+// [NOTE] CTRL+SHIFT+CLICK will open new tabs in foreground (default); switching PREF to false will reverse this behavior
 //user_pref("browser.tabs.loadInBackground", true); // DEFAULT
 
-// PREF: determine whether a link opens in the foreground or background on left-click
+// PREF: determine whether a link opens in the foreground or background on left-click [INACTIVE?]
 // Determines behavior of pages normally meant to open in a new window (such as
 // target="_blank" or from an external program), but that have instead been loaded in a new tab.
 // true = Load the new tab in the background, leaving focus on the current tab
@@ -378,6 +364,24 @@ user_pref("dom.disable_window_move_resize", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 // PREF: leave Bookmarks Menu open when selecting a site
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
+
+// PREF: determine the behavior of pages opened by JavaScript (like popups)
+// 2 (default) = catch new windows opened by JavaScript that do not have specific values set (how large the window should be, whether it should have a status bar, etc.) 
+// 0 = force all new windows opened by JavaScript into tabs
+// [NOTE] Most advertising popups also open in new windows with values set.
+user_pref("browser.link.open_newwindow.restriction", 0);
+
+// PREF: Prevent scripts from moving and resizing open windows
+user_pref("dom.disable_window_move_resize", true);
+
+// PREF: insert new tabs immediately after the current tab
+//user_pref("browser.tabs.insertAfterCurrent", true);
+
+ // PREF: insert new tabs after groups like it 
+//user_pref("browser.tabs.insertRelatedAfterCurrent", true); // DEFAULT
+
+// PREF: leave the browser window open even after you close the last tab
+//user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 // PREF: Stop websites from reloading pages automatically
 // [WARNING] Breakage with some sites.
