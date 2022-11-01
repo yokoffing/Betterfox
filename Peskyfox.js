@@ -321,16 +321,13 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 // [2] https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
 //user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
 
-// PREF: search query in the search box appear in a new tab (instead of the current tab)
-// user_pref("browser.search.openintab", true);
-
-// PREF: search query in the URL bar opens in a new tab (instead of the current tab)
-//user_pref("browser.urlbar.openintab", true);
+// PREF: search query opens in a new tab (instead of the current tab)
+//user_pref("browser.search.openintab", true); // SEARCH BOX
+//user_pref("browser.urlbar.openintab", true); // URL BAR
 
 // PREF: control behavior of links that would normally open in a new window
-// Pop-up windows are treated like regular tabs.
 // [NOTE] You can still right-click a link and open in a new window.
-// 3 (default) = in a new tab
+// 3 (default) = in a new tab; pop-up windows are treated like regular tabs
 // 2 = in a new window
 // 1 = in the current tab
 //user_pref("browser.link.open_newwindow", 3); // DEFAULT
