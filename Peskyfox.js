@@ -316,7 +316,7 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 
 // PREF: unload tabs on low memory
 // Firefox will detect if your computer’s memory is running low (less than 400MB)
-// and suspend tabs that you have not used in awhile.
+// and suspend tabs that you have not used in awhile
 // [1] https://support.mozilla.org/en-US/questions/1262073
 // [2] https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
 //user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
@@ -326,14 +326,14 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 //user_pref("browser.urlbar.openintab", true); // URL BAR
 
 // PREF: control behavior of links that would normally open in a new window
-// [NOTE] You can still right-click a link and open in a new window.
+// [NOTE] You can still right-click a link and open in a new window
 // 3 (default) = in a new tab; pop-up windows are treated like regular tabs
 // 2 = in a new window
 // 1 = in the current tab
 //user_pref("browser.link.open_newwindow", 3); // DEFAULT
 
 // PREF: override <browser.link.open_newwindow> for external links
-// Set if a different destination for external links is needed.
+// Set if a different destination for external links is needed
 // 3=Open in a new tab in the current window
 // 2=Open in a new window
 // 1=Open in the current tab/window
@@ -347,18 +347,19 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 // [NOTE] CTRL+SHIFT+CLICK will open new tabs in foreground (default); switching PREF to false will reverse this behavior
 //user_pref("browser.tabs.loadInBackground", true); // DEFAULT
 
-// PREF: determine whether a link opens in the foreground or background on left-click [INACTIVE?]
-// Determines behavior of pages normally meant to open in a new window (such as
-// target="_blank" or from an external program), but that have instead been loaded in a new tab.
+// [INACTIVE?] PREF: determines whether pages normally meant to open in a new window (such as
+// target="_blank" or from an external program), but that have instead been loaded in a new tab
 // true = Load the new tab in the background, leaving focus on the current tab
 // false (default) = Load the new tab in the foreground, taking the focus from the current tab.
 // [NOTE] Setting this preference to True will still bring the browser to the front when opening links from outside the browser.
 //user_pref("browser.tabs.loadDivertedInBackground", false); // DEFAULT
 
-// PREF: load bookmarks in the background using Bookmarks Menu
+// PREF: load bookmarks in the background when left-clicking in Bookmarks Menu
 // user_pref("browser.tabs.loadBookmarksInBackground", true);
+
 // PREF: load bookmarks in tabs, not separate  windows
 user_pref("browser.tabs.loadBookmarksInTabs", true);
+
 // PREF: leave Bookmarks Menu open when selecting a site
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
