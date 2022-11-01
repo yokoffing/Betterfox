@@ -349,10 +349,10 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 
 // [INACTIVE?] PREF: determines whether pages normally meant to open in a new window (such as
 // target="_blank" or from an external program), but that have instead been loaded in a new tab
-// true = Load the new tab in the background, leaving focus on the current tab
-// false(default) = Load the new tab in the foreground, taking the focus from the current tab
-// [NOTE] Setting this preference to true will still bring the browser to the front when opening links from outside the browser.
-//user_pref("browser.tabs.loadDivertedInBackground", false); // DEFAULT
+// true = load the new tab in the background, leaving focus on the current tab
+// false(default) = load the new tab in the foreground, taking the focus from the current tab
+// [NOTE] Setting this preference to true will still bring the browser to the front when opening links from outside the browser
+    //user_pref("browser.tabs.loadDivertedInBackground", false); // DEFAULT
 
 // PREF: load bookmarks in the background when left-clicking in Bookmarks Menu
 // user_pref("browser.tabs.loadBookmarksInBackground", true);
@@ -366,7 +366,7 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 // PREF: determine the behavior of pages opened by JavaScript (like popups)
 // 2 (default) = catch new windows opened by JavaScript that do not have specific values set (how large the window should be, whether it should have a status bar, etc.) 
 // 0 = force all new windows opened by JavaScript into tabs
-// [NOTE] Most advertising popups also open in new windows with values set.
+// [NOTE] Most advertising popups also open in new windows with values set
 user_pref("browser.link.open_newwindow.restriction", 0);
 
 // PREF: Prevent scripts from moving and resizing open windows
@@ -381,16 +381,16 @@ user_pref("dom.disable_window_move_resize", true);
 // PREF: leave the browser window open even after you close the last tab
 //user_pref("browser.tabs.closeWindowWithLastTab", false);
 
-// PREF: Stop websites from reloading pages automatically
+// PREF: stop websites from reloading pages automatically
 // [WARNING] Breakage with some sites.
 // [1] https://www.ghacks.net/2018/08/19/stop-websites-from-reloading-pages-automatically/
 //user_pref("accessibility.blockautorefresh", true);
 //user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
-// PREF: Plain Text only when copying text.
+// PREF: Plain Text only when copying text
 user_pref("clipboard.plainTextOnly", true);
 
-// PREF: Limit events that can cause a pop-up
+// PREF: limit events that can cause a pop-up
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
 // (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
 // (alternate) user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
