@@ -342,16 +342,16 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 
 // PREF: determine whether a link opens in the foreground or background on left-click
 // [SETTINGS] Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
-// true(default) = opens new tabs by left-click in the background, leaving focus on the current tab;
-// false = opens new tabs by left-click in the foreground, putting focus on the new tab;
+// true(default) = opens new tabs by left-click in the background, leaving focus on the current tab
+// false = opens new tabs by left-click in the foreground, putting focus on the new tab
 // [NOTE] CTRL+SHIFT+CLICK will open new tabs in foreground (default); switching PREF to false will reverse this behavior
 //user_pref("browser.tabs.loadInBackground", true); // DEFAULT
 
 // [INACTIVE?] PREF: determines whether pages normally meant to open in a new window (such as
 // target="_blank" or from an external program), but that have instead been loaded in a new tab
 // true = Load the new tab in the background, leaving focus on the current tab
-// false (default) = Load the new tab in the foreground, taking the focus from the current tab.
-// [NOTE] Setting this preference to True will still bring the browser to the front when opening links from outside the browser.
+// false(default) = Load the new tab in the foreground, taking the focus from the current tab
+// [NOTE] Setting this preference to true will still bring the browser to the front when opening links from outside the browser.
 //user_pref("browser.tabs.loadDivertedInBackground", false); // DEFAULT
 
 // PREF: load bookmarks in the background when left-clicking in Bookmarks Menu
