@@ -343,20 +343,20 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 
 // PREF: override <browser.link.open_newwindow> for external links
 // Set if a different destination for external links is needed.
-// 1=Open in the current tab/window
-// 2=Open in a new window
 // 3=Open in a new tab in the current window
+// 2=Open in a new window
+// 1=Open in the current tab/window
 // -1=no overrides (default)
-//user_pref("browser.link.open_newwindow.override.external", 3);
+//user_pref("browser.link.open_newwindow.override.external", -1); // DEFAULT
 
 // PREF: Prevent scripts from moving and resizing open windows
 user_pref("dom.disable_window_move_resize", true);
 
 // PREF: insert new tabs immediately after the current tab
-// Tap to Tab extension: set to "Put new tab at the end"
-// extension: https://addons.mozilla.org/en-US/firefox/addon/tap-to-tab
 //user_pref("browser.tabs.insertAfterCurrent", true);
-    //user_pref("browser.tabs.insertRelatedAfterCurrent", true); // DEFAULT
+
+ // PREF: insert new tabs after groups like it 
+//user_pref("browser.tabs.insertRelatedAfterCurrent", true); // DEFAULT
 
 // PREF: leave the browser window open even after you close the last tab
 //user_pref("browser.tabs.closeWindowWithLastTab", false);
