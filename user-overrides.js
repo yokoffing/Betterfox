@@ -56,9 +56,10 @@ user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually ba
 user_pref("view_source.wrap_long_lines", true);  // wrap source lines
 user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devtools
 user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
+//user_pref("pdfjs.defaultZoomValue", page-width); // PDF zoom level
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
-user_pref("ui.SpellCheckerUnderlineStyle", 1);
+user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
 user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
 //user_pref("browser.tabs.closeWindowWithLastTab", true); // keep window open when closing last tab
 //user_pref("browser.urlbar.openintab", true); // spawn new tab when typing in URL bar, instead of using current tab
