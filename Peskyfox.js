@@ -441,7 +441,7 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 // 0=none, 1-multi-line, 2=multi-line & single-line
 //user_pref("layout.spellcheckDefault", 1); // DEFAULT
 
-// PREF: Spell Checker underline styles
+// PREF: Spell Checker underline styles [HIDDEN]
 // [1] https://kb.mozillazine.org/Ui.SpellCheckerUnderlineStyle#Possible_values_and_their_effects
 //user_pref("ui.SpellCheckerUnderlineStyle", 1);
 
