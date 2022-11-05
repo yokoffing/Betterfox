@@ -303,12 +303,12 @@ user_pref("browser.download.always_ask_before_handling_new_types", true);
 // include Content-Disposition:attachment. 
 //user_pref("browser.helperApps.showOpenOptionForPdfJS", true); // DEFAULT
 
-// PREF: Default zoom for PDFs [HIDDEN PREF]
-//user_pref("pdfjs.defaultZoomValue", "page-width"); // for laptops and small screens
-//user_pref("pdfjs.defaultZoomValue", "page-fit"); // for larger screens and desktops
-
 // PREF: open PDFs inline (FF103+)
 user_pref("browser.download.open_pdf_attachments_inline", true);
+
+// PREF: Default zoom for PDFs
+// [NOTE] page-fit is also an option
+user_pref("pdfjs.defaultZoomValue", "page-width");
 
 // PREF: PDF sidebar on load
 // 2=table of contents (if not available, will default to 1)
