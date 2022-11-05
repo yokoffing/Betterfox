@@ -229,7 +229,6 @@ user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 /** PDF ***/
 user_pref("browser.download.open_pdf_attachments_inline", true);
-user_pref("pdfjs.defaultZoomValue", page-width);
 user_pref("pdfjs.sidebarViewOnLoad", 1);
 
 /** TAB BEHAVIOR ***/
