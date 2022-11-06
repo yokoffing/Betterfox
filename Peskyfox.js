@@ -137,6 +137,7 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 // PREF: use DirectWrite everywhere like Chrome [WINDOWS]
 // [1] https://old.reddit.com/r/firefox/comments/wvs04y/comment/ilklzy1/?context=3
 //user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
+//user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 //user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
 //user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 //user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
