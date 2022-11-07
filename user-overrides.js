@@ -11,6 +11,7 @@
 /** Enter your personal prefs below this line ***/
 
 /** FASTFOX ***/
+user_pref("image.jxl.enabled", true);
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true); // only load pinned tabs once selected
 user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
@@ -26,8 +27,6 @@ user_pref("browser.safebrowsing.provider.google4.gethashURL", ""); // extra hard
 user_pref("browser.safebrowsing.provider.google4.updateURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google.gethashURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra hardening
-//user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
-//user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
 user_pref("browser.cache.memory.capacity", 1024000); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB
 user_pref("media.memory_cache_max_size", 512000); // memory cache; playback for higher-end PC
 user_pref("media.memory_caches_combined_limit_kb", 2560000); // memory cache; playback for higher-end PC
@@ -62,8 +61,11 @@ user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from vario
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
 user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
 user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
-//user_pref("browser.tabs.closeWindowWithLastTab", true); // keep window open when closing last tab
-//user_pref("browser.urlbar.openintab", true); // spawn new tab when typing in URL bar, instead of using current tab
+//user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
+
+/** DoH SETUP ***/
+//user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
+user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("javascript.options.experimental.import_assertions", true);
@@ -77,7 +79,6 @@ user_pref("extensions.unifiedExtensions.enabled", false);
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS ***/
-// PREF: Use DirectWrite instead of GDI
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
