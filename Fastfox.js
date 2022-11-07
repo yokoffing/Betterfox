@@ -52,18 +52,19 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 // [1] https://bugzilla.mozilla.org/1304389
 //user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
 
-// PREF: JPEG XL image format
-user_pref("image.jxl.enabled", true);
+// PREF: JPEG XL image format [NIGHTLY]
+// [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
+//user_pref("image.jxl.enabled", true);
 
-// PREF: about:home startup cache
+// PREF: about:home startup cache [NIGHTLY]
 // A cache for the initial about:home document that is loaded by default at startup
 // The purpose of the cache is to improve startup performance
 //user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 
-// PREF: CSS Masonry Layout
+// PREF: CSS Masonry Layout [NIGHTLY]
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
-// PREF: Prioritized Task Scheduling API
+// PREF: Prioritized Task Scheduling API [NIGHTLY]
 // [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 user_pref("dom.enable_web_task_scheduling", true);
@@ -73,13 +74,13 @@ user_pref("dom.enable_web_task_scheduling", true);
 // [2] https://www.youtube.com/watch?v=CWvRA9E0DqU
 // [3] https://developer.chrome.com/blog/offscreen-canvas/
 // [4] https://groups.google.com/a/mozilla.org/g/dev-platform/c/kp9SZL-0wW0
-user_pref("gfx.offscreencanvas.enabled", true);
+//user_pref("gfx.offscreencanvas.enabled", true); // DEFAULT FF106+
 
 // PREF: CSS Font Loading API in workers
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1072107
-user_pref("layout.css.font-loading-api.workers.enabled", true);
+//user_pref("layout.css.font-loading-api.workers.enabled", true);  // DEFAULT FF106+
 
-// PREF: enable animation-composition
+// PREF: enable animation-composition [NIGHTLY]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1785329
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
 user_pref("layout.css.animation-composition.enabled", true);
