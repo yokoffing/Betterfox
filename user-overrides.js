@@ -10,6 +10,10 @@
 ****************************************************************************/
 /** Enter your personal prefs below this line ***/
 
+/** DoH SETUP ***/
+user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
+user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
+
 /** FASTFOX ***/
 user_pref("image.jxl.enabled", true);
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true); // only load pinned tabs once selected
@@ -62,10 +66,6 @@ user_pref("general.autoScroll", false); // disable unintentional behavior for mi
 user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
 user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
-
-/** DoH SETUP ***/
-//user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
-user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("javascript.options.experimental.import_assertions", true);
