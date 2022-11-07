@@ -12,19 +12,14 @@
  * "Ad meliora"                                                             *
  * version: 107                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
- * license: https://github.com/yokoffing/Betterfox/blob/master/LICENSE      *
- * README: https://github.com/yokoffing/Betterfox/blob/master/README.md     *
 ****************************************************************************/
 
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
 user_pref("browser.startup.preXulSkeletonUI", false);
-user_pref("image.jxl.enabled", true);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
-user_pref("gfx.offscreencanvas.enabled", true);
-user_pref("layout.css.font-loading-api.workers.enabled", true);
 user_pref("layout.css.animation-composition.enabled", true);
 user_pref("dom.importMaps.enabled", true);
 
