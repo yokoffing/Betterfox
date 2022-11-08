@@ -74,9 +74,11 @@ User comments:
 * [Kagi Search Engine](https://kagifeedback.org/?author=yokoffing)
 
 ## Support
-I’m a one-person operation, working in mental health by day and running this repo as a passion project in my time off.
+I’m a one-person operation, working in mental health and running this page as a passion project in my time off. If you enjoy my work, please leave a tip! Your support is incredibly appreciated and allows me to dedicate time to this project :blush:
 
-If you enjoy my work, consider leaving a tip and supporting the repo. Your support is incredibly appreciated and goes a long way in allowing me to dedicate time to these projects.
+<img align="top" width="25px" src="https://coekuss.com/quietfox/bitcoin.png"> Bitcoin: 334gaiEjn6wY1VksQvYe5L668JjtPEPyiM
+
+<img align="top" width="20px" src="https://coekuss.com/quietfox/paypal.png"> PayPal: [paypal.me](about:blank) (forthcoming)
 
 ## Credit
 * Many thanks to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://docs.openwebsandbox.org/learn/ows-articles/what-is-the-open-web).
