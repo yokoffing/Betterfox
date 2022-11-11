@@ -186,6 +186,7 @@ user_pref("beacon.enabled", false);
 // Firefox falls back on plain OCSP when must-staple is not configured on the host certificate
 // [1] https://scotthelme.co.uk/revocation-is-broken/
 // [2] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
+// [3] https://github.com/arkenfox/user.js/issues/1576#issuecomment-1304590235
 
 // PREF: disable OCSP fetching to confirm current validity of certificates
 // OCSP (non-stapled) leaks information about the sites you visit to the CA (cert authority)
