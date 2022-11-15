@@ -481,8 +481,8 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 // PREF: zoom only text on webpage, not other elements
 //user_pref("browser.zoom.full", false);
 
-// PREF: enable :has() CSS relational pseudo-class
-// [EXPERIMENTAL] Needed for some extensions, filters, and customizations
+// PREF: enable :has() CSS relational pseudo-class [NIGHTLY?]
+// Needed for some extensions, filters, and customizations
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
 // [2] https://caniuse.com/css-has
 user_pref("layout.css.has-selector.enabled", true);
