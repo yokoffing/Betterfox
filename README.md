@@ -72,7 +72,8 @@ User comments:
 #### Contributions
 * [Ghostery](https://github.com/ghostery/user-agent-desktop#community) [desktop browser](https://github.com/ghostery/user-agent-desktop/issues?q=is%3Apr+is%3Aissue+author%3Ayokoffing+)
     * [Betterfox adopted into Ghostery Dawn](https://web.archive.org/web/20210509171835/https://www.ghostery.com/ghostery-dawn-update-more/) (Feb 2021)<sup>[1](https://web.archive.org/web/20210921114333/https://www.ghostery.com/ghostery-dawn-product-update/)</sup>
-  * [Fingerprinting protection: Betterfox and arkenfox](https://github.com/ghostery/user-agent-desktop/issues/486) (somewhat outdated)
+    * [Fingerprinting protection: Betterfox and arkenfox](https://github.com/ghostery/user-agent-desktop/issues/486) (somewhat outdated)
+* [Pulse Browser](https://github.com/pulse-browser/browser#%EF%B8%8F-credits)
 * [Orion Browser](https://orionfeedback.org/?author=yokoffing)
 * [Kagi Search Engine](https://kagifeedback.org/?author=yokoffing)
 
