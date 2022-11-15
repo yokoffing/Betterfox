@@ -108,6 +108,7 @@ user_pref("full-screen-api.warning.timeout", 0);
 
 // PREF: disable welcome notices
 //user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
+user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
     //user_pref("startup.homepage_welcome_url", "");
     //user_pref("startup.homepage_welcome_url.additional", "");
     //user_pref("startup.homepage_override_url", ""); // What's New page after updates
@@ -121,8 +122,10 @@ user_pref("findbar.highlightAll", true);
 // Private Browsing changes [FF106+]
 // PREF: disable private windows being separate from normal windows in taskbar [WINDOWS]
 //user_pref("browser.privateWindowSeparation.enabled", false);
+
 // PREF: disable "private window" indicator in tab bar
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
+
 // PREF: disable always using dark theme for private browsing windows
 //user_pref("browser.theme.dark-private-windows", false);
 
