@@ -85,12 +85,12 @@ user_pref("dom.enable_web_task_scheduling", true);
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
 user_pref("layout.css.animation-composition.enabled", true);
 
-// PREF: enable importMaps [FF108+] [NIGHTLY]
+// PREF: enable importMaps [FF108+]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1688879
 // [2] https://github.com/WICG/import-maps#the-basic-idea
 // [3] https://caniuse.com/import-maps
-user_pref("dom.importMaps.enabled", true);
-//user_pref("javascript.options.experimental.import_assertions", true);
+//user_pref("dom.importMaps.enabled", true); // DEFAULT
+    //user_pref("javascript.options.experimental.import_assertions", true);
 
 // PREF: Shadowrealms [NIGHTLY]
 // [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
