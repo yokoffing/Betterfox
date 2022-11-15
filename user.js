@@ -22,7 +22,6 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
 user_pref("layout.css.animation-composition.enabled", true);
-user_pref("dom.importMaps.enabled", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
