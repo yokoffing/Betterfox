@@ -16,7 +16,6 @@ user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 
 /** FASTFOX ***/
 user_pref("image.jxl.enabled", true);
-user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true); // only load pinned tabs once selected
 user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
