@@ -31,6 +31,8 @@ user_pref("browser.safebrowsing.provider.google4.gethashURL", ""); // extra hard
 user_pref("browser.safebrowsing.provider.google4.updateURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google.gethashURL", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra hardening
+user_pref("browser.safebrowsing.downloads.remote.url", ""); // extra hardening
+user_pref("browser.safebrowsing.provider.google4.dataSharingURL", ""); // extra hardening
 user_pref("browser.cache.memory.capacity", 1024000); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB
 user_pref("media.memory_cache_max_size", 512000); // memory cache; playback for higher-end PC
 user_pref("media.memory_caches_combined_limit_kb", 2560000); // memory cache; playback for higher-end PC
@@ -48,11 +50,9 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket",
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);  // font improvement
 user_pref("browser.urlbar.suggest.bookmark", false); // hide URL bar dropdown suggestions
-user_pref("browser.urlbar.suggest.engines", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.history", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.openpage", false); // hide URL bar dropdown suggestions
-user_pref("browser.urlbar.suggest.searches", false); // hide URL bar dropdown suggestions
-user_pref("browser.urlbar.suggest.topsites", false); // hide URL bar dropdown suggestions
+//user_pref("browser.urlbar.suggest.searches", false); // hide URL bar dropdown suggestions (needed?)
 user_pref("browser.urlbar.maxRichResults", 1); // minimum suggestion needed for URL bar autofill
 user_pref("browser.download.folderList", 0); // downloads default to desktop
 user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually back-up
