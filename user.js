@@ -196,6 +196,7 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", fa
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.tabs.tabmanager.enabled", false);
+user_pref("browser.aboutwelcome.enabled", false);
 user_pref("findbar.highlightAll", true);
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
 
