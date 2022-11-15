@@ -691,6 +691,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 //user_pref("network.trr.uri", "https://xxxx/dns-query");
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+user_pref("network.trr.confirmationNS", "skip"); // skip undesired DOH test connection
 
 // PREF: enable Oblivious DoH
 // [1] https://blog.cloudflare.com/oblivious-dns/
@@ -706,10 +707,6 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 // [EXAMPLE] "[{ \"name\": \"Cloudflare\", \"url\": \"https://mozilla.cloudflare-dns.com/dns-query\" },{ \"name\": \"NextDNS\", \"url\": \"https://trr.dns.nextdns.io/\" }]"
 //user_pref("network.trr.resolvers", "[{ \"name\": \"<NAME1>\", \"url\": \"https://<URL1>\" }, { \"name\": \"<NAME2>\", \"url\": \"https://<URL2>\" }]");
 //user_pref("network.trr.resolvers", "[{ \"name\": \"<NextDNS Custom>\", \"url\": \"https://dns.nextdns.io/7ad2e5/FF_WINDOWS\" }]");
-
-// PREF: Temporary workaround for DNS leak with DOH active [NO LONGER NEEDED]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1730418
-//user_pref("network.dns.upgrade_with_https_rr", false);
 
 /******************************************************************************
  * SECTION: ESNI / ECH                            *
