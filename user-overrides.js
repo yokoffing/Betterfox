@@ -48,6 +48,7 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownload
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false); // Settings>Home>Firefox Home Content>Recent Activity>Visited Pages
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // Settings>Home>Firefox Home Content>Recent Activity>Pages Saved to Pocket
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
+user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);  // font improvement
 user_pref("browser.urlbar.suggest.bookmark", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.history", false); // hide URL bar dropdown suggestions
@@ -77,6 +78,7 @@ user_pref("privacy.userContext.enabled", false);
 user_pref("browser.urlbar.suggest.quickactions", false);
 user_pref("extensions.unifiedExtensions.enabled", false);
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
+user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla restricted domains [DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS ***/
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
