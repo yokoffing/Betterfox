@@ -11,7 +11,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: 106                                                             *
+ * version: 107                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -1034,10 +1034,12 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [5] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1767546
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
-      //user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
-      //user_pref("browser.safebrowsing.provider.google4.updateURL", "");
-      //user_pref("browser.safebrowsing.provider.google.gethashURL", "");
-      //user_pref("browser.safebrowsing.provider.google.updateURL", "");
+    //user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
+    //user_pref("browser.safebrowsing.provider.google4.updateURL", "");
+    //user_pref("browser.safebrowsing.provider.google.gethashURL", "");
+    //user_pref("browser.safebrowsing.provider.google.updateURL", "");
+    //user_pref("browser.safebrowsing.downloads.remote.url", "");
+    //user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
 
 // PREF: disable GSB checking downloads (master switch)
 // This is the master switch for the safebrowsing.downloads prefs
