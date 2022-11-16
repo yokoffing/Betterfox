@@ -89,7 +89,7 @@ user_pref("layout.css.animation-composition.enabled", true);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1688879
 // [2] https://github.com/WICG/import-maps#the-basic-idea
 // [3] https://caniuse.com/import-maps
-//user_pref("dom.importMaps.enabled", true); // DEFAULT
+//user_pref("dom.importMaps.enabled", true); // DEFAULT FF108+
     //user_pref("javascript.options.experimental.import_assertions", true);
 
 // PREF: Shadowrealms [NIGHTLY]
