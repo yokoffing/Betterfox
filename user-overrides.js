@@ -21,6 +21,7 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 
 /** SECUREFOX ***/
+user_pref("cookiebanners.service.mode.privateBrowsing", 2); // accept if can't reject
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
@@ -73,7 +74,6 @@ user_pref("javascript.options.experimental.import_assertions", true);
 user_pref("javascript.options.experimental.shadow_realms", true);
 user_pref("javascript.options.wasm_gc", true);
 user_pref("javascript.options.wasm_function_references", true);
-user_pref("cookiebanners.service.mode", 1);
 user_pref("privacy.userContext.enabled", false);
 user_pref("browser.urlbar.suggest.quickactions", false);
 user_pref("extensions.unifiedExtensions.enabled", false);
