@@ -114,13 +114,14 @@ user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exe
 // [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
 //user_pref("extensions.webcompat.enable_shims", true); // enabled with "Strict"
 
-// PREF: Cookie Banner handling [NIGHTLY] [FF___+]
-// [1] https://phabricator.services.mozilla.com/D153642
-// [2] https://github.com/mozilla/cookie-banner-rules-list
+// PREF: Cookie Banner handling [NIGHTLY]
+// [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking
+// [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
+// [2] https://phabricator.services.mozilla.com/D153642
 // 0: Disables all cookie banner handling (default)
-// 1: Reject-all if possible, otherwise do nothing
-// 2: Reject-all if possible, otherwise accept-all
-user_pref("cookiebanners.service.mode", 1);
+// 1: reject banners if it is a one-click option; otherwise, keep banners on screen
+// 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
+user_pref("cookiebanners.service.mode", 2);
 user_pref("cookiebanners.service.mode.privateBrowsing", 1);
     user_pref("cookiebanners.bannerClicking.enabled", true);
     //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
@@ -142,22 +143,6 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 // [5] https://github.com/arkenfox/user.js/issues/1089
 //user_pref("privacy.purge_trackers.enabled", true); // DEFAULT
 
-// PREF: Hyperlink Auditing (click tracking).
-//user_pref("browser.send_pings", false); // DEFAULT
-
-// PREF: sending additional analytics to web servers
-// [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
-user_pref("beacon.enabled", false);
-
-// PREF: battery status tracking
-// Pref remains, but depreciated
-// [1] https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API#browser_compatibility
-//user_pref("dom.battery.enabled", false);
-
-// PREF: Local Storage Next Generation (LSNG) (DOMStorage) 
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
-//user_pref("dom.storage.next_gen", true); // DEFAULT FF92+
-
 // PREF: SameSite Cookies
 // [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
 // [2] https://web.dev/samesite-cookies-explained/
@@ -166,10 +151,26 @@ user_pref("beacon.enabled", false);
 //user_pref("network.cookie.sameSite.schemeful", true); // DEFAULT 104+
 
 // PREF: enable Global Privacy Control (GPC)
-// [1] https://globalprivacycontrol.org/
-// [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
+// [1] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
+// [2] https://globalprivacycontrol.org/
 //user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 //user_pref("privacy.globalprivacycontrol.enabled", true);
+
+// PREF: Hyperlink Auditing (click tracking).
+//user_pref("browser.send_pings", false); // DEFAULT
+
+// PREF: sending additional analytics to web servers
+// [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
+user_pref("beacon.enabled", false);
+
+// PREF: battery status tracking
+// [NOTE] Pref remains, but API is depreciated
+// [1] https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API#browser_compatibility
+//user_pref("dom.battery.enabled", false);
+
+// PREF: Local Storage Next Generation (LSNG) (DOMStorage) 
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
+//user_pref("dom.storage.next_gen", true); // DEFAULT FF92+
 
 // PREF: WebRTC Global Mute Toggles
 //user_pref("privacy.webrtc.globalMuteToggles", true);
