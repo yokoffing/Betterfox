@@ -149,6 +149,8 @@ user_pref("geo.provider.use_corelocation", false); // MAC
 user_pref("geo.provider.use_gpsd", false); // LINUX
 user_pref("geo.provider.use_geoclue", false); // LINUX
 user_pref("browser.region.update.enabled", false);
+user_pref("permissions.manager.defaultsUrl", "");
+user_pref("webchannel.allowObject.urlWhitelist", "");
 
 /** TELEMETRY ***/
 user_pref("toolkit.telemetry.unified", false);
