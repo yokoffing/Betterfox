@@ -159,8 +159,9 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 // PREF: Hyperlink Auditing (click tracking).
 //user_pref("browser.send_pings", false); // DEFAULT
 
-// PREF: sending additional analytics to web servers
-// [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
+// PREF: Beacon API
+// [1] https://github.com/arkenfox/user.js/issues/1586#issuecomment-1320372943
+// [2] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
 user_pref("beacon.enabled", false);
 
 // PREF: battery status tracking
