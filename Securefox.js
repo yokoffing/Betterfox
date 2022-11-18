@@ -1123,6 +1123,13 @@ user_pref("browser.region.update.enabled", false);
 // PREF: Disable automatic extension updates [move to Pesky]
 //user_pref("extensions.update.enabled", false);
 
+// PREF: remove special permissions for certain mozilla domains
+// [1] resource://app/defaults/permissions
+user_pref("permissions.manager.defaultsUrl", "");
+
+// PREF: remove webchannel whitelist
+user_pref("webchannel.allowObject.urlWhitelist", "");
+
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
 ******************************************************************************/
