@@ -37,9 +37,9 @@ user_pref("browser.cache.memory.capacity", 1024000); // -1=default; 256000=256MB
 user_pref("media.memory_cache_max_size", 512000); // memory cache
 user_pref("media.memory_caches_combined_limit_kb", 2560000); // memory cache
 user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // memory cache
+user_pref("media.cache_size", 2048000); // media cache; playback for higher-end PC
 user_pref("media.cache_readahead_limit", 99999); // media cache; playback for higher-end PC
 user_pref("media.cache_resume_threshold", 99999); // media cache; playback for higher-end PC
-user_pref("media.cache_size", 2048000); // media cache; playback for higher-end PC
 user_pref("browser.search.update", false); // do not update opensearch engines
 
 /** PESKYFOX ***/
