@@ -140,8 +140,8 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 // 0: Disables all cookie banner handling (default)
 // 1: reject banners if it is a one-click option; otherwise, keep banners on screen
 // 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
-user_pref("cookiebanners.service.mode", 1);
-user_pref("cookiebanners.service.mode.privateBrowsing", 1);
+//user_pref("cookiebanners.service.mode", 2);
+//user_pref("cookiebanners.service.mode.privateBrowsing", 1);
     user_pref("cookiebanners.bannerClicking.enabled", true);
     //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
 
