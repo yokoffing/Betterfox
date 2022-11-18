@@ -202,9 +202,6 @@ user_pref("browser.aboutwelcome.enabled", false);
 user_pref("findbar.highlightAll", true);
 user_pref("middlemouse.contentLoadURL", false);
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
-user_pref("cookiebanners.service.mode", 2);
-user_pref("cookiebanners.service.mode.privateBrowsing", 1);
-user_pref("cookiebanners.bannerClicking.enabled", true);
 
 /** FULLSCREEN ***/
 user_pref("full-screen-api.transition-duration.enter", "0 0");
