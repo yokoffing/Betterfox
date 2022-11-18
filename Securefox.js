@@ -105,33 +105,14 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
     //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
     //user_pref("privacy.partition.bloburl_per_agent_cluster", true); [REGRESSIONS]
 // enable APS (Always Partitioning Storage) [FF104+]
-user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
-user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [[FF105+]
+user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); [DEFAULT: true FF109+]
+user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT: false FF109+]
 
 // PREF: Smartblock
 // [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
 // [2] https://www.youtube.com/watch?v=VE8SrClOTgw
 // [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
 //user_pref("extensions.webcompat.enable_shims", true); // enabled with "Strict"
-
-// PREF: Cookie Banner handling [NIGHTLY]
-// [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking
-// [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
-// [2] https://phabricator.services.mozilla.com/D153642
-// 0: Disables all cookie banner handling (default)
-// 1: reject banners if it is a one-click option; otherwise, keep banners on screen
-// 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
-user_pref("cookiebanners.service.mode", 2);
-user_pref("cookiebanners.service.mode.privateBrowsing", 1);
-    user_pref("cookiebanners.bannerClicking.enabled", true);
-    //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
-
-// PREF: enable global CookieBannerRules
-// This is used for click rules that can handle common Consent Management Providers (CMP).
-// [NOTE] Enabling this (when the cookie handling feature is enabled) may
-// negatively impact site performance since it requires us to run rule-defined
-// query selectors for every page.
-//user_pref("cookiebanners.service.enableGlobalRules", true);
 
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
@@ -175,6 +156,14 @@ user_pref("beacon.enabled", false);
 
 // PREF: WebRTC Global Mute Toggles
 //user_pref("privacy.webrtc.globalMuteToggles", true);
+
+// PREF: disable UITour backend so there is no chance that a remote page can use it
+user_pref("browser.uitour.enabled", false);
+    //user_pref("browser.uitour.url", "");
+
+// PREF: reset remote debugging to disabled
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16222
+//user_pref("devtools.debugger.remote-enabled", false); // [DEFAULT: false]
 
 /****************************************************************************
  * SECTION: OSCP & CERTS / HPKP (HTTP Public Key Pinning)                   *
@@ -364,8 +353,12 @@ user_pref("browser.sessionstore.privacy_level", 2);
 // Favicons are stored as .ico files in $profile_dir\shortcutCache
 //user_pref("browser.shell.shortcutFavicons", false);
 
+// PREF: remove temp files opened with an external application
+// [1] https://bugzilla.mozilla.org/302433
+user_pref("browser.helperApps.deleteTempFileOnExit", true);
+
 // PREF: disable page thumbnails capturing
-user_pref("browser.pagethumbnails.capturing_disabled", true); // [depreciated?]
+user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
 
 // PREF: disable automatic Firefox start and session restore after reboot [WINDOWS]
 // [1] https://bugzilla.mozilla.org/603903
