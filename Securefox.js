@@ -914,11 +914,11 @@ user_pref("permissions.delegation.enabled", false);
 // PREF: Set the default Referrer Policy applied to third-party trackers when the
 // default cookie policy is set to reject third-party trackers; to be used
 // unless overriden by the site
-// [NOTE] Trim referrers from trackers to origins by default ***/
+// [NOTE] Trim referrers from trackers to origins by default
 // 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
 // 3=no-referrer-when-downgrade.
-user_pref("network.http.referer.defaultPolicy.trackers", 1);
-user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
+//user_pref("network.http.referer.defaultPolicy.trackers", 1);
+//user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 
 // PREF: control when to send a cross-origin referer
 // 0=always (default), 1=only if base domains match, 2=only if hosts match
@@ -926,7 +926,7 @@ user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 //user_pref("network.http.referer.XOriginPolicy", 2);
 
 // PREF: control the amount of cross-origin information to send
-// 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port ***/
+// 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /******************************************************************************
