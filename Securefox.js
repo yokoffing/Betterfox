@@ -688,7 +688,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 //user_pref("network.trr.uri", "https://xxxx/dns-query");
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
-user_pref("network.trr.confirmationNS", "skip"); // skip undesired DOH test connection
+//user_pref("network.trr.confirmationNS", "skip"); // skip undesired DOH test connection
 
 // PREF: enable Oblivious DoH
 // [1] https://blog.cloudflare.com/oblivious-dns/
