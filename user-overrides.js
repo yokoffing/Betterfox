@@ -13,6 +13,7 @@
 /** DoH SETUP ***/
 user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
+user_pref("network.trr.confirmationNS", "skip");
 
 /** FASTFOX ***/
 user_pref("image.jxl.enabled", true);
