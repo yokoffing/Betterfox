@@ -90,7 +90,6 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 /** DNS-over-HTTPS (DOH) ***/
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
-user_pref("network.trr.confirmationNS", "skip"); 
 
 /** PROXY / SOCKS / IPv6 ***/
 user_pref("network.proxy.socks_remote_dns", true);
