@@ -118,8 +118,6 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
 
 /** HEADERS / REFERERS ***/
-user_pref("network.http.referer.defaultPolicy.trackers", 1);
-user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /** CONTAINERS ***/
