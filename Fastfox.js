@@ -169,10 +169,16 @@ user_pref("media.hardware-video-decoding.force-enabled", true);
  * SECTION: SPECULATIVE CONNECTIONS                                        *
 ****************************************************************************/
 
+// [NOTE] FF85+ partitions (isolates) pooled connections, prefetch connections,
+// pre-connect connections, speculative connections, TLS session identifiers,
+// and other connections. We can take advantage of the speed of pre-connections
+// while preserving privacy. Users may relax hardening to maximize their preference.
+// For more information, see SecureFox: "PREF: State Paritioning" and "PREF: Network Partitioning" [1]
+// Individual pref descriptions = [2]
+// [1] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L74-L108
+// [2] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L436-L542
+
 // PREF: increase network predictions
-// [NOTE] in uBlock Origin, go to settings and make sure the following are disabled:
-// "Disable pre-fetching (to prevent any connection for blocked network requests)"
-// "Disable hyperlink auditing"
 user_pref("network.http.speculative-parallel-limit", 6); // SecureFox override
 user_pref("network.dns.disablePrefetch", false); // SecureFox override
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
