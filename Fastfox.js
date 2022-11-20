@@ -129,20 +129,20 @@ user_pref("browser.cache.max_shutdown_io_lag", 16); // let the browser finish mo
  * SECTION: GFX RENDERING TWEAKS                                            *
 ****************************************************************************/
 
+// PREF: Webrender tweaks
+user_pref("gfx.webrender.all", true); // enables WR + additional features
+    //user_pref("gfx.webrender.enabled", true);	// just enables WR
+//user_pref("gfx.webrender.compositor", true); // DEFAULT
+    user_pref("gfx.webrender.compositor.force-enabled", true);	
+user_pref("gfx.webrender.precache-shaders", true);	
+user_pref("gfx.webrender.software.opengl", true);
+
 // PREF: GPU-accelerated (WebGL-backed) Canvas2D 
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1739448
 user_pref("gfx.canvas.accelerated", true);
 user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("gfx.content.skia-font-cache-size", 80);
-
-// PREF: Webrender tweaks
-user_pref("gfx.webrender.all", true);
-//user_pref("gfx.webrender.compositor", true); // DEFAULT
-user_pref("gfx.webrender.compositor.force-enabled", true);	
-user_pref("gfx.webrender.enabled", true);	
-user_pref("gfx.webrender.precache-shaders", true);	
-user_pref("gfx.webrender.software.opengl", true);
 
 // PREF: image tweaks
 user_pref("image.mem.decode_bytes_at_a_time", 65536); // Chunk size for calls to the image decoders
