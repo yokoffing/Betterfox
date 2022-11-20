@@ -20,7 +20,7 @@
 // [2] https://wiki.mozilla.org/Platform/GFX/WebRender_Where
 // [3] https://www.reddit.com/r/firefox/comments/fo1jwz/make_firefox_faster/flhh5l2/
 //user_pref("gfx.webrender.all", true); // enables WR + additional features
-//user_pref("gfx.webrender.enabled", true);	// DEFAULT; just enables WR
+//user_pref("gfx.webrender.enabled", true); // DEFAULT; just enables WR
 //user_pref("gfx.webrender.compositor", true); // DEFAULT
     //user_pref("gfx.webrender.compositor.force-enabled", true);
 
