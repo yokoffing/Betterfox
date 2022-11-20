@@ -131,7 +131,7 @@ user_pref("gfx.webrender.precache-shaders", true);
     user_pref("gfx.webrender.compositor.force-enabled", true);
 
 // PREF: GPU-accelerated Canvas2D tweaks
-//user_pref("gfx.canvas.accelerated", true);
+user_pref("gfx.canvas.accelerated", true); // DEFAULT in user.js
     user_pref("gfx.canvas.accelerated.cache-items", 32768);
     user_pref("gfx.canvas.accelerated.cache-size", 4096);
     user_pref("gfx.content.skia-font-cache-size", 80);
@@ -148,7 +148,7 @@ user_pref("media.memory_cache_max_size", 1048576); // alt=512000
 user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
     //user_pref("media.memory_caches_combined_limit_pc_sysmem", 20); // default=5
 user_pref("media.hardware-video-decoding.force-enabled", true);
-    //user_pref("media.ffmpeg.vaapi.enabled", true); // [HIDDEN? / REMOVED?]
+    //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
 
 // PREF: decrease video buffering [may not be needed]
 //user_pref("media.cache_size", 2048000); // default=512000
