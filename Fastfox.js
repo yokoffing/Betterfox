@@ -122,8 +122,8 @@ user_pref("browser.cache.memory.capacity", 8388608); // -1=default; 256000=256MB
     //user_pref("browser.cache.memory.max_entry_size", 327680); // -1; entries bigger than than 90% of the mem-cache are never cached
 
 // PREF: general tweaks
-user_pref("browser.cache.frecency_half_life_hours", 128); lower cache sweep intervals
-user_pref("browser.cache.max_shutdown_io_lag", 16); let the browser finish more io on shutdown
+user_pref("browser.cache.frecency_half_life_hours", 128); // lower cache sweep intervals
+user_pref("browser.cache.max_shutdown_io_lag", 16); // let the browser finish more io on shutdown
 
 /****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
