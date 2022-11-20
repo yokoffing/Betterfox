@@ -111,7 +111,7 @@ user_pref("layout.css.animation-composition.enabled", true);
 ****************************************************************************/
 
 // PREF: increase disk cache size
-// [NOTE] May not notice a significant performance improvement on higher-end machines, so skip this
+// [NOTE] May not notice significant performance improvement on higher-end machines
 //user_pref("browser.cache.disk.enable", true); // SecureFox override
     //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
 //user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
@@ -179,17 +179,17 @@ user_pref("media.hardware-video-decoding.force-enabled", true);
 // [2] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L436-L542
 
 // PREF: increase network predictions
-user_pref("network.http.speculative-parallel-limit", 6); // SecureFox override
-user_pref("network.dns.disablePrefetch", false); // SecureFox override
+user_pref("network.http.speculative-parallel-limit", 6); // overrides SecureFox
+user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
     user_pref("network.dnsCacheEntries", 20000);	
     user_pref("network.dnsCacheExpiration", 3600);	
     user_pref("network.dnsCacheExpirationGracePeriod", 240);
-user_pref("browser.urlbar.speculativeConnect.enabled", true); // SecureFox override
-user_pref("browser.places.speculativeConnect.enabled", true); // SecureFox override
-user_pref("network.prefetch-next", true); // SecureFox override
-user_pref("network.predictor.enabled", true); // SecureFox override
-user_pref("network.predictor.enable-prefetch", true); // SecureFox override
+user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
+user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
+user_pref("network.prefetch-next", true); // overrides SecureFox
+user_pref("network.predictor.enabled", true); // overrides SecureFox
+user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
 user_pref("network.predictor.enable-hover-on-ssl", true);
     user_pref("network.predictor.preconnect-min-confidence", 20);
     user_pref("network.predictor.prefetch-force-valid-for", 3600);	
