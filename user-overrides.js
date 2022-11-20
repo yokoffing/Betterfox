@@ -65,7 +65,7 @@ user_pref("general.autoScroll", false); // disable unintentional behavior for mi
 user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
 user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
 user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enabled", true);
-user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enabled", "small");
+user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small");
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
 
 /** DELETE IF NOT NIGHTLY ***/
