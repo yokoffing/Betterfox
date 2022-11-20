@@ -107,6 +107,25 @@ user_pref("layout.css.animation-composition.enabled", true);
 // Credit for most of the following: https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db
 
 /****************************************************************************
+ * SECTION: BROWSER CACHE                                                   *
+****************************************************************************/
+
+// PREF: increase disk cache size
+//user_pref("browser.cache.disk.enable", true); // SecureFox override
+//user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
+//user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
+
+// PREF: increase memory cache size
+// cache.disk disabled = 8388608
+// cache.disk enabled = 2097152
+user_pref("browser.cache.memory.capacity", 8388608); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
+    //user_pref("browser.cache.memory.max_entry_size", 327680); // -1; entries bigger than than 90% of the mem-cache are never cached
+
+// PREF: general tweaks
+user_pref("browser.cache.frecency_half_life_hours", 128); lower cache sweep intervals
+user_pref("browser.cache.max_shutdown_io_lag", 16); let the browser finish more io on shutdown
+
+/****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
 ****************************************************************************/
 
@@ -129,10 +148,29 @@ user_pref("gfx.webrender.software.opengl", true);
 user_pref("image.mem.decode_bytes_at_a_time", 65536); // Chunk size for calls to the image decoders
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // Minimum timeout to unmap shared surfaces since they have been last used, in milliseconds
 //user_pref("layers.gpu-process.enabled", true); // DEFAULT
-user_pref("layers.gpu-process.force-enabled", true);
+    user_pref("layers.gpu-process.force-enabled", true);
 user_pref("image.cache.size", 10485760);
 
 // PREF: increase media cache
+user_pref("media.memory_cache_max_size", 1048576); // alt=512000
+user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
+user_pref("media.hardware-video-decoding.force-enabled", true);
+    //user_pref("media.ffmpeg.vaapi.enabled", true); // [HIDDEN? / REMOVED?]
+
+
+
+
+//user_pref("media.cache_size", 2048000); // default=512000
+//user_pref("media.cache_readahead_limit", 99999); // default=60
+//user_pref("media.cache_resume_threshold", 99999); // default=30
+
+user_pref("media.memory_cache_max_size", 512000); // memory cache
+user_pref("media.memory_caches_combined_limit_kb", 2560000); // memory cache
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // memory cache
+
+
+
+
 user_pref("media.memory_cache_max_size", 2048000); // alt=512000
 user_pref("media.cache_readahead_limit", 99999);
 user_pref("media.cache_resume_threshold", 99999);
@@ -143,19 +181,6 @@ user_pref("media.memory_cache_max_size	", 1048576);
 user_pref("media.memory_caches_combined_limit_kb", 3145728);
 user_pref("media.hardware-video-decoding.force-enabled", true);
 user_pref("media.ffmpeg.vaapi.enabled", true);
-
-/****************************************************************************
- * SECTION: BROWSER CACHE                                                   *
-****************************************************************************/
-
-// PREF: increase memory cache size
-user_pref("browser.cache.memory.capacity", 5242880); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB
-user_pref("browser.cache.memory.max_entry_size", 327680); // -1; entries bigger than than 90% of the mem-cache are never cached
-
-// PREF: increase disk cache size
-//user_pref("browser.cache.disk.enable", true); // SecureFox override
-//user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
-//user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                        *
