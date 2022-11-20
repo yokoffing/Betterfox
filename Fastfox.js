@@ -179,7 +179,7 @@ user_pref("media.hardware-video-decoding.force-enabled", true);
 // [2] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L436-L542
 
 // PREF: increase network predictions
-user_pref("network.http.speculative-parallel-limit", 6); // overrides SecureFox
+user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
 user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
     user_pref("network.dnsCacheEntries", 20000);	
