@@ -142,6 +142,9 @@ user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exe
 //user_pref("browser.send_pings", false); // DEFAULT
 
 // PREF: Beacon API
+// Disabling this API sometimes causes breakage:
+// [TEST] https://vercel.com/
+// Instead of disable, block in uBlock Origin with rule `$ping`
 // [1] https://github.com/arkenfox/user.js/issues/1586#issuecomment-1320372943
 // [2] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
 user_pref("beacon.enabled", false);
