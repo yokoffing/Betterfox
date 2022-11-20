@@ -112,11 +112,11 @@ user_pref("layout.css.animation-composition.enabled", true);
 
 // PREF: increase disk cache size
 //user_pref("browser.cache.disk.enable", true); // SecureFox override
-//user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
+    //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
 //user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
 
 // PREF: increase memory cache size
-user_pref("browser.cache.memory.capacity", 3145728); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
+user_pref("browser.cache.memory.capacity", 2097152); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
 user_pref("browser.cache.memory.max_entry_size", 327680); // -1; entries bigger than than 90% of the mem-cache are never cached
 
 // PREF: general tweaks
