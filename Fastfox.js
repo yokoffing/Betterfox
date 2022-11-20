@@ -173,7 +173,7 @@ user_pref("media.hardware-video-decoding.force-enabled", true);
 // "Disable hyperlink auditing"
 user_pref("network.http.speculative-parallel-limit", 6); // SecureFox override
 user_pref("network.dns.disablePrefetch", false); // SecureFox override
-user_pref("network.dns.disablePrefetchFromHTTPS", true); // SecureFox override
+user_pref("network.dns.disablePrefetchFromHTTPS", false);
     user_pref("network.dnsCacheEntries", 20000);	
     user_pref("network.dnsCacheExpiration", 3600);	
     user_pref("network.dnsCacheExpirationGracePeriod", 240);
