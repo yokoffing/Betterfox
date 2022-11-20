@@ -69,12 +69,14 @@ user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enable
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
 
 /** DELETE IF NOT NIGHTLY ***/
-user_pref("cookiebanners.service.mode", 2);
-user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 user_pref("javascript.options.experimental.import_assertions", true);
 user_pref("javascript.options.experimental.shadow_realms", true);
 user_pref("javascript.options.wasm_gc", true);
 user_pref("javascript.options.wasm_function_references", true);
+user_pref("cookiebanners.service.mode", 2);
+user_pref("cookiebanners.service.mode.privateBrowsing", 2);
+user_pref("privacy.globalprivacycontrol.enabled", true);
+user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 user_pref("privacy.userContext.enabled", false);
 user_pref("browser.urlbar.suggest.quickactions", false);
 user_pref("extensions.unifiedExtensions.enabled", false);
