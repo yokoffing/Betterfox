@@ -103,3 +103,91 @@ user_pref("layout.css.animation-composition.enabled", true);
 // PREF: Wasm Function References [NIGHTLY]
 // [1] https://github.com/WebAssembly/function-references/blob/master/proposals/function-references/Overview.md
 //user_pref("javascript.options.wasm_function_references", true);
+
+// Credit for most of the following: https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db
+
+/****************************************************************************
+ * SECTION: GFX RENDERING TWEAKS                                            *
+****************************************************************************/
+
+// PREF: GPU-accelerated (WebGL-backed) Canvas2D 
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1739448
+user_pref("gfx.canvas.accelerated", true);
+user_pref("gfx.canvas.accelerated.cache-items", 32768);
+user_pref("gfx.canvas.accelerated.cache-size", 4096);
+user_pref("gfx.content.skia-font-cache-size", 80);
+
+// PREF: Webrender tweaks
+user_pref("gfx.webrender.all", true);
+//user_pref("gfx.webrender.compositor", true); // DEFAULT
+user_pref("gfx.webrender.compositor.force-enabled", true);	
+user_pref("gfx.webrender.enabled", true);	
+user_pref("gfx.webrender.precache-shaders", true);	
+user_pref("gfx.webrender.software.opengl", true);
+
+// PREF: image tweaks
+user_pref("image.mem.decode_bytes_at_a_time", 65536); // Chunk size for calls to the image decoders
+user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // Minimum timeout to unmap shared surfaces since they have been last used, in milliseconds
+//user_pref("layers.gpu-process.enabled", true); // DEFAULT
+user_pref("layers.gpu-process.force-enabled", true);
+user_pref("image.cache.size", 10485760);
+
+// PREF: increase media cache
+user_pref("media.memory_cache_max_size", 2048000); // alt=512000
+user_pref("media.cache_readahead_limit", 99999);
+user_pref("media.cache_resume_threshold", 99999);
+user_pref("media.memory_caches_combined_limit_kb", 2560000);
+//user_pref("media.memory_caches_combined_limit_pc_sysmem", 20);
+
+user_pref("media.memory_cache_max_size	", 1048576);	
+user_pref("media.memory_caches_combined_limit_kb", 3145728);
+user_pref("media.hardware-video-decoding.force-enabled", true);
+user_pref("media.ffmpeg.vaapi.enabled", true);
+
+/****************************************************************************
+ * SECTION: BROWSER CACHE                                                   *
+****************************************************************************/
+
+// PREF: increase memory cache size
+user_pref("browser.cache.memory.capacity", 5242880); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB
+user_pref("browser.cache.memory.max_entry_size", 327680); // -1; entries bigger than than 90% of the mem-cache are never cached
+
+// PREF: increase disk cache size
+//user_pref("browser.cache.disk.enable", true); // SecureFox override
+//user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
+//user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
+
+/****************************************************************************
+ * SECTION: SPECULATIVE CONNECTIONS                                        *
+****************************************************************************/
+
+// PREF: increase network predictions
+// [NOTE] in uBlock Origin, go to settings and make sure the following are disabled:
+// "Disable pre-fetching (to prevent any connection for blocked network requests)"
+// "Disable hyperlink auditing"
+user_pref("network.http.speculative-parallel-limit", 6); // SecureFox override
+user_pref("network.dns.disablePrefetch", false); // SecureFox override
+user_pref("network.dns.disablePrefetchFromHTTPS", true); // SecureFox override
+    user_pref("network.dnsCacheEntries", 20000);	
+    user_pref("network.dnsCacheExpiration", 3600);	
+    user_pref("network.dnsCacheExpirationGracePeriod", 240);
+user_pref("browser.urlbar.speculativeConnect.enabled", true); // SecureFox override
+user_pref("browser.places.speculativeConnect.enabled", true); // SecureFox override
+user_pref("network.prefetch-next", true); // SecureFox override
+user_pref("network.predictor.enabled", true); // SecureFox override
+user_pref("network.predictor.enable-prefetch", true); // SecureFox override
+user_pref("network.predictor.enable-hover-on-ssl", true);
+    user_pref("network.predictor.preconnect-min-confidence", 20);
+    user_pref("network.predictor.prefetch-force-valid-for", 3600);	
+    user_pref("network.predictor.prefetch-min-confidence", 20);
+    user_pref("network.predictor.prefetch-rolling-load-count", 120);
+    user_pref("network.predictor.preresolve-min-confidence", 10);
+
+/****************************************************************************
+ * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)     *
+****************************************************************************/
+
+// PREF: faster SSL
+user_pref("network.ssl_tokens_cache_capacity", 32768); // more TLS token caching (fast reconnects)
+
+
