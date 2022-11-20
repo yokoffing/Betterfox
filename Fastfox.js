@@ -15,23 +15,24 @@
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
-/****************************************************************************************
- *                                                                                      *
- * [NOTE] For best performance on older hardware, you will need to test                 *
- * these settings individually, especially Webrender.                                   *
- *                                                                                      *
-****************************************************************************************/
-
 // PREF: force enable all Webrender prefs
 // [1] https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/
 // [2] https://wiki.mozilla.org/Platform/GFX/WebRender_Where
 // [3] https://www.reddit.com/r/firefox/comments/fo1jwz/make_firefox_faster/flhh5l2/
-//user_pref("gfx.webrender.all", true);
+//user_pref("gfx.webrender.all", true); // enables WR + additional features
+//user_pref("gfx.webrender.enabled", true);	// DEFAULT; just enables WR
+//user_pref("gfx.webrender.compositor", true); // DEFAULT
+    //user_pref("gfx.webrender.compositor.force-enabled", true);
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [NOTE] Both preferences need to be "true" if you're using the software renderer.
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
 //user_pref("gfx.webrender.software", true);
+    //user_pref("gfx.webrender.software.opengl", true);
+
+// PREF: GPU-accelerated Canvas2D [NIGHTLY]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1739448
+user_pref("gfx.canvas.accelerated", true);
 
 // PREF: enable Lazy Image Loading
 // https://www.ghacks.net/2020/02/15/firefox-75-gets-lazy-loading-support-for-images/
@@ -104,7 +105,55 @@ user_pref("layout.css.animation-composition.enabled", true);
 // [1] https://github.com/WebAssembly/function-references/blob/master/proposals/function-references/Overview.md
 //user_pref("javascript.options.wasm_function_references", true);
 
+/****************************************************************************
+ * SECTION: MAKE FIREFOX FAST                                               *
+ * [NOTE] The following is for high-end machines                            *
+ * Copy+paste prefs below to your overrides                                 *
+****************************************************************************/
+
 // Credit for most of the following: https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db
+
+/****************************************************************************
+ *                                                                          *
+ * [NOTE] For best performance on older hardware, you will need to test     *
+ * these settings individually, especially Webrender.                       *
+ *                                                                          *
+****************************************************************************/
+
+/****************************************************************************
+ * SECTION: GFX RENDERING TWEAKS                                            *
+****************************************************************************/
+
+// PREF: Webrender tweaks
+user_pref("gfx.webrender.all", true); // enables WR + additional features
+user_pref("gfx.webrender.precache-shaders", true);
+//user_pref("gfx.webrender.compositor", true); // DEFAULT
+    user_pref("gfx.webrender.compositor.force-enabled", true);
+
+// PREF: GPU-accelerated Canvas2D tweaks
+//user_pref("gfx.canvas.accelerated", true);
+    user_pref("gfx.canvas.accelerated.cache-items", 32768);
+    user_pref("gfx.canvas.accelerated.cache-size", 4096);
+    user_pref("gfx.content.skia-font-cache-size", 80);
+
+// PREF: image tweaks
+user_pref("image.cache.size", 10485760);
+user_pref("image.mem.decode_bytes_at_a_time", 65536); // chunk size for calls to the image decoders
+user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // minimum timeout to unmap shared surfaces since they have been last used
+//user_pref("layers.gpu-process.enabled", true); // DEFAULT
+    user_pref("layers.gpu-process.force-enabled", true);
+
+// PREF: increase media cache
+user_pref("media.memory_cache_max_size", 1048576); // alt=512000
+user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
+    //user_pref("media.memory_caches_combined_limit_pc_sysmem", 20); // default=5
+user_pref("media.hardware-video-decoding.force-enabled", true);
+    //user_pref("media.ffmpeg.vaapi.enabled", true); // [HIDDEN? / REMOVED?]
+
+// PREF: decrease video buffering [may not be needed]
+//user_pref("media.cache_size", 2048000); // default=512000
+//user_pref("media.cache_readahead_limit", 99999); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+//user_pref("media.cache_resume_threshold", 99999); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds).
 
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
@@ -126,44 +175,6 @@ user_pref("browser.cache.memory.max_entry_size", 327680); // -1; entries bigger 
 // PREF: general tweaks
 user_pref("browser.cache.frecency_half_life_hours", 128); // lower cache sweep intervals
 user_pref("browser.cache.max_shutdown_io_lag", 16); // let the browser finish more io on shutdown
-
-/****************************************************************************
- * SECTION: GFX RENDERING TWEAKS                                            *
-****************************************************************************/
-
-// PREF: Webrender tweaks
-user_pref("gfx.webrender.all", true); // enables WR + additional features
-    //user_pref("gfx.webrender.enabled", true);	// just enables WR
-//user_pref("gfx.webrender.compositor", true); // DEFAULT
-    user_pref("gfx.webrender.compositor.force-enabled", true);	
-user_pref("gfx.webrender.precache-shaders", true);	
-user_pref("gfx.webrender.software.opengl", true);
-
-// PREF: GPU-accelerated (WebGL-backed) Canvas2D 
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1739448
-user_pref("gfx.canvas.accelerated", true);
-user_pref("gfx.canvas.accelerated.cache-items", 32768);
-user_pref("gfx.canvas.accelerated.cache-size", 4096);
-user_pref("gfx.content.skia-font-cache-size", 80);
-
-// PREF: image tweaks
-user_pref("image.cache.size", 10485760);
-user_pref("image.mem.decode_bytes_at_a_time", 65536); // chunk size for calls to the image decoders
-user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // minimum timeout to unmap shared surfaces since they have been last used
-//user_pref("layers.gpu-process.enabled", true); // DEFAULT
-    user_pref("layers.gpu-process.force-enabled", true);
-
-// PREF: increase media cache
-user_pref("media.memory_cache_max_size", 1048576); // alt=512000
-user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
-    //user_pref("media.memory_caches_combined_limit_pc_sysmem", 20); // default=5
-user_pref("media.hardware-video-decoding.force-enabled", true);
-    //user_pref("media.ffmpeg.vaapi.enabled", true); // [HIDDEN? / REMOVED?]
-
-// PREF: decrease video buffering
-//user_pref("media.cache_size", 2048000); // default=512000
-//user_pref("media.cache_readahead_limit", 99999); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-//user_pref("media.cache_resume_threshold", 99999); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds).
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                        *
