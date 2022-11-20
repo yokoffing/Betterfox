@@ -35,6 +35,7 @@ user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra harden
 user_pref("browser.safebrowsing.downloads.remote.url", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google4.dataSharingURL", ""); // extra hardening
 user_pref("browser.search.update", false); // do not update opensearch engines
+user_pref("network.notify.checkForProxies", false); // do not check for proxies
 
 /** PESKYFOX ***/
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
