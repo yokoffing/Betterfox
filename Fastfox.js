@@ -115,7 +115,7 @@ user_pref("layout.css.animation-composition.enabled", true);
 //user_pref("browser.cache.disk.enable", true); // SecureFox override
     //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
 //user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
-// enforce disable of clearing data on shutdown; otherwise, defeating the purpose of a disk cache:
+// disable of clearing data on shutdown to maximize the purpose of a disk cache:
 //user_pref("privacy.sanitize.sanitizeOnShutdown", false);  // clear browsing data on shutdown
     //user_pref("privacy.clearOnShutdown.offlineApps", false);  // disable if login issue after restart
 
@@ -147,11 +147,11 @@ user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("gfx.content.skia-font-cache-size", 80);
 
 // PREF: image tweaks
+user_pref("image.cache.size", 10485760);
 user_pref("image.mem.decode_bytes_at_a_time", 65536); // chunk size for calls to the image decoders
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // minimum timeout to unmap shared surfaces since they have been last used
 //user_pref("layers.gpu-process.enabled", true); // DEFAULT
     user_pref("layers.gpu-process.force-enabled", true);
-user_pref("image.cache.size", 10485760);
 
 // PREF: increase media cache
 user_pref("media.memory_cache_max_size", 1048576); // alt=512000
@@ -160,10 +160,10 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
 user_pref("media.hardware-video-decoding.force-enabled", true);
     //user_pref("media.ffmpeg.vaapi.enabled", true); // [HIDDEN? / REMOVED?]
 
-// PREF: decrease video buffering [NOT NEEDED WITH ABOVE]
+// PREF: decrease video buffering
 //user_pref("media.cache_size", 2048000); // default=512000
-//user_pref("media.cache_readahead_limit", 99999); // default=60
-//user_pref("media.cache_resume_threshold", 99999); // default=30
+//user_pref("media.cache_readahead_limit", 99999); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+//user_pref("media.cache_resume_threshold", 99999); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds).
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                        *
