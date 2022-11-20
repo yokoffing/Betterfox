@@ -154,33 +154,14 @@ user_pref("image.cache.size", 10485760);
 // PREF: increase media cache
 user_pref("media.memory_cache_max_size", 1048576); // alt=512000
 user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
+    //user_pref("media.memory_caches_combined_limit_pc_sysmem", 20); // default=5
 user_pref("media.hardware-video-decoding.force-enabled", true);
     //user_pref("media.ffmpeg.vaapi.enabled", true); // [HIDDEN? / REMOVED?]
 
-
-
-
+// PREF: decrease video buffering
 //user_pref("media.cache_size", 2048000); // default=512000
 //user_pref("media.cache_readahead_limit", 99999); // default=60
 //user_pref("media.cache_resume_threshold", 99999); // default=30
-
-user_pref("media.memory_cache_max_size", 512000); // memory cache
-user_pref("media.memory_caches_combined_limit_kb", 2560000); // memory cache
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // memory cache
-
-
-
-
-user_pref("media.memory_cache_max_size", 2048000); // alt=512000
-user_pref("media.cache_readahead_limit", 99999);
-user_pref("media.cache_resume_threshold", 99999);
-user_pref("media.memory_caches_combined_limit_kb", 2560000);
-//user_pref("media.memory_caches_combined_limit_pc_sysmem", 20);
-
-user_pref("media.memory_cache_max_size	", 1048576);	
-user_pref("media.memory_caches_combined_limit_kb", 3145728);
-user_pref("media.hardware-video-decoding.force-enabled", true);
-user_pref("media.ffmpeg.vaapi.enabled", true);
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                        *
@@ -214,5 +195,3 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
 
 // PREF: faster SSL
 user_pref("network.ssl_tokens_cache_capacity", 32768); // more TLS token caching (fast reconnects)
-
-
