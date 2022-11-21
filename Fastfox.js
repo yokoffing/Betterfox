@@ -166,7 +166,7 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
 user_pref("browser.cache.memory.max_entry_size", 51200); // preferred=327680 or -1; entries bigger than than 90% of the mem-cache are never cached
 
 /****************************************************************************
- * SECTION: SPECULATIVE CONNECTIONS (OPTIONAL)                              *
+ * SECTION: SPECULATIVE CONNECTIONS                                         *
 ****************************************************************************/
 
 // [NOTE] FF85+ partitions (isolates) pooled connections, prefetch connections,
@@ -181,6 +181,8 @@ user_pref("browser.cache.memory.max_entry_size", 51200); // preferred=327680 or 
 // [NOTE] In uBlock Origin, go to settings and make sure the following are DISABLED:
 // - "Disable pre-fetching (to prevent any connection for blocked network requests)"
 // - "Disable hyperlink auditing"
+
+// [NOTE] Not enabled by default. Please add to "MY OVERRIDES" section.
 
 // PREF: increase network predictions
 user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
