@@ -11,7 +11,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 107                                                             *
+ * version: 108                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -524,3 +524,7 @@ user_pref("layout.css.has-selector.enabled", true);
 // 0 (default) or 1=allow, 2=block
 // [SETTING] to add site exceptions: Ctrl+I>Permissions>Override Keyboard Shortcuts ***/
 //user_pref("permissions.default.shortcuts", 2);
+
+// PREF: JPEG XL image format [NIGHTLY]
+// [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
+//user_pref("image.jxl.enabled", true);
