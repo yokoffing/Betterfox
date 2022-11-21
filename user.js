@@ -15,16 +15,6 @@
 ****************************************************************************/
 
 /****************************************************************************
- * SECTION: FASTFOX                                                         *
-****************************************************************************/
-user_pref("gfx.canvas.accelerated", true);
-user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
-user_pref("browser.startup.preXulSkeletonUI", false);
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
-user_pref("dom.enable_web_task_scheduling", true);
-user_pref("layout.css.animation-composition.enabled", true);
-
-/****************************************************************************
  * SECTION: SECUREFOX                                                       *
 ****************************************************************************/
 /** TRACKING PROTECTION ***/
@@ -237,6 +227,33 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("clipboard.plainTextOnly", true);
 user_pref("dom.popup_allowed_events", "click dblclick");
 user_pref("layout.css.has-selector.enabled", true);
+
+/****************************************************************************
+ * SECTION: FASTFOX                                                         *
+****************************************************************************/
+user_pref("browser.startup.preXulSkeletonUI", false);
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
+user_pref("dom.enable_web_task_scheduling", true);
+user_pref("layout.css.animation-composition.enabled", true);
+
+/** GFX ***/
+user_pref("gfx.webrender.all", true);
+user_pref("gfx.webrender.precache-shaders", true);
+user_pref("gfx.webrender.compositor", true);
+user_pref("gfx.canvas.accelerated", true);
+user_pref("gfx.canvas.accelerated.cache-items", 32768);
+user_pref("gfx.canvas.accelerated.cache-size", 4096);
+user_pref("gfx.content.skia-font-cache-size", 80);
+user_pref("image.cache.size", 10485760);
+user_pref("image.mem.decode_bytes_at_a_time", 65536);
+user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);
+user_pref("layers.gpu-process.enabled", true);
+user_pref("media.memory_cache_max_size", 1048576);
+user_pref("media.memory_caches_combined_limit_kb", 3145728);
+user_pref("media.hardware-video-decoding.force-enabled", true);
+
+/** CACHE ***/
+user_pref("browser.cache.memory.max_entry_size", 51200);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
