@@ -11,7 +11,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 107                                                                         *
+ * version: 108                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -52,10 +52,6 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 // Increasing this can help on older machines and some websites, as well as reducing writes
 // [1] https://bugzilla.mozilla.org/1304389
 //user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
-
-// PREF: JPEG XL image format [NIGHTLY]
-// [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
-//user_pref("image.jxl.enabled", true);
 
 // PREF: about:home startup cache [NIGHTLY]
 // A cache for the initial about:home document that is loaded by default at startup
