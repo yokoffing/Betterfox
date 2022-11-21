@@ -125,9 +125,10 @@ user_pref("layout.css.animation-composition.enabled", true);
 ****************************************************************************/
 
 // PREF: Webrender tweaks
+// [1] https://www.troddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
 user_pref("gfx.webrender.all", true); // enables WR + additional features
 user_pref("gfx.webrender.precache-shaders", true);
-//user_pref("gfx.webrender.compositor", true); // DEFAULT
+user_pref("gfx.webrender.compositor", true); // DEFAULT
     user_pref("gfx.webrender.compositor.force-enabled", true);
 
 // PREF: GPU-accelerated Canvas2D tweaks
@@ -140,7 +141,7 @@ user_pref("gfx.canvas.accelerated", true); // DEFAULT in user.js
 user_pref("image.cache.size", 10485760);
 user_pref("image.mem.decode_bytes_at_a_time", 65536); // chunk size for calls to the image decoders
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // minimum timeout to unmap shared surfaces since they have been last used
-//user_pref("layers.gpu-process.enabled", true); // DEFAULT
+user_pref("layers.gpu-process.enabled", true); // DEFAULT
     user_pref("layers.gpu-process.force-enabled", true);
 
 // PREF: increase media cache
@@ -150,7 +151,7 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
 user_pref("media.hardware-video-decoding.force-enabled", true);
     //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
 
-// PREF: decrease video buffering [may not be needed]
+// PREF: decrease video buffering [not be needed with the above]
 //user_pref("media.cache_size", 2048000); // default=512000
 //user_pref("media.cache_readahead_limit", 99999); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
 //user_pref("media.cache_resume_threshold", 99999); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds).
@@ -159,22 +160,20 @@ user_pref("media.hardware-video-decoding.force-enabled", true);
  * SECTION: BROWSER CACHE                                                   *
 ****************************************************************************/
 
-// PREF: increase disk cache size
-// [NOTE] May not notice significant performance improvement on higher-end machines
+// [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
+
+// PREF: re-enable disk cache
 //user_pref("browser.cache.disk.enable", true); // SecureFox override
-    //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
+//user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
 //user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
-// disable of clearing data on shutdown to maximize the purpose of a disk cache:
-//user_pref("privacy.sanitize.sanitizeOnShutdown", false);  // clear browsing data on shutdown
-    //user_pref("privacy.clearOnShutdown.offlineApps", false);  // disable if login issue after restart
+//user_pref("browser.cache.max_shutdown_io_lag", 16); // number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
+//user_pref("browser.cache.frecency_half_life_hours", 128); // lower cache sweep intervals, the half life used to re-compute cache entries frecency (in hours)
+// disable clearing cache on shutdown:
+//user_pref("privacy.clearOnShutdown.cache", false);
 
 // PREF: increase memory cache size
 user_pref("browser.cache.memory.capacity", 2097152); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
 user_pref("browser.cache.memory.max_entry_size", 327680); // -1; entries bigger than than 90% of the mem-cache are never cached
-
-// PREF: general tweaks
-user_pref("browser.cache.frecency_half_life_hours", 128); // lower cache sweep intervals
-user_pref("browser.cache.max_shutdown_io_lag", 16); // let the browser finish more io on shutdown
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                        *
@@ -189,6 +188,10 @@ user_pref("browser.cache.max_shutdown_io_lag", 16); // let the browser finish mo
 // [1] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L74-L108
 // [2] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L436-L542
 
+// [NOTE] In uBlock Origin, go to settings and make sure the following are OFF:
+// - "Disable pre-fetching (to prevent any connection for blocked network requests)"
+// - "Disable hyperlink auditing"
+
 // PREF: increase network predictions
 user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
 user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
@@ -202,11 +205,11 @@ user_pref("network.prefetch-next", true); // overrides SecureFox
 user_pref("network.predictor.enabled", true); // overrides SecureFox
 user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
 user_pref("network.predictor.enable-hover-on-ssl", true);
-    user_pref("network.predictor.preconnect-min-confidence", 20);
-    user_pref("network.predictor.prefetch-force-valid-for", 3600);	
-    user_pref("network.predictor.prefetch-min-confidence", 20);
-    user_pref("network.predictor.prefetch-rolling-load-count", 120);
-    user_pref("network.predictor.preresolve-min-confidence", 10);
+    user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=20
+    user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=40
+    user_pref("network.predictor.prefetch-min-confidence", 20); // default 100; alt=60
+        user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
+        user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
 
 /****************************************************************************
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)     *
