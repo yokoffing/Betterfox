@@ -32,7 +32,7 @@
 
 // PREF: GPU-accelerated Canvas2D [NIGHTLY]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1739448
-user_pref("gfx.canvas.accelerated", true);
+//user_pref("gfx.canvas.accelerated", true);
 
 // PREF: enable Lazy Image Loading
 // https://www.ghacks.net/2020/02/15/firefox-75-gets-lazy-loading-support-for-images/
@@ -107,17 +107,11 @@ user_pref("layout.css.animation-composition.enabled", true);
 
 /****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
- * [NOTE] The following is for high-end machines                            *
- * Copy+paste prefs below to your overrides                                 *
-****************************************************************************/
-
-// Credit for most of the following: https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db
-
-/****************************************************************************
- *                                                                          *
+ * [NOTE] The following is not recommended for low-end machines             *
+ * Credit for most of these:                                                *
+ * https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db    *
  * [NOTE] For best performance on older hardware, you will need to test     *
- * these settings individually, especially Webrender.                       *
- *                                                                          *
+ * these settings individually.                                             *
 ****************************************************************************/
 
 /****************************************************************************
@@ -128,26 +122,26 @@ user_pref("layout.css.animation-composition.enabled", true);
 // [1] https://www.troddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
 user_pref("gfx.webrender.all", true); // enables WR + additional features
 user_pref("gfx.webrender.precache-shaders", true);
-user_pref("gfx.webrender.compositor", true); // DEFAULT
-    user_pref("gfx.webrender.compositor.force-enabled", true);
+user_pref("gfx.webrender.compositor", true); // reinforce DEFAULT
+    //user_pref("gfx.webrender.compositor.force-enabled", true);
 
 // PREF: GPU-accelerated Canvas2D tweaks
-user_pref("gfx.canvas.accelerated", true); // DEFAULT in user.js
-    user_pref("gfx.canvas.accelerated.cache-items", 32768);
-    user_pref("gfx.canvas.accelerated.cache-size", 4096);
-    user_pref("gfx.content.skia-font-cache-size", 80);
+user_pref("gfx.canvas.accelerated", true);
+user_pref("gfx.canvas.accelerated.cache-items", 32768);
+user_pref("gfx.canvas.accelerated.cache-size", 4096);
+user_pref("gfx.content.skia-font-cache-size", 80);
 
 // PREF: image tweaks
 user_pref("image.cache.size", 10485760);
 user_pref("image.mem.decode_bytes_at_a_time", 65536); // chunk size for calls to the image decoders
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // minimum timeout to unmap shared surfaces since they have been last used
-user_pref("layers.gpu-process.enabled", true); // DEFAULT
-    user_pref("layers.gpu-process.force-enabled", true);
+user_pref("layers.gpu-process.enabled", true); // reinforce DEFAULT
+    //user_pref("layers.gpu-process.force-enabled", true);
 
 // PREF: increase media cache
-user_pref("media.memory_cache_max_size", 1048576); // alt=512000
+user_pref("media.memory_cache_max_size", 1048576); // alt=512000; overrides Securefox (for now)
 user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
-    //user_pref("media.memory_caches_combined_limit_pc_sysmem", 20); // default=5
+    //user_pref("media.memory_caches_combined_limit_pc_sysmem", 40); // default=5
 user_pref("media.hardware-video-decoding.force-enabled", true);
     //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
 
@@ -162,7 +156,7 @@ user_pref("media.hardware-video-decoding.force-enabled", true);
 
 // [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
 
-// PREF: re-enable disk cache
+// PREF: re-enable disk cache (optional)
 //user_pref("browser.cache.disk.enable", true); // SecureFox override
 //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
 //user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
@@ -171,12 +165,15 @@ user_pref("media.hardware-video-decoding.force-enabled", true);
 // disable clearing cache on shutdown:
 //user_pref("privacy.clearOnShutdown.cache", false);
 
-// PREF: increase memory cache size
-user_pref("browser.cache.memory.capacity", 2097152); // -1=default; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
-user_pref("browser.cache.memory.max_entry_size", 327680); // -1; entries bigger than than 90% of the mem-cache are never cached
+// PREF: increase memory cache size (recommended)
+//user_pref("browser.cache.memory.capacity", 5242880); // default=-1; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
+user_pref("browser.cache.memory.max_entry_size", 51200); // preferred=327680 or -1; entries bigger than than 90% of the mem-cache are never cached
+
+// PREF: faster SSL
+user_pref("network.ssl_tokens_cache_capacity", 32768); // more TLS token caching (fast reconnects)
 
 /****************************************************************************
- * SECTION: SPECULATIVE CONNECTIONS                                        *
+ * SECTION: SPECULATIVE CONNECTIONS (OPTIONAL)                              *
 ****************************************************************************/
 
 // [NOTE] FF85+ partitions (isolates) pooled connections, prefetch connections,
@@ -211,9 +208,4 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
         user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
         user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
 
-/****************************************************************************
- * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)     *
-****************************************************************************/
-
-// PREF: faster SSL
-user_pref("network.ssl_tokens_cache_capacity", 32768); // more TLS token caching (fast reconnects)
+ 
