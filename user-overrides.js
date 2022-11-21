@@ -1,7 +1,7 @@
 
 /****************************************************************************
  *                                                                         *
- *  [NOTE] This list is a backup of personal prefs                         *
+ *  [NOTE] This list is a backup of PERSONAL prefs                         *
  *                                                                         *
 ****************************************************************************/
 
@@ -10,10 +10,10 @@
 ****************************************************************************/
 /** Enter your personal prefs below this line ***/
 
-/** DoH SETUP ***/
+/** SETUP ON FIRST INSTALLATION ***/
 user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
-user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
-user_pref("network.trr.confirmationNS", "skip");
+user_pref("browser.download.dir", "C:\Users\<USERNAME>\AppData\Local\Temp"); // [WINDOWS] Downloads default to %temp%
+//user_pref("browser.download.folderList", 0); // Downloads default to desktop
 
 /** SECUREFOX ***/
 user_pref("beacon.enabled", true); // Beacon API; disabling sometimes causes breakage
@@ -29,7 +29,9 @@ user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra harden
 user_pref("browser.safebrowsing.downloads.remote.url", ""); // extra hardening
 user_pref("browser.safebrowsing.provider.google4.dataSharingURL", ""); // extra hardening
 user_pref("browser.search.update", false); // do not update opensearch engines
-user_pref("network.notify.checkForProxies", false); // do not check for proxies
+user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
+user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
+user_pref("network.notify.checkForProxies", false); // skip proxy request check
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes annoying "Inspect Accessibility Properties" on right-click
@@ -41,13 +43,11 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited"
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // Settings>Home>Firefox Home Content>Recent Activity>Pages Saved to Pocket
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
-user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);  // font improvement
 user_pref("browser.urlbar.suggest.bookmark", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.history", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.openpage", false); // hide URL bar dropdown suggestions
 //user_pref("browser.urlbar.suggest.searches", false); // hide URL bar dropdown suggestions (needed?)
 user_pref("browser.urlbar.maxRichResults", 1); // minimum suggestion needed for URL bar autofill
-user_pref("browser.download.folderList", 0); // downloads default to desktop
 user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually back-up
 user_pref("view_source.wrap_long_lines", true);  // wrap source lines
 user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devtools
@@ -112,6 +112,7 @@ user_pref("extensions.unifiedExtensions.enabled", false);
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla restricted domains [DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS ***/
+user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);  // font improvement
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
