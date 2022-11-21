@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 107                                                             *
+ * version: 108                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -250,7 +250,6 @@ user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);
 user_pref("layers.gpu-process.enabled", true);
 user_pref("media.memory_cache_max_size", 1048576);
 user_pref("media.memory_caches_combined_limit_kb", 3145728);
-user_pref("media.hardware-video-decoding.force-enabled", true);
 
 /** CACHE ***/
 user_pref("browser.cache.memory.max_entry_size", 51200);
