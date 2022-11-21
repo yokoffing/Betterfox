@@ -169,9 +169,6 @@ user_pref("media.hardware-video-decoding.force-enabled", true);
 //user_pref("browser.cache.memory.capacity", 5242880); // default=-1; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
 user_pref("browser.cache.memory.max_entry_size", 51200); // preferred=327680 or -1; entries bigger than than 90% of the mem-cache are never cached
 
-// PREF: faster SSL
-user_pref("network.ssl_tokens_cache_capacity", 32768); // more TLS token caching (fast reconnects)
-
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS (OPTIONAL)                              *
 ****************************************************************************/
@@ -208,4 +205,5 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
         user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
         user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
 
- 
+ // PREF: faster SSL
+user_pref("network.ssl_tokens_cache_capacity", 32768); // more TLS token caching (fast reconnects)
