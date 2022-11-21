@@ -11,7 +11,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: 106                                                             *
+ * version: 107                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -43,19 +43,21 @@ user_pref("privacy.trackingprotection.emailtracking.enabled", true); // IN BETA
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // enabled with "Strict"
 
 // PREF: query stripping
-// We set the same query stripping list that Brave uses [1]
-// [1] https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc
-// [2] https://gitlab.com/librewolf-community/settings/-/blob/master/librewolf.cfg#L80
+// Currently uses a small list [1]
+// Can set the same query stripping list that Brave uses [2]
+// [1] https://www.eyerys.com/articles/news/how-mozilla-firefox-improves-privacy-using-query-parameter-stripping-feature
+// [2] https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc
 //user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
 
-// PREF: allow embedded tweets, Instagram, and Reddit posts
+// PREF: allow embedded tweets, Instagram and Reddit posts, and TikTok embeds
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
 // [TEST - instagram embed] https://www.ndtv.com/entertainment/bharti-singh-and-husband-haarsh-limbachiyaa-announce-pregnancy-see-trending-post-2646359
 // [TEST - tweet embed] https://www.newsweek.com/cryptic-tweet-britney-spears-shows-elton-john-collab-may-date-back-2015-1728036
+// [TEST - tiktok embed] https://www.vulture.com/article/snl-adds-four-new-cast-members-for-season-48.html
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
-user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com"); // MANUAL
+user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com"); // MANUAL
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // MANUAL
 
 // PREF: lower the priority of network loads for resources on the tracking protection list
@@ -104,32 +106,14 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
     //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
     //user_pref("privacy.partition.bloburl_per_agent_cluster", true); [REGRESSIONS]
 // enable APS (Always Partitioning Storage) [FF104+]
-user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
-user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [[FF105+]
+user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); [DEFAULT: true FF109+]
+user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT: false FF109+]
 
 // PREF: Smartblock
 // [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
 // [2] https://www.youtube.com/watch?v=VE8SrClOTgw
 // [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
 //user_pref("extensions.webcompat.enable_shims", true); // enabled with "Strict"
-
-// PREF: Cookie Banner handling [NIGHTLY] [FF___+]
-// [1] https://phabricator.services.mozilla.com/D153642
-// [2] https://github.com/mozilla/cookie-banner-rules-list
-// 0: Disables all cookie banner handling (default)
-// 1: Reject-all if possible, otherwise do nothing
-// 2: Reject-all if possible, otherwise accept-all
-user_pref("cookiebanners.service.mode", 1);
-user_pref("cookiebanners.service.mode.privateBrowsing", 1);
-    user_pref("cookiebanners.bannerClicking.enabled", true);
-    //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
-
-// PREF: enable global CookieBannerRules
-// This is used for click rules that can handle common Consent Management Providers (CMP).
-// [NOTE] Enabling this (when the cookie handling feature is enabled) may
-// negatively impact site performance since it requires us to run rule-defined
-// query selectors for every page.
-//user_pref("cookiebanners.service.enableGlobalRules", true);
 
 // PREF: Redirect Tracking Prevention
 // All storage is cleared (more or less) daily from origins that are known trackers and that
@@ -141,22 +125,6 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 // [5] https://github.com/arkenfox/user.js/issues/1089
 //user_pref("privacy.purge_trackers.enabled", true); // DEFAULT
 
-// PREF: Hyperlink Auditing (click tracking).
-//user_pref("browser.send_pings", false); // DEFAULT
-
-// PREF: sending additional analytics to web servers
-// [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
-user_pref("beacon.enabled", false);
-
-// PREF: battery status tracking
-// Pref remains, but depreciated
-// [1] https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API#browser_compatibility
-//user_pref("dom.battery.enabled", false);
-
-// PREF: Local Storage Next Generation (LSNG) (DOMStorage) 
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
-//user_pref("dom.storage.next_gen", true); // DEFAULT FF92+
-
 // PREF: SameSite Cookies
 // [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
 // [2] https://web.dev/samesite-cookies-explained/
@@ -164,14 +132,46 @@ user_pref("beacon.enabled", false);
 //user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 //user_pref("network.cookie.sameSite.schemeful", true); // DEFAULT 104+
 
-// PREF: enable Global Privacy Control (GPC)
+// PREF: enable Global Privacy Control (GPC) [NIGHTLY]
+// GPC is default in Brave.
+// Electronic Frontier Foundation’s (ETF) browser extensions enforce GPC.
+// Honored by many highly ranked sites [2]
 // [1] https://globalprivacycontrol.org/
 // [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
-//user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
+// [3] https://blog.mozilla.org/netpolicy/2021/10/28/implementing-global-privacy-control/
 //user_pref("privacy.globalprivacycontrol.enabled", true);
+    //user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
+
+// PREF: Hyperlink Auditing (click tracking).
+//user_pref("browser.send_pings", false); // DEFAULT
+
+// PREF: Beacon API
+// Disabling this API sometimes causes breakage:
+// [TEST] https://vercel.com/
+// Instead of disable, block in uBlock Origin with rule `$ping`
+// [1] https://github.com/arkenfox/user.js/issues/1586#issuecomment-1320372943
+// [2] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
+user_pref("beacon.enabled", false);
+
+// PREF: battery status tracking
+// [NOTE] Pref remains, but API is depreciated
+// [1] https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API#browser_compatibility
+//user_pref("dom.battery.enabled", false);
+
+// PREF: Local Storage Next Generation (LSNG) (DOMStorage) 
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
+//user_pref("dom.storage.next_gen", true); // DEFAULT FF92+
 
 // PREF: WebRTC Global Mute Toggles
 //user_pref("privacy.webrtc.globalMuteToggles", true);
+
+// PREF: disable UITour backend so there is no chance that a remote page can use it
+user_pref("browser.uitour.enabled", false);
+    //user_pref("browser.uitour.url", "");
+
+// PREF: reset remote debugging to disabled
+// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16222
+//user_pref("devtools.debugger.remote-enabled", false); // [DEFAULT: false]
 
 /****************************************************************************
  * SECTION: OSCP & CERTS / HPKP (HTTP Public Key Pinning)                   *
@@ -185,6 +185,7 @@ user_pref("beacon.enabled", false);
 // Firefox falls back on plain OCSP when must-staple is not configured on the host certificate
 // [1] https://scotthelme.co.uk/revocation-is-broken/
 // [2] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
+// [3] https://github.com/arkenfox/user.js/issues/1576#issuecomment-1304590235
 
 // PREF: disable OCSP fetching to confirm current validity of certificates
 // OCSP (non-stapled) leaks information about the sites you visit to the CA (cert authority)
@@ -317,18 +318,22 @@ user_pref("layout.css.font-visibility.private", 1); // Private Browsing windows
 // PREF: disable showing about:blank as soon as possible during startup [FF60+]
 // When default true this no longer masks the RFP chrome resizing activity
 // [1] https://bugzilla.mozilla.org/1448423
-//user_pref("browser.startup.blankWindow", false);
+user_pref("browser.startup.blankWindow", false);
 
-// PREF: disable using system colors
+// PREF: disable ICC color management
+// Use a color calibrator for best results [WINDOWS]
+// Also may help improve font rendering on WINDOWS
 // [SETTING] General>Language and Appearance>Fonts and Colors>Colors>Use system colors
-//user_pref("browser.display.use_system_colors", false); // [DEFAULT false NON-WINDOWS]
+// default=false NON-WINDOWS
+// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/3.5/ICC_color_correction_in_Firefox
+user_pref("browser.display.use_system_colors", false);
 
 // PREF: enforce non-native widget theme
 // Security: removes/reduces system API calls, e.g. win32k API [1]
 // Fingerprinting: provides a uniform look and feel across platforms [2]
 // [1] https://bugzilla.mozilla.org/1381938
 // [2] https://bugzilla.mozilla.org/1411425
-//user_pref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
+//user_pref("widget.non-native-theme.enabled", true); // DEFAULT
 
 /****************************************************************************
  * SECTION: DISK AVOIDANCE                                                 *
@@ -356,8 +361,12 @@ user_pref("browser.sessionstore.privacy_level", 2);
 // Favicons are stored as .ico files in $profile_dir\shortcutCache
 //user_pref("browser.shell.shortcutFavicons", false);
 
+// PREF: remove temp files opened with an external application
+// [1] https://bugzilla.mozilla.org/302433
+user_pref("browser.helperApps.deleteTempFileOnExit", true);
+
 // PREF: disable page thumbnails capturing
-user_pref("browser.pagethumbnails.capturing_disabled", true); // [depreciated?]
+user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
 
 // PREF: disable automatic Firefox start and session restore after reboot [WINDOWS]
 // [1] https://bugzilla.mozilla.org/603903
@@ -365,12 +374,14 @@ user_pref("browser.pagethumbnails.capturing_disabled", true); // [depreciated?]
 
 // PREF: increase media cache limits
 // For higher-end PCs; helps with video playback/buffering
-//user_pref("browser.cache.memory.capacity",    256000); // -1; 256000=256MB, 512000=512MB, 1024000=1GB
-//user_pref("media.cache_readahead_limit",      99999); // 60
-//user_pref("media.cache_resume_threshold",     99999); // 30
-//user_pref("media.cache_size",                 2048000); // 512000
-//user_pref("media.memory_cache_max_size",      512000); // 65536
+// [1] https://github.com/arkenfox/user.js/pull/941
+//user_pref("browser.cache.memory.capacity", 256000); // -1; 256000=256MB, 512000=512MB, 1024000=1GB
+//user_pref("media.memory_cache_max_size", 512000); // 65536
 //user_pref("media.memory_caches_combined_limit_kb", 2560000); // 524288
+//user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5
+//user_pref("media.cache_size", 2048000); // 512000
+//user_pref("media.cache_readahead_limit", 99999); // 60
+//user_pref("media.cache_resume_threshold", 99999); // 30
 
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
@@ -549,10 +560,14 @@ user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs#values
 //user_pref("browser.urlbar.trimURLs", false);
 
-// PREF: enable a seperate search engine for Private Windows
-// [SETTINGS] Preferences -> Search and select another search provider (like DuckDuckGo)
-user_pref("browser.search.separatePrivateDefault", true);
+// PREF: enable seperate search engine for Private Windows
+// [SETTINGS] Preferences>Search>Default Search Engine>"Use this search engine in Private Windows"
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
+// [SETTINGS] "Choose a different default search engine for Private Windows only"
+//user_pref("browser.search.separatePrivateDefault", true); // DEFAULT
+// enable prompt for searching in a Private Window when using normal browsing window URL bar
+// [1] https://old.reddit.com/r/firefox/comments/yg8jyh/different_private_search_option_gone_firefox_106/
+//user_pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // HIDDEN
 
 // PREF: enable option to add custom search
 // [SETTINGS] Settings -> Search -> Search Shortcuts -> Add
@@ -681,6 +696,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 //user_pref("network.trr.uri", "https://xxxx/dns-query");
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+//user_pref("network.trr.confirmationNS", "skip"); // skip undesired DOH test connection
 
 // PREF: enable Oblivious DoH
 // [1] https://blog.cloudflare.com/oblivious-dns/
@@ -696,10 +712,6 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 // [EXAMPLE] "[{ \"name\": \"Cloudflare\", \"url\": \"https://mozilla.cloudflare-dns.com/dns-query\" },{ \"name\": \"NextDNS\", \"url\": \"https://trr.dns.nextdns.io/\" }]"
 //user_pref("network.trr.resolvers", "[{ \"name\": \"<NAME1>\", \"url\": \"https://<URL1>\" }, { \"name\": \"<NAME2>\", \"url\": \"https://<URL2>\" }]");
 //user_pref("network.trr.resolvers", "[{ \"name\": \"<NextDNS Custom>\", \"url\": \"https://dns.nextdns.io/7ad2e5/FF_WINDOWS\" }]");
-
-// PREF: Temporary workaround for DNS leak with DOH active [NO LONGER NEEDED]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1730418
-//user_pref("network.dns.upgrade_with_https_rr", false);
 
 /******************************************************************************
  * SECTION: ESNI / ECH                            *
@@ -910,11 +922,11 @@ user_pref("permissions.delegation.enabled", false);
 // PREF: Set the default Referrer Policy applied to third-party trackers when the
 // default cookie policy is set to reject third-party trackers; to be used
 // unless overriden by the site
-// [NOTE] Trim referrers from trackers to origins by default ***/
+// [NOTE] Trim referrers from trackers to origins by default
 // 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
 // 3=no-referrer-when-downgrade.
-user_pref("network.http.referer.defaultPolicy.trackers", 1);
-user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
+//user_pref("network.http.referer.defaultPolicy.trackers", 1);
+//user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 
 // PREF: control when to send a cross-origin referer
 // 0=always (default), 1=only if base domains match, 2=only if hosts match
@@ -922,7 +934,7 @@ user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 //user_pref("network.http.referer.XOriginPolicy", 2);
 
 // PREF: control the amount of cross-origin information to send
-// 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port ***/
+// 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /******************************************************************************
@@ -1027,10 +1039,12 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [5] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1767546
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
-      //user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
-      //user_pref("browser.safebrowsing.provider.google4.updateURL", "");
-      //user_pref("browser.safebrowsing.provider.google.gethashURL", "");
-      //user_pref("browser.safebrowsing.provider.google.updateURL", "");
+    //user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
+    //user_pref("browser.safebrowsing.provider.google4.updateURL", "");
+    //user_pref("browser.safebrowsing.provider.google.gethashURL", "");
+    //user_pref("browser.safebrowsing.provider.google.updateURL", "");
+    //user_pref("browser.safebrowsing.downloads.remote.url", "");
+    //user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
 
 // PREF: disable GSB checking downloads (master switch)
 // This is the master switch for the safebrowsing.downloads prefs
@@ -1096,8 +1110,8 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 
 // PREF: disable region updates
 // [1] https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
-//user_pref("browser.region.network.url", "");
 user_pref("browser.region.update.enabled", false);
+    //user_pref("browser.region.network.url", "");
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
 // This includes updates for "revoked certificates".
@@ -1116,6 +1130,13 @@ user_pref("browser.region.update.enabled", false);
 
 // PREF: Disable automatic extension updates [move to Pesky]
 //user_pref("extensions.update.enabled", false);
+
+// PREF: remove special permissions for certain mozilla domains
+// [1] resource://app/defaults/permissions
+user_pref("permissions.manager.defaultsUrl", "");
+
+// PREF: remove webchannel whitelist
+user_pref("webchannel.allowObject.urlWhitelist", "");
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
@@ -1196,3 +1217,6 @@ user_pref("browser.ping-centre.telemetry", false);
 // PREF: disable Firefox Home (Activity Stream) telemetry 
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+
+// PREF: disable check for proxies
+//user_pref("network.notify.checkForProxies", false);
