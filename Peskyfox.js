@@ -11,7 +11,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 106                                                             *
+ * version: 107                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -19,28 +19,45 @@
  * SECTION: MOZILLA UI                                                      *
 ****************************************************************************/
 
-// PREF: Enable a Light theme for browser and webpage content
+// PREF: enable a Light theme for browser and webpage content
 // [TEST] https://9to5mac.com/
 //user_pref("ui.systemUsesDarkTheme", 0); // HIDDEN
 //user_pref("browser.in-content.dark-mode", false); // HIDDEN
 
-// PREF: Enable a Dark theme for browser and webpage content
+// PREF: enable a Dark theme for browser and webpage content
 // [TEST] https://9to5mac.com/
 //user_pref("ui.systemUsesDarkTheme", 1); // HIDDEN
 //user_pref("browser.in-content.dark-mode", true); // HIDDEN
 
-// PREF: Choose what theme Firefox follows by default
+// PREF: choose what theme Firefox follows by default
 // Dark (0), Light (1), System (2), or Browser (3) (default)
 // [1] https://www.reddit.com/r/firefox/comments/rfj6yc/how_to_stop_firefoxs_dark_theme_from_overriding/hoe82i5/?context=3
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 
-// PREF: Allow Firefox to use userChome, userContent, etc.
+// PREF: enable Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-// PREF: Disable Accessibility services
+// PREF: enable CSS moz document rules
+// Still needed for Stylus?
+// [1] https://old.reddit.com/r/FirefoxCSS/comments/8x2q97/reenabling_mozdocument_rules_in_firefox_61/
+//user_pref("layout.css.moz-document.content.enabled", true);
+
+// PREF: disable annoying update restart prompts
+// Delay update available prompts for ~1 week
+// Will still show green arrow in menu bar
+user_pref("app.update.suppressPrompts", true);
+
+// PREF: disable Accessibility services
 // Performance improvement
 user_pref("accessibility.force_disabled", 1);
-user_pref("devtools.accessibility.enabled", false);
+
+// PREF: disable the Accessibility panel
+//user_pref("devtools.accessibility.enabled", false);
+
+// PREF: don't focus elements on click, only on tab
+// Helps to eliminate ugly 1px dotted outline
+// default=1
+//user_pref("accessibility.mouse_focuses_formcontrol", 0);
 
 // PREF: add compact mode back to options
 user_pref("browser.compactmode.show", true);
@@ -48,7 +65,7 @@ user_pref("browser.compactmode.show", true);
 // PREF: Mozilla VPN
 user_pref("browser.privatebrowsing.vpnpromourl", "");
 
-// PREF: Disable about:addons' Recommendations pane (uses Google Analytics)
+// PREF: disable about:addons' Recommendations pane (uses Google Analytics)
 user_pref("extensions.getAddons.showPane", false); // HIDDEN
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
@@ -93,6 +110,7 @@ user_pref("full-screen-api.warning.timeout", 0);
 
 // PREF: disable welcome notices
 //user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
+user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
     //user_pref("startup.homepage_welcome_url", "");
     //user_pref("startup.homepage_welcome_url.additional", "");
     //user_pref("startup.homepage_override_url", ""); // What's New page after updates
@@ -100,16 +118,41 @@ user_pref("full-screen-api.warning.timeout", 0);
 // PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
-// PREF: Show all matches in Findbar
+// PREF: show all matches in Findbar
 user_pref("findbar.highlightAll", true);
+
+// PREF: disable middle mouse click opening links from clipboard
+// [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089 ***/
+user_pref("middlemouse.contentLoadURL", false);
 
 // Private Browsing changes [FF106+]
 // PREF: disable private windows being separate from normal windows in taskbar [WINDOWS]
 //user_pref("browser.privateWindowSeparation.enabled", false);
+
 // PREF: disable "private window" indicator in tab bar
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
+
 // PREF: disable always using dark theme for private browsing windows
 //user_pref("browser.theme.dark-private-windows", false);
+
+// PREF: Cookie Banner handling [NIGHTLY]
+// [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking
+// [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
+// [2] https://phabricator.services.mozilla.com/D153642
+// 0: Disables all cookie banner handling (default)
+// 1: reject banners if it is a one-click option; otherwise, keep banners on screen
+// 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
+//user_pref("cookiebanners.service.mode", 2);
+//user_pref("cookiebanners.service.mode.privateBrowsing", 1);
+    //user_pref("cookiebanners.bannerClicking.enabled", true);
+    //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
+
+// PREF: enable global CookieBannerRules
+// This is used for click rules that can handle common Consent Management Providers (CMP).
+// [NOTE] Enabling this (when the cookie handling feature is enabled) may
+// negatively impact site performance since it requires us to run rule-defined
+// query selectors for every page.
+//user_pref("cookiebanners.service.enableGlobalRules", true);
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
@@ -118,15 +161,20 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 // PREF: smoother font
 // [1] https://old.reddit.com/r/firefox/comments/wvs04y/windows_11_firefox_v104_font_rendering_different/?context=3
 //user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
-//user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
-    //user_pref("gfx.font_rendering.cleartype_params.gamma", 1750);
 
 // PREF: use DirectWrite everywhere like Chrome [WINDOWS]
 // [1] https://old.reddit.com/r/firefox/comments/wvs04y/comment/ilklzy1/?context=3
+//user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
+//user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 //user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
+//user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
+//user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
+// Some users find these helpful:
+    //user_pref("gfx.font_rendering.cleartype_params.gamma", 1750);
     //user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 50);
+    //user_pref("gfx.font_rendering.cleartype_params.pixel_structure", 1);
 
-// PREF: use macOS Appearance Panel text smoothing setting when rendering text [MACOS]
+// PREF: use macOS Appearance Panel text smoothing setting when rendering text [macOS]
 //user_pref("gfx.use_text_smoothing_setting", true);
 
 /****************************************************************************
@@ -138,6 +186,7 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.suggest.history", false);
 //user_pref("browser.urlbar.suggest.openpage", true);
+//user_pref("browser.urlbar.suggest.quickactions", false); // [NIGHTLY]
 //user_pref("browser.urlbar.suggest.searches", false);
 // Disable dropdown suggestions with empty query:
 user_pref("browser.urlbar.suggest.topsites", false);
@@ -283,12 +332,18 @@ user_pref("browser.download.always_ask_before_handling_new_types", true);
 // include Content-Disposition:attachment. 
 //user_pref("browser.helperApps.showOpenOptionForPdfJS", true); // DEFAULT
 
-// PREF: Default zoom for PDFs [HIDDEN PREF]
-//user_pref("pdfjs.defaultZoomValue", "page-width"); // for laptops and small screens
-//user_pref("pdfjs.defaultZoomValue", "page-fit"); // for larger screens and desktops
-
 // PREF: open PDFs inline (FF103+)
 user_pref("browser.download.open_pdf_attachments_inline", true);
+
+// PREF: PDF sidebar on load
+// 2=table of contents (if not available, will default to 1)
+// 1=view pages
+// -1=disabled (default)
+user_pref("pdfjs.sidebarViewOnLoad", 1);
+
+// PREF: default zoom for PDFs [HIDDEN]
+// [NOTE] "page-width" not needed if using sidebar on load
+//user_pref("pdfjs.defaultZoomValue", page-width);
 
 /****************************************************************************
  * SECTION: TAB BEHAVIOR                                                    *
@@ -296,79 +351,91 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 
 // PREF: unload tabs on low memory
 // Firefox will detect if your computer’s memory is running low (less than 400MB)
-// and suspend tabs that you have not used in awhile.
+// and suspend tabs that you have not used in awhile
 // [1] https://support.mozilla.org/en-US/questions/1262073
 // [2] https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
 //user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
 
-// PREF: search query in the search box appear in a new tab (instead of the current tab)
-// user_pref("browser.search.openintab", true);
-
-// PREF: search query in the URL bar opens in a new tab (instead of the current tab)
-//user_pref("browser.urlbar.openintab", true);
+// PREF: search query opens in a new tab (instead of the current tab)
+//user_pref("browser.search.openintab", true); // SEARCH BOX
+//user_pref("browser.urlbar.openintab", true); // URL BAR
 
 // PREF: control behavior of links that would normally open in a new window
-// Pop-up windows are treated like regular tabs.
-// [NOTE] You can still right-click a link and open in a new window.
-// 3 (default) = in a new tab
+// [NOTE] You can still right-click a link and open in a new window
+// 3 (default) = in a new tab; pop-up windows are treated like regular tabs
 // 2 = in a new window
 // 1 = in the current tab
 //user_pref("browser.link.open_newwindow", 3); // DEFAULT
 
 // PREF: determine the behavior of pages opened by JavaScript (like popups)
-// 2 (default) = catch new windows opened by JavaScript that do not have specific values set (how large the window should be, whether it should have a status bar, etc.) 
+// 2 (default) = catch new windows opened by JavaScript that do not have
+// specific values set (how large the window should be, whether it
+// should have a status bar, etc.) 
+// 1 = let all windows opened by JavaScript open in new windows
 // 0 = force all new windows opened by JavaScript into tabs
-// [NOTE] Most advertising popups also open in new windows with values set.
+// [NOTE] Most advertising popups also open in new windows with values set
+// [1] https://kb.mozillazine.org/About:config_entries
 user_pref("browser.link.open_newwindow.restriction", 0);
 
 // PREF: override <browser.link.open_newwindow> for external links
-// Set if a different destination for external links is needed.
-// 1=Open in the current tab/window
-// 2=Open in a new window
+// Set if a different destination for external links is needed
 // 3=Open in a new tab in the current window
+// 2=Open in a new window
+// 1=Open in the current tab/window
 // -1=no overrides (default)
-//user_pref("browser.link.open_newwindow.override.external", 3);
+//user_pref("browser.link.open_newwindow.override.external", -1); // DEFAULT
+
+// PREF: focus behavior for new tabs from links
+// Determine whether a link opens in the foreground or background on left-click
+// [SETTINGS] Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
+// true(default) = opens new tabs by left-click in the background, leaving focus on the current tab
+// false = opens new tabs by left-click in the foreground, putting focus on the new tab
+// [NOTE] CTRL+SHIFT+CLICK will open new tabs in foreground (default); switching PREF to false will reverse this behavior
+// [1] https://kb.mozillazine.org/About:config_entries
+//user_pref("browser.tabs.loadInBackground", true); // DEFAULT
+
+// PREF: determines whether pages normally meant to open in a new window (such as
+// target="_blank" or from an external program), but that have instead been loaded in a new tab
+// This pref takes effect when Firefox has diverted a new window to a new tab instead, then:
+// true = loads the new tab in the background, leaving focus on the current tab
+// false(default) = loads the new tab in the foreground, taking the focus from the current tab
+// [NOTE] Setting this preference to true will still bring the browser to the front when opening links from outside the browser
+// [1] https://kb.mozillazine.org/About:config_entries
+//user_pref("browser.tabs.loadDivertedInBackground", false); // DEFAULT
+
+// PREF: load bookmarks in the background when left-clicking in Bookmarks Menu
+//user_pref("browser.tabs.loadBookmarksInBackground", true);
+
+// PREF: force bookmarks to open in a new tab, not the current tab
+user_pref("browser.tabs.loadBookmarksInTabs", true);
+
+// PREF: leave Bookmarks Menu open when selecting a site
+user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
 // PREF: Prevent scripts from moving and resizing open windows
 user_pref("dom.disable_window_move_resize", true);
 
+// PREF: insert new tabs after groups like it
+// true(default) = open new tabs to the right of the parent tab
+// false = new tabs are opened at the far right of the tab bar
+//user_pref("browser.tabs.insertRelatedAfterCurrent", true); // DEFAULT
+
 // PREF: insert new tabs immediately after the current tab
-// Tap to Tab extension: set to "Put new tab at the end"
-// extension: https://addons.mozilla.org/en-US/firefox/addon/tap-to-tab
 //user_pref("browser.tabs.insertAfterCurrent", true);
-    //user_pref("browser.tabs.insertRelatedAfterCurrent", true); // DEFAULT
 
 // PREF: leave the browser window open even after you close the last tab
 //user_pref("browser.tabs.closeWindowWithLastTab", false);
 
-// PREF: tabs load when opened in the background
-//user_pref("browser.tabs.loadInBackground", true); // DEFAULT
-
-// PREF: determine whether a link opens in the foreground or background on left-click
-// Determines behavior of pages normally meant to open in a new window (such as
-// target="_blank" or from an external program), but that have instead been loaded in a new tab.
-// true = Load the new tab in the background, leaving focus on the current tab
-// false (default) = Load the new tab in the foreground, taking the focus from the current tab.
-// [NOTE] Setting this preference to True will still bring the browser to the front when opening links from outside the browser.
-//user_pref("browser.tabs.loadDivertedInBackground", false); // DEFAULT
-
-// PREF: load bookmarks in the background using Bookmarks Menu
-// user_pref("browser.tabs.loadBookmarksInBackground", true);
-// PREF: load bookmarks in tabs, not separate  windows
-user_pref("browser.tabs.loadBookmarksInTabs", true);
-// PREF: leave Bookmarks Menu open when selecting a site
-user_pref("browser.bookmarks.openInTabClosesMenu", false);
-
-// PREF: Stop websites from reloading pages automatically
+// PREF: stop websites from reloading pages automatically
 // [WARNING] Breakage with some sites.
 // [1] https://www.ghacks.net/2018/08/19/stop-websites-from-reloading-pages-automatically/
 //user_pref("accessibility.blockautorefresh", true);
 //user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
-// PREF: Plain Text only when copying text.
+// PREF: Plain Text only when copying text
 user_pref("clipboard.plainTextOnly", true);
 
-// PREF: Limit events that can cause a pop-up
+// PREF: limit events that can cause a pop-up
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
 // (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
 // (alternate) user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
@@ -403,6 +470,10 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 // 0=none, 1-multi-line, 2=multi-line & single-line
 //user_pref("layout.spellcheckDefault", 1); // DEFAULT
 
+// PREF: Spell Checker underline styles [HIDDEN]
+// [1] https://kb.mozillazine.org/Ui.SpellCheckerUnderlineStyle#Possible_values_and_their_effects
+//user_pref("ui.SpellCheckerUnderlineStyle", 1);
+
 // PREF: Limit the number of bookmark backups Firefox keeps
 //user_pref("browser.bookmarks.max_backups", 1);
 
@@ -417,6 +488,14 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 //user_pref("view_source.wrap_long_lines", true);
 //user_pref("devtools.debugger.ui.editor-wrapping", true);
 
+// PREF: enable ASRouter Devtools at about:newtab#devtools (useful if you're making your own CSS theme)
+// [1] https://firefox-source-docs.mozilla.org/browser/components/newtab/content-src/asrouter/docs/debugging-docs.html
+//user_pref("browser.newtabpage.activity-stream.asrouter.devtoolsEnabled", true);
+// show user agent styles in the inspector
+//user_pref("devtools.inspector.showUserAgentStyles", true);
+// show native anonymous content (like scrollbars or tooltips) and user agent shadow roots (like the components of an <input> element) in the inspector
+//user_pref("devtools.inspector.showAllAnonymousContent", true);
+
 // PREF: print preview
 //user_pref("print.tab_modal.enabled", true); // DEFAULT
 
@@ -430,8 +509,18 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 // PREF: zoom only text on webpage, not other elements
 //user_pref("browser.zoom.full", false);
 
-// PREF: enable :has() CSS relational pseudo-class
-// [EXPERIMENTAL] Needed for some extensions, filters, and customizations
+// PREF: enable :has() CSS relational pseudo-class [NIGHTLY?]
+// Needed for some extensions, filters, and customizations
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
 // [2] https://caniuse.com/css-has
-//user_pref("layout.css.has-selector.enabled", true);
+user_pref("layout.css.has-selector.enabled", true);
+
+// PREF: disable when dragging a scrollbar, if the mouse moves
+// too far from the scrollbar, the scrollbar will snap back to the top [LINUX?]
+// default=6
+//user_pref("slider.snapMultiplier", 0);
+
+// PREF: disable websites overriding Firefox's keyboard shortcuts [FF58+]
+// 0 (default) or 1=allow, 2=block
+// [SETTING] to add site exceptions: Ctrl+I>Permissions>Override Keyboard Shortcuts ***/
+//user_pref("permissions.default.shortcuts", 2);
