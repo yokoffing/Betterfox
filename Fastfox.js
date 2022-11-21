@@ -182,7 +182,7 @@ user_pref("browser.cache.memory.max_entry_size", 51200); // preferred=327680 or 
 // - "Disable pre-fetching (to prevent any connection for blocked network requests)"
 // - "Disable hyperlink auditing"
 
-// [NOTE] Not enabled by default. Please add to "MY OVERRIDES" section.
+// [NOTE] Disabled by Securefox. Please add prefs to "MY OVERRIDES" section to enable.
 
 // PREF: increase network predictions
 user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
