@@ -296,12 +296,13 @@ user_pref("extensions.pocket.enabled", false);
 // PREF: choose download location
 // [SETTING] To set your default "downloads": General>Downloads>Save files to...
 // 0=desktop, 1=downloads (default), 2=last used
-//user_pref("browser.download.folderList", 1);
+//user_pref("browser.download.folderList", 2);
 
 // PREF: Enforce user interaction for security by always asking where to download.
 // [SETTING] General>Downloads>Always ask you where to save files
 // false=the user is asked what to do
 user_pref("browser.download.useDownloadDir", false);
+    //user_pref("browser.download.dir", "C:\Users\<YOUR_USERNAME>\AppData\Local\Temp"); // [WINDOWS]
 
 // PREF: disable downloads panel opening on every download
 user_pref("browser.download.alwaysOpenPanel", false);
