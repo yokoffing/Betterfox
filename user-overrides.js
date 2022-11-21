@@ -15,12 +15,6 @@ user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("network.trr.confirmationNS", "skip");
 
-/** FASTFOX ***/
-user_pref("image.jxl.enabled", true);
-user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
-user_pref("reader.parse-on-load.enabled", false); // disable reader mode
-//user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
-
 /** SECUREFOX ***/
 user_pref("beacon.enabled", true); // Beacon API; disabling sometimes causes breakage
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
@@ -66,7 +60,38 @@ user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
 user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
 user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small");
+user_pref("image.jxl.enabled", true);
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
+
+/** FASTFOX ***/
+user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
+user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
+user_pref("reader.parse-on-load.enabled", false); // disable reader mode
+//user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
+user_pref("gfx.webrender.compositor.force-enabled", true);
+user_pref("layers.gpu-process.force-enabled", true); // reinforce default
+user_pref("browser.cache.memory.capacity", 5242880);
+user_pref("browser.cache.memory.max_entry_size", 327680);
+/** SPECULATIVE CONNECTIONS ***/
+user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
+user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
+user_pref("network.dns.disablePrefetchFromHTTPS", false);
+    user_pref("network.dnsCacheEntries", 20000);	
+    user_pref("network.dnsCacheExpiration", 3600);	
+    user_pref("network.dnsCacheExpirationGracePeriod", 240);
+user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
+user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
+user_pref("network.prefetch-next", true); // overrides SecureFox
+user_pref("network.predictor.enabled", true); // overrides SecureFox
+user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
+user_pref("network.predictor.enable-hover-on-ssl", true);
+    user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=20
+    user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=40
+    user_pref("network.predictor.prefetch-min-confidence", 20); // default 100; alt=60
+        user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
+        user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
+user_pref("network.ssl_tokens_cache_capacity", 32768);
+//user_pref("network.dns.get-ttl", false);
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("javascript.options.experimental.import_assertions", true);
