@@ -42,7 +42,7 @@
 // true=Tabs are not loaded until they are selected (default)
 // false=Tabs begin to load immediately.
 //user_pref("browser.sessionstore.restore_on_demand", true); // DEFAULT
-    user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
+    //user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 //user_pref("browser.sessionstore.restore_tabs_lazily", true); // DEFAULT
 
 // PREF: disable preSkeletonUI on startup
