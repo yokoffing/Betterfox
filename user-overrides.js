@@ -13,7 +13,7 @@
 /** SETUP ON FIRST INSTALLATION ***/
 user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
 user_pref("browser.download.dir", "C:\Users\<USERNAME>\AppData\Local\Temp"); // [WINDOWS] Downloads default to %temp%
-//user_pref("browser.download.folderList", 0); // Downloads default to desktop
+user_pref("browser.download.folderList", 2); // 0=desktop, 2=last used
 
 /** SECUREFOX ***/
 user_pref("beacon.enabled", true); // Beacon API; disabling sometimes causes breakage
