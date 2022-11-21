@@ -178,7 +178,7 @@ user_pref("browser.cache.memory.max_entry_size", 51200); // preferred=327680 or 
 // [1] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L74-L108
 // [2] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L436-L542
 
-// [NOTE] In uBlock Origin, go to settings and make sure the following are OFF:
+// [NOTE] In uBlock Origin, go to settings and make sure the following are DISABLED:
 // - "Disable pre-fetching (to prevent any connection for blocked network requests)"
 // - "Disable hyperlink auditing"
 
