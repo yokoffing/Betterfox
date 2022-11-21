@@ -68,10 +68,13 @@ user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
-user_pref("gfx.webrender.compositor.force-enabled", true);
+/** GFX ***/
+user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce default
 user_pref("layers.gpu-process.force-enabled", true); // reinforce default
+user_pref("media.hardware-video-decoding.force-enabled", true);
 user_pref("browser.cache.memory.capacity", 5242880);
 user_pref("browser.cache.memory.max_entry_size", 327680);
+user_pref("media.hardware-video-decoding.force-enabled", true);
 /** SPECULATIVE CONNECTIONS ***/
 user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
 user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
