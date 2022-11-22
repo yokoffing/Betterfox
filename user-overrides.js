@@ -13,7 +13,7 @@
 /** SETUP ON FIRST INSTALLATION ***/
 user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
 user_pref("browser.download.dir", "C:\Users\<USERNAME>\AppData\Local\Temp"); // [WINDOWS] Downloads default to %temp%
-user_pref("browser.download.folderList", 2); // 0=desktop, 2=last used
+user_pref("browser.download.folderList", 2); // 0=desktop, 1=downloads, 2=last used
 user_pref("browser.download.alwaysOpenPanel", true); // DEFAULT; overrides user.js
 
 /** SECUREFOX ***/
@@ -68,15 +68,16 @@ user_pref("image.jxl.enabled", true);
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
-//user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
-/** GFX ***/
-user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce default
-user_pref("layers.gpu-process.force-enabled", true); // reinforce default
-user_pref("media.hardware-video-decoding.force-enabled", true);
+    //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
+// GFX
+user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
+user_pref("layers.gpu-process.force-enabled", true); // reinforce
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 40); // testing if needed
+user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
+// CACHE
 user_pref("browser.cache.memory.capacity", 5242880);
 user_pref("browser.cache.memory.max_entry_size", 327680);
-user_pref("media.hardware-video-decoding.force-enabled", true);
-/** SPECULATIVE CONNECTIONS ***/
+// SPECULATIVE CONNECTIONS
 user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
 user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
