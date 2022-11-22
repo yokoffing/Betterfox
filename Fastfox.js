@@ -174,17 +174,13 @@ user_pref("browser.cache.memory.max_entry_size", 51200); // preferred=327680 or 
 // and other connections. We can take advantage of the speed of pre-connections
 // while preserving privacy. Users may relax hardening to maximize their preference.
 // For more information, see SecureFox: "PREF: State Paritioning" and "PREF: Network Partitioning" [1]
-// Individual pref descriptions = [2]
 // [1] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L74-L108
-// [2] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L436-L542
-
-// [NOTE] In uBlock Origin, go to settings and make sure the following are DISABLED:
-// - "Disable pre-fetching (to prevent any connection for blocked network requests)"
-// - "Disable hyperlink auditing"
-
-// [NOTE] Disabled by Securefox. Please add prefs to "MY OVERRIDES" section to enable.
 
 // PREF: increase network predictions
+// [NOTE] In uBlock Origin, go to settings and make this setting is DISABLED:
+// - "Disable pre-fetching (to prevent any connection for blocked network requests)"
+// [NOTE] Add prefs to "MY OVERRIDES" section to enable.
+// [1] https://github.com/yokoffing/Betterfox/blob/681b9b1e7db468c5cc4c5578a75295f03f3e5864/Securefox.js#L457-L553
 user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
 user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
