@@ -118,7 +118,7 @@ user_pref("layout.css.animation-composition.enabled", true);
 // [1] https://www.troddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
 user_pref("gfx.webrender.all", true); // enables WR + additional features
 user_pref("gfx.webrender.precache-shaders", true);
-user_pref("gfx.webrender.compositor", true);
+//user_pref("gfx.webrender.compositor", true);
     //user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
 
 // PREF: GPU-accelerated Canvas2D tweaks
