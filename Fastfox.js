@@ -21,14 +21,14 @@
 // [3] https://www.reddit.com/r/firefox/comments/fo1jwz/make_firefox_faster/flhh5l2/
 //user_pref("gfx.webrender.all", true); // enables WR + additional features
 //user_pref("gfx.webrender.enabled", true); // DEFAULT; just enables WR
-//user_pref("gfx.webrender.compositor", true); // DEFAULT
+//user_pref("gfx.webrender.compositor", true);
     //user_pref("gfx.webrender.compositor.force-enabled", true);
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [NOTE] Both preferences need to be "true" if you're using the software renderer.
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
 //user_pref("gfx.webrender.software", true);
-    //user_pref("gfx.webrender.software.opengl", true);
+    //user_pref("gfx.webrender.software.opengl", true); [LINUX]
 
 // PREF: GPU-accelerated Canvas2D [NIGHTLY]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1739448
@@ -118,8 +118,8 @@ user_pref("layout.css.animation-composition.enabled", true);
 // [1] https://www.troddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
 user_pref("gfx.webrender.all", true); // enables WR + additional features
 user_pref("gfx.webrender.precache-shaders", true);
-user_pref("gfx.webrender.compositor", true); // reinforce DEFAULT
-    //user_pref("gfx.webrender.compositor.force-enabled", true);
+user_pref("gfx.webrender.compositor", true);
+    //user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
 
 // PREF: GPU-accelerated Canvas2D tweaks
 user_pref("gfx.canvas.accelerated", true);
@@ -131,8 +131,8 @@ user_pref("gfx.content.skia-font-cache-size", 80);
 user_pref("image.cache.size", 10485760);
 user_pref("image.mem.decode_bytes_at_a_time", 65536); // chunk size for calls to the image decoders
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // minimum timeout to unmap shared surfaces since they have been last used
-user_pref("layers.gpu-process.enabled", true); // reinforce DEFAULT
-    //user_pref("layers.gpu-process.force-enabled", true);
+user_pref("layers.gpu-process.enabled", true);
+    //user_pref("layers.gpu-process.force-enabled", true); // reinforce
 
 // PREF: increase media cache
 user_pref("media.memory_cache_max_size", 1048576); // alt=512000; overrides Securefox (for now)
