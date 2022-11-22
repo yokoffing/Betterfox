@@ -17,7 +17,6 @@ user_pref("browser.download.folderList", 2); // 0=desktop, 1=downloads, 2=last u
 user_pref("browser.download.alwaysOpenPanel", true); // DEFAULT; overrides user.js
 
 /** SECUREFOX ***/
-user_pref("beacon.enabled", true); // Beacon API; disabling sometimes causes breakage
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
@@ -53,7 +52,6 @@ user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually ba
 user_pref("view_source.wrap_long_lines", true);  // wrap source lines
 user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devtools
 user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
-user_pref("pdfjs.defaultZoomValue", "125"); // PDF zoom level DESKTOP
 user_pref("pdfjs.sidebarViewOnLoad", 2); // show Table of Contents in sidebar for PDFs (if available)
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
@@ -114,6 +112,7 @@ user_pref("extensions.unifiedExtensions.enabled", false);
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla restricted domains [DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS ***/
+user_pref("pdfjs.defaultZoomValue", 125); // DESKTOP; alt=page-fit; PDF zoom level 
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);  // font improvement
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
@@ -124,5 +123,6 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("layout.css.font-visibility.trackingprotection", 3); // breaks using custom font on pages
 
 /** DELETE IF NOT macOS ***/
+user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level 
 //user_pref("font.name.monospace.x-western", "SF Mono"); // preferred font [macOS]
 //user_pref("layout.css.font-visibility.trackingprotection", 3); // breaks using custom font on pages
