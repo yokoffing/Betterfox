@@ -11,7 +11,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: 107                                                             *
+ * version: 108                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -831,7 +831,7 @@ user_pref("signon.rememberSignons", false);
 user_pref("editor.truncate_user_pastes", false);
 
 // PREF: show Reveal Password icon
-user_pref("layout.forms.reveal-password-button.enabled", true);
+//user_pref("layout.forms.reveal-password-button.enabled", true);
 //user_pref("layout.forms.reveal-password-context-menu.enabled", false); // DEFAULT
 
 /****************************************************************************
