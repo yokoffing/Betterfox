@@ -137,9 +137,9 @@ user_pref("layers.gpu-process.enabled", true);
 // PREF: increase media cache
 user_pref("media.memory_cache_max_size", 1048576); // alt=512000; overrides Securefox (for now)
 user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
-    //user_pref("media.memory_caches_combined_limit_pc_sysmem", 40); // default=5
-//user_pref("media.hardware-video-decoding.force-enabled", true); // preferred
-    //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
+//user_pref("media.memory_caches_combined_limit_pc_sysmem", 40); // default=5
+//user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
+    //user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
 
 // PREF: decrease video buffering [not be needed with the above]
 //user_pref("media.cache_size", 2048000); // default=512000
