@@ -123,5 +123,5 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("layout.css.font-visibility.trackingprotection", 3); // breaks using custom font on pages
 
 /** DELETE IF NOT macOS ***/
-//user_pref("font.name.monospace.x-western", "SF Mono"); // preferred font [WINDOWS]
+//user_pref("font.name.monospace.x-western", "SF Mono"); // preferred font [macOS]
 //user_pref("layout.css.font-visibility.trackingprotection", 3); // breaks using custom font on pages
