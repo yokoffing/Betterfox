@@ -118,7 +118,7 @@ user_pref("layout.css.animation-composition.enabled", true);
 // [1] https://www.troddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
 user_pref("gfx.webrender.all", true); // enables WR + additional features
 user_pref("gfx.webrender.precache-shaders", true);
-//user_pref("gfx.webrender.compositor", true);
+user_pref("gfx.webrender.compositor", true);
     //user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
 
 // PREF: GPU-accelerated Canvas2D tweaks
@@ -137,8 +137,9 @@ user_pref("layers.gpu-process.enabled", true);
 // PREF: increase media cache
 user_pref("media.memory_cache_max_size", 1048576); // alt=512000; overrides Securefox (for now)
 user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
-//user_pref("media.memory_caches_combined_limit_pc_sysmem", 40); // default=5
+    //user_pref("media.memory_caches_combined_limit_pc_sysmem", 20); // default=5
 //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
+//user_pref("media.hardware-video-decoding.enabled", true);
     //user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
 
 // PREF: decrease video buffering [not be needed with the above]
