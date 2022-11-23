@@ -102,6 +102,28 @@ user_pref("layout.css.animation-composition.enabled", true);
 //user_pref("javascript.options.wasm_function_references", true);
 
 /****************************************************************************
+ * SECTION: NETWORK                                                         *
+****************************************************************************/
+
+// PREF: timeout connections if an initial response is not received in number of seconds
+// default=300
+//user_pref("network.http.response.timeout", 10);
+
+// PREF: close a connection if tls handshake does not finish in given number of seconds
+//user_pref("network.http.tls-handshake-timeout", 5);
+
+// PREF: increase the absolute number of http connections
+// default=900
+//user_pref("network.http.max-connections", 3600);
+
+// PREF: increase max connections
+// default=6
+//user_pref("network.http.max-persistent-connections-per-server", 9);
+
+// PREF: whether or not FF gives more priority to active tab
+//user_pref("network.http.active_tab_priority", true); // DEFAULT
+
+/****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
  * [NOTE] The following is not recommended for low-end machines             *
  * Credit for most of these:                                                *
@@ -113,6 +135,12 @@ user_pref("layout.css.animation-composition.enabled", true);
 /****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
 ****************************************************************************/
+
+// PREF: how long FF will wait before rendering the page
+// [1] https://kb.mozillazine.org/Nglayout.initialpaint.delay
+// default=5; used to be 250
+user_pref("nglayout.initialpaint.delay", 0); 
+user_pref("nglayout.initialpaint.delay_in_oopif", 0);
 
 // PREF: Webrender tweaks
 // [1] https://www.troddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
