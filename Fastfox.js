@@ -106,22 +106,21 @@ user_pref("layout.css.animation-composition.enabled", true);
 ****************************************************************************/
 
 // PREF: timeout connections if an initial response is not received in number of seconds
-// default=300
-//user_pref("network.http.response.timeout", 10);
+//user_pref("network.http.response.timeout", 10); // default=300
 
 // PREF: close a connection if tls handshake does not finish in given number of seconds
-//user_pref("network.http.tls-handshake-timeout", 5);
+//user_pref("network.http.tls-handshake-timeout", 5); // default=30
+
+// PREF: DoH requests
+//user_pref("network.trr.request_timeout_ms", 750); // default=1500
+//user_pref("network.trr.retry-timeout-ms", 100); // default=125
 
 // PREF: increase the absolute number of http connections
 // default=900
 //user_pref("network.http.max-connections", 3600);
 
 // PREF: increase max connections
-// default=6
-//user_pref("network.http.max-persistent-connections-per-server", 9);
-
-// PREF: whether or not FF gives more priority to active tab
-//user_pref("network.http.active_tab_priority", true); // DEFAULT
+//user_pref("network.http.max-persistent-connections-per-server", 9); // default=6
 
 /****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
