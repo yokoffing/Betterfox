@@ -110,7 +110,7 @@ user_pref("extensions.unifiedExtensions.enabled", false);
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla restricted domains [DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS ***/
-user_pref("pdfjs.defaultZoomValue", "page-fit"); // DESKTOP; alt=page-fit; PDF zoom level
+user_pref("pdfjs.defaultZoomValue", "page-fit"); // DESKTOP; alt=125; PDF zoom level
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);  // font improvement
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
