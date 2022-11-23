@@ -105,19 +105,18 @@ user_pref("layout.css.animation-composition.enabled", true);
  * SECTION: NETWORK                                                         *
 ****************************************************************************/
 
-// PREF: timeout connections if an initial response is not received in number of seconds
-//user_pref("network.http.response.timeout", 10); // default=300
-
 // PREF: close a connection if tls handshake does not finish in given number of seconds
-//user_pref("network.http.tls-handshake-timeout", 5); // default=30
+//user_pref("network.http.tls-handshake-timeout", 3); // default=30
+
+// PREF: timeout connections if an initial response is not received in number of seconds
+//user_pref("network.http.response.timeout", 5); // default=300
 
 // PREF: DoH requests
 //user_pref("network.trr.request_timeout_ms", 750); // default=1500
-//user_pref("network.trr.retry-timeout-ms", 100); // default=125
+    //user_pref("network.trr.retry-timeout-ms", 125); // DEFAULT
 
 // PREF: increase the absolute number of http connections
-// default=900
-//user_pref("network.http.max-connections", 3600);
+//user_pref("network.http.max-connections", 3600); // default=900
 
 // PREF: increase max connections
 //user_pref("network.http.max-persistent-connections-per-server", 9); // default=6
