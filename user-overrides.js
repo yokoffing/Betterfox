@@ -12,9 +12,6 @@
 
 /** SETUP ON FIRST INSTALLATION ***/
 user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
-user_pref("browser.download.dir", "C:\Users\<USERNAME>\AppData\Local\Temp"); // [WINDOWS] Downloads default to %temp%
-user_pref("browser.download.folderList", 2); // 0=desktop, 1=downloads, 2=last used
-user_pref("browser.download.alwaysOpenPanel", true); // DEFAULT; overrides user.js
 
 /** SECUREFOX ***/
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
@@ -41,6 +38,7 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmark
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false); // Settings>Home>Firefox Home Content>Recent Activity>Most Recent Download
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false); // Settings>Home>Firefox Home Content>Recent Activity>Visited Pages
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // Settings>Home>Firefox Home Content>Recent Activity>Pages Saved to Pocket
+user_pref("browser.download.folderList", 0); // 0=desktop, 1=downloads, 2=last used
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
 user_pref("browser.urlbar.suggest.bookmark", false); // hide URL bar dropdown suggestions
@@ -112,7 +110,7 @@ user_pref("extensions.unifiedExtensions.enabled", false);
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla restricted domains [DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS ***/
-user_pref("pdfjs.defaultZoomValue", 125); // DESKTOP; alt=page-fit; PDF zoom level 
+user_pref("pdfjs.defaultZoomValue", "page-fit"); // DESKTOP; alt=page-fit; PDF zoom level
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);  // font improvement
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
@@ -120,6 +118,7 @@ user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", 
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.monospace.x-western", "Cascadia Code"); // preferred font [WINDOWS]
+//user_pref("font.name.monospace.x-western", "Fira Code"); // preferred font [WINDOWS]
 //user_pref("layout.css.font-visibility.trackingprotection", 3); // breaks using custom font on pages
 
 /** DELETE IF NOT macOS ***/
