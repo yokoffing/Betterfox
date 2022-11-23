@@ -119,7 +119,7 @@ user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.monospace.x-western", "Cascadia Code"); // preferred font [WINDOWS]
 //user_pref("font.name.monospace.x-western", "Fira Code"); // preferred font [WINDOWS]
-//user_pref("layout.css.font-visibility.trackingprotection", 3); // breaks using custom font on pages
+//user_pref("layout.css.font-visibility.trackingprotection", 3); // unbreaks using custom font on pages in normal windows
 
 /** DELETE IF NOT macOS ***/
 user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level 
