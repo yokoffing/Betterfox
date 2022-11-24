@@ -1,9 +1,12 @@
 
 /****************************************************************************
  *                                                                         *
- *  [WARNING] THIS LIST IS NOT INTENDED FOR OFFICIAL USE                   *
- *  This list is a mix of PERSONAL and TESTING prefs                       *
- *  DO NOT USE unless you know what you are doing!                         *
+ *                            DISCLAIMER                                   *
+ *                                                                         *
+ *  This file is NOT INTENDED FOR OFFICIAL USE                             *
+ *  It is a mix of PERSONAL and TESTING prefs                              *
+ *  and may contain changes you may not want!                              *
+ *  [WARNING] DO NOT USE unless you know what you are doing!               *
  *                                                                         *
 ****************************************************************************/
 
