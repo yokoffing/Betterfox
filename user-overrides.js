@@ -85,6 +85,7 @@ user_pref("network.dns.disablePrefetchFromHTTPS", false);
     user_pref("network.dnsCacheEntries", 20000);	
     user_pref("network.dnsCacheExpiration", 3600);	
     user_pref("network.dnsCacheExpirationGracePeriod", 240);
+        //user_pref("network.dns.get-ttl", false);
 user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
 user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
 user_pref("network.prefetch-next", true); // overrides SecureFox
@@ -97,7 +98,6 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
         user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
         user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
 user_pref("network.ssl_tokens_cache_capacity", 32768);
-//user_pref("network.dns.get-ttl", false);
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("javascript.options.experimental.import_assertions", true);
