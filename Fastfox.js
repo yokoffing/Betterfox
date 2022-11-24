@@ -15,8 +15,8 @@
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
- // PREF: initial paint delay
- // How long FF will wait before rendering the page
+// PREF: initial paint delay
+// How long FF will wait before rendering the page
 // [1] https://kb.mozillazine.org/Nglayout.initialpaint.delay
 // default=5; used to be 250
 user_pref("nglayout.initialpaint.delay", 0); 
