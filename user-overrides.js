@@ -17,7 +17,7 @@ user_pref("browser.download.folderList", 2); // 0=desktop, 1=downloads, 2=last u
 user_pref("browser.download.alwaysOpenPanel", true); // DEFAULT; overrides user.js
 
 /** SECUREFOX ***/
-user_pref("beacon.enabled", true); // Beacon API; disabling sometimes causes breakage
+user_pref("beacon.enabled", true); // Beacon API; overrides user.js, disabling sometimes causes breakage
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
