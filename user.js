@@ -230,6 +230,8 @@ user_pref("layout.css.has-selector.enabled", true);
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
+user_pref("nglayout.initialpaint.delay", 0); 
+user_pref("nglayout.initialpaint.delay_in_oopif", 0);
 user_pref("browser.startup.preXulSkeletonUI", false);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
