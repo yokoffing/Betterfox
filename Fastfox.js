@@ -14,29 +14,13 @@
  * version: 108                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
-
-// PREF: force enable all Webrender prefs
-// [1] https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/
-// [2] https://wiki.mozilla.org/Platform/GFX/WebRender_Where
-// [3] https://www.reddit.com/r/firefox/comments/fo1jwz/make_firefox_faster/flhh5l2/
-//user_pref("gfx.webrender.all", true); // enables WR + additional features
-//user_pref("gfx.webrender.enabled", true); // DEFAULT; just enables WR
-//user_pref("gfx.webrender.compositor", true);
-    //user_pref("gfx.webrender.compositor.force-enabled", true);
-
-// PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
-// [NOTE] Both preferences need to be "true" if you're using the software renderer.
-// [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
-//user_pref("gfx.webrender.software", true);
-    //user_pref("gfx.webrender.software.opengl", true); [LINUX]
-
-// PREF: GPU-accelerated Canvas2D [NIGHTLY]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1739448
-//user_pref("gfx.canvas.accelerated", true);
-
-// PREF: enable Lazy Image Loading
-// https://www.ghacks.net/2020/02/15/firefox-75-gets-lazy-loading-support-for-images/
-//user_pref("dom.image-lazy-loading.enabled", true); // DEFAULT
+ 
+ // PREF: initial paint delay
+ // How long FF will wait before rendering the page
+// [1] https://kb.mozillazine.org/Nglayout.initialpaint.delay
+// default=5; used to be 250
+user_pref("nglayout.initialpaint.delay", 0); 
+user_pref("nglayout.initialpaint.delay_in_oopif", 0);
 
 // PREF: control how tabs are loaded when a session is restored
 // true=Tabs are not loaded until they are selected (default)
@@ -44,14 +28,40 @@
 //user_pref("browser.sessionstore.restore_on_demand", true); // DEFAULT
     //user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 //user_pref("browser.sessionstore.restore_tabs_lazily", true); // DEFAULT
+    
+// PREF: enable Lazy Image Loading
+// https://www.ghacks.net/2020/02/15/firefox-75-gets-lazy-loading-support-for-images/
+//user_pref("dom.image-lazy-loading.enabled", true); // DEFAULT
 
 // PREF: disable preSkeletonUI on startup
 user_pref("browser.startup.preXulSkeletonUI", false);
-  
+
 // PREF: set the minimum interval between session save operations
 // Increasing this can help on older machines and some websites, as well as reducing writes
 // [1] https://bugzilla.mozilla.org/1304389
 //user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
+
+// PREF: OffscreenCanvas
+// [1] https://yashints.dev/blog/2019/05/11/offscreen-canvas
+// [2] https://www.youtube.com/watch?v=CWvRA9E0DqU
+// [3] https://developer.chrome.com/blog/offscreen-canvas/
+// [4] https://groups.google.com/a/mozilla.org/g/dev-platform/c/kp9SZL-0wW0
+//user_pref("gfx.offscreencanvas.enabled", true); // DEFAULT FF106+
+
+// PREF: CSS Font Loading API in workers
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1072107
+//user_pref("layout.css.font-loading-api.workers.enabled", true); // DEFAULT FF106+
+
+// PREF: enable importMaps [FF108+]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1688879
+// [2] https://github.com/WICG/import-maps#the-basic-idea
+// [3] https://caniuse.com/import-maps
+//user_pref("dom.importMaps.enabled", true); // DEFAULT FF108+
+    //user_pref("javascript.options.experimental.import_assertions", true);
+    
+/****************************************************************************
+ * SECTION: EXPERIMENTAL                                                    *
+****************************************************************************/
 
 // PREF: about:home startup cache [NIGHTLY]
 // A cache for the initial about:home document that is loaded by default at startup
@@ -66,28 +76,11 @@ user_pref("layout.css.grid-template-masonry-value.enabled", true);
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 user_pref("dom.enable_web_task_scheduling", true);
 
-// PREF: OffscreenCanvas
-// [1] https://yashints.dev/blog/2019/05/11/offscreen-canvas
-// [2] https://www.youtube.com/watch?v=CWvRA9E0DqU
-// [3] https://developer.chrome.com/blog/offscreen-canvas/
-// [4] https://groups.google.com/a/mozilla.org/g/dev-platform/c/kp9SZL-0wW0
-//user_pref("gfx.offscreencanvas.enabled", true); // DEFAULT FF106+
-
-// PREF: CSS Font Loading API in workers
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1072107
-//user_pref("layout.css.font-loading-api.workers.enabled", true);  // DEFAULT FF106+
-
 // PREF: enable animation-composition [NIGHTLY]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1785329
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
+// [3] https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition
 user_pref("layout.css.animation-composition.enabled", true);
-
-// PREF: enable importMaps [FF108+]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1688879
-// [2] https://github.com/WICG/import-maps#the-basic-idea
-// [3] https://caniuse.com/import-maps
-//user_pref("dom.importMaps.enabled", true); // DEFAULT FF108+
-    //user_pref("javascript.options.experimental.import_assertions", true);
 
 // PREF: Shadowrealms [NIGHTLY]
 // [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
@@ -112,7 +105,7 @@ user_pref("layout.css.animation-composition.enabled", true);
 //user_pref("network.http.response.timeout", 5); // default=300
 
 // PREF: DoH requests
-//user_pref("network.trr.request_timeout_ms", 750); // default=1500
+//user_pref("network.trr.request_timeout_ms", 900); // default=1500
     //user_pref("network.trr.retry-timeout-ms", 125); // DEFAULT
 
 // PREF: increase the absolute number of http connections
@@ -134,20 +127,24 @@ user_pref("layout.css.animation-composition.enabled", true);
  * SECTION: GFX RENDERING TWEAKS                                            *
 ****************************************************************************/
 
-// PREF: how long FF will wait before rendering the page
-// [1] https://kb.mozillazine.org/Nglayout.initialpaint.delay
-// default=5; used to be 250
-user_pref("nglayout.initialpaint.delay", 0); 
-user_pref("nglayout.initialpaint.delay_in_oopif", 0);
-
 // PREF: Webrender tweaks
-// [1] https://www.troddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
-user_pref("gfx.webrender.all", true); // enables WR + additional features
+// [1] https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/
+// [2] https://wiki.mozilla.org/Platform/GFX/WebRender_Where
+// [3] https://www.reddit.com/r/firefox/comments/fo1jwz/make_firefox_faster/flhh5l2/
+// [4] https://www.troddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
+user_pref("gfx.webrender.all", true); // enables WR (GPU) + additional features
 user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.compositor", true);
     //user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
 
+// PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
+// [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
+//user_pref("gfx.webrender.enabled", true);
+//user_pref("gfx.webrender.software", true); // Webrender uses the CPU and not the GPU
+    //user_pref("gfx.webrender.software.opengl", true); [LINUX]
+
 // PREF: GPU-accelerated Canvas2D tweaks
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1739448
 user_pref("gfx.canvas.accelerated", true);
 user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
@@ -177,9 +174,8 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
  * SECTION: BROWSER CACHE                                                   *
 ****************************************************************************/
 
-// [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
-
 // PREF: re-enable disk cache (optional)
+// [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
 //user_pref("browser.cache.disk.enable", true); // SecureFox override
 //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
 //user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
