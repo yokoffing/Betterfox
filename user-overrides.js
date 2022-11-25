@@ -5,8 +5,8 @@
  *                                                                         *
  *  This file is NOT INTENDED FOR OFFICIAL USE                             *
  *  It is a mix of PERSONAL and TESTING prefs and                          *
- *  may contain errors or changes you do not want!                         *
- *  [WARNING] DO NOT USE unless you know what you are doing!               *
+ *  may cause breakage or contain changes you do not want!                 *
+ *  DO NOT USE unless you know what you are doing!                         *
  *                                                                         *
 ****************************************************************************/
 
