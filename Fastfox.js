@@ -185,8 +185,9 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
 //user_pref("privacy.clearOnShutdown.cache", false);
 
 // PREF: increase memory cache size (recommended)
+// [1] https://www.makeuseof.com/tag/how-much-data-does-youtube-use/
 //user_pref("browser.cache.memory.capacity", 5242880); // default=-1; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
-user_pref("browser.cache.memory.max_entry_size", 51200); // preferred=327680 or -1; entries bigger than than 90% of the mem-cache are never cached
+    user_pref("browser.cache.memory.max_entry_size", 51200); // preferred=327680 or -1; entries bigger than than 90% of the mem-cache are never cached
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                         *
