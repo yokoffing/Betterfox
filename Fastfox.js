@@ -18,9 +18,8 @@
 // PREF: initial paint delay
 // How long FF will wait before rendering the page
 // [1] https://kb.mozillazine.org/Nglayout.initialpaint.delay
-// default=5; used to be 250
-user_pref("nglayout.initialpaint.delay", 0); 
-user_pref("nglayout.initialpaint.delay_in_oopif", 0);
+user_pref("nglayout.initialpaint.delay", 0); // default=5; used to be 250
+user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5; used to be 250
 
 // PREF: control how tabs are loaded when a session is restored
 // true=Tabs are not loaded until they are selected (default)
@@ -104,15 +103,23 @@ user_pref("layout.css.animation-composition.enabled", true);
 // PREF: timeout connections if an initial response is not received in number of seconds
 //user_pref("network.http.response.timeout", 5); // default=300
 
-// PREF: DoH requests
-//user_pref("network.trr.request_timeout_ms", 900); // default=1500
-    //user_pref("network.trr.retry-timeout-ms", 125); // DEFAULT
+// PREF: use bigger packets
+// [1] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74561.html
+// [2] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74570.html
+//user_pref("network.buffer.cache.size", 327680); // alt=262144; default=32768
+//user_pref("network.buffer.cache.count", 240); // alt=128; default=24
+
+// These do not affect anything, probably:
 
 // PREF: increase the absolute number of http connections
-//user_pref("network.http.max-connections", 3600); // default=900
+// [1] https://kb.mozillazine.org/Network.http.max-connections
+// [2] https://kb.mozillazine.org/Network.http.max-persistent-connections-per-server
+//user_pref("network.http.max-connections", 2700); // default=900
+    //user_pref("network.http.max-persistent-connections-per-server", 8); // default=6; anything above 10 is excessive
 
-// PREF: increase max connections
-//user_pref("network.http.max-persistent-connections-per-server", 9); // default=6
+// PREF: DoH requests
+//user_pref("network.trr.request_timeout_ms", 1500); // DEFAULT
+    //user_pref("network.trr.retry-timeout-ms", 125); // DEFAULT
 
 /****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
@@ -164,11 +171,24 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
 //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
 //user_pref("media.hardware-video-decoding.enabled", true);
     //user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
-
-// PREF: decrease video buffering [not be needed with the above]
+// needed?:
 //user_pref("media.cache_size", 2048000); // default=512000
-//user_pref("media.cache_readahead_limit", 99999); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-//user_pref("media.cache_resume_threshold", 99999); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds).
+//user_pref("media.cache_readahead_limit", 9000); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+//user_pref("media.cache_resume_threshold", 9000); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds).
+
+// PREF: decrease video buffering / increase video preload [not be needed with the above]
+// [NOTE] Does not affect YouTube since it uses DASH playback
+// [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
+//user_pref("media.mediasource.enabled", false); // disables DASH playback but limits YouTube videos to 720p
+    //user_pref("media.mediasource.experimental.enabled", true); // for testing purposes
+    
+// PREF: faster upload speed
+// Firefox currently has a bug with impacting upload speeds with HTTP3 / QUIC
+// [TEST] https://speedof.me/
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753486
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1596576
+//user_pref("network.http.http3.enable", false);
+    //user_pref("network.http.http2.chunk-size", 32000); // default=16000 [needed?]
 
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
@@ -205,18 +225,18 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
 // - "Disable pre-fetching (to prevent any connection for blocked network requests)"
 // [NOTE] Add prefs to "MY OVERRIDES" section to enable.
 // [1] https://github.com/yokoffing/Betterfox/blob/681b9b1e7db468c5cc4c5578a75295f03f3e5864/Securefox.js#L457-L553
-user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
-user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
-user_pref("network.dns.disablePrefetchFromHTTPS", false);
+//user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
+//user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
+//user_pref("network.dns.disablePrefetchFromHTTPS", false);
     user_pref("network.dnsCacheEntries", 20000);	
     user_pref("network.dnsCacheExpiration", 3600);	
     user_pref("network.dnsCacheExpirationGracePeriod", 240);
-user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
-user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
-user_pref("network.prefetch-next", true); // overrides SecureFox
-user_pref("network.predictor.enabled", true); // overrides SecureFox
-user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
-user_pref("network.predictor.enable-hover-on-ssl", true);
+//user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
+//user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
+//user_pref("network.prefetch-next", true); // overrides SecureFox
+//user_pref("network.predictor.enabled", true); // overrides SecureFox
+//user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
+//user_pref("network.predictor.enable-hover-on-ssl", true);
     user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=20
     user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=40
     user_pref("network.predictor.prefetch-min-confidence", 20); // default 100; alt=60
