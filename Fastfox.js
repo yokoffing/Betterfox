@@ -182,11 +182,11 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
     //user_pref("media.mediasource.experimental.enabled", true); // for testing purposes
     
 // PREF: faster upload speed
-// Firefox currently has a bug with impacting upload speeds with HTTP3 / QUIC
+// Firefox currently has a bug with impacting upload speeds with HTTP3/QUIC
 // [TEST] https://speedof.me/
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753486
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1596576
-//user_pref("network.http.http3.enable", false);
+//user_pref("network.http.http3.enable", false); // disables HTTP3/QUIC
 //user_pref("network.http.http2.chunk-size", 32000); // default=16000 [needed?]
 
 /****************************************************************************
@@ -196,6 +196,7 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
 // PREF: re-enable disk cache (optional)
 // [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
 //user_pref("browser.cache.disk.enable", true); // SecureFox override
+//user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT
 //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
 //user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
 //user_pref("browser.cache.max_shutdown_io_lag", 16); // number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
@@ -206,7 +207,7 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
 // PREF: increase memory cache size (recommended)
 // [1] https://www.makeuseof.com/tag/how-much-data-does-youtube-use/
 //user_pref("browser.cache.memory.capacity", 5242880); // default=-1; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
-    user_pref("browser.cache.memory.max_entry_size", 51200); // preferred=327680 or -1; entries bigger than than 90% of the mem-cache are never cached
+user_pref("browser.cache.memory.max_entry_size", 153600); // alt=51200; preferred=327680 ; -1 -> entries bigger than than 90% of the mem-cache are never cached
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                         *
