@@ -171,13 +171,12 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
 //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
 //user_pref("media.hardware-video-decoding.enabled", true);
     //user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
-// needed?:
+
+// PREF: decrease video buffering / increase video preload [not be needed with the above?]
 //user_pref("media.cache_size", 2048000); // default=512000
 //user_pref("media.cache_readahead_limit", 9000); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-//user_pref("media.cache_resume_threshold", 9000); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds).
-
-// PREF: decrease video buffering / increase video preload [not be needed with the above]
-// [NOTE] Does not affect YouTube since it uses DASH playback
+//user_pref("media.cache_resume_threshold", 9000); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
+// [NOTE] Does not affect YouTube since it uses DASH playback [1]
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
 //user_pref("media.mediasource.enabled", false); // disables DASH playback but limits YouTube videos to 720p
     //user_pref("media.mediasource.experimental.enabled", true); // for testing purposes
@@ -188,7 +187,7 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753486
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1596576
 //user_pref("network.http.http3.enable", false);
-    //user_pref("network.http.http2.chunk-size", 32000); // default=16000 [needed?]
+//user_pref("network.http.http2.chunk-size", 32000); // default=16000 [needed?]
 
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
