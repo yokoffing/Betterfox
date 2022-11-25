@@ -4,8 +4,8 @@
  *                            DISCLAIMER                                   *
  *                                                                         *
  *  This file is NOT INTENDED FOR OFFICIAL USE                             *
- *  It is a mix of PERSONAL and TESTING prefs                              *
- *  and may contain changes you do not want!                               *
+ *  It is a mix of PERSONAL and TESTING prefs and                          *
+ *  may contain errors or changes you do not want!                         *
  *  [WARNING] DO NOT USE unless you know what you are doing!               *
  *                                                                         *
 ****************************************************************************/
@@ -63,41 +63,31 @@ user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for backg
 user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small");
 user_pref("image.jxl.enabled", true);
+user_pref("reader.parse-on-load.enabled", false); // disable reader mode
+    //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
 
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
-user_pref("reader.parse-on-load.enabled", false); // disable reader mode
-    //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
-// GFX
+// high-end machine:
+user_pref("network.buffer.cache.size", 327680);
+user_pref("network.buffer.cache.count", 240);
+//user_pref("network.http.tls-handshake-timeout", 3);
+//user_pref("network.http.response.timeout", 5);
+//user_pref("network.http.max-connections", 1800);
+//user_pref("network.http.max-persistent-connections-per-server", 9);
 user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
+user_pref("image.mem.decode_bytes_at_a_time", 262144);
 user_pref("layers.gpu-process.force-enabled", true); // reinforce
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 40); // testing if needed
+user_pref("media.memory_cache_max_size", 1048576);
+user_pref("media.memory_caches_combined_limit_kb", 3145728);
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
 user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
-// CACHE
+user_pref("network.http.http3.enable", false); // disables QUIC
+user_pref("network.http.http2.chunk-size", 48000);
 user_pref("browser.cache.memory.capacity", 5242880);
-user_pref("browser.cache.memory.max_entry_size", 327680);
-// SPECULATIVE CONNECTIONS
-user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
-user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
-user_pref("network.dns.disablePrefetchFromHTTPS", false);
-    user_pref("network.dnsCacheEntries", 20000);	
-    user_pref("network.dnsCacheExpiration", 3600);	
-    user_pref("network.dnsCacheExpirationGracePeriod", 240);
-        //user_pref("network.dns.get-ttl", false);
-user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
-user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
-user_pref("network.prefetch-next", true); // overrides SecureFox
-user_pref("network.predictor.enabled", true); // overrides SecureFox
-user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
-user_pref("network.predictor.enable-hover-on-ssl", true);
-    user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=20
-    user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=40
-    user_pref("network.predictor.prefetch-min-confidence", 20); // default 100; alt=60
-        user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
-        user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
-user_pref("network.ssl_tokens_cache_capacity", 32768);
+//user_pref("browser.cache.memory.max_entry_size", 262144);
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("javascript.options.experimental.import_assertions", true);
@@ -105,7 +95,7 @@ user_pref("javascript.options.experimental.shadow_realms", true);
 user_pref("javascript.options.wasm_gc", true);
 user_pref("javascript.options.wasm_function_references", true);
 user_pref("cookiebanners.service.mode", 2);
-user_pref("cookiebanners.service.mode.privateBrowsing", 2);
+user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 user_pref("privacy.globalprivacycontrol.enabled", true);
 user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 user_pref("privacy.userContext.enabled", false);
