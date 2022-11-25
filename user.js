@@ -20,7 +20,6 @@
 /** TRACKING PROTECTION ***/
 user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.emailtracking.enabled", true);
-user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
 user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
@@ -232,9 +231,19 @@ user_pref("layout.css.has-selector.enabled", true);
 user_pref("nglayout.initialpaint.delay", 0); 
 user_pref("nglayout.initialpaint.delay_in_oopif", 0);
 user_pref("browser.startup.preXulSkeletonUI", false);
+
+/** EXPERIMENTAL ***/
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
 user_pref("layout.css.animation-composition.enabled", true);
+
+/** NETWORK ***/
+user_pref("network.ssl_tokens_cache_capacity", 32768);
+user_pref("network.dnsCacheEntries", 20000);	
+user_pref("network.dnsCacheExpiration", 3600);	
+user_pref("network.dnsCacheExpirationGracePeriod", 240);
+user_pref("network.buffer.cache.size", 262144);
+user_pref("network.buffer.cache.count", 128);
 
 /** GFX ***/
 user_pref("gfx.webrender.all", true);
@@ -245,14 +254,17 @@ user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("gfx.content.skia-font-cache-size", 80);
 user_pref("image.cache.size", 10485760);
-user_pref("image.mem.decode_bytes_at_a_time", 65536);
+user_pref("image.mem.decode_bytes_at_a_time", 131072);
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);
 user_pref("layers.gpu-process.enabled", true);
 user_pref("media.memory_cache_max_size", 1048576);
-user_pref("media.memory_caches_combined_limit_kb", 3145728);
+user_pref("media.memory_caches_combined_limit_kb", 2560000);
+user_pref("media.cache_size", 2048000);
+user_pref("media.cache_readahead_limit", 9000);
+user_pref("media.cache_resume_threshold", 6000);
 
 /** CACHE ***/
-user_pref("browser.cache.memory.max_entry_size", 51200);
+user_pref("browser.cache.memory.max_entry_size", 153600);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
