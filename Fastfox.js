@@ -97,6 +97,14 @@ user_pref("layout.css.animation-composition.enabled", true);
  * SECTION: NETWORK                                                         *
 ****************************************************************************/
 
+// PREF: faster SSL
+user_pref("network.ssl_tokens_cache_capacity", 32768); // more TLS token caching (fast reconnects)
+
+// PREF: increase DNS cache
+user_pref("network.dnsCacheEntries", 20000);	
+user_pref("network.dnsCacheExpiration", 3600);	
+user_pref("network.dnsCacheExpirationGracePeriod", 240);
+
 // PREF: use bigger packets
 // [1] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74561.html
 // [2] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74570.html
@@ -159,25 +167,25 @@ user_pref("gfx.content.skia-font-cache-size", 80);
 
 // PREF: image tweaks
 user_pref("image.cache.size", 10485760);
-user_pref("image.mem.decode_bytes_at_a_time", 65536); // alt=262144; chunk size for calls to the image decoders
+user_pref("image.mem.decode_bytes_at_a_time", 131072); // alt=65536; preferred=262144; chunk size for calls to the image decoders
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // default=60000; minimum timeout to unmap shared surfaces since they have been last used
 user_pref("layers.gpu-process.enabled", true);
     //user_pref("layers.gpu-process.force-enabled", true); // reinforce
 
 // PREF: increase media cache
-user_pref("media.memory_cache_max_size", 1048576); // alt=512000; overrides Securefox (for now)
-user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
+user_pref("media.memory_cache_max_size", 1048576); // alt=512000; also in Securefox (inactive there)
+user_pref("media.memory_caches_combined_limit_kb", 2560000); // preferred=3145728; // default=524288
     //user_pref("media.memory_caches_combined_limit_pc_sysmem", 20); // default=5
 //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
 //user_pref("media.hardware-video-decoding.enabled", true);
     //user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
 
-// PREF: decrease video buffering / increase video preload [not be needed with the above?]
+// PREF: decrease video buffering
 // [NOTE] Does not affect YouTube since it uses DASH playback [1]
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
-//user_pref("media.cache_size", 2048000); // default=512000
-//user_pref("media.cache_readahead_limit", 9000); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-//user_pref("media.cache_resume_threshold", 9000); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
+user_pref("media.cache_size", 2048000); // default=512000
+user_pref("media.cache_readahead_limit", 9000); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+user_pref("media.cache_resume_threshold", 6000); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
     
 // PREF: faster upload speed
 // Firefox currently has a bug with impacting upload speeds with HTTP3/QUIC
@@ -185,7 +193,7 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753486
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1596576
 //user_pref("network.http.http3.enable", false); // disables HTTP3/QUIC
-//user_pref("network.http.http2.chunk-size", 32000); // default=16000 [needed?]
+//user_pref("network.http.http2.chunk-size", 32000); // preferred=48000; default=16000 [needed?]
 
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
@@ -206,40 +214,3 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000
 // [1] https://www.makeuseof.com/tag/how-much-data-does-youtube-use/
 //user_pref("browser.cache.memory.capacity", 5242880); // default=-1; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
 user_pref("browser.cache.memory.max_entry_size", 153600); // alt=51200; preferred=327680 ; -1 -> entries bigger than than 90% of the mem-cache are never cached
-
-/****************************************************************************
- * SECTION: SPECULATIVE CONNECTIONS                                         *
-****************************************************************************/
-
-// [NOTE] FF85+ partitions (isolates) pooled connections, prefetch connections,
-// pre-connect connections, speculative connections, TLS session identifiers,
-// and other connections. We can take advantage of the speed of pre-connections
-// while preserving privacy. Users may relax hardening to maximize their preference.
-// For more information, see SecureFox: "PREF: State Paritioning" and "PREF: Network Partitioning" [1]
-// [1] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L74-L108
-
-// PREF: increase network predictions
-// [NOTE] In uBlock Origin, go to settings and make this setting is DISABLED:
-// - "Disable pre-fetching (to prevent any connection for blocked network requests)"
-// [NOTE] Add prefs to "MY OVERRIDES" section to enable.
-// [1] https://github.com/yokoffing/Betterfox/blob/681b9b1e7db468c5cc4c5578a75295f03f3e5864/Securefox.js#L457-L553
-//user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
-//user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
-//user_pref("network.dns.disablePrefetchFromHTTPS", false);
-    user_pref("network.dnsCacheEntries", 20000);	
-    user_pref("network.dnsCacheExpiration", 3600);	
-    user_pref("network.dnsCacheExpirationGracePeriod", 240);
-//user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
-//user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
-//user_pref("network.prefetch-next", true); // overrides SecureFox
-//user_pref("network.predictor.enabled", true); // overrides SecureFox
-//user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
-//user_pref("network.predictor.enable-hover-on-ssl", true);
-    user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=20
-    user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=40
-    user_pref("network.predictor.prefetch-min-confidence", 20); // default 100; alt=60
-        user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
-        user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
-
- // PREF: faster SSL
-user_pref("network.ssl_tokens_cache_capacity", 32768); // more TLS token caching (fast reconnects)
