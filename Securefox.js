@@ -349,7 +349,7 @@ user_pref("browser.cache.disk.enable", false);
 // PREF: disable media cache from writing to disk in Private Browsing
 // [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
-user_pref("media.memory_cache_max_size", 65536); // 8x default size of 8192 [performance enhancement]
+//user_pref("media.memory_cache_max_size", 65536); // 8x default size of 8192 [performance enhancement]; also in Fastfox
 
 // PREF: disable storing extra session data
 // Dictates whether sites may save extra session data such as form content, cookies and POST data
