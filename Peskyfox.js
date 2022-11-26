@@ -11,7 +11,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 107                                                             *
+ * version: 107a                                                            *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -296,12 +296,13 @@ user_pref("extensions.pocket.enabled", false);
 // PREF: choose download location
 // [SETTING] To set your default "downloads": General>Downloads>Save files to...
 // 0=desktop, 1=downloads (default), 2=last used
-//user_pref("browser.download.folderList", 1);
+//user_pref("browser.download.folderList", 2);
 
 // PREF: Enforce user interaction for security by always asking where to download.
 // [SETTING] General>Downloads>Always ask you where to save files
 // false=the user is asked what to do
 user_pref("browser.download.useDownloadDir", false);
+    //user_pref("browser.download.dir", "C:\Users\<YOUR_USERNAME>\AppData\Local\Temp"); // [WINDOWS]
 
 // PREF: disable downloads panel opening on every download
 user_pref("browser.download.alwaysOpenPanel", false);
@@ -339,7 +340,7 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 // 2=table of contents (if not available, will default to 1)
 // 1=view pages
 // -1=disabled (default)
-user_pref("pdfjs.sidebarViewOnLoad", 1);
+//user_pref("pdfjs.sidebarViewOnLoad", 1);
 
 // PREF: default zoom for PDFs [HIDDEN]
 // [NOTE] "page-width" not needed if using sidebar on load
@@ -524,3 +525,7 @@ user_pref("layout.css.has-selector.enabled", true);
 // 0 (default) or 1=allow, 2=block
 // [SETTING] to add site exceptions: Ctrl+I>Permissions>Override Keyboard Shortcuts ***/
 //user_pref("permissions.default.shortcuts", 2);
+
+// PREF: JPEG XL image format [NIGHTLY]
+// [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
+//user_pref("image.jxl.enabled", true);
