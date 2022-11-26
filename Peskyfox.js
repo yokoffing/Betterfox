@@ -11,7 +11,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 108                                                             *
+ * version: 107a                                                            *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
