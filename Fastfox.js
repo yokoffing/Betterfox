@@ -150,12 +150,17 @@ user_pref("gfx.webrender.all", true); // enables WR (GPU) + additional features
 user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.compositor", true);
     //user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
+user_pref("layers.gpu-process.enabled", true);
+    //user_pref("layers.gpu-process.force-enabled", true); // reinforce
+user_pref("media.hardware-video-decoding.enabled", true);
+    //user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
 //user_pref("gfx.webrender.enabled", true);
 //user_pref("gfx.webrender.software", true); // Webrender uses the CPU and not the GPU
     //user_pref("gfx.webrender.software.opengl", true); [LINUX]
+    //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
 
 // PREF: GPU-accelerated Canvas2D tweaks
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1739448
@@ -168,16 +173,11 @@ user_pref("gfx.content.skia-font-cache-size", 80);
 user_pref("image.cache.size", 10485760);
 user_pref("image.mem.decode_bytes_at_a_time", 131072); // alt=65536; preferred=262144; chunk size for calls to the image decoders
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // default=60000; minimum timeout to unmap shared surfaces since they have been last used
-user_pref("layers.gpu-process.enabled", true);
-    //user_pref("layers.gpu-process.force-enabled", true); // reinforce
 
 // PREF: increase media cache
 user_pref("media.memory_cache_max_size", 1048576); // alt=512000; also in Securefox (inactive there)
 user_pref("media.memory_caches_combined_limit_kb", 2560000); // preferred=3145728; // default=524288
     //user_pref("media.memory_caches_combined_limit_pc_sysmem", 20); // default=5
-//user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
-//user_pref("media.hardware-video-decoding.enabled", true);
-    //user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
 
 // PREF: decrease video buffering
 // [NOTE] Does not affect YouTube since it uses DASH playback [1]
