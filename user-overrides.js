@@ -1,7 +1,12 @@
 
 /****************************************************************************
  *                                                                         *
- *  [NOTE] This list is a backup of PERSONAL prefs                         *
+ *                            DISCLAIMER                                   *
+ *                                                                         *
+ *  This file is NOT INTENDED FOR OFFICIAL USE                             *
+ *  It is a mix of PERSONAL and TESTING prefs and                          *
+ *  may cause breakage or contain changes you do not want!                 *
+ *  DO NOT USE unless you know what you are doing!                         *
  *                                                                         *
 ****************************************************************************/
 
@@ -12,12 +17,8 @@
 
 /** SETUP ON FIRST INSTALLATION ***/
 user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
-user_pref("browser.download.dir", "C:\Users\<USERNAME>\AppData\Local\Temp"); // [WINDOWS] Downloads default to %temp%
-user_pref("browser.download.folderList", 2); // 0=desktop, 1=downloads, 2=last used
-user_pref("browser.download.alwaysOpenPanel", true); // DEFAULT; overrides user.js
 
 /** SECUREFOX ***/
-user_pref("beacon.enabled", true); // Beacon API; disabling sometimes causes breakage
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
@@ -42,6 +43,7 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmark
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false); // Settings>Home>Firefox Home Content>Recent Activity>Most Recent Download
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false); // Settings>Home>Firefox Home Content>Recent Activity>Visited Pages
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // Settings>Home>Firefox Home Content>Recent Activity>Pages Saved to Pocket
+user_pref("browser.download.folderList", 0); // 0=desktop, 1=downloads, 2=last used
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
 user_pref("browser.urlbar.suggest.bookmark", false); // hide URL bar dropdown suggestions
@@ -53,7 +55,6 @@ user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually ba
 user_pref("view_source.wrap_long_lines", true);  // wrap source lines
 user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devtools
 user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
-user_pref("pdfjs.defaultZoomValue", "125"); // PDF zoom level DESKTOP
 user_pref("pdfjs.sidebarViewOnLoad", 2); // show Table of Contents in sidebar for PDFs (if available)
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
@@ -62,41 +63,24 @@ user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for backg
 user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small");
 user_pref("image.jxl.enabled", true);
+user_pref("reader.parse-on-load.enabled", false); // disable reader mode
+    //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
 
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
-user_pref("reader.parse-on-load.enabled", false); // disable reader mode
-    //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
-// GFX
+// high-end machine:
 user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
+user_pref("image.mem.decode_bytes_at_a_time", 262144);
 user_pref("layers.gpu-process.force-enabled", true); // reinforce
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 40); // testing if needed
+user_pref("media.memory_cache_max_size", 1048576);
+user_pref("media.memory_caches_combined_limit_kb", 3145728);
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
 user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
-// CACHE
+user_pref("network.http.http3.enable", false); // disables QUIC
 user_pref("browser.cache.memory.capacity", 5242880);
 user_pref("browser.cache.memory.max_entry_size", 327680);
-// SPECULATIVE CONNECTIONS
-user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
-user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
-user_pref("network.dns.disablePrefetchFromHTTPS", false);
-    user_pref("network.dnsCacheEntries", 20000);	
-    user_pref("network.dnsCacheExpiration", 3600);	
-    user_pref("network.dnsCacheExpirationGracePeriod", 240);
-user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
-user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
-user_pref("network.prefetch-next", true); // overrides SecureFox
-user_pref("network.predictor.enabled", true); // overrides SecureFox
-user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
-user_pref("network.predictor.enable-hover-on-ssl", true);
-    user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=20
-    user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=40
-    user_pref("network.predictor.prefetch-min-confidence", 20); // default 100; alt=60
-        user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
-        user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
-user_pref("network.ssl_tokens_cache_capacity", 32768);
-//user_pref("network.dns.get-ttl", false);
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("javascript.options.experimental.import_assertions", true);
@@ -104,7 +88,7 @@ user_pref("javascript.options.experimental.shadow_realms", true);
 user_pref("javascript.options.wasm_gc", true);
 user_pref("javascript.options.wasm_function_references", true);
 user_pref("cookiebanners.service.mode", 2);
-user_pref("cookiebanners.service.mode.privateBrowsing", 2);
+user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 user_pref("privacy.globalprivacycontrol.enabled", true);
 user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 user_pref("privacy.userContext.enabled", false);
@@ -114,6 +98,7 @@ user_pref("extensions.unifiedExtensions.enabled", false);
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla restricted domains [DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS ***/
+user_pref("pdfjs.defaultZoomValue", "page-fit"); // DESKTOP; alt=125; PDF zoom level
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);  // font improvement
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
@@ -121,8 +106,10 @@ user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", 
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.monospace.x-western", "Cascadia Code"); // preferred font [WINDOWS]
-//user_pref("layout.css.font-visibility.trackingprotection", 3); // breaks using custom font on pages
+//user_pref("font.name.monospace.x-western", "Fira Code"); // preferred font [WINDOWS]
+//user_pref("layout.css.font-visibility.trackingprotection", 3); // unbreaks using custom font on pages in normal windows
 
 /** DELETE IF NOT macOS ***/
+user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level 
 //user_pref("font.name.monospace.x-western", "SF Mono"); // preferred font [macOS]
 //user_pref("layout.css.font-visibility.trackingprotection", 3); // breaks using custom font on pages
