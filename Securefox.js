@@ -1198,10 +1198,10 @@ user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("browser.discovery.enabled", false);
 
 // PREF: disable crash reports
-      // user_pref("breakpad.reportURL", "");
+//user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
-//user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // DEFAULT
-// PREF: backlogged crash reports
+    //user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // DEFAULT
+// PREF: enforce no submission of backlogged crash reports
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
 // PREF: Captive Portal detection
