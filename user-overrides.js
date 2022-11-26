@@ -34,6 +34,9 @@ user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("network.notify.checkForProxies", false); // skip proxy request check
+user_pref("browser.tabs.crashReporting.sendReport", true);
+//user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // DEFAULT
+user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", true);
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes annoying "Inspect Accessibility Properties" on right-click
