@@ -71,12 +71,6 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
 // high-end machine:
-user_pref("network.buffer.cache.size", 327680);
-user_pref("network.buffer.cache.count", 240);
-//user_pref("network.http.tls-handshake-timeout", 3);
-//user_pref("network.http.response.timeout", 5);
-//user_pref("network.http.max-connections", 1800);
-//user_pref("network.http.max-persistent-connections-per-server", 9);
 user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
 user_pref("image.mem.decode_bytes_at_a_time", 262144);
 user_pref("layers.gpu-process.force-enabled", true); // reinforce
@@ -85,7 +79,6 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728);
 user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
 user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
 user_pref("network.http.http3.enable", false); // disables QUIC
-user_pref("network.http.http2.chunk-size", 48000);
 user_pref("browser.cache.memory.capacity", 5242880);
 user_pref("browser.cache.memory.max_entry_size", 327680);
 
