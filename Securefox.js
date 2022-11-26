@@ -11,7 +11,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: 107                                                             *
+ * version: 107a                                                            *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -48,7 +48,7 @@ user_pref("privacy.trackingprotection.emailtracking.enabled", true); // IN BETA
 // [1] https://www.eyerys.com/articles/news/how-mozilla-firefox-improves-privacy-using-query-parameter-stripping-feature
 // [2] https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc
 //user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
-user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
+    //user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
 
 // PREF: allow embedded tweets, Instagram and Reddit posts, and TikTok embeds
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
@@ -349,7 +349,7 @@ user_pref("browser.cache.disk.enable", false);
 // PREF: disable media cache from writing to disk in Private Browsing
 // [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
-user_pref("media.memory_cache_max_size", 65536); // 8x default size of 8192 [performance enhancement]
+//user_pref("media.memory_cache_max_size", 65536); // 8x default size of 8192 [performance enhancement]; also in Fastfox
 
 // PREF: disable storing extra session data
 // Dictates whether sites may save extra session data such as form content, cookies and POST data
@@ -447,6 +447,15 @@ user_pref("privacy.history.custom", true);
 /******************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
+// [NOTE] FF85+ partitions (isolates) pooled connections, prefetch connections,
+// pre-connect connections, speculative connections, TLS session identifiers,
+// and other connections. We can take advantage of the speed of pre-connections
+// while preserving privacy. Users may relax hardening to maximize their preference.
+// For more information, see SecureFox: "PREF: State Paritioning" and "PREF: Network Partitioning" [1]
+// [1] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L74-L108
+// [NOTE] To activate and increase network predictions, go to settings in uBlock Origin,  and make this setting is DISABLED:
+// - "Disable pre-fetching (to prevent any connection for blocked network requests)"
+// [NOTE] Add prefs to "MY OVERRIDES" section to enable.
 
 // PREF: new tab preload
 // [WARNING] Disabling this may cause a delay when opening a new tab in Firefox
@@ -476,6 +485,9 @@ user_pref("network.http.speculative-parallel-limit", 0);
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
 //user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
+    //user_pref("network.dnsCacheEntries", 20000);	
+    //user_pref("network.dnsCacheExpiration", 3600);	
+    //user_pref("network.dnsCacheExpirationGracePeriod", 240);
 
 // PREF: Preload <link rel=preload>
 // This tells the browser that the resource should be loaded as part of the current navigation
@@ -550,7 +562,12 @@ user_pref("network.predictor.enable-prefetch", false);
 // mouse over. In case the user follows through with the action, the page can begin loading
 // faster since some of the work was already started in advance. Focuses on fetching a resource
 // for the NEXT navigation.
-user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
+//user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
+    //user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=20
+    //user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=40
+    //user_pref("network.predictor.prefetch-min-confidence", 20); // default 100; alt=60
+        //user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
+        //user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
 
 /******************************************************************************
  * SECTION: SEARCH / URL BAR                              *
@@ -831,7 +848,7 @@ user_pref("signon.rememberSignons", false);
 user_pref("editor.truncate_user_pastes", false);
 
 // PREF: show Reveal Password icon
-user_pref("layout.forms.reveal-password-button.enabled", true);
+//user_pref("layout.forms.reveal-password-button.enabled", true);
 //user_pref("layout.forms.reveal-password-context-menu.enabled", false); // DEFAULT
 
 /****************************************************************************
@@ -1181,10 +1198,10 @@ user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("browser.discovery.enabled", false);
 
 // PREF: disable crash reports
-      // user_pref("breakpad.reportURL", "");
+user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
-//user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // DEFAULT
-// PREF: backlogged crash reports
+    //user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // DEFAULT
+// PREF: enforce no submission of backlogged crash reports
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
 // PREF: Captive Portal detection
