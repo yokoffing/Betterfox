@@ -58,6 +58,7 @@ If you use any of the features below, please view the [common overrides](https:/
 [2](https://old.reddit.com/r/technology/comments/m4qdvt/google_accused_of_tracking_users_in_incognito/gqwzzgr/?context=2)
 [3](https://old.reddit.com/r/Ubuntu/comments/pke4wz/suspicious_file_found_after_using_brave/hc568jg/?context=2)
 [4](https://old.reddit.com/r/browsers/comments/y7w57n/which_browser_do_you_use_on_your_devices/it30hqi/?context=3)
+[5](https://www.troddit.com/r/firefox/comments/z5auzi/firefox_not_properly_usingrecognizing_gpu_poor/iy0kru3)
 
 #### Browser Integration
 * [Pulse Browser](https://github.com/pulse-browser/browser#%EF%B8%8F-credits) (Dec 2021) | [files](https://github.com/pulse-browser/browser/tree/alpha/src/browser/app/profile)
