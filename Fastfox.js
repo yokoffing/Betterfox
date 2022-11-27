@@ -146,6 +146,7 @@ user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 // [1] https://searchfox.org/mozilla-central/rev/6e6332bbd3dd6926acce3ce6d32664eab4f837e5/modules/libpref/init/StaticPrefList.yaml#6202-6219
 // [2] https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/
 // [3] https://www.troddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
+// [4] https://www.troddit.com/r/firefox/comments/z5auzi/comment/ixw65gb?context=3
 user_pref("gfx.webrender.all", true); // enables WR (GPU) + additional features
 user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.compositor", true);
