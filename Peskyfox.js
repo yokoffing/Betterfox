@@ -35,7 +35,7 @@
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 
 // PREF: enable Firefox to use userChome, userContent, etc.
-user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+//user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // PREF: enable CSS moz document rules
 // Still needed for Stylus?
