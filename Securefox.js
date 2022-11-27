@@ -11,7 +11,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: 107a                                                            *
+ * version: 108                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -463,17 +463,31 @@ user_pref("privacy.history.custom", true);
 // [2] https://github.com/arkenfox/user.js/issues/1556
 //user_pref("browser.newtab.preload", true); // DEFAULT
 
-// PREF: Speculative connections on New Tab page
+// PREF: Speculative Connections
 // Firefox will open predictive connections to sites when the user hovers their mouse over thumbnails
 // on the New Tab Page or the user starts to search in the Search Bar, or in the search field on the
-// New Tab Page. In case the user follows through with the action, the page can begin loading faster
+// New Tab Page [1]. This pref may control speculative connects for normal links, too [2].
+// The maximum number of current global half open sockets allowable when starting a new speculative connection [3].
+// In case the user follows through with the action, the page can begin loading faster
 // since some of the work was already started in advance.
 // [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered
 // [1] https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections?redirectslug=how-stop-firefox-automatically-making-connections&redirectlocale=en-US#:~:text=Speculative%20pre%2Dconnections
 // [2] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
-// [3] https://www.keycdn.com/blog/resource-hints#prefetch
-// [4] https://3perf.com/blog/link-rels/#prefetch
+// [3] https://searchfox.org/mozilla-central/rev/028c68d5f32df54bca4cf96376f79e48dfafdf08/modules/libpref/init/all.js#1280-1282
+// [4] https://www.keycdn.com/blog/resource-hints#prefetch
+// [5] https://3perf.com/blog/link-rels/#prefetch
 user_pref("network.http.speculative-parallel-limit", 0);
+
+// PREF: Preconnect to the autocomplete URL in the address bar
+// Firefox preloads URLs that autocomplete when a user types into the address bar.
+// Connects to destination server ahead of time, to avoid TCP handshake latency.
+// [NOTE] Firefox will perform DNS lookup (if enabled) and TCP and TLS handshake,
+// but will not start sending or receiving HTTP data.
+// [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
+
+// PREF: disable mousedown speculative connections on bookmarks and history
+user_pref("browser.places.speculativeConnect.enabled", false);
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time, to avoid DNS latency.
@@ -507,17 +521,6 @@ user_pref("network.dns.disablePrefetch", true);
 // [8] https://yashints.dev/blog/2018/10/06/web-perf-2#preload
 // [9] https://web.dev/preload-critical-assets/
 //user_pref("network.preload", true); // DEFAULT
-
-// PREF: Preconnect to the autocomplete URL in the address bar
-// Firefox preloads URLs that autocomplete when a user types into the address bar.
-// Connects to destination server ahead of time, to avoid TCP handshake latency.
-// [NOTE] Firefox will perform DNS lookup (if enabled) and TCP and TLS handshake,
-// but will not start sending or receiving HTTP data.
-// [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
-
-// PREF: disable mousedown speculative connections on bookmarks and history
-user_pref("browser.places.speculativeConnect.enabled", false);
 
 // PREF: Link prefetching <link rel="prefetch">
 // Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
