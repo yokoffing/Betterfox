@@ -38,7 +38,7 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 // PREF: set the minimum interval between session save operations
 // Increasing this can help on older machines and some websites, as well as reducing writes
 // [1] https://bugzilla.mozilla.org/1304389
-user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
+//user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
 
 // PREF: OffscreenCanvas
 // [1] https://yashints.dev/blog/2019/05/11/offscreen-canvas
