@@ -60,9 +60,9 @@ If you use any of the features below, please view the [common overrides](https:/
 [4](https://old.reddit.com/r/browsers/comments/y7w57n/which_browser_do_you_use_on_your_devices/it30hqi/?context=3)
 
 #### Browser Integration
-* [Pulse Browser](https://github.com/pulse-browser/browser#%EF%B8%8F-credits) | [files](https://github.com/pulse-browser/browser/tree/alpha/src/browser/app/profile)
-* [Ghostery Dawn](https://github.com/ghostery/user-agent-desktop#community) | [files](https://github.com/ghostery/user-agent-desktop/tree/main/brands/ghostery/branding/pref)
-    * [Betterfox adopted into Ghostery Dawn](https://web.archive.org/web/20210509171835/https://www.ghostery.com/ghostery-dawn-update-more/) (Feb 2021)<sup>[1](https://web.archive.org/web/20210921114333/https://www.ghostery.com/ghostery-dawn-product-update/)</sup>
+* [Pulse Browser](https://github.com/pulse-browser/browser#%EF%B8%8F-credits) (Dec 2021) | [files](https://github.com/pulse-browser/browser/tree/alpha/src/browser/app/profile)
+* [Ghostery Dawn](https://github.com/ghostery/user-agent-desktop#community) (Feb 2021) | [files](https://github.com/ghostery/user-agent-desktop/tree/main/brands/ghostery/branding/pref)
+    * [Betterfox adopted into Ghostery Dawn](https://web.archive.org/web/20210509171835/https://www.ghostery.com/ghostery-dawn-update-more/)<sup>[1](https://web.archive.org/web/20210921114333/https://www.ghostery.com/ghostery-dawn-product-update/)</sup>
 
 #### Guides
 * [FMHY Browser Tools: Privacy Hardened Firefox](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/storage/#wiki_privacy_hardened_firefox)
