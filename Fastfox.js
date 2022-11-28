@@ -18,8 +18,8 @@
 // PREF: initial paint delay
 // How long FF will wait before rendering the page
 // [1] https://kb.mozillazine.org/Nglayout.initialpaint.delay
-user_pref("nglayout.initialpaint.delay", 0); // default=5; used to be 250
-user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5; used to be 250
+//user_pref("nglayout.initialpaint.delay", 0); // default=5; used to be 250
+//user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5; used to be 250
 
 // PREF: control how tabs are loaded when a session is restored
 // true=Tabs are not loaded until they are selected (default)
