@@ -19,7 +19,6 @@
 // How long FF will wait before rendering the page
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1283302
 // [2] https://docs.google.com/document/d/1BvCoZzk2_rNZx3u9ESPoFjSADRI0zIPeJRXFLwWXx_4/edit#heading=h.28ki6m8dg30z
-
 //user_pref("nglayout.initialpaint.delay", 0); // default=5; used to be 250
 //user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5; used to be 250
 
