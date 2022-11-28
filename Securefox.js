@@ -1049,14 +1049,16 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 ******************************************************************************/
 
 // PREF: disable GSB (master switch)
-// Increased privacy away from Google, but less protection against threats.
-// [WARNING] Be sure to have alternate security measures if you disable Safe Browsing.
+// Increased privacy away from Google, but less protection against threats
+// [WARNING] Be sure to have alternate security measures if you disable GSB!
 // [SETTING] Privacy & Security>Security>... Block dangerous and deceptive content
-// [1] https://www.wikiwand.com/en/Google_Safe_Browsing#/Privacy
-// [2] https://ashkansoltani.org/2012/02/25/cookies-from-nowhere
-// [3] https://blog.cryptographyengineering.com/2019/10/13/dear-apple-safe-browsing-might-not-be-that-safe/
-// [4] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1752006
-// [5] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1767546
+// [ALTERNATIVE] Enable local checks only: https://github.com/yokoffing/Betterfox/issues/87
+// [1] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1752006
+// [2] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1767546
+// [3] https://ashkansoltani.org/2012/02/25/cookies-from-nowhere
+// [4] https://blog.cryptographyengineering.com/2019/10/13/dear-apple-safe-browsing-might-not-be-that-safe/
+// [5] https://the8-bit.com/apple-proxies-google-safe-browsing-privacy/
+// [6] https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
     //user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
