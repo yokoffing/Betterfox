@@ -50,6 +50,7 @@ If you use any of the features below, please view the [common overrides](https:/
    * Advanced users: We suggest that you [selectively allow](https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-quick-guide) these requests in [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with [medium mode](https://github.com/gorhill/uBlock/wiki/Blocking-mode:-medium-mode) enabled + add the [Privacy Essentials](https://github.com/yokoffing/filterlists/blob/main/privacy_essentials.txt) filter to your [custom lists](https://github.com/gorhill/uBlock/wiki/Dashboard:-Filter-lists#3rd-party-filter-lists).
 * Since Firefox implemented [state](https://github.com/yokoffing/Betterfox/blob/537eb902106f5cacebfd7a77555193ba4573dc6e/SecureFox.js#L73-L88) and [network](https://github.com/yokoffing/Betterfox/blob/537eb902106f5cacebfd7a77555193ba4573dc6e/SecureFox.js#L93-L100) partitioning, it is recommended but no longer necessary to **clear browsing data** after every session.
 * If your threat level calls for _anonymity_ and not just reasonable _privacy_,<sup>[1](https://thenewoil.org/secprivanon.html)</sup> please use the [TOR browser](https://www.torproject.org).
+* **External application autofill** capability is disabled for improvements in resource utilization and increased security. This will impact your ability to use a keyboard shortcut to fill in forms including logins. This is done by disabling the Firefox Accessibility Service and can be overriden if desired.
 
 ## Mentions
 
