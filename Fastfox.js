@@ -235,22 +235,22 @@ user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; faster S
 // [NOTE] Add prefs to "MY OVERRIDES" section and uncomment to enable them in your user.js.
 
 // PREF: increase network predictions
-user_pref("network.http.speculative-parallel-limit", 18); // default=6; overrides SecureFox
-user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
-user_pref("network.dns.disablePrefetchFromHTTPS", false);
+//user_pref("network.http.speculative-parallel-limit", 18); // default=6; overrides SecureFox
+//user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
+//user_pref("network.dns.disablePrefetchFromHTTPS", false);
     user_pref("network.dnsCacheEntries", 20000);	
     user_pref("network.dnsCacheExpiration", 3600);	
     user_pref("network.dnsCacheExpirationGracePeriod", 240);
-user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
-user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
-user_pref("network.prefetch-next", true); // overrides SecureFox
-user_pref("network.predictor.enabled", true); // overrides SecureFox
-user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
-user_pref("network.predictor.enable-hover-on-ssl", true);
-    user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=40
-    user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=70
-    user_pref("network.predictor.prefetch-min-confidence", 30); // default=100; alt=80
-        user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
-        user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
-    user_pref("network.predictor.max-resources-per-entry", 250); // default=100
-    user_pref("network.predictor.max-uri-length", 1000); // default=500
+//user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
+//user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
+//user_pref("network.prefetch-next", true); // overrides SecureFox
+//user_pref("network.predictor.enabled", true); // overrides SecureFox
+//user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
+//user_pref("network.predictor.enable-hover-on-ssl", true);
+    //user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=40
+    //user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=70
+    //user_pref("network.predictor.prefetch-min-confidence", 30); // default=100; alt=80
+        //user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
+        //user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
+    //user_pref("network.predictor.max-resources-per-entry", 250); // default=100
+    //user_pref("network.predictor.max-uri-length", 1000); // default=500
