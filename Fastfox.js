@@ -112,19 +112,7 @@ user_pref("layout.css.animation-composition.enabled", true);
 user_pref("network.buffer.cache.size", 262144); // preferred=327680; default=32768
 user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 
-// PREF: DoH requests
-//user_pref("network.trr.request_timeout_ms", 800); // default=1500
-    //user_pref("network.trr.retry-timeout-ms", 125); // DEFAULT
-//user_pref("network.trr.request_timeout_mode_trronly_ms", 15000); // default=30000
-
-// These do not help speed, probably:
-
-// PREF: close a connection if tls handshake does not finish in given number of seconds
-//user_pref("network.http.tls-handshake-timeout", 3); // default=30
-// PREF: timeout connections if an initial response is not received in number of seconds
-//user_pref("network.http.response.timeout", 5); // default=300
-
-// PREF: increase the absolute number of http connections
+// PREF: increase the absolute number of HTTP connections
 // [1] https://kb.mozillazine.org/Network.http.max-connections
 // [2] https://kb.mozillazine.org/Network.http.max-persistent-connections-per-server
 //user_pref("network.http.max-connections", 1800); // default=900
@@ -132,6 +120,16 @@ user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 //user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
 //user_pref("network.http.max-urgent-start-excessive-connections-per-host", 6); // default=3
 //user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
+
+// These do not help speed, probably:
+// PREF: DoH requests
+//user_pref("network.trr.request_timeout_ms", 800); // default=1500
+    //user_pref("network.trr.retry-timeout-ms", 125); // DEFAULT
+//user_pref("network.trr.request_timeout_mode_trronly_ms", 15000); // default=30000
+// PREF: close a connection if tls handshake does not finish in given number of seconds
+//user_pref("network.http.tls-handshake-timeout", 20); // default=30
+// PREF: timeout connections if an initial response is not received in number of seconds
+//user_pref("network.http.response.timeout", 200); // default=300
 
 /****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
