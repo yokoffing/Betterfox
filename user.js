@@ -24,7 +24,6 @@ user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twim
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
 user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
 user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false);
-user_pref("beacon.enabled", false);
 user_pref("browser.uitour.enabled", false);
 
 /** OCSP & CERTS / HPKP ***/
