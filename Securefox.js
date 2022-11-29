@@ -447,15 +447,6 @@ user_pref("privacy.history.custom", true);
 /******************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
-// [NOTE] FF85+ partitions (isolates) pooled connections, prefetch connections,
-// pre-connect connections, speculative connections, TLS session identifiers,
-// and other connections. We can take advantage of the speed of pre-connections
-// while preserving privacy. Users may relax hardening to maximize their preference.
-// For more information, see SecureFox: "PREF: State Paritioning" and "PREF: Network Partitioning" [1]
-// [1] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L74-L108
-// [NOTE] To activate and increase network predictions, go to settings in uBlock Origin,  and make this setting is DISABLED:
-// - "Disable pre-fetching (to prevent any connection for blocked network requests)"
-// [NOTE] Add prefs to "MY OVERRIDES" section to enable.
 
 // PREF: new tab preload
 // [WARNING] Disabling this may cause a delay when opening a new tab in Firefox
@@ -499,9 +490,6 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
 //user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
-    //user_pref("network.dnsCacheEntries", 20000);	
-    //user_pref("network.dnsCacheExpiration", 3600);	
-    //user_pref("network.dnsCacheExpirationGracePeriod", 240);
 
 // PREF: Preload <link rel=preload>
 // This tells the browser that the resource should be loaded as part of the current navigation
@@ -541,11 +529,11 @@ user_pref("network.prefetch-next", false);
 // needed when the user visits a webpage (such as image.jpg and script.js), so that the next time the
 // user prepares to go to that webpage (upon navigation? URL bar? mouseover?), this history can be used
 // to predict what resources will be needed rather than wait for the document to link those resources.
-/// NP only performs pre-connect, not prefetch, by default, including DNS pre-resolve and TCP preconnect
+// NP only performs pre-connect, not prefetch, by default, including DNS pre-resolve and TCP preconnect
 // (which includes SSL handshake). No data is actually sent to the site until a user actively clicks
 // a link. However, NP is still opening TCP connections and doing SSL handshakes, so there is still
 // information leakage about your browsing patterns. This isn't desirable from a privacy perspective.
-// [NOTE] Disabling DNS prefetching disables the DNS prefetching behavior of NP
+// [NOTE] Disabling DNS prefetching disables the DNS prefetching behavior of NP.
 // [1] https://wiki.mozilla.org/Privacy/Reviews/Necko
 // [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
@@ -566,11 +554,6 @@ user_pref("network.predictor.enable-prefetch", false);
 // faster since some of the work was already started in advance. Focuses on fetching a resource
 // for the NEXT navigation.
 //user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
-    //user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=20
-    //user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=40
-    //user_pref("network.predictor.prefetch-min-confidence", 20); // default 100; alt=60
-        //user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
-        //user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
 
 /******************************************************************************
  * SECTION: SEARCH / URL BAR                              *
