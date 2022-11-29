@@ -106,11 +106,6 @@ user_pref("layout.css.animation-composition.enabled", true);
  * SECTION: NETWORK                                                         *
 ****************************************************************************/
 
-// PREF: increase DNS cache
-user_pref("network.dnsCacheEntries", 20000);	
-user_pref("network.dnsCacheExpiration", 3600);	
-user_pref("network.dnsCacheExpirationGracePeriod", 240);
-
 // PREF: use bigger packets
 // [1] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74561.html
 // [2] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74570.html
@@ -118,14 +113,14 @@ user_pref("network.buffer.cache.size", 262144); // preferred=327680; default=327
 user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 
 // PREF: DoH requests
-//user_pref("network.trr.request_timeout_ms", 1500); // DEFAULT
+//user_pref("network.trr.request_timeout_ms", 800); // default=1500
     //user_pref("network.trr.retry-timeout-ms", 125); // DEFAULT
+//user_pref("network.trr.request_timeout_mode_trronly_ms", 15000); // default=30000
 
-// These do not affect anything, probably:
+// These do not help speed, probably:
 
 // PREF: close a connection if tls handshake does not finish in given number of seconds
 //user_pref("network.http.tls-handshake-timeout", 3); // default=30
-
 // PREF: timeout connections if an initial response is not received in number of seconds
 //user_pref("network.http.response.timeout", 5); // default=300
 
@@ -133,7 +128,10 @@ user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 // [1] https://kb.mozillazine.org/Network.http.max-connections
 // [2] https://kb.mozillazine.org/Network.http.max-persistent-connections-per-server
 //user_pref("network.http.max-connections", 1800); // default=900
-    //user_pref("network.http.max-persistent-connections-per-server", 8); // default=6; download connections; anything above 10 is excessive
+//user_pref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
+//user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
+//user_pref("network.http.max-urgent-start-excessive-connections-per-host", 6); // default=3
+//user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
 
 /****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
@@ -192,7 +190,7 @@ user_pref("media.memory_caches_combined_limit_kb", 2560000); // preferred=314572
 user_pref("media.cache_size", 2048000); // default=512000
 user_pref("media.cache_readahead_limit", 9000); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
 user_pref("media.cache_resume_threshold", 6000); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
-    
+
 // PREF: faster upload speed
 // Firefox currently has a bug with impacting upload speeds with HTTP3/QUIC
 // [TEST] https://speedof.me/
@@ -233,10 +231,10 @@ user_pref("browser.cache.memory.max_entry_size", 153600); // alt=51200; preferre
 // [1] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L74-L108
 // [NOTE] To activate and increase network predictions, go to settings in uBlock Origin,  and make this setting is DISABLED:
 // - "Disable pre-fetching (to prevent any connection for blocked network requests)"
-// [NOTE] Add prefs to "MY OVERRIDES" section to enable.
+// [NOTE] Add prefs to "MY OVERRIDES" section and uncomment to enable them in your user.js.
 
 // PREF: increase network predictions
-user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
+user_pref("network.http.speculative-parallel-limit", 18); // default=6; overrides SecureFox
 user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
     user_pref("network.dnsCacheEntries", 20000);	
@@ -248,11 +246,13 @@ user_pref("network.prefetch-next", true); // overrides SecureFox
 user_pref("network.predictor.enabled", true); // overrides SecureFox
 user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
 user_pref("network.predictor.enable-hover-on-ssl", true);
-    user_pref("network.predictor.preresolve-min-confidence", 40); // default=60; alt=10
-    user_pref("network.predictor.preconnect-min-confidence", 70); // default=90; alt=30
-    user_pref("network.predictor.prefetch-min-confidence", 80); // default=100; alt=40
+    user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=40
+    user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=70
+    user_pref("network.predictor.prefetch-min-confidence", 30); // default=100; alt=80
         user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
         user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
+    user_pref("network.predictor.max-resources-per-entry", 250); // default=100
+    user_pref("network.predictor.max-uri-length", 1000); // default=500
 
- // PREF: faster SSL
-user_pref("network.ssl_tokens_cache_capacity", 32768); // more TLS token caching (fast reconnects)
+// PREF: increase TLS token caching 
+user_pref("network.ssl_tokens_cache_capacity", 32768); // faster SSL (fast reconnects)
