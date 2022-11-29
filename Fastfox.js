@@ -94,6 +94,14 @@ user_pref("layout.css.animation-composition.enabled", true);
 // [1] https://github.com/WebAssembly/function-references/blob/master/proposals/function-references/Overview.md
 //user_pref("javascript.options.wasm_function_references", true);
 
+// PREF: WebGPU [HIGHLY EXPERIMENTAL!] [NIGHTLY]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
+// [2] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
+// [3] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
+// [4] https://developer.chrome.com/docs/web-platform/webgpu/
+//user_pref("dom.webgpu.enabled", true);
+    //user_pref("gfx.webgpu.force-enabled", true);
+
 /****************************************************************************
  * SECTION: NETWORK                                                         *
 ****************************************************************************/
