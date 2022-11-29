@@ -106,9 +106,6 @@ user_pref("layout.css.animation-composition.enabled", true);
  * SECTION: NETWORK                                                         *
 ****************************************************************************/
 
-// PREF: faster SSL
-user_pref("network.ssl_tokens_cache_capacity", 32768); // more TLS token caching (fast reconnects)
-
 // PREF: increase DNS cache
 user_pref("network.dnsCacheEntries", 20000);	
 user_pref("network.dnsCacheExpiration", 3600);	
@@ -208,9 +205,9 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
  * SECTION: BROWSER CACHE                                                   *
 ****************************************************************************/
 
-// PREF: re-enable disk cache (optional)
+// PREF: disk cache
 // [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
-//user_pref("browser.cache.disk.enable", true); // SecureFox override
+//user_pref("browser.cache.disk.enable", true); // overrides Securefox
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT
 //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
 //user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
@@ -219,7 +216,43 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 // disable clearing cache on shutdown:
 //user_pref("privacy.clearOnShutdown.cache", false);
 
-// PREF: increase memory cache size (recommended)
+// PREF: increase memory cache size
 // [1] https://www.makeuseof.com/tag/how-much-data-does-youtube-use/
 //user_pref("browser.cache.memory.capacity", 5242880); // default=-1; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
 user_pref("browser.cache.memory.max_entry_size", 153600); // alt=51200; preferred=327680 ; -1 -> entries bigger than than 90% of the mem-cache are never cached
+
+/****************************************************************************
+ * SECTION: SPECULATIVE CONNECTIONS                                         *
+****************************************************************************/
+
+// [NOTE] FF85+ partitions (isolates) pooled connections, prefetch connections,
+// pre-connect connections, speculative connections, TLS session identifiers,
+// and other connections. We can take advantage of the speed of pre-connections
+// while preserving privacy. Users may relax hardening to maximize their preference.
+// For more information, see SecureFox: "PREF: State Paritioning" and "PREF: Network Partitioning" [1]
+// [1] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L74-L108
+// [NOTE] To activate and increase network predictions, go to settings in uBlock Origin,  and make this setting is DISABLED:
+// - "Disable pre-fetching (to prevent any connection for blocked network requests)"
+// [NOTE] Add prefs to "MY OVERRIDES" section to enable.
+
+// PREF: increase network predictions
+user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT; overrides SecureFox
+user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
+user_pref("network.dns.disablePrefetchFromHTTPS", false);
+    user_pref("network.dnsCacheEntries", 20000);	
+    user_pref("network.dnsCacheExpiration", 3600);	
+    user_pref("network.dnsCacheExpirationGracePeriod", 240);
+user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
+user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
+user_pref("network.prefetch-next", true); // overrides SecureFox
+user_pref("network.predictor.enabled", true); // overrides SecureFox
+user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
+user_pref("network.predictor.enable-hover-on-ssl", true);
+    user_pref("network.predictor.preresolve-min-confidence", 40); // default=60; alt=10
+    user_pref("network.predictor.preconnect-min-confidence", 70); // default=90; alt=30
+    user_pref("network.predictor.prefetch-min-confidence", 80); // default=100; alt=40
+        user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
+        user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
+
+ // PREF: faster SSL
+user_pref("network.ssl_tokens_cache_capacity", 32768); // more TLS token caching (fast reconnects)
