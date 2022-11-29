@@ -431,13 +431,13 @@ user_pref("privacy.history.custom", true);
 //user_pref("privacy.clearOnShutdown.history", true); // [DEFAULT]
 //user_pref("privacy.clearOnShutdown.formdata", true); // [DEFAULT]
 //user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT]
-//user_pref("privacy.clearOnShutdown.offlineApps", false); // [DEFAULT]
+//user_pref("privacy.clearOnShutdown.offlineApps", true);
 //user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT]
 
 // PREF: configure site exceptions
 // [NOTE] Currently, there is no way to add sites via about:config
 // [SETTING] to manage site exceptions: Options>Privacy & Security>Cookies & Site Data>Manage Exceptions
-// [SETTING] to add site exceptions: Ctrl+I>Permissions>Cookies>Allow (when on the website in question)
+// or when on the website in question: Ctrl+I>Permissions>Cookies>Allow 
 // For cross-domain logins, add exceptions for both sites:
 // e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
 // [WARNING] Be selective with what cookies you keep, as they also disable partitioning [1]
