@@ -633,8 +633,9 @@ user_pref("network.IDN_show_punycode", true);
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
 // [TEST] http://example.com [upgrade]
 // [TEST] http://httpforever.com/ [no upgrade]
-// [1] https://web.dev/why-https-matters/
-// [2] https://www.cloudflare.com/learning/ssl/why-use-https/
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1704453
+// [2] https://web.dev/why-https-matters/
+// [3] https://www.cloudflare.com/learning/ssl/why-use-https/
 //user_pref("dom.security.https_first", true);
 //user_pref("dom.security.https_first_pbm", true); // DEFAULT
 
