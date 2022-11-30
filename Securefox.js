@@ -633,11 +633,10 @@ user_pref("network.IDN_show_punycode", true);
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
 // [TEST] http://example.com [upgrade]
 // [TEST] http://httpforever.com/ [no upgrade]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1706552
-// [2] https://web.dev/why-https-matters/
-// [3] https://www.cloudflare.com/learning/ssl/why-use-https/
+// [1] https://web.dev/why-https-matters/
+// [2] https://www.cloudflare.com/learning/ssl/why-use-https/
 //user_pref("dom.security.https_first", true);
-//user_pref("dom.security.https_first_pbm", true); // default
+//user_pref("dom.security.https_first_pbm", true); // DEFAULT
 
 /******************************************************************************
  * SECTION: HTTPS-ONLY MODE                              *
@@ -672,7 +671,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
 //user_pref("dom.security.https_only_mode_send_http_background_request", true); // DEFAULT
-         //user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 1250); // default=3000
+         //user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 2000); // default=3000
 
 // PREF: Enable HTTPS-Only mode for local resources
 //user_pref("dom.security.https_only_mode.upgrade_local", true);
