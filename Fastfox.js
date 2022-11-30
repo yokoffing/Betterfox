@@ -162,13 +162,18 @@ user_pref("media.cache_readahead_limit", 9000); // default=60; stop reading ahea
 user_pref("media.cache_resume_threshold", 6000); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
 
 // PREF: notification interval (in microseconds)
+// When Firefox is loading a page, it periodically reformats
+// or "reflows" the page as it loads. The page displays new elements
+// every 0.12 seconds by default. These redraws increase the total page load time.
+// Lowering the interval will decrease the perceived page load time
+// but increase the total loading time.
 // The notification interval has a dramatic effect on how long it takes to
 // initially display content for slow connections. The default value
 // provides good incremental display of content without causing an increase
 // in page load time. If this value is set below 1/10 of a second it starts
 // to impact page load performance.
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
-//user_pref("content.notify.interval", 360000); // (.36s), default=120000 (.12s)
+//user_pref("content.notify.interval", 480000); // (.48s), default=120000 (.12s)
     //user_pref("content.notify.ontimer", true); // DEFAULT
 
 // PREF: disable QUIC for faster upload speeds
