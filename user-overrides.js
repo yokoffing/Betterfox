@@ -78,7 +78,8 @@ user_pref("media.memory_cache_max_size", 1048576);
 user_pref("media.memory_caches_combined_limit_kb", 3145728);
 user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
 user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
-user_pref("network.http.http3.enable", false); // disables QUIC
+user_pref("network.http.http3.enable", false); // disable QUIC for faster upload speeds
+user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
 user_pref("browser.cache.memory.capacity", 5242880);
 user_pref("browser.cache.memory.max_entry_size", 327680);
 
