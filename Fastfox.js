@@ -187,12 +187,10 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 //user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
 //user_pref("browser.cache.max_shutdown_io_lag", 16); // number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
 //user_pref("browser.cache.frecency_half_life_hours", 128); // lower cache sweep intervals, the half life used to re-compute cache entries frecency (in hours)
-// disable clearing cache on shutdown:
-//user_pref("privacy.clearOnShutdown.cache", false);
 
 // PREF: increase memory cache size
 // [1] https://www.makeuseof.com/tag/how-much-data-does-youtube-use/
-//user_pref("browser.cache.memory.capacity", 5242880); // default=-1; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
+user_pref("browser.cache.memory.capacity", -1); // enforce DEFAULT; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
 user_pref("browser.cache.memory.max_entry_size", 153600); // alt=51200; preferred=327680 ; -1 -> entries bigger than than 90% of the mem-cache are never cached
 
 /****************************************************************************
@@ -217,7 +215,7 @@ user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; faster SSL (fast reconnects)
 
-// These do not help speed, probably:
+// These do not help speed:
 // PREF: DoH requests
 //user_pref("network.trr.request_timeout_ms", 800); // default=1500
     //user_pref("network.trr.retry-timeout-ms", 125); // DEFAULT
