@@ -104,6 +104,7 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 user_pref("privacy.globalprivacycontrol.enabled", true);
 user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 user_pref("privacy.userContext.enabled", false);
+user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 user_pref("browser.urlbar.suggest.quickactions", false);
 user_pref("extensions.unifiedExtensions.enabled", false);
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
