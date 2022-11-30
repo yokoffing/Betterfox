@@ -161,6 +161,16 @@ user_pref("media.memory_caches_combined_limit_kb", 2560000); // preferred=314572
 user_pref("media.cache_readahead_limit", 9000); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
 user_pref("media.cache_resume_threshold", 6000); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
 
+// PREF: notification interval (in microseconds)
+// The notification interval has a dramatic effect on how long it takes to
+// initially display content for slow connections. The default value
+// provides good incremental display of content without causing an increase
+// in page load time. If this value is set below 1/10 of a second it starts
+// to impact page load performance.
+// [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
+//user_pref("content.notify.interval", 360000); // (.36s), default=120000 (.12s)
+    //user_pref("content.notify.ontimer", true); // DEFAULT
+
 // PREF: disable QUIC for faster upload speeds
 // Firefox currently has a bug with impacting upload speeds with HTTP3
 // [TEST] https://speedof.me/
