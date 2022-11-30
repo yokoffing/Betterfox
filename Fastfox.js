@@ -16,11 +16,17 @@
  ***************************************************************************************/
  
 // PREF: initial paint delay
-// How long FF will wait before rendering the page
+// How long FF will wait before rendering the page, in milliseconds
+// Reduce the 5ms Firefox waits to render the page
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1283302
 // [2] https://docs.google.com/document/d/1BvCoZzk2_rNZx3u9ESPoFjSADRI0zIPeJRXFLwWXx_4/edit#heading=h.28ki6m8dg30z
-//user_pref("nglayout.initialpaint.delay", 0); // default=5; used to be 250
-//user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5; used to be 250
+user_pref("nglayout.initialpaint.delay", 0); // default=5; used to be 250
+user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
+
+// PREF: set the minimum interval between session save operations
+// Increasing this can help on older machines and some websites, as well as reducing writes
+// [1] https://bugzilla.mozilla.org/1304389
+//user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
 
 // PREF: control how tabs are loaded when a session is restored
 // true=Tabs are not loaded until they are selected (default)
@@ -35,11 +41,6 @@
 
 // PREF: disable preSkeletonUI on startup
 user_pref("browser.startup.preXulSkeletonUI", false);
-
-// PREF: set the minimum interval between session save operations
-// Increasing this can help on older machines and some websites, as well as reducing writes
-// [1] https://bugzilla.mozilla.org/1304389
-//user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
 
 // PREF: OffscreenCanvas
 // [1] https://yashints.dev/blog/2019/05/11/offscreen-canvas
@@ -156,17 +157,23 @@ user_pref("media.memory_caches_combined_limit_kb", 2560000); // preferred=314572
 // PREF: decrease video buffering
 // [NOTE] Does not affect YouTube since it uses DASH playback [1]
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
-user_pref("media.cache_size", 2048000); // default=512000
+//user_pref("media.cache_size", 2048000); // default=512000
 user_pref("media.cache_readahead_limit", 9000); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
 user_pref("media.cache_resume_threshold", 6000); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
 
-// PREF: faster upload speed
-// Firefox currently has a bug with impacting upload speeds with HTTP3/QUIC
+// PREF: disable QUIC for faster upload speeds
+// Firefox currently has a bug with impacting upload speeds with HTTP3
 // [TEST] https://speedof.me/
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753486
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1596576
 //user_pref("network.http.http3.enable", false); // disables HTTP3/QUIC
 //user_pref("network.http.http2.chunk-size", 32000); // preferred=48000; default=16000 [needed?]
+
+// PREF: disable AV1 for hardware decodeable videos
+// AV1 uses software (CPU-based) decoding
+// Firefox sometimes uses AV1 video decoding even to GPUs which do not support it
+// [1] https://www.troddit.com/r/AV1/comments/s5xyph/youtube_av1_codec_have_worse_quality_than_old_vp9
+//user_pref("media.av1.enabled", false);
 
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
