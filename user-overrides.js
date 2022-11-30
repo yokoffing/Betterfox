@@ -35,13 +35,6 @@ user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("network.notify.checkForProxies", false); // skip proxy request check
 
-// HTTPS-First instead of HTTPS-only
-user_pref("dom.security.https_only_mode", false); // disable in user.js
-user_pref("dom.security.https_first", true); // HTTPS-First instead of HTTPS-only
-user_pref("security.mixed_content.upgrade_display_content", true); // upgrade passive content
-//user_pref("security.insecure_connection_text.enabled", true); // display "Not Secure" text on HTTP sites
-//user_pref("security.insecure_connection_text.pbmode.enabled", true); // display "Not Secure" text on HTTP sites
-
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes annoying "Inspect Accessibility Properties" on right-click
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
