@@ -82,7 +82,6 @@ user_pref("layers.gpu-process.force-enabled", true); // reinforce
 user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
 user_pref("network.http.http3.enable", false); // disable QUIC for faster upload speeds
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
-user_pref("browser.cache.memory.capacity", -1); // DEFAULT
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("javascript.options.experimental.import_assertions", true);
