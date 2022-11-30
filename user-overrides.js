@@ -77,18 +77,12 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
-// high-end machine:
 user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
-user_pref("image.mem.decode_bytes_at_a_time", 262144);
 user_pref("layers.gpu-process.force-enabled", true); // reinforce
-user_pref("media.memory_cache_max_size", 1048576);
-user_pref("media.memory_caches_combined_limit_kb", 3145728);
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
 user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
 user_pref("network.http.http3.enable", false); // disable QUIC for faster upload speeds
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
 user_pref("browser.cache.memory.capacity", -1); // DEFAULT
-//user_pref("browser.cache.memory.max_entry_size", 327680);
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("javascript.options.experimental.import_assertions", true);
@@ -113,7 +107,11 @@ user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
-//user_pref("browser.cache.memory.capacity", 5242880);
+user_pref("image.mem.decode_bytes_at_a_time", 262144);
+user_pref("browser.cache.memory.capacity", 5242880);
+user_pref("browser.cache.memory.max_entry_size", 327680);
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
+user_pref("media.memory_caches_combined_limit_kb", 3145728);
 //user_pref("font.name.monospace.x-western", "Cascadia Code"); // preferred font [WINDOWS]
 //user_pref("font.name.monospace.x-western", "Fira Code"); // preferred font [WINDOWS]
 //user_pref("layout.css.font-visibility.trackingprotection", 3); // unbreaks using custom font on pages in normal windows
