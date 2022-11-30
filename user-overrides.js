@@ -35,6 +35,13 @@ user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("network.notify.checkForProxies", false); // skip proxy request check
 
+// HTTPS-First instead of HTTPS-only
+user_pref("dom.security.https_only_mode", false); // disable in user.js
+user_pref("dom.security.https_first", true); // HTTPS-First instead of HTTPS-only
+user_pref("security.mixed_content.upgrade_display_content", true); // upgrade passive content
+//user_pref("security.insecure_connection_text.enabled", true); // display "Not Secure" text on HTTP sites
+//user_pref("security.insecure_connection_text.pbmode.enabled", true); // display "Not Secure" text on HTTP sites
+
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes annoying "Inspect Accessibility Properties" on right-click
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
@@ -80,8 +87,8 @@ user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
 user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
 user_pref("network.http.http3.enable", false); // disable QUIC for faster upload speeds
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
-user_pref("browser.cache.memory.capacity", 5242880);
-user_pref("browser.cache.memory.max_entry_size", 327680);
+user_pref("browser.cache.memory.capacity", -1); // DEFAULT
+//user_pref("browser.cache.memory.max_entry_size", 327680);
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("javascript.options.experimental.import_assertions", true);
@@ -106,11 +113,13 @@ user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
+//user_pref("browser.cache.memory.capacity", 5242880);
 //user_pref("font.name.monospace.x-western", "Cascadia Code"); // preferred font [WINDOWS]
 //user_pref("font.name.monospace.x-western", "Fira Code"); // preferred font [WINDOWS]
 //user_pref("layout.css.font-visibility.trackingprotection", 3); // unbreaks using custom font on pages in normal windows
 
 /** DELETE IF NOT macOS ***/
-user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level 
+user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level
+//user_pref("browser.cache.memory.capacity", -1);
 //user_pref("font.name.monospace.x-western", "SF Mono"); // preferred font [macOS]
 //user_pref("layout.css.font-visibility.trackingprotection", 3); // breaks using custom font on pages
