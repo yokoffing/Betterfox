@@ -255,19 +255,17 @@ user_pref("media.memory_caches_combined_limit_kb", 2560000);
 user_pref("media.cache_readahead_limit", 9000);
 user_pref("media.cache_resume_threshold", 6000);
 
-/** CACHE ***/
+/** BROWSER CACHE ***/
 user_pref("browser.cache.memory.capacity", -1);
 user_pref("browser.cache.memory.max_entry_size", 153600);
 
 /** NETWORK ***/
 user_pref("network.buffer.cache.size", 262144);
 user_pref("network.buffer.cache.count", 128);
-user_pref("network.ssl_tokens_cache_capacity", 32768);
-
-/** SPECULATIVE CONNECTIONS ***/
 user_pref("network.dnsCacheEntries", 20000);	
 user_pref("network.dnsCacheExpiration", 3600);	
 user_pref("network.dnsCacheExpirationGracePeriod", 240);
+user_pref("network.ssl_tokens_cache_capacity", 32768);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
