@@ -227,6 +227,11 @@ user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 //user_pref("network.http.max-urgent-start-excessive-connections-per-host", 6); // default=3
 //user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
 
+// PREF: increase DNS cache
+user_pref("network.dnsCacheEntries", 20000);	
+user_pref("network.dnsCacheExpiration", 3600);	// keep entries for 1 hour
+user_pref("network.dnsCacheExpirationGracePeriod", 240);
+
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; faster SSL (fast reconnects)
 
@@ -258,9 +263,6 @@ user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; faster S
 //user_pref("network.http.speculative-parallel-limit", 18); // default=6; overrides SecureFox
 //user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
 //user_pref("network.dns.disablePrefetchFromHTTPS", false);
-    user_pref("network.dnsCacheEntries", 20000);	
-    user_pref("network.dnsCacheExpiration", 3600);	
-    user_pref("network.dnsCacheExpirationGracePeriod", 240);
 //user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
 //user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
 //user_pref("network.prefetch-next", true); // overrides SecureFox
