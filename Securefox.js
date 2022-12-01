@@ -1,11 +1,3 @@
-//
-/* Do not COPY+PASTE this file. If you do, only COPY+PASTE the user_pref itself.
- *
- * If you make changes to your about:config while the program is running, the
- * changes will be overwritten when the application restarts.
- *
- * To make a change to preferences, you will have to edit the user.js file.
- */
 
 /****************************************************************************
  * Securefox                                                                *
