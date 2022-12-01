@@ -16,9 +16,8 @@
 // Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
 // been interacted with in the last 30 days.
 // [NOTE] FF86: "Strict" tracking protection enables dFPI.
-// [1] https://blog.mozilla.org/firefox/control-trackers-with-firefox/
-// [2] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
-// [3] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
+// [1] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
+// [2] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
 //user_pref("privacy.trackingprotection.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.pbmode.enabled", true); // DEFAULT
 //user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false); // DEFAULT
