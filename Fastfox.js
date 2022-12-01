@@ -173,7 +173,7 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 // in page load time. If this value is set below 1/10 of a second it starts
 // to impact page load performance.
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
-//user_pref("content.notify.interval", 480000); // (.48s), default=120000 (.12s)
+user_pref("content.notify.interval", 360000); // (.36s), default=120000 (.12s)
     //user_pref("content.notify.ontimer", true); // DEFAULT
 
 // PREF: disable QUIC for faster upload speeds
