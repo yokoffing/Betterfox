@@ -478,7 +478,7 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true); // enforce DEFAULT
+    user_pref("network.dns.disablePrefetchFromHTTPS", true); // enforce DEFAULT
 
 // PREF: Preload <link rel=preload>
 // This tells the browser that the resource should be loaded as part of the current navigation
