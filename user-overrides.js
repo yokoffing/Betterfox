@@ -76,13 +76,13 @@ user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
 user_pref("network.http.http3.enable", false); // disable QUIC for faster upload speeds
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
 
-user_pref("network.http.speculative-parallel-limit", 18);
-user_pref("network.dns.disablePrefetch", false);
-    user_pref("network.dns.disablePrefetchFromHTTPS", false);
+//user_pref("network.http.speculative-parallel-limit", 18);
+//user_pref("network.dns.disablePrefetch", false);
+    //user_pref("network.dns.disablePrefetchFromHTTPS", false);
 //user_pref("network.prefetch-next", true);
-user_pref("network.predictor.enabled", true);
+//user_pref("network.predictor.enabled", true);
 //user_pref("network.predictor.enable-prefetch", true);
-user_pref("network.predictor.enable-hover-on-ssl", true);
+//user_pref("network.predictor.enable-hover-on-ssl", true);
     user_pref("network.predictor.preresolve-min-confidence", 10);
     user_pref("network.predictor.preconnect-min-confidence", 20);
     user_pref("network.predictor.prefetch-min-confidence", 30);
