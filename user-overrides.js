@@ -80,7 +80,6 @@ user_pref("media.av1.enabled", false); // disable AV1 to force video hardware de
 //user_pref("network.http.speculative-parallel-limit", 18); // default=6; overrides SecureFox
 //user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
 //user_pref("network.dns.disablePrefetchFromHTTPS", false); // overrides SecureFox
-//user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
 //user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
 //user_pref("network.prefetch-next", true); // overrides SecureFox
 //user_pref("network.predictor.enabled", true); // overrides SecureFox
