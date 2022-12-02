@@ -64,6 +64,7 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-prefetch", false);
+user_pref("network.predictor.enable-hover-on-ssl", false);
 
 /** SEARCH / URL BAR ***/
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
