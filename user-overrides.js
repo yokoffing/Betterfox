@@ -76,22 +76,20 @@ user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
 user_pref("network.http.http3.enable", false); // disable QUIC for faster upload speeds
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
 
-// uncomment to enable; re-comment to disable:
-//user_pref("network.http.speculative-parallel-limit", 18); // default=6; overrides SecureFox
-//user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
-//user_pref("network.dns.disablePrefetchFromHTTPS", false); // overrides SecureFox
-//user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
-//user_pref("network.prefetch-next", true); // overrides SecureFox
-//user_pref("network.predictor.enabled", true); // overrides SecureFox
-//user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
-//user_pref("network.predictor.enable-hover-on-ssl", true); // overrides SecureFox
-    user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=40
-    user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=70
-    user_pref("network.predictor.prefetch-min-confidence", 30); // default=100; alt=80
-        user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
-        user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
-    user_pref("network.predictor.max-resources-per-entry", 250); // default=100
-    user_pref("network.predictor.max-uri-length", 1000); // default=500
+user_pref("network.http.speculative-parallel-limit", 18);
+user_pref("network.dns.disablePrefetch", false);
+    user_pref("network.dns.disablePrefetchFromHTTPS", false);
+//user_pref("network.prefetch-next", true);
+user_pref("network.predictor.enabled", true);
+//user_pref("network.predictor.enable-prefetch", true);
+user_pref("network.predictor.enable-hover-on-ssl", true);
+    user_pref("network.predictor.preresolve-min-confidence", 10);
+    user_pref("network.predictor.preconnect-min-confidence", 20);
+    user_pref("network.predictor.prefetch-min-confidence", 30);
+        user_pref("network.predictor.prefetch-force-valid-for", 3600);
+        user_pref("network.predictor.prefetch-rolling-load-count", 120);
+    user_pref("network.predictor.max-resources-per-entry", 250);
+    user_pref("network.predictor.max-uri-length", 1000);
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("javascript.options.experimental.import_assertions", true);
