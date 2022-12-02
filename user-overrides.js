@@ -73,7 +73,6 @@ user_pref("browser.sessionstore.interval", 30000); // set minimum interval betwe
 user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
 user_pref("layers.gpu-process.force-enabled", true); // reinforce
 user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
-user_pref("content.notify.interval", 360000);
 user_pref("network.http.http3.enable", false); // disable QUIC for faster upload speeds
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
 
