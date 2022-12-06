@@ -49,7 +49,7 @@ If you use any of the features below, please view the [common overrides](https:/
 * **Site notifications** are disabled.
 * **Location requests** are rejected.
 * Since Firefox implemented [state](https://github.com/yokoffing/Betterfox/blob/537eb902106f5cacebfd7a77555193ba4573dc6e/SecureFox.js#L73-L88) and [network](https://github.com/yokoffing/Betterfox/blob/537eb902106f5cacebfd7a77555193ba4573dc6e/SecureFox.js#L93-L100) **partitioning**, it is recommended but no longer necessary to clear browsing data after every session.
-* If your threat level calls for _anonymity_ and not just reasonable _privacy_, then please use the [TOR browser](https://www.torproject.org).
+* If your [threat level](https://thenewoil.org/threatmodel.html) calls for _anonymity_ and not just reasonable _privacy_, then please use the [TOR browser](https://www.torproject.org).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup>
 
 ## Mentions
 
