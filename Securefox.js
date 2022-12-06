@@ -1104,7 +1104,7 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 
 // PREF: disable region updates
 // [1] https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
-user_pref("browser.region.update.enabled", false);
+//user_pref("browser.region.update.enabled", false);
     //user_pref("browser.region.network.url", "");
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
