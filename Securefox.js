@@ -283,10 +283,10 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 // In Private Browsing windows: uses the most restrictive between normal and private
 // 1=only base system fonts, 2=also fonts from optional language packs, 3=also user-installed fonts
 // [1] https://searchfox.org/mozilla-central/search?path=StandardFonts*.inc
-//user_pref("layout.css.font-visibility.standard", 1); // Normal Browsing windows with tracking protection disabled(?)
-user_pref("layout.css.font-visibility.trackingprotection", 1); // Normal Browsing windows with tracking protection enabled
-user_pref("layout.css.font-visibility.private", 1); // Private Browsing windows
 //user_pref("layout.css.font-visibility.resistFingerprinting", 1); // DEFAULT
+    //user_pref("layout.css.font-visibility.trackingprotection", 1); // Normal Browsing windows with tracking protection enabled
+    //user_pref("layout.css.font-visibility.private", 1); // Private Browsing windows
+        //user_pref("layout.css.font-visibility.standard", 1); // Normal Browsing windows with tracking protection disabled(?)
 
 /****************************************************************************
  * SECTION: RESIST FINGERPRINTING (RFP)                                     *
