@@ -120,12 +120,10 @@ user_pref("browser.cache.memory.capacity", 5242880);
 user_pref("browser.cache.memory.max_entry_size", 327680);
 user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
 user_pref("media.memory_caches_combined_limit_kb", 3145728);
-//user_pref("font.name.monospace.x-western", "Cascadia Code"); // preferred font [WINDOWS]
-//user_pref("font.name.monospace.x-western", "Fira Code"); // preferred font [WINDOWS]
-//user_pref("layout.css.font-visibility.trackingprotection", 3); // unbreaks using custom font on pages in normal windows
+//user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
+//user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
+//user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
 
 /** DELETE IF NOT macOS ***/
 user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level
-//user_pref("browser.cache.memory.capacity", -1);
-//user_pref("font.name.monospace.x-western", "SF Mono"); // preferred font [macOS]
-//user_pref("layout.css.font-visibility.trackingprotection", 3); // breaks using custom font on pages
+//user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
