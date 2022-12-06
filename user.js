@@ -37,10 +37,6 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("security.tls.enable_0rtt_data", false);
 
-/** FONTS ***/
-user_pref("layout.css.font-visibility.private", 1);
-user_pref("layout.css.font-visibility.trackingprotection", 1);
-
 /** RFP ***/
 user_pref("browser.startup.blankWindow", false);
 user_pref("browser.display.use_system_colors", false);
