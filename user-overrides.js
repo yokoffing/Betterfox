@@ -115,7 +115,7 @@ user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
-user_pref("image.mem.decode_bytes_at_a_time", 262144);
+user_pref("image.mem.decode_bytes_at_a_time", 262144); // alt=512000
 user_pref("browser.cache.memory.capacity", 5242880);
 user_pref("browser.cache.memory.max_entry_size", 327680);
 user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
