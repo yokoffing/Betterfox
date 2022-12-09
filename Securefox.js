@@ -542,7 +542,7 @@ user_pref("network.predictor.enable-prefetch", false);
 // mouse over. In case the user follows through with the action, the page can begin loading
 // faster since some of the work was already started in advance. Focuses on fetching a resource
 // for the NEXT navigation.
-user_pref("network.predictor.enable-hover-on-ssl", false); // enforce DEFAULT
+//user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
 
 /******************************************************************************
  * SECTION: SEARCH / URL BAR                              *
