@@ -63,6 +63,7 @@ user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for backg
 user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small");
 user_pref("image.jxl.enabled", true);
+user_pref("extensions.unifiedExtensions.enabled", false); // disable MV3 unified extensions button [FF 109+]
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
     //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
@@ -103,7 +104,6 @@ user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 user_pref("privacy.userContext.enabled", false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 user_pref("browser.urlbar.suggest.quickactions", false);
-user_pref("extensions.unifiedExtensions.enabled", false);
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla restricted domains [DEV/NIGHTLY]
 
