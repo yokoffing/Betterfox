@@ -71,6 +71,14 @@ user_pref("browser.startup.preXulSkeletonUI", false);
  * SECTION: EXPERIMENTAL                                                    *
 ****************************************************************************/
 
+// PREF: WebGPU [HIGHLY EXPERIMENTAL!] [NIGHTLY]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
+// [2] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
+// [3] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
+// [4] https://developer.chrome.com/docs/web-platform/webgpu/
+//user_pref("dom.webgpu.enabled", true);
+    //user_pref("gfx.webgpu.force-enabled", true);
+
 // PREF: about:home startup cache [NIGHTLY]
 // A cache for the initial about:home document that is loaded by default at startup
 // The purpose of the cache is to improve startup performance
@@ -84,7 +92,7 @@ user_pref("layout.css.grid-template-masonry-value.enabled", true);
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 user_pref("dom.enable_web_task_scheduling", true);
 
-// PREF: enable animation-composition [NIGHTLY]
+// PREF: enable CSS Animation Composition [NIGHTLY]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1785329
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
 // [3] https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition
@@ -94,21 +102,20 @@ user_pref("layout.css.animation-composition.enabled", true);
 // [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
 //user_pref("javascript.options.experimental.shadow_realms", true);
 
-// PREF: Wasm GC [NIGHTLY]
+// PREF: Wasm GC + References [NIGHTLY]
 // [1] https://github.com/WebAssembly/gc/blob/main/proposals/gc/Overview.md
+// [2] https://github.com/WebAssembly/function-references/blob/master/proposals/function-references/Overview.md
 //user_pref("javascript.options.wasm_gc", true);
-
-// PREF: Wasm Function References [NIGHTLY]
-// [1] https://github.com/WebAssembly/function-references/blob/master/proposals/function-references/Overview.md
 //user_pref("javascript.options.wasm_function_references", true);
 
-// PREF: WebGPU [HIGHLY EXPERIMENTAL!] [NIGHTLY]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
-// [2] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
-// [3] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
-// [4] https://developer.chrome.com/docs/web-platform/webgpu/
-//user_pref("dom.webgpu.enabled", true);
-    //user_pref("gfx.webgpu.force-enabled", true);
+// PREF: Array.fromAsync [NIGHTLY]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1795452
+//user_pref("javascript.options.experimental.array_grouping", true);
+//user_pref("javascript.options.experimental.enable_change_array_by_copy", true);
+
+// PREF: not yet categorized / need documentation [NIGHTLY]
+//user_pref("javascript.options.experimental.iterator_helpers", true);
+//user_pref("javascript.options.experimental.weakrefs.expose_cleanupSome", true);
 
 /****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
