@@ -34,6 +34,10 @@ user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("network.notify.checkForProxies", false); // skip proxy request check
+// HTTPS-First instead of HTTPS-only
+user_pref("dom.security.https_only_mode", false); // disable in user.js
+user_pref("dom.security.https_first", true); // HTTPS-First instead of HTTPS-only
+user_pref("security.mixed_content.upgrade_display_content", true); // upgrade passive content
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes annoying "Inspect Accessibility Properties" on right-click
@@ -76,14 +80,13 @@ user_pref("layers.gpu-process.force-enabled", true); // reinforce
 user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
 user_pref("network.http.http3.enable", false); // disable QUIC for faster upload speeds
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
-
-//user_pref("network.http.speculative-parallel-limit", 18);
+user_pref("network.http.speculative-parallel-limit", 18);
 //user_pref("network.dns.disablePrefetch", false);
     //user_pref("network.dns.disablePrefetchFromHTTPS", false);
 //user_pref("network.prefetch-next", true);
-//user_pref("network.predictor.enabled", true);
-//user_pref("network.predictor.enable-prefetch", true);
-//user_pref("network.predictor.enable-hover-on-ssl", true);
+user_pref("network.predictor.enabled", true);
+user_pref("network.predictor.enable-prefetch", true);
+user_pref("network.predictor.enable-hover-on-ssl", true);
     user_pref("network.predictor.preresolve-min-confidence", 10);
     user_pref("network.predictor.preconnect-min-confidence", 20);
     user_pref("network.predictor.prefetch-min-confidence", 30);
@@ -108,7 +111,7 @@ user_pref("browser.urlbar.suggest.quickactions", false);
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla restricted domains [DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS ***/
-user_pref("pdfjs.defaultZoomValue", "page-fit"); // DESKTOP; alt=125; PDF zoom level
+//user_pref("pdfjs.defaultZoomValue", "page-fit"); // DESKTOP; alt=125; PDF zoom level
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);  // font improvement
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
