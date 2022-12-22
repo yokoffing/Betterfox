@@ -132,10 +132,12 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 // PREF: disable always using dark theme for private browsing windows
 //user_pref("browser.theme.dark-private-windows", false);
 
-// PREF: Cookie Banner handling
+// PREF: Cookie Banner handling [NIGHTLY]
 // [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
 // [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
 // [2] https://phabricator.services.mozilla.com/D153642
+// [3] https://winaero.com/make-firefox-automatically-click-on-reject-all-in-cookie-banner-consent/
+// [4] https://docs.google.com/spreadsheets/d/1Nb4gVlGadyxix4i4FBDnOeT_eJp2Zcv69o-KfHtK-aA/edit#gid=0
 // 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
 // 1: reject banners if it is a one-click option; otherwise, keep banners on screen
 // 0: disable all cookie banner handling
