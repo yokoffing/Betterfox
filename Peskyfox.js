@@ -132,23 +132,23 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 // PREF: disable always using dark theme for private browsing windows
 //user_pref("browser.theme.dark-private-windows", false);
 
-// PREF: Cookie Banner handling [NIGHTLY]
-// [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking
+// PREF: Cookie Banner handling
+// [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
 // [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
 // [2] https://phabricator.services.mozilla.com/D153642
-// 0: Disables all cookie banner handling (default)
-// 1: reject banners if it is a one-click option; otherwise, keep banners on screen
 // 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
+// 1: reject banners if it is a one-click option; otherwise, keep banners on screen
+// 0: disable all cookie banner handling
 //user_pref("cookiebanners.service.mode", 2);
 //user_pref("cookiebanners.service.mode.privateBrowsing", 1);
     //user_pref("cookiebanners.bannerClicking.enabled", true);
     //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
 
 // PREF: enable global CookieBannerRules
-// This is used for click rules that can handle common Consent Management Providers (CMP).
+// This is used for click rules that can handle common Consent Management Providers (CMP)
 // [NOTE] Enabling this (when the cookie handling feature is enabled) may
 // negatively impact site performance since it requires us to run rule-defined
-// query selectors for every page.
+// query selectors for every page
 //user_pref("cookiebanners.service.enableGlobalRules", true);
 
 /****************************************************************************
