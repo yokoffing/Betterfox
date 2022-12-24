@@ -37,7 +37,6 @@ user_pref("network.notify.checkForProxies", false); // skip proxy request check
 // HTTPS-First instead of HTTPS-only
 user_pref("dom.security.https_only_mode", false); // disable in user.js
 user_pref("dom.security.https_first", true); // HTTPS-First instead of HTTPS-only
-user_pref("security.mixed_content.upgrade_display_content", true); // upgrade passive content
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes annoying "Inspect Accessibility Properties" on right-click
