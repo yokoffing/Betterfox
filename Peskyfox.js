@@ -339,11 +339,11 @@ user_pref("browser.download.always_ask_before_handling_new_types", true);
 // PREF: open PDFs inline (FF103+)
 user_pref("browser.download.open_pdf_attachments_inline", true);
 
-// PREF: PDF sidebar on load
+// PREF: PDF sidebar on load [HIDDEN] 
 // 2=table of contents (if not available, will default to 1)
 // 1=view pages
 // -1=disabled (default)
-//user_pref("pdfjs.sidebarViewOnLoad", 1);
+//user_pref("pdfjs.sidebarViewOnLoad", 2);
 
 // PREF: default zoom for PDFs [HIDDEN]
 // [NOTE] "page-width" not needed if using sidebar on load
