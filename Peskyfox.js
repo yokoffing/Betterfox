@@ -143,7 +143,7 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 // 0: disable all cookie banner handling
 //user_pref("cookiebanners.service.mode", 2);
 //user_pref("cookiebanners.service.mode.privateBrowsing", 2);
-    //user_pref("cookiebanners.bannerClicking.enabled", true);
+    //user_pref("cookiebanners.bannerClicking.enabled", true); // DEFAULT [FF108]
     //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
 
 // PREF: enable global CookieBannerRules
@@ -187,6 +187,7 @@ user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.suggest.openpage", true);
 //user_pref("browser.urlbar.suggest.quickactions", false); // [NIGHTLY]
 //user_pref("browser.urlbar.suggest.searches", false);
+//user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
 // Disable dropdown suggestions with empty query:
 user_pref("browser.urlbar.suggest.topsites", false);
 // enable helpful features:
@@ -210,6 +211,9 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 // and this does not affect the search by search engine suggestion.
 // default=10, disable=0
 //user_pref("browser.urlbar.maxRichResults", 1);
+
+// PREF: show search query in URL bar instead of URL upon navigation
+//user_pref("browser.urlbar.showSearchTerms.enabled", true); // DEFAULT
 
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
