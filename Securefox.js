@@ -863,7 +863,7 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
 //user_pref("security.mixed_content.block_display_content", true);
 
 // PREF: upgrade passive content to use HTTPS on secure pages
-//user_pref("security.mixed_content.upgrade_display_content", true);
+//user_pref("security.mixed_content.upgrade_display_content", true); // DEFAULT [FF 110]
 
 // PREF: block insecure downloads from secure sites
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
