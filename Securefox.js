@@ -1147,6 +1147,7 @@ user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
 user_pref("toolkit.telemetry.updatePing.enabled", false);
 user_pref("toolkit.telemetry.bhrPing.enabled", false);
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+user_pref("toolkit.telemetry.dap_enabled", false); // DEFAULT [FF108]
 
 // PREF: Corroborator
 //user_pref("corroborator.enabled", false);
