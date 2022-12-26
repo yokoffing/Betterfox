@@ -260,7 +260,7 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 // [1] https://github.com/arkenfox/user.js/issues/1556
 //user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false); // unnecessary?
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
-user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);  // Shortcuts
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
       //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts [FF83+]
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);  // Recommended by Pocket
       //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
