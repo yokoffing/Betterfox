@@ -148,7 +148,7 @@ user_pref("media.hardware-video-decoding.enabled", true);
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
 //user_pref("gfx.webrender.enabled", true);
 //user_pref("gfx.webrender.software", true); // Webrender uses the CPU and not the GPU
-    //user_pref("gfx.webrender.software.opengl", true); [LINUX]
+    //user_pref("gfx.webrender.software.opengl", true); // [LINUX]
     //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
 
 // PREF: GPU-accelerated Canvas2D tweaks
