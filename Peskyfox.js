@@ -196,7 +196,7 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 
 // PREF: Adaptive History Autofill
 // [1] https://docs.google.com/document/u/1/d/e/2PACX-1vRBLr_2dxus-aYhZRUkW9Q3B1K0uC-a0qQyE3kQDTU3pcNpDHb36-Pfo9fbETk89e7Jz4nkrqwRhi4j/pub
-//user_pref("browser.urlbar.autoFill", true); [DEFAULT]
+//user_pref("browser.urlbar.autoFill", true); // [DEFAULT]
 //user_pref("browser.urlbar.autoFill.adaptiveHistory.enabled", false);
 
 // PREF: Quick Actions in the URL Bar
@@ -258,11 +258,11 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 // PREF: Home / New Tab page items
 // [SETTINGS] Home>Firefox Home Content
 // [1] https://github.com/arkenfox/user.js/issues/1556
-//user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false); /// unnecessary?
+//user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false); // unnecessary?
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
-user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);  // Shortcuts
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
       //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts [FF83+]
-user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);  // Recommended by Pocket
+user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
       //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
 //user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // Recent Activity [DEFAULT]
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
@@ -288,9 +288,9 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 
 // PREF: Disable built-in Pocket extension
 user_pref("extensions.pocket.enabled", false);
-      // user_pref("extensions.pocket.api"," ");
-      // user_pref("extensions.pocket.oAuthConsumerKey", " ");
-      // user_pref("extensions.pocket.site", " ");
+      //user_pref("extensions.pocket.api"," ");
+      //user_pref("extensions.pocket.oAuthConsumerKey", " ");
+      //user_pref("extensions.pocket.site", " ");
 
 /******************************************************************************
  * SECTION: DOWNLOADS                                 *
