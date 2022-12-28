@@ -46,6 +46,7 @@ user_pref("app.update.suppressPrompts", true);
 // [2] https://www.ghacks.net/2021/08/25/firefox-tip-turn-off-accessibility-services-to-improve-performance/
 // [3] https://www.troddit.com/r/firefox/comments/p8g5zd/why_does_disabling_accessibility_services_improve
 // [4] https://winaero.com/firefox-has-accessibility-service-memory-leak-you-should-disable-it/
+// [5] https://www.ghacks.net/2022/12/26/firefoxs-accessibility-performance-is-getting-a-huge-boost/
 user_pref("accessibility.force_disabled", 1);
 
 // PREF: disable the Accessibility panel
