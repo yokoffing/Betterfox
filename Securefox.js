@@ -352,7 +352,7 @@ user_pref("browser.sessionstore.privacy_level", 2);
 
 // PREF: remove temp files opened with an external application
 // [1] https://bugzilla.mozilla.org/302433
-user_pref("browser.helperApps.deleteTempFileOnExit", true);
+//user_pref("browser.helperApps.deleteTempFileOnExit", true); // DEFAULT [FF108]
 
 // PREF: disable page thumbnails capturing
 user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
