@@ -438,7 +438,7 @@ user_pref("dom.disable_window_move_resize", true);
 //user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
 // PREF: Controls if a double click word selection also deletes one adjacent whitespace
-// (if feasible). This mimics native behaviour on macOS.
+// (if feasible). This mimics native behavior on macOS.
 //user_pref("editor.word_select.delete_space_after_doubleclick_selection", true);
 
 // PREF: limit events that can cause a pop-up
