@@ -1,17 +1,9 @@
-//
-/* Do not COPY+PASTE this file. If you do, only COPY+PASTE the user_pref itself.
- *
- * If you make changes to your about:config while the program is running, the
- * changes will be overwritten when the application restarts.
- *
- * To make a change to preferences, you will have to edit the user.js file.
- */
 
 /****************************************************************************
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: 107a                                                            *
+ * version: 108                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -24,10 +16,8 @@
 // Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
 // been interacted with in the last 30 days.
 // [NOTE] FF86: "Strict" tracking protection enables dFPI.
-// [1] https://blog.mozilla.org/firefox/control-trackers-with-firefox/
-// [2] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
-// [3] https://blog.mozilla.org/security/2020/01/07/firefox-72-fingerprinting/
-// [4] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
+// [1] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
+// [2] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
 //user_pref("privacy.trackingprotection.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.pbmode.enabled", true); // DEFAULT
 //user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false); // DEFAULT
@@ -148,10 +138,9 @@ user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exe
 // PREF: Beacon API
 // Disabling this API sometimes causes breakage:
 // [TEST] https://vercel.com/
-// Instead of disable, block in uBlock Origin with rule `$ping`
-// [1] https://github.com/arkenfox/user.js/issues/1586#issuecomment-1320372943
-// [2] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
-user_pref("beacon.enabled", false);
+// [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
+// [2] https://github.com/arkenfox/user.js/issues/1586
+//user_pref("beacon.enabled", false);
 
 // PREF: battery status tracking
 // [NOTE] Pref remains, but API is depreciated
@@ -294,10 +283,10 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 // In Private Browsing windows: uses the most restrictive between normal and private
 // 1=only base system fonts, 2=also fonts from optional language packs, 3=also user-installed fonts
 // [1] https://searchfox.org/mozilla-central/search?path=StandardFonts*.inc
-//user_pref("layout.css.font-visibility.standard", 1); // Normal Browsing windows with tracking protection disabled(?)
-user_pref("layout.css.font-visibility.trackingprotection", 1); // Normal Browsing windows with tracking protection enabled
-user_pref("layout.css.font-visibility.private", 1); // Private Browsing windows
 //user_pref("layout.css.font-visibility.resistFingerprinting", 1); // DEFAULT
+    //user_pref("layout.css.font-visibility.trackingprotection", 1); // Normal Browsing windows with tracking protection enabled
+    //user_pref("layout.css.font-visibility.private", 1); // Private Browsing windows
+        //user_pref("layout.css.font-visibility.standard", 1); // Normal Browsing windows with tracking protection disabled(?)
 
 /****************************************************************************
  * SECTION: RESIST FINGERPRINTING (RFP)                                     *
@@ -363,7 +352,7 @@ user_pref("browser.sessionstore.privacy_level", 2);
 
 // PREF: remove temp files opened with an external application
 // [1] https://bugzilla.mozilla.org/302433
-user_pref("browser.helperApps.deleteTempFileOnExit", true);
+//user_pref("browser.helperApps.deleteTempFileOnExit", true); // DEFAULT [FF108]
 
 // PREF: disable page thumbnails capturing
 user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
@@ -432,13 +421,13 @@ user_pref("privacy.history.custom", true);
 //user_pref("privacy.clearOnShutdown.history", true); // [DEFAULT]
 //user_pref("privacy.clearOnShutdown.formdata", true); // [DEFAULT]
 //user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT]
-//user_pref("privacy.clearOnShutdown.offlineApps", false); // [DEFAULT]
+//user_pref("privacy.clearOnShutdown.offlineApps", true);
 //user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT]
 
 // PREF: configure site exceptions
 // [NOTE] Currently, there is no way to add sites via about:config
 // [SETTING] to manage site exceptions: Options>Privacy & Security>Cookies & Site Data>Manage Exceptions
-// [SETTING] to add site exceptions: Ctrl+I>Permissions>Cookies>Allow (when on the website in question)
+// or when on the website in question: Ctrl+I>Permissions>Cookies>Allow 
 // For cross-domain logins, add exceptions for both sites:
 // e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
 // [WARNING] Be selective with what cookies you keep, as they also disable partitioning [1]
@@ -447,15 +436,6 @@ user_pref("privacy.history.custom", true);
 /******************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
-// [NOTE] FF85+ partitions (isolates) pooled connections, prefetch connections,
-// pre-connect connections, speculative connections, TLS session identifiers,
-// and other connections. We can take advantage of the speed of pre-connections
-// while preserving privacy. Users may relax hardening to maximize their preference.
-// For more information, see SecureFox: "PREF: State Paritioning" and "PREF: Network Partitioning" [1]
-// [1] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L74-L108
-// [NOTE] To activate and increase network predictions, go to settings in uBlock Origin,  and make this setting is DISABLED:
-// - "Disable pre-fetching (to prevent any connection for blocked network requests)"
-// [NOTE] Add prefs to "MY OVERRIDES" section to enable.
 
 // PREF: new tab preload
 // [WARNING] Disabling this may cause a delay when opening a new tab in Firefox
@@ -463,17 +443,31 @@ user_pref("privacy.history.custom", true);
 // [2] https://github.com/arkenfox/user.js/issues/1556
 //user_pref("browser.newtab.preload", true); // DEFAULT
 
-// PREF: Speculative connections on New Tab page
+// PREF: Speculative Connections
 // Firefox will open predictive connections to sites when the user hovers their mouse over thumbnails
 // on the New Tab Page or the user starts to search in the Search Bar, or in the search field on the
-// New Tab Page. In case the user follows through with the action, the page can begin loading faster
+// New Tab Page [1]. This pref may control speculative connects for normal links, too [2].
+// The maximum number of current global half open sockets allowable when starting a new speculative connection [3].
+// In case the user follows through with the action, the page can begin loading faster
 // since some of the work was already started in advance.
 // [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered
 // [1] https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections?redirectslug=how-stop-firefox-automatically-making-connections&redirectlocale=en-US#:~:text=Speculative%20pre%2Dconnections
 // [2] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
-// [3] https://www.keycdn.com/blog/resource-hints#prefetch
-// [4] https://3perf.com/blog/link-rels/#prefetch
+// [3] https://searchfox.org/mozilla-central/rev/028c68d5f32df54bca4cf96376f79e48dfafdf08/modules/libpref/init/all.js#1280-1282
+// [4] https://www.keycdn.com/blog/resource-hints#prefetch
+// [5] https://3perf.com/blog/link-rels/#prefetch
 user_pref("network.http.speculative-parallel-limit", 0);
+
+// PREF: Preconnect to the autocomplete URL in the address bar
+// Firefox preloads URLs that autocomplete when a user types into the address bar.
+// Connects to destination server ahead of time, to avoid TCP handshake latency.
+// [NOTE] Firefox will perform DNS lookup (if enabled) and TCP and TLS handshake,
+// but will not start sending or receiving HTTP data.
+// [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
+
+// PREF: disable mousedown speculative connections on bookmarks and history
+user_pref("browser.places.speculativeConnect.enabled", false);
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time, to avoid DNS latency.
@@ -484,10 +478,7 @@ user_pref("network.http.speculative-parallel-limit", 0);
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
-//user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
-    //user_pref("network.dnsCacheEntries", 20000);	
-    //user_pref("network.dnsCacheExpiration", 3600);	
-    //user_pref("network.dnsCacheExpirationGracePeriod", 240);
+    user_pref("network.dns.disablePrefetchFromHTTPS", true); // enforce DEFAULT
 
 // PREF: Preload <link rel=preload>
 // This tells the browser that the resource should be loaded as part of the current navigation
@@ -508,17 +499,6 @@ user_pref("network.dns.disablePrefetch", true);
 // [9] https://web.dev/preload-critical-assets/
 //user_pref("network.preload", true); // DEFAULT
 
-// PREF: Preconnect to the autocomplete URL in the address bar
-// Firefox preloads URLs that autocomplete when a user types into the address bar.
-// Connects to destination server ahead of time, to avoid TCP handshake latency.
-// [NOTE] Firefox will perform DNS lookup (if enabled) and TCP and TLS handshake,
-// but will not start sending or receiving HTTP data.
-// [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
-
-// PREF: disable mousedown speculative connections on bookmarks and history
-user_pref("browser.places.speculativeConnect.enabled", false);
-
 // PREF: Link prefetching <link rel="prefetch">
 // Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
 // A directive that tells a browser to fetch a resource that will likely be needed for the next navigation.
@@ -538,11 +518,11 @@ user_pref("network.prefetch-next", false);
 // needed when the user visits a webpage (such as image.jpg and script.js), so that the next time the
 // user prepares to go to that webpage (upon navigation? URL bar? mouseover?), this history can be used
 // to predict what resources will be needed rather than wait for the document to link those resources.
-/// NP only performs pre-connect, not prefetch, by default, including DNS pre-resolve and TCP preconnect
+// NP only performs pre-connect, not prefetch, by default, including DNS pre-resolve and TCP preconnect
 // (which includes SSL handshake). No data is actually sent to the site until a user actively clicks
 // a link. However, NP is still opening TCP connections and doing SSL handshakes, so there is still
 // information leakage about your browsing patterns. This isn't desirable from a privacy perspective.
-// [NOTE] Disabling DNS prefetching disables the DNS prefetching behavior of NP
+// [NOTE] Disabling DNS prefetching disables the DNS prefetching behavior of NP.
 // [1] https://wiki.mozilla.org/Privacy/Reviews/Necko
 // [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
@@ -563,11 +543,6 @@ user_pref("network.predictor.enable-prefetch", false);
 // faster since some of the work was already started in advance. Focuses on fetching a resource
 // for the NEXT navigation.
 //user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
-    //user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=20
-    //user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=40
-    //user_pref("network.predictor.prefetch-min-confidence", 20); // default 100; alt=60
-        //user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
-        //user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
 
 /******************************************************************************
  * SECTION: SEARCH / URL BAR                              *
@@ -648,11 +623,11 @@ user_pref("network.IDN_show_punycode", true);
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
 // [TEST] http://example.com [upgrade]
 // [TEST] http://httpforever.com/ [no upgrade]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1706552
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1704453
 // [2] https://web.dev/why-https-matters/
 // [3] https://www.cloudflare.com/learning/ssl/why-use-https/
 //user_pref("dom.security.https_first", true);
-//user_pref("dom.security.https_first_pbm", true); // default
+//user_pref("dom.security.https_first_pbm", true); // DEFAULT
 
 /******************************************************************************
  * SECTION: HTTPS-ONLY MODE                              *
@@ -687,7 +662,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
 //user_pref("dom.security.https_only_mode_send_http_background_request", true); // DEFAULT
-         //user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 1250); // default=3000
+         //user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 2000); // default=3000
 
 // PREF: Enable HTTPS-Only mode for local resources
 //user_pref("dom.security.https_only_mode.upgrade_local", true);
@@ -888,7 +863,7 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
 //user_pref("security.mixed_content.block_display_content", true);
 
 // PREF: upgrade passive content to use HTTPS on secure pages
-//user_pref("security.mixed_content.upgrade_display_content", true);
+//user_pref("security.mixed_content.upgrade_display_content", true); // DEFAULT [FF 110]
 
 // PREF: block insecure downloads from secure sites
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
@@ -1046,14 +1021,16 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 ******************************************************************************/
 
 // PREF: disable GSB (master switch)
-// Increased privacy away from Google, but less protection against threats.
-// [WARNING] Be sure to have alternate security measures if you disable Safe Browsing.
+// Increased privacy away from Google, but less protection against threats
+// [WARNING] Be sure to have alternate security measures if you disable GSB!
 // [SETTING] Privacy & Security>Security>... Block dangerous and deceptive content
-// [1] https://www.wikiwand.com/en/Google_Safe_Browsing#/Privacy
-// [2] https://ashkansoltani.org/2012/02/25/cookies-from-nowhere
-// [3] https://blog.cryptographyengineering.com/2019/10/13/dear-apple-safe-browsing-might-not-be-that-safe/
-// [4] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1752006
-// [5] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1767546
+// [ALTERNATIVE] Enable local checks only: https://github.com/yokoffing/Betterfox/issues/87
+// [1] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1752006
+// [2] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1767546
+// [3] https://ashkansoltani.org/2012/02/25/cookies-from-nowhere
+// [4] https://blog.cryptographyengineering.com/2019/10/13/dear-apple-safe-browsing-might-not-be-that-safe/
+// [5] https://the8-bit.com/apple-proxies-google-safe-browsing-privacy/
+// [6] https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
     //user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
@@ -1127,7 +1104,7 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 
 // PREF: disable region updates
 // [1] https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
-user_pref("browser.region.update.enabled", false);
+//user_pref("browser.region.update.enabled", false);
     //user_pref("browser.region.network.url", "");
 
 // PREF: Enforce Firefox blocklist for extensions + No hiding tabs
@@ -1170,6 +1147,7 @@ user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
 user_pref("toolkit.telemetry.updatePing.enabled", false);
 user_pref("toolkit.telemetry.bhrPing.enabled", false);
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+user_pref("toolkit.telemetry.dap_enabled", false); // DEFAULT [FF108]
 
 // PREF: Corroborator
 //user_pref("corroborator.enabled", false);
