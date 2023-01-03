@@ -34,6 +34,9 @@ user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("network.notify.checkForProxies", false); // skip proxy request check
+// HTTPS-First instead of HTTPS-only
+user_pref("dom.security.https_only_mode", false); // disable in user.js
+user_pref("dom.security.https_first", true); // HTTPS-First instead of HTTPS-only
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes annoying "Inspect Accessibility Properties" on right-click
@@ -55,7 +58,7 @@ user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually ba
 user_pref("view_source.wrap_long_lines", true);  // wrap source lines
 user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devtools
 user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
-user_pref("pdfjs.sidebarViewOnLoad", 2); // show Table of Contents in sidebar for PDFs (if available)
+user_pref("pdfjs.sidebarViewOnLoad", 2); // [HIDDEN] force showing of Table of Contents in sidebar for PDFs (if available)
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
 user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
@@ -63,6 +66,7 @@ user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for backg
 user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small");
 user_pref("image.jxl.enabled", true);
+user_pref("extensions.unifiedExtensions.enabled", false); // disable MV3 unified extensions button [FF 109+]
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
     //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
@@ -70,46 +74,60 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
-// high-end machine:
 user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
-user_pref("image.mem.decode_bytes_at_a_time", 262144);
 user_pref("layers.gpu-process.force-enabled", true); // reinforce
-user_pref("media.memory_cache_max_size", 1048576);
-user_pref("media.memory_caches_combined_limit_kb", 3145728);
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
 user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
-user_pref("network.http.http3.enable", false); // disables QUIC
-user_pref("browser.cache.memory.capacity", 5242880);
-user_pref("browser.cache.memory.max_entry_size", 327680);
+user_pref("network.http.http3.enable", false); // disable QUIC for faster upload speeds
+user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
+user_pref("network.http.speculative-parallel-limit", 18);
+//user_pref("network.dns.disablePrefetch", false);
+    //user_pref("network.dns.disablePrefetchFromHTTPS", false);
+//user_pref("network.prefetch-next", true);
+user_pref("network.predictor.enabled", true);
+user_pref("network.predictor.enable-prefetch", true);
+user_pref("network.predictor.enable-hover-on-ssl", true);
+    user_pref("network.predictor.preresolve-min-confidence", 10);
+    user_pref("network.predictor.preconnect-min-confidence", 20);
+    user_pref("network.predictor.prefetch-min-confidence", 30);
+        user_pref("network.predictor.prefetch-force-valid-for", 3600);
+        user_pref("network.predictor.prefetch-rolling-load-count", 120);
+    user_pref("network.predictor.max-resources-per-entry", 250);
+    user_pref("network.predictor.max-uri-length", 1000);
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("javascript.options.experimental.import_assertions", true);
 user_pref("javascript.options.experimental.shadow_realms", true);
 user_pref("javascript.options.wasm_gc", true);
 user_pref("javascript.options.wasm_function_references", true);
+//user_pref("javascript.options.experimental.array_grouping", true);
+//user_pref("javascript.options.experimental.enable_change_array_by_copy", true);
 user_pref("cookiebanners.service.mode", 2);
 user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 user_pref("privacy.globalprivacycontrol.enabled", true);
 user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 user_pref("privacy.userContext.enabled", false);
+user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 user_pref("browser.urlbar.suggest.quickactions", false);
-user_pref("extensions.unifiedExtensions.enabled", false);
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla restricted domains [DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS ***/
-user_pref("pdfjs.defaultZoomValue", "page-fit"); // DESKTOP; alt=125; PDF zoom level
+//user_pref("pdfjs.defaultZoomValue", "page-fit"); // DESKTOP; alt=125; PDF zoom level
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);  // font improvement
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
-//user_pref("font.name.monospace.x-western", "Cascadia Code"); // preferred font [WINDOWS]
-//user_pref("font.name.monospace.x-western", "Fira Code"); // preferred font [WINDOWS]
-//user_pref("layout.css.font-visibility.trackingprotection", 3); // unbreaks using custom font on pages in normal windows
+user_pref("image.mem.decode_bytes_at_a_time", 262144); // alt=512000
+user_pref("browser.cache.memory.capacity", 5242880);
+user_pref("browser.cache.memory.max_entry_size", 327680);
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
+user_pref("media.memory_caches_combined_limit_kb", 3145728);
+//user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
+//user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
+//user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
 
 /** DELETE IF NOT macOS ***/
-user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level 
-//user_pref("font.name.monospace.x-western", "SF Mono"); // preferred font [macOS]
-//user_pref("layout.css.font-visibility.trackingprotection", 3); // breaks using custom font on pages
+user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level
+//user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
