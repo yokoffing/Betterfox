@@ -1,17 +1,9 @@
-//
-/* Do not COPY+PASTE this file. If you do, only COPY+PASTE the user_pref itself.
- *
- * If you make changes to your about:config while the program is running, the
- * changes will be overwritten when the application restarts.
- *
- * To make a change to preferences, you will have to edit the user.js file.
- */
 
 /****************************************************************************
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 107a                                                            *
+ * version: 108                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -47,8 +39,14 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 // Will still show green arrow in menu bar
 user_pref("app.update.suppressPrompts", true);
 
-// PREF: disable Accessibility services
-// Performance improvement
+// PREF: prevent accessibility services from accessing your browser [RESTART]
+// Accessibility Service may negatively impact Firefox browsing performance
+// Disable it if you’re not using any type of physical impairment assistive software
+// [1] https://support.mozilla.org/kb/accessibility-services
+// [2] https://www.ghacks.net/2021/08/25/firefox-tip-turn-off-accessibility-services-to-improve-performance/
+// [3] https://www.troddit.com/r/firefox/comments/p8g5zd/why_does_disabling_accessibility_services_improve
+// [4] https://winaero.com/firefox-has-accessibility-service-memory-leak-you-should-disable-it/
+// [5] https://www.ghacks.net/2022/12/26/firefoxs-accessibility-performance-is-getting-a-huge-boost/
 user_pref("accessibility.force_disabled", 1);
 
 // PREF: disable the Accessibility panel
@@ -136,22 +134,24 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 //user_pref("browser.theme.dark-private-windows", false);
 
 // PREF: Cookie Banner handling [NIGHTLY]
-// [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking
+// [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
 // [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
 // [2] https://phabricator.services.mozilla.com/D153642
-// 0: Disables all cookie banner handling (default)
-// 1: reject banners if it is a one-click option; otherwise, keep banners on screen
+// [3] https://winaero.com/make-firefox-automatically-click-on-reject-all-in-cookie-banner-consent/
+// [4] https://docs.google.com/spreadsheets/d/1Nb4gVlGadyxix4i4FBDnOeT_eJp2Zcv69o-KfHtK-aA/edit#gid=0
 // 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
+// 1: reject banners if it is a one-click option; otherwise, keep banners on screen
+// 0: disable all cookie banner handling
 //user_pref("cookiebanners.service.mode", 2);
-//user_pref("cookiebanners.service.mode.privateBrowsing", 1);
-    //user_pref("cookiebanners.bannerClicking.enabled", true);
+//user_pref("cookiebanners.service.mode.privateBrowsing", 2);
+    //user_pref("cookiebanners.bannerClicking.enabled", true); // DEFAULT [FF108]
     //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
 
 // PREF: enable global CookieBannerRules
-// This is used for click rules that can handle common Consent Management Providers (CMP).
+// This is used for click rules that can handle common Consent Management Providers (CMP)
 // [NOTE] Enabling this (when the cookie handling feature is enabled) may
 // negatively impact site performance since it requires us to run rule-defined
-// query selectors for every page.
+// query selectors for every page
 //user_pref("cookiebanners.service.enableGlobalRules", true);
 
 /****************************************************************************
@@ -188,6 +188,7 @@ user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.suggest.openpage", true);
 //user_pref("browser.urlbar.suggest.quickactions", false); // [NIGHTLY]
 //user_pref("browser.urlbar.suggest.searches", false);
+//user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
 // Disable dropdown suggestions with empty query:
 user_pref("browser.urlbar.suggest.topsites", false);
 // enable helpful features:
@@ -196,7 +197,7 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 
 // PREF: Adaptive History Autofill
 // [1] https://docs.google.com/document/u/1/d/e/2PACX-1vRBLr_2dxus-aYhZRUkW9Q3B1K0uC-a0qQyE3kQDTU3pcNpDHb36-Pfo9fbETk89e7Jz4nkrqwRhi4j/pub
-//user_pref("browser.urlbar.autoFill", true); [DEFAULT]
+//user_pref("browser.urlbar.autoFill", true); // [DEFAULT]
 //user_pref("browser.urlbar.autoFill.adaptiveHistory.enabled", false);
 
 // PREF: Quick Actions in the URL Bar
@@ -211,6 +212,9 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 // and this does not affect the search by search engine suggestion.
 // default=10, disable=0
 //user_pref("browser.urlbar.maxRichResults", 1);
+
+// PREF: show search query in URL bar instead of URL upon navigation
+//user_pref("browser.urlbar.showSearchTerms.enabled", true); // DEFAULT
 
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
@@ -255,11 +259,11 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 // PREF: Home / New Tab page items
 // [SETTINGS] Home>Firefox Home Content
 // [1] https://github.com/arkenfox/user.js/issues/1556
-//user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false); /// unnecessary?
+//user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false); // unnecessary?
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
-user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);  // Shortcuts
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
       //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts [FF83+]
-user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);  // Recommended by Pocket
+user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
       //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
 //user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // Recent Activity [DEFAULT]
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
@@ -285,9 +289,9 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 
 // PREF: Disable built-in Pocket extension
 user_pref("extensions.pocket.enabled", false);
-      // user_pref("extensions.pocket.api"," ");
-      // user_pref("extensions.pocket.oAuthConsumerKey", " ");
-      // user_pref("extensions.pocket.site", " ");
+      //user_pref("extensions.pocket.api"," ");
+      //user_pref("extensions.pocket.oAuthConsumerKey", " ");
+      //user_pref("extensions.pocket.site", " ");
 
 /******************************************************************************
  * SECTION: DOWNLOADS                                 *
@@ -336,11 +340,11 @@ user_pref("browser.download.always_ask_before_handling_new_types", true);
 // PREF: open PDFs inline (FF103+)
 user_pref("browser.download.open_pdf_attachments_inline", true);
 
-// PREF: PDF sidebar on load
+// PREF: PDF sidebar on load [HIDDEN] 
 // 2=table of contents (if not available, will default to 1)
 // 1=view pages
 // -1=disabled (default)
-//user_pref("pdfjs.sidebarViewOnLoad", 1);
+//user_pref("pdfjs.sidebarViewOnLoad", 2);
 
 // PREF: default zoom for PDFs [HIDDEN]
 // [NOTE] "page-width" not needed if using sidebar on load
@@ -433,8 +437,9 @@ user_pref("dom.disable_window_move_resize", true);
 //user_pref("accessibility.blockautorefresh", true);
 //user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
-// PREF: Plain Text only when copying text
-user_pref("clipboard.plainTextOnly", true);
+// PREF: Controls if a double click word selection also deletes one adjacent whitespace
+// (if feasible). This mimics native behavior on macOS.
+//user_pref("editor.word_select.delete_space_after_doubleclick_selection", true);
 
 // PREF: limit events that can cause a pop-up
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
