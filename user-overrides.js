@@ -79,7 +79,10 @@ user_pref("layers.gpu-process.force-enabled", true); // reinforce
 user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
 user_pref("network.http.http3.enable", false); // disable QUIC for faster upload speeds
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
-user_pref("network.http.speculative-parallel-limit", 18);
+user_pref("network.http.max-connections", 1800); // default=900
+user_pref("network.http.max-persistent-connections-per-server", 9); // default=6; download connections; anything above 10 is excessive
+user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
+user_pref("network.http.speculative-parallel-limit", 18); // default=6
 //user_pref("network.dns.disablePrefetch", false);
     //user_pref("network.dns.disablePrefetchFromHTTPS", false);
 //user_pref("network.prefetch-next", true);
