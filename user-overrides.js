@@ -102,7 +102,7 @@ user_pref("javascript.options.experimental.import_assertions", true);
 user_pref("javascript.options.experimental.shadow_realms", true);
 user_pref("javascript.options.wasm_gc", true);
 user_pref("javascript.options.wasm_function_references", true);
-//user_pref("javascript.options.experimental.array_grouping", true);
+user_pref("javascript.options.experimental.array_grouping", true); // Array.fromAsync JS API
 //user_pref("javascript.options.experimental.enable_change_array_by_copy", true);
 user_pref("cookiebanners.service.mode", 2);
 user_pref("cookiebanners.service.mode.privateBrowsing", 1);
