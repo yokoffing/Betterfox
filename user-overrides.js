@@ -99,12 +99,14 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
     user_pref("network.predictor.max-uri-length", 1000);
 
 /** DELETE IF NOT NIGHTLY ***/
-user_pref("javascript.options.experimental.import_assertions", true);
-user_pref("javascript.options.experimental.shadow_realms", true);
-user_pref("javascript.options.wasm_gc", true);
-user_pref("javascript.options.wasm_function_references", true);
+user_pref("layout.css.scroll-linked-animations.enabled", true); // CSS scroll-linked animations
+user_pref("dom.security.sanitizer.enabled", true); // HTML Sanitizer API 
+user_pref("privacy.clearsitedata.cache.enabled", true); // Clear-Site-Data: "cache" header 
+user_pref("javascript.options.experimental.shadow_realms", true); // Shadowrealms
+user_pref("javascript.options.wasm_gc", true); // Wasm GC
+user_pref("javascript.options.wasm_function_references", true); // Wasm Function references
+user_pref("javascript.options.experimental.import_assertions", true); // import assertions
 user_pref("javascript.options.experimental.array_grouping", true); // Array.fromAsync JS API
-//user_pref("javascript.options.experimental.enable_change_array_by_copy", true);
 user_pref("cookiebanners.service.mode", 2);
 user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 user_pref("privacy.globalprivacycontrol.enabled", true);
