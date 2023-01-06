@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 108                                                                         *
+ * version: 109                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
@@ -19,12 +19,14 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 // When Firefox is loading a page, it periodically reformats
 // or "reflows" the page as it loads. The page displays new elements
 // every 0.12 seconds by default. These redraws increase the total page load time.
-// Lowering the interval will decrease the perceived page load time
-// but increase the total loading time.
-// The notification interval has a dramatic effect on how long it takes to
-// initially display content for slow connections. The default value
-// provides good incremental display of content without causing an increase
-// in page load time. If this value is set below 1/10 of a second it starts
+// The default value provides good incremental display of content
+// without causing an increase in page load time.
+// [NOTE] Lowering the interval will decrease the PERCEIVED page load time (user experience?)
+// but increase the TOTAL loading time (benchmarks?).
+// [NOTE] Slower connections will want lower value (100000).
+// Page load does not change dramatically for faster connections,
+// so you may favor a smoother page load (360000).
+// [WARNING] If this value is set below 1/10 of a second, it starts
 // to impact page load performance.
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
 user_pref("content.notify.interval", 360000); // (.36s), default=120000 (.12s)
