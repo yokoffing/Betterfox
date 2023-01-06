@@ -224,7 +224,7 @@ user_pref("layout.css.has-selector.enabled", true);
 ****************************************************************************/
 user_pref("nglayout.initialpaint.delay", 0);
 user_pref("nglayout.initialpaint.delay_in_oopif", 0);
-user_pref("content.notify.interval", 360000);
+user_pref("content.notify.interval", 120000); // reset pref
 user_pref("browser.startup.preXulSkeletonUI", false);
 
 /** EXPERIMENTAL ***/
