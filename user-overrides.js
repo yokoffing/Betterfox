@@ -73,7 +73,6 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
 
 /** FASTFOX ***/
-user_pref("content.notify.interval", 500000); // reflow interval
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
 user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
