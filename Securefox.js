@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: 108                                                             *
+ * version: 109                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -582,7 +582,8 @@ user_pref("browser.search.suggest.enabled", false);
 //user_pref("browser.urlbar.quicksuggest.enabled", false); // controls whether the UI is shown
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
-    //user_pref("browser.urlbar.groupLabels.enabled", false);
+// hide Firefox Suggest label in URL dropdown box
+    //user_pref("browser.urlbar.groupLabels.enabled", true);
 
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
