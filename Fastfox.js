@@ -107,11 +107,27 @@ user_pref("layout.css.grid-template-masonry-value.enabled", true);
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 user_pref("dom.enable_web_task_scheduling", true);
 
-// PREF: enable CSS Animation Composition [NIGHTLY]
+// PREF: inert HTML attribute
+//user_pref("html5.inert.enabled", true); // DEFAULT (NIGHTLY)
+
+// PREF: container query length units
+//user_pref("layout.css.container-queries.enabled", true); // DEFAULT (NIGHTLY)
+
+// PREF: scroll-linked animations
+//user_pref("layout.css.scroll-linked-animations.enabled", true);
+
+// PREF: HTML Sanitizer API 
+//user_pref("dom.security.sanitizer.enabled", true);
+
+// PREF: CSS Animation Composition [NIGHTLY]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1785329
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
 // [3] https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition
-user_pref("layout.css.animation-composition.enabled", true);
+//user_pref("layout.css.animation-composition.enabled", true);
+
+// PREF: Clear-Site-Data: "cache" header 
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data
+//user_pref("privacy.clearsitedata.cache.enabled", true);
 
 // PREF: Shadowrealms [NIGHTLY]
 // [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
@@ -127,10 +143,6 @@ user_pref("layout.css.animation-composition.enabled", true);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1795452
 //user_pref("javascript.options.experimental.array_grouping", true);
 //user_pref("javascript.options.experimental.enable_change_array_by_copy", true);
-
-// PREF: not yet categorized / need documentation [NIGHTLY]
-//user_pref("javascript.options.experimental.iterator_helpers", true);
-//user_pref("javascript.options.experimental.weakrefs.expose_cleanupSome", true);
 
 /****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
