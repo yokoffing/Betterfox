@@ -80,13 +80,12 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 // [2] https://github.com/WICG/import-maps#the-basic-idea
 // [3] https://caniuse.com/import-maps
 //user_pref("dom.importMaps.enabled", true); // DEFAULT FF108+
-    //user_pref("javascript.options.experimental.import_assertions", true);
-    
+
 /****************************************************************************
  * SECTION: EXPERIMENTAL                                                    *
 ****************************************************************************/
 
-// PREF: WebGPU [HIGHLY EXPERIMENTAL!] [NIGHTLY]
+// PREF: WebGPU [HIGHLY EXPERIMENTAL!]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
 // [2] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
 // [3] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
@@ -94,13 +93,19 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 //user_pref("dom.webgpu.enabled", true);
     //user_pref("gfx.webgpu.force-enabled", true);
 
-// PREF: about:home startup cache [NIGHTLY]
+// PREF: about:home startup cache
 // A cache for the initial about:home document that is loaded by default at startup
 // The purpose of the cache is to improve startup performance
 //user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 
-// PREF: CSS Masonry Layout [NIGHTLY]
+// PREF: CSS Masonry Layout
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
+
+// PREF: CSS Animation Composition
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1785329
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
+// [3] https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition
+user_pref("layout.css.animation-composition.enabled", true);
 
 // PREF: Prioritized Task Scheduling API [NIGHTLY]
 // [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
@@ -119,27 +124,24 @@ user_pref("dom.enable_web_task_scheduling", true);
 // PREF: HTML Sanitizer API 
 //user_pref("dom.security.sanitizer.enabled", true);
 
-// PREF: CSS Animation Composition [NIGHTLY]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1785329
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
-// [3] https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition
-//user_pref("layout.css.animation-composition.enabled", true);
-
 // PREF: Clear-Site-Data: "cache" header 
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data
 //user_pref("privacy.clearsitedata.cache.enabled", true);
 
-// PREF: Shadowrealms [NIGHTLY]
+// PREF: Shadowrealms
 // [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
 //user_pref("javascript.options.experimental.shadow_realms", true);
 
-// PREF: Wasm GC + References [NIGHTLY]
+// PREF: Wasm GC + References
 // [1] https://github.com/WebAssembly/gc/blob/main/proposals/gc/Overview.md
 // [2] https://github.com/WebAssembly/function-references/blob/master/proposals/function-references/Overview.md
 //user_pref("javascript.options.wasm_gc", true);
 //user_pref("javascript.options.wasm_function_references", true);
 
-// PREF: Array.fromAsync [NIGHTLY]
+// PREF: import assertions
+//user_pref("javascript.options.experimental.import_assertions", true);
+
+// PREF: Array.fromAsync
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1795452
 //user_pref("javascript.options.experimental.array_grouping", true);
 //user_pref("javascript.options.experimental.enable_change_array_by_copy", true);
