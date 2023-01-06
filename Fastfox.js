@@ -15,7 +15,18 @@
 user_pref("nglayout.initialpaint.delay", 0); // default=5; used to be 250
 user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 
-// PREF: notification interval (in microseconds)
+// PREF: page reflow timer
+// Rather than wait until a page has completely downloaded to display it to the user,
+// web browsers will periodically render what has been received to that point.
+// Because reflowing the page every time additional data is received slows down
+// total page load time, a timer was added so that the page would not reflow too often.
+// This preference specfies whether that timer is active.
+// [1] https://kb.mozillazine.org/Content.notify.ontimer
+// true = do not reflow pages at an interval any higher than that specified by content.notify.interval (default)
+// false = reflow pages whenever new data is received
+//user_pref("content.notify.ontimer", true); // DEFAULT
+
+// PREF: notification interval (in microseconds) [to avoid layout thrashing]
 // When Firefox is loading a page, it periodically reformats
 // or "reflows" the page as it loads. The page displays new elements
 // every 0.12 seconds by default. These redraws increase the total page load time.
@@ -28,20 +39,11 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 // so you may favor a smoother page load (360000).
 // [WARNING] If this value is set below 1/10 of a second, it starts
 // to impact page load performance.
+// [EXAMPLE] .10s = 100 reflows/second
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
-user_pref("content.notify.interval", 120000); // DEFAULT; alt=360000 (.36s)
-    //or user_pref("content.notify.interval", 360000); // alt=100000 (.10s)
-    
-// PREF: reflow pages whenever new data is received
-// Rather than wait until a page has completely downloaded to display it to the user,
-// Mozilla applications will periodically render what has been received to that point.
-// Because reflowing the page every time additional data is received greatly slows down
-// total page load time, a timer was added so that the page would not reflow too often.
-// This preference specfies whether that timer is active.
-// [1] https://kb.mozillazine.org/Content.notify.ontimer
-// true = Don't reflow pages at an interval any higher than that specified by content.notify.interval (default)
-// false = Reflow pages whenever new data is received
-//user_pref("content.notify.ontimer", true); // DEFAULT
+// [2] https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
+// [3] https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
+//user_pref("content.notify.interval", 120000); // DEFAULT; alt=360000 (.36s)
 
 // PREF: set the minimum interval between session save operations
 // Increasing this can help on older machines and some websites, as well as reducing writes
