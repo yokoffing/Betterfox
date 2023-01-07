@@ -107,7 +107,7 @@ user_pref("layout.css.grid-template-masonry-value.enabled", true);
 // [3] https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition
 user_pref("layout.css.animation-composition.enabled", true);
 
-// PREF: Prioritized Task Scheduling API [NIGHTLY]
+// PREF: Prioritized Task Scheduling API
 // [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 user_pref("dom.enable_web_task_scheduling", true);
