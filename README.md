@@ -53,7 +53,8 @@ If you use any of the features below, please view the [common overrides](https:/
 
 ## Mentions
 
-**User comments:**
+### Reddit
+- User comments:
 [1](https://old.reddit.com/r/firefox/comments/xsw0zt/comment/iqo0dbv/?context=3)
 [2](https://old.reddit.com/r/browsers/comments/y7w57n/which_browser_do_you_use_on_your_devices/it30hqi/?context=3)
 [3](https://www.troddit.com/r/firefox/comments/z5auzi/firefox_not_properly_usingrecognizing_gpu_poor/iy0kru3)
@@ -62,30 +63,31 @@ If you use any of the features below, please view the [common overrides](https:/
 [6](https://old.reddit.com/r/pcmasterrace/comments/zwioe1/what_browser_will_you_be_using_in_2023_please/j1wmbxo/)
 [7](https://old.reddit.com/r/firefox/comments/zodxzx/performance_optimizations_for_firefox/j0memta/?context=2)
 
-#### YouTube
+### YouTube
 * [I Hate Firefox. But I'm Still Switching Back to It.](https://www.youtube.com/watch?v=w0SJFED5xK0) (Nov 2022)
-* [Spanish] [Optimizar y Acelerar Firefox](https://www.youtube.com/watch?v=3XtoONmq5_Q) (Nov 2022) 
+* [Español] [Optimizar y Acelerar Firefox](https://www.youtube.com/watch?v=3XtoONmq5_Q) (Nov 2022) 
 * [How To Improve Firefox Performance](https://www.youtube.com/watch?v=N8IOJiOFVEk) (Dec 2021)
     
-#### Podcasts
+### Podcasts
 * [GhoSTORIES with Franz & Pete, S2|E6, 17:05-18:40](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh) (Feb 2021)
 
-#### Browser Integration
+### Browser Integration
 * [Pulse Browser](https://github.com/pulse-browser/browser#%EF%B8%8F-credits) | [files](https://github.com/pulse-browser/browser/tree/alpha/src/browser/app/profile) (Dec 2021)
 * [Ghostery Dawn](https://github.com/ghostery/user-agent-desktop#community)  | [files](https://github.com/ghostery/user-agent-desktop/tree/main/brands/ghostery/branding/pref) (Feb 2021)
     * [Betterfox adopted into Ghostery Dawn](https://web.archive.org/web/20210509171835/https://www.ghostery.com/ghostery-dawn-update-more/)<sup>[1](https://web.archive.org/web/20210921114333/https://www.ghostery.com/ghostery-dawn-product-update/)</sup>
 
-#### Guides
+### Guides
 * [FMHY Browser Tools: Privacy Hardened Firefox](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/storage/#wiki_privacy_hardened_firefox)
 * [Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-Fix/wiki/Tips#privacy)
 * [Narsil/desktop_user.js](https://git.nixnet.services/Narsil/desktop_user.js#thanks)
 * [pyllyukko/user.js](https://github.com/pyllyukko/user.js) [comparator](https://jm42.github.io/compare-user.js/)
 
-#### Contributions
+### Contributions
 * [Ghostery desktop browser](https://github.com/ghostery/user-agent-desktop/issues?q=is%3Apr+is%3Aissue+author%3Ayokoffing+)
     * [Fingerprinting protection: Betterfox and arkenfox](https://github.com/ghostery/user-agent-desktop/issues/486) (somewhat outdated)
 * [Orion Browser](https://orionfeedback.org/?author=yokoffing)
 * [Kagi Search Engine](https://kagifeedback.org/?author=yokoffing)
+* [Various blocklists](https://github.com/yokoffing/filterlists#contributions)
 
 ## Credit
 * Many thanks to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://docs.openwebsandbox.org/learn/ows-articles/what-is-the-open-web).
