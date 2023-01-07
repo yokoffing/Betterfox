@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 108                                                             *
+ * version: 109                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -215,7 +215,6 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("dom.disable_window_move_resize", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
-user_pref("clipboard.plainTextOnly", true);
 user_pref("dom.popup_allowed_events", "click dblclick");
 user_pref("layout.css.has-selector.enabled", true);
 
@@ -224,13 +223,13 @@ user_pref("layout.css.has-selector.enabled", true);
 ****************************************************************************/
 user_pref("nglayout.initialpaint.delay", 0);
 user_pref("nglayout.initialpaint.delay_in_oopif", 0);
-user_pref("content.notify.interval", 120000); // reset pref
+user_pref("content.notify.interval", 120000); // reset pref; remove in v.110
 user_pref("browser.startup.preXulSkeletonUI", false);
 
 /** EXPERIMENTAL ***/
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
-user_pref("dom.enable_web_task_scheduling", true);
 user_pref("layout.css.animation-composition.enabled", true);
+user_pref("dom.enable_web_task_scheduling", true);
 
 /** GFX ***/
 user_pref("gfx.webrender.all", true);
@@ -251,7 +250,6 @@ user_pref("media.cache_readahead_limit", 9000);
 user_pref("media.cache_resume_threshold", 6000);
 
 /** BROWSER CACHE ***/
-user_pref("browser.cache.memory.capacity", -1);
 user_pref("browser.cache.memory.max_entry_size", 153600);
 
 /** NETWORK ***/
@@ -265,7 +263,7 @@ user_pref("network.ssl_tokens_cache_capacity", 32768);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
-// see https://github.com/yokoffing/Betterfox/blob/master/Smoothfox.js
+// visit https://github.com/yokoffing/Betterfox/blob/master/Smoothfox.js
 // Enter your scrolling prefs below this line:
 
 /****************************************************************************
