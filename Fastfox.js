@@ -233,8 +233,8 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 
 // PREF: increase memory cache size
 // [1] https://www.makeuseof.com/tag/how-much-data-does-youtube-use/
-//user_pref("browser.cache.memory.capacity", -1); // enforce DEFAULT; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
-user_pref("browser.cache.memory.max_entry_size", 153600); // alt=51200; preferred=327680 ; -1 -> entries bigger than than 90% of the mem-cache are never cached
+//user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
+user_pref("browser.cache.memory.max_entry_size", 153600); // alt=51200; preferred=327680 ; alt= -1 -> entries bigger than than 90% of the mem-cache are never cached
 
 /****************************************************************************
  * SECTION: NETWORK                                                         *
