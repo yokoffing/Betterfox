@@ -151,9 +151,6 @@ user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exe
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
 //user_pref("dom.storage.next_gen", true); // DEFAULT FF92+
 
-// PREF: WebRTC Global Mute Toggles
-//user_pref("privacy.webrtc.globalMuteToggles", true);
-
 // PREF: disable UITour backend so there is no chance that a remote page can use it
 user_pref("browser.uitour.enabled", false);
     //user_pref("browser.uitour.url", "");
@@ -953,14 +950,15 @@ user_pref("privacy.userContext.ui.enabled", true);
 ******************************************************************************/
 
 // PREF: disable WebRTC (Web Real-Time Communication)
-// Firefox uses mDNS hostname obfuscation on desktop (except Windows7/8) and the
-// private IP is NEVER exposed, except if required in TRUSTED scenarios; i.e. after
-// you grant device (microphone or camera) access
-// [SETUP-HARDEN] Test first. Windows7/8 users only: behind a proxy who never use WebRTC
+// Firefox desktop uses mDNS hostname obfuscation and the private IP is never exposed until
+// required in TRUSTED scenarios; i.e. after you grant device (microphone or camera) access
 // [TEST] https://browserleaks.com/webrtc
 // [1] https://groups.google.com/g/discuss-webrtc/c/6stQXi72BEU/m/2FwZd24UAQAJ
 // [2] https://datatracker.ietf.org/doc/html/draft-ietf-mmusic-mdns-ice-candidates#section-3.1.1
 //user_pref("media.peerconnection.enabled", false);
+
+// PREF: enable WebRTC Global Mute Toggles
+//user_pref("privacy.webrtc.globalMuteToggles", true);
 
 // PREF: force WebRTC inside the proxy [FF70+]
 user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
