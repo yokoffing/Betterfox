@@ -92,7 +92,7 @@ If you use any of the features below, please view the [common overrides](https:/
 * This repository benefits from the research provided by [arkenfox](https://github.com/arkenfox/user.js). While Betterfox does not use their `user.js`, we attempt to maintain parity with it.
 
 ## Support
-I’m a one-person operation, working in mental health and running this page as a passion project in my time off. If you enjoy my work, please leave a tip! Your support is incredibly appreciated and allows me to dedicate time to this project :blush:
+I’m a one-person operation, running this page as a passion project in my time off. If you enjoy my work, please leave a tip! Your support is incredibly appreciated and allows me to dedicate time to this project :blush:
 
 <img align="top" width="25px" src="https://coekuss.com/quietfox/bitcoin.png"> Bitcoin: 334gaiEjn6wY1VksQvYe5L668JjtPEPyiM
 
