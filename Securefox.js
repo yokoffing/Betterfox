@@ -580,7 +580,7 @@ user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 // hide Firefox Suggest label in URL dropdown box
-    //user_pref("browser.urlbar.groupLabels.enabled", false);
+//user_pref("browser.urlbar.groupLabels.enabled", false);
 
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
