@@ -7,6 +7,16 @@
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
+// PREF: process count
+// Process count used to be "# of CPU cores = processCount" starting with Firefox Quantum (2017).
+// Since the introduction of Fission [2], increasing process count
+// is more complicated than changing one pref [1].
+// [1] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes
+// [2] https://github.com/yokoffing/Betterfox/blob/064f64ab5f0e8443ed6b127d91326d9c887cd15d/Securefox.js#L58-L64
+//user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
+//user_pref("dom.ipc.processCount.webIsolated", 4); // per-site; DEFAULT; Isolated Web Content
+
+// [1] https://github.com/yokoffing/Betterfox/blob/064f64ab5f0e8443ed6b127d91326d9c887cd15d/Securefox.js#L58-L64
 // PREF: initial paint delay
 // How long FF will wait before rendering the page, in milliseconds
 // Reduce the 5ms Firefox waits to render the page
