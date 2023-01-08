@@ -144,10 +144,10 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 
 // PREF: enable global CookieBannerRules
 // This is used for click rules that can handle common Consent Management Providers (CMP)
-// [NOTE] Enabling this (when the cookie handling feature is enabled) may
+// [WARNING] Enabling this (when the cookie handling feature is enabled) may
 // negatively impact site performance since it requires us to run rule-defined
 // query selectors for every page
-//user_pref("cookiebanners.service.enableGlobalRules", false); // DEFAULT
+//user_pref("cookiebanners.service.enableGlobalRules", enable);
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
