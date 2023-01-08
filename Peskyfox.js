@@ -526,9 +526,9 @@ user_pref("layout.css.has-selector.enabled", true);
 // [SETTING] to add site exceptions: Ctrl+I>Permissions>Override Keyboard Shortcuts ***/
 //user_pref("permissions.default.shortcuts", 2);
 
-// PREF: JPEG XL image format
+// PREF: JPEG XL image format [NIGHTLY]
 // [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
-//user_pref("image.jxl.enabled", true); // DEFAULT [NIGHTLY]
+//user_pref("image.jxl.enabled", true);
 
 // PREF: enable CSS moz document rules
 // Still needed for Stylus?
