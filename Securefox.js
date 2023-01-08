@@ -26,7 +26,7 @@ user_pref("browser.contentblocking.category", "strict");
     //user_pref("privacy.socialtracking.block_cookies.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.cryptomining.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // DEFAULT
-user_pref("privacy.trackingprotection.emailtracking.enabled", true); // IN BETA
+user_pref("privacy.trackingprotection.emailtracking.enabled", true);
 //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // DEFAULT
@@ -35,8 +35,10 @@ user_pref("privacy.trackingprotection.emailtracking.enabled", true); // IN BETA
 // PREF: query stripping
 // Currently uses a small list [1]
 // Can set the same query stripping list that Brave uses [2]
+// If using uBlock Origin or AdGuard, use filter lists instead [3]
 // [1] https://www.eyerys.com/articles/news/how-mozilla-firefox-improves-privacy-using-query-parameter-stripping-feature
 // [2] https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc
+// [3] https://github.com/yokoffing/filterlists#url-tracking-parameters
 //user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
     //user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
 
