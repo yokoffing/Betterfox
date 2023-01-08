@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 108                                                             *
+ * version: 109                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -515,7 +515,7 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 // PREF: zoom only text on webpage, not other elements
 //user_pref("browser.zoom.full", false);
 
-// PREF: enable :has() CSS relational pseudo-class [NIGHTLY?]
+// PREF: enable :has() CSS relational pseudo-class
 // Needed for some extensions, filters, and customizations
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
 // [2] https://caniuse.com/css-has
@@ -531,6 +531,13 @@ user_pref("layout.css.has-selector.enabled", true);
 // [SETTING] to add site exceptions: Ctrl+I>Permissions>Override Keyboard Shortcuts ***/
 //user_pref("permissions.default.shortcuts", 2);
 
-// PREF: JPEG XL image format [NIGHTLY]
+// PREF: JPEG XL image format
 // [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
-//user_pref("image.jxl.enabled", true);
+//user_pref("image.jxl.enabled", true); // DEFAULT [NIGHTLY]
+
+// PREF: restore zooming behavior (macOS) [FF109+]
+// On macOS, Ctrl or Cmd + trackpad or mouse wheel now scrolls the page instead of zooming.
+// This avoids accidental zooming and matches Safari's and Chrome's behavior.
+// The prefs below restores the previous zooming behavior
+//user_pref("mousewheel.with_control.action", 3);
+//user_pref("mousewheel.with_meta.action", 3);
