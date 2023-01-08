@@ -29,11 +29,6 @@ user_pref("layout.css.prefers-color-scheme.content-override", 2);
 // PREF: enable Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-// PREF: enable CSS moz document rules
-// Still needed for Stylus?
-// [1] https://old.reddit.com/r/FirefoxCSS/comments/8x2q97/reenabling_mozdocument_rules_in_firefox_61/
-//user_pref("layout.css.moz-document.content.enabled", true);
-
 // PREF: disable annoying update restart prompts
 // Delay update available prompts for ~1 week
 // Will still show green arrow in menu bar
@@ -81,11 +76,11 @@ user_pref("browser.preferences.moreFromMozilla", false);
 // [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
 user_pref("browser.tabs.tabmanager.enabled", false);
 
-// PREF: disable Unified Extensions button [NIGHTLY]
+// PREF: disable Unified Extensions button [FF109+]
 //user_pref("extensions.unifiedExtensions.enabled", false);
 
 // PREF: remove "addons.mozilla.org" from set of domains that extensions cannot access
-// [NOTE] May only work with privacy.resistfingerprinting enabled? + DEV/NIGHTLY-only?
+// [NOTE] May only work with privacy.resistfingerprinting enabled? and/or DEV/NIGHTLY-only?
 // [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
 //user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
 //user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
@@ -120,17 +115,17 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 user_pref("findbar.highlightAll", true);
 
 // PREF: disable middle mouse click opening links from clipboard
-// [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089 ***/
+// [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089
 user_pref("middlemouse.contentLoadURL", false);
 
 // Private Browsing changes [FF106+]
 // PREF: disable private windows being separate from normal windows in taskbar [WINDOWS]
 //user_pref("browser.privateWindowSeparation.enabled", false);
 
-// PREF: disable "private window" indicator in tab bar
+// PREF: disable "private window" indicator in tab bar [FF106+]
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
 
-// PREF: disable always using dark theme for private browsing windows
+// PREF: disable always using dark theme for private browsing windows [FF106+]
 //user_pref("browser.theme.dark-private-windows", false);
 
 // PREF: Cookie Banner handling [NIGHTLY]
@@ -152,7 +147,7 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 // [NOTE] Enabling this (when the cookie handling feature is enabled) may
 // negatively impact site performance since it requires us to run rule-defined
 // query selectors for every page
-//user_pref("cookiebanners.service.enableGlobalRules", true);
+//user_pref("cookiebanners.service.enableGlobalRules", false); // DEFAULT
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
@@ -535,7 +530,12 @@ user_pref("layout.css.has-selector.enabled", true);
 // [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
 //user_pref("image.jxl.enabled", true); // DEFAULT [NIGHTLY]
 
-// PREF: restore zooming behavior (macOS) [FF109+]
+// PREF: enable CSS moz document rules
+// Still needed for Stylus?
+// [1] https://old.reddit.com/r/FirefoxCSS/comments/8x2q97/reenabling_mozdocument_rules_in_firefox_61/
+//user_pref("layout.css.moz-document.content.enabled", true);
+
+// PREF: restore zooming behavior [macOS] [FF109+]
 // On macOS, Ctrl or Cmd + trackpad or mouse wheel now scrolls the page instead of zooming.
 // This avoids accidental zooming and matches Safari's and Chrome's behavior.
 // The prefs below restores the previous zooming behavior
