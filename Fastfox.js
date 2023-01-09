@@ -221,7 +221,7 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753486
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1596576
 //user_pref("network.http.http3.enable", false); // disables HTTP3/QUIC
-//user_pref("network.http.http2.chunk-size", 32000); // preferred=48000; default=16000 [needed?]
+    //user_pref("network.http.http2.chunk-size", 32000); // default=16000
 
 // PREF: disable AV1 for hardware decodeable videos
 // AV1 uses software (CPU-based) decoding
@@ -273,16 +273,6 @@ user_pref("network.dnsCacheExpirationGracePeriod", 240);
 
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; faster SSL (fast reconnects)
-
-// These do not help speed:
-// PREF: DoH requests
-//user_pref("network.trr.request_timeout_ms", 800); // default=1500
-    //user_pref("network.trr.retry-timeout-ms", 125); // DEFAULT
-//user_pref("network.trr.request_timeout_mode_trronly_ms", 15000); // default=30000
-// PREF: close a connection if tls handshake does not finish in given number of seconds
-//user_pref("network.http.tls-handshake-timeout", 20); // default=30
-// PREF: timeout connections if an initial response is not received in number of seconds
-//user_pref("network.http.response.timeout", 200); // default=300
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                         *
