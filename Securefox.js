@@ -703,7 +703,7 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 // PREF: DoH resolver list
 // [EXAMPLE] "[{ \"name\": \"Cloudflare\", \"url\": \"https://mozilla.cloudflare-dns.com/dns-query\" },{ \"name\": \"NextDNS\", \"url\": \"https://trr.dns.nextdns.io/\" }]"
 //user_pref("network.trr.resolvers", "[{ \"name\": \"<NAME1>\", \"url\": \"https://<URL1>\" }, { \"name\": \"<NAME2>\", \"url\": \"https://<URL2>\" }]");
-//user_pref("network.trr.resolvers", "[{ \"name\": \"<NextDNS Custom>\", \"url\": \"https://dns.nextdns.io/7ad2e5/FF_WINDOWS\" }]");
+//user_pref("network.trr.resolvers", "[{ \"name\": \"<NextDNS Custom>\", \"url\": \"https://dns.nextdns.io/******/FF_WINDOWS\" }]");
 
 /******************************************************************************
  * SECTION: ESNI / ECH                            *
