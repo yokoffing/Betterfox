@@ -108,7 +108,7 @@ user_pref("javascript.options.wasm_function_references", true); // Wasm Function
 user_pref("javascript.options.experimental.import_assertions", true); // import assertions
 user_pref("javascript.options.experimental.array_grouping", true); // Array.fromAsync JS API
 user_pref("cookiebanners.service.mode", 2);
-//user_pref("cookiebanners.service.mode.privateBrowsing", 1); // DEFAULT
+user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 user_pref("privacy.globalprivacycontrol.enabled", true);
 user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 user_pref("privacy.userContext.enabled", false);
