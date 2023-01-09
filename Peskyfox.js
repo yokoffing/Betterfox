@@ -158,7 +158,8 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 //user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 
 // PREF: use DirectWrite everywhere like Chrome [WINDOWS]
-// [1] https://old.reddit.com/r/firefox/comments/wvs04y/comment/ilklzy1/?context=3
+// [1] https://kb.mozillazine.org/Thunderbird_6.0,_etc.#Font_rendering_and_performance_issues
+// [2] https://old.reddit.com/r/firefox/comments/wvs04y/comment/ilklzy1/?context=3
 //user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 //user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 //user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
@@ -166,7 +167,7 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 //user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 // Some users find these helpful:
     //user_pref("gfx.font_rendering.cleartype_params.gamma", 1750);
-    //user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 50);
+    //user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
     //user_pref("gfx.font_rendering.cleartype_params.pixel_structure", 1);
 
 // PREF: use macOS Appearance Panel text smoothing setting when rendering text [macOS]
