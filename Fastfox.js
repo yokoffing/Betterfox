@@ -103,55 +103,56 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 //user_pref("dom.webgpu.enabled", true);
     //user_pref("gfx.webgpu.force-enabled", true);
 
-// PREF: about:home startup cache
+// PREF: about:home startup cache [NIGHTLY]
 // A cache for the initial about:home document that is loaded by default at startup
 // The purpose of the cache is to improve startup performance
 //user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 
-// PREF: CSS Masonry Layout
+// PREF: CSS Masonry Layout [NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
-// PREF: CSS Animation Composition
+// PREF: CSS Animation Composition [NIGHTLY]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1785329
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
 // [3] https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition
 user_pref("layout.css.animation-composition.enabled", true);
 
-// PREF: Prioritized Task Scheduling API
+// PREF: Prioritized Task Scheduling API [NIGHTLY]
 // [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 user_pref("dom.enable_web_task_scheduling", true);
 
-// PREF: inert HTML attribute
+// PREF: inert HTML attribute [NIGHTLY]
 //user_pref("html5.inert.enabled", true); // DEFAULT (NIGHTLY)
 
-// PREF: container query length units
+// PREF: container query length units [NIGHTLY]
 //user_pref("layout.css.container-queries.enabled", true); // DEFAULT (NIGHTLY)
 
-// PREF: scroll-linked animations
+// PREF: scroll-linked animations [NIGHTLY]
 //user_pref("layout.css.scroll-linked-animations.enabled", true);
 
-// PREF: HTML Sanitizer API 
+// PREF: HTML Sanitizer API [NIGHTLY]
 //user_pref("dom.security.sanitizer.enabled", true);
 
-// PREF: Clear-Site-Data: "cache" header 
+// PREF: Clear-Site-Data: "cache" header [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data
 //user_pref("privacy.clearsitedata.cache.enabled", true);
 
-// PREF: Shadowrealms
+// PREF: Shadowrealms [NIGHTLY]
 // [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
 //user_pref("javascript.options.experimental.shadow_realms", true);
 
-// PREF: Wasm GC + References
+// PREF: Wasm GC + References [NIGHTLY]
 // [1] https://github.com/WebAssembly/gc/blob/main/proposals/gc/Overview.md
 // [2] https://github.com/WebAssembly/function-references/blob/master/proposals/function-references/Overview.md
 //user_pref("javascript.options.wasm_gc", true);
 //user_pref("javascript.options.wasm_function_references", true);
 
-// PREF: import assertions
+// PREF: import assertions [NIGHTLY]
 //user_pref("javascript.options.experimental.import_assertions", true);
 
-// PREF: Array.fromAsync
+// PREF: Array.fromAsync [NIGHTLY]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1795452
 //user_pref("javascript.options.experimental.array_grouping", true);
 //user_pref("javascript.options.experimental.enable_change_array_by_copy", true);
