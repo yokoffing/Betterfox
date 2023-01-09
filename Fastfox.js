@@ -49,7 +49,7 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 // so you may favor a smoother page load (360000).
 // [WARNING] If this value is set below 1/10 of a second, it starts
 // to impact page load performance.
-// [EXAMPLE] .10s = 100 reflows/second
+// [EXAMPLE] 100000 = .10s = 100 reflows/second
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
 // [2] https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
 // [3] https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
