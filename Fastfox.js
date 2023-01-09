@@ -124,10 +124,10 @@ user_pref("layout.css.animation-composition.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
 
 // PREF: inert HTML attribute [NIGHTLY]
-//user_pref("html5.inert.enabled", true); // DEFAULT (NIGHTLY)
+//user_pref("html5.inert.enabled", true);
 
 // PREF: container query length units [NIGHTLY]
-//user_pref("layout.css.container-queries.enabled", true); // DEFAULT (NIGHTLY)
+//user_pref("layout.css.container-queries.enabled", true);
 
 // PREF: scroll-linked animations [NIGHTLY]
 //user_pref("layout.css.scroll-linked-animations.enabled", true);
@@ -178,11 +178,11 @@ user_pref("dom.enable_web_task_scheduling", true);
 user_pref("gfx.webrender.all", true); // enables WR (GPU) + additional features
 user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.compositor", true);
-    //user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
+    //user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
 user_pref("layers.gpu-process.enabled", true);
-    //user_pref("layers.gpu-process.force-enabled", true); // reinforce
+    //user_pref("layers.gpu-process.force-enabled", true); // enforce
 user_pref("media.hardware-video-decoding.enabled", true);
-    //user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
+    //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
