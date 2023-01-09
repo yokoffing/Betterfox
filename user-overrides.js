@@ -119,8 +119,8 @@ user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla r
 
 /** DELETE IF NOT WINDOWS ***/
 user_pref("pdfjs.defaultZoomValue", "125"); // DESKTOP; alt=page-width; PDF zoom level
-user_pref("dom.ipc.processCount", 12); // Shared Web Content
-user_pref("dom.ipc.processCount.webIsolated", 8); // per-site; Isolated Web Content
+user_pref("dom.ipc.processCount", 12); // Shared Web Content; 12-core CPU
+user_pref("dom.ipc.processCount.webIsolated", 12); // per-site; Isolated Web Content; 12-core CPU
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);  // font improvement
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
