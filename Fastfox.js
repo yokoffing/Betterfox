@@ -307,9 +307,9 @@ user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; faster S
 //user_pref("network.predictor.enabled", true); // overrides SecureFox
 //user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
 //user_pref("network.predictor.enable-hover-on-ssl", true);
-    //user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=40
-    //user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=70
-    //user_pref("network.predictor.prefetch-min-confidence", 30); // default=100; alt=80
+    //user_pref("network.predictor.preresolve-min-confidence", 40); // default=60; alt=10
+    //user_pref("network.predictor.preconnect-min-confidence", 60); // default=90; alt=20
+    //user_pref("network.predictor.prefetch-min-confidence", 70); // default=100; alt=30
         //user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
         //user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
     //user_pref("network.predictor.max-resources-per-entry", 250); // default=100
