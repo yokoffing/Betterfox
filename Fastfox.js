@@ -267,7 +267,7 @@ user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 
 // PREF: increase DNS cache
 user_pref("network.dnsCacheEntries", 20000);	
-user_pref("network.dnsCacheExpiration", 3600);	// keep entries for 1 hour
+user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour
 user_pref("network.dnsCacheExpirationGracePeriod", 240);
 
 // PREF: increase TLS token caching 
