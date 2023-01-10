@@ -552,6 +552,10 @@ user_pref("network.predictor.enable-prefetch", false);
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs#values
 //user_pref("browser.urlbar.trimURLs", false);
 
+// PREF: disable search terms [FF110+]
+// [SETTING] Search>Search Bar>Use the address bar for search and navigation>Show search terms instead of URL...
+//user_pref("browser.urlbar.showSearchTerms.enabled", false);
+
 // PREF: enable seperate search engine for Private Windows
 // [SETTINGS] Preferences>Search>Default Search Engine>"Use this search engine in Private Windows"
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
