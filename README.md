@@ -62,6 +62,7 @@ If you use any of the features below, please view the [common overrides](https:/
 [5](https://old.reddit.com/r/firefox/comments/1030fri/why_does_firefox_feel_slowchoppy/j2wu4ow/)
 [6](https://old.reddit.com/r/pcmasterrace/comments/zwioe1/what_browser_will_you_be_using_in_2023_please/j1wmbxo/)
 [7](https://old.reddit.com/r/firefox/comments/zodxzx/performance_optimizations_for_firefox/j0memta/?context=2)
+[8](https://old.reddit.com/r/browsers/comments/106qwyk/in_contrast_to_previous_post_what_do_you_like/j3irpx0/?context=2)
 
 ### YouTube
 * [I Hate Firefox. But I'm Still Switching Back to It.](https://www.youtube.com/watch?v=w0SJFED5xK0) (Nov 2022)
