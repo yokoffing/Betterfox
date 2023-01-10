@@ -90,9 +90,9 @@ If you use any of the features below, please view the [common overrides](https:/
 * [Kagi Search Engine](https://kagifeedback.org/?author=yokoffing)
 * [Various blocklists](https://github.com/yokoffing/filterlists#contributions)
 
-## Helpful Links
+## Interesting Finds
 - [Keyboard shortcuts - Perform common Firefox tasks quickly](https://support.mozilla.org/en-US/kb/keyboard-shortcuts-perform-firefox-tasks-quickly)
-- 
+- [The Nightly build of Firefox has always been better](https://www.troddit.com/r/TrueRandomThoughts/comments/y78pmi/the_nightly_build_of_firefox_has_always_been)
 
 ## Credit
 * Many thanks to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://docs.openwebsandbox.org/learn/ows-articles/what-is-the-open-web).
