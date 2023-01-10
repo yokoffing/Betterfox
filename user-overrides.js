@@ -20,6 +20,32 @@
 user_pref("network.trr.uri", "https://dns.nextdns.io/******/Firefox"); // DoH - NextDNS
 user_pref("https://dns.controld.com/**********/firefox"); // DoH - ControlD
 
+/** FASTFOX ***/
+user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
+user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
+user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
+user_pref("layers.gpu-process.force-enabled", true); // reinforce
+user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
+user_pref("network.http.http3.enable", false); // disable QUIC for faster upload speeds
+user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
+user_pref("network.http.max-connections", 1800); // default=900
+user_pref("network.http.max-persistent-connections-per-server", 9); // default=6; download connections; anything above 10 is excessive
+user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
+user_pref("network.http.speculative-parallel-limit", 18); // default=6
+//user_pref("network.dns.disablePrefetch", false);
+    //user_pref("network.dns.disablePrefetchFromHTTPS", false);
+//user_pref("network.prefetch-next", true);
+user_pref("network.predictor.enabled", true);
+user_pref("network.predictor.enable-prefetch", true);
+user_pref("network.predictor.enable-hover-on-ssl", true);
+    user_pref("network.predictor.preresolve-min-confidence", 30);
+    user_pref("network.predictor.preconnect-min-confidence", 60);
+    user_pref("network.predictor.prefetch-min-confidence", 70);
+        user_pref("network.predictor.prefetch-force-valid-for", 3600);
+        user_pref("network.predictor.prefetch-rolling-load-count", 120);
+    user_pref("network.predictor.max-resources-per-entry", 250);
+    user_pref("network.predictor.max-uri-length", 1000);
+
 /** SECUREFOX ***/
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
@@ -73,32 +99,6 @@ user_pref("extensions.unifiedExtensions.enabled", false); // disable MV3 unified
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
     //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
-
-/** FASTFOX ***/
-user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
-user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
-user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
-user_pref("layers.gpu-process.force-enabled", true); // reinforce
-user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
-user_pref("network.http.http3.enable", false); // disable QUIC for faster upload speeds
-user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
-user_pref("network.http.max-connections", 1800); // default=900
-user_pref("network.http.max-persistent-connections-per-server", 9); // default=6; download connections; anything above 10 is excessive
-user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
-user_pref("network.http.speculative-parallel-limit", 18); // default=6
-//user_pref("network.dns.disablePrefetch", false);
-    //user_pref("network.dns.disablePrefetchFromHTTPS", false);
-//user_pref("network.prefetch-next", true);
-user_pref("network.predictor.enabled", true);
-user_pref("network.predictor.enable-prefetch", true);
-user_pref("network.predictor.enable-hover-on-ssl", true);
-    user_pref("network.predictor.preresolve-min-confidence", 40);
-    user_pref("network.predictor.preconnect-min-confidence", 60);
-    user_pref("network.predictor.prefetch-min-confidence", 70);
-        user_pref("network.predictor.prefetch-force-valid-for", 3600);
-        user_pref("network.predictor.prefetch-rolling-load-count", 120);
-    user_pref("network.predictor.max-resources-per-entry", 250);
-    user_pref("network.predictor.max-uri-length", 1000);
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("layout.css.scroll-linked-animations.enabled", true); // CSS scroll-linked animations
