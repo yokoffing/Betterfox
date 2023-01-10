@@ -17,7 +17,7 @@
 
 /** SETUP ON FIRST INSTALLATION ***/
 // Select one:
-user_pref("network.trr.uri", "https://dns.nextdns.io/******/firefox"); // DoH - NextDNS
+user_pref("network.trr.uri", "https://dns.nextdns.io/******/Firefox"); // DoH - NextDNS
 user_pref("https://dns.controld.com/**********/firefox"); // DoH - ControlD
 
 /** SECUREFOX ***/
