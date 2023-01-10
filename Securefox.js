@@ -213,9 +213,10 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("security.pki.crlite_mode", 2);
 
 // PREF: enable strict pinning
-// PKP (Public Key Pinning) 0=disabled, 1=allow user MiTM (such as your antivirus), 2=strict
+// [SETUP-WEB] MOZILLA_PKIX_ERROR_KEY_PINNING_FAILURE
 // If you rely on an AV (antivirus) to protect your web browsing
 // by inspecting ALL your web traffic, then leave at current default=1
+// PKP (Public Key Pinning) 0=disabled, 1=allow user MiTM (such as your antivirus), 2=strict
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16206
 user_pref("security.cert_pinning.enforcement_level", 2);
 
