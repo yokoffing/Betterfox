@@ -19,7 +19,7 @@
 ****************************************************************************/
 user_pref("nglayout.initialpaint.delay", 0);
 user_pref("nglayout.initialpaint.delay_in_oopif", 0);
-user_pref("content.notify.interval", 120000); // reset pref; remove in v.110
+user_pref("content.notify.interval", 100000);
 user_pref("browser.startup.preXulSkeletonUI", false);
 
 /** EXPERIMENTAL ***/
