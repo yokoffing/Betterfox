@@ -16,7 +16,9 @@
 /** Enter your personal prefs below this line ***/
 
 /** SETUP ON FIRST INSTALLATION ***/
-user_pref("network.trr.uri", "https://dns.nextdns.io/******"); // DoH
+// Select one:
+user_pref("network.trr.uri", "https://dns.nextdns.io/******/firefox"); // DoH - NextDNS
+user_pref("https://dns.controld.com/**********/firefox"); // DoH - ControlD
 
 /** SECUREFOX ***/
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
