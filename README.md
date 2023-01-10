@@ -95,7 +95,7 @@ If you use any of the features below, please view the [common overrides](https:/
 
 ## Credit
 * Many thanks to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://docs.openwebsandbox.org/learn/ows-articles/what-is-the-open-web).
-* This repository benefits from the research provided by [arkenfox](https://github.com/arkenfox/user.js). They are the foundation to any worthwhile user.js.
+* This repository benefits from the ongoing research provided by [arkenfox](https://github.com/arkenfox/user.js). They are the foundation to any worthwhile user.js.
 
 ## Support
 I’m a one-person operation, running this page as a passion project in my time off. If you enjoy my work, please leave a tip! Your support is incredibly appreciated and allows me to dedicate time to this project :blush:
