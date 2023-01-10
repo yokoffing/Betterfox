@@ -53,7 +53,7 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
 // [2] https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
 // [3] https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
-//user_pref("content.notify.interval", 120000); // DEFAULT; alt=360000 (.36s)
+//user_pref("content.notify.interval", 100000); // alt=360000 (.36s)
 
 // PREF: set the minimum interval between session save operations
 // Increasing this can help on older machines and some websites, as well as reducing writes
