@@ -70,9 +70,11 @@ user_pref("content.notify.interval", 100000); // alt=360000 (.36s)
 // PREF: disable preSkeletonUI on startup
 user_pref("browser.startup.preXulSkeletonUI", false);
 
-// PREF: CSS Font Loading API in workers
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1072107
-//user_pref("layout.css.font-loading-api.workers.enabled", true); // DEFAULT FF106+
+// PREF: disable efficiency mode for Firefox [WINDOWS]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1796525
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
+// [3] https://old.reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
+//user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
 
 /****************************************************************************
  * SECTION: EXPERIMENTAL                                                    *
