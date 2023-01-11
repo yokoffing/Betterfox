@@ -66,30 +66,13 @@ user_pref("content.notify.interval", 100000); // alt=360000 (.36s)
 //user_pref("browser.sessionstore.restore_on_demand", true); // DEFAULT
     //user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 //user_pref("browser.sessionstore.restore_tabs_lazily", true); // DEFAULT
-    
-// PREF: enable Lazy Image Loading
-// https://www.ghacks.net/2020/02/15/firefox-75-gets-lazy-loading-support-for-images/
-//user_pref("dom.image-lazy-loading.enabled", true); // DEFAULT
 
 // PREF: disable preSkeletonUI on startup
 user_pref("browser.startup.preXulSkeletonUI", false);
 
-// PREF: OffscreenCanvas
-// [1] https://yashints.dev/blog/2019/05/11/offscreen-canvas
-// [2] https://www.youtube.com/watch?v=CWvRA9E0DqU
-// [3] https://developer.chrome.com/blog/offscreen-canvas/
-// [4] https://groups.google.com/a/mozilla.org/g/dev-platform/c/kp9SZL-0wW0
-//user_pref("gfx.offscreencanvas.enabled", true); // DEFAULT FF106+
-
 // PREF: CSS Font Loading API in workers
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1072107
 //user_pref("layout.css.font-loading-api.workers.enabled", true); // DEFAULT FF106+
-
-// PREF: enable importMaps [FF108+]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1688879
-// [2] https://github.com/WICG/import-maps#the-basic-idea
-// [3] https://caniuse.com/import-maps
-//user_pref("dom.importMaps.enabled", true); // DEFAULT FF108+
 
 /****************************************************************************
  * SECTION: EXPERIMENTAL                                                    *
@@ -214,14 +197,6 @@ user_pref("media.memory_caches_combined_limit_kb", 2560000); // preferred=314572
 //user_pref("media.cache_size", 2048000); // default=512000
 user_pref("media.cache_readahead_limit", 9000); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
 user_pref("media.cache_resume_threshold", 6000); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
-
-// PREF: disable QUIC for faster upload speeds
-// Firefox currently has a bug with impacting upload speeds with HTTP3
-// [TEST] https://speedof.me/
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753486
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1596576
-//user_pref("network.http.http3.enable", false); // disables HTTP3/QUIC
-    //user_pref("network.http.http2.chunk-size", 32000); // default=16000
 
 // PREF: disable AV1 for hardware decodeable videos
 // AV1 uses software (CPU-based) decoding
