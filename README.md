@@ -41,15 +41,13 @@ Betterfox was created with a [less is more](https://medium.com/the-mission/less-
 
 ## Assumptions
 If you use any of the features below, please view the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to restore functionality.
-* **Google Safe Browsing** (GSB) is disabled. We recommend that you use DNS-level protection like [NextDNS](https://nextdns.io/?from=xujj63g5), so check out our configuration guide [here](https://github.com/yokoffing/NextDNS-Config). :warning: If you have no other form of protection, then please enable GSB!
-* Firefox **Accessibility Service** is disabled to improve resource utilization and security. This will impact external application autofill capability (the ability to use a keyboard shortcut to fill in forms including logins) and screen readers. If you use assistive software, override this.
+* **Google Safe Browsing** (GSB) is disabled. We recommend that you use DNS-level protection like [NextDNS](https://nextdns.io/?from=xujj63g5), so check out our configuration guide [here](https://github.com/yokoffing/NextDNS-Config). :warning: If you have no other form of protection, then please enable GSB! The [common overrides](https://github.com/yokoffing/Betterfox/issues/87)
+* Firefox **Accessibility Service** is disabled to improve resource utilization and security. If you use assistive software, override this.
 * The native **password manager** is also disabled. If you don't use something like [KeePass](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/), [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/), or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager), then enable Firefox's password management.
 * **Embedded tweets, instagram, reddit posts, and tiktoks** load on webpages, even though these requests are usually blocked when using Firefox's [Strict Enhanced Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection).
 * **Firefox Sync** and **Firefox View** are disabled.
-* **Site notifications** are disabled.
-* **Location requests** are rejected.
-* Since Firefox implemented [state](https://github.com/yokoffing/Betterfox/blob/537eb902106f5cacebfd7a77555193ba4573dc6e/SecureFox.js#L73-L88) and [network](https://github.com/yokoffing/Betterfox/blob/537eb902106f5cacebfd7a77555193ba4573dc6e/SecureFox.js#L93-L100) **partitioning**, it is recommended but no longer necessary to clear browsing data after every session.
-* [Fingerprinting](https://smartframe.io/blog/browser-fingerprinting-everything-you-need-to-know/) is a high [threat model](https://thenewoil.org/threatmodel.html) issue and is only addressed reasonably by TOR.<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> If your threat level calls for _anonymity_ and not just reasonable _privacy_, then please use the [TOR browser](https://www.torproject.org).
+* Annoying **site notifications** are disabled and **location requests** are rejected.
+* [Fingerprinting](https://smartframe.io/blog/browser-fingerprinting-everything-you-need-to-know/) is a [high threat model](https://thenewoil.org/threatmodel.html) issue and is only addressed reasonably by TOR.<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> If your threat level calls for _anonymity_ and not just reasonable _privacy_, then please use the [TOR browser](https://www.torproject.org).
 
 ## Recognition
 
