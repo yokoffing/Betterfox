@@ -41,9 +41,7 @@ Betterfox was created with a [less is more](https://medium.com/the-mission/less-
 
 ## Assumptions
 If you use any of the features below, please view the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to restore functionality.
-* **Google Safe Browsing** is disabled. :radioactive: Add [these prefs](https://github.com/yokoffing/Betterfox/issues/87) to your overrides section unless you have real-time malware and phishing protection through another service. (Ad-blockers do not count!) :radioactive:
-  * We recommend you use DNS-level protection like [NextDNS](https://nextdns.io/?from=xujj63g5) that utilizes a privacy-respecting implementation of Safe Browsing for all your devices, so check out our configuration guide [here](https://github.com/yokoffing/NextDNS-Config).
-* Firefox **Accessibility Service** is disabled to improve resource utilization and security. If you use assistive software, override this.
+* Firefox **Accessibility Service** is disabled to improve resource utilization and security. Override this if you use assistive software.
 * **Embedded tweets, instagram, reddit posts, and tiktoks** load on webpages, even though these requests are usually blocked when using Firefox's [Strict Enhanced Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection).
 * The native **password manager** is disabled. We recommend [KeePass](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/) or [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/).
 * **Firefox Sync** and **Firefox View** are disabled.
