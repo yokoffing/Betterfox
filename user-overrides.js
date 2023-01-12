@@ -23,9 +23,9 @@ user_pref("https://dns.controld.com/**********/firefox"); // DoH - ControlD
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
-user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
-user_pref("layers.gpu-process.force-enabled", true); // reinforce
-user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
+user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
+user_pref("layers.gpu-process.force-enabled", true); // enforce
+user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
 user_pref("network.http.http3.enable", true); // disable QUIC for faster upload speeds RESET PREF
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
 user_pref("network.http.max-connections", 1800); // default=900
@@ -53,12 +53,6 @@ user_pref("signon.management.page.breach-alerts.enabled", false); // extra harde
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);  // clear browsing data on shutdown
 user_pref("privacy.clearOnShutdown.offlineApps", true);  // disable if login issue after restart
-user_pref("browser.safebrowsing.provider.google4.gethashURL", ""); // extra hardening
-user_pref("browser.safebrowsing.provider.google4.updateURL", ""); // extra hardening
-user_pref("browser.safebrowsing.provider.google.gethashURL", ""); // extra hardening
-user_pref("browser.safebrowsing.provider.google.updateURL", ""); // extra hardening
-user_pref("browser.safebrowsing.downloads.remote.url", ""); // extra hardening
-user_pref("browser.safebrowsing.provider.google4.dataSharingURL", ""); // extra hardening
 user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
