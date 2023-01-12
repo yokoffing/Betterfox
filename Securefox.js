@@ -1049,7 +1049,6 @@ user_pref("media.peerconnection.ice.default_address_only", true);
     //user_pref("browser.safebrowsing.provider.google4.updateURL", "");
     //user_pref("browser.safebrowsing.provider.google.gethashURL", "");
     //user_pref("browser.safebrowsing.provider.google.updateURL", "");
-    //user_pref("browser.safebrowsing.downloads.remote.url", "");
     //user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
 
 // PREF: disable GSB checks for downloads (both local lookups + remote)
@@ -1064,14 +1063,18 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // If you do not understand this, or you want this protection, then override this
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
       //user_pref("browser.safebrowsing.downloads.remote.url", "");
+
+// PREF: disable GSB checks for unwanted software
 // [SETTING] Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
 //user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 //user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
-// PREF: disable "ignore this warning" on GSB warnings
+// PREF: enable "ignore this warning" on GSB warnings
 // If clicked, it bypasses the block for that session. This is a means for admins to enforce SB.
+// Report false positives to [2]
 // [TEST] see https://github.com/arkenfox/user.js/wiki/Appendix-A-Test-Sites#-mozilla
 // [1] https://bugzilla.mozilla.org/1226490
+// [2] https://safebrowsing.google.com/safebrowsing/report_general/
 user_pref("browser.safebrowsing.allowOverride", false);
 
 /******************************************************************************
