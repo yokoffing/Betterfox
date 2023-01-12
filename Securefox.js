@@ -1020,7 +1020,16 @@ user_pref("media.peerconnection.ice.default_address_only", true);
  * SECTION: GOOGLE SAFE BROWSING (GSB)                                        *
 ******************************************************************************/
 
-// PREF: disable Google Safe Browsing (master switch)
+// GSB has taken many steps to preserve privacy. If required, a full url is never sent
+// to Google, only a part-hash of the prefix, hidden with noise of other real part-hashes.
+// Firefox takes measures such as stripping out identifying parameters, and since SBv4 (FF57+),
+// doesn't even use cookies. (Turn on browser.safebrowsing.debug to monitor this activity)
+// [1] https://feeding.cloud.geek.nz/posts/how-safe-browsing-works-in-firefox/
+// [2] https://wiki.mozilla.org/Security/Safe_Browsing
+// [3] https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work
+// [4] https://educatedguesswork.org/posts/safe-browsing-privacy/
+
+// PREF: disable Google Safe Browsing
 // [WARNING] Be sure to have alternate security measures if you disable GSB!
 // [SETTING] Privacy & Security>Security>... Block dangerous and deceptive content
 // [ALTERNATIVE] Enable local checks only: https://github.com/yokoffing/Betterfox/issues/87
@@ -1034,8 +1043,8 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [8] https://blog.cryptographyengineering.com/2019/10/13/dear-apple-safe-browsing-might-not-be-that-safe/ (outdated)
 // [9] https://the8-bit.com/apple-proxies-google-safe-browsing-privacy/
 // [10] https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers
-user_pref("browser.safebrowsing.malware.enabled", false);
-user_pref("browser.safebrowsing.phishing.enabled", false);
+//user_pref("browser.safebrowsing.malware.enabled", false);
+//user_pref("browser.safebrowsing.phishing.enabled", false);
     //user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
     //user_pref("browser.safebrowsing.provider.google4.updateURL", "");
     //user_pref("browser.safebrowsing.provider.google.gethashURL", "");
@@ -1043,26 +1052,27 @@ user_pref("browser.safebrowsing.phishing.enabled", false);
     //user_pref("browser.safebrowsing.downloads.remote.url", "");
     //user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
 
-// PREF: disable GSB checking downloads (master switch)
+// PREF: disable GSB checks for downloads (both local lookups + remote)
 // This is the master switch for the safebrowsing.downloads prefs
 // [SETTING] Privacy & Security>Security>... "Block dangerous downloads"
-user_pref("browser.safebrowsing.downloads.enabled", false);
+//user_pref("browser.safebrowsing.downloads.enabled", false);
       
 // PREF: disable GSB checks for downloads (remote)
 // To verify the safety of certain executable files, Firefox may submit some information about the
 // file, including the name, origin, size and a cryptographic hash of the contents, to the Google
-// Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
-//user_pref("browser.safebrowsing.downloads.remote.enabled", false); // DEFAULT
+// Safe Browsing service which helps Firefox determine whether or not the file should be blocked
+// If you do not understand this, or you want this protection, then override this
+user_pref("browser.safebrowsing.downloads.remote.enabled", false);
       //user_pref("browser.safebrowsing.downloads.remote.url", "");
 // [SETTING] Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
-user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
-user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+//user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
+//user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
-// PREF: disable 'ignore this warning' on GSB warnings
+// PREF: disable "ignore this warning" on GSB warnings
 // If clicked, it bypasses the block for that session. This is a means for admins to enforce SB.
+// [TEST] see https://github.com/arkenfox/user.js/wiki/Appendix-A-Test-Sites#-mozilla
 // [1] https://bugzilla.mozilla.org/1226490
-user_pref("browser.safebrowsing.blockedURIs.enabled", false);
-//user_pref("browser.safebrowsing.allowOverride", true); // DEFAULT
+user_pref("browser.safebrowsing.allowOverride", false);
 
 /******************************************************************************
  * SECTION: MOZILLA                                                   *
