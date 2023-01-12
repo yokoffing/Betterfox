@@ -51,12 +51,13 @@ user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show
 user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
-user_pref("privacy.sanitize.sanitizeOnShutdown", true);  // clear browsing data on shutdown
-user_pref("privacy.clearOnShutdown.offlineApps", true);  // disable if login issue after restart
+user_pref("privacy.sanitize.sanitizeOnShutdown", true); // clear browsing data on shutdown
+user_pref("privacy.clearOnShutdown.offlineApps", true); // localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
 user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("network.notify.checkForProxies", false); // skip proxy request check
+user_pref("browser.safebrowsing.downloads.remote.url", "");
 // HTTPS-First instead of HTTPS-only
 user_pref("dom.security.https_only_mode", false); // disable in user.js
 user_pref("dom.security.https_first", true); // HTTPS-First instead of HTTPS-only
