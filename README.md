@@ -28,24 +28,24 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 |:---------:|-------------|
 | [Fastfox](https://github.com/yokoffing/Betterfox/blob/master/Fastfox.js)   | Immensely increase Firefox's browsing speed. Give Chrome a run for its money!|
 | [Securefox](https://github.com/yokoffing/Betterfox/blob/master/Securefox.js) | [Total Cookie Protection](https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/) with [site isolation](https://blog.mozilla.org/security/2021/05/18/introducing-site-isolation-in-firefox/). [HTTPS-only](https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/) connections. [State](https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning) and [network](https://blog.mozilla.org/security/2021/01/26/supercookie-protections/) partitioning. Block Telemetry and Mozilla experiments. [Various](https://blog.mozilla.org/security/) other privacy and security enhancements. |
-| [Peskyfox](https://github.com/yokoffing/Betterfox/blob/master/Peskyfox.js)  | Unclutter the new tab page. Remove [Pocket](https://support.mozilla.org/en-US/kb/what-pocket). Restore [compact mode](https://support.mozilla.org/en-US/kb/compact-mode-workaround-firefox). Prevent Firefox from serving annoying webpage notifications. |
+| [Peskyfox](https://github.com/yokoffing/Betterfox/blob/master/Peskyfox.js)  | Unclutter the new tab page. Remove [Pocket](https://support.mozilla.org/en-US/kb/what-pocket). Restore [compact mode](https://support.mozilla.org/en-US/kb/compact-mode-workaround-firefox). Prevent Firefox from serving annoying webpage notifications and pop-ups. |
 | [Smoothfox](https://github.com/yokoffing/Betterfox/blob/master/Smoothfox.js) | Get Edge-like smooth scrolling on your favorite browser, or choose something a little more your style. |
-| [user.js](https://github.com/yokoffing/Betterfox/blob/master/user.js) | All the essentials; none of the breakage. Recommended for you. Use this as your `user.js` file. |
+| [user.js](https://github.com/yokoffing/Betterfox/blob/master/user.js) | All the essentials. None of the breakage. Use this as your `user.js` file. |
 
-:bulb: `Fastfox`, `Securefox`, `Peskyfox`, and `Smoothfox` are guides to relevant prefs in Firefox. The `user.js` is curated from the prefs located in these documents, so just because a pref is in one of the guides doesn't mean it is included in the final document, the `user.js`. Please use the descriptions and references as a guide for the prefs in Firefox, and open a [feature request](https://github.com/yokoffing/Betterfox/issues/new/choose) if you think one can be improved upon.
+:bulb: `Fastfox`, `Securefox`, `Peskyfox`, and `Smoothfox` are guides to relevant prefs in Firefox. The `user.js` is curated from the prefs located in these documents, so just because a pref is in one of the guides doesn't mean it is included in the final document, the `user.js`. Please use the descriptions and references as a guide for the prefs in Firefox.
 
 ## about:Privacy
-The guiding principle is: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here<sup>^[*why?*](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)</sup>. While Betterfox is designed to set-and-forget, it contains plenty of options for those who want to tinker.
+Most repos have niche privacy and security concerns with little regard for speed, annoyances, or mainstream use. Betterfox was inspired by the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e). The average user does not need to alter all `prefs` to get the results they want.
 
-Most repos we encountered have niche privacy and security concerns with little regard for speed, annoyances, or mainstream use. Betterfox was inspired by the idea of the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e). The average user does not need to alter all `prefs` to get the results they want.
+The guiding principle is: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here<sup>^[*why?*](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)</sup>. And while Betterfox is designed to set-and-forget, it contains plenty of options for those like to tinker.
 
-Note that [fingerprinting](https://smartframe.io/blog/browser-fingerprinting-everything-you-need-to-know/) is a high [threat model](https://thenewoil.org/threatmodel.html) issue that is [only addressed reasonably by TOR](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D). If your threat level calls for _anonymity_ and not just reasonable _privacy_, then please use [TOR](https://www.torproject.org) browser.<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup>
+Note that [fingerprinting](https://smartframe.io/blog/browser-fingerprinting-everything-you-need-to-know/) is a high [threat model](https://thenewoil.org/threatmodel.html) issue that is [only addressed reasonably by Tor](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D). So if your threat level calls for _anonymity_ and not just reasonable _privacy_, then please use [Tor Browser](https://www.torproject.org).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup>
 
 ## Assumptions
 If you use any of the features below, please view the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to restore functionality.
 * Firefox **Accessibility Service** is disabled to improve resource utilization and security. Override this if you use assistive software.
 * **Embedded tweets, instagram, reddit posts, and tiktoks** load on webpages, even though these requests are usually blocked when using Firefox's [Strict Enhanced Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection).
-* The native **password manager** is disabled. We recommend [KeePass](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/) or [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/).
+* The native **password manager** is disabled. We recommend using [KeePass](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/) or [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/).
 * **Firefox Sync** and **Firefox View** are disabled.
 * Annoying **location requests** are rejected and **site notifications** are disabled.
 
@@ -85,10 +85,6 @@ If you use any of the features below, please view the [common overrides](https:/
 * [Orion Browser](https://orionfeedback.org/?author=yokoffing)
 * [Kagi Search Engine](https://kagifeedback.org/?author=yokoffing)
 * [Various blocklists](https://github.com/yokoffing/filterlists#contributions)
-
-## Interesting Finds
-- [Keyboard shortcuts - Perform common Firefox tasks quickly](https://support.mozilla.org/en-US/kb/keyboard-shortcuts-perform-firefox-tasks-quickly) :keyboard:
-- [The Nightly build of Firefox has always been better](https://www.troddit.com/r/TrueRandomThoughts/comments/y78pmi/the_nightly_build_of_firefox_has_always_been) :eyes:
 
 ## Credit
 * Many thanks to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://docs.openwebsandbox.org/learn/ows-articles/what-is-the-open-web).
