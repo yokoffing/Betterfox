@@ -124,21 +124,11 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 //user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 //user_pref("network.cookie.sameSite.schemeful", true); // DEFAULT 104+
 
-// PREF: enable Global Privacy Control (GPC) [NIGHTLY]
-// GPC is default in Brave.
-// Electronic Frontier Foundation’s (ETF) browser extensions enforce GPC.
-// Honored by many highly ranked sites [2]
-// [1] https://globalprivacycontrol.org/
-// [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
-// [3] https://blog.mozilla.org/netpolicy/2021/10/28/implementing-global-privacy-control/
-//user_pref("privacy.globalprivacycontrol.enabled", true);
-    //user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
-
 // PREF: Hyperlink Auditing (click tracking).
 //user_pref("browser.send_pings", false); // DEFAULT
 
-// PREF: Beacon API
-// Disabling this API sometimes causes breakage:
+// PREF: disable Beacon API
+// Disabling this API sometimes causes breakage
 // [TEST] https://vercel.com/
 // [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
 // [2] https://github.com/arkenfox/user.js/issues/1586
@@ -149,17 +139,21 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API#browser_compatibility
 //user_pref("dom.battery.enabled", false);
 
-// PREF: Local Storage Next Generation (LSNG) (DOMStorage) 
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
-//user_pref("dom.storage.next_gen", true); // DEFAULT FF92+
-
 // PREF: disable UITour backend so there is no chance that a remote page can use it
 user_pref("browser.uitour.enabled", false);
     //user_pref("browser.uitour.url", "");
 
 // PREF: reset remote debugging to disabled
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16222
-//user_pref("devtools.debugger.remote-enabled", false); // [DEFAULT: false]
+//user_pref("devtools.debugger.remote-enabled", false); // DEFAULT
+
+// PREF: enable Global Privacy Control (GPC) [NIGHTLY]
+// Honored by many highly ranked sites [2]
+// [1] https://globalprivacycontrol.org/
+// [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
+// [3] https://blog.mozilla.org/netpolicy/2021/10/28/implementing-global-privacy-control/
+//user_pref("privacy.globalprivacycontrol.enabled", true);
+    //user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 
 /****************************************************************************
  * SECTION: OSCP & CERTS / HPKP (HTTP Public Key Pinning)                   *
