@@ -207,7 +207,7 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("security.pki.crlite_mode", 2);
 
 // PREF: enable strict pinning
-// [SETUP-WEB] MOZILLA_PKIX_ERROR_KEY_PINNING_FAILURE
+// MOZILLA_PKIX_ERROR_KEY_PINNING_FAILURE
 // If you rely on an AV (antivirus) to protect your web browsing
 // by inspecting ALL your web traffic, then leave at current default=1
 // PKP (Public Key Pinning) 0=disabled, 1=allow user MiTM (such as your antivirus), 2=strict
@@ -990,7 +990,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // PREF: disable all DRM content (EME: Encryption Media Extension)
 // EME is a JavaScript API for playing DRMed (not free) video content in HTML.
 // A DRM component called a Content Decryption Module (CDM) decrypts, decodes, and displays the video.
-// [SETUP-WEB] e.g. Netflix, Amazon Prime, Hulu, HBO, Disney+, Showtime, Starz, DirectTV
+// e.g. Netflix, Amazon Prime, Hulu, HBO, Disney+, Showtime, Starz, DirectTV
 // [SETTING] General>DRM Content>Play DRM-controlled content
 // [TEST] https://bitmovin.com/demos/drm
 // [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
