@@ -92,9 +92,9 @@ user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from vario
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
 user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
 user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
-user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enabled", true);
-user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small");
-user_pref("image.jxl.enabled", true);
+user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enabled", true); // PiP
+user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small"); // PiP
+user_pref("image.jxl.enabled", true); // JPEG XL
 user_pref("extensions.unifiedExtensions.enabled", false); // disable MV3 unified extensions button [FF 109+]
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
     //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
@@ -109,14 +109,14 @@ user_pref("javascript.options.wasm_gc", true); // Wasm GC
 user_pref("javascript.options.wasm_function_references", true); // Wasm Function references
 user_pref("javascript.options.experimental.import_assertions", true); // import assertions
 user_pref("javascript.options.experimental.array_grouping", true); // Array.fromAsync JS API
-user_pref("cookiebanners.service.mode", 2);
-user_pref("cookiebanners.service.mode.privateBrowsing", 2);
-user_pref("privacy.globalprivacycontrol.enabled", true);
-user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
-user_pref("privacy.userContext.enabled", false);
+user_pref("cookiebanners.service.mode", 2); // block cookie banners natively
+user_pref("cookiebanners.service.mode.privateBrowsing", 2); // block cookie banners natively
+user_pref("privacy.globalprivacycontrol.enabled", true); // enable GPC
+user_pref("privacy.globalprivacycontrol.functionality.enabled", true); // enable GPC
+user_pref("privacy.userContext.enabled", false); // disable Containers
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 user_pref("network.dns.echconfig.enabled", false); // true by default on NIGHTLY
-//user_pref("browser.urlbar.suggest.quickactions", false);
+//user_pref("browser.urlbar.suggest.quickactions", false); // Quick Actions in URL bar
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla restricted domains [DEV/NIGHTLY]
 
