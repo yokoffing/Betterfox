@@ -27,17 +27,19 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 | List      | Description |
 |:---------:|-------------|
 | [Fastfox](https://github.com/yokoffing/Betterfox/blob/master/Fastfox.js)   | Immensely increase Firefox's browsing speed. Give Chrome a run for its money!|
-| [Securefox](https://github.com/yokoffing/Betterfox/blob/master/Securefox.js) | Remove Telemetry, Mozilla experiments, Google Safe Browsing, and search engine suggestions in URL bar. Auto-upgrade mixed content to HTTPS. Various privacy enhancements. |
-| [Peskyfox](https://github.com/yokoffing/Betterfox/blob/master/Peskyfox.js)  | Unclutter the new tab page. Remove Pocket and form autofill. Prevent Firefox from serving annoying webpage notifications. |
-| [Smoothfox](https://github.com/yokoffing/Betterfox/blob/master/Smoothfox.js) | Get Microsoft Edge-like smooth scrolling on your favorite browser. |
-| [user.js](https://github.com/yokoffing/Betterfox/blob/master/user.js) | All the essentials. None of the breakage. Users may download this list as their own user.js. |
+| [Securefox](https://github.com/yokoffing/Betterfox/blob/master/Securefox.js) | [Total Cookie Protection](https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/) with [site isolation](https://blog.mozilla.org/security/2021/05/18/introducing-site-isolation-in-firefox/). [HTTPS-only](https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/) connections. [State](https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning) and [network](https://blog.mozilla.org/security/2021/01/26/supercookie-protections/) partitioning. Remove invasive Telemetry and Mozilla experiments. [Various](https://blog.mozilla.org/security/) other privacy and security enhancements. |
+| [Peskyfox](https://github.com/yokoffing/Betterfox/blob/master/Peskyfox.js)  | Unclutter the new tab page. Remove [Pocket](https://support.mozilla.org/en-US/kb/what-pocket). Restore [compact mode](https://support.mozilla.org/en-US/kb/compact-mode-workaround-firefox). Prevent Firefox from serving annoying webpage notifications. Better font rendering on Windows. |
+| [Smoothfox](https://github.com/yokoffing/Betterfox/blob/master/Smoothfox.js) | Get Edge-like smooth scrolling on your favorite browser, or choose something a little more your style. |
+| [user.js](https://github.com/yokoffing/Betterfox/blob/master/user.js) | All the essentials. None of the breakage. Recommended for you. Download this as your `user.js`. |
 
 :bulb: `Fastfox`, `Securefox`, `Peskyfox`, and `Smoothfox` are guides to relevant prefs in Firefox. The `user.js` is curated from the prefs located in these documents, so just because a pref is in one of the guides doesn't mean it is included in the final document, the `user.js`. Please use the descriptions and references as a guide for the prefs in Firefox, and open a [feature request](https://github.com/yokoffing/Betterfox/issues/new/choose) if you think one can be improved upon.
 
 ## about:Privacy
-The guiding principle is: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here ([why?](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)). Betterfox is designed to set-and-forget, not to troubleshoot and tinker. You can compare different user.js files [here](https://jm42.github.io/compare-user.js).
+The guiding principle is: "If it breaks it, it doesn't make it!" So things like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here<sup>^[*why?*](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)</sup>. While Betterfox is designed to set-and-forget, it contains plenty of options for those who want to tinker.
 
-Betterfox was created with a [less is more](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e) mentality (i.e., keeping in mind [the law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png)). Most repos I've encountered have niche privacy and security concerns with little regard for speed, annoyances, or mainstream use. The average user doesn't need all `prefs` altered to get the results they want.
+Most repos we encountered have niche privacy and security concerns with little regard for speed, annoyances, or mainstream use. Betterfox was inspired by the idea of the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e). The average user does not need to alter all `prefs` to get the results they want.
+
+Note that [fingerprinting](https://smartframe.io/blog/browser-fingerprinting-everything-you-need-to-know/) is a high [threat model](https://thenewoil.org/threatmodel.html) issue that is [only addressed reasonably by TOR](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D). If your threat level calls for _anonymity_ and not just reasonable _privacy_, then please use [TOR](https://www.torproject.org) browser.<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup>
 
 ## Assumptions
 If you use any of the features below, please view the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to restore functionality.
@@ -46,7 +48,6 @@ If you use any of the features below, please view the [common overrides](https:/
 * The native **password manager** is disabled. We recommend [KeePass](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/) or [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/).
 * **Firefox Sync** and **Firefox View** are disabled.
 * Annoying **location requests** are rejected and **site notifications** are disabled.
-* Lastly, note that [fingerprinting](https://smartframe.io/blog/browser-fingerprinting-everything-you-need-to-know/) is a [high threat model](https://thenewoil.org/threatmodel.html) issue that is only addressed reasonably by TOR.<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> If your threat level calls for _anonymity_ and not just reasonable _privacy_, then please use the [TOR browser](https://www.torproject.org).
 
 ## Recognition
 
@@ -81,18 +82,18 @@ If you use any of the features below, please view the [common overrides](https:/
 
 ### Contributions
 * [Ghostery desktop browser](https://github.com/ghostery/user-agent-desktop/issues?q=is%3Apr+is%3Aissue+author%3Ayokoffing+)
-    * [Fingerprinting protection: Betterfox and arkenfox](https://github.com/ghostery/user-agent-desktop/issues/486) (somewhat outdated)
 * [Orion Browser](https://orionfeedback.org/?author=yokoffing)
 * [Kagi Search Engine](https://kagifeedback.org/?author=yokoffing)
 * [Various blocklists](https://github.com/yokoffing/filterlists#contributions)
 
 ## Interesting Finds
 - [Keyboard shortcuts - Perform common Firefox tasks quickly](https://support.mozilla.org/en-US/kb/keyboard-shortcuts-perform-firefox-tasks-quickly) :keyboard:
+- [Arkenfox on fingerprinting protection](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D) :thumbsup:
 - [The Nightly build of Firefox has always been better](https://www.troddit.com/r/TrueRandomThoughts/comments/y78pmi/the_nightly_build_of_firefox_has_always_been) :eyes:
 
 ## Credit
 * Many thanks to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://docs.openwebsandbox.org/learn/ows-articles/what-is-the-open-web).
-* This repository benefits from the ongoing research provided by [arkenfox](https://github.com/arkenfox/user.js). They are the foundation to any worthwhile user.js.
+* This repository benefits from the ongoing research provided by [arkenfox](https://github.com/arkenfox/user.js). They are the foundation to any worthwhile `user.js`.
 
 ## Support
 I’m a one-person operation, running this page as a passion project in my time off. If you enjoy my work, please leave a tip! Your support is incredibly appreciated and allows me to dedicate time to this project :blush:
