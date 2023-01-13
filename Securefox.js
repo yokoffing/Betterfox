@@ -34,7 +34,7 @@ user_pref("privacy.trackingprotection.emailtracking.enabled", true);
 
 // PREF: query stripping
 // Currently uses a small list [1]
-// We set the same query stripping list that Brave uses [2]
+// We set the same query stripping list that Brave and LibreWolf uses [2]
 // If using uBlock Origin or AdGuard, use filter lists as well [3]
 // [1] https://www.eyerys.com/articles/news/how-mozilla-firefox-improves-privacy-using-query-parameter-stripping-feature
 // [2] https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc
