@@ -97,5 +97,10 @@ I’m a one-person operation, running this page as a passion project in my time 
 
 <img align="top" width="20px" src="https://coekuss.com/quietfox/paypal.png"> PayPal: [paypal.me](about:blank) (forthcoming)
 
+## History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=yokoffing/Betterfox&type=Date)](https://star-history.com/#yokoffing/Betterfox&Date)
+
+
 <div align='center'><a href='https://www.websitecounterfree.com'><img src='https://www.websitecounterfree.com/c.php?d=9&id=19653&s=1' border='0' alt='Free Website Counter'></a><br / >
 <div align='center'>23 July 2022</div>
