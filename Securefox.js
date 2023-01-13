@@ -1015,10 +1015,10 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 //user_pref("devtools.selfxss.count", 5);
 
 /******************************************************************************
- * SECTION: GOOGLE SAFE BROWSING (GSB)                                        *
+ * SECTION: GOOGLE SAFE BROWSING (SB)                                         *
 ******************************************************************************/
 
-// GSB has taken many steps to preserve privacy. If required, a full url is never sent
+// SB has taken many steps to preserve privacy. If required, a full url is never sent
 // to Google, only a part-hash of the prefix, hidden with noise of other real part-hashes.
 // Firefox takes measures such as stripping out identifying parameters, and since SBv4 (FF57+),
 // doesn't even use cookies. (Turn on browser.safebrowsing.debug to monitor this activity)
@@ -1027,8 +1027,8 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [3] https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work
 // [4] https://educatedguesswork.org/posts/safe-browsing-privacy/
 
-// PREF: disable Google Safe Browsing
-// [WARNING] Be sure to have alternate security measures if you disable GSB!
+// PREF: disable Safe Browsing
+// [WARNING] Be sure to have alternate security measures if you disable SB! Adblockers do not count!
 // [SETTING] Privacy & Security>Security>... Block dangerous and deceptive content
 // [ALTERNATIVE] Enable local checks only: https://github.com/yokoffing/Betterfox/issues/87
 // [1] https://support.mozilla.org/en-US/kb/how-does-phishing-and-malware-protection-work#w_what-information-is-sent-to-mozilla-or-its-partners-when-phishing-and-malware-protection-is-enabled
@@ -1049,12 +1049,12 @@ user_pref("media.peerconnection.ice.default_address_only", true);
     //user_pref("browser.safebrowsing.provider.google.updateURL", "");
     //user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
 
-// PREF: disable GSB checks for downloads (both local lookups + remote)
+// PREF: disable SB checks for downloads (both local lookups + remote)
 // This is the master switch for the safebrowsing.downloads prefs
 // [SETTING] Privacy & Security>Security>... "Block dangerous downloads"
 //user_pref("browser.safebrowsing.downloads.enabled", false);
       
-// PREF: disable GSB checks for downloads (remote)
+// PREF: disable SB checks for downloads (remote)
 // To verify the safety of certain executable files, Firefox may submit some information about the
 // file, including the name, origin, size and a cryptographic hash of the contents, to the Google
 // Safe Browsing service which helps Firefox determine whether or not the file should be blocked
@@ -1062,12 +1062,12 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
       //user_pref("browser.safebrowsing.downloads.remote.url", "");
 
-// PREF: disable GSB checks for unwanted software
+// PREF: disable SB checks for unwanted software
 // [SETTING] Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
 //user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 //user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
-// PREF: enable "ignore this warning" on GSB warnings
+// PREF: enable "ignore this warning" on SB warnings
 // If clicked, it bypasses the block for that session. This is a means for admins to enforce SB.
 // Report false positives to [2]
 // [TEST] see https://github.com/arkenfox/user.js/wiki/Appendix-A-Test-Sites#-mozilla
