@@ -709,15 +709,13 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 ******************************************************************************/
 
 // PREF: enable Encrypted Client Hello (ECH)
+// [NOTE] HTTP already isolated with network partitioning
 // [1] https://blog.cloudflare.com/encrypted-client-hello/
 // [2] https://www.youtube.com/watch?v=tfyrVYqXQRE
+// [3] https://groups.google.com/a/chromium.org/g/blink-dev/c/KrPqrd-pO2M/m/Yoe0AG7JAgAJ
 //user_pref("network.dns.echconfig.enabled", true);
-//user_pref("network.dns.use_https_rr_as_altsvc", true); // DEFAULT
-
-// PREF: disable HTTP Alternative Services [FF37+]
-// [WHY] Already isolated by network partitioning (FF85+)
-//user_pref("network.http.altsvc.enabled", false);
-//user_pref("network.http.altsvc.oe", false);
+//user_pref("network.dns.http3_echconfig.enabled", true);
+    //user_pref("network.dns.use_https_rr_as_altsvc", true); // DEFAULT
 
 /******************************************************************************
  * SECTION: PROXY / SOCKS / IPv6                           *
