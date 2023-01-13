@@ -1041,31 +1041,32 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [8] https://blog.cryptographyengineering.com/2019/10/13/dear-apple-safe-browsing-might-not-be-that-safe/ (outdated)
 // [9] https://the8-bit.com/apple-proxies-google-safe-browsing-privacy/
 // [10] https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers
-//user_pref("browser.safebrowsing.malware.enabled", false);
-//user_pref("browser.safebrowsing.phishing.enabled", false);
+//user_pref("browser.safebrowsing.malware.enabled", false); // all checks happen locally
+//user_pref("browser.safebrowsing.phishing.enabled", false); // all checks happen locally
+    //user_pref("browser.safebrowsing.blockedURIs.enabled", false);
     //user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
     //user_pref("browser.safebrowsing.provider.google4.updateURL", "");
     //user_pref("browser.safebrowsing.provider.google.gethashURL", "");
     //user_pref("browser.safebrowsing.provider.google.updateURL", "");
-    //user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
 
-// PREF: disable SB checks for downloads (both local lookups + remote)
-// This is the master switch for the safebrowsing.downloads prefs
+// PREF: disable SB checks for downloads
+// This is the master switch for the safebrowsing.downloads prefs (both local lookups + remote)
+// [NOTE] Still enable this for checks to happen locally
 // [SETTING] Privacy & Security>Security>... "Block dangerous downloads"
-//user_pref("browser.safebrowsing.downloads.enabled", false);
+//user_pref("browser.safebrowsing.downloads.enabled", false); // all checks happen locally
       
 // PREF: disable SB checks for downloads (remote)
 // To verify the safety of certain executable files, Firefox may submit some information about the
 // file, including the name, origin, size and a cryptographic hash of the contents, to the Google
 // Safe Browsing service which helps Firefox determine whether or not the file should be blocked
-// If you do not understand this, or you want this protection, then override this
+// [NOTE] Disable to prevent remote checks
+// If you do not understand the consequences, override this
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
       //user_pref("browser.safebrowsing.downloads.remote.url", "");
-
-// PREF: disable SB checks for unwanted software
+// disable SB checks for unwanted software
 // [SETTING] Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
-//user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
-//user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+        //user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
+        //user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
 // PREF: enable "ignore this warning" on SB warnings
 // If clicked, it bypasses the block for that session. This is a means for admins to enforce SB.
