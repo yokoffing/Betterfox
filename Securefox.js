@@ -1018,10 +1018,10 @@ user_pref("media.peerconnection.ice.default_address_only", true);
  * SECTION: GOOGLE SAFE BROWSING (SB)                                         *
 ******************************************************************************/
 
-// SB has taken many steps to preserve privacy. If required, a full url is never sent
-// to Google, only a part-hash of the prefix, hidden with noise of other real part-hashes.
-// Firefox takes measures such as stripping out identifying parameters, and since SBv4 (FF57+),
-// doesn't even use cookies. (Turn on browser.safebrowsing.debug to monitor this activity)
+// If required, a full url is never sent to Google, only a part-hash of the prefix,
+// hidden with noise of other real part-hashes. Firefox takes measures such as
+// stripping out identifying parameters, and since SBv4 (FF57+), doesn't even use cookies.
+// (Turn on browser.safebrowsing.debug to monitor this activity)
 // [1] https://feeding.cloud.geek.nz/posts/how-safe-browsing-works-in-firefox/
 // [2] https://wiki.mozilla.org/Security/Safe_Browsing
 // [3] https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work
