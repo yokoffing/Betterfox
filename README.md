@@ -46,7 +46,7 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 * The native **password manager** is disabled. We recommend using [KeePass](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/) or [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/).
 * **Firefox Sync** and **Firefox View** are disabled.
 * **Location requests** are rejected and **site notifications** are disabled.
-* As of [v.109](https://github.com/yokoffing/Betterfox/releases/tag/109.0), **Safe Browsing** is enabled due to [privacy enhancements](https://github.com/yokoffing/Betterfox/blob/bd373bf1094ef0deda4e1ab756fa894a3cf5223a/Securefox.js#L1017-L1028).
+* As of [v.109](https://github.com/yokoffing/Betterfox/releases/tag/109.0), **Safe Browsing** is [enabled](https://support.mozilla.org/en-US/kb/how-does-phishing-and-malware-protection-work). Our implementation is [privacy-respecting](https://github.com/yokoffing/Betterfox/blob/6ff8f586c21abf516d70302ce184a0976ad09779/Securefox.js#L1017-L1028) and disables [real-time binary checks](https://github.com/yokoffing/Betterfox/blob/6ff8f586c21abf516d70302ce184a0976ad09779/Securefox.js#L1062). 
 
 ## Recognition
 
