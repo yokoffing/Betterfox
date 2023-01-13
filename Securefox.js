@@ -1059,7 +1059,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // To verify the safety of certain executable files, Firefox may submit some information about the
 // file, including the name, origin, size and a cryptographic hash of the contents, to the Google
 // Safe Browsing service which helps Firefox determine whether or not the file should be blocked
-// [NOTE] Disable to prevent remote checks
+// [NOTE] Disable this to prevent remote checks
 // If you do not understand the consequences, override this
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
       //user_pref("browser.safebrowsing.downloads.remote.url", "");
