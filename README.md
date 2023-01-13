@@ -46,7 +46,8 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 * The native **password manager** is disabled. We recommend using [KeePass](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/) or [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/).
 * **Firefox Sync** and **Firefox View** are disabled.
 * **Location requests** are rejected and **site notifications** are disabled.
-* As of [v.109](https://github.com/yokoffing/Betterfox/releases/tag/109.0), **Safe Browsing** is [enabled](https://support.mozilla.org/en-US/kb/how-does-phishing-and-malware-protection-work). Our implementation is [privacy-respecting](https://github.com/yokoffing/Betterfox/blob/6ff8f586c21abf516d70302ce184a0976ad09779/Securefox.js#L1017-L1028) and disables [real-time binary checks](https://github.com/yokoffing/Betterfox/blob/6ff8f586c21abf516d70302ce184a0976ad09779/Securefox.js#L1062). 
+
+Note: [Safe Browsing](https://support.mozilla.org/en-US/kb/how-does-phishing-and-malware-protection-work) is enabled as of [v.109](https://github.com/yokoffing/Betterfox/releases/tag/109.0). Our implementation is [privacy-respecting](https://github.com/yokoffing/Betterfox/blob/6ff8f586c21abf516d70302ce184a0976ad09779/Securefox.js#L1017-L1028) and disables [real-time binary checks](https://github.com/yokoffing/Betterfox/blob/e57445e265692494f4faac9e3c90106fbc9af1d9/Securefox.js#L1058-L1063). 
 
 ## Recognition
 
