@@ -40,12 +40,13 @@ Most repos have niche privacy and security concerns with little regard for speed
 If your context calls for _anonymity_ and not just reasonable _privacy_, then please use [Tor Browser](https://www.torproject.org).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> [Fingerprinting](https://smartframe.io/blog/browser-fingerprinting-everything-you-need-to-know/) is a high [threat model](https://thenewoil.org/threatmodel.html) issue that is [only addressed reasonably by Tor](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D).
 
 ## Assumptions
-If you use any of the features below, please view the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to restore functionality:
+Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky if you want to revert the following behavior:
 * Firefox **Accessibility Service** is disabled to improve resource utilization and security. Override this if you use assistive software.
-* **Embedded tweets, instagram, reddit posts, and tiktoks** load on webpages, even though these requests are usually blocked when using Firefox's [Strict Enhanced Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection).
+* **Embedded tweets, instagram, reddit posts, and tiktoks** load on webpages, even though these requests are usually blocked when using [Strict Enhanced Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection).
 * The native **password manager** is disabled. We recommend using [KeePass](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/) or [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/).
 * **Firefox Sync** and **Firefox View** are disabled.
-* Annoying **location requests** are rejected and **site notifications** are disabled.
+* **Location requests** are rejected and **site notifications** are disabled.
+* As of [v.109](https://github.com/yokoffing/Betterfox/releases/tag/109.0), **Safe Browsing** is enabled due to [privacy enhancements](https://github.com/yokoffing/Betterfox/blob/bd373bf1094ef0deda4e1ab756fa894a3cf5223a/Securefox.js#L1017-L1028).
 
 ## Recognition
 
@@ -60,12 +61,12 @@ If you use any of the features below, please view the [common overrides](https:/
 [8](https://old.reddit.com/r/browsers/comments/106qwyk/in_contrast_to_previous_post_what_do_you_like/j3irpx0/?context=2)
 
 ### YouTube
-* [I Hate Firefox. But I'm Still Switching Back to It.](https://www.youtube.com/watch?v=w0SJFED5xK0) (Nov 2022)
+* [I Hate Firefox. But I'm Still Switching Back to It.](https://youtu.be/w0SJFED5xK0?t=220) (Nov 2022)
 * [Español] [Optimizar y Acelerar Firefox](https://www.youtube.com/watch?v=3XtoONmq5_Q) (Nov 2022) 
 * [How To Improve Firefox Performance](https://www.youtube.com/watch?v=N8IOJiOFVEk) (Dec 2021)
     
 ### Podcasts
-* [GhoSTORIES with Franz & Pete, S2|E6, 17:05-18:40](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh) (Feb 2021)
+* [GhoSTORIES with Franz & Pete](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh), S2|E6, 17:05-18:40 (Feb 2021)
 
 ### Browser Integration
 * [Pulse Browser](https://github.com/pulse-browser/browser#%EF%B8%8F-credits) | [files](https://github.com/pulse-browser/browser/tree/alpha/src/browser/app/profile) (Dec 2021)
