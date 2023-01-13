@@ -1015,10 +1015,10 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 //user_pref("devtools.selfxss.count", 5);
 
 /******************************************************************************
- * SECTION: GOOGLE SAFE BROWSING (SB)                                         *
+ * SECTION: SAFE BROWSING (SB)                                                *
 ******************************************************************************/
 
-// If required, a full url is never sent to Google, only a part-hash of the prefix,
+// A full url is never sent to Google, only a part-hash of the prefix,
 // hidden with noise of other real part-hashes. Firefox takes measures such as
 // stripping out identifying parameters, and since SBv4 (FF57+), doesn't even use cookies.
 // (Turn on browser.safebrowsing.debug to monitor this activity)
