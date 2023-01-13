@@ -151,14 +151,11 @@ user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 user_pref("media.peerconnection.ice.default_address_only", true);
 
 /** GOOGLE SAFE BROWSING ***/
+user_pref("browser.safebrowsing.blockedURIs.enabled", true); // reset pref; remove in v.110
 user_pref("browser.safebrowsing.malware.enabled", true); // reset pref; remove in v.110
 user_pref("browser.safebrowsing.phishing.enabled", true); // reset pref; remove in v.110
 user_pref("browser.safebrowsing.downloads.enabled", true); // reset pref; remove in v.110
-user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", true); // reset pref; remove in v.110
-user_pref("browser.safebrowsing.downloads.remote.block_uncommon", true); // reset pref; remove in v.110
-user_pref("browser.safebrowsing.blockedURIs.enabled", true); // reset pref; remove in v.110
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
-user_pref("browser.safebrowsing.allowOverride", false);
 
 /** MOZILLA ***/
 user_pref("accessibility.force_disabled", 1);
