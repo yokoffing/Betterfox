@@ -150,7 +150,7 @@ user_pref("privacy.userContext.ui.enabled", true);
 user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 user_pref("media.peerconnection.ice.default_address_only", true);
 
-/** GOOGLE SAFE BROWSING ***/
+/** SAFE BROWSING ***/
 user_pref("browser.safebrowsing.blockedURIs.enabled", true); // reset pref; remove in v.110
 user_pref("browser.safebrowsing.malware.enabled", true); // reset pref; remove in v.110
 user_pref("browser.safebrowsing.phishing.enabled", true); // reset pref; remove in v.110
