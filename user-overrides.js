@@ -53,7 +53,7 @@ user_pref("signon.management.page.breach-alerts.enabled", false); // extra harde
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("privacy.sanitize.sanitizeOnShutdown", true); // clear browsing data on shutdown
 user_pref("privacy.clearOnShutdown.offlineApps", true); // Site Data
-user_pref("browser.safebrowsing.downloads.enabled", false); // allow Safe Browsing to scan your downloads to identify suspicious files; local checks only
+user_pref("browser.safebrowsing.downloads.enabled", false); // allow SB to scan your downloads to identify suspicious files; local checks only
 user_pref("browser.safebrowsing.downloads.remote.url", ""); // enforce no remote checks for downloads by SB
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false); // clean up UI; not needed in user.js if remote downloads are disabled
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false); // clean up UI; not needed in user.js if remote downloads are disabled
