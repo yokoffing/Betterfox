@@ -302,7 +302,7 @@ user_pref("extensions.pocket.enabled", false);
 // 0=desktop, 1=downloads (default), 2=last used
 //user_pref("browser.download.folderList", 2);
 
-// PREF: Enforce user interaction for security by always asking where to download.
+// PREF: Enforce user interaction for security by always asking where to download
 // [SETTING] General>Downloads>Always ask you where to save files
 // false=the user is asked what to do
 user_pref("browser.download.useDownloadDir", false);
@@ -313,9 +313,6 @@ user_pref("browser.download.alwaysOpenPanel", false);
 
 // PREF: Disable adding downloads to the system's "recent documents" list
 user_pref("browser.download.manager.addToRecentDocs", false);
-
-// PREF: Autohide download button
-//user_pref("browser.download.autohideButton", true); // DEFAULT
 
 // PREF: enable user interaction for security by always asking how to handle new mimetypes
 // [SETTING] General>Files and Applications>What should Firefox do with other files
