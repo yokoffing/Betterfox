@@ -314,9 +314,6 @@ user_pref("browser.download.alwaysOpenPanel", false);
 // PREF: Disable adding downloads to the system's "recent documents" list
 user_pref("browser.download.manager.addToRecentDocs", false);
 
-// PREF: Autohide download button
-//user_pref("browser.download.autohideButton", true); // DEFAULT
-
 // PREF: enable user interaction for security by always asking how to handle new mimetypes
 // [SETTING] General>Files and Applications>What should Firefox do with other files
 user_pref("browser.download.always_ask_before_handling_new_types", true);
