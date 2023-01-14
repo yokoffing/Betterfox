@@ -302,7 +302,7 @@ user_pref("extensions.pocket.enabled", false);
 // 0=desktop, 1=downloads (default), 2=last used
 //user_pref("browser.download.folderList", 2);
 
-// PREF: Enforce user interaction for security by always asking where to download.
+// PREF: Enforce user interaction for security by always asking where to download
 // [SETTING] General>Downloads>Always ask you where to save files
 // false=the user is asked what to do
 user_pref("browser.download.useDownloadDir", false);
