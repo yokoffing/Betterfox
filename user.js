@@ -161,7 +161,7 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 user_pref("accessibility.force_disabled", 1);
 user_pref("identity.fxaccounts.enabled", false);
 user_pref("browser.tabs.firefox-view", false);
-user_pref("dom.push.enabled", false);
+user_pref("dom.push.enabled", true); // reset pref; remove in v.110
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
