@@ -1,12 +1,9 @@
-[![GitHub issues](https://img.shields.io/github/issues/yokoffing/BetterFox)](https://github.com/yokoffing/Better-Fox/issues)
+![GitHub Maintained](https://img.shields.io/badge/open%20source-yes-green)
+![GitHub Maintained](https://img.shields.io/badge/maintained-yes-green)
 [![GitHub closed issues](https://badgen.net/github/closed-issues/yokoffing/Betterfox?color=green)](https://github.com/yokoffing/Betterfox/issues?q=is%3Aissue+is%3Aclosed)
-![GitHub repo size](https://img.shields.io/github/repo-size/yokoffing/Betterfox)
-![GitHub](https://img.shields.io/github/license/yokoffing/Betterfox?color=blue)
-![GitHub Maintained](https://img.shields.io/badge/Open%20Source-Yes-green)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/yokoffing/Betterfox)
 ![GitHub last commit](https://img.shields.io/github/last-commit/yokoffing/Betterfox)
-![GitHub Maintained](https://img.shields.io/badge/maintained-yes-green)
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyokoffing%2FBetter-Fox&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+[![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyokoffing%2FBetter-Fox&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
 
 # Betterfox
 about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/ "Firefox Homepage"). Files are updated as needed for your [user.js](http://kb.mozillazine.org/User.js_file).
