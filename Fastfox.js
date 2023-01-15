@@ -101,7 +101,7 @@ user_pref("dom.enable_web_task_scheduling", true);
 //user_pref("layout.css.container-queries.enabled", true);
 
 // PREF: scroll-linked animations [NIGHTLY]
-//user_pref("layout.css.scroll-linked-animations.enabled", true);
+//user_pref("layout.css.scroll-driven-animations.enabled", true);
 
 // PREF: HTML Sanitizer API [NIGHTLY]
 //user_pref("dom.security.sanitizer.enabled", true);
