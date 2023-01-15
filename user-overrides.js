@@ -104,7 +104,7 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("layout.css.scroll-driven-animations.enabled", true); // CSS scroll-linked animations 
 //user_pref("dom.security.sanitizer.enabled", true); // HTML Sanitizer API 
 //user_pref("privacy.clearsitedata.cache.enabled", true); // Clear-Site-Data: "cache" header
-user_pref("dom.indexedDB.preprocessing", true); // indexedDB Preprocessing
+//user_pref("dom.indexedDB.preprocessing", true); // indexedDB Preprocessing
 user_pref("javascript.options.experimental.shadow_realms", true); // Shadowrealms
 user_pref("javascript.options.wasm_gc", true); // Wasm GC
 user_pref("javascript.options.wasm_function_references", true); // Wasm Function references
