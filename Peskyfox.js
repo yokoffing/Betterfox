@@ -61,16 +61,6 @@ user_pref("browser.tabs.tabmanager.enabled", false);
 // PREF: disable Unified Extensions button [FF109+]
 //user_pref("extensions.unifiedExtensions.enabled", false);
 
-// PREF: remove "addons.mozilla.org" from set of domains that extensions cannot access
-// [NOTE] May only work with privacy.resistfingerprinting enabled? and/or DEV/NIGHTLY-only?
-// [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
-//user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
-//user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
-
-// PREF: do not require signing for extensions [ESR/DEV/NIGHTLY ONLY]
-// [1] https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox#w_what-are-my-options-if-i-want-to-use-an-unsigned-add-on-advanced-users
-//user_pref("xpinstall.signatures.required", false);
-
 // PREF: disable Warnings
 //user_pref("browser.tabs.warnOnClose", false); // DEFAULT [FF94+]
 //user_pref("browser.tabs.warnOnCloseOtherTabs", false);
