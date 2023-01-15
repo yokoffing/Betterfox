@@ -128,9 +128,10 @@ user_pref("dom.enable_web_task_scheduling", true);
 //user_pref("javascript.options.experimental.array_grouping", true);
 //user_pref("javascript.options.experimental.enable_change_array_by_copy", true);
 
-// PREF: indexedDB preprocessing
+// PREF: indexedDB
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1112702
 //user_pref("dom.indexedDB.preprocessing", true);
-//user_pref("dom.indexedDB.experimental", true); // needed?
+//user_pref("dom.indexedDB.experimental", false); // DEFAULT
 
 // PREF: WebGPU [HIGHLY EXPERIMENTAL!]
 // [WARNING] Do not enable unless you are a web developer!
