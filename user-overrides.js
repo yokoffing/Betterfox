@@ -58,6 +58,7 @@ user_pref("browser.safebrowsing.downloads.remote.url", ""); // enforce no remote
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false); // clean up UI; not needed in user.js if remote downloads are disabled
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false); // clean up UI; not needed in user.js if remote downloads are disabled
 user_pref("browser.safebrowsing.allowOverride", false); // do not allow user to override SB
+user_pref("dom.push.enabled", false); // disable Push API; breaks FF Sync
 user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
@@ -140,4 +141,5 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728);
 
 /** DELETE IF NOT macOS ***/
 user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level
+user_pref("app.update.auto", false); // disable auto-installing Firefox updates [NON-WINDOWS]
 //user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
