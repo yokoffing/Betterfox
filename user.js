@@ -51,9 +51,6 @@ user_pref("browser.cache.memory.max_entry_size", 153600);
 /** NETWORK ***/
 user_pref("network.buffer.cache.size", 262144);
 user_pref("network.buffer.cache.count", 128);
-user_pref("network.dnsCacheEntries", 20000);	
-user_pref("network.dnsCacheExpiration", 3600);	
-user_pref("network.dnsCacheExpirationGracePeriod", 240);
 user_pref("network.ssl_tokens_cache_capacity", 32768);
 
 /****************************************************************************
