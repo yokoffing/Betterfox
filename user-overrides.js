@@ -31,6 +31,9 @@ user_pref("media.av1.enabled", false); // disable AV1 to force video hardware de
 user_pref("network.http.max-connections", 1800); // default=900
 user_pref("network.http.max-persistent-connections-per-server", 9); // default=6; download connections; anything above 10 is excessive
 user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
+user_pref("network.dnsCacheEntries", 20000); // maximum # of DNS entries
+user_pref("network.dnsCacheExpiration", 86400); // keep DNS entries for 24 hours
+user_pref("network.dnsCacheExpirationGracePeriod", 240); // 4 minutes
 user_pref("network.http.speculative-parallel-limit", 18); // default=6
 //user_pref("network.dns.disablePrefetch", false);
     //user_pref("network.dns.disablePrefetchFromHTTPS", false);
