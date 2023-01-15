@@ -74,18 +74,6 @@ user_pref("browser.startup.preXulSkeletonUI", false);
  * SECTION: EXPERIMENTAL                                                    *
 ****************************************************************************/
 
-// PREF: indexedDB
-//user_pref("dom.indexedDB.experimental", true);
-//user_pref("dom.indexedDB.preprocessing", true);
-
-// PREF: WebGPU [HIGHLY EXPERIMENTAL!]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
-// [2] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
-// [3] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
-// [4] https://developer.chrome.com/docs/web-platform/webgpu/
-//user_pref("dom.webgpu.enabled", true);
-    //user_pref("gfx.webgpu.force-enabled", true);
-
 // PREF: about:home startup cache [NIGHTLY]
 // A cache for the initial about:home document that is loaded by default at startup
 // The purpose of the cache is to improve startup performance
@@ -139,6 +127,19 @@ user_pref("dom.enable_web_task_scheduling", true);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1795452
 //user_pref("javascript.options.experimental.array_grouping", true);
 //user_pref("javascript.options.experimental.enable_change_array_by_copy", true);
+
+// PREF: indexedDB preprocessing
+//user_pref("dom.indexedDB.preprocessing", true);
+//user_pref("dom.indexedDB.experimental", true); // needed?
+
+// PREF: WebGPU [HIGHLY EXPERIMENTAL!]
+// [WARNING] Do not enable unless you are a web developer!
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
+// [2] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
+// [3] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
+// [4] https://developer.chrome.com/docs/web-platform/webgpu/
+//user_pref("dom.webgpu.enabled", true);
+    //user_pref("gfx.webgpu.force-enabled", true);
 
 /****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
