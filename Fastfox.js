@@ -74,6 +74,10 @@ user_pref("browser.startup.preXulSkeletonUI", false);
  * SECTION: EXPERIMENTAL                                                    *
 ****************************************************************************/
 
+// PREF: indexedDB
+//user_pref("dom.indexedDB.experimental", true);
+//user_pref("dom.indexedDB.preprocessing", true);
+
 // PREF: WebGPU [HIGHLY EXPERIMENTAL!]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
 // [2] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
