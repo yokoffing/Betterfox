@@ -524,3 +524,9 @@ user_pref("layout.css.has-selector.enabled", true);
 // The prefs below restores the previous zooming behavior
 //user_pref("mousewheel.with_control.action", 3);
 //user_pref("mousewheel.with_meta.action", 3);
+
+// PREF: disable efficiency mode [WINDOWS]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1796525
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
+// [3] https://old.reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
+//user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
