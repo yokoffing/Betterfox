@@ -1098,29 +1098,33 @@ user_pref("accessibility.force_disabled", 1);
 //user_pref("accessibility.mouse_focuses_formcontrol", 0);
 
 // PREF: disable Firefox accounts
-// [ALTERNATIVE] Use xBrowserSync
+// [ALTERNATIVE] Use xBrowserSync [1]
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
+// [2] https://github.com/arkenfox/user.js/issues/1175
 user_pref("identity.fxaccounts.enabled", false);
 
 // PREF: disable Firefox View [FF106+]
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
 user_pref("browser.tabs.firefox-view", false);
 
-// PREF: disable Push API
+// PREF: disable Push Notifications API [FF44+]
 // Push is an API that allows websites to send you (subscribed) messages even when the site
 // isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
+// You shouldn't need to disable this.
+// [WHY] Push requires subscription
+// [NOTE] To remove all subscriptions, reset "dom.push.userAgentID"
 // [1] https://support.mozilla.org/en-US/kb/push-notifications-firefox
 // [2] https://developer.mozilla.org/en-US/docs/Web/API/Push_API
 // [3] https://www.reddit.com/r/firefox/comments/fbyzd4/the_most_private_browser_isnot_firefox/
-user_pref("dom.push.enabled", false);
-//user_pref("dom.push.userAgentID", "");
+//user_pref("dom.push.enabled", false);
+    //user_pref("dom.push.userAgentID", "");
 
-// PREF: Set a default permission for Notifications
+// PREF: Set a default permission for Web Notifications
 // To add site exceptions: Page Info>Permissions>Receive Notifications.
 // To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings.
 // 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.desktop-notification", 2);
-
+   
 // PREF: disable annoying location requests from websites
 user_pref("permissions.default.geo", 2);
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
@@ -1150,19 +1154,33 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 // [SETTING] General>Firefox Updates>Check for updates but let you choose to install them
 //user_pref("app.update.auto", false);
 
+// PREF: disable automatic extension updates
+//user_pref("extensions.update.enabled", false);
+
 // PREF: disable search engine updates (e.g. OpenSearch)
 // [NOTE] This does not affect Mozilla's built-in or Web Extension search engines
 //user_pref("browser.search.update", false);
 
-// PREF: Disable automatic extension updates [move to Pesky]
-//user_pref("extensions.update.enabled", false);
-
 // PREF: remove special permissions for certain mozilla domains
-// [1] resource://app/defaults/permissions
-user_pref("permissions.manager.defaultsUrl", "");
+// default = resource://app/defaults/permissions
+//user_pref("permissions.manager.defaultsUrl", "");
 
 // PREF: remove webchannel whitelist
 user_pref("webchannel.allowObject.urlWhitelist", "");
+
+// PREF: disable mozAddonManager Web API [FF57+]
+// [NOTE] To allow extensions to work on AMO, you also need 2662
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988
+//user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
+
+// PREF: remove "addons.mozilla.org" from set of domains that extensions cannot access
+// [NOTE] May only work with privacy.resistfingerprinting enabled? and/or DEV/NIGHTLY-only?
+// [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
+//user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
+
+// PREF: do not require signing for extensions [ESR/DEV/NIGHTLY ONLY]
+// [1] https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox#w_what-are-my-options-if-i-want-to-use-an-unsigned-add-on-advanced-users
+//user_pref("xpinstall.signatures.required", false);
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
