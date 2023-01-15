@@ -101,15 +101,15 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
 
 /** DELETE IF NOT NIGHTLY ***/
-user_pref("layout.css.scroll-linked-animations.enabled", true); // CSS scroll-linked animations
-user_pref("dom.security.sanitizer.enabled", true); // HTML Sanitizer API 
-user_pref("privacy.clearsitedata.cache.enabled", true); // Clear-Site-Data: "cache" header 
+//user_pref("layout.css.scroll-driven-animations.enabled", true); // CSS scroll-linked animations 
+//user_pref("dom.security.sanitizer.enabled", true); // HTML Sanitizer API 
+//user_pref("privacy.clearsitedata.cache.enabled", true); // Clear-Site-Data: "cache" header
+user_pref("dom.indexedDB.preprocessing", true); // indexedDB Preprocessing
 user_pref("javascript.options.experimental.shadow_realms", true); // Shadowrealms
 user_pref("javascript.options.wasm_gc", true); // Wasm GC
 user_pref("javascript.options.wasm_function_references", true); // Wasm Function references
 user_pref("javascript.options.experimental.import_assertions", true); // import assertions
 user_pref("javascript.options.experimental.array_grouping", true); // Array.fromAsync JS API
-user_pref("dom.indexedDB.preprocessing", true); // indexedDB
 user_pref("cookiebanners.service.mode", 2); // block cookie banners natively
 user_pref("cookiebanners.service.mode.privateBrowsing", 2); // block cookie banners natively
 user_pref("privacy.globalprivacycontrol.enabled", true); // enable GPC
@@ -125,7 +125,7 @@ user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla r
 user_pref("pdfjs.defaultZoomValue", "125"); // DESKTOP; alt=page-width; PDF zoom level
 user_pref("dom.ipc.processCount", 12); // Shared Web Content; 12-core CPU
 user_pref("dom.ipc.processCount.webIsolated", 12); // per-site; Isolated Web Content; 12-core CPU
-user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);  // font improvement
+user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true); // font improvement
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
