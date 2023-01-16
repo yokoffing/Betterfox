@@ -38,16 +38,19 @@ If your context calls for _anonymity_ and not just reasonable _privacy_, then pl
 
 ## Assumptions
 Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky if you want to revert the following behavior:
+* **Safe Browsing** is enabled as of [v.109](https://github.com/yokoffing/Betterfox/releases/tag/109.0). Our implementation is [privacy-respecting](https://github.com/yokoffing/Betterfox/blob/43eff0db788b0626a95bf9091b0fcb1c83a78cbe/Securefox.js#L1017-L1028) and disables [real-time binary checks](https://github.com/yokoffing/Betterfox/blob/43eff0db788b0626a95bf9091b0fcb1c83a78cbe/Securefox.js#L1058-L1068).
 * Firefox **Accessibility Service** is disabled to improve resource utilization and security. Override this if you use assistive software.
 * **Embedded tweets, instagram, reddit posts, and tiktoks** load on webpages, even though these requests are usually blocked when using [Strict Enhanced Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection).
 * The native **password manager** is disabled. We recommend using [KeePass](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/), [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/), or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager).
 * **Firefox Sync** and **Firefox View** are disabled.
 * **Location requests** are rejected and **site notifications** are disabled.
 
-Note: [Safe Browsing](https://support.mozilla.org/en-US/kb/how-does-phishing-and-malware-protection-work) is enabled as of [v.109](https://github.com/yokoffing/Betterfox/releases/tag/109.0). Our implementation is [privacy-respecting](https://github.com/yokoffing/Betterfox/blob/6ff8f586c21abf516d70302ce184a0976ad09779/Securefox.js#L1017-L1028) and disables [real-time binary checks](https://github.com/yokoffing/Betterfox/blob/e57445e265692494f4faac9e3c90106fbc9af1d9/Securefox.js#L1058-L1063). 
+### Suggestions
+* We recommend you enable **sanitize on close** ([clear browsing data on shutdown](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
+   * You can **allow exceptions** if you want to stay logged in to some sites in *Settings → Privacy & Security → Cookies and Site Data → Manage Exceptions*.
+   * Check *Delete cookies and site data when Firefox is closed*.
 
 ## Recognition
-
 ### User Comments
 - [1](https://old.reddit.com/r/firefox/comments/xsw0zt/comment/iqo0dbv/?context=3)
 [2](https://old.reddit.com/r/browsers/comments/y7w57n/which_browser_do_you_use_on_your_devices/it30hqi/?context=3)
