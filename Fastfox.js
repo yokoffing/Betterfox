@@ -215,11 +215,11 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 // More efficient to keep the browser cache instead of
 // having to re-download objects for the websites you visit frequently
 //user_pref("browser.cache.disk.enable", true); // DEFAULT; overrides Securefox
-//user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT
-//user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
 //user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
+    //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
+//user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT
 //user_pref("browser.cache.max_shutdown_io_lag", 8); // number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
-//user_pref("browser.cache.frecency_half_life_hours", 24); // lower cache sweep intervals, the half life used to re-compute cache entries frequency (in hours)
+//user_pref("browser.cache.frecency_half_life_hours", 6); // DEFAULT; lower cache sweep intervals, the half life used to re-compute cache entries frequency (in hours)
 
 // PREF: increase memory cache size
 // [1] https://www.makeuseof.com/tag/how-much-data-does-youtube-use/
