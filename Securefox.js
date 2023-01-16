@@ -323,9 +323,6 @@ user_pref("browser.display.use_system_colors", false);
 ****************************************************************************/
 
 // PREF: disable disk cache
-// [NOTE] If you're thinking it would be more efficient to keep the browser cache instead of
-// having to re-download objects for the websites you visit frequently, you're right;
-// however doing so can compromise your privacy.
 // [NOTE] If you think disk cache helps performance, then feel free to override this.
 user_pref("browser.cache.disk.enable", false);
 
