@@ -216,8 +216,8 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT
 //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
 //user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
-//user_pref("browser.cache.max_shutdown_io_lag", 16); // number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
-//user_pref("browser.cache.frecency_half_life_hours", 128); // lower cache sweep intervals, the half life used to re-compute cache entries frecency (in hours)
+//user_pref("browser.cache.max_shutdown_io_lag", 8); // number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
+//user_pref("browser.cache.frecency_half_life_hours", 24); // lower cache sweep intervals, the half life used to re-compute cache entries frequency (in hours)
 
 // PREF: increase memory cache size
 // [1] https://www.makeuseof.com/tag/how-much-data-does-youtube-use/
@@ -251,7 +251,7 @@ user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 //user_pref("network.dnsCacheExpirationGracePeriod", 240);
 
 // PREF: increase TLS token caching 
-user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; faster SSL (fast reconnects)
+user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                         *
