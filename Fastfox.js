@@ -212,7 +212,9 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 
 // PREF: disk cache
 // [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
-//user_pref("browser.cache.disk.enable", true); // overrides Securefox
+// More efficient to keep the browser cache instead of
+// having to re-download objects for the websites you visit frequently
+//user_pref("browser.cache.disk.enable", true); // DEFAULT; overrides Securefox
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT
 //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
 //user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
