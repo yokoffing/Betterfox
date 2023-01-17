@@ -9,10 +9,10 @@ assignees: yokoffing
 
 ## BEFORE YOU BEGIN
 I have attempted the following troubleshooting suggestions:
-- [ ] Disabled DNS-level content blocking (Control D, RethinkDNS, AdGuard Home, NextDNS, PiHole, etc), [cleared my DNS cache](https://www.pcmag.com/how-to/how-to-flush-your-dns-cache), and used my ISP's DNS resolver (if applicable).
-- [ ] [Cleared website data](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox#w_clear-all-cookies-site-data-and-cache), restarted Firefox, and my issue persists.
-- [ ] The issue persists when using Firefox in [Troubleshoot Mode](https://support.mozilla.org/en-US/kb/diagnose-firefox-issues-using-troubleshoot-mode#w_how-to-start-firefox-in-troubleshoot-mode).
-- [ ] The issue persists when using the current, recommended [user.js](https://github.com/yokoffing/Betterfox/blob/master/user.js) in a [new profile](https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles). (Must be in a new profile!)
+- [ ] The issue persists when using Firefox in [Troubleshoot Mode](https://support.mozilla.org/en-US/kb/diagnose-firefox-issues-using-troubleshoot-mode).
+- [ ] Disabled DNS-level content blocking (AdGuard Home, NextDNS, Control D, RethinkDNS, PiHole, etc), [cleared my DNS cache](https://www.pcmag.com/how-to/how-to-flush-your-dns-cache), and used my ISP's DNS resolver (if applicable).
+- [ ] [Cleared website data](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox), restarted Firefox, and my issue persists.
+- [ ] I have created a [new profile](https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles). The issue persists when using the current [user.js](https://github.com/yokoffing/Betterfox/blob/master/user.js) file on GitHub. (Must be in a new profile and a new user.js!)
 
 ## REPORT
 **Describe the bug**
