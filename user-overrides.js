@@ -41,9 +41,9 @@ user_pref("network.http.speculative-parallel-limit", 18); // default=6
 user_pref("network.predictor.enabled", true);
 user_pref("network.predictor.enable-prefetch", true);
 user_pref("network.predictor.enable-hover-on-ssl", true);
-    user_pref("network.predictor.preresolve-min-confidence", 30);
-    user_pref("network.predictor.preconnect-min-confidence", 40);
-    user_pref("network.predictor.prefetch-min-confidence", 60);
+    user_pref("network.predictor.preresolve-min-confidence", 10);
+    user_pref("network.predictor.preconnect-min-confidence", 20);
+    user_pref("network.predictor.prefetch-min-confidence", 40);
         user_pref("network.predictor.prefetch-force-valid-for", 3600);
         user_pref("network.predictor.prefetch-rolling-load-count", 120);
     user_pref("network.predictor.max-resources-per-entry", 250);
