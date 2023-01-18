@@ -136,9 +136,9 @@ user_pref("dom.enable_web_task_scheduling", true);
 // PREF: WebGPU [HIGHLY EXPERIMENTAL!]
 // [WARNING] Do not enable unless you are a web developer!
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
-// [2] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
-// [3] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
-// [4] https://developer.chrome.com/docs/web-platform/webgpu/
+// [2] https://developer.chrome.com/docs/web-platform/webgpu/
+// [3] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
+// [4] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
 //user_pref("dom.webgpu.enabled", true);
     //user_pref("gfx.webgpu.force-enabled", true);
 
