@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 108                                                             *
+ * version: 109                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -29,33 +29,10 @@ user_pref("layout.css.prefers-color-scheme.content-override", 2);
 // PREF: enable Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-// PREF: enable CSS moz document rules
-// Still needed for Stylus?
-// [1] https://old.reddit.com/r/FirefoxCSS/comments/8x2q97/reenabling_mozdocument_rules_in_firefox_61/
-//user_pref("layout.css.moz-document.content.enabled", true);
-
 // PREF: disable annoying update restart prompts
 // Delay update available prompts for ~1 week
 // Will still show green arrow in menu bar
 user_pref("app.update.suppressPrompts", true);
-
-// PREF: prevent accessibility services from accessing your browser [RESTART]
-// Accessibility Service may negatively impact Firefox browsing performance
-// Disable it if you’re not using any type of physical impairment assistive software
-// [1] https://support.mozilla.org/kb/accessibility-services
-// [2] https://www.ghacks.net/2021/08/25/firefox-tip-turn-off-accessibility-services-to-improve-performance/
-// [3] https://www.troddit.com/r/firefox/comments/p8g5zd/why_does_disabling_accessibility_services_improve
-// [4] https://winaero.com/firefox-has-accessibility-service-memory-leak-you-should-disable-it/
-// [5] https://www.ghacks.net/2022/12/26/firefoxs-accessibility-performance-is-getting-a-huge-boost/
-user_pref("accessibility.force_disabled", 1);
-
-// PREF: disable the Accessibility panel
-//user_pref("devtools.accessibility.enabled", false);
-
-// PREF: don't focus elements on click, only on tab
-// Helps to eliminate ugly 1px dotted outline
-// default=1
-//user_pref("accessibility.mouse_focuses_formcontrol", 0);
 
 // PREF: add compact mode back to options
 user_pref("browser.compactmode.show", true);
@@ -81,18 +58,8 @@ user_pref("browser.preferences.moreFromMozilla", false);
 // [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
 user_pref("browser.tabs.tabmanager.enabled", false);
 
-// PREF: disable Unified Extensions button [NIGHTLY]
+// PREF: disable Unified Extensions button [FF109+]
 //user_pref("extensions.unifiedExtensions.enabled", false);
-
-// PREF: remove "addons.mozilla.org" from set of domains that extensions cannot access
-// [NOTE] May only work with privacy.resistfingerprinting enabled? + DEV/NIGHTLY-only?
-// [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
-//user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
-//user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
-
-// PREF: do not require signing for extensions [ESR/DEV/NIGHTLY ONLY]
-// [1] https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox#w_what-are-my-options-if-i-want-to-use-an-unsigned-add-on-advanced-users
-//user_pref("xpinstall.signatures.required", false);
 
 // PREF: disable Warnings
 //user_pref("browser.tabs.warnOnClose", false); // DEFAULT [FF94+]
@@ -120,17 +87,17 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 user_pref("findbar.highlightAll", true);
 
 // PREF: disable middle mouse click opening links from clipboard
-// [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089 ***/
+// [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089
 user_pref("middlemouse.contentLoadURL", false);
 
 // Private Browsing changes [FF106+]
 // PREF: disable private windows being separate from normal windows in taskbar [WINDOWS]
 //user_pref("browser.privateWindowSeparation.enabled", false);
 
-// PREF: disable "private window" indicator in tab bar
+// PREF: disable "private window" indicator in tab bar [FF106+]
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
 
-// PREF: disable always using dark theme for private browsing windows
+// PREF: disable always using dark theme for private browsing windows [FF106+]
 //user_pref("browser.theme.dark-private-windows", false);
 
 // PREF: Cookie Banner handling [NIGHTLY]
@@ -149,10 +116,10 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 
 // PREF: enable global CookieBannerRules
 // This is used for click rules that can handle common Consent Management Providers (CMP)
-// [NOTE] Enabling this (when the cookie handling feature is enabled) may
+// [WARNING] Enabling this (when the cookie handling feature is enabled) may
 // negatively impact site performance since it requires us to run rule-defined
 // query selectors for every page
-//user_pref("cookiebanners.service.enableGlobalRules", true);
+//user_pref("cookiebanners.service.enableGlobalRules", enable);
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
@@ -163,7 +130,8 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 //user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 
 // PREF: use DirectWrite everywhere like Chrome [WINDOWS]
-// [1] https://old.reddit.com/r/firefox/comments/wvs04y/comment/ilklzy1/?context=3
+// [1] https://kb.mozillazine.org/Thunderbird_6.0,_etc.#Font_rendering_and_performance_issues
+// [2] https://old.reddit.com/r/firefox/comments/wvs04y/comment/ilklzy1/?context=3
 //user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 //user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 //user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
@@ -171,7 +139,7 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 //user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 // Some users find these helpful:
     //user_pref("gfx.font_rendering.cleartype_params.gamma", 1750);
-    //user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 50);
+    //user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
     //user_pref("gfx.font_rendering.cleartype_params.pixel_structure", 1);
 
 // PREF: use macOS Appearance Panel text smoothing setting when rendering text [macOS]
@@ -512,7 +480,7 @@ user_pref("dom.popup_allowed_events", "click dblclick");
 // PREF: zoom only text on webpage, not other elements
 //user_pref("browser.zoom.full", false);
 
-// PREF: enable :has() CSS relational pseudo-class [NIGHTLY?]
+// PREF: enable :has() CSS relational pseudo-class
 // Needed for some extensions, filters, and customizations
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
 // [2] https://caniuse.com/css-has
@@ -531,3 +499,21 @@ user_pref("layout.css.has-selector.enabled", true);
 // PREF: JPEG XL image format [NIGHTLY]
 // [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
 //user_pref("image.jxl.enabled", true);
+
+// PREF: enable CSS moz document rules
+// Still needed for Stylus?
+// [1] https://old.reddit.com/r/FirefoxCSS/comments/8x2q97/reenabling_mozdocument_rules_in_firefox_61/
+//user_pref("layout.css.moz-document.content.enabled", true);
+
+// PREF: restore zooming behavior [macOS] [FF109+]
+// On macOS, Ctrl or Cmd + trackpad or mouse wheel now scrolls the page instead of zooming.
+// This avoids accidental zooming and matches Safari's and Chrome's behavior.
+// The prefs below restores the previous zooming behavior
+//user_pref("mousewheel.with_control.action", 3);
+//user_pref("mousewheel.with_meta.action", 3);
+
+// PREF: disable efficiency mode [WINDOWS]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1796525
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
+// [3] https://old.reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
+//user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
