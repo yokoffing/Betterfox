@@ -10,9 +10,50 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 108                                                             *
+ * version: 109                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
+
+/****************************************************************************
+ * SECTION: FASTFOX                                                         *
+****************************************************************************/
+user_pref("nglayout.initialpaint.delay", 0);
+user_pref("nglayout.initialpaint.delay_in_oopif", 0);
+user_pref("content.notify.interval", 100000);
+user_pref("browser.startup.preXulSkeletonUI", false);
+
+/** EXPERIMENTAL ***/
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
+user_pref("layout.css.animation-composition.enabled", true);
+user_pref("dom.enable_web_task_scheduling", true);
+
+/** GFX ***/
+user_pref("gfx.webrender.all", true);
+user_pref("gfx.webrender.precache-shaders", true);
+user_pref("gfx.webrender.compositor", true);
+user_pref("layers.gpu-process.enabled", true);
+user_pref("media.hardware-video-decoding.enabled", true);
+user_pref("gfx.canvas.accelerated", true);
+user_pref("gfx.canvas.accelerated.cache-items", 32768);
+user_pref("gfx.canvas.accelerated.cache-size", 4096);
+user_pref("gfx.content.skia-font-cache-size", 80);
+user_pref("image.cache.size", 10485760);
+user_pref("image.mem.decode_bytes_at_a_time", 131072);
+user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);
+user_pref("media.memory_cache_max_size", 1048576);
+user_pref("media.memory_caches_combined_limit_kb", 2560000);
+user_pref("media.cache_readahead_limit", 9000);
+user_pref("media.cache_resume_threshold", 6000);
+
+/** BROWSER CACHE ***/
+user_pref("browser.cache.memory.max_entry_size", 153600);
+
+/** NETWORK ***/
+user_pref("network.buffer.cache.size", 262144);
+user_pref("network.buffer.cache.count", 128);
+user_pref("network.dnsCacheExpiration", 3600);
+user_pref("network.dnsCacheExpirationGracePeriod", 240);
+user_pref("network.ssl_tokens_cache_capacity", 32768);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
@@ -22,8 +63,7 @@ user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.emailtracking.enabled", true);
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
-user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
-user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false);
+user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
 user_pref("browser.uitour.enabled", false);
 
 /** OCSP & CERTS / HPKP ***/
@@ -109,18 +149,18 @@ user_pref("privacy.userContext.ui.enabled", true);
 user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 user_pref("media.peerconnection.ice.default_address_only", true);
 
-/** GOOGLE SAFE BROWSING ***/
-user_pref("browser.safebrowsing.malware.enabled", false);
-user_pref("browser.safebrowsing.phishing.enabled", false);
-user_pref("browser.safebrowsing.downloads.enabled", false);
-user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
-user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
-user_pref("browser.safebrowsing.blockedURIs.enabled", false);
+/** SAFE BROWSING ***/
+user_pref("browser.safebrowsing.blockedURIs.enabled", true); // reset pref; remove in v.110
+user_pref("browser.safebrowsing.malware.enabled", true); // reset pref; remove in v.110
+user_pref("browser.safebrowsing.phishing.enabled", true); // reset pref; remove in v.110
+user_pref("browser.safebrowsing.downloads.enabled", true); // reset pref; remove in v.110
+user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 
 /** MOZILLA ***/
+user_pref("accessibility.force_disabled", 1);
 user_pref("identity.fxaccounts.enabled", false);
 user_pref("browser.tabs.firefox-view", false);
-user_pref("dom.push.enabled", false);
+user_pref("dom.push.enabled", true); // reset pref; remove in v.110
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
@@ -167,7 +207,6 @@ user_pref("browser.newtabpage.activity-stream.telemetry", false);
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("app.update.suppressPrompts", true);
-user_pref("accessibility.force_disabled", 1);
 user_pref("browser.compactmode.show", true);
 user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false);
@@ -215,57 +254,13 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("dom.disable_window_move_resize", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
-user_pref("clipboard.plainTextOnly", true);
 user_pref("dom.popup_allowed_events", "click dblclick");
 user_pref("layout.css.has-selector.enabled", true);
 
 /****************************************************************************
- * SECTION: FASTFOX                                                         *
-****************************************************************************/
-user_pref("nglayout.initialpaint.delay", 0);
-user_pref("nglayout.initialpaint.delay_in_oopif", 0);
-user_pref("content.notify.interval", 120000); // reset pref
-user_pref("browser.startup.preXulSkeletonUI", false);
-
-/** EXPERIMENTAL ***/
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
-user_pref("dom.enable_web_task_scheduling", true);
-user_pref("layout.css.animation-composition.enabled", true);
-
-/** GFX ***/
-user_pref("gfx.webrender.all", true);
-user_pref("gfx.webrender.precache-shaders", true);
-user_pref("gfx.webrender.compositor", true);
-user_pref("layers.gpu-process.enabled", true);
-user_pref("media.hardware-video-decoding.enabled", true);
-user_pref("gfx.canvas.accelerated", true);
-user_pref("gfx.canvas.accelerated.cache-items", 32768);
-user_pref("gfx.canvas.accelerated.cache-size", 4096);
-user_pref("gfx.content.skia-font-cache-size", 80);
-user_pref("image.cache.size", 10485760);
-user_pref("image.mem.decode_bytes_at_a_time", 131072);
-user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);
-user_pref("media.memory_cache_max_size", 1048576);
-user_pref("media.memory_caches_combined_limit_kb", 2560000);
-user_pref("media.cache_readahead_limit", 9000);
-user_pref("media.cache_resume_threshold", 6000);
-
-/** BROWSER CACHE ***/
-user_pref("browser.cache.memory.capacity", -1);
-user_pref("browser.cache.memory.max_entry_size", 153600);
-
-/** NETWORK ***/
-user_pref("network.buffer.cache.size", 262144);
-user_pref("network.buffer.cache.count", 128);
-user_pref("network.dnsCacheEntries", 20000);	
-user_pref("network.dnsCacheExpiration", 3600);	
-user_pref("network.dnsCacheExpirationGracePeriod", 240);
-user_pref("network.ssl_tokens_cache_capacity", 32768);
-
-/****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
-// see https://github.com/yokoffing/Betterfox/blob/master/Smoothfox.js
+// visit https://github.com/yokoffing/Betterfox/blob/master/Smoothfox.js
 // Enter your scrolling prefs below this line:
 
 /****************************************************************************
