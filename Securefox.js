@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: 108                                                             *
+ * version: 109                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -26,7 +26,7 @@ user_pref("browser.contentblocking.category", "strict");
     //user_pref("privacy.socialtracking.block_cookies.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.cryptomining.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // DEFAULT
-user_pref("privacy.trackingprotection.emailtracking.enabled", true); // IN BETA
+user_pref("privacy.trackingprotection.emailtracking.enabled", true);
 //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // DEFAULT
@@ -34,11 +34,13 @@ user_pref("privacy.trackingprotection.emailtracking.enabled", true); // IN BETA
 
 // PREF: query stripping
 // Currently uses a small list [1]
-// Can set the same query stripping list that Brave uses [2]
+// We set the same query stripping list that Brave and LibreWolf uses [2]
+// If using uBlock Origin or AdGuard, use filter lists as well [3]
 // [1] https://www.eyerys.com/articles/news/how-mozilla-firefox-improves-privacy-using-query-parameter-stripping-feature
 // [2] https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc
+// [3] https://github.com/yokoffing/filterlists#url-tracking-parameters
 //user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
-    //user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
+user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
 
 // PREF: allow embedded tweets, Instagram and Reddit posts, and TikTok embeds
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
@@ -55,13 +57,17 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
 //user_pref("privacy.trackingprotection.lower_network_priority", true);
 
-// PREF: Site Isolation (Sandboxing)
+// PREF: Site Isolation (sandboxing)
 // Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
 // into a separate operating system process makes it harder for malicious sites to read another site’s private data.
 // [1] https://hacks.mozilla.org/2021/05/introducing-firefox-new-site-isolation-security-architecture/
 // [2] https://hacks.mozilla.org/2022/05/improved-process-isolation-in-firefox-100/
 // [3] https://hacks.mozilla.org/2021/12/webassembly-and-back-again-fine-grained-sandboxing-in-firefox-95/
 //user_pref("fission.autostart", true); // DEFAULT
+
+// PREF: GPU sandbox [FF110+]
+// [1] https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/
+//user_pref("security.sandbox.gpu.level", 1); // DEFAULT [WINDOWS]
 
 // PREF: State Paritioning [aka Dynamic First-Party Isolation (dFPI)]
 // Firefox manages client-side state (i.e., data stored in the browser) to mitigate the ability of websites to abuse state
@@ -96,8 +102,8 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
     //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
     //user_pref("privacy.partition.bloburl_per_agent_cluster", true); [REGRESSIONS]
 // enable APS (Always Partitioning Storage) [FF104+]
-user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT: true FF109+]
-user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT: false FF109+]
+//user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT: true FF109+]
+//user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT: false FF109+]
 
 // PREF: Smartblock
 // [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
@@ -122,21 +128,11 @@ user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exe
 //user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 //user_pref("network.cookie.sameSite.schemeful", true); // DEFAULT 104+
 
-// PREF: enable Global Privacy Control (GPC) [NIGHTLY]
-// GPC is default in Brave.
-// Electronic Frontier Foundation’s (ETF) browser extensions enforce GPC.
-// Honored by many highly ranked sites [2]
-// [1] https://globalprivacycontrol.org/
-// [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
-// [3] https://blog.mozilla.org/netpolicy/2021/10/28/implementing-global-privacy-control/
-//user_pref("privacy.globalprivacycontrol.enabled", true);
-    //user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
-
 // PREF: Hyperlink Auditing (click tracking).
 //user_pref("browser.send_pings", false); // DEFAULT
 
-// PREF: Beacon API
-// Disabling this API sometimes causes breakage:
+// PREF: disable Beacon API
+// Disabling this API sometimes causes breakage
 // [TEST] https://vercel.com/
 // [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
 // [2] https://github.com/arkenfox/user.js/issues/1586
@@ -147,20 +143,21 @@ user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exe
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API#browser_compatibility
 //user_pref("dom.battery.enabled", false);
 
-// PREF: Local Storage Next Generation (LSNG) (DOMStorage) 
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1286798
-//user_pref("dom.storage.next_gen", true); // DEFAULT FF92+
-
-// PREF: WebRTC Global Mute Toggles
-//user_pref("privacy.webrtc.globalMuteToggles", true);
-
 // PREF: disable UITour backend so there is no chance that a remote page can use it
 user_pref("browser.uitour.enabled", false);
     //user_pref("browser.uitour.url", "");
 
 // PREF: reset remote debugging to disabled
 // https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16222
-//user_pref("devtools.debugger.remote-enabled", false); // [DEFAULT: false]
+//user_pref("devtools.debugger.remote-enabled", false); // DEFAULT
+
+// PREF: enable Global Privacy Control (GPC) [NIGHTLY]
+// Honored by many highly ranked sites [2]
+// [1] https://globalprivacycontrol.org/
+// [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
+// [3] https://blog.mozilla.org/netpolicy/2021/10/28/implementing-global-privacy-control/
+//user_pref("privacy.globalprivacycontrol.enabled", true);
+    //user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 
 /****************************************************************************
  * SECTION: OSCP & CERTS / HPKP (HTTP Public Key Pinning)                   *
@@ -214,9 +211,10 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("security.pki.crlite_mode", 2);
 
 // PREF: enable strict pinning
-// PKP (Public Key Pinning) 0=disabled, 1=allow user MiTM (such as your antivirus), 2=strict
+// MOZILLA_PKIX_ERROR_KEY_PINNING_FAILURE
 // If you rely on an AV (antivirus) to protect your web browsing
 // by inspecting ALL your web traffic, then leave at current default=1
+// PKP (Public Key Pinning) 0=disabled, 1=allow user MiTM (such as your antivirus), 2=strict
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16206
 user_pref("security.cert_pinning.enforcement_level", 2);
 
@@ -329,9 +327,6 @@ user_pref("browser.display.use_system_colors", false);
 ****************************************************************************/
 
 // PREF: disable disk cache
-// [NOTE] If you're thinking it would be more efficient to keep the browser cache instead of
-// having to re-download objects for the websites you visit frequently, you're right;
-// however doing so can compromise your privacy.
 // [NOTE] If you think disk cache helps performance, then feel free to override this.
 user_pref("browser.cache.disk.enable", false);
 
@@ -552,6 +547,10 @@ user_pref("network.predictor.enable-prefetch", false);
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs#values
 //user_pref("browser.urlbar.trimURLs", false);
 
+// PREF: disable search terms [FF110+]
+// [SETTING] Search>Search Bar>Use the address bar for search and navigation>Show search terms instead of URL...
+//user_pref("browser.urlbar.showSearchTerms.enabled", false);
+
 // PREF: enable seperate search engine for Private Windows
 // [SETTINGS] Preferences>Search>Default Search Engine>"Use this search engine in Private Windows"
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
@@ -582,7 +581,8 @@ user_pref("browser.search.suggest.enabled", false);
 //user_pref("browser.urlbar.quicksuggest.enabled", false); // controls whether the UI is shown
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
-    //user_pref("browser.urlbar.groupLabels.enabled", false);
+// hide Firefox Suggest label in URL dropdown box
+//user_pref("browser.urlbar.groupLabels.enabled", false);
 
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
@@ -658,14 +658,14 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // This is done to avoid waiting for a timeout which takes 90 seconds.
 // Firefox only sends top level domain when falling back to http.
 // [WARNING] Disabling causes long timeouts when no path to HTTPS is present.
-// [NOTE] Use "Manage Exceptions" for sites known for no HTTPS. 
+// [NOTE] Use "Manage Exceptions" for sites known for no HTTPS.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
 //user_pref("dom.security.https_only_mode_send_http_background_request", true); // DEFAULT
-         //user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 2000); // default=3000
+         //user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 3000); // DEFAULT
 
-// PREF: Enable HTTPS-Only mode for local resources
-//user_pref("dom.security.https_only_mode.upgrade_local", true);
+// PREF: disable HTTPS-Only mode for local resources
+//user_pref("dom.security.https_only_mode.upgrade_local", false); // DEFAULT
 
 /******************************************************************************
  * SECTION: DNS-over-HTTPS                                                    *
@@ -703,22 +703,20 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 // PREF: DoH resolver list
 // [EXAMPLE] "[{ \"name\": \"Cloudflare\", \"url\": \"https://mozilla.cloudflare-dns.com/dns-query\" },{ \"name\": \"NextDNS\", \"url\": \"https://trr.dns.nextdns.io/\" }]"
 //user_pref("network.trr.resolvers", "[{ \"name\": \"<NAME1>\", \"url\": \"https://<URL1>\" }, { \"name\": \"<NAME2>\", \"url\": \"https://<URL2>\" }]");
-//user_pref("network.trr.resolvers", "[{ \"name\": \"<NextDNS Custom>\", \"url\": \"https://dns.nextdns.io/7ad2e5/FF_WINDOWS\" }]");
+//user_pref("network.trr.resolvers", "[{ \"name\": \"<NextDNS Custom>\", \"url\": \"https://dns.nextdns.io/******/FF_WINDOWS\" }]");
 
 /******************************************************************************
  * SECTION: ESNI / ECH                            *
 ******************************************************************************/
 
 // PREF: enable Encrypted Client Hello (ECH)
+// [NOTE] HTTP already isolated with network partitioning
 // [1] https://blog.cloudflare.com/encrypted-client-hello/
 // [2] https://www.youtube.com/watch?v=tfyrVYqXQRE
+// [3] https://groups.google.com/a/chromium.org/g/blink-dev/c/KrPqrd-pO2M/m/Yoe0AG7JAgAJ
 //user_pref("network.dns.echconfig.enabled", true);
-//user_pref("network.dns.use_https_rr_as_altsvc", true); // DEFAULT
-
-// PREF: disable HTTP Alternative Services [FF37+]
-// [WHY] Already isolated by network partitioning (FF85+)
-//user_pref("network.http.altsvc.enabled", false);
-//user_pref("network.http.altsvc.oe", false);
+//user_pref("network.dns.http3_echconfig.enabled", true);
+    //user_pref("network.dns.use_https_rr_as_altsvc", true); // DEFAULT
 
 /******************************************************************************
  * SECTION: PROXY / SOCKS / IPv6                           *
@@ -952,14 +950,15 @@ user_pref("privacy.userContext.ui.enabled", true);
 ******************************************************************************/
 
 // PREF: disable WebRTC (Web Real-Time Communication)
-// Firefox uses mDNS hostname obfuscation on desktop (except Windows7/8) and the
-// private IP is NEVER exposed, except if required in TRUSTED scenarios; i.e. after
-// you grant device (microphone or camera) access
-// [SETUP-HARDEN] Test first. Windows7/8 users only: behind a proxy who never use WebRTC
+// Firefox desktop uses mDNS hostname obfuscation and the private IP is never exposed until
+// required in TRUSTED scenarios; i.e. after you grant device (microphone or camera) access
 // [TEST] https://browserleaks.com/webrtc
 // [1] https://groups.google.com/g/discuss-webrtc/c/6stQXi72BEU/m/2FwZd24UAQAJ
 // [2] https://datatracker.ietf.org/doc/html/draft-ietf-mmusic-mdns-ice-candidates#section-3.1.1
 //user_pref("media.peerconnection.enabled", false);
+
+// PREF: enable WebRTC Global Mute Toggles
+//user_pref("privacy.webrtc.globalMuteToggles", true);
 
 // PREF: force WebRTC inside the proxy [FF70+]
 user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
@@ -990,7 +989,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // PREF: disable all DRM content (EME: Encryption Media Extension)
 // EME is a JavaScript API for playing DRMed (not free) video content in HTML.
 // A DRM component called a Content Decryption Module (CDM) decrypts, decodes, and displays the video.
-// [SETUP-WEB] e.g. Netflix, Amazon Prime, Hulu, HBO, Disney+, Showtime, Starz, DirectTV
+// e.g. Netflix, Amazon Prime, Hulu, HBO, Disney+, Showtime, Starz, DirectTV
 // [SETTING] General>DRM Content>Play DRM-controlled content
 // [TEST] https://bitmovin.com/demos/drm
 // [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
@@ -1017,78 +1016,116 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 //user_pref("devtools.selfxss.count", 5);
 
 /******************************************************************************
- * SECTION: GOOGLE SAFE BROWSING (GSB)                                        *
+ * SECTION: SAFE BROWSING (SB)                                                *
 ******************************************************************************/
 
-// PREF: disable GSB (master switch)
-// Increased privacy away from Google, but less protection against threats
-// [WARNING] Be sure to have alternate security measures if you disable GSB!
+// A full url is never sent to Google, only a part-hash of the prefix,
+// hidden with noise of other real part-hashes. Firefox takes measures such as
+// stripping out identifying parameters, and since SBv4 (FF57+), doesn't even use cookies.
+// (Turn on browser.safebrowsing.debug to monitor this activity)
+// [1] https://feeding.cloud.geek.nz/posts/how-safe-browsing-works-in-firefox/
+// [2] https://wiki.mozilla.org/Security/Safe_Browsing
+// [3] https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work
+// [4] https://educatedguesswork.org/posts/safe-browsing-privacy/
+
+// PREF: disable Safe Browsing
+// [WARNING] Be sure to have alternate security measures if you disable SB! Adblockers do not count!
 // [SETTING] Privacy & Security>Security>... Block dangerous and deceptive content
 // [ALTERNATIVE] Enable local checks only: https://github.com/yokoffing/Betterfox/issues/87
-// [1] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1752006
-// [2] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1767546
-// [3] https://ashkansoltani.org/2012/02/25/cookies-from-nowhere
-// [4] https://blog.cryptographyengineering.com/2019/10/13/dear-apple-safe-browsing-might-not-be-that-safe/
-// [5] https://the8-bit.com/apple-proxies-google-safe-browsing-privacy/
-// [6] https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers
-user_pref("browser.safebrowsing.malware.enabled", false);
-user_pref("browser.safebrowsing.phishing.enabled", false);
+// [1] https://support.mozilla.org/en-US/kb/how-does-phishing-and-malware-protection-work#w_what-information-is-sent-to-mozilla-or-its-partners-when-phishing-and-malware-protection-is-enabled
+// [2] https://wiki.mozilla.org/Security/Safe_Browsing
+// [3] https://developers.google.com/safe-browsing/v4
+// [4] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1752006
+// [5] https://github.com/privacyguides/privacyguides.org/discussions/423#discussioncomment-1767546
+// [6] https://wiki.mozilla.org/Security/Safe_Browsing
+// [7] https://ashkansoltani.org/2012/02/25/cookies-from-nowhere (outdated)
+// [8] https://blog.cryptographyengineering.com/2019/10/13/dear-apple-safe-browsing-might-not-be-that-safe/ (outdated)
+// [9] https://the8-bit.com/apple-proxies-google-safe-browsing-privacy/
+// [10] https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers
+//user_pref("browser.safebrowsing.malware.enabled", false); // all checks happen locally
+//user_pref("browser.safebrowsing.phishing.enabled", false); // all checks happen locally
+    //user_pref("browser.safebrowsing.blockedURIs.enabled", false);
     //user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
     //user_pref("browser.safebrowsing.provider.google4.updateURL", "");
     //user_pref("browser.safebrowsing.provider.google.gethashURL", "");
     //user_pref("browser.safebrowsing.provider.google.updateURL", "");
-    //user_pref("browser.safebrowsing.downloads.remote.url", "");
-    //user_pref("browser.safebrowsing.provider.google4.dataSharingURL", "");
 
-// PREF: disable GSB checking downloads (master switch)
-// This is the master switch for the safebrowsing.downloads prefs
+// PREF: disable SB checks for downloads
+// This is the master switch for the safebrowsing.downloads prefs (both local lookups + remote)
+// [NOTE] Still enable this for checks to happen locally
 // [SETTING] Privacy & Security>Security>... "Block dangerous downloads"
-user_pref("browser.safebrowsing.downloads.enabled", false);
+//user_pref("browser.safebrowsing.downloads.enabled", false); // all checks happen locally
       
-// PREF: disable GSB checks for downloads (remote)
+// PREF: disable SB checks for downloads (remote)
 // To verify the safety of certain executable files, Firefox may submit some information about the
 // file, including the name, origin, size and a cryptographic hash of the contents, to the Google
 // Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
-//user_pref("browser.safebrowsing.downloads.remote.enabled", false); // DEFAULT
+// [NOTE] If you do not understand the consequences, override this.
+user_pref("browser.safebrowsing.downloads.remote.enabled", false);
       //user_pref("browser.safebrowsing.downloads.remote.url", "");
+// disable SB checks for unwanted software
 // [SETTING] Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
-user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
-user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+        //user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
+        //user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
-// PREF: disable 'ignore this warning' on GSB warnings
+// PREF: allow user to "ignore this warning" on SB warnings
 // If clicked, it bypasses the block for that session. This is a means for admins to enforce SB.
+// Report false positives to [2]
+// [TEST] see https://github.com/arkenfox/user.js/wiki/Appendix-A-Test-Sites#-mozilla
 // [1] https://bugzilla.mozilla.org/1226490
-user_pref("browser.safebrowsing.blockedURIs.enabled", false);
+// [2] https://safebrowsing.google.com/safebrowsing/report_general/
 //user_pref("browser.safebrowsing.allowOverride", true); // DEFAULT
 
 /******************************************************************************
  * SECTION: MOZILLA                                                   *
 ******************************************************************************/
 
+// PREF: prevent accessibility services from accessing your browser [RESTART]
+// Accessibility Service may negatively impact Firefox browsing performance
+// Disable it if you’re not using any type of physical impairment assistive software
+// [1] https://support.mozilla.org/kb/accessibility-services
+// [2] https://www.ghacks.net/2021/08/25/firefox-tip-turn-off-accessibility-services-to-improve-performance/
+// [3] https://www.troddit.com/r/firefox/comments/p8g5zd/why_does_disabling_accessibility_services_improve
+// [4] https://winaero.com/firefox-has-accessibility-service-memory-leak-you-should-disable-it/
+// [5] https://www.ghacks.net/2022/12/26/firefoxs-accessibility-performance-is-getting-a-huge-boost/
+user_pref("accessibility.force_disabled", 1);
+
+// PREF: disable the Accessibility panel
+//user_pref("devtools.accessibility.enabled", false);
+
+// PREF: don't focus elements on click, only on tab
+// Helps to eliminate ugly 1px dotted outline
+// default=1
+//user_pref("accessibility.mouse_focuses_formcontrol", 0);
+
 // PREF: disable Firefox accounts
-// [ALTERNATIVE] Use xBrowserSync
+// [ALTERNATIVE] Use xBrowserSync [1]
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
+// [2] https://github.com/arkenfox/user.js/issues/1175
 user_pref("identity.fxaccounts.enabled", false);
 
 // PREF: disable Firefox View [FF106+]
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
 user_pref("browser.tabs.firefox-view", false);
 
-// PREF: disable Push API
+// PREF: disable Push Notifications API [FF44+]
 // Push is an API that allows websites to send you (subscribed) messages even when the site
 // isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
+// You shouldn't need to disable this.
+// [WHY] Push requires subscription
+// [NOTE] To remove all subscriptions, reset "dom.push.userAgentID"
 // [1] https://support.mozilla.org/en-US/kb/push-notifications-firefox
 // [2] https://developer.mozilla.org/en-US/docs/Web/API/Push_API
 // [3] https://www.reddit.com/r/firefox/comments/fbyzd4/the_most_private_browser_isnot_firefox/
-user_pref("dom.push.enabled", false);
-//user_pref("dom.push.userAgentID", "");
+//user_pref("dom.push.enabled", false);
+    //user_pref("dom.push.userAgentID", "");
 
-// PREF: Set a default permission for Notifications
+// PREF: Set a default permission for Web Notifications
 // To add site exceptions: Page Info>Permissions>Receive Notifications.
 // To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings.
 // 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.desktop-notification", 2);
-
+   
 // PREF: disable annoying location requests from websites
 user_pref("permissions.default.geo", 2);
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
@@ -1118,19 +1155,33 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 // [SETTING] General>Firefox Updates>Check for updates but let you choose to install them
 //user_pref("app.update.auto", false);
 
+// PREF: disable automatic extension updates
+//user_pref("extensions.update.enabled", false);
+
 // PREF: disable search engine updates (e.g. OpenSearch)
 // [NOTE] This does not affect Mozilla's built-in or Web Extension search engines
 //user_pref("browser.search.update", false);
 
-// PREF: Disable automatic extension updates [move to Pesky]
-//user_pref("extensions.update.enabled", false);
-
 // PREF: remove special permissions for certain mozilla domains
-// [1] resource://app/defaults/permissions
-user_pref("permissions.manager.defaultsUrl", "");
+// default = resource://app/defaults/permissions
+//user_pref("permissions.manager.defaultsUrl", "");
 
 // PREF: remove webchannel whitelist
 user_pref("webchannel.allowObject.urlWhitelist", "");
+
+// PREF: disable mozAddonManager Web API [FF57+]
+// [NOTE] To allow extensions to work on AMO, you also need 2662
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988
+//user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
+
+// PREF: remove "addons.mozilla.org" from set of domains that extensions cannot access
+// [NOTE] May only work with privacy.resistfingerprinting enabled? and/or DEV/NIGHTLY-only?
+// [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
+//user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
+
+// PREF: do not require signing for extensions [ESR/DEV/NIGHTLY ONLY]
+// [1] https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox#w_what-are-my-options-if-i-want-to-use-an-unsigned-add-on-advanced-users
+//user_pref("xpinstall.signatures.required", false);
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
