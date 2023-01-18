@@ -3,10 +3,20 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 108                                                                         *
+ * version: 109                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
+// PREF: process count
+// Process count used to be "# of CPU cores = processCount" starting with Firefox Quantum (2017).
+// Since the introduction of Fission [2], increasing process count
+// is more complicated than changing one pref [1].
+// [1] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes
+// [2] https://github.com/yokoffing/Betterfox/blob/064f64ab5f0e8443ed6b127d91326d9c887cd15d/Securefox.js#L58-L64
+//user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
+//user_pref("dom.ipc.processCount.webIsolated", 4); // per-site; DEFAULT; Isolated Web Content
+
+// [1] https://github.com/yokoffing/Betterfox/blob/064f64ab5f0e8443ed6b127d91326d9c887cd15d/Securefox.js#L58-L64
 // PREF: initial paint delay
 // How long FF will wait before rendering the page, in milliseconds
 // Reduce the 5ms Firefox waits to render the page
@@ -15,20 +25,35 @@
 user_pref("nglayout.initialpaint.delay", 0); // default=5; used to be 250
 user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 
-// PREF: notification interval (in microseconds)
+// PREF: page reflow timer
+// Rather than wait until a page has completely downloaded to display it to the user,
+// web browsers will periodically render what has been received to that point.
+// Because reflowing the page every time additional data is received slows down
+// total page load time, a timer was added so that the page would not reflow too often.
+// This preference specfies whether that timer is active.
+// [1] https://kb.mozillazine.org/Content.notify.ontimer
+// true = do not reflow pages at an interval any higher than that specified by content.notify.interval (default)
+// false = reflow pages whenever new data is received
+//user_pref("content.notify.ontimer", true); // DEFAULT
+
+// PREF: notification interval (in microseconds) [to avoid layout thrashing]
 // When Firefox is loading a page, it periodically reformats
 // or "reflows" the page as it loads. The page displays new elements
 // every 0.12 seconds by default. These redraws increase the total page load time.
-// Lowering the interval will decrease the perceived page load time
-// but increase the total loading time.
-// The notification interval has a dramatic effect on how long it takes to
-// initially display content for slow connections. The default value
-// provides good incremental display of content without causing an increase
-// in page load time. If this value is set below 1/10 of a second it starts
+// The default value provides good incremental display of content
+// without causing an increase in page load time.
+// [NOTE] Lowering the interval will decrease the PERCEIVED page load time (user experience?)
+// but increase the TOTAL loading time (benchmarks?).
+// [NOTE] Slower connections will want lower value (100000).
+// Page load does not change dramatically for faster connections,
+// so you may favor a smoother page load (360000).
+// [WARNING] If this value is set below 1/10 of a second, it starts
 // to impact page load performance.
+// [EXAMPLE] 100000 = .10s = 100 reflows/second
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
-user_pref("content.notify.interval", 360000); // (.36s), default=120000 (.12s)
-    //user_pref("content.notify.ontimer", true); // DEFAULT
+// [2] https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
+// [3] https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
+user_pref("content.notify.interval", 100000); // alt=360000 (.36s)
 
 // PREF: set the minimum interval between session save operations
 // Increasing this can help on older machines and some websites, as well as reducing writes
@@ -41,43 +66,13 @@ user_pref("content.notify.interval", 360000); // (.36s), default=120000 (.12s)
 //user_pref("browser.sessionstore.restore_on_demand", true); // DEFAULT
     //user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 //user_pref("browser.sessionstore.restore_tabs_lazily", true); // DEFAULT
-    
-// PREF: enable Lazy Image Loading
-// https://www.ghacks.net/2020/02/15/firefox-75-gets-lazy-loading-support-for-images/
-//user_pref("dom.image-lazy-loading.enabled", true); // DEFAULT
 
 // PREF: disable preSkeletonUI on startup
 user_pref("browser.startup.preXulSkeletonUI", false);
 
-// PREF: OffscreenCanvas
-// [1] https://yashints.dev/blog/2019/05/11/offscreen-canvas
-// [2] https://www.youtube.com/watch?v=CWvRA9E0DqU
-// [3] https://developer.chrome.com/blog/offscreen-canvas/
-// [4] https://groups.google.com/a/mozilla.org/g/dev-platform/c/kp9SZL-0wW0
-//user_pref("gfx.offscreencanvas.enabled", true); // DEFAULT FF106+
-
-// PREF: CSS Font Loading API in workers
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1072107
-//user_pref("layout.css.font-loading-api.workers.enabled", true); // DEFAULT FF106+
-
-// PREF: enable importMaps [FF108+]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1688879
-// [2] https://github.com/WICG/import-maps#the-basic-idea
-// [3] https://caniuse.com/import-maps
-//user_pref("dom.importMaps.enabled", true); // DEFAULT FF108+
-    //user_pref("javascript.options.experimental.import_assertions", true);
-    
 /****************************************************************************
  * SECTION: EXPERIMENTAL                                                    *
 ****************************************************************************/
-
-// PREF: WebGPU [HIGHLY EXPERIMENTAL!] [NIGHTLY]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
-// [2] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
-// [3] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
-// [4] https://developer.chrome.com/docs/web-platform/webgpu/
-//user_pref("dom.webgpu.enabled", true);
-    //user_pref("gfx.webgpu.force-enabled", true);
 
 // PREF: about:home startup cache [NIGHTLY]
 // A cache for the initial about:home document that is loaded by default at startup
@@ -85,18 +80,35 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 //user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 
 // PREF: CSS Masonry Layout [NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
+
+// PREF: CSS Animation Composition [NIGHTLY]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1785329
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
+// [3] https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition
+user_pref("layout.css.animation-composition.enabled", true);
 
 // PREF: Prioritized Task Scheduling API [NIGHTLY]
 // [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 user_pref("dom.enable_web_task_scheduling", true);
 
-// PREF: enable CSS Animation Composition [NIGHTLY]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1785329
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
-// [3] https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition
-user_pref("layout.css.animation-composition.enabled", true);
+// PREF: inert HTML attribute [NIGHTLY]
+//user_pref("html5.inert.enabled", true);
+
+// PREF: container query length units [NIGHTLY]
+//user_pref("layout.css.container-queries.enabled", true);
+
+// PREF: scroll-linked animations [NIGHTLY]
+//user_pref("layout.css.scroll-driven-animations.enabled", true);
+
+// PREF: HTML Sanitizer API [NIGHTLY]
+//user_pref("dom.security.sanitizer.enabled", true);
+
+// PREF: Clear-Site-Data: "cache" header [NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data
+//user_pref("privacy.clearsitedata.cache.enabled", true);
 
 // PREF: Shadowrealms [NIGHTLY]
 // [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
@@ -108,14 +120,27 @@ user_pref("layout.css.animation-composition.enabled", true);
 //user_pref("javascript.options.wasm_gc", true);
 //user_pref("javascript.options.wasm_function_references", true);
 
+// PREF: import assertions [NIGHTLY]
+//user_pref("javascript.options.experimental.import_assertions", true);
+
 // PREF: Array.fromAsync [NIGHTLY]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1795452
 //user_pref("javascript.options.experimental.array_grouping", true);
 //user_pref("javascript.options.experimental.enable_change_array_by_copy", true);
 
-// PREF: not yet categorized / need documentation [NIGHTLY]
-//user_pref("javascript.options.experimental.iterator_helpers", true);
-//user_pref("javascript.options.experimental.weakrefs.expose_cleanupSome", true);
+// PREF: indexedDB
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1112702
+//user_pref("dom.indexedDB.preprocessing", true);
+//user_pref("dom.indexedDB.experimental", false); // DEFAULT
+
+// PREF: WebGPU [HIGHLY EXPERIMENTAL!]
+// [WARNING] Do not enable unless you are a web developer!
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
+// [2] https://developer.chrome.com/docs/web-platform/webgpu/
+// [3] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
+// [4] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
+//user_pref("dom.webgpu.enabled", true);
+    //user_pref("gfx.webgpu.force-enabled", true);
 
 /****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
@@ -138,11 +163,11 @@ user_pref("layout.css.animation-composition.enabled", true);
 user_pref("gfx.webrender.all", true); // enables WR (GPU) + additional features
 user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.compositor", true);
-    //user_pref("gfx.webrender.compositor.force-enabled", true); // reinforce
+    //user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
 user_pref("layers.gpu-process.enabled", true);
-    //user_pref("layers.gpu-process.force-enabled", true); // reinforce
+    //user_pref("layers.gpu-process.force-enabled", true); // enforce
 user_pref("media.hardware-video-decoding.enabled", true);
-    //user_pref("media.hardware-video-decoding.force-enabled", true); // reinforce
+    //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
@@ -175,14 +200,6 @@ user_pref("media.memory_caches_combined_limit_kb", 2560000); // preferred=314572
 user_pref("media.cache_readahead_limit", 9000); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
 user_pref("media.cache_resume_threshold", 6000); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
 
-// PREF: disable QUIC for faster upload speeds
-// Firefox currently has a bug with impacting upload speeds with HTTP3
-// [TEST] https://speedof.me/
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753486
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1596576
-//user_pref("network.http.http3.enable", false); // disables HTTP3/QUIC
-//user_pref("network.http.http2.chunk-size", 32000); // preferred=48000; default=16000 [needed?]
-
 // PREF: disable AV1 for hardware decodeable videos
 // AV1 uses software (CPU-based) decoding
 // Firefox sometimes uses AV1 video decoding even to GPUs which do not support it
@@ -195,17 +212,19 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 
 // PREF: disk cache
 // [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
-//user_pref("browser.cache.disk.enable", true); // overrides Securefox
-//user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT
-//user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
+// More efficient to keep the browser cache instead of
+// having to re-download objects for the websites you visit frequently
+//user_pref("browser.cache.disk.enable", true); // DEFAULT; overrides Securefox
 //user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
-//user_pref("browser.cache.max_shutdown_io_lag", 16); // number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
-//user_pref("browser.cache.frecency_half_life_hours", 128); // lower cache sweep intervals, the half life used to re-compute cache entries frecency (in hours)
+    //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
+//user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT
+//user_pref("browser.cache.max_shutdown_io_lag", 8); // number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
+//user_pref("browser.cache.frecency_half_life_hours", 6); // DEFAULT; lower cache sweep intervals, the half life used to re-compute cache entries frequency (in hours)
 
 // PREF: increase memory cache size
 // [1] https://www.makeuseof.com/tag/how-much-data-does-youtube-use/
-//user_pref("browser.cache.memory.capacity", -1); // enforce DEFAULT; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
-user_pref("browser.cache.memory.max_entry_size", 153600); // alt=51200; preferred=327680 ; -1 -> entries bigger than than 90% of the mem-cache are never cached
+//user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
+user_pref("browser.cache.memory.max_entry_size", 153600); // alt=51200; preferred=327680 ; alt= -1 -> entries bigger than than 90% of the mem-cache are never cached
 
 /****************************************************************************
  * SECTION: NETWORK                                                         *
@@ -227,22 +246,12 @@ user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 //user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
 
 // PREF: increase DNS cache
-user_pref("network.dnsCacheEntries", 20000);	
-user_pref("network.dnsCacheExpiration", 3600);	// keep entries for 1 hour
-user_pref("network.dnsCacheExpirationGracePeriod", 240);
+//user_pref("network.dnsCacheEntries", 20000);
+user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour
+user_pref("network.dnsCacheExpirationGracePeriod", 240); // 4 minutes
 
 // PREF: increase TLS token caching 
-user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; faster SSL (fast reconnects)
-
-// These do not help speed:
-// PREF: DoH requests
-//user_pref("network.trr.request_timeout_ms", 800); // default=1500
-    //user_pref("network.trr.retry-timeout-ms", 125); // DEFAULT
-//user_pref("network.trr.request_timeout_mode_trronly_ms", 15000); // default=30000
-// PREF: close a connection if tls handshake does not finish in given number of seconds
-//user_pref("network.http.tls-handshake-timeout", 20); // default=30
-// PREF: timeout connections if an initial response is not received in number of seconds
-//user_pref("network.http.response.timeout", 200); // default=300
+user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                         *
@@ -268,9 +277,9 @@ user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; faster S
 //user_pref("network.predictor.enabled", true); // overrides SecureFox
 //user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
 //user_pref("network.predictor.enable-hover-on-ssl", true);
-    //user_pref("network.predictor.preresolve-min-confidence", 10); // default=60; alt=40
-    //user_pref("network.predictor.preconnect-min-confidence", 20); // default=90; alt=70
-    //user_pref("network.predictor.prefetch-min-confidence", 30); // default=100; alt=80
+    //user_pref("network.predictor.preresolve-min-confidence", 40); // default=60; alt=10
+    //user_pref("network.predictor.preconnect-min-confidence", 60); // default=90; alt=20
+    //user_pref("network.predictor.prefetch-min-confidence", 80); // default=100; alt=30
         //user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
         //user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
     //user_pref("network.predictor.max-resources-per-entry", 250); // default=100
