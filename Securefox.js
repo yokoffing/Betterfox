@@ -57,13 +57,17 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
 //user_pref("privacy.trackingprotection.lower_network_priority", true);
 
-// PREF: Site Isolation (Sandboxing)
+// PREF: Site Isolation (sandboxing)
 // Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
 // into a separate operating system process makes it harder for malicious sites to read another site’s private data.
 // [1] https://hacks.mozilla.org/2021/05/introducing-firefox-new-site-isolation-security-architecture/
 // [2] https://hacks.mozilla.org/2022/05/improved-process-isolation-in-firefox-100/
 // [3] https://hacks.mozilla.org/2021/12/webassembly-and-back-again-fine-grained-sandboxing-in-firefox-95/
 //user_pref("fission.autostart", true); // DEFAULT
+
+// PREF: GPU sandbox [FF110+]
+// [1] https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/
+//user_pref("security.sandbox.gpu.level", 1); // DEFAULT [WINDOWS]
 
 // PREF: State Paritioning [aka Dynamic First-Party Isolation (dFPI)]
 // Firefox manages client-side state (i.e., data stored in the browser) to mitigate the ability of websites to abuse state
