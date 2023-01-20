@@ -38,7 +38,6 @@ If your context calls for _anonymity_ and not just reasonable _privacy_, then pl
 
 ## Assumptions
 Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky if you want to revert the following behavior:
-* **Safe Browsing** is enabled as of [v.109](https://github.com/yokoffing/Betterfox/releases/tag/109.0). Our implementation is [privacy-respecting](https://github.com/yokoffing/Betterfox/blob/43eff0db788b0626a95bf9091b0fcb1c83a78cbe/Securefox.js#L1017-L1028) and disables [real-time binary checks](https://github.com/yokoffing/Betterfox/blob/43eff0db788b0626a95bf9091b0fcb1c83a78cbe/Securefox.js#L1058-L1068).
 * Firefox **Accessibility Service** is disabled to improve resource utilization and security. Override this if you use assistive software.
 * **Embedded tweets, instagram, reddit posts, and tiktoks** load on webpages, even though these requests are usually blocked when using [Strict Enhanced Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection).
 * The native **password manager** is disabled. We recommend using [KeePass](https://addons.mozilla.org/en-US/firefox/addon/keepassxc-browser/), [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/), or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager).
@@ -46,10 +45,11 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 * **Location requests** are rejected and **site notifications** are disabled.
 
 ### Suggestions
-* Enable **sanitize on close** ([clear browsing data on shutdown](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
+1) Enable **sanitize on close** ([clear browsing data on shutdown](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
    * You can **allow exceptions** if you want to stay logged in to some sites in *Settings → Privacy & Security → Cookies and Site Data → Manage Exceptions*.
    * Check *Delete cookies and site data when Firefox is closed*.
-* Use [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/), [AdGuard](https://addons.mozilla.org/en-US/firefox/addon/adguard-adblocker/), or [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/) for ad and tracking protection.
+2) Add [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) or [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/) for ad and tracking protection.
+3) Employ DNS-level protection like [NextDNS](https://nextdns.io/?from=xujj63g5). Check out our configuration guide [here](https://github.com/yokoffing/NextDNS-Config).
 
 ## Recognition
 ### User Comments
