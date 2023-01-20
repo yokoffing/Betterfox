@@ -1,6 +1,6 @@
-![GitHub Maintained](https://img.shields.io/badge/open%20source-yes-green)
-![GitHub Maintained](https://img.shields.io/badge/maintained-yes-green)
-[![GitHub closed issues](https://badgen.net/github/closed-issues/yokoffing/Betterfox?color=green)](https://github.com/yokoffing/Betterfox/issues?q=is%3Aissue+is%3Aclosed)
+![GitHub Maintained](https://img.shields.io/badge/open%20source-yes-orange)
+![GitHub Maintained](https://img.shields.io/badge/maintained-yes-yellow)
+[![GitHub closed issues](https://badgen.net/github/closed-issues/yokoffing/Betterfox?color=purple)](https://github.com/yokoffing/Betterfox/issues?q=is%3Aissue+is%3Aclosed)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/yokoffing/Betterfox)
 ![GitHub last commit](https://img.shields.io/github/last-commit/yokoffing/Betterfox)
 [![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyokoffing%2FBetter-Fox&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
@@ -24,7 +24,7 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 | List      | Description |
 |:---------:|-------------|
 | [Fastfox](https://github.com/yokoffing/Betterfox/blob/master/Fastfox.js)   | Immensely increase Firefox's browsing speed. Give Chrome a run for its money!|
-| [Securefox](https://github.com/yokoffing/Betterfox/blob/master/Securefox.js) | [Total Cookie Protection](https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/) with [site isolation](https://blog.mozilla.org/security/2021/05/18/introducing-site-isolation-in-firefox/). Enhanced [state](https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning) and [network](https://blog.mozilla.org/security/2021/01/26/supercookie-protections/) partitioning. [HTTPS-only](https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/) connections. Telemetry blocked. Various enhancements. |
+| [Securefox](https://github.com/yokoffing/Betterfox/blob/master/Securefox.js) | Telemetry blocked. [HTTPS-only](https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/) connections. [Total Cookie Protection](https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/) with [site isolation](https://blog.mozilla.org/security/2021/05/18/introducing-site-isolation-in-firefox/). Enhanced [state](https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning) and [network](https://blog.mozilla.org/security/2021/01/26/supercookie-protections/) partitioning. Various other enhancements. |
 | [Peskyfox](https://github.com/yokoffing/Betterfox/blob/master/Peskyfox.js)  | Unclutter the new tab page. Remove [Pocket](https://support.mozilla.org/en-US/kb/what-pocket). Restore [compact mode](https://support.mozilla.org/en-US/kb/compact-mode-workaround-firefox) as an option. Stop webpage notifications, pop-ups, and other annoyances. |
 | [Smoothfox](https://github.com/yokoffing/Betterfox/blob/master/Smoothfox.js) | Get Edge-like smooth scrolling on your favorite browser — or choose something more your style. |
 | [user.js](https://github.com/yokoffing/Betterfox/blob/master/user.js) | All the essentials. None of the breakage. This is your `user.js`. |
@@ -48,8 +48,8 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 1) Enable **sanitize on close** ([clear browsing data on shutdown](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
    * You can **allow exceptions** if you want to stay logged in to some sites in *Settings → Privacy & Security → Cookies and Site Data → Manage Exceptions*.
    * Check *Delete cookies and site data when Firefox is closed*.
-2) Add [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) or [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/) for ad and tracking protection.
-3) Employ DNS-level protection like [NextDNS](https://nextdns.io/?from=xujj63g5). Check out our configuration guide [here](https://github.com/yokoffing/NextDNS-Config).
+2) Use [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) or [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/) to block ads and trackers.
+3) Add DNS-level protection like [NextDNS](https://nextdns.io/?from=xujj63g5). Check out our configuration guide [here](https://github.com/yokoffing/NextDNS-Config).
 
 ## Recognition
 ### User Comments
