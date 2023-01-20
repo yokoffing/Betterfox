@@ -18,7 +18,7 @@
 /** SETUP ON FIRST INSTALLATION ***/
 // Select one:
 user_pref("network.trr.uri", "https://dns.nextdns.io/******/Firefox"); // DoH - NextDNS
-user_pref("https://dns.controld.com/**********/firefox"); // DoH - ControlD
+user_pref("https://dns.controld.com/******"); // DoH - ControlD
 
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
@@ -43,7 +43,7 @@ user_pref("network.predictor.enable-prefetch", true);
 user_pref("network.predictor.enable-hover-on-ssl", true);
     user_pref("network.predictor.preresolve-min-confidence", 10);
     user_pref("network.predictor.preconnect-min-confidence", 20);
-    user_pref("network.predictor.prefetch-min-confidence", 40);
+    user_pref("network.predictor.prefetch-min-confidence", 30);
         user_pref("network.predictor.prefetch-force-valid-for", 3600);
         user_pref("network.predictor.prefetch-rolling-load-count", 120);
     user_pref("network.predictor.max-resources-per-entry", 250);
@@ -125,6 +125,8 @@ user_pref("network.dns.echconfig.enabled", false); // true by default on NIGHTLY
 
 /** DELETE IF NOT WINDOWS ***/
 user_pref("pdfjs.defaultZoomValue", "125"); // DESKTOP; alt=page-width; PDF zoom level
+user_pref("dom.webgpu.enabled", true); // enable WebGPU
+user_pref("gfx.webgpu.force-enabled", true); // enable WebGPU
 user_pref("dom.ipc.processCount", 12); // Shared Web Content; 12-core CPU
 user_pref("dom.ipc.processCount.webIsolated", 12); // per-site; Isolated Web Content; 12-core CPU
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true); // font improvement
