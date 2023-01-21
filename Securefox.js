@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: 109                                                             *
+ * version: 110                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -993,6 +993,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [SETTING] General>DRM Content>Play DRM-controlled content
 // [TEST] https://bitmovin.com/demos/drm
 // [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
+// [2] https://old.reddit.com/r/firefox/comments/10gvplf/comment/j55htc7/?utm_source=share&utm_medium=web2x&context=3
 //user_pref("media.eme.enabled", false);
 // Optionally, hide the setting which also disables the DRM prompt:
 //user_pref("browser.eme.ui.enabled", false);
