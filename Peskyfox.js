@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 109                                                             *
+ * version: 110                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -57,9 +57,6 @@ user_pref("browser.preferences.moreFromMozilla", false);
 // false=only display tab dropdown when there are too many tabs
 // [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
 user_pref("browser.tabs.tabmanager.enabled", false);
-
-// PREF: disable Unified Extensions button [FF109+]
-//user_pref("extensions.unifiedExtensions.enabled", false);
 
 // PREF: disable Warnings
 //user_pref("browser.tabs.warnOnClose", false); // DEFAULT [FF94+]
