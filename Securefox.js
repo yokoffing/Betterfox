@@ -57,9 +57,12 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
 //user_pref("privacy.trackingprotection.lower_network_priority", true);
 
-// PREF: Site Isolation (sandboxing)
-// Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
-// into a separate operating system process makes it harder for malicious sites to read another site’s private data.
+// PREF: Site Isolation (sandboxing) [FF100+]
+// Site Isolation builds upon a new security architecture that extends current
+// protection mechanisms by separating (web) content and loading each site
+// in its own operating system process. This new security architecture allows
+// Firefox to completely separate code originating from different sites and, in turn,
+// defend against malicious sites trying to access sensitive information from other sites you are visiting.
 // [1] https://hacks.mozilla.org/2021/05/introducing-firefox-new-site-isolation-security-architecture/
 // [2] https://hacks.mozilla.org/2022/05/improved-process-isolation-in-firefox-100/
 // [3] https://hacks.mozilla.org/2021/12/webassembly-and-back-again-fine-grained-sandboxing-in-firefox-95/
