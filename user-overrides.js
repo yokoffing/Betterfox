@@ -22,7 +22,7 @@ user_pref("https://dns.controld.com/******"); // DoH - ControlD
 
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
-user_pref("browser.sessionstore.interval", 30000); // set minimum interval between session save operations
+user_pref("browser.sessionstore.interval", 150000); // 15 min.; set minimum interval between session save operations
 user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
 user_pref("layers.gpu-process.force-enabled", true); // enforce
 user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
