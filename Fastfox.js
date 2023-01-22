@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 109                                                                         *
+ * version: 110                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
@@ -58,7 +58,8 @@ user_pref("content.notify.interval", 100000); // alt=360000 (.36s)
 // PREF: set the minimum interval between session save operations
 // Increasing this can help on older machines and some websites, as well as reducing writes
 // [1] https://bugzilla.mozilla.org/1304389
-//user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
+// default=15000 (15s)
+//user_pref("browser.sessionstore.interval", 30000); // (30s)
 
 // PREF: control how tabs are loaded when a session is restored
 // true=Tabs are not loaded until they are selected (default)
