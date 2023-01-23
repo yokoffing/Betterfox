@@ -63,7 +63,6 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false); // cle
 user_pref("browser.safebrowsing.allowOverride", false); // do not allow user to override SB
 user_pref("dom.push.enabled", false); // disable Push API; breaks FF Sync
 user_pref("browser.search.update", false); // do not update opensearch engines
-user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("network.notify.checkForProxies", false); // skip proxy request check
 // HTTPS-First instead of HTTPS-only
@@ -124,6 +123,7 @@ user_pref("network.dns.echconfig.enabled", false); // true by default on NIGHTLY
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS ***/
+user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("pdfjs.defaultZoomValue", "125"); // DESKTOP; alt=page-width; PDF zoom level
 user_pref("dom.webgpu.enabled", true); // enable WebGPU
 user_pref("gfx.webgpu.force-enabled", true); // enable WebGPU
@@ -146,6 +146,7 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728);
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
 
 /** DELETE IF NOT macOS ***/
+user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
 user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level
 user_pref("app.update.auto", false); // disable auto-installing Firefox updates [NON-WINDOWS]
 //user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
