@@ -195,7 +195,7 @@ user_pref("media.memory_caches_combined_limit_kb", 2560000); // preferred=314572
     //user_pref("media.memory_caches_combined_limit_pc_sysmem", 20); // default=5
 
 // PREF: decrease video buffering
-// [NOTE] Does not affect YouTube since it uses DASH playback [1]
+// [NOTE] Does not affect videos over 720p since they use DASH playback [1]
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
 //user_pref("media.cache_size", 2048000); // default=512000
 user_pref("media.cache_readahead_limit", 9000); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
