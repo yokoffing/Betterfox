@@ -823,9 +823,9 @@ user_pref("signon.rememberSignons", false);
 // [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
 user_pref("editor.truncate_user_pastes", false);
 
-// PREF: show Reveal Password icon
-//user_pref("layout.forms.reveal-password-button.enabled", true);
-//user_pref("layout.forms.reveal-password-context-menu.enabled", false); // DEFAULT
+// PREF: Reveal Password
+//user_pref("layout.forms.reveal-password-button.enabled", true); // show icon
+user_pref("layout.forms.reveal-password-context-menu.enabled", true); // right-click menu option
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
