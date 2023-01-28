@@ -151,17 +151,12 @@ user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 user_pref("media.peerconnection.ice.default_address_only", true);
 
 /** SAFE BROWSING ***/
-user_pref("browser.safebrowsing.blockedURIs.enabled", true); // reset pref; remove in v.110
-user_pref("browser.safebrowsing.malware.enabled", true); // reset pref; remove in v.110
-user_pref("browser.safebrowsing.phishing.enabled", true); // reset pref; remove in v.110
-user_pref("browser.safebrowsing.downloads.enabled", true); // reset pref; remove in v.110
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 
 /** MOZILLA ***/
 user_pref("accessibility.force_disabled", 1);
 user_pref("identity.fxaccounts.enabled", false);
 user_pref("browser.tabs.firefox-view", false);
-user_pref("dom.push.enabled", true); // reset pref; remove in v.110
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
