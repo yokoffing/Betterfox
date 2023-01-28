@@ -679,21 +679,36 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [NOTE] You can set this to 0 if you are already using secure DNS for your entire network (e.g. OS-level, router-level).
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
-// 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
-//user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
+// 0=off, 2=TRR preferred (with System fallback), 3=TRR only (without System fallback), 5=TRR disabled
 //user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 
 // PREF: DoH resolver
-// You will type between the "" for both prefs.
-// I recommend creating your own URI with NextDNS for both privacy and security.
-// https://nextdns.io
 // [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
 //user_pref("network.trr.uri", "https://xxxx/dns-query");
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
-user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
-//user_pref("network.trr.confirmationNS", "skip"); // skip undesired DOH test connection
 
-// PREF: enable Oblivious DoH
+// PREF: EDNS Client Subnet DNS extension (ECS support and DNSSEC validation)
+// When set to false, TRR asks the resolver to enable EDNS Client Subnet (ECS).
+// [NOTE] Change back to true if you find that some websites don't resolve.
+// This is usually due to misconfiguration on the part of the domain owner. 
+//user_pref("network.trr.disable-ECS", false);
+
+// PREF: DNS Rebind Protection
+// Set to true to allow RFC 1918 private addresses in TRR responses
+//user_pref("network.trr.allow-rfc1918", false); // DEFAULT
+
+// PREF: Assorted Options
+//user_pref("network.trr.confirmationNS", "skip"); // skip undesired DOH test connection
+user_pref("network.dns.skipTRR-when-parental-control-enabled", false); // bypass parental controls when using DoH
+//user_pref("network.trr.skip-AAAA-when-not-supported", true); DEFAULT; If Firefox detects that your system does not have IPv6 connectivity, it will not request IPv6 addresses from the DoH server
+//user_pref("network.trr.clear-cache-on-pref-change", true); // DEFAULT; DNS+TRR cache will be cleared when a relevant TRR pref changes
+//user_pref("network.trr.wait-for-portal", false); // DEFAULT; set this to true to tell Firefox to wait for the captive portal detection before TRR is used
+
+// PREF: DOH exlcusions
+//user_pref("network.trr.excluded-domains", ""); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR. This pref can be used to make /etc/hosts works with DNS over HTTPS in Firefox.
+//user_pref("network.trr.builtin-excluded-domains", "localhost,local"); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR
+
+// PREF: enable Oblivious DoH setup (Cloudfare)
 // [1] https://blog.cloudflare.com/oblivious-dns/
 // [2] https://www.reddit.com/r/firefox/comments/xc9y4g/how_to_enable_oblivious_doh_odoh_for_enhanced_dns/
 //user_pref("network.trr.mode", 3);
@@ -702,11 +717,6 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 //user_pref("network.trr.odoh.target_host", "https://odoh.cloudflare-dns.com/");
 //user_pref("network.trr.odoh.target_path", "dns-query");
 //user_pref("network.trr.odoh.proxy_uri", "https://odoh1.surfdomeinen.nl/proxy");
-
-// PREF: DoH resolver list
-// [EXAMPLE] "[{ \"name\": \"Cloudflare\", \"url\": \"https://mozilla.cloudflare-dns.com/dns-query\" },{ \"name\": \"NextDNS\", \"url\": \"https://trr.dns.nextdns.io/\" }]"
-//user_pref("network.trr.resolvers", "[{ \"name\": \"<NAME1>\", \"url\": \"https://<URL1>\" }, { \"name\": \"<NAME2>\", \"url\": \"https://<URL2>\" }]");
-//user_pref("network.trr.resolvers", "[{ \"name\": \"<NextDNS Custom>\", \"url\": \"https://dns.nextdns.io/******/FF_WINDOWS\" }]");
 
 /******************************************************************************
  * SECTION: ESNI / ECH                            *
