@@ -1107,11 +1107,6 @@ user_pref("accessibility.force_disabled", 1);
 // PREF: disable the Accessibility panel
 //user_pref("devtools.accessibility.enabled", false);
 
-// PREF: don't focus elements on click, only on tab
-// Helps to eliminate ugly 1px dotted outline
-// default=1
-//user_pref("accessibility.mouse_focuses_formcontrol", 0);
-
 // PREF: disable Firefox accounts
 // [ALTERNATIVE] Use xBrowserSync [1]
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
