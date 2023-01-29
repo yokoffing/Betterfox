@@ -87,6 +87,12 @@ user_pref("findbar.highlightAll", true);
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089
 user_pref("middlemouse.contentLoadURL", false);
 
+// PREF: ugly border drawn around links when clicked
+//user_pref("accessibility.mouse_focuses_formcontrol", 0);
+// The above should work, but you may need to add:
+    //user_pref("browser.display.focus_ring_style", 0);
+    //user_pref("browser.display.focus_ring_width", 0);
+
 // Private Browsing changes [FF106+]
 // PREF: disable private windows being separate from normal windows in taskbar [WINDOWS]
 //user_pref("browser.privateWindowSeparation.enabled", false);
@@ -514,3 +520,5 @@ user_pref("layout.css.has-selector.enabled", true);
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
 // [3] https://old.reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
 //user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
+
+
