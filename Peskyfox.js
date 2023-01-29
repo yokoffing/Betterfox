@@ -11,16 +11,6 @@
  * SECTION: MOZILLA UI                                                      *
 ****************************************************************************/
 
-// PREF: enable a Light theme for browser and webpage content
-// [TEST] https://9to5mac.com/
-//user_pref("ui.systemUsesDarkTheme", 0); // HIDDEN
-//user_pref("browser.in-content.dark-mode", false); // HIDDEN
-
-// PREF: enable a Dark theme for browser and webpage content
-// [TEST] https://9to5mac.com/
-//user_pref("ui.systemUsesDarkTheme", 1); // HIDDEN
-//user_pref("browser.in-content.dark-mode", true); // HIDDEN
-
 // PREF: choose what theme Firefox follows by default
 // Dark (0), Light (1), System (2), or Browser (3) (default)
 // [1] https://www.reddit.com/r/firefox/comments/rfj6yc/how_to_stop_firefoxs_dark_theme_from_overriding/hoe82i5/?context=3
