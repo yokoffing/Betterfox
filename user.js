@@ -78,7 +78,6 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("security.tls.enable_0rtt_data", false);
 
 /** RFP ***/
-user_pref("browser.startup.blankWindow", false);
 user_pref("browser.display.use_system_colors", false);
 
 /** DISK AVOIDANCE ***/
