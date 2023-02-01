@@ -308,7 +308,7 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 // PREF: disable showing about:blank as soon as possible during startup [FF60+]
 // When default true this no longer masks the RFP chrome resizing activity
 // [1] https://bugzilla.mozilla.org/1448423
-user_pref("browser.startup.blankWindow", false);
+//user_pref("browser.startup.blankWindow", false);
 
 // PREF: disable ICC color management
 // Use a color calibrator for best results [WINDOWS]
@@ -353,7 +353,8 @@ user_pref("browser.sessionstore.privacy_level", 2);
 //user_pref("browser.helperApps.deleteTempFileOnExit", true); // DEFAULT [FF108]
 
 // PREF: disable page thumbnails capturing
-user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
+// Page thumbnails are only used in chrome/privileged contexts
+//user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
 
 // PREF: disable automatic Firefox start and session restore after reboot [WINDOWS]
 // [1] https://bugzilla.mozilla.org/603903
