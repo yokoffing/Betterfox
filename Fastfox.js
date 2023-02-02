@@ -143,6 +143,10 @@ user_pref("dom.enable_web_task_scheduling", true);
 //user_pref("dom.webgpu.enabled", true);
     //user_pref("gfx.webgpu.force-enabled", true);
 
+// PREF: Animated AVIF [NIGHTLY]
+// [1] https://codecalamity.com/animated-avif-is-finally-coming-to-firefox/
+//user_pref("image.avif.sequence.enabled", true);
+
 /****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
  * [NOTE] The following is not recommended for low-end machines             *
