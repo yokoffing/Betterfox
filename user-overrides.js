@@ -129,8 +129,8 @@ user_pref("network.dns.echconfig.enabled", false); // disable ECH (waiting on su
 /** DELETE IF NOT WINDOWS ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("pdfjs.defaultZoomValue", "125"); // DESKTOP; alt=page-width; PDF zoom level
-user_pref("dom.webgpu.enabled", true); // enable WebGPU
-user_pref("gfx.webgpu.force-enabled", true); // enable WebGPU
+//user_pref("dom.webgpu.enabled", true); // enable WebGPU
+//user_pref("gfx.webgpu.force-enabled", true); // enable WebGPU
 user_pref("dom.ipc.processCount", 12); // Shared Web Content; 12-core CPU
 user_pref("dom.ipc.processCount.webIsolated", 12); // per-site; Isolated Web Content; 12-core CPU
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true); // font improvement
