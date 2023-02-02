@@ -112,6 +112,7 @@ user_pref("javascript.options.wasm_gc", true); // Wasm GC
 user_pref("javascript.options.wasm_function_references", true); // Wasm Function references
 user_pref("javascript.options.experimental.import_assertions", true); // import assertions
 user_pref("javascript.options.experimental.array_grouping", true); // Array.fromAsync JS API
+user_pref("image.avif.sequence.enabled", true); // Animated AVIF
 user_pref("extensions.translations.disabled", false); // Language Translation; still needs Firefox Translations add-on
 user_pref("cookiebanners.service.mode", 2); // block cookie banners natively
 user_pref("cookiebanners.service.mode.privateBrowsing", 2); // block cookie banners natively in PB mode
