@@ -96,7 +96,6 @@ user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
 user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
 user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enabled", true); // PiP
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small"); // PiP
-user_pref("image.jxl.enabled", true); // JPEG XL
 user_pref("extensions.unifiedExtensions.enabled", false); // disable MV3 unified extensions button [FF 109+]
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
     //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
@@ -106,12 +105,13 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("layout.css.scroll-driven-animations.enabled", true); // CSS scroll-linked animations 
 //user_pref("dom.security.sanitizer.enabled", true); // HTML Sanitizer API 
 //user_pref("privacy.clearsitedata.cache.enabled", true); // Clear-Site-Data: "cache" header
-//user_pref("dom.indexedDB.preprocessing", true); // indexedDB Preprocessing
+user_pref("dom.indexedDB.preprocessing", true); // indexedDB Preprocessing
 user_pref("javascript.options.experimental.shadow_realms", true); // Shadowrealms
 user_pref("javascript.options.wasm_gc", true); // Wasm GC
 user_pref("javascript.options.wasm_function_references", true); // Wasm Function references
 user_pref("javascript.options.experimental.import_assertions", true); // import assertions
 user_pref("javascript.options.experimental.array_grouping", true); // Array.fromAsync JS API
+//user_pref("image.jxl.enabled", true); // JPEG XL
 user_pref("image.avif.sequence.enabled", true); // Animated AVIF
 user_pref("extensions.translations.disabled", false); // Language Translation; still needs Firefox Translations add-on
 user_pref("cookiebanners.service.mode", 2); // block cookie banners natively
