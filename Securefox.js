@@ -316,7 +316,7 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 // [SETTING] General>Language and Appearance>Fonts and Colors>Colors>Use system colors
 // default=false NON-WINDOWS
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/3.5/ICC_color_correction_in_Firefox
-user_pref("browser.display.use_system_colors", false);
+//user_pref("browser.display.use_system_colors", false);
 
 // PREF: enforce non-native widget theme
 // Security: removes/reduces system API calls, e.g. win32k API [1]
@@ -477,7 +477,7 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
-    user_pref("network.dns.disablePrefetchFromHTTPS", true); // enforce DEFAULT
+//user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
 
 // PREF: Preload <link rel=preload>
 // This tells the browser that the resource should be loaded as part of the current navigation
@@ -652,12 +652,12 @@ user_pref("dom.security.https_first", true);
 // [4] https://www.cloudflare.com/learning/ssl/why-use-https/
 
 // PREF: enable HTTPS-only Mode
-user_pref("dom.security.https_only_mode_pbm", true); // Private Browsing only
+//user_pref("dom.security.https_only_mode_pbm", true); // Private Browsing only
 //user_pref("dom.security.https_only_mode", true); // Normal + Private Browsing
 
-// PREF: Offer suggestion for HTTPS site when available
+// PREF: offer suggestion for HTTPS site when available
 // [1] https://nitter.winscloud.net/leli_gibts_scho/status/1371458534186057731
-user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
+//user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: HTTP background requests in HTTPS-only Mode
 // When attempting to upgrade, if the server doesn't respond within 3 seconds[=default time],
@@ -669,7 +669,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
 //user_pref("dom.security.https_only_mode_send_http_background_request", true); // DEFAULT
-         //user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 3000); // DEFAULT
+    //user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 3000); // DEFAULT
 
 // PREF: disable HTTPS-Only mode for local resources
 //user_pref("dom.security.https_only_mode.upgrade_local", false); // DEFAULT
@@ -703,7 +703,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: Assorted Options
 //user_pref("network.trr.confirmationNS", "skip"); // skip undesired DOH test connection
-user_pref("network.dns.skipTRR-when-parental-control-enabled", false); // bypass parental controls when using DoH
+//user_pref("network.dns.skipTRR-when-parental-control-enabled", false); // bypass parental controls when using DoH
 //user_pref("network.trr.skip-AAAA-when-not-supported", true); DEFAULT; If Firefox detects that your system does not have IPv6 connectivity, it will not request IPv6 addresses from the DoH server
 //user_pref("network.trr.clear-cache-on-pref-change", true); // DEFAULT; DNS+TRR cache will be cleared when a relevant TRR pref changes
 //user_pref("network.trr.wait-for-portal", false); // DEFAULT; set this to true to tell Firefox to wait for the captive portal detection before TRR is used
