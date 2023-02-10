@@ -627,10 +627,12 @@ user_pref("network.IDN_show_punycode", true);
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
 // [TEST] http://example.com [upgrade]
 // [TEST] http://httpforever.com/ [no upgrade]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1704453
-// [2] https://web.dev/why-https-matters/
-// [3] https://www.cloudflare.com/learning/ssl/why-use-https/
-//user_pref("dom.security.https_first", true);
+// [1] https://brave.com/privacy-updates/22-https-by-default/
+// [2] https://github.com/brave/adblock-lists/blob/master/brave-lists/https-upgrade-exceptions-list.txt
+// [3] https://web.dev/why-https-matters/
+// [4] https://www.cloudflare.com/learning/ssl/why-use-https/
+
+user_pref("dom.security.https_first", true);
 //user_pref("dom.security.https_first_pbm", true); // DEFAULT
 
 /******************************************************************************
@@ -650,7 +652,8 @@ user_pref("network.IDN_show_punycode", true);
 // [4] https://www.cloudflare.com/learning/ssl/why-use-https/
 
 // PREF: enable HTTPS-only Mode
-user_pref("dom.security.https_only_mode", true);
+user_pref("dom.security.https_only_mode_pbm", true); // Private Browsing only
+//user_pref("dom.security.https_only_mode", true); // Normal + Private Browsing
 
 // PREF: Offer suggestion for HTTPS site when available
 // [1] https://nitter.winscloud.net/leli_gibts_scho/status/1371458534186057731
