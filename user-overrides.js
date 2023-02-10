@@ -105,14 +105,14 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("dom.security.sanitizer.enabled", true); // HTML Sanitizer API 
 //user_pref("privacy.clearsitedata.cache.enabled", true); // Clear-Site-Data: "cache" header
 user_pref("dom.indexedDB.preprocessing", true); // indexedDB Preprocessing
-user_pref("javascript.options.experimental.shadow_realms", true); // Shadowrealms
-user_pref("javascript.options.wasm_gc", true); // Wasm GC
-user_pref("javascript.options.wasm_function_references", true); // Wasm Function references
-user_pref("javascript.options.experimental.import_assertions", true); // import assertions
-user_pref("javascript.options.experimental.array_grouping", true); // Array.fromAsync JS API
+//user_pref("javascript.options.experimental.shadow_realms", true); // Shadowrealms
+//user_pref("javascript.options.wasm_gc", true); // Wasm GC
+//user_pref("javascript.options.wasm_function_references", true); // Wasm Function references
+//user_pref("javascript.options.experimental.import_assertions", true); // import assertions
+//user_pref("javascript.options.experimental.array_grouping", true); // Array.fromAsync JS API
 //user_pref("image.jxl.enabled", true); // JPEG XL
 user_pref("image.avif.sequence.enabled", true); // Animated AVIF
-user_pref("extensions.translations.disabled", false); // Language Translation; still needs Firefox Translations add-on
+//user_pref("extensions.translations.disabled", false); // Language Translation; still needs Firefox Translations add-on
 user_pref("cookiebanners.service.mode", 2); // block cookie banners natively
 user_pref("cookiebanners.service.mode.privateBrowsing", 2); // block cookie banners natively in PB mode
 user_pref("privacy.globalprivacycontrol.enabled", true); // enable GPC
