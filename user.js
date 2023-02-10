@@ -106,8 +106,11 @@ user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("network.IDN_show_punycode", true);
 
+/** HTTPS-FIRST MODE ***/
+user_pref("dom.security.https_first", true);
+
 /** HTTPS-ONLY MODE ***/
-user_pref("dom.security.https_only_mode", true);
+user_pref("dom.security.https_only_mode_pbm", true);
 user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 /** DNS-over-HTTPS (DOH) ***/
