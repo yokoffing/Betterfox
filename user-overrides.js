@@ -26,7 +26,6 @@ user_pref("browser.sessionstore.interval", 150000); // 15 min.; set minimum inte
 user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
 user_pref("layers.gpu-process.force-enabled", true); // enforce
 user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
-user_pref("network.http.http3.enable", true); // disable QUIC for faster upload speeds RESET PREF
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
 user_pref("network.http.max-connections", 1800); // default=900
 user_pref("network.http.max-persistent-connections-per-server", 9); // default=6; download connections; anything above 10 is excessive
@@ -52,7 +51,7 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
 /** SECUREFOX ***/
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
-user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
+//user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("privacy.sanitize.sanitizeOnShutdown", true); // clear browsing data on shutdown
@@ -95,7 +94,6 @@ user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
 user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
 user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enabled", true); // PiP
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small"); // PiP
-user_pref("extensions.unifiedExtensions.enabled", false); // disable MV3 unified extensions button [FF 109+]
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
     //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
