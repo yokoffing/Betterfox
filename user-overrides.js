@@ -50,8 +50,6 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
     user_pref("network.predictor.max-uri-length", 1000);
 
 /** SECUREFOX ***/
-user_pref("dom.security.https_only_mode", false); // disable HTTPS-Only Mode in user.js
-user_pref("dom.security.https_first", true); // use HTTPS-First instead of HTTPS-only
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
