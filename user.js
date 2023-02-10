@@ -77,9 +77,6 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("security.tls.enable_0rtt_data", false);
 
-/** RFP ***/
-user_pref("browser.display.use_system_colors", false);
-
 /** DISK AVOIDANCE ***/
 user_pref("browser.cache.disk.enable", false);
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
@@ -91,7 +88,6 @@ user_pref("privacy.history.custom", true);
 /** SPECULATIVE CONNECTIONS ***/
 user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("browser.places.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
@@ -108,10 +104,6 @@ user_pref("network.IDN_show_punycode", true);
 
 /** HTTPS-FIRST MODE ***/
 user_pref("dom.security.https_first", true);
-
-/** HTTPS-ONLY MODE ***/
-user_pref("dom.security.https_only_mode_pbm", true);
-user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 /** DNS-over-HTTPS (DOH) ***/
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
