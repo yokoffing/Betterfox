@@ -16,7 +16,6 @@
 //user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
 //user_pref("dom.ipc.processCount.webIsolated", 4); // per-site; DEFAULT; Isolated Web Content
 
-// [1] https://github.com/yokoffing/Betterfox/blob/064f64ab5f0e8443ed6b127d91326d9c887cd15d/Securefox.js#L58-L64
 // PREF: initial paint delay
 // How long FF will wait before rendering the page, in milliseconds
 // Reduce the 5ms Firefox waits to render the page
@@ -182,7 +181,9 @@ user_pref("media.hardware-video-decoding.enabled", true);
     //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
 
 // PREF: GPU-accelerated Canvas2D tweaks
+// [WARNING] May break PDF rendering on Surface Pro devices [2]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1739448
+// [2] https://github.com/yokoffing/Betterfox/issues/153
 user_pref("gfx.canvas.accelerated", true);
 user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
