@@ -598,9 +598,9 @@ user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 //user_pref("browser.fixup.alternate.enabled", false); // [DEFAULT FF104+]
 
 // PREF: display "Not Secure" text on HTTP sites
-// No longer needed with HTTPS-Only
-//user_pref("security.insecure_connection_text.enabled", true);
-//user_pref("security.insecure_connection_text.pbmode.enabled", true);
+// Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode
+user_pref("security.insecure_connection_text.enabled", true);
+user_pref("security.insecure_connection_text.pbmode.enabled", true);
 
 // PREF: Disable location bar autofill
 // https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete
