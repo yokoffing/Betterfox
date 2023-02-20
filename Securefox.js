@@ -627,10 +627,11 @@ user_pref("network.IDN_show_punycode", true);
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
 // [TEST] http://example.com [upgrade]
 // [TEST] http://httpforever.com/ [no upgrade]
-// [1] https://brave.com/privacy-updates/22-https-by-default/
-// [2] https://github.com/brave/adblock-lists/blob/master/brave-lists/https-upgrade-exceptions-list.txt
-// [3] https://web.dev/why-https-matters/
-// [4] https://www.cloudflare.com/learning/ssl/why-use-https/
+// [1] https://blog.mozilla.org/security/2021/08/10/firefox-91-introduces-https-by-default-in-private-browsing/
+// [2] https://brave.com/privacy-updates/22-https-by-default/
+// [3] https://github.com/brave/adblock-lists/blob/master/brave-lists/https-upgrade-exceptions-list.txt
+// [4] https://web.dev/why-https-matters/
+// [5] https://www.cloudflare.com/learning/ssl/why-use-https/
 
 user_pref("dom.security.https_first", true);
 //user_pref("dom.security.https_first_pbm", true); // DEFAULT
