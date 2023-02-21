@@ -91,7 +91,7 @@ user_pref("pdfjs.sidebarViewOnLoad", 2); // [HIDDEN] force showing of Table of C
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
 user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
-user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
+//user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
 user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enabled", true); // PiP
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small"); // PiP
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
