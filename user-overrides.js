@@ -123,7 +123,7 @@ user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by de
 user_pref("network.dns.echconfig.enabled", false); // disable ECH (waiting on support); ControlD will require a root CA installation to work
 //user_pref("network.dns.http3_echconfig.enabled", true); // disable ECH (waiting on support); ControlD will require a root CA installation to work
 
-/** DELETE IF NOT WINDOWS ***/
+/** DELETE IF NOT WINDOWS DESKTOP ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("pdfjs.defaultZoomValue", "125"); // DESKTOP; alt=page-width; PDF zoom level
 //user_pref("dom.webgpu.enabled", true); // enable WebGPU
@@ -146,7 +146,7 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728);
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
 
-/** DELETE IF NOT macOS ***/
+/** DELETE IF NOT macOS LAPTOP ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
 user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level
 user_pref("app.update.auto", false); // disable auto-installing Firefox updates [NON-WINDOWS]
