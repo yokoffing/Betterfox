@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 109                                                             *
+ * version: 110                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -51,8 +51,6 @@ user_pref("browser.cache.memory.max_entry_size", 153600);
 /** NETWORK ***/
 user_pref("network.buffer.cache.size", 262144);
 user_pref("network.buffer.cache.count", 128);
-user_pref("network.dnsCacheExpiration", 3600);
-user_pref("network.dnsCacheExpirationGracePeriod", 240);
 user_pref("network.ssl_tokens_cache_capacity", 32768);
 
 /****************************************************************************
@@ -77,15 +75,10 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("security.tls.enable_0rtt_data", false);
 
-/** RFP ***/
-user_pref("browser.startup.blankWindow", false);
-user_pref("browser.display.use_system_colors", false);
-
 /** DISK AVOIDANCE ***/
 user_pref("browser.cache.disk.enable", false);
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 user_pref("browser.sessionstore.privacy_level", 2);
-user_pref("browser.pagethumbnails.capturing_disabled", true);
 
 /** SHUTDOWN & SANITIZING ***/
 user_pref("privacy.history.custom", true);
@@ -93,7 +86,6 @@ user_pref("privacy.history.custom", true);
 /** SPECULATIVE CONNECTIONS ***/
 user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("browser.places.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
@@ -106,14 +98,12 @@ user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
+user_pref("security.insecure_connection_text.enabled", true);
+user_pref("security.insecure_connection_text.pbmode.enabled", true);
 user_pref("network.IDN_show_punycode", true);
 
-/** HTTPS-ONLY MODE ***/
-user_pref("dom.security.https_only_mode", true);
-user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
-
-/** DNS-over-HTTPS (DOH) ***/
-user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+/** HTTPS-FIRST MODE ***/
+user_pref("dom.security.https_first", true);
 
 /** PROXY / SOCKS / IPv6 ***/
 user_pref("network.proxy.socks_remote_dns", true);
@@ -126,6 +116,7 @@ user_pref("signon.privateBrowsingCapture.enabled", false);
 user_pref("signon.autofillForms", false);
 user_pref("signon.rememberSignons", false);
 user_pref("editor.truncate_user_pastes", false);
+user_pref("layout.forms.reveal-password-context-menu.enabled", true);
 
 /** ADDRESS + CREDIT CARD MANAGER ***/
 user_pref("extensions.formautofill.addresses.enabled", false);
@@ -150,17 +141,12 @@ user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 user_pref("media.peerconnection.ice.default_address_only", true);
 
 /** SAFE BROWSING ***/
-user_pref("browser.safebrowsing.blockedURIs.enabled", true); // reset pref; remove in v.110
-user_pref("browser.safebrowsing.malware.enabled", true); // reset pref; remove in v.110
-user_pref("browser.safebrowsing.phishing.enabled", true); // reset pref; remove in v.110
-user_pref("browser.safebrowsing.downloads.enabled", true); // reset pref; remove in v.110
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 
 /** MOZILLA ***/
 user_pref("accessibility.force_disabled", 1);
 user_pref("identity.fxaccounts.enabled", false);
 user_pref("browser.tabs.firefox-view", false);
-user_pref("dom.push.enabled", true); // reset pref; remove in v.110
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
@@ -254,7 +240,7 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("dom.disable_window_move_resize", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
-user_pref("dom.popup_allowed_events", "click dblclick");
+user_pref("dom.popup_allowed_events", "change click dblclick auxclick mousedown mouseup pointerdown pointerup notificationclick reset submit touchend contextmenu"); // reset pref; remove in v.111
 user_pref("layout.css.has-selector.enabled", true);
 
 /****************************************************************************
