@@ -77,7 +77,7 @@ user_pref("findbar.highlightAll", true);
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089
 user_pref("middlemouse.contentLoadURL", false);
 
-// PREF: ugly border drawn around links when clicked
+// PREF: attempt to remove ugly border drawn around links when clicked
 //user_pref("accessibility.mouse_focuses_formcontrol", 0);
 // The above should work, but you may need to add:
     //user_pref("browser.display.focus_ring_style", 0);
