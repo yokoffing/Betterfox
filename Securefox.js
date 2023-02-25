@@ -163,6 +163,7 @@ user_pref("browser.uitour.enabled", false);
 // [4] https://help.duckduckgo.com/duckduckgo-help-pages/privacy/gpc/
 // [5] https://brave.com/web-standards-at-brave/4-global-privacy-control/
 // [6] https://www.eff.org/gpc-privacy-badger
+// [7] https://www.eff.org/issues/do-not-track
 user_pref("privacy.globalprivacycontrol.enabled", true);
     user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 
