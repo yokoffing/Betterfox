@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 109                                                                         *
+ * version: 110                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
@@ -16,7 +16,6 @@
 //user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
 //user_pref("dom.ipc.processCount.webIsolated", 4); // per-site; DEFAULT; Isolated Web Content
 
-// [1] https://github.com/yokoffing/Betterfox/blob/064f64ab5f0e8443ed6b127d91326d9c887cd15d/Securefox.js#L58-L64
 // PREF: initial paint delay
 // How long FF will wait before rendering the page, in milliseconds
 // Reduce the 5ms Firefox waits to render the page
@@ -58,7 +57,8 @@ user_pref("content.notify.interval", 100000); // alt=360000 (.36s)
 // PREF: set the minimum interval between session save operations
 // Increasing this can help on older machines and some websites, as well as reducing writes
 // [1] https://bugzilla.mozilla.org/1304389
-//user_pref("browser.sessionstore.interval", 30000); // [DEFAULT: 15000]
+// default=15000 (15s)
+//user_pref("browser.sessionstore.interval", 30000); // (30s)
 
 // PREF: control how tabs are loaded when a session is restored
 // true=Tabs are not loaded until they are selected (default)
@@ -142,6 +142,10 @@ user_pref("dom.enable_web_task_scheduling", true);
 //user_pref("dom.webgpu.enabled", true);
     //user_pref("gfx.webgpu.force-enabled", true);
 
+// PREF: Animated AVIF [NIGHTLY]
+// [1] https://codecalamity.com/animated-avif-is-finally-coming-to-firefox/
+//user_pref("image.avif.sequence.enabled", true);
+
 /****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
  * [NOTE] The following is not recommended for low-end machines             *
@@ -176,9 +180,11 @@ user_pref("media.hardware-video-decoding.enabled", true);
     //user_pref("gfx.webrender.software.opengl", true); // [LINUX]
     //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
 
-// PREF: GPU-accelerated Canvas2D tweaks
+// PREF: GPU-accelerated Canvas2D
+// [WARNING] May break PDF rendering on Surface Pro devices [2]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1739448
-user_pref("gfx.canvas.accelerated", true);
+// [2] https://github.com/yokoffing/Betterfox/issues/153
+user_pref("gfx.canvas.accelerated", true); // DEFAULT on macOS and Linux v.110
 user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("gfx.content.skia-font-cache-size", 80);
@@ -194,7 +200,7 @@ user_pref("media.memory_caches_combined_limit_kb", 2560000); // preferred=314572
     //user_pref("media.memory_caches_combined_limit_pc_sysmem", 20); // default=5
 
 // PREF: decrease video buffering
-// [NOTE] Does not affect YouTube since it uses DASH playback [1]
+// [NOTE] Does not affect videos over 720p since they use DASH playback [1]
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
 //user_pref("media.cache_size", 2048000); // default=512000
 user_pref("media.cache_readahead_limit", 9000); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
@@ -246,12 +252,18 @@ user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 //user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
 
 // PREF: increase DNS cache
+// [NOTE] May be overridden by DNS resolver, especially if using TRR
 //user_pref("network.dnsCacheEntries", 20000);
-user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour
-user_pref("network.dnsCacheExpirationGracePeriod", 240); // 4 minutes
+//user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour
+//user_pref("network.dnsCacheExpirationGracePeriod", 240); // 4 minutes
 
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
+
+// PREF: temporary fix for upload speed bug in Firefox
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1596576
+//user_pref("network.http.http2.send-buffer-size", 33554432);
+//user_pref("network.http.http2.push-allowance", 33554432);
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                         *

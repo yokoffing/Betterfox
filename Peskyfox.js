@@ -3,23 +3,13 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 109                                                             *
+ * version: 110                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
 /****************************************************************************
  * SECTION: MOZILLA UI                                                      *
 ****************************************************************************/
-
-// PREF: enable a Light theme for browser and webpage content
-// [TEST] https://9to5mac.com/
-//user_pref("ui.systemUsesDarkTheme", 0); // HIDDEN
-//user_pref("browser.in-content.dark-mode", false); // HIDDEN
-
-// PREF: enable a Dark theme for browser and webpage content
-// [TEST] https://9to5mac.com/
-//user_pref("ui.systemUsesDarkTheme", 1); // HIDDEN
-//user_pref("browser.in-content.dark-mode", true); // HIDDEN
 
 // PREF: choose what theme Firefox follows by default
 // Dark (0), Light (1), System (2), or Browser (3) (default)
@@ -58,9 +48,6 @@ user_pref("browser.preferences.moreFromMozilla", false);
 // [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
 user_pref("browser.tabs.tabmanager.enabled", false);
 
-// PREF: disable Unified Extensions button [FF109+]
-//user_pref("extensions.unifiedExtensions.enabled", false);
-
 // PREF: disable Warnings
 //user_pref("browser.tabs.warnOnClose", false); // DEFAULT [FF94+]
 //user_pref("browser.tabs.warnOnCloseOtherTabs", false);
@@ -89,6 +76,12 @@ user_pref("findbar.highlightAll", true);
 // PREF: disable middle mouse click opening links from clipboard
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089
 user_pref("middlemouse.contentLoadURL", false);
+
+// PREF: attempt to remove ugly border drawn around links when clicked
+//user_pref("accessibility.mouse_focuses_formcontrol", 0);
+// The above should work, but you may need to add:
+    //user_pref("browser.display.focus_ring_style", 0);
+    //user_pref("browser.display.focus_ring_width", 0);
 
 // Private Browsing changes [FF106+]
 // PREF: disable private windows being separate from normal windows in taskbar [WINDOWS]
@@ -410,7 +403,7 @@ user_pref("dom.disable_window_move_resize", true);
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
 // (default) "change click dblclick auxclick mouseup pointerup notificationclick reset submit touchend contextmenu"
 // (alternate) user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
-user_pref("dom.popup_allowed_events", "click dblclick");
+//user_pref("dom.popup_allowed_events", "click dblclick");
 //user_pref("dom.disable_open_during_load", true); // DEFAULT
 //user_pref("privacy.popups.showBrowserMessage", true); // DEFAULT
 
@@ -517,3 +510,5 @@ user_pref("layout.css.has-selector.enabled", true);
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
 // [3] https://old.reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
 //user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
+
+

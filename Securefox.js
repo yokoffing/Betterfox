@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: 109                                                             *
+ * version: 110                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -57,9 +57,12 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
 //user_pref("privacy.trackingprotection.lower_network_priority", true);
 
-// PREF: Site Isolation (sandboxing)
-// Creates operating system process-level boundaries for all sites loaded in Firefox for Desktop. Isolating each site
-// into a separate operating system process makes it harder for malicious sites to read another site’s private data.
+// PREF: Site Isolation (sandboxing) [FF100+]
+// Site Isolation builds upon a new security architecture that extends current
+// protection mechanisms by separating (web) content and loading each site
+// in its own operating system process. This new security architecture allows
+// Firefox to completely separate code originating from different sites and, in turn,
+// defend against malicious sites trying to access sensitive information from other sites you are visiting.
 // [1] https://hacks.mozilla.org/2021/05/introducing-firefox-new-site-isolation-security-architecture/
 // [2] https://hacks.mozilla.org/2022/05/improved-process-isolation-in-firefox-100/
 // [3] https://hacks.mozilla.org/2021/12/webassembly-and-back-again-fine-grained-sandboxing-in-firefox-95/
@@ -305,7 +308,7 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 // PREF: disable showing about:blank as soon as possible during startup [FF60+]
 // When default true this no longer masks the RFP chrome resizing activity
 // [1] https://bugzilla.mozilla.org/1448423
-user_pref("browser.startup.blankWindow", false);
+//user_pref("browser.startup.blankWindow", false);
 
 // PREF: disable ICC color management
 // Use a color calibrator for best results [WINDOWS]
@@ -313,7 +316,7 @@ user_pref("browser.startup.blankWindow", false);
 // [SETTING] General>Language and Appearance>Fonts and Colors>Colors>Use system colors
 // default=false NON-WINDOWS
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/3.5/ICC_color_correction_in_Firefox
-user_pref("browser.display.use_system_colors", false);
+//user_pref("browser.display.use_system_colors", false);
 
 // PREF: enforce non-native widget theme
 // Security: removes/reduces system API calls, e.g. win32k API [1]
@@ -350,7 +353,8 @@ user_pref("browser.sessionstore.privacy_level", 2);
 //user_pref("browser.helperApps.deleteTempFileOnExit", true); // DEFAULT [FF108]
 
 // PREF: disable page thumbnails capturing
-user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
+// Page thumbnails are only used in chrome/privileged contexts
+//user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
 
 // PREF: disable automatic Firefox start and session restore after reboot [WINDOWS]
 // [1] https://bugzilla.mozilla.org/603903
@@ -473,7 +477,7 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
-    user_pref("network.dns.disablePrefetchFromHTTPS", true); // enforce DEFAULT
+//user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
 
 // PREF: Preload <link rel=preload>
 // This tells the browser that the resource should be loaded as part of the current navigation
@@ -594,9 +598,9 @@ user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 //user_pref("browser.fixup.alternate.enabled", false); // [DEFAULT FF104+]
 
 // PREF: display "Not Secure" text on HTTP sites
-// No longer needed with HTTPS-Only
-//user_pref("security.insecure_connection_text.enabled", true);
-//user_pref("security.insecure_connection_text.pbmode.enabled", true);
+// Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode
+user_pref("security.insecure_connection_text.enabled", true);
+user_pref("security.insecure_connection_text.pbmode.enabled", true);
 
 // PREF: Disable location bar autofill
 // https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete
@@ -623,10 +627,13 @@ user_pref("network.IDN_show_punycode", true);
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
 // [TEST] http://example.com [upgrade]
 // [TEST] http://httpforever.com/ [no upgrade]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1704453
-// [2] https://web.dev/why-https-matters/
-// [3] https://www.cloudflare.com/learning/ssl/why-use-https/
-//user_pref("dom.security.https_first", true);
+// [1] https://blog.mozilla.org/security/2021/08/10/firefox-91-introduces-https-by-default-in-private-browsing/
+// [2] https://brave.com/privacy-updates/22-https-by-default/
+// [3] https://github.com/brave/adblock-lists/blob/master/brave-lists/https-upgrade-exceptions-list.txt
+// [4] https://web.dev/why-https-matters/
+// [5] https://www.cloudflare.com/learning/ssl/why-use-https/
+
+user_pref("dom.security.https_first", true);
 //user_pref("dom.security.https_first_pbm", true); // DEFAULT
 
 /******************************************************************************
@@ -646,11 +653,12 @@ user_pref("network.IDN_show_punycode", true);
 // [4] https://www.cloudflare.com/learning/ssl/why-use-https/
 
 // PREF: enable HTTPS-only Mode
-user_pref("dom.security.https_only_mode", true);
+//user_pref("dom.security.https_only_mode_pbm", true); // Private Browsing only
+//user_pref("dom.security.https_only_mode", true); // Normal + Private Browsing
 
-// PREF: Offer suggestion for HTTPS site when available
+// PREF: offer suggestion for HTTPS site when available
 // [1] https://nitter.winscloud.net/leli_gibts_scho/status/1371458534186057731
-user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
+//user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: HTTP background requests in HTTPS-only Mode
 // When attempting to upgrade, if the server doesn't respond within 3 seconds[=default time],
@@ -662,7 +670,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
 //user_pref("dom.security.https_only_mode_send_http_background_request", true); // DEFAULT
-         //user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 3000); // DEFAULT
+    //user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 3000); // DEFAULT
 
 // PREF: disable HTTPS-Only mode for local resources
 //user_pref("dom.security.https_only_mode.upgrade_local", false); // DEFAULT
@@ -676,21 +684,36 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [NOTE] You can set this to 0 if you are already using secure DNS for your entire network (e.g. OS-level, router-level).
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
-// 0=off, 2=TRR preferred, 3=TRR only, 5=TRR disabled
-//user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
+// 0=off, 2=TRR preferred (with System fallback), 3=TRR only (without System fallback), 5=TRR disabled
 //user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 
 // PREF: DoH resolver
-// You will type between the "" for both prefs.
-// I recommend creating your own URI with NextDNS for both privacy and security.
-// https://nextdns.io
 // [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
 //user_pref("network.trr.uri", "https://xxxx/dns-query");
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
-user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
-//user_pref("network.trr.confirmationNS", "skip"); // skip undesired DOH test connection
 
-// PREF: enable Oblivious DoH
+// PREF: EDNS Client Subnet DNS extension (ECS support and DNSSEC validation)
+// When set to false, TRR asks the resolver to enable EDNS Client Subnet (ECS).
+// [NOTE] Change back to true if you find that some websites don't resolve.
+// This is usually due to misconfiguration on the part of the domain owner. 
+//user_pref("network.trr.disable-ECS", false);
+
+// PREF: DNS Rebind Protection
+// Set to true to allow RFC 1918 private addresses in TRR responses
+//user_pref("network.trr.allow-rfc1918", false); // DEFAULT
+
+// PREF: Assorted Options
+//user_pref("network.trr.confirmationNS", "skip"); // skip undesired DOH test connection
+//user_pref("network.dns.skipTRR-when-parental-control-enabled", false); // bypass parental controls when using DoH
+//user_pref("network.trr.skip-AAAA-when-not-supported", true); DEFAULT; If Firefox detects that your system does not have IPv6 connectivity, it will not request IPv6 addresses from the DoH server
+//user_pref("network.trr.clear-cache-on-pref-change", true); // DEFAULT; DNS+TRR cache will be cleared when a relevant TRR pref changes
+//user_pref("network.trr.wait-for-portal", false); // DEFAULT; set this to true to tell Firefox to wait for the captive portal detection before TRR is used
+
+// PREF: DOH exlcusions
+//user_pref("network.trr.excluded-domains", ""); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR. This pref can be used to make /etc/hosts works with DNS over HTTPS in Firefox.
+//user_pref("network.trr.builtin-excluded-domains", "localhost,local"); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR
+
+// PREF: enable Oblivious DoH setup (Cloudfare)
 // [1] https://blog.cloudflare.com/oblivious-dns/
 // [2] https://www.reddit.com/r/firefox/comments/xc9y4g/how_to_enable_oblivious_doh_odoh_for_enhanced_dns/
 //user_pref("network.trr.mode", 3);
@@ -699,11 +722,6 @@ user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 //user_pref("network.trr.odoh.target_host", "https://odoh.cloudflare-dns.com/");
 //user_pref("network.trr.odoh.target_path", "dns-query");
 //user_pref("network.trr.odoh.proxy_uri", "https://odoh1.surfdomeinen.nl/proxy");
-
-// PREF: DoH resolver list
-// [EXAMPLE] "[{ \"name\": \"Cloudflare\", \"url\": \"https://mozilla.cloudflare-dns.com/dns-query\" },{ \"name\": \"NextDNS\", \"url\": \"https://trr.dns.nextdns.io/\" }]"
-//user_pref("network.trr.resolvers", "[{ \"name\": \"<NAME1>\", \"url\": \"https://<URL1>\" }, { \"name\": \"<NAME2>\", \"url\": \"https://<URL2>\" }]");
-//user_pref("network.trr.resolvers", "[{ \"name\": \"<NextDNS Custom>\", \"url\": \"https://dns.nextdns.io/******/FF_WINDOWS\" }]");
 
 /******************************************************************************
  * SECTION: ESNI / ECH                            *
@@ -820,9 +838,9 @@ user_pref("signon.rememberSignons", false);
 // [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
 user_pref("editor.truncate_user_pastes", false);
 
-// PREF: show Reveal Password icon
-//user_pref("layout.forms.reveal-password-button.enabled", true);
-//user_pref("layout.forms.reveal-password-context-menu.enabled", false); // DEFAULT
+// PREF: Reveal Password
+//user_pref("layout.forms.reveal-password-button.enabled", true); // show icon
+user_pref("layout.forms.reveal-password-context-menu.enabled", true); // right-click menu option
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
@@ -993,6 +1011,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [SETTING] General>DRM Content>Play DRM-controlled content
 // [TEST] https://bitmovin.com/demos/drm
 // [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
+// [2] https://old.reddit.com/r/firefox/comments/10gvplf/comment/j55htc7
 //user_pref("media.eme.enabled", false);
 // Optionally, hide the setting which also disables the DRM prompt:
 //user_pref("browser.eme.ui.enabled", false);
@@ -1092,11 +1111,6 @@ user_pref("accessibility.force_disabled", 1);
 
 // PREF: disable the Accessibility panel
 //user_pref("devtools.accessibility.enabled", false);
-
-// PREF: don't focus elements on click, only on tab
-// Helps to eliminate ugly 1px dotted outline
-// default=1
-//user_pref("accessibility.mouse_focuses_formcontrol", 0);
 
 // PREF: disable Firefox accounts
 // [ALTERNATIVE] Use xBrowserSync [1]
