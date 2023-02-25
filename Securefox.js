@@ -157,7 +157,7 @@ user_pref("browser.uitour.enabled", false);
 // PREF: enable Global Privacy Control (GPC) [NIGHTLY]
 // Honored by many highly ranked sites [2]
 // [TEST] https://global-privacy-control.glitch.me/
-// [1] https://globalprivacycontrol.org/
+// [1] https://globalprivacycontrol.org/press-release/20201007.html
 // [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
 // [3] https://blog.mozilla.org/netpolicy/2021/10/28/implementing-global-privacy-control/
 // [4] https://help.duckduckgo.com/duckduckgo-help-pages/privacy/gpc/
