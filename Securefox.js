@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *  
- * version: 110                                                             *
+ * version: 111                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -156,11 +156,12 @@ user_pref("browser.uitour.enabled", false);
 
 // PREF: enable Global Privacy Control (GPC) [NIGHTLY]
 // Honored by many highly ranked sites [2]
+// [TEST] https://global-privacy-control.glitch.me/
 // [1] https://globalprivacycontrol.org/
 // [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
 // [3] https://blog.mozilla.org/netpolicy/2021/10/28/implementing-global-privacy-control/
-//user_pref("privacy.globalprivacycontrol.enabled", true);
-    //user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
+user_pref("privacy.globalprivacycontrol.enabled", true);
+    user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 
 /****************************************************************************
  * SECTION: OSCP & CERTS / HPKP (HTTP Public Key Pinning)                   *
