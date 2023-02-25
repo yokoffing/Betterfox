@@ -160,6 +160,9 @@ user_pref("browser.uitour.enabled", false);
 // [1] https://globalprivacycontrol.org/
 // [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
 // [3] https://blog.mozilla.org/netpolicy/2021/10/28/implementing-global-privacy-control/
+// [4] https://help.duckduckgo.com/duckduckgo-help-pages/privacy/gpc/
+// [5] https://brave.com/web-standards-at-brave/4-global-privacy-control/
+// [6] https://www.eff.org/gpc-privacy-badger
 user_pref("privacy.globalprivacycontrol.enabled", true);
     user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 
