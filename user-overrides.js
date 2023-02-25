@@ -113,9 +113,9 @@ user_pref("image.avif.sequence.enabled", true); // Animated AVIF
 //user_pref("extensions.translations.disabled", false); // Language Translation; still needs Firefox Translations add-on
 user_pref("cookiebanners.service.mode", 2); // block cookie banners natively
 user_pref("cookiebanners.service.mode.privateBrowsing", 2); // block cookie banners natively in PB mode
-user_pref("privacy.globalprivacycontrol.enabled", true); // enable GPC
-user_pref("privacy.globalprivacycontrol.functionality.enabled", true); // enable GPC
-user_pref("privacy.userContext.enabled", false); // disable Containers
+//user_pref("privacy.globalprivacycontrol.enabled", true); // enable GPC
+//user_pref("privacy.globalprivacycontrol.functionality.enabled", true); // enable GPC
+user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 //user_pref("browser.urlbar.suggest.quickactions", false); // Quick Actions in URL bar
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
