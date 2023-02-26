@@ -60,6 +60,11 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 [7](https://old.reddit.com/r/firefox/comments/zodxzx/performance_optimizations_for_firefox/j0memta/?context=2)
 [8](https://old.reddit.com/r/browsers/comments/106qwyk/in_contrast_to_previous_post_what_do_you_like/j3irpx0/?context=2)
 
+### Browser Integration
+* [Pulse Browser](https://github.com/pulse-browser/browser#%EF%B8%8F-credits) | [files](https://github.com/pulse-browser/browser/tree/alpha/src/browser/app/profile) (Dec 2021)
+* [Ghostery Private Browser](https://github.com/ghostery/user-agent-desktop#community)  | [files](https://github.com/ghostery/user-agent-desktop/tree/main/brands/ghostery/branding/pref) (Feb 2021)
+    * [Betterfox adopted into Ghostery Private Browser](https://web.archive.org/web/20210509171835/https://www.ghostery.com/ghostery-dawn-update-more/)<sup>[1](https://web.archive.org/web/20210921114333/https://www.ghostery.com/ghostery-dawn-product-update/)</sup>
+
 ### YouTube
 * [I Hate Firefox. But I'm Still Switching Back to It.](https://youtu.be/w0SJFED5xK0?t=220) (Nov 2022)
 * [Español] [Optimizar y Acelerar Firefox](https://www.youtube.com/watch?v=3XtoONmq5_Q) (Nov 2022) 
@@ -67,11 +72,9 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
     
 ### Podcasts
 * [GhoSTORIES with Franz & Pete](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh), S2|E6, 17:05-18:40 (Feb 2021)
-
-### Browser Integration
-* [Pulse Browser](https://github.com/pulse-browser/browser#%EF%B8%8F-credits) | [files](https://github.com/pulse-browser/browser/tree/alpha/src/browser/app/profile) (Dec 2021)
-* [Ghostery Dawn](https://github.com/ghostery/user-agent-desktop#community)  | [files](https://github.com/ghostery/user-agent-desktop/tree/main/brands/ghostery/branding/pref) (Feb 2021)
-    * [Betterfox adopted into Ghostery Dawn](https://web.archive.org/web/20210509171835/https://www.ghostery.com/ghostery-dawn-update-more/)<sup>[1](https://web.archive.org/web/20210921114333/https://www.ghostery.com/ghostery-dawn-product-update/)</sup>
+    
+### Articles
+* [2023 Browser Showdown: Comparing Chrome, Brave, Firefox, Vivaldi, and Opera – Is it Worth the Switch?](https://www.appdate.lk/technology/2023-browser-showdown/)
 
 ### Guides
 * [FMHY Browser Tools: Privacy Hardened Firefox](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/storage/#wiki_privacy_hardened_firefox)
@@ -80,7 +83,7 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 * [pyllyukko/user.js](https://github.com/pyllyukko/user.js) [comparator](https://jm42.github.io/compare-user.js/)
 
 ### Contributions
-* [Ghostery desktop browser](https://github.com/ghostery/user-agent-desktop/issues?q=is%3Apr+is%3Aissue+author%3Ayokoffing+)
+* [Ghostery Private Browser](https://github.com/ghostery/user-agent-desktop/issues?q=is%3Apr+is%3Aissue+author%3Ayokoffing+)
 * [Orion Browser](https://orionfeedback.org/?author=yokoffing)
 * [Kagi Search Engine](https://kagifeedback.org/?author=yokoffing)
 * [Various blocklists](https://github.com/yokoffing/filterlists#contributions)
