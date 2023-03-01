@@ -129,7 +129,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [2] https://web.dev/samesite-cookies-explained/
 //user_pref("network.cookie.sameSite.laxByDefault", true);
 //user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-//user_pref("network.cookie.sameSite.schemeful", true); // DEFAULT 104+
+//user_pref("network.cookie.sameSite.schemeful", true);
 
 // PREF: Hyperlink Auditing (click tracking).
 //user_pref("browser.send_pings", false); // DEFAULT
