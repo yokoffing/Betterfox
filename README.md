@@ -90,7 +90,7 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 * [Various blocklists](https://github.com/yokoffing/filterlists#contributions)
 
 ## Credit
-* Many thanks to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://docs.openwebsandbox.org/learn/ows-articles/what-is-the-open-web).
+* Many thanks to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://builtin.com/software-engineering-perspectives/open-web).
 * This repository benefits from the ongoing research provided by [arkenfox](https://github.com/arkenfox/user.js). They are the foundation to any worthwhile `user.js`.
 
 ## Support
