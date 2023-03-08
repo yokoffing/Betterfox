@@ -840,7 +840,7 @@ user_pref("editor.truncate_user_pastes", false);
 
 // PREF: Reveal Password
 //user_pref("layout.forms.reveal-password-button.enabled", true); // show icon
-user_pref("layout.forms.reveal-password-context-menu.enabled", true); // right-click menu option
+//user_pref("layout.forms.reveal-password-context-menu.enabled", true); // right-click menu option; DEFAULT FF112
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
