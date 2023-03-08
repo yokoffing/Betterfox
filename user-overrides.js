@@ -112,8 +112,6 @@ user_pref("image.avif.sequence.enabled", true); // Animated AVIF
 //user_pref("extensions.translations.disabled", false); // Language Translation; still needs Firefox Translations add-on
 user_pref("cookiebanners.service.mode", 2); // block cookie banners natively
 user_pref("cookiebanners.service.mode.privateBrowsing", 2); // block cookie banners natively in PB mode
-//user_pref("privacy.globalprivacycontrol.enabled", true); // enable GPC
-//user_pref("privacy.globalprivacycontrol.functionality.enabled", true); // enable GPC
 user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 //user_pref("browser.urlbar.suggest.quickactions", false); // Quick Actions in URL bar
@@ -129,17 +127,17 @@ user_pref("pdfjs.defaultZoomValue", "125"); // DESKTOP; alt=page-width; PDF zoom
 //user_pref("gfx.webgpu.force-enabled", true); // enable WebGPU
 user_pref("dom.ipc.processCount", 12); // Shared Web Content; 12-core CPU
 user_pref("dom.ipc.processCount.webIsolated", 12); // per-site; Isolated Web Content; 12-core CPU
-user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true); // font improvement
+//user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true); // font improvement
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
-// user_pref("gfx.font_rendering.cleartype_params.gamma", 898); // 1000-2200; https://www.reddit.com/r/firefox/comments/10ed7o2/comment/j4qar9y/
+//user_pref("gfx.font_rendering.cleartype_params.gamma", 898); // 1000-2200; https://www.reddit.com/r/firefox/comments/10ed7o2/comment/j4qar9y/
 user_pref("image.mem.decode_bytes_at_a_time", 262144); // alt=512000
 user_pref("browser.cache.memory.capacity", 2097152); // fixed maximum 2 GB in memory cache
 user_pref("browser.cache.memory.max_entry_size", 327680); // maximum size of in memory cached objects
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
+//user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
 user_pref("media.memory_caches_combined_limit_kb", 3145728);
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
