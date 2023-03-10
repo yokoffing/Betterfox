@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 110                                                                         *
+ * version: 111                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
@@ -245,8 +245,9 @@ user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 // PREF: increase the absolute number of HTTP connections
 // [1] https://kb.mozillazine.org/Network.http.max-connections
 // [2] https://kb.mozillazine.org/Network.http.max-persistent-connections-per-server
-//user_pref("network.http.max-connections", 1800); // default=900
-//user_pref("network.http.max-persistent-connections-per-server", 9); // default=6; download connections; anything above 10 is excessive
+// [3] https://old.reddit.com/r/firefox/comments/11m2yuh/how_do_i_make_firefox_use_more_of_my_900_megabit/jbfmru6/
+user_pref("network.http.max-connections", 1800); // default=900
+user_pref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
 //user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
 //user_pref("network.http.max-urgent-start-excessive-connections-per-host", 6); // default=3
 //user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
@@ -260,7 +261,7 @@ user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
 
-// PREF: temporary fix for upload speed bug in Firefox
+// PREF: temporary fix for upload speed in Firefox
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1596576
 //user_pref("network.http.http2.send-buffer-size", 33554432);
 //user_pref("network.http.http2.push-allowance", 33554432);
