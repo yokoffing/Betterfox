@@ -51,6 +51,8 @@ user_pref("browser.cache.memory.max_entry_size", 153600);
 /** NETWORK ***/
 user_pref("network.buffer.cache.size", 262144);
 user_pref("network.buffer.cache.count", 128);
+user_pref("network.http.max-connections", 1800);
+user_pref("network.http.max-persistent-connections-per-server", 10);
 user_pref("network.ssl_tokens_cache_capacity", 32768);
 
 /****************************************************************************
