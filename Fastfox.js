@@ -41,18 +41,22 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 // every 0.12 seconds by default. These redraws increase the total page load time.
 // The default value provides good incremental display of content
 // without causing an increase in page load time.
-// [NOTE] Lowering the interval will decrease the PERCEIVED page load time (user experience?)
-// but increase the TOTAL loading time (benchmarks?).
-// [NOTE] Slower connections will want lower value (100000).
-// Page load does not change dramatically for faster connections,
-// so you may favor a smoother page load (360000).
+// [NOTE] Lowering the interval will increase responsiveness
+// but also increase the total load time.
 // [WARNING] If this value is set below 1/10 of a second, it starts
 // to impact page load performance.
 // [EXAMPLE] 100000 = .10s = 100 reflows/second
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
 // [2] https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
 // [3] https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
-user_pref("content.notify.interval", 100000); // alt=360000 (.36s)
+user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
+
+// PREF: frequency switch threshold [HIDDEN]
+// Raising the value will make the application more responsive at the expense of page load time.
+// [1] http://kb.mozillazine.org/Content.switch.threshold
+// [2] https://old.reddit.com/r/firefox/comments/11m2yuh/comment/jbjxp8s/?context=3
+//user_pref("content.interrupt.parsing", true); // [HIDDEN]
+//user_pref("content.switch.threshold", 1000000); // alt=1500000; default=750000; [HIDDEN]
 
 // PREF: set the minimum interval between session save operations
 // Increasing this can help on older machines and some websites, as well as reducing writes
