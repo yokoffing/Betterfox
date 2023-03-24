@@ -95,12 +95,5 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 * Many thanks to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://builtin.com/software-engineering-perspectives/open-web).
 * This repository benefits from the ongoing research provided by [arkenfox](https://github.com/arkenfox/user.js). They are the foundation to any worthwhile `user.js`.
 
-## Support
-I’m a one-person operation, running this page as a passion project in my time off. If you enjoy my work, please leave a tip! Your support is incredibly appreciated and allows me to dedicate time to this project :blush:
-
-<img align="top" width="25px" src="https://coekuss.com/quietfox/bitcoin.png"> Bitcoin: 334gaiEjn6wY1VksQvYe5L668JjtPEPyiM
-
-<img align="top" width="20px" src="https://coekuss.com/quietfox/paypal.png"> PayPal: [paypal.me](about:blank) (forthcoming)
-
 <div align='center'><a href='https://www.websitecounterfree.com'><img src='https://www.websitecounterfree.com/c.php?d=9&id=19653&s=1' border='0' alt='Free Website Counter'></a><br / >
 <div align='center'>since 23 July 2022</div>
