@@ -22,13 +22,11 @@ user_pref("https://dns.controld.com/******"); // DoH - ControlD
 
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
-user_pref("browser.sessionstore.interval", 150000); // 15 min.; set minimum interval between session save operations
+user_pref("browser.sessionstore.interval", 50000); // 5 min.; set minimum interval between session save operations
 user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
 user_pref("layers.gpu-process.force-enabled", true); // enforce
 user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
-user_pref("network.http.max-connections", 1800); // default=900
-user_pref("network.http.max-persistent-connections-per-server", 9); // default=6; download connections; anything above 10 is excessive
 user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
 user_pref("network.dnsCacheEntries", 20000); // maximum # of DNS entries
 user_pref("network.dnsCacheExpiration", 86400); // keep DNS entries for 24 hours
@@ -92,7 +90,6 @@ user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from vario
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
 user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
 //user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
-user_pref("media.videocontrols.picture-in-picture.improved-video-controls.enabled", true); // PiP
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small"); // PiP
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
     //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
@@ -113,9 +110,7 @@ user_pref("image.avif.sequence.enabled", true); // Animated AVIF
 //user_pref("extensions.translations.disabled", false); // Language Translation; still needs Firefox Translations add-on
 user_pref("cookiebanners.service.mode", 2); // block cookie banners natively
 user_pref("cookiebanners.service.mode.privateBrowsing", 2); // block cookie banners natively in PB mode
-user_pref("privacy.globalprivacycontrol.enabled", true); // enable GPC
-user_pref("privacy.globalprivacycontrol.functionality.enabled", true); // enable GPC
-user_pref("privacy.userContext.enabled", false); // disable Containers
+user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 //user_pref("browser.urlbar.suggest.quickactions", false); // Quick Actions in URL bar
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
@@ -130,17 +125,17 @@ user_pref("pdfjs.defaultZoomValue", "125"); // DESKTOP; alt=page-width; PDF zoom
 //user_pref("gfx.webgpu.force-enabled", true); // enable WebGPU
 user_pref("dom.ipc.processCount", 12); // Shared Web Content; 12-core CPU
 user_pref("dom.ipc.processCount.webIsolated", 12); // per-site; Isolated Web Content; 12-core CPU
-user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true); // font improvement
+//user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true); // font improvement
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
-// user_pref("gfx.font_rendering.cleartype_params.gamma", 898); // 1000-2200; https://www.reddit.com/r/firefox/comments/10ed7o2/comment/j4qar9y/
+//user_pref("gfx.font_rendering.cleartype_params.gamma", 898); // 1000-2200; https://www.reddit.com/r/firefox/comments/10ed7o2/comment/j4qar9y/
 user_pref("image.mem.decode_bytes_at_a_time", 262144); // alt=512000
 user_pref("browser.cache.memory.capacity", 2097152); // fixed maximum 2 GB in memory cache
 user_pref("browser.cache.memory.max_entry_size", 327680); // maximum size of in memory cached objects
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
+//user_pref("media.memory_caches_combined_limit_pc_sysmem", 40);
 user_pref("media.memory_caches_combined_limit_kb", 3145728);
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
