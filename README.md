@@ -32,7 +32,7 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 ## about:Privacy
 Most repos have niche privacy and security concerns with little regard for speed, annoyances, or mainstream use. Betterfox was inspired by the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e). For instance, features like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here<sup>^[*why?*](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)</sup>. And while Betterfox is designed to set-and-forget, it contains plenty of options for those who like to tinker.
 
-If your context calls for _anonymity_ and not just reasonable _privacy_, then please use [Tor Browser](https://www.torproject.org).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> [Fingerprinting](https://smartframe.io/blog/browser-fingerprinting-everything-you-need-to-know/) is a high [threat model](https://thenewoil.org/threatmodel.html) issue that is [only addressed reasonably by Tor](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D).
+If your context calls for _anonymity_ and not just reasonable _privacy_, then please use [Tor Browser](https://www.torproject.org).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> [Fingerprinting](https://smartframe.io/blog/browser-fingerprinting-everything-you-need-to-know/) is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is [only addressed reasonably by Tor](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D).
 
 ## Assumptions
 Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky if you want to revert the following behavior:
@@ -67,6 +67,7 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
     * [Betterfox adopted into Ghostery Private Browser](https://web.archive.org/web/20210509171835/https://www.ghostery.com/ghostery-dawn-update-more/)<sup>[1](https://web.archive.org/web/20210921114333/https://www.ghostery.com/ghostery-dawn-product-update/)</sup>
 
 ### YouTube
+* [Firefox is NOT private. Here's how to fix it.](https://youtu.be/Fr8UFJzpNls) (Mar 2023)
 * [I Hate Firefox. But I'm Still Switching Back to It.](https://youtu.be/w0SJFED5xK0?t=220) (Nov 2022)
 * [Español] [Optimizar y Acelerar Firefox](https://www.youtube.com/watch?v=3XtoONmq5_Q) (Nov 2022) 
 * [How To Improve Firefox Performance](https://www.youtube.com/watch?v=N8IOJiOFVEk) (Dec 2021)

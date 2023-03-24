@@ -2,7 +2,7 @@
 /****************************************************************************
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
- * priority: provide sensible security and privacy                          *  
+ * priority: provide sensible security and privacy                          *
  * version: 112                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
@@ -129,7 +129,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [2] https://web.dev/samesite-cookies-explained/
 //user_pref("network.cookie.sameSite.laxByDefault", true);
 //user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-//user_pref("network.cookie.sameSite.schemeful", true); // DEFAULT 104+
+//user_pref("network.cookie.sameSite.schemeful", true);
 
 // PREF: Hyperlink Auditing (click tracking).
 //user_pref("browser.send_pings", false); // DEFAULT
@@ -156,11 +156,16 @@ user_pref("browser.uitour.enabled", false);
 
 // PREF: enable Global Privacy Control (GPC) [NIGHTLY]
 // Honored by many highly ranked sites [2]
-// [1] https://globalprivacycontrol.org/
+// [TEST] https://global-privacy-control.glitch.me/
+// [1] https://globalprivacycontrol.org/press-release/20201007.html
 // [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
 // [3] https://blog.mozilla.org/netpolicy/2021/10/28/implementing-global-privacy-control/
-//user_pref("privacy.globalprivacycontrol.enabled", true);
-    //user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
+// [4] https://help.duckduckgo.com/duckduckgo-help-pages/privacy/gpc/
+// [5] https://brave.com/web-standards-at-brave/4-global-privacy-control/
+// [6] https://www.eff.org/gpc-privacy-badger
+// [7] https://www.eff.org/issues/do-not-track
+user_pref("privacy.globalprivacycontrol.enabled", true);
+    user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 
 /****************************************************************************
  * SECTION: OSCP & CERTS / HPKP (HTTP Public Key Pinning)                   *
