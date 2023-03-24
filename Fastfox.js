@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 110                                                                         *
+ * version: 111                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
@@ -41,18 +41,22 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 // every 0.12 seconds by default. These redraws increase the total page load time.
 // The default value provides good incremental display of content
 // without causing an increase in page load time.
-// [NOTE] Lowering the interval will decrease the PERCEIVED page load time (user experience?)
-// but increase the TOTAL loading time (benchmarks?).
-// [NOTE] Slower connections will want lower value (100000).
-// Page load does not change dramatically for faster connections,
-// so you may favor a smoother page load (360000).
+// [NOTE] Lowering the interval will increase responsiveness
+// but also increase the total load time.
 // [WARNING] If this value is set below 1/10 of a second, it starts
 // to impact page load performance.
 // [EXAMPLE] 100000 = .10s = 100 reflows/second
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
 // [2] https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
 // [3] https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
-user_pref("content.notify.interval", 100000); // alt=360000 (.36s)
+user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
+
+// PREF: frequency switch threshold [HIDDEN]
+// Raising the value will make the application more responsive at the expense of page load time.
+// [1] http://kb.mozillazine.org/Content.switch.threshold
+// [2] https://old.reddit.com/r/firefox/comments/11m2yuh/comment/jbjxp8s/?context=3
+//user_pref("content.interrupt.parsing", true); // [HIDDEN]
+//user_pref("content.switch.threshold", 1000000); // alt=1500000; default=750000; [HIDDEN]
 
 // PREF: set the minimum interval between session save operations
 // Increasing this can help on older machines and some websites, as well as reducing writes
@@ -221,11 +225,12 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 // More efficient to keep the browser cache instead of
 // having to re-download objects for the websites you visit frequently
 //user_pref("browser.cache.disk.enable", true); // DEFAULT; overrides Securefox
-//user_pref("browser.cache.disk.capacity", 8192000); // 8 GB cache on disk
+//user_pref("browser.cache.disk.capacity", 1048576); // 1 GB disk cache; 8192000 = 8 GB
     //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT
+//user_pref("browser.cache.disk.metadata_memory_limit", 1024); // increase the memory capacity in Firefox, in order to load more pages, faster
 //user_pref("browser.cache.max_shutdown_io_lag", 8); // number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
-//user_pref("browser.cache.frecency_half_life_hours", 6); // DEFAULT; lower cache sweep intervals, the half life used to re-compute cache entries frequency (in hours)
+//user_pref("browser.cache.frecency_half_life_hours", 6); // DEFAULT; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
 
 // PREF: increase memory cache size
 // [1] https://www.makeuseof.com/tag/how-much-data-does-youtube-use/
@@ -245,8 +250,9 @@ user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 // PREF: increase the absolute number of HTTP connections
 // [1] https://kb.mozillazine.org/Network.http.max-connections
 // [2] https://kb.mozillazine.org/Network.http.max-persistent-connections-per-server
-//user_pref("network.http.max-connections", 1800); // default=900
-//user_pref("network.http.max-persistent-connections-per-server", 9); // default=6; download connections; anything above 10 is excessive
+// [3] https://old.reddit.com/r/firefox/comments/11m2yuh/how_do_i_make_firefox_use_more_of_my_900_megabit/jbfmru6/
+user_pref("network.http.max-connections", 1800); // default=900
+user_pref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
 //user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
 //user_pref("network.http.max-urgent-start-excessive-connections-per-host", 6); // default=3
 //user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
@@ -260,7 +266,7 @@ user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
 
-// PREF: temporary fix for upload speed bug in Firefox
+// PREF: temporary fix for upload speed in Firefox
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1596576
 //user_pref("network.http.http2.send-buffer-size", 33554432);
 //user_pref("network.http.http2.push-allowance", 33554432);
