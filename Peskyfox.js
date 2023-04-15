@@ -34,6 +34,9 @@ user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false); // HIDDEN
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
+// PREF: disable Firefox from asking to set as the default browser
+user_pref("browser.shell.checkDefaultBrowser", false);
+
 // PREF: disable Extension Recommendations (CFR: "Contextual Feature Recommender")
 // [1] https://support.mozilla.org/en-US/kb/extension-recommendations
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
