@@ -35,6 +35,7 @@ user_pref("extensions.getAddons.showPane", false); // HIDDEN
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
 // PREF: disable Firefox from asking to set as the default browser
+// [1] https://github.com/yokoffing/Betterfox/issues/166
 user_pref("browser.shell.checkDefaultBrowser", false);
 
 // PREF: disable Extension Recommendations (CFR: "Contextual Feature Recommender")
