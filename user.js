@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 111                                                             *
+ * version: 112                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -120,7 +120,6 @@ user_pref("signon.privateBrowsingCapture.enabled", false);
 user_pref("signon.autofillForms", false);
 user_pref("signon.rememberSignons", false);
 user_pref("editor.truncate_user_pastes", false);
-user_pref("layout.forms.reveal-password-context-menu.enabled", true);
 
 /** ADDRESS + CREDIT CARD MANAGER ***/
 user_pref("extensions.formautofill.addresses.enabled", false);
@@ -214,7 +213,7 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 /** FULLSCREEN ***/
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
-user_pref("full-screen-api.warning.delay", 0);
+user_pref("full-screen-api.warning.delay", -1);
 user_pref("full-screen-api.warning.timeout", 0);
 
 /** URL BAR ***/
@@ -240,8 +239,6 @@ user_pref("browser.download.always_ask_before_handling_new_types", true);
 user_pref("browser.download.open_pdf_attachments_inline", true);
 
 /** TAB BEHAVIOR ***/
-user_pref("browser.link.open_newwindow.restriction", 0);
-user_pref("dom.disable_window_move_resize", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("layout.css.has-selector.enabled", true);
