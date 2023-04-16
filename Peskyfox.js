@@ -341,7 +341,7 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 // 0 = force all new windows opened by JavaScript into tabs
 // [NOTE] Most advertising popups also open in new windows with values set
 // [1] https://kb.mozillazine.org/About:config_entries
-user_pref("browser.link.open_newwindow.restriction", 0);
+//user_pref("browser.link.open_newwindow.restriction", 0);
 
 // PREF: override <browser.link.open_newwindow> for external links
 // Set if a different destination for external links is needed
@@ -379,7 +379,7 @@ user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
 // PREF: Prevent scripts from moving and resizing open windows
-user_pref("dom.disable_window_move_resize", true);
+//user_pref("dom.disable_window_move_resize", true);
 
 // PREF: insert new tabs after groups like it
 // true(default) = open new tabs to the right of the parent tab
