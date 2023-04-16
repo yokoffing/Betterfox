@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 110                                                             *
+ * version: 112                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -34,6 +34,10 @@ user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false); // HIDDEN
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
+// PREF: disable Firefox from asking to set as the default browser
+// [1] https://github.com/yokoffing/Betterfox/issues/166
+user_pref("browser.shell.checkDefaultBrowser", false);
+
 // PREF: disable Extension Recommendations (CFR: "Contextual Feature Recommender")
 // [1] https://support.mozilla.org/en-US/kb/extension-recommendations
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
@@ -57,7 +61,7 @@ user_pref("browser.tabs.tabmanager.enabled", false);
 // PREF: disable fullscreen delay and notice
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
-user_pref("full-screen-api.warning.delay", 0);
+user_pref("full-screen-api.warning.delay", -1);
 user_pref("full-screen-api.warning.timeout", 0);
 
 // PREF: disable welcome notices
@@ -338,7 +342,7 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 // 0 = force all new windows opened by JavaScript into tabs
 // [NOTE] Most advertising popups also open in new windows with values set
 // [1] https://kb.mozillazine.org/About:config_entries
-user_pref("browser.link.open_newwindow.restriction", 0);
+//user_pref("browser.link.open_newwindow.restriction", 0);
 
 // PREF: override <browser.link.open_newwindow> for external links
 // Set if a different destination for external links is needed
@@ -376,7 +380,7 @@ user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
 // PREF: Prevent scripts from moving and resizing open windows
-user_pref("dom.disable_window_move_resize", true);
+//user_pref("dom.disable_window_move_resize", true);
 
 // PREF: insert new tabs after groups like it
 // true(default) = open new tabs to the right of the parent tab
