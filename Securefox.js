@@ -2,8 +2,8 @@
 /****************************************************************************
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
- * priority: provide sensible security and privacy                          *  
- * version: 111                                                             *
+ * priority: provide sensible security and privacy                          *
+ * version: 112                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -845,7 +845,7 @@ user_pref("editor.truncate_user_pastes", false);
 
 // PREF: Reveal Password
 //user_pref("layout.forms.reveal-password-button.enabled", true); // show icon
-user_pref("layout.forms.reveal-password-context-menu.enabled", true); // right-click menu option
+//user_pref("layout.forms.reveal-password-context-menu.enabled", true); // right-click menu option; DEFAULT FF112
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
@@ -1265,6 +1265,8 @@ user_pref("network.captive-portal-service.enabled", false);
 user_pref("network.connectivity-service.enabled", false);
 
 // PREF: software that continually reports what default browser you are using
+// [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser [1].
+// [1] https://github.com/yokoffing/Betterfox/issues/166
 user_pref("default-browser-agent.enabled", false);
 
 // PREF: "report extensions for abuse"
