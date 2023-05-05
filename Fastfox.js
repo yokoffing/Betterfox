@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 111                                                                         *
+ * version: 113                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
@@ -77,11 +77,6 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 /****************************************************************************
  * SECTION: EXPERIMENTAL                                                    *
 ****************************************************************************/
-
-// PREF: about:home startup cache [NIGHTLY]
-// A cache for the initial about:home document that is loaded by default at startup
-// The purpose of the cache is to improve startup performance
-//user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
 
 // PREF: CSS Masonry Layout [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
