@@ -145,6 +145,11 @@ user_pref("dom.enable_web_task_scheduling", true);
 // [1] https://codecalamity.com/animated-avif-is-finally-coming-to-firefox/
 //user_pref("image.avif.sequence.enabled", true);
 
+// PREF: NVIDIA RTX Video Super Resolution for video overlay [WINDOWS]
+// This is also a setting in NVIDIA's driver settings, so once this is
+// stable, it should default to true.
+//user_pref("gfx.webrender.super-resolution.nvidia", true);
+
 /****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
  * [NOTE] The following is not recommended for low-end machines             *
