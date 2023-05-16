@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 111                                                                         *
+ * version: 113                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
@@ -78,11 +78,6 @@ user_pref("browser.startup.preXulSkeletonUI", false);
  * SECTION: EXPERIMENTAL                                                    *
 ****************************************************************************/
 
-// PREF: about:home startup cache [NIGHTLY]
-// A cache for the initial about:home document that is loaded by default at startup
-// The purpose of the cache is to improve startup performance
-//user_pref("browser.startup.homepage.abouthome_cache.enabled", true);
-
 // PREF: CSS Masonry Layout [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
@@ -149,6 +144,12 @@ user_pref("dom.enable_web_task_scheduling", true);
 // PREF: Animated AVIF [NIGHTLY]
 // [1] https://codecalamity.com/animated-avif-is-finally-coming-to-firefox/
 //user_pref("image.avif.sequence.enabled", true);
+
+// PREF: NVIDIA RTX Video Super Resolution for video overlay [WINDOWS]
+// This is also a setting in NVIDIA's driver settings, so once this is
+// stable, it should default to true.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1823135
+//user_pref("gfx.webrender.super-resolution.nvidia", true);
 
 /****************************************************************************
  * SECTION: MAKE FIREFOX FAST                                               *
