@@ -148,6 +148,7 @@ user_pref("dom.enable_web_task_scheduling", true);
 // PREF: NVIDIA RTX Video Super Resolution for video overlay [WINDOWS]
 // This is also a setting in NVIDIA's driver settings, so once this is
 // stable, it should default to true.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1823135
 //user_pref("gfx.webrender.super-resolution.nvidia", true);
 
 /****************************************************************************
