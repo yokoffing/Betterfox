@@ -70,6 +70,7 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 
 ### YouTube
 * [Firefox is NOT private. Here's how to fix it.](https://youtu.be/Fr8UFJzpNls) (Mar 2023)
+* [The ULTIMATE Browser Tier List (Based Tier to Spyware Tier)](https://youtu.be/j5r6jFE8gic) (Mar 2023)
 * [I Hate Firefox. But I'm Still Switching Back to It.](https://youtu.be/w0SJFED5xK0?t=220) (Nov 2022)
 * [Español] [Optimizar y Acelerar Firefox](https://www.youtube.com/watch?v=3XtoONmq5_Q) (Nov 2022) 
 * [How To Improve Firefox Performance](https://www.youtube.com/watch?v=N8IOJiOFVEk) (Dec 2021)
