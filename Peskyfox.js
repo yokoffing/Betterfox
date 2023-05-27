@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 112                                                             *
+ * version: 113                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -29,6 +29,7 @@ user_pref("browser.compactmode.show", true);
 
 // PREF: Mozilla VPN
 user_pref("browser.privatebrowsing.vpnpromourl", "");
+    //user_pref("browser.vpn_promo.enabled", false);
 
 // PREF: disable about:addons' Recommendations pane (uses Google Analytics)
 user_pref("extensions.getAddons.showPane", false); // HIDDEN
