@@ -268,11 +268,6 @@ user_pref("network.http.max-persistent-connections-per-server", 10); // default=
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
 
-// PREF: temporary fix for upload speed in Firefox
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1596576
-//user_pref("network.http.http2.send-buffer-size", 33554432);
-//user_pref("network.http.http2.push-allowance", 33554432);
-
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                         *
 ****************************************************************************/
