@@ -708,20 +708,23 @@ user_pref("dom.security.https_first", true);
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred (with System fallback), 3=TRR only (without System fallback), 5=TRR disabled
 //user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
+//user_pref("network.trr.display_fallback_warning", false); // DEFAULT
 
 // PREF: DoH resolver
 // [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
 //user_pref("network.trr.uri", "https://xxxx/dns-query");
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
 
-// PREF: EDNS Client Subnet DNS extension (ECS support and DNSSEC validation)
-// When set to false, TRR asks the resolver to enable EDNS Client Subnet (ECS).
-// [NOTE] Change back to true if you find that some websites don't resolve.
-// This is usually due to misconfiguration on the part of the domain owner. 
-//user_pref("network.trr.disable-ECS", false);
+// PREF: EDNS Client Subnet DNS extension (DNSSEC validation)
+// When set to false, TRR asks the resolver to enable EDNS Client Subnet (ECS)
+// [WARNING] Some websites won't resolve when enabled
+// This is usually due to misconfiguration on the part of the domain owner
+// [1] https://docs.controld.com/docs/disable-dnssec-option
+//user_pref("network.trr.disable-ECS", true); // DEFAULT
 
 // PREF: DNS Rebind Protection
 // Set to true to allow RFC 1918 private addresses in TRR responses
+// [1] https://docs.controld.com/docs/dns-rebind-option
 //user_pref("network.trr.allow-rfc1918", false); // DEFAULT
 
 // PREF: Assorted Options
