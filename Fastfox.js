@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 113                                                                         *
+ * version: 113b                                                                        *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
@@ -290,6 +290,9 @@ user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS
 //user_pref("network.http.speculative-parallel-limit", 18); // default=6; overrides SecureFox
 //user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
 //user_pref("network.dns.disablePrefetchFromHTTPS", false);
+//user_pref("network.early-hints.enabled", true);
+    //user_pref("network.early-hints.preconnect.enabled", true);
+    //user_pref("network.early-hints.preconnect.max_connections", 20); // FF113
 //user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
 //user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
 //user_pref("network.prefetch-next", true); // overrides SecureFox
