@@ -295,7 +295,7 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
         //user_pref("layout.css.font-visibility.standard", 1); // Normal Browsing windows with tracking protection disabled(?)
 
 /****************************************************************************
- * SECTION: RESIST FINGERPRINTING (RFP)                                     *
+ * SECTION: FINGERPRINT PROTECTION (RFP)                                    *
 ****************************************************************************/
 
 // PREF: enable FingerPrint Protection (FPP) [WiP]
@@ -343,7 +343,7 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 //user_pref("widget.non-native-theme.enabled", true); // DEFAULT
 
 /****************************************************************************
- * SECTION: DISK AVOIDANCE                                                 *
+ * SECTION: DISK AVOIDANCE                                                  *
 ****************************************************************************/
 
 // PREF: disable disk cache
