@@ -32,9 +32,12 @@ user_pref("network.dnsCacheEntries", 20000); // maximum # of DNS entries
 user_pref("network.dnsCacheExpiration", 86400); // keep DNS entries for 24 hours
 user_pref("network.dnsCacheExpirationGracePeriod", 240); // 4 minutes
 user_pref("network.http.speculative-parallel-limit", 18); // default=6
-//user_pref("network.dns.disablePrefetch", false);
-    //user_pref("network.dns.disablePrefetchFromHTTPS", false);
-//user_pref("network.prefetch-next", true);
+user_pref("network.dns.disablePrefetch", false);
+    user_pref("network.dns.disablePrefetchFromHTTPS", false);
+user_pref("network.early-hints.enabled", true);
+    user_pref("network.early-hints.preconnect.enabled", true);
+    user_pref("network.early-hints.preconnect.max_connections", 20); // default Nightly=10
+user_pref("network.prefetch-next", true);
 user_pref("network.predictor.enabled", true);
 user_pref("network.predictor.enable-prefetch", true);
 user_pref("network.predictor.enable-hover-on-ssl", true);
