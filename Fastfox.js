@@ -126,6 +126,7 @@ user_pref("dom.enable_web_task_scheduling", true);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1795452
 //user_pref("javascript.options.experimental.array_grouping", true);
 //user_pref("javascript.options.experimental.enable_change_array_by_copy", true);
+//user_pref("javascript.options.experimental.enable_array_from_async", true);
 
 // PREF: indexedDB
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1112702
