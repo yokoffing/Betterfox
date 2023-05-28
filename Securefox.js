@@ -515,11 +515,11 @@ user_pref("network.dns.disablePrefetch", true);
 // [9] https://web.dev/preload-critical-assets/
 //user_pref("network.preload", true); // DEFAULT
 
-// PREF: early hints
+// PREF: disable early hints
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
-//user_pref("network.early-hints.enabled", true);
-    //user_pref("network.early-hints.preconnect.enabled", true);
-    //user_pref("network.early-hints.preconnect.max_connections", 20); // FF113
+//user_pref("network.early-hints.enabled", false); // DEFAULT
+    //user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
+    //user_pref("network.early-hints.preconnect.max_connections", 0); // DEFAULT
 
 // PREF: Link prefetching <link rel="prefetch">
 // Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
