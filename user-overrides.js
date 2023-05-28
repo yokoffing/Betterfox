@@ -107,7 +107,6 @@ user_pref("layout.css.scroll-driven-animations.enabled", true); // CSS scroll-li
 //user_pref("javascript.options.experimental.array_grouping", true); // Array.fromAsync JS API
 //user_pref("image.jxl.enabled", true); // JPEG XL
 user_pref("image.avif.sequence.enabled", true); // Animated AVIF
-//user_pref("extensions.translations.disabled", false); // Language Translation; still needs Firefox Translations add-on
 user_pref("cookiebanners.service.mode", 2); // block cookie banners natively
 user_pref("cookiebanners.service.mode.privateBrowsing", 2); // block cookie banners natively in PB mode
 user_pref("privacy.userContext.enabled", false); // disable Containers functionality
