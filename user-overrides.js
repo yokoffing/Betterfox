@@ -66,7 +66,6 @@ user_pref("dom.push.enabled", false); // disable Push API; breaks FF Sync
 user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.notify.checkForProxies", false); // skip proxy request check
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
-user_pref("network.trr.disable-ECS", false); // TRR asks the resolver to enable EDNS Client Subnet (ECS support); set to true if some websites don't resolve
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes annoying "Inspect Accessibility Properties" on right-click
