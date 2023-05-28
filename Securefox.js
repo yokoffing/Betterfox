@@ -515,7 +515,7 @@ user_pref("network.dns.disablePrefetch", true);
 // [9] https://web.dev/preload-critical-assets/
 //user_pref("network.preload", true); // DEFAULT
 
-// PREF: disable early hints
+// PREF: early hints
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
 //user_pref("network.early-hints.enabled", false); // DEFAULT
     //user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
