@@ -298,6 +298,18 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
  * SECTION: RESIST FINGERPRINTING (RFP)                                     *
 ****************************************************************************/
 
+// PREF: enable FingerPrint Protection (FPP) [WiP]
+// Mozilla is slowly rolling out FPP in PB windows
+// [1] https://github.com/arkenfox/user.js/issues/1661
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1816064
+//user_pref("privacy.resistFingerprinting.randomization.enabled", true); // to be removed soon
+//user_pref("privacy.resistFingerprinting.randomization.daily_reset.enabled", true);
+//user_pref("privacy.resistFingerprinting.randomization.daily_reset.private.enabled", true);
+
+/****************************************************************************
+ * SECTION: RESIST FINGERPRINTING (RFP)                                     *
+****************************************************************************/
+
 // PREF: enable advanced fingerprinting protection 
 // [WARNING] Leave disabled unless you're okay with all the drawbacks
 // [1] https://librewolf.net/docs/faq/#what-are-the-most-common-downsides-of-rfp-resist-fingerprinting
