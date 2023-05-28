@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *
- * version: 112                                                             *
+ * version: 113                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -502,6 +502,12 @@ user_pref("network.dns.disablePrefetch", true);
 // [8] https://yashints.dev/blog/2018/10/06/web-perf-2#preload
 // [9] https://web.dev/preload-critical-assets/
 //user_pref("network.preload", true); // DEFAULT
+
+// PREF: early hints
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
+//user_pref("network.early-hints.enabled", true);
+    //user_pref("network.early-hints.preconnect.enabled", true);
+    //user_pref("network.early-hints.preconnect.max_connections", 20); // FF113
 
 // PREF: Link prefetching <link rel="prefetch">
 // Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
