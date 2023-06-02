@@ -112,17 +112,16 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
     //user_pref("cookiebanners.bannerClicking.enabled", true); // DEFAULT [FF108]
     //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
 
-// PREF: global CookieBannerRules
+// PREF: enable global CookieBannerRules
 // This is used for click rules that can handle common Consent Management Providers (CMP)
 // [WARNING] Enabling this (when the cookie handling feature is enabled) may
 // negatively impact site performance since it requires us to run rule-defined
 // query selectors for every page
 //user_pref("cookiebanners.service.enableGlobalRules", enable);
 
-// PREF: Firefox Translations [DOESN'T WORK]
-// Mozilla's WIP implementation of Google Translate
-// Use their extension for now [1]
-// [1] https://addons.mozilla.org/en-US/firefox/addon/firefox-translations/
+// PREF: Firefox Translations [NIGHTLY ONLY]
+// Visit about:translations to translate your own text as well
+// [1] https://blog.nightly.mozilla.org/2023/06/01/firefox-translations-and-other-innovations-these-weeks-in-firefox-issue-139/
 //user_pref("browser.translation.detectLanguage", true); // has no effect
 //user_pref("browser.translation.ui.show", true); // has no effect
     //user_pref("extensions.translations.disabled", false); // Language Translation; still needs Firefox Translations add-on
