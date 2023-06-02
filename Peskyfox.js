@@ -122,11 +122,9 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 // PREF: Firefox Translations [NIGHTLY ONLY]
 // Visit about:translations to translate your own text as well
 // [1] https://blog.nightly.mozilla.org/2023/06/01/firefox-translations-and-other-innovations-these-weeks-in-firefox-issue-139/
-//user_pref("browser.translation.detectLanguage", true); // has no effect
-//user_pref("browser.translation.ui.show", true); // has no effect
-    //user_pref("extensions.translations.disabled", false); // Language Translation; still needs Firefox Translations add-on
-    //user_pref("browser.translations.enable", true);
+//user_pref("browser.translations.enable", true); // DEFAULT
     //user_pref("browser.translations.autoTranslate", true);
+    //user_pref("browser.translations.alwaysTranslateLanguages", "");
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
