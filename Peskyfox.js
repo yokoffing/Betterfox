@@ -28,6 +28,7 @@ user_pref("app.update.suppressPrompts", true);
 user_pref("browser.compactmode.show", true);
 
 // PREF: Mozilla VPN
+// [1] https://github.com/yokoffing/Betterfox/issues/169
 user_pref("browser.privatebrowsing.vpnpromourl", "");
     //user_pref("browser.vpn_promo.enabled", false);
 
