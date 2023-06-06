@@ -724,6 +724,7 @@ user_pref("dom.security.https_first", true);
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
 
 // PREF: EDNS Client Subnet DNS extension (DNSSEC validation)
+// [NOTE] Not needed when using DoH/TRR [1]
 // When set to false, TRR asks the resolver to enable EDNS Client Subnet (ECS)
 // [WARNING] Some websites won't resolve when enabled
 // This is usually due to misconfiguration on the part of the domain owner
