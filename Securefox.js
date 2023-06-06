@@ -36,7 +36,7 @@ user_pref("browser.contentblocking.category", "strict");
 // Some sites break running ETP Strict
 // Using a less aggressive internal blocklist mitigates this breakage
 // This is easier than adjusting prefs for ETP Custom
-// [NOTE] Sadly, this does not work on NIGHTLY; you must use Custom
+// [NOTE] Sadly, this does not work on NIGHTLY; you must use Custom and adjust prefs individually
 //user_pref("browser.contentblocking.features.strict", "tp,tpPrivate,cookieBehavior5,cookieBehaviorPBM5,cm,fp,stp,emailTP,emailTPPrivate,lvl1,lvl1PBM,rp,rpTop,ocsp,qps,qpsPBM");
 
 // PREF: query stripping
