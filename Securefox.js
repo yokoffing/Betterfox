@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *
- * version: 112                                                             *
+ * version: 113                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -18,7 +18,7 @@
 // [NOTE] FF86: "Strict" tracking protection enables dFPI.
 // [1] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 // [2] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
-//user_pref("privacy.trackingprotection.enabled", true); // DEFAULT
+//user_pref("privacy.trackingprotection.enabled", true); // enabled with "Strict"
 //user_pref("privacy.trackingprotection.pbmode.enabled", true); // DEFAULT
 //user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false); // DEFAULT
 user_pref("browser.contentblocking.category", "strict");
@@ -26,11 +26,18 @@ user_pref("browser.contentblocking.category", "strict");
     //user_pref("privacy.socialtracking.block_cookies.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.cryptomining.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // DEFAULT
-user_pref("privacy.trackingprotection.emailtracking.enabled", true);
+//user_pref("privacy.trackingprotection.emailtracking.enabled", true); // enabled with "Strict"
 //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // enabled with "Strict"
+
+// PREF: relax blocklist for ETP Strict
+// Some sites break running ETP Strict
+// Using a less aggressive internal blocklist mitigates this breakage
+// This is easier than adjusting prefs for ETP Custom
+// [NOTE] Sadly, this does not work on NIGHTLY; you must use Custom and adjust prefs individually
+//user_pref("browser.contentblocking.features.strict", "tp,tpPrivate,cookieBehavior5,cookieBehaviorPBM5,cm,fp,stp,emailTP,emailTPPrivate,lvl1,lvl1PBM,rp,rpTop,ocsp,qps,qpsPBM");
 
 // PREF: query stripping
 // Currently uses a small list [1]
@@ -40,6 +47,7 @@ user_pref("privacy.trackingprotection.emailtracking.enabled", true);
 // [2] https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc
 // [3] https://github.com/yokoffing/filterlists#url-tracking-parameters
 //user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
+//user_pref("privacy.query_stripping.enabled.pbmode", true); // enabled with "Strict"
 user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
 
 // PREF: allow embedded tweets, Instagram and Reddit posts, and TikTok embeds
@@ -52,7 +60,7 @@ user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com"); // MANUAL
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // MANUAL
 
-// PREF: lower the priority of network loads for resources on the tracking protection list
+// PREF: lower the priority of network loads for resources on the tracking protection list [NIGHTLY]
 // [NOTE] Applicable because we allow for some social embeds
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
 //user_pref("privacy.trackingprotection.lower_network_priority", true);
@@ -295,6 +303,18 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
         //user_pref("layout.css.font-visibility.standard", 1); // Normal Browsing windows with tracking protection disabled(?)
 
 /****************************************************************************
+ * SECTION: FINGERPRINT PROTECTION (RFP)                                    *
+****************************************************************************/
+
+// PREF: enable FingerPrint Protection (FPP) [WiP]
+// Mozilla is slowly rolling out FPP in PB windows
+// [1] https://github.com/arkenfox/user.js/issues/1661
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1816064
+//user_pref("privacy.resistFingerprinting.randomization.enabled", true); // to be removed soon
+//user_pref("privacy.resistFingerprinting.randomization.daily_reset.enabled", true);
+//user_pref("privacy.resistFingerprinting.randomization.daily_reset.private.enabled", true);
+
+/****************************************************************************
  * SECTION: RESIST FINGERPRINTING (RFP)                                     *
 ****************************************************************************/
 
@@ -331,7 +351,7 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 //user_pref("widget.non-native-theme.enabled", true); // DEFAULT
 
 /****************************************************************************
- * SECTION: DISK AVOIDANCE                                                 *
+ * SECTION: DISK AVOIDANCE                                                  *
 ****************************************************************************/
 
 // PREF: disable disk cache
@@ -503,6 +523,12 @@ user_pref("network.dns.disablePrefetch", true);
 // [9] https://web.dev/preload-critical-assets/
 //user_pref("network.preload", true); // DEFAULT
 
+// PREF: early hints
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
+//user_pref("network.early-hints.enabled", false); // DEFAULT
+    //user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
+    //user_pref("network.early-hints.preconnect.max_connections", 0); // DEFAULT
+
 // PREF: Link prefetching <link rel="prefetch">
 // Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
 // A directive that tells a browser to fetch a resource that will likely be needed for the next navigation.
@@ -637,7 +663,6 @@ user_pref("network.IDN_show_punycode", true);
 // [3] https://github.com/brave/adblock-lists/blob/master/brave-lists/https-upgrade-exceptions-list.txt
 // [4] https://web.dev/why-https-matters/
 // [5] https://www.cloudflare.com/learning/ssl/why-use-https/
-
 user_pref("dom.security.https_first", true);
 //user_pref("dom.security.https_first_pbm", true); // DEFAULT
 
@@ -691,20 +716,24 @@ user_pref("dom.security.https_first", true);
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred (with System fallback), 3=TRR only (without System fallback), 5=TRR disabled
 //user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
+//user_pref("network.trr.display_fallback_warning", false); // DEFAULT
 
 // PREF: DoH resolver
 // [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
 //user_pref("network.trr.uri", "https://xxxx/dns-query");
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
 
-// PREF: EDNS Client Subnet DNS extension (ECS support and DNSSEC validation)
-// When set to false, TRR asks the resolver to enable EDNS Client Subnet (ECS).
-// [NOTE] Change back to true if you find that some websites don't resolve.
-// This is usually due to misconfiguration on the part of the domain owner. 
-//user_pref("network.trr.disable-ECS", false);
+// PREF: EDNS Client Subnet DNS extension (DNSSEC validation)
+// [NOTE] Not needed when using DoH/TRR [1]
+// When set to false, TRR asks the resolver to enable EDNS Client Subnet (ECS)
+// [WARNING] Some websites won't resolve when enabled
+// This is usually due to misconfiguration on the part of the domain owner
+// [1] https://docs.controld.com/docs/disable-dnssec-option
+//user_pref("network.trr.disable-ECS", true); // DEFAULT
 
 // PREF: DNS Rebind Protection
 // Set to true to allow RFC 1918 private addresses in TRR responses
+// [1] https://docs.controld.com/docs/dns-rebind-option
 //user_pref("network.trr.allow-rfc1918", false); // DEFAULT
 
 // PREF: Assorted Options
