@@ -26,11 +26,18 @@ user_pref("privacy.trackingprotection.socialtracking.enabled", true); // enabled
     //user_pref("privacy.socialtracking.block_cookies.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.cryptomining.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // DEFAULT
-user_pref("privacy.trackingprotection.emailtracking.enabled", true);
+//user_pref("privacy.trackingprotection.emailtracking.enabled", true); // enabled with "Strict"
 //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // enabled with "Strict"
+
+// PREF: relax blocklist for ETP Strict
+// Some sites break running ETP Strict
+// Using a less aggressive internal blocklist mitigates this breakage
+// This is easier than adjusting prefs for ETP Custom
+// [NOTE] Sadly, this does not work on NIGHTLY; you must use Custom and adjust prefs individually
+//user_pref("browser.contentblocking.features.strict", "tp,tpPrivate,cookieBehavior5,cookieBehaviorPBM5,cm,fp,stp,emailTP,emailTPPrivate,lvl1,lvl1PBM,rp,rpTop,ocsp,qps,qpsPBM");
 
 // PREF: query stripping
 // Currently uses a small list [1]
@@ -717,6 +724,7 @@ user_pref("dom.security.https_first", true);
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
 
 // PREF: EDNS Client Subnet DNS extension (DNSSEC validation)
+// [NOTE] Not needed when using DoH/TRR [1]
 // When set to false, TRR asks the resolver to enable EDNS Client Subnet (ECS)
 // [WARNING] Some websites won't resolve when enabled
 // This is usually due to misconfiguration on the part of the domain owner
