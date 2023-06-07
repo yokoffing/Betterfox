@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 112                                                             *
+ * version: 113                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -28,7 +28,9 @@ user_pref("app.update.suppressPrompts", true);
 user_pref("browser.compactmode.show", true);
 
 // PREF: Mozilla VPN
+// [1] https://github.com/yokoffing/Betterfox/issues/169
 user_pref("browser.privatebrowsing.vpnpromourl", "");
+    //user_pref("browser.vpn_promo.enabled", false);
 
 // PREF: disable about:addons' Recommendations pane (uses Google Analytics)
 user_pref("extensions.getAddons.showPane", false); // HIDDEN
@@ -117,6 +119,13 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 // negatively impact site performance since it requires us to run rule-defined
 // query selectors for every page
 //user_pref("cookiebanners.service.enableGlobalRules", enable);
+
+// PREF: Firefox Translations [NIGHTLY ONLY]
+// Visit about:translations to translate your own text as well
+// [1] https://blog.nightly.mozilla.org/2023/06/01/firefox-translations-and-other-innovations-these-weeks-in-firefox-issue-139/
+//user_pref("browser.translations.enable", true); // DEFAULT
+    //user_pref("browser.translations.autoTranslate", true);
+    //user_pref("browser.translations.alwaysTranslateLanguages", "");
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *

@@ -32,9 +32,12 @@ user_pref("network.dnsCacheEntries", 20000); // maximum # of DNS entries
 user_pref("network.dnsCacheExpiration", 86400); // keep DNS entries for 24 hours
 user_pref("network.dnsCacheExpirationGracePeriod", 240); // 4 minutes
 user_pref("network.http.speculative-parallel-limit", 18); // default=6
-//user_pref("network.dns.disablePrefetch", false);
-    //user_pref("network.dns.disablePrefetchFromHTTPS", false);
-//user_pref("network.prefetch-next", true);
+user_pref("network.dns.disablePrefetch", false);
+    user_pref("network.dns.disablePrefetchFromHTTPS", false);
+user_pref("network.early-hints.enabled", true);
+    user_pref("network.early-hints.preconnect.enabled", true);
+    user_pref("network.early-hints.preconnect.max_connections", 20); // default Nightly=10
+user_pref("network.prefetch-next", true);
 user_pref("network.predictor.enabled", true);
 user_pref("network.predictor.enable-prefetch", true);
 user_pref("network.predictor.enable-hover-on-ssl", true);
@@ -63,7 +66,6 @@ user_pref("dom.push.enabled", false); // disable Push API; breaks FF Sync
 user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.notify.checkForProxies", false); // skip proxy request check
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
-user_pref("network.trr.disable-ECS", false); // TRR asks the resolver to enable EDNS Client Subnet (ECS support); set to true if some websites don't resolve
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes annoying "Inspect Accessibility Properties" on right-click
@@ -97,15 +99,9 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("layout.css.scroll-driven-animations.enabled", true); // CSS scroll-linked animations 
-//user_pref("dom.security.sanitizer.enabled", true); // HTML Sanitizer API 
-//user_pref("privacy.clearsitedata.cache.enabled", true); // Clear-Site-Data: "cache" header
-//user_pref("dom.indexedDB.preprocessing", true); // indexedDB Preprocessing
 //user_pref("javascript.options.experimental.shadow_realms", true); // Shadowrealms
 //user_pref("javascript.options.wasm_gc", true); // Wasm GC
 //user_pref("javascript.options.wasm_function_references", true); // Wasm Function references
-//user_pref("javascript.options.experimental.import_assertions", true); // import assertions
-//user_pref("javascript.options.experimental.array_grouping", true); // Array.fromAsync JS API
-//user_pref("image.jxl.enabled", true); // JPEG XL
 user_pref("image.avif.sequence.enabled", true); // Animated AVIF
 user_pref("cookiebanners.service.mode", 2); // block cookie banners natively
 user_pref("cookiebanners.service.mode.privateBrowsing", 2); // block cookie banners natively in PB mode
@@ -113,9 +109,6 @@ user_pref("privacy.userContext.enabled", false); // disable Containers functiona
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 //user_pref("browser.urlbar.suggest.quickactions", false); // Quick Actions in URL bar
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
-// EncryptedClientHello
-//user_pref("network.dns.echconfig.enabled", false); // disable ECH (waiting on support); ControlD will require a root CA installation to work
-//user_pref("network.dns.http3_echconfig.enabled", true); // disable ECH (waiting on support); ControlD will require a root CA installation to work
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
@@ -124,7 +117,6 @@ user_pref("pdfjs.defaultZoomValue", "125"); // DESKTOP; alt=page-width; PDF zoom
 //user_pref("gfx.webgpu.force-enabled", true); // enable WebGPU
 //user_pref("dom.ipc.processCount", 12); // Shared Web Content; 12-core CPU
 //user_pref("dom.ipc.processCount.webIsolated", 12); // per-site; Isolated Web Content; 12-core CPU
-//user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true); // font improvement
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
