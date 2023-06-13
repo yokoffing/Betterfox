@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *
- * version: 113                                                             *
+ * version: 114                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -443,6 +443,7 @@ user_pref("privacy.history.custom", true);
 // Uncomment individual prefs to disable clearing on shutdown:
 // [NOTE] If "history" is true, downloads will also be cleared
 //user_pref("privacy.clearOnShutdown.history", true); // [DEFAULT]
+    //user_pref("privacy.clearOnShutdown.downloads", true);
 //user_pref("privacy.clearOnShutdown.formdata", true); // [DEFAULT]
 //user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT]
 //user_pref("privacy.clearOnShutdown.offlineApps", true);
