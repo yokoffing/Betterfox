@@ -166,8 +166,8 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 // default=10, disable=0
 //user_pref("browser.urlbar.maxRichResults", 1);
 
-// PREF: show search terms in URL bar instead of URL [FF113+]
-user_pref("browser.urlbar.showSearchTerms.enabled", false);
+// PREF: do not show search terms in address bar instead of the URL [FF113+]
+//user_pref("browser.urlbar.showSearchTerms.enabled", false);
 
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
