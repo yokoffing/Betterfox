@@ -56,7 +56,7 @@ user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest 
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("privacy.sanitize.sanitizeOnShutdown", true); // clear browsing data on shutdown
-user_pref("privacy.clearOnShutdown.offlineApps", true); // Site Data
+user_pref("privacy.clearOnShutdown.offlineApps", true); // clear Site Data on shutdown
 user_pref("browser.safebrowsing.downloads.enabled", false); // deny SB to scan downloads to identify suspicious files; local checks only
 user_pref("browser.safebrowsing.downloads.remote.url", ""); // enforce no remote checks for downloads by SB
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false); // clean up UI; not needed in user.js if remote downloads are disabled
@@ -93,6 +93,7 @@ user_pref("general.autoScroll", false); // disable unintentional behavior for mi
 user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
 //user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small"); // PiP
+user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false); // PiP in address bar
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
     //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
