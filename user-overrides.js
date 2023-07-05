@@ -55,6 +55,7 @@ user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest 
 //user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
+user_pref("signon.firefoxRelay.feature", "unavailable"); // unselect suggestions from Firefox Relay for clean UI
 user_pref("privacy.sanitize.sanitizeOnShutdown", true); // clear browsing data on shutdown
 user_pref("privacy.clearOnShutdown.offlineApps", true); // clear Site Data on shutdown
 user_pref("browser.safebrowsing.downloads.enabled", false); // deny SB to scan downloads to identify suspicious files; local checks only
