@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *
- * version: 114                                                             *
+ * version: 115                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -1234,6 +1234,13 @@ user_pref("webchannel.allowObject.urlWhitelist", "");
 // PREF: do not require signing for extensions [ESR/DEV/NIGHTLY ONLY]
 // [1] https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox#w_what-are-my-options-if-i-want-to-use-an-unsigned-add-on-advanced-users
 //user_pref("xpinstall.signatures.required", false);
+
+// PREF: disable Quarantined Domains [FF115+]
+// Users may see a notification when running add-ons that are not monitored by Mozilla when they visit certain sites.
+// The notification informs them that “some extensions are not allowed” and were blocked from running on that site.
+// There's no details as to which sites are affected.
+// [1] https://www.ghacks.net/2023/07/04/firefox-115-new-esr-base-and-some-add-ons-may-be-blocked-from-running-on-certain-sites/
+//user_pref("extensions.quarantinedDomains.enabled", false);
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
