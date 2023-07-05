@@ -249,11 +249,45 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 ****************************************************************************/
 // visit https://github.com/yokoffing/Betterfox/blob/master/Smoothfox.js
 // Enter your scrolling prefs below this line:
+user_pref("general.smoothScroll",                                       true); // DEFAULT
+user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
+user_pref("general.smoothScroll.msdPhysics.enabled",                    true);
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant",  600);
+user_pref("general.smoothScroll.msdPhysics.regularSpringConstant",      650);
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS",         25);
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio",      2.0);
+user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant",     250);
+user_pref("general.smoothScroll.currentVelocityWeighting",              1.0);
+user_pref("general.smoothScroll.stopDecelerationWeighting",             1.0);
+user_pref("mousewheel.default.delta_multiplier_y",                      300); // 250-400
 
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
 // Enter your personal prefs below this line:
+// PREF: restore Firefox View UI
+user_pref("browser.tabs.firefox-view", true);
+
+// PREF: restore Firefox accounts
+user_pref("identity.fxaccounts.enabled", true);
+
+// PREF: Push API seems to be needed for Sync
+user_pref("dom.push.enabled", true);
+
+// PREF: restore thumbnail shortcuts on the New Tab page / Firefox Home
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", true);
+
+// PREF: allow websites to ask you for your location
+user_pref("permissions.default.geo", 0);
+
+// PREF: allow Firefox to monitor and set itself as the default browser
+! [1] https://github.com/yokoffing/Betterfox/issues/166
+user_pref("default-browser-agent.enabled", true); // for functionality; can click "Make Default..." in Preferences
+user_pref("browser.shell.checkDefaultBrowser", true); // allows pop-up
+
+user_pref("browser.contentblocking.category", "standard");
+user_pref("browser.search.suggest.enabled", true);
+user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", true);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
