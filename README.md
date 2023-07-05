@@ -63,7 +63,7 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 [10](https://old.reddit.com/r/browsers/comments/11q6je7/is_block_or_snoof_browser_fingerprint_better/jc2mhcx/?context=2)
 
 ### Browser Integration
-* [Floorp Browser](https://blog.ablaze.one/3135/2023-04-01/) (forthcoming 2023)
+* [Floorp Browser](https://github.com/Floorp-Projects/Floorp/issues/233#issuecomment-1543557167) (forthcoming 2023)
 * [Pulse Browser](https://github.com/pulse-browser/browser#%EF%B8%8F-credits) | [files](https://github.com/pulse-browser/browser/tree/alpha/src/browser/app/profile) (Dec 2021)
 * [Ghostery Private Browser](https://github.com/ghostery/user-agent-desktop#community)  | [files](https://github.com/ghostery/user-agent-desktop/tree/main/brands/ghostery/branding/pref) (Feb 2021)
     * [Betterfox adopted into Ghostery Private Browser](https://web.archive.org/web/20210509171835/https://www.ghostery.com/ghostery-dawn-update-more/)<sup>[1](https://web.archive.org/web/20210921114333/https://www.ghostery.com/ghostery-dawn-product-update/)</sup>
