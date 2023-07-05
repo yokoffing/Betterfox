@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *
- * version: 113                                                             *
+ * version: 115                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -442,7 +442,9 @@ user_pref("privacy.history.custom", true);
 
 // Uncomment individual prefs to disable clearing on shutdown:
 // [NOTE] If "history" is true, downloads will also be cleared
+// [NOTE] Even if "downloads" pref is enabled, downloads won't be cleared unless "history" is set to true!
 //user_pref("privacy.clearOnShutdown.history", true); // [DEFAULT]
+    //user_pref("privacy.clearOnShutdown.downloads", true);
 //user_pref("privacy.clearOnShutdown.formdata", true); // [DEFAULT]
 //user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT]
 //user_pref("privacy.clearOnShutdown.offlineApps", true);
@@ -724,10 +726,12 @@ user_pref("dom.security.https_first", true);
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
 
 // PREF: EDNS Client Subnet DNS extension (DNSSEC validation)
-// [NOTE] Not needed when using DoH/TRR [1]
-// When set to false, TRR asks the resolver to enable EDNS Client Subnet (ECS)
-// [WARNING] Some websites won't resolve when enabled
-// This is usually due to misconfiguration on the part of the domain owner
+// When set to false, TRR asks the resolver to enable EDNS Client Subnet (ECS).
+// [WARNING] Some websites won't resolve when enabled, usually due to
+// misconfiguration on the part of the domain owner.
+// [NOTE] DNSSEC is not needed if you’re using DoH, as long as you trust the
+// DoH resolver to perform DNSSEC validation correctly. However, if you don’t
+// trust the DoH resolver, you may still want to use DNSSEC along with DoH [1].
 // [1] https://docs.controld.com/docs/disable-dnssec-option
 //user_pref("network.trr.disable-ECS", true); // DEFAULT
 
@@ -1230,6 +1234,13 @@ user_pref("webchannel.allowObject.urlWhitelist", "");
 // PREF: do not require signing for extensions [ESR/DEV/NIGHTLY ONLY]
 // [1] https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox#w_what-are-my-options-if-i-want-to-use-an-unsigned-add-on-advanced-users
 //user_pref("xpinstall.signatures.required", false);
+
+// PREF: disable Quarantined Domains [FF115+]
+// Users may see a notification when running add-ons that are not monitored by Mozilla when they visit certain sites.
+// The notification informs them that “some extensions are not allowed” and were blocked from running on that site.
+// There's no details as to which sites are affected.
+// [1] https://www.ghacks.net/2023/07/04/firefox-115-new-esr-base-and-some-add-ons-may-be-blocked-from-running-on-certain-sites/
+//user_pref("extensions.quarantinedDomains.enabled", false);
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
