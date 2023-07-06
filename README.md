@@ -79,7 +79,7 @@ After applying the `user.js` and restarting Firefox:
 
 ### YouTube
 * [Firefox is NOT private. Here's how to fix it.](https://youtu.be/Fr8UFJzpNls) (April 2023)
-* [The ULTIMATE Browser Tier List (Based Tier to Spyware Tier)](https://youtu.be/j5r6jFE8gic) (Mar 2023)
+* [The ULTIMATE Browser Tier List](https://youtu.be/j5r6jFE8gic) (Mar 2023)
 * [I Hate Firefox. But I'm Still Switching Back to It.](https://youtu.be/w0SJFED5xK0?t=220) (Nov 2022)
 * [Español] [Optimize and Accelerate Firefox](https://www.youtube.com/watch?v=3XtoONmq5_Q) (Nov 2022) 
 * [How To Improve Firefox Performance](https://www.youtube.com/watch?v=N8IOJiOFVEk) (Dec 2021)
@@ -88,9 +88,10 @@ After applying the `user.js` and restarting Firefox:
 * [GhoSTORIES with Franz & Pete](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh), S2|E6, 17:05-18:40 (Feb 2021)
     
 ### Articles
+* [Full Circle Magazine](https://dl.fullcirclemagazine.org/issue193_en.pdf), Issue #193 (May 2023)
 * [Russian] [The Pulse Browser project develops an experimental fork of Firefox](https://www.opennet.ru/opennews/art.shtml?num=59076) (May 2023)
 * [German] [Pulse Browser Review: Firefox fork with Turbo tweaks and Opera sidebar](https://www.computerbild.de/artikel/cb-Tipps-Software-Pulse-Browser-Review-ein-Firefox-Fork-mit-Seitenleiste-wie-bei-Opera-35644139.html#:~:text=Noch%20mehr%20Speed%2DFeatures) (April 2023)
-* [2023 Browser Showdown: Comparing Chrome, Brave, Firefox, Vivaldi, and Opera – Is it Worth the Switch?](https://www.appdate.lk/technology/2023-browser-showdown/) (Jan 2023)
+* [2023 Browser Showdown: Comparing Chrome, Brave, Firefox, Vivaldi, and Opera](https://www.appdate.lk/technology/2023-browser-showdown/) (Jan 2023)
 
 ### Guides
 * [FMHY Browser Tools: Privacy Hardened Firefox](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/storage/#wiki_privacy_hardened_firefox)
