@@ -89,6 +89,7 @@ After applying the `user.js` and restarting Firefox:
     
 ### Articles
 * [Russian] [The Pulse Browser project develops an experimental fork of Firefox](https://www.opennet.ru/opennews/art.shtml?num=59076) (May 2023)
+* [German] [Pulse Browser: Review - Firefox fork with Turbo tweaks and Opera sidebar](https://www.computerbild.de/artikel/cb-Tipps-Software-Pulse-Browser-Review-ein-Firefox-Fork-mit-Seitenleiste-wie-bei-Opera-35644139.html#:~:text=Noch%20mehr%20Speed%2DFeatures) (April 2023)
 * [2023 Browser Showdown: Comparing Chrome, Brave, Firefox, Vivaldi, and Opera – Is it Worth the Switch?](https://www.appdate.lk/technology/2023-browser-showdown/) (Jan 2023)
 
 ### Guides
