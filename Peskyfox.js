@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 115                                                             *
+ * version: 115a                                                            *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -437,7 +437,8 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 //user_pref("browser.backspace_action", 2); // DEFAULT
 
 // PREF: Disable ALT key toggling the menu bar
-//user_pref("ui.key.menuAccessKey", 0);
+//user_pref("ui.key.menuAccessKeyFocuses", false);
+    //user_pref("ui.key.menuAccessKey", 18); // DEFAULT
 
 // PREF: CTRL+TAB cycles tabs in chronological order instead of recently-
 // used order
