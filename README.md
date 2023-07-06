@@ -17,7 +17,7 @@ The objective is to make the browser's defaults sufficient enough for privacy-mi
 ## Simple goals
 1) **Minimalism:** get what isn't needed out of the way
 2) **Efficiency:** unleash Firefox's ability to be fast and performant
-3) **Privacy:** protect your data without site breakage
+3) **Privacy:** protect your data without causing site breakage
 
 ## Simple configs
 
