@@ -1239,7 +1239,8 @@ user_pref("webchannel.allowObject.urlWhitelist", "");
 // Users may see a notification when running add-ons that are not monitored by Mozilla when they visit certain sites.
 // The notification informs them that “some extensions are not allowed” and were blocked from running on that site.
 // There's no details as to which sites are affected.
-// [1] https://www.ghacks.net/2023/07/04/firefox-115-new-esr-base-and-some-add-ons-may-be-blocked-from-running-on-certain-sites/
+// [1] https://support.mozilla.org/en-US/kb/quarantined-domains
+// [2] https://www.ghacks.net/2023/07/04/firefox-115-new-esr-base-and-some-add-ons-may-be-blocked-from-running-on-certain-sites/
 //user_pref("extensions.quarantinedDomains.enabled", false);
 
 /******************************************************************************
