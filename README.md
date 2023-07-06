@@ -7,14 +7,17 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 
 
 ## Made for everyday browsing
-**A secure, blazing fast browsing experience. Without breakage.** The objective is to make the defaults sufficient enough for the average privacy-minded user, but remain trouble-free enough that my grandmother could use it. <strike>(That puts a whole new twist on being a foxy grandma!)</strike> Edit: Sorry for the dad joke 😓
+**A secure, blazing fast browsing experience. Without breakage.**
+
+Betterfox is inspired by the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e).
+
+The objective is to make the browser's defaults sufficient enough for privacy-minded users, but remain trouble-free enough that my grandmother could use it. <strike>(That puts a whole new twist on being a foxy grandma!)</strike> Edit: Sorry for the dad joke 😓
 
 
 ## Simple goals
 1) **Minimalism:** get what isn't needed out of the way
 2) **Efficiency:** unleash Firefox's ability to be fast and performant
-3) **Security:** sensible privacy and security without causing site breakage
-
+3) **Privacy:** protect your data without site breakage
 
 ## Simple configs
 
@@ -28,10 +31,12 @@ about:config tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/f
 
 :bulb: `Fastfox`, `Securefox`, `Peskyfox`, and `Smoothfox` are guides to relevant prefs in Firefox. The `user.js` is curated from the options located in these documents. Please read the guides to understand the various options hidden in Firefox.
 
-## about:Privacy
-Most repos have niche privacy and security concerns with little regard for speed, annoyances, or mainstream use. Betterfox was inspired by the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e). For instance, features like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here<sup>^[*why?*](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)</sup>. And while Betterfox is designed to set-and-forget, it contains plenty of options for those who like to tinker.
+While Betterfox is designed to [set-and-forget](https://glosbe.com/en/en/set-and-forget), it contains plenty of options for those who like to tinker.
 
-If your context calls for _anonymity_ and not just reasonable _privacy_, then please use [Tor Browser](https://www.torproject.org).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> [Fingerprinting](https://smartframe.io/blog/browser-fingerprinting-everything-you-need-to-know/) is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is [only addressed reasonably by Tor](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D).
+## about:Privacy
+Most projects have niche concerns with no regard for speed, annoyances, or mainstream use. But for us, features like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here.<sup>^[*why?*](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)</sup>
+
+Fingerprinting is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is only reasonably [addressed by Tor](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> If your context calls for _anonymity_ and not just reasonable _privacy_, then please use the [Tor Browser](https://www.torproject.org).<sup>^[*what's the difference?*](https://thenewoil.org/en/guides/prologue/secprivanon/)</sup> 
 
 ## Assumptions
 Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky if you want to revert the following behavior:
@@ -42,6 +47,7 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 * **Location requests** are rejected and **site notifications** are disabled.
 
 ## Suggestions
+After applying the `user.js` and restarting Firefox:
 1) Change your default search engine.
    * You can also choose a different search engine for Private Windows only:
       1) Go to *Settings → Search → Default Search Engine*
@@ -50,7 +56,7 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
    * You can **allow exceptions** if you want to stay logged in to some sites:
       1) Go to *Settings → Privacy & Security → Cookies and Site Data → Manage Exceptions*
       2) Check *Delete cookies and site data when Firefox is closed*.
-3) Use [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) or [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/) to block ads and trackers with our [custom filters](https://github.com/yokoffing/filterlists).
+3) Use [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) to block ads and trackers with our [custom filters](https://github.com/yokoffing/filterlists). For a quick and easy solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
 4) Add DNS-level protection like [NextDNS](https://nextdns.io/?from=xujj63g5), and check out the configuration [guide](https://github.com/yokoffing/NextDNS-Config).
 
 ## Recognition
