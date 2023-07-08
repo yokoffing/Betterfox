@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 115                                                                         *
+ * version: 116                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
@@ -245,10 +245,10 @@ user_pref("network.http.max-persistent-connections-per-server", 10); // default=
 //user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
 
 // PREF: increase DNS cache
-// [NOTE] The latter two may be overridden by DNS resolver, especially if using TRR
-//user_pref("network.dnsCacheEntries", 20000);
-//user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour
-//user_pref("network.dnsCacheExpirationGracePeriod", 240); // 4 minutes
+user_pref("network.dnsCacheEntries", 20000);
+// [NOTE] The latter two may be overridden by DNS resolver, especially if using TRR.
+    //user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour
+    //user_pref("network.dnsCacheExpirationGracePeriod", 240); // 4 minutes
 
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
