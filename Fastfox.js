@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 113b                                                                        *
+ * version: 115                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
@@ -81,12 +81,6 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 // PREF: CSS Masonry Layout [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
-
-// PREF: CSS Animation Composition [NIGHTLY]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1785329
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1293490
-// [3] https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition
-user_pref("layout.css.animation-composition.enabled", true);
 
 // PREF: Prioritized Task Scheduling API [NIGHTLY]
 // [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
