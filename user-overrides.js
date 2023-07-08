@@ -92,8 +92,6 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("layout.css.scroll-driven-animations.enabled", true); // CSS scroll-linked animations 
-user_pref("cookiebanners.service.mode", 2); // block cookie banners natively
-user_pref("cookiebanners.service.mode.privateBrowsing", 2); // block cookie banners natively in PB mode
 user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 //user_pref("browser.urlbar.suggest.quickactions", false); // Quick Actions in URL bar
