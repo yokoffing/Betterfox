@@ -229,10 +229,11 @@ user_pref("browser.cache.memory.max_entry_size", 153600); // alt=51200; preferre
 ****************************************************************************/
 
 // PREF: use bigger packets
+// Reduce Firefox's CPU usage by requiring fewer application-to-driver data transfers.
+// However, it does not affect the actual packet sizes transmitted over the network.
 // [1] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74561.html
-// [2] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74570.html
-user_pref("network.buffer.cache.size", 262144); // preferred=327680; default=32768
-user_pref("network.buffer.cache.count", 128); // preferred=240; default=24
+user_pref("network.buffer.cache.size", 262144); // 256 kb; default=32768 (32 kb)
+user_pref("network.buffer.cache.count", 128); // default=24
 
 // PREF: increase the absolute number of HTTP connections
 // [1] https://kb.mozillazine.org/Network.http.max-connections
@@ -246,9 +247,10 @@ user_pref("network.http.max-persistent-connections-per-server", 10); // default=
 
 // PREF: increase DNS cache
 user_pref("network.dnsCacheEntries", 20000);
-// [NOTE] The latter two may be overridden by DNS resolver, especially if using TRR.
+// [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
+// If you do not use NextDNS, Cloudfare, etc., then feel free to enable this.
     //user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour
-    //user_pref("network.dnsCacheExpirationGracePeriod", 240); // 4 minutes
+    //user_pref("network.dnsCacheExpirationGracePeriod", 300); // cache DNS entries for 5 minutes after they expire
 
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
