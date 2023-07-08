@@ -87,12 +87,6 @@ user_pref("layout.css.grid-template-masonry-value.enabled", true);
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 user_pref("dom.enable_web_task_scheduling", true);
 
-// PREF: inert HTML attribute [NIGHTLY]
-//user_pref("html5.inert.enabled", true);
-
-// PREF: container query length units [NIGHTLY]
-//user_pref("layout.css.container-queries.enabled", true);
-
 // PREF: scroll-linked animations [NIGHTLY]
 //user_pref("layout.css.scroll-driven-animations.enabled", true);
 
@@ -123,7 +117,7 @@ user_pref("dom.enable_web_task_scheduling", true);
 //user_pref("javascript.options.experimental.enable_change_array_by_copy", true);
 //user_pref("javascript.options.experimental.enable_array_from_async", true);
 
-// PREF: indexedDB
+// PREF: indexedDB preprocessing
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1112702
 //user_pref("dom.indexedDB.experimental", true);
     //user_pref("dom.indexedDB.preprocessing", true);
