@@ -9,12 +9,12 @@
  
 // PREF: process count
 // Process count used to be "# of CPU cores = processCount" starting with Firefox Quantum (2017).
-// Since the introduction of Fission [2], increasing process count
-// is more complicated than changing one pref [1].
+// Since the introduction of Fission [2], increasing process count is more complicated than changing one pref.
 // [1] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes
 // [2] https://github.com/yokoffing/Betterfox/blob/064f64ab5f0e8443ed6b127d91326d9c887cd15d/Securefox.js#L58-L64
+// [3] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db?permalink_comment_id=4603793#gistcomment-4603793
 //user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
-//user_pref("dom.ipc.processCount.webIsolated", 4); // per-site; DEFAULT; Isolated Web Content
+//user_pref("dom.ipc.processCount.webIsolated", 4); // DEFAULT; Isolated Web Content; per-site
 
 // PREF: initial paint delay
 // How long FF will wait before rendering the page, in milliseconds
@@ -153,8 +153,9 @@ user_pref("dom.enable_web_task_scheduling", true);
 // PREF: Webrender tweaks
 // [1] https://searchfox.org/mozilla-central/rev/6e6332bbd3dd6926acce3ce6d32664eab4f837e5/modules/libpref/init/StaticPrefList.yaml#6202-6219
 // [2] https://hacks.mozilla.org/2017/10/the-whole-web-at-maximum-fps-how-webrender-gets-rid-of-jank/
-// [3] https://www.troddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
-// [4] https://www.troddit.com/r/firefox/comments/z5auzi/comment/ixw65gb?context=3
+// [3] https://www.reddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
+// [4] https://www.reddit.com/r/firefox/comments/z5auzi/comment/ixw65gb?context=3
+// [5] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db?permalink_comment_id=4532937#gistcomment-4532937
 user_pref("gfx.webrender.all", true); // enables WR (GPU) + additional features
 user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.compositor", true);
