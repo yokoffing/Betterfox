@@ -213,9 +213,9 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 // having to re-download objects for the websites you visit frequently
 //user_pref("browser.cache.disk.enable", true); // DEFAULT; overrides Securefox
 //user_pref("browser.cache.disk.capacity", 1048576); // 1 GB disk cache; 8192000 = 8 GB
-    //user_pref("browser.cache.disk.smart_size.enabled", false); // disable adaptive cache size on disk
+    //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT
-//user_pref("browser.cache.disk.metadata_memory_limit", 1024); // increase the memory capacity in Firefox, in order to load more pages, faster
+//user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
 //user_pref("browser.cache.max_shutdown_io_lag", 8); // number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
 //user_pref("browser.cache.frecency_half_life_hours", 6); // DEFAULT; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
 
@@ -245,7 +245,7 @@ user_pref("network.http.max-persistent-connections-per-server", 10); // default=
 //user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
 
 // PREF: increase DNS cache
-// [NOTE] May be overridden by DNS resolver, especially if using TRR
+// [NOTE] The latter two may be overridden by DNS resolver, especially if using TRR
 //user_pref("network.dnsCacheEntries", 20000);
 //user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour
 //user_pref("network.dnsCacheExpirationGracePeriod", 240); // 4 minutes
