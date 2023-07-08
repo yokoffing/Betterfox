@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 115                                                             *
+ * version: 116                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -52,6 +52,7 @@ user_pref("network.buffer.cache.size", 262144);
 user_pref("network.buffer.cache.count", 128);
 user_pref("network.http.max-connections", 1800);
 user_pref("network.http.max-persistent-connections-per-server", 10);
+user_pref("network.dnsCacheEntries", 20000);
 user_pref("network.ssl_tokens_cache_capacity", 32768);
 
 /****************************************************************************
