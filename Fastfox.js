@@ -99,18 +99,19 @@ user_pref("dom.enable_web_task_scheduling", true);
 // PREF: HTML Sanitizer API [NIGHTLY]
 //user_pref("dom.security.sanitizer.enabled", true);
 
-// PREF: Clear-Site-Data: "cache" header [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Clear-Site-Data
-//user_pref("privacy.clearsitedata.cache.enabled", true);
-
 // PREF: Shadowrealms [NIGHTLY]
 // [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
 //user_pref("javascript.options.experimental.shadow_realms", true);
 
-// PREF: Wasm GC + References [NIGHTLY]
+// PREF: Wasm GC [NIGHTLY]
+// WASM GC refers to garbage collection for WebAssembly. Garbage collection is a mechanism
+// to automatically free up memory that is no longer being used by a program. This helps
+// manage memory and prevent memory leaks. 
 // [1] https://github.com/WebAssembly/gc/blob/main/proposals/gc/Overview.md
-// [2] https://github.com/WebAssembly/function-references/blob/master/proposals/function-references/Overview.md
 //user_pref("javascript.options.wasm_gc", true);
+
+// PREF: WASM Function References [NIGHTLY]
+// [1] https://github.com/WebAssembly/function-references/blob/master/proposals/function-references/Overview.md
 //user_pref("javascript.options.wasm_function_references", true);
 
 // PREF: import assertions [NIGHTLY]
@@ -124,8 +125,8 @@ user_pref("dom.enable_web_task_scheduling", true);
 
 // PREF: indexedDB
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1112702
-//user_pref("dom.indexedDB.preprocessing", true);
-//user_pref("dom.indexedDB.experimental", false); // DEFAULT
+//user_pref("dom.indexedDB.experimental", true);
+    //user_pref("dom.indexedDB.preprocessing", true);
 
 // PREF: WebGPU [HIGHLY EXPERIMENTAL!]
 // [WARNING] Do not enable unless you are a web developer!
@@ -135,10 +136,6 @@ user_pref("dom.enable_web_task_scheduling", true);
 // [4] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
 //user_pref("dom.webgpu.enabled", true);
     //user_pref("gfx.webgpu.force-enabled", true);
-
-// PREF: Animated AVIF [NIGHTLY]
-// [1] https://codecalamity.com/animated-avif-is-finally-coming-to-firefox/
-//user_pref("image.avif.sequence.enabled", true);
 
 // PREF: NVIDIA RTX Video Super Resolution for video overlay [WINDOWS]
 // This is also a setting in NVIDIA's driver settings, so once this is
