@@ -47,7 +47,7 @@ user_pref("media.cache_resume_threshold", 6000);
 /** BROWSER CACHE ***/
 user_pref("browser.cache.disk.enable", false);
 user_pref("browser.cache.memory.capacity", 1024000);
-user_pref("browser.cache.memory.max_entry_size", 51200);
+user_pref("browser.cache.memory.max_entry_size", 25600);
 
 /** NETWORK ***/
 user_pref("network.buffer.cache.size", 262144);
