@@ -14,6 +14,9 @@
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
 
+/** SETUP ON FIRST INSTALLATION ***/
+//user_pref("network.trr.uri", "https://dns.nextdns.io/******/Firefox"); // TRR/DoH
+
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.interval", 50000); // 5 min.; set minimum interval between session save operations
