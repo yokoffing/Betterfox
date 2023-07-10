@@ -184,7 +184,7 @@ user_pref("gfx.content.skia-font-cache-size", 80);
 
 // PREF: image tweaks
 user_pref("image.cache.size", 10485760); // default=5242880
-user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; alt=65536; chunk size for calls to the image decoders
+user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; chunk size for calls to the image decoders
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // default=60000; minimum timeout to unmap shared surfaces since they have been last used
 
 // PREF: media cache
