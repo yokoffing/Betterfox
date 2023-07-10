@@ -212,11 +212,12 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 
 // PREF: disk cache
 // [NOTE] If you think disk cache helps performance, then feel free to override this.
+// See about:cache
 // [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
 // More efficient to keep the browser cache instead of
 // having to re-download objects for the websites you visit frequently.
 //user_pref("browser.cache.disk.enable", true); // DEFAULT
-//user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache; 1048576 = 1 GB,  2097152=2GB, 5242880=5GB, 8388608=8GB
+//user_pref("browser.cache.disk.capacity", 2048000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
     //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 //user_pref("browser.cache.disk.max_entry_size", 327680); // default=51200; maximum size of in memory cached objects
 //user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
@@ -227,7 +228,7 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 // The automatic size selection (default) is based on a decade-old table that only contains settings for systems at or below 8GB of system memory [1]
 // -1=Automatically decide the maximum memory to use to cache decoded images, messages, and chrome based on the total amount of RAM
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
-user_pref("browser.cache.memory.capacity", 1024000); // default=-1; 512000=512MB, 1024000=1GB, 2097152=2GB
+user_pref("browser.cache.memory.capacity", 1048576); // default=-1; 1048576=1GB, 2097152=2GB
 user_pref("browser.cache.memory.max_entry_size", 25600); // default=5120; alt=153600; -1=entries bigger than than 90% of the mem-cache are never cached
 
 /****************************************************************************
@@ -255,8 +256,8 @@ user_pref("network.http.max-persistent-connections-per-server", 10); // default=
 user_pref("network.dnsCacheEntries", 20000);
 // [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
 // If you do not use NextDNS, Cloudfare, etc., then feel free to enable this.
-    //user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour
-    //user_pref("network.dnsCacheExpirationGracePeriod", 300); // cache DNS entries for 5 minutes after they expire
+    //user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3600 (1 hour)
+    //user_pref("network.dnsCacheExpirationGracePeriod", 240); // cache DNS entries for 4 minutes after they expire
 
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
