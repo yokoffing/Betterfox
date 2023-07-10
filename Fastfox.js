@@ -255,7 +255,6 @@ user_pref("network.http.max-persistent-connections-per-server", 10); // default=
 // PREF: increase DNS cache
 user_pref("network.dnsCacheEntries", 20000);
 // [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
-// If you do not use NextDNS, Cloudfare, etc., then feel free to enable this.
     user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3600 (1 hour)
     user_pref("network.dnsCacheExpirationGracePeriod", 240); // cache DNS entries for 4 minutes after they expire
 
