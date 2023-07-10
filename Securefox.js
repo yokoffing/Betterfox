@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non constristatur"                                               *     
  * priority: provide sensible security and privacy                          *
- * version: 115                                                             *
+ * version: 116                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -74,7 +74,9 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [1] https://hacks.mozilla.org/2021/05/introducing-firefox-new-site-isolation-security-architecture/
 // [2] https://hacks.mozilla.org/2022/05/improved-process-isolation-in-firefox-100/
 // [3] https://hacks.mozilla.org/2021/12/webassembly-and-back-again-fine-grained-sandboxing-in-firefox-95/
+// [4] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
 //user_pref("fission.autostart", true); // DEFAULT
+//user_pref("fission.webContentIsolationStrategy", 1); // DEFAULT
 
 // PREF: GPU sandbox [FF110+]
 // [1] https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/
