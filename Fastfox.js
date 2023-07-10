@@ -191,7 +191,7 @@ user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // default=60000;
 //user_pref("media.cache_size", 512000); // DEFAULT
 
 // PREF: increase media memory cache
-user_pref("media.memory_cache_max_size", 1048576); // alt=512000; also in Securefox (inactive there)
+user_pref("media.memory_cache_max_size", 1048576); // default=8192
 user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000; // default=524288
     //user_pref("media.memory_caches_combined_limit_pc_sysmem", 20); // default=5
 
@@ -212,18 +212,19 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 ****************************************************************************/
 
 // PREF: disk cache
+// [NOTE] If you think disk cache helps performance, then feel free to override this.
 // [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
 // More efficient to keep the browser cache instead of
-// having to re-download objects for the websites you visit frequently
-//user_pref("browser.cache.disk.enable", true); // DEFAULT; overrides Securefox
-//user_pref("browser.cache.disk.capacity", 8192000); // 1048576 = 1 GB; size of disk cache
+// having to re-download objects for the websites you visit frequently.
+//user_pref("browser.cache.disk.enable", true); // DEFAULT
+//user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache; 1048576 = 1 GB,  2097152=2GB, 5242880=5GB, 8388608=8GB
     //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 //user_pref("browser.cache.disk.max_entry_size", 327680); // default=51200; maximum size of in memory cached objects
 //user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
 //user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
 //user_pref("browser.cache.frecency_half_life_hours", 18); // default=6; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
 
-// PREF: increase memory cache size
+// PREF: memory cache
 // The automatic size selection (default) is based on a decade-old table that only contains settings for systems at or below 8GB of system memory [1]
 // -1=Automatically decide the maximum memory to use to cache decoded images, messages, and chrome based on the total amount of RAM
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
