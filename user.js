@@ -37,16 +37,17 @@ user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("gfx.content.skia-font-cache-size", 80);
 user_pref("image.cache.size", 10485760);
-user_pref("image.mem.decode_bytes_at_a_time", 131072);
+user_pref("image.mem.decode_bytes_at_a_time", 65536);
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);
 user_pref("media.memory_cache_max_size", 1048576);
-user_pref("media.memory_caches_combined_limit_kb", 2560000);
+user_pref("media.memory_caches_combined_limit_kb", 3145728);
 user_pref("media.cache_readahead_limit", 9000);
 user_pref("media.cache_resume_threshold", 6000);
 
 /** BROWSER CACHE ***/
 user_pref("browser.cache.disk.enable", false);
-user_pref("browser.cache.memory.max_entry_size", 153600);
+user_pref("browser.cache.memory.capacity", 1024000);
+user_pref("browser.cache.memory.max_entry_size", 51200);
 
 /** NETWORK ***/
 user_pref("network.buffer.cache.size", 262144);
