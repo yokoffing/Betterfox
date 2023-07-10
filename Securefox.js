@@ -71,6 +71,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // in its own operating system process. This new security architecture allows
 // Firefox to completely separate code originating from different sites and, in turn,
 // defend against malicious sites trying to access sensitive information from other sites you are visiting.
+// [NOTE] View in about:processes
 // [1] https://hacks.mozilla.org/2021/05/introducing-firefox-new-site-isolation-security-architecture/
 // [2] https://hacks.mozilla.org/2022/05/improved-process-isolation-in-firefox-100/
 // [3] https://hacks.mozilla.org/2021/12/webassembly-and-back-again-fine-grained-sandboxing-in-firefox-95/
