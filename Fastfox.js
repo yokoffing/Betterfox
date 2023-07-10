@@ -228,8 +228,8 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 // The automatic size selection (default) is based on a decade-old table that only contains settings for systems at or below 8GB of system memory [1]
 // -1=Automatically decide the maximum memory to use to cache decoded images, messages, and chrome based on the total amount of RAM
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
-user_pref("browser.cache.memory.capacity", 1048576); // default=-1; 1048576=1GB, 2097152=2GB
-user_pref("browser.cache.memory.max_entry_size", 25600); // default=5120; alt=153600; -1=entries bigger than than 90% of the mem-cache are never cached
+user_pref("browser.cache.memory.capacity", 2097152); // default=-1; 1048576=1GB, 2097152=2GB
+user_pref("browser.cache.memory.max_entry_size", 153600); // default=5120; alt=65536; -1=entries bigger than than 90% of the mem-cache are never cached
 
 /****************************************************************************
  * SECTION: NETWORK                                                         *
