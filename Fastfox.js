@@ -10,10 +10,10 @@
 // PREF: process count
 // Process count used to be "# of CPU cores = processCount" starting with Firefox Quantum (2017).
 // Since the introduction of Fission [2], increasing process count is more complicated than changing one pref.
-// [1] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes
-// [2] https://github.com/yokoffing/Betterfox/blob/064f64ab5f0e8443ed6b127d91326d9c887cd15d/Securefox.js#L58-L64
-// [3] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db?permalink_comment_id=4603793#gistcomment-4603793
-// [4] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
+// [1] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
+// [2] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes
+// [3] https://github.com/yokoffing/Betterfox/blob/064f64ab5f0e8443ed6b127d91326d9c887cd15d/Securefox.js#L58-L64
+// [4] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db?permalink_comment_id=4603793#gistcomment-4603793
 //user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
 //user_pref("dom.ipc.processCount.webIsolated", 4); // DEFAULT; Isolated Web Content; per-site
 
@@ -183,19 +183,21 @@ user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("gfx.content.skia-font-cache-size", 80);
 
 // PREF: image tweaks
-user_pref("image.cache.size", 10485760);
-user_pref("image.mem.decode_bytes_at_a_time", 131072); // alt=65536; preferred=262144; chunk size for calls to the image decoders
+user_pref("image.cache.size", 10485760); // default=5242880
+user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; alt=65536; chunk size for calls to the image decoders
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // default=60000; minimum timeout to unmap shared surfaces since they have been last used
 
-// PREF: increase media cache
+// PREF: media cache
+//user_pref("media.cache_size", 512000); // DEFAULT
+
+// PREF: increase media memory cache
 user_pref("media.memory_cache_max_size", 1048576); // alt=512000; also in Securefox (inactive there)
-user_pref("media.memory_caches_combined_limit_kb", 2560000); // preferred=3145728; // default=524288
+user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000; // default=524288
     //user_pref("media.memory_caches_combined_limit_pc_sysmem", 20); // default=5
 
 // PREF: decrease video buffering
 // [NOTE] Does not affect videos over 720p since they use DASH playback [1]
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
-//user_pref("media.cache_size", 2048000); // default=512000
 user_pref("media.cache_readahead_limit", 9000); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
 user_pref("media.cache_resume_threshold", 6000); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
 
@@ -214,17 +216,19 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 // More efficient to keep the browser cache instead of
 // having to re-download objects for the websites you visit frequently
 //user_pref("browser.cache.disk.enable", true); // DEFAULT; overrides Securefox
-//user_pref("browser.cache.disk.capacity", 1048576); // 1 GB disk cache; 8192000 = 8 GB
+//user_pref("browser.cache.disk.capacity", 8192000); // 1048576 = 1 GB; size of disk cache
     //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
-//user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT
+//user_pref("browser.cache.disk.max_entry_size", 327680); // default=51200; maximum size of in memory cached objects
 //user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
-//user_pref("browser.cache.max_shutdown_io_lag", 8); // number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
-//user_pref("browser.cache.frecency_half_life_hours", 6); // DEFAULT; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
+//user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
+//user_pref("browser.cache.frecency_half_life_hours", 18); // default=6; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
 
 // PREF: increase memory cache size
-// [1] https://www.makeuseof.com/tag/how-much-data-does-youtube-use/
-//user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 256000=256MB, 512000=512MB, 1024000=1GB, 2097152=2GB, 5242880=5GB, 8388608=8GB
-user_pref("browser.cache.memory.max_entry_size", 153600); // alt=51200; preferred=327680 ; alt= -1 -> entries bigger than than 90% of the mem-cache are never cached
+// The automatic size selection (default) is based on a decade-old table that only contains settings for systems at or below 8GB of system memory [1]
+// -1=Automatically decide the maximum memory to use to cache decoded images, messages, and chrome based on the total amount of RAM
+// [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
+user_pref("browser.cache.memory.capacity", 1024000); // default=-1; 512000=512MB, 1024000=1GB, 2097152=2GB
+user_pref("browser.cache.memory.max_entry_size", 51200); // default=5120; alt=153600; -1=entries bigger than than 90% of the mem-cache are never cached
 
 /****************************************************************************
  * SECTION: NETWORK                                                         *
