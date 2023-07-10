@@ -256,8 +256,8 @@ user_pref("network.http.max-persistent-connections-per-server", 10); // default=
 user_pref("network.dnsCacheEntries", 20000);
 // [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
 // If you do not use NextDNS, Cloudfare, etc., then feel free to enable this.
-    //user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3600 (1 hour)
-    //user_pref("network.dnsCacheExpirationGracePeriod", 240); // cache DNS entries for 4 minutes after they expire
+    user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3600 (1 hour)
+    user_pref("network.dnsCacheExpirationGracePeriod", 240); // cache DNS entries for 4 minutes after they expire
 
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
