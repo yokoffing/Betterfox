@@ -46,7 +46,7 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 * **Firefox Sync** and **Firefox View** are disabled.
 * **Location requests** are rejected and **site notifications** are disabled.
 
-## Suggestions
+## Privacy Suggestions
 After applying the `user.js` and restarting Firefox:
 1) Change your default search engine.
    * You can also choose a different search engine for Private Windows only:
