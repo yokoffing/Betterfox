@@ -356,10 +356,6 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
  * SECTION: DISK AVOIDANCE                                                  *
 ****************************************************************************/
 
-// PREF: disable disk cache
-// [NOTE] If you think disk cache helps performance, then feel free to override this.
-user_pref("browser.cache.disk.enable", false);
-
 // PREF: disable media cache from writing to disk in Private Browsing
 // [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
