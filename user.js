@@ -45,6 +45,7 @@ user_pref("media.cache_readahead_limit", 9000);
 user_pref("media.cache_resume_threshold", 6000);
 
 /** BROWSER CACHE ***/
+user_pref("browser.cache.disk.enable", false);
 user_pref("browser.cache.memory.max_entry_size", 153600);
 
 /** NETWORK ***/
@@ -79,7 +80,6 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("security.tls.enable_0rtt_data", false);
 
 /** DISK AVOIDANCE ***/
-user_pref("browser.cache.disk.enable", false);
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 user_pref("browser.sessionstore.privacy_level", 2);
 
