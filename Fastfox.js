@@ -219,17 +219,17 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 //user_pref("browser.cache.disk.enable", true); // DEFAULT
 //user_pref("browser.cache.disk.capacity", 2048000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
     //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
-//user_pref("browser.cache.disk.max_entry_size", 327680); // default=51200; maximum size of in memory cached objects
+//user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT; maximum size of an object in disk cache
 //user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
 //user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
-//user_pref("browser.cache.frecency_half_life_hours", 18); // default=6; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
+//user_pref("browser.cache.frecency_half_life_hours", 12); // default=6; alt=18; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
 
 // PREF: memory cache
-// The automatic size selection (default) is based on a decade-old table that only contains settings for systems at or below 8GB of system memory [1]
+// The "automatic" size selection (default) is based on a decade-old table that only contains settings for systems at or below 8GB of system memory [1]
 // -1=Automatically decide the maximum memory to use to cache decoded images, messages, and chrome based on the total amount of RAM
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 user_pref("browser.cache.memory.capacity", 2097152); // default=-1; 1048576=1GB, 2097152=2GB
-user_pref("browser.cache.memory.max_entry_size", 153600); // default=5120; alt=65536; -1=entries bigger than than 90% of the mem-cache are never cached
+user_pref("browser.cache.memory.max_entry_size", 327680); // default=5120; alt=65536 or 153600; -1=entries bigger than than 90% of the mem-cache are never cached
 
 /****************************************************************************
  * SECTION: NETWORK                                                         *
