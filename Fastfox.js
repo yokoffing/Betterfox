@@ -253,6 +253,7 @@ user_pref("network.http.max-persistent-connections-per-server", 10); // default=
 //user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
 
 // PREF: increase DNS cache
+// [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
 user_pref("network.dnsCacheEntries", 20000);
 // [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
     user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3600 (1 hour)
