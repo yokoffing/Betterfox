@@ -254,7 +254,7 @@ user_pref("network.http.max-persistent-connections-per-server", 10); // default=
 
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
-user_pref("network.dnsCacheEntries", 5000); // default=400
+user_pref("network.dnsCacheEntries", 10000); // default=400
 // [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
     user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3600 (1 hour)
     user_pref("network.dnsCacheExpirationGracePeriod", 240); // cache DNS entries for 4 minutes after they expire
