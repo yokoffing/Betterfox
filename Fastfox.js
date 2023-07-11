@@ -217,12 +217,12 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 // More efficient to keep the browser cache instead of
 // having to re-download objects for the websites you visit frequently.
 //user_pref("browser.cache.disk.enable", true); // DEFAULT
-//user_pref("browser.cache.disk.capacity", 2048000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
+//user_pref("browser.cache.disk.capacity", 5120000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
     //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT; maximum size of an object in disk cache
 //user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
 //user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
-//user_pref("browser.cache.frecency_half_life_hours", 12); // default=6; alt=18; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
+//user_pref("browser.cache.frecency_half_life_hours", 18); // default=6; alt=12; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
 
 // PREF: memory cache
 // The "automatic" size selection (default) is based on a decade-old table that only contains settings for systems at or below 8GB of system memory [1]
