@@ -37,7 +37,7 @@ user_pref("privacy.trackingprotection.socialtracking.enabled", true); // enabled
 // Using a less aggressive internal blocklist mitigates this breakage
 // This is easier than adjusting prefs for ETP Custom
 // [NOTE] Sadly, this does not work on NIGHTLY; you must use Custom and adjust prefs individually
-//user_pref("browser.contentblocking.features.strict", "tp,tpPrivate,cookieBehavior5,cookieBehaviorPBM5,cm,fp,stp,emailTP,emailTPPrivate,lvl1,lvl1PBM,rp,rpTop,ocsp,qps,qpsPBM");
+//user_pref("browser.contentblocking.features.strict", "tp,tpPrivate,cookieBehavior5,cookieBehaviorPBM5,cm,fp,stp,emailTP,emailTPPrivate,lvl1,rp,rpTop,ocsp,qps,qpsPBM");
 
 // PREF: query stripping
 // Currently uses a small list [1]
