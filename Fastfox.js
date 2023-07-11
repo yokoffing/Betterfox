@@ -215,7 +215,7 @@ user_pref("media.memory_caches_combined_limit_kb", 3145728); // alt=2560000; // 
 // More efficient to keep the browser cache instead of
 // having to re-download objects for the websites you visit frequently.
 //user_pref("browser.cache.disk.enable", true); // DEFAULT
-//user_pref("browser.cache.disk.capacity", 5120000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
+//user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
     //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 //user_pref("browser.cache.disk.max_entry_size", 51200); // 51 MB; DEFAULT; maximum size of an object in disk cache
 //user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
