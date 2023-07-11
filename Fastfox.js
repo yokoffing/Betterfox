@@ -219,7 +219,7 @@ user_pref("media.cache_resume_threshold", 6000); // default=30; when a network c
 //user_pref("browser.cache.disk.enable", true); // DEFAULT
 //user_pref("browser.cache.disk.capacity", 5120000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
     //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
-//user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT; maximum size of an object in disk cache
+//user_pref("browser.cache.disk.max_entry_size", 51200); // 51 MB; DEFAULT; maximum size of an object in disk cache
 //user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
 //user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
 //user_pref("browser.cache.frecency_half_life_hours", 18); // default=6; alt=12; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
@@ -254,7 +254,7 @@ user_pref("network.http.max-persistent-connections-per-server", 10); // default=
 
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
-user_pref("network.dnsCacheEntries", 20000);
+user_pref("network.dnsCacheEntries", 5000); // default=400
 // [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
     user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3600 (1 hour)
     user_pref("network.dnsCacheExpirationGracePeriod", 240); // cache DNS entries for 4 minutes after they expire
