@@ -209,8 +209,8 @@ user_pref("browser.cache.memory.max_entry_size", 65536); // default=5120; alt=15
 // [NOTE] Does not affect videos over 720p since they use DASH playback [1]
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
 //user_pref("media.cache_size", 512000); // DEFAULT
-user_pref("media.cache_readahead_limit", 600); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-user_pref("media.cache_resume_threshold", 300); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
+user_pref("media.cache_readahead_limit", 900); // 15 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+user_pref("media.cache_resume_threshold", 480); // 8 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
 
 // PREF: media memory cache
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
