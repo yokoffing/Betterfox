@@ -82,7 +82,9 @@ user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
 
 // PREF: scroll-linked animations [NIGHTLY]
-//user_pref("layout.css.scroll-driven-animations.enabled", true);
+// [1] https://developer.chrome.com/articles/scroll-driven-animations/
+// [2] https://developer.chrome.com/en/blog/scroll-animation-performance-case-study/
+user_pref("layout.css.scroll-driven-animations.enabled", true);
 
 // PREF: HTML Sanitizer API [NIGHTLY]
 //user_pref("dom.security.sanitizer.enabled", true);
@@ -175,31 +177,6 @@ user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("gfx.content.skia-font-cache-size", 80);
 
-// PREF: image tweaks
-user_pref("image.cache.size", 10485760); // default=5242880
-user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; chunk size for calls to the image decoders
-user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // default=60000; minimum timeout to unmap shared surfaces since they have been last used
-
-// PREF: media disk cache
-// [NOTE] Does not affect videos over 720p since they use DASH playback [1]
-// [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
-//user_pref("media.cache_size", 512000); // DEFAULT
-user_pref("media.cache_readahead_limit", 600); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-user_pref("media.cache_resume_threshold", 300); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
-
-// PREF: media memory cache
-// [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
-// [2] https://github.com/arkenfox/user.js/pull/941
-user_pref("media.memory_cache_max_size", 1048576); // default=8192
-user_pref("media.memory_caches_combined_limit_kb", 3145728); // default=524288
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory that Firefox can use for media caches
-
-// PREF: disable AV1 for hardware decodeable videos
-// AV1 uses software (CPU-based) decoding
-// Firefox sometimes uses AV1 video decoding even to GPUs which do not support it
-// [1] https://www.troddit.com/r/AV1/comments/s5xyph/youtube_av1_codec_have_worse_quality_than_old_vp9
-//user_pref("media.av1.enabled", false);
-
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
 ****************************************************************************/
@@ -224,6 +201,38 @@ user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 user_pref("browser.cache.memory.capacity", 2097152); // default=-1; 1048576=1GB, 2097152=2GB
 user_pref("browser.cache.memory.max_entry_size", 65536); // default=5120; alt=153600; -1=entries bigger than than 90% of the mem-cache are never cached
+
+/****************************************************************************
+ * SECTION: MEDIA CACHE                                                     *
+****************************************************************************/
+// PREF: media disk cache
+// [NOTE] Does not affect videos over 720p since they use DASH playback [1]
+// [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
+//user_pref("media.cache_size", 512000); // DEFAULT
+user_pref("media.cache_readahead_limit", 600); // default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+user_pref("media.cache_resume_threshold", 300); // default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
+
+// PREF: media memory cache
+// [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
+// [2] https://github.com/arkenfox/user.js/pull/941
+user_pref("media.memory_cache_max_size", 1048576); // default=8192
+user_pref("media.memory_caches_combined_limit_kb", 3145728); // default=524288
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory that Firefox can use for media caches
+
+// PREF: disable AV1 for hardware decodeable videos
+// AV1 uses software (CPU-based) decoding
+// Firefox sometimes uses AV1 video decoding even to GPUs which do not support it
+// [1] https://www.reddit.com/r/AV1/comments/s5xyph/youtube_av1_codec_have_worse_quality_than_old_vp9
+//user_pref("media.av1.enabled", false);
+
+/****************************************************************************
+ * SECTION: IMAGE CACHE                                                     *
+****************************************************************************/
+
+// PREF: image cache
+user_pref("image.cache.size", 10485760); // default=5242880
+user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; chunk size for calls to the image decoders
+user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // default=60000; minimum timeout to unmap shared surfaces since they have been last used
 
 /****************************************************************************
  * SECTION: NETWORK                                                         *
