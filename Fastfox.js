@@ -58,12 +58,6 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
 //user_pref("content.interrupt.parsing", true); // [HIDDEN]
 //user_pref("content.switch.threshold", 1000000); // alt=1500000; default=750000; [HIDDEN]
 
-// PREF: set the minimum interval between session save operations
-// Increasing this can help on older machines and some websites, as well as reducing writes
-// [1] https://bugzilla.mozilla.org/1304389
-// default=15000 (15s)
-//user_pref("browser.sessionstore.interval", 30000); // (30s)
-
 // PREF: control how tabs are loaded when a session is restored
 // true=Tabs are not loaded until they are selected (default)
 // false=Tabs begin to load immediately.
