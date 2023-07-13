@@ -60,6 +60,7 @@ user_pref("network.buffer.cache.size", 262144);
 user_pref("network.buffer.cache.count", 128);
 user_pref("network.http.max-connections", 1800);
 user_pref("network.http.max-persistent-connections-per-server", 10);
+user_pref("network.http.pacing.requests.min-parallelism", 18);
 user_pref("network.dnsCacheEntries", 10000);
 user_pref("network.dnsCacheExpiration", 86400);
 user_pref("network.dnsCacheExpirationGracePeriod", 240);
