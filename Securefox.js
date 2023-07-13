@@ -324,7 +324,7 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 // PREF: enable advanced fingerprinting protection 
 // [WARNING] Leave disabled unless you're okay with all the drawbacks
 // [1] https://librewolf.net/docs/faq/#what-are-the-most-common-downsides-of-rfp-resist-fingerprinting
-// [2] https://old.reddit.com/r/firefox/comments/wuqpgi/comment/ile3whx/?context=3
+// [2] https://www.reddit.com/r/firefox/comments/wuqpgi/comment/ile3whx/?context=3
 //user_pref("privacy.resistFingerprinting", true);
 
 // PREF: set new window size rounding max values [FF55+]
@@ -589,7 +589,7 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 // [SETTINGS] "Choose a different default search engine for Private Windows only"
 //user_pref("browser.search.separatePrivateDefault", true); // DEFAULT
 // enable prompt for searching in a Private Window when using normal browsing window URL bar
-// [1] https://old.reddit.com/r/firefox/comments/yg8jyh/different_private_search_option_gone_firefox_106/
+// [1] https://www.reddit.com/r/firefox/comments/yg8jyh/different_private_search_option_gone_firefox_106/
 //user_pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // HIDDEN
 
 // PREF: enable option to add custom search
@@ -1044,7 +1044,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [SETTING] General>DRM Content>Play DRM-controlled content
 // [TEST] https://bitmovin.com/demos/drm
 // [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
-// [2] https://old.reddit.com/r/firefox/comments/10gvplf/comment/j55htc7
+// [2] https://www.reddit.com/r/firefox/comments/10gvplf/comment/j55htc7
 //user_pref("media.eme.enabled", false);
 // Optionally, hide the setting which also disables the DRM prompt:
 //user_pref("browser.eme.ui.enabled", false);
