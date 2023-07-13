@@ -54,7 +54,7 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
 // PREF: frequency switch threshold [HIDDEN]
 // Raising the value will make the application more responsive at the expense of page load time.
 // [1] http://kb.mozillazine.org/Content.switch.threshold
-// [2] https://old.reddit.com/r/firefox/comments/11m2yuh/comment/jbjxp8s/?context=3
+// [2] https://www.reddit.com/r/firefox/comments/11m2yuh/comment/jbjxp8s/?context=3
 //user_pref("content.interrupt.parsing", true); // [HIDDEN]
 //user_pref("content.switch.threshold", 1000000); // alt=1500000; default=750000; [HIDDEN]
 
@@ -248,7 +248,7 @@ user_pref("network.buffer.cache.count", 128); // default=24
 // PREF: increase the absolute number of HTTP connections
 // [1] https://kb.mozillazine.org/Network.http.max-connections
 // [2] https://kb.mozillazine.org/Network.http.max-persistent-connections-per-server
-// [3] https://old.reddit.com/r/firefox/comments/11m2yuh/how_do_i_make_firefox_use_more_of_my_900_megabit/jbfmru6/
+// [3] https://www.reddit.com/r/firefox/comments/11m2yuh/how_do_i_make_firefox_use_more_of_my_900_megabit/jbfmru6/
 user_pref("network.http.max-connections", 1800); // default=900
 user_pref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
 //user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
