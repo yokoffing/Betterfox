@@ -19,7 +19,6 @@
 
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
-user_pref("browser.sessionstore.interval", 50000); // 5 min.; set minimum interval between session save operations
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
 user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
 user_pref("network.http.speculative-parallel-limit", 18); // default=6
