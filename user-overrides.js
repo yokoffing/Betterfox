@@ -89,7 +89,6 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
 
 /** DELETE IF NOT NIGHTLY ***/
-user_pref("layout.css.scroll-driven-animations.enabled", true); // CSS scroll-linked animations 
 user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 //user_pref("browser.urlbar.suggest.quickactions", false); // Quick Actions in URL bar
