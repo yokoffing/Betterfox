@@ -357,11 +357,11 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
  * SECTION: DISK AVOIDANCE                                                  *
 ****************************************************************************/
 
-// PREF: disable media cache from writing to disk in Private Browsing
+// PREF: prevent media cache from writing to disk in Private Browsing
 // [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 
-// PREF: set the minimum interval between session save operations in case of a crash
+// PREF: set the minimum interval between session save operations when crashing or restarting to install updates
 // Increasing this value (in milliseconds) can help on older machines by reducing writes.
 // [NOTE] Data is only saved when state changes, not every X seconds;
 // X seconds is how often FF checks for state changes. [2]
@@ -369,10 +369,14 @@ user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 // [2] https://bugzilla.mozilla.org/1304389
 user_pref("browser.sessionstore.interval", 900000); // 15 min.; default=15000 (15s)
 
-// PREF: disable storing extra session data
-// Dictates whether sites may save extra session data such as form content, cookies, and POST data
+// PREF: store extra session data when crashing or restarting to install updates
+// Dictates whether sites may save extra session data such as form content, scrollbar positions, and POST data.
 // 0=everywhere, 1=unencrypted sites, 2=nowhere
 user_pref("browser.sessionstore.privacy_level", 2);
+
+// PREF: disable automatic Firefox start and session restore after reboot [WINDOWS]
+// [1] https://bugzilla.mozilla.org/603903
+//user_pref("toolkit.winRegisterApplicationRestart", false);
 
 // PREF: disable fetching and permanently storing favicons for Windows .URL shortcuts created by drag and drop
 // [NOTE] .URL shortcut files will be created with a generic icon
@@ -386,21 +390,6 @@ user_pref("browser.sessionstore.privacy_level", 2);
 // PREF: disable page thumbnails capturing
 // Page thumbnails are only used in chrome/privileged contexts
 //user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
-
-// PREF: disable automatic Firefox start and session restore after reboot [WINDOWS]
-// [1] https://bugzilla.mozilla.org/603903
-//user_pref("toolkit.winRegisterApplicationRestart", false);
-
-// PREF: increase media cache limits
-// For higher-end PCs; helps with video playback/buffering
-// [1] https://github.com/arkenfox/user.js/pull/941
-//user_pref("browser.cache.memory.capacity", 256000); // -1; 256000=256MB, 512000=512MB, 1024000=1GB
-//user_pref("media.memory_cache_max_size", 512000); // 65536
-//user_pref("media.memory_caches_combined_limit_kb", 2560000); // 524288
-//user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5
-//user_pref("media.cache_size", 2048000); // 512000
-//user_pref("media.cache_readahead_limit", 99999); // 60
-//user_pref("media.cache_resume_threshold", 99999); // 30
 
 /******************************************************************************
  * SECTION: CLEARING DATA DEFAULTS                           *
