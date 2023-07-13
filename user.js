@@ -39,10 +39,11 @@ user_pref("gfx.content.skia-font-cache-size", 80);
 user_pref("image.cache.size", 10485760);
 user_pref("image.mem.decode_bytes_at_a_time", 65536);
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);
-user_pref("media.memory_cache_max_size", 1048576);
-user_pref("media.memory_caches_combined_limit_kb", 3145728);
 user_pref("media.cache_readahead_limit", 600);
 user_pref("media.cache_resume_threshold", 300);
+user_pref("media.memory_cache_max_size", 1048576);
+user_pref("media.memory_caches_combined_limit_kb", 3145728);
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 10);
 
 /** BROWSER CACHE ***/
 user_pref("browser.cache.disk.enable", false);
