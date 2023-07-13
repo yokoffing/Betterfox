@@ -253,7 +253,7 @@ user_pref("network.http.max-connections", 1800); // default=900
 user_pref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
 //user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
 //user_pref("network.http.max-urgent-start-excessive-connections-per-host", 6); // default=3
-//user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
+user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
 
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
