@@ -361,6 +361,14 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 // [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 
+// PREF: set the minimum interval between session save operations in case of a crash
+// Increasing this value (in milliseconds) can help on older machines by reducing writes.
+// [NOTE] Data is only saved when state changes, not every X seconds;
+// X seconds is how often FF checks for state changes. [2]
+// [1] https://kb.mozillazine.org/Browser.sessionstore.interval
+// [2] https://bugzilla.mozilla.org/1304389
+user_pref("browser.sessionstore.interval", 900000); // 15 min.; default=15000 (15s)
+
 // PREF: disable storing extra session data
 // Dictates whether sites may save extra session data such as form content, cookies, and POST data
 // 0=everywhere, 1=unencrypted sites, 2=nowhere
