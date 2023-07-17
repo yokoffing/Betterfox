@@ -885,7 +885,6 @@ user_pref("editor.truncate_user_pastes", false);
 // [2] https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
-user_pref("extensions.formautofill.heuristics.enabled", false);
 user_pref("browser.formfill.enable", false);
 
 /******************************************************************************
