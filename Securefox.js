@@ -368,7 +368,7 @@ user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 // X seconds is how often FF checks for state changes. [2]
 // [1] https://kb.mozillazine.org/Browser.sessionstore.interval
 // [2] https://bugzilla.mozilla.org/1304389
-user_pref("browser.sessionstore.interval", 900000); // 15 min.; default=15000 (15s)
+user_pref("browser.sessionstore.interval", 300000); // 5 min.; default=15000 (15s)
 
 // PREF: store extra session data when crashing or restarting to install updates
 // Dictates whether sites may save extra session data such as form content, scrollbar positions, and POST data.
