@@ -195,15 +195,13 @@ user_pref("gfx.content.skia-font-cache-size", 80);
 //user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
 //user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
 
-// PREF: specify how long cached pages are kept before being removed from disk cache
+// PREF: specify how long pages are kept before being removed from cache
 // Controls the time period used to re-compute the frecency value of cache entries.
 // The frecency value determines how recently and frequently a page has been accessed
 // and is used by Firefox's cache algorithm.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=913808
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=968101
 // [3] https://rockridge.hatenablog.com/entry/2014/09/15/165501
-
-// Changing the value of browser.cache.frecency_half_life_hours affects how long cached pages are kept before being removed from disk cache.
 //user_pref("browser.cache.frecency_half_life_hours", 18); // 18 hours; default=6
 
 // PREF: memory cache
