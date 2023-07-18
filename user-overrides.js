@@ -95,6 +95,7 @@ user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by de
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
+user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("pdfjs.defaultZoomValue", "125"); // DESKTOP; alt=page-width; PDF zoom level
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
