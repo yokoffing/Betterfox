@@ -185,15 +185,26 @@ user_pref("gfx.content.skia-font-cache-size", 80);
 // [NOTE] If you think disk cache helps performance, then feel free to override this.
 // See about:cache
 // [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
-// More efficient to keep the browser cache instead of
-// having to re-download objects for the websites you visit frequently.
+// More efficient to keep the browser cache instead of having to
+// re-download objects for the websites you visit frequently.
+// [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
 //user_pref("browser.cache.disk.enable", true); // DEFAULT
 //user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
     //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 //user_pref("browser.cache.disk.max_entry_size", 51200); // 51 MB; DEFAULT; maximum size of an object in disk cache
 //user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
 //user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
-//user_pref("browser.cache.frecency_half_life_hours", 18); // default=6; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
+
+// PREF: specify how long cached pages are kept before being removed from disk cache
+// Controls the time period used to re-compute the frecency value of cache entries.
+// The frecency value determines how recently and frequently a page has been accessed
+// and is used by Firefox's cache algorithm.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=913808
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=968101
+// [3] https://rockridge.hatenablog.com/entry/2014/09/15/165501
+
+// Changing the value of browser.cache.frecency_half_life_hours affects how long cached pages are kept before being removed from disk cache.
+//user_pref("browser.cache.frecency_half_life_hours", 18); // 18 hours; default=6
 
 // PREF: memory cache
 // The "automatic" size selection (default) is based on a decade-old table that only contains settings for systems at or below 8GB of system memory [1]
