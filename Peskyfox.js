@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 115a                                                            *
+ * version: 116                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -135,13 +135,15 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 ****************************************************************************/
 
 // PREF: URL bar suggestions (bookmarks, history, open tabs) / dropdown options in the URL bar
-// user_pref("browser.urlbar.suggest.bookmarks", true);
+//user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.suggest.history", false);
 //user_pref("browser.urlbar.suggest.openpage", true);
 //user_pref("browser.urlbar.suggest.quickactions", false); // [NIGHTLY]
 //user_pref("browser.urlbar.suggest.searches", false);
 //user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
+    //user_pref("browser.urlbar.weather.ignoreVPN", true);
+
 // Disable dropdown suggestions with empty query:
 user_pref("browser.urlbar.suggest.topsites", false);
 // enable helpful features:
