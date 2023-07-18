@@ -712,8 +712,13 @@ user_pref("dom.security.https_first", true);
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=off, 2=TRR preferred (with System fallback), 3=TRR only (without System fallback), 5=TRR disabled
-//user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
-//user_pref("network.trr.display_fallback_warning", false); // DEFAULT
+//user_pref("network.trr.mode", 2); // DEFAULT; enable TRR (with System fallback)
+
+// PREF: DoH fallback warning page
+// Whether DoH fallback warning page will be displayed when DoH doesn't work in TRR first mode.
+//user_pref("network.trr.display_fallback_warning", false); // DEFAULT; 
+// Show the checkbox to enable the fallback warning page in the settings UI
+    //user_pref("network.trr_ui.show_fallback_warning_option", false); // DEFAULT; show the checkbox to enable the fallback warning page in the settings UI
 
 // PREF: DoH resolver
 // [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
