@@ -1260,7 +1260,9 @@ user_pref("toolkit.telemetry.bhrPing.enabled", false);
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 user_pref("toolkit.telemetry.dap_enabled", false); // DEFAULT [FF108]
 
-// PREF: Corroborator
+// PREF: Check bundled omni JARs for corruption
+// [1] https://github.com/ghostery/user-agent-desktop/issues/141
+// [2] https://github.com/arkenfox/user.js/issues/791
 //user_pref("corroborator.enabled", false);
 
 // PREF: Telemetry Coverage
@@ -1305,10 +1307,10 @@ user_pref("network.captive-portal-service.enabled", false);
 // [1] https://bugzilla.mozilla.org/1460537
 user_pref("network.connectivity-service.enabled", false);
 
-// PREF: software that continually reports what default browser you are using
+// PREF: software that continually reports what default browser you are using [WINDOWS]
 // [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser [1].
 // [1] https://github.com/yokoffing/Betterfox/issues/166
-user_pref("default-browser-agent.enabled", false);
+//user_pref("default-browser-agent.enabled", false);
 
 // PREF: "report extensions for abuse"
 //user_pref("extensions.abuseReport.enabled", false);
