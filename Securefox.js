@@ -712,8 +712,11 @@ user_pref("dom.security.https_first", true);
 // [NOTE] You can set this to 0 if you are already using secure DNS for your entire network (e.g. OS-level, router-level).
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
-// 0=off, 2=TRR preferred (with System fallback), 3=TRR only (without System fallback), 5=TRR disabled
-//user_pref("network.trr.mode", 2); // DEFAULT; enable TRR (with System fallback)
+// 0=Disable DoH (default)
+// 2=Use DoH; fall back to traditional DNS if necessary
+// 3=Only use DoH; do not fall back to traditional DNS
+// 5=Explicitly disable DoH
+//user_pref("network.trr.mode", 0); // DEFAULT
 
 // PREF: DoH fallback warning page
 // Whether DoH fallback warning page will be displayed when DoH doesn't work in TRR first mode.
