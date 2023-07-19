@@ -49,7 +49,7 @@ user_pref("browser.contentblocking.category", "strict");
 //user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 //user_pref("privacy.query_stripping.enabled.pbmode", true); // enabled with "Strict"
 user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
-user_pref("privacy.query_stripping.strip_on_share.enabled", false); // DEFAULT
+//user_pref("privacy.query_stripping.strip_on_share.enabled", false); // DEFAULT
 
 // PREF: allow embedded tweets, Instagram and Reddit posts, and TikTok embeds
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
@@ -362,16 +362,17 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 // [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 
-// PREF: set the minimum interval between session save operations when crashing or restarting to install updates
-// Increasing this value (in milliseconds) can help on older machines by reducing writes.
-// [NOTE] Data is only saved when state changes, not every X seconds;
-// X seconds is how often FF checks for state changes. [2]
+// PREF: set the minimum interval (in milliseconds) between session save operations
+// when crashing or restarting to install updates
+// [NOTE] The value is how often FF checks for state changes.
+// Data is only saved when state changes [2].
 // [1] https://kb.mozillazine.org/Browser.sessionstore.interval
 // [2] https://bugzilla.mozilla.org/1304389
-user_pref("browser.sessionstore.interval", 300000); // 5 min.; default=15000 (15s)
+user_pref("browser.sessionstore.interval", 300000); // 5 min.; alt=60000 (1 min.); default=15000 (15s)
 
 // PREF: store extra session data when crashing or restarting to install updates
-// Dictates whether sites may save extra session data such as form content, scrollbar positions, and POST data.
+// Dictates whether sites may save extra session data such as form content,
+// scrollbar positions, and POST data.
 // 0=everywhere, 1=unencrypted sites, 2=nowhere
 user_pref("browser.sessionstore.privacy_level", 2);
 
