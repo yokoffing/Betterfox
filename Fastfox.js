@@ -16,10 +16,12 @@
 //user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
 //user_pref("dom.ipc.processCount.webIsolated", 4); // DEFAULT; Isolated Web Content; per-site
 
-// PREF: disable efficiency mode for higher-end machines [WINDOWS]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1796525
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
-// [3] https://reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
+// PREF: disable EcoQoS [WINDOWS]
+// [NOTE] Leave this alone, unless you want to test CPU usage on higher-end machines.
+// [1] https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1796525
+// [3] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
+// [4] https://reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
 //user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
 
 // PREF: initial paint delay
