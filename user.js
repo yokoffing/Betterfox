@@ -25,6 +25,7 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 /** EXPERIMENTAL ***/
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
+user_pref("layout.css.has-selector.enabled", true);
 user_pref("layout.css.scroll-driven-animations.enabled", true);
 
 /** GFX ***/
@@ -255,7 +256,6 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 /** TAB BEHAVIOR ***/
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
-user_pref("layout.css.has-selector.enabled", true);
 user_pref("cookiebanners.service.mode", 2);
 user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 
