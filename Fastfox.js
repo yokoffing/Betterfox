@@ -16,6 +16,12 @@
 //user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
 //user_pref("dom.ipc.processCount.webIsolated", 4); // DEFAULT; Isolated Web Content; per-site
 
+// PREF: disable efficiency mode for higher-end machines [WINDOWS]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1796525
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
+// [3] https://reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
+//user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
+
 // PREF: initial paint delay
 // How long FF will wait before rendering the page, in milliseconds
 // Reduce the 5ms Firefox waits to render the page
@@ -57,6 +63,18 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
 // [2] https://www.reddit.com/r/firefox/comments/11m2yuh/comment/jbjxp8s/?context=3
 //user_pref("content.interrupt.parsing", true); // [HIDDEN]
 //user_pref("content.switch.threshold", 1000000); // alt=1500000; default=750000; [HIDDEN]
+
+// PREF: disable Reader mode
+// Firefox will not have to parse webpage for Reader when navigating.
+// Extremely minimal performance impact, if you enable.
+//user_pref("reader.parse-on-load.enabled", false);
+
+// PREF: unload tabs on low memory
+// Firefox will detect if your computer’s memory is running low (less than 400MB)
+// and suspend tabs that you have not used in awhile
+// [1] https://support.mozilla.org/en-US/questions/1262073
+// [2] https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
+//user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
 
 // PREF: control how tabs are loaded when a session is restored
 // true=Tabs are not loaded until they are selected (default)
