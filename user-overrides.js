@@ -18,6 +18,7 @@
 //user_pref("network.trr.uri", "https://dns.nextdns.io/******/Firefox"); // TRR/DoH
 
 /** FASTFOX ***/
+user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
 user_pref("network.http.speculative-parallel-limit", 18); // default=6
@@ -84,8 +85,7 @@ user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
 //user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small"); // PiP
 user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false); // PiP in address bar
-user_pref("reader.parse-on-load.enabled", false); // disable reader mode
-    //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
+//user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
 
 /** DELETE IF NOT NIGHTLY ***/
@@ -95,7 +95,7 @@ user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by de
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
-user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false); // disable efficiency mode
+//user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false); // disable efficiency mode
 user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("pdfjs.defaultZoomValue", "125"); // DESKTOP; alt=page-width; PDF zoom level
