@@ -160,15 +160,6 @@ user_pref("layout.css.scroll-driven-animations.enabled", true);
 //user_pref("gfx.webrender.super-resolution.nvidia", true);
 
 /****************************************************************************
- * SECTION: MAKE FIREFOX FAST                                               *
- * [NOTE] The following is not recommended for low-end machines             *
- * Credit for many of these:                                                *
- * https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db    *
- * [NOTE] For best performance on older hardware, you will need to test     *
- * these settings individually.                                             *
-****************************************************************************/
-
-/****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
 ****************************************************************************/
 
