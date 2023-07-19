@@ -40,7 +40,7 @@ user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("gfx.content.skia-font-cache-size", 80);
 
 /** BROWSER CACHE ***/
-user_pref("browser.cache.disk.enable", false);
+user_pref("browser.cache.disk.enable", true);
 user_pref("browser.cache.disk.capacity", 8192000);
 user_pref("browser.cache.disk.smart_size.enabled", false);
 user_pref("browser.cache.disk.metadata_memory_limit", 15360);
