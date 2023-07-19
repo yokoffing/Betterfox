@@ -111,12 +111,12 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 ****************************************************************************/
 
 // PREF: smoother font
-// [1] https://old.reddit.com/r/firefox/comments/wvs04y/windows_11_firefox_v104_font_rendering_different/?context=3
+// [1] https://reddit.com/r/firefox/comments/wvs04y/windows_11_firefox_v104_font_rendering_different/?context=3
 //user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 
 // PREF: use DirectWrite everywhere like Chrome [WINDOWS]
 // [1] https://kb.mozillazine.org/Thunderbird_6.0,_etc.#Font_rendering_and_performance_issues
-// [2] https://old.reddit.com/r/firefox/comments/wvs04y/comment/ilklzy1/?context=3
+// [2] https://reddit.com/r/firefox/comments/wvs04y/comment/ilklzy1/?context=3
 //user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 //user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 //user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
@@ -306,13 +306,6 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
  * SECTION: TAB BEHAVIOR                                                    *
 ****************************************************************************/
 
-// PREF: unload tabs on low memory
-// Firefox will detect if your computer’s memory is running low (less than 400MB)
-// and suspend tabs that you have not used in awhile
-// [1] https://support.mozilla.org/en-US/questions/1262073
-// [2] https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
-//user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
-
 // PREF: search query opens in a new tab (instead of the current tab)
 //user_pref("browser.search.openintab", true); // SEARCH BOX
 //user_pref("browser.urlbar.openintab", true); // URL BAR
@@ -429,16 +422,11 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 // PREF: restore "View image info"
 //user_pref("browser.menu.showViewImageInfo", true);
 
-// PREF: Disable Reader mode
-// Firefox will not have to parse webpage for Reader when navigating.
-// Minimal performance impact.
-//user_pref("reader.parse-on-load.enabled", false);
-
-// PREF: Disable backspace action
+// PREF: disable backspace action
 // 0=previous page, 1=scroll up, 2=do nothing
 //user_pref("browser.backspace_action", 2); // DEFAULT
 
-// PREF: Disable ALT key toggling the menu bar
+// PREF: disable ALT key toggling the menu bar
 //user_pref("ui.key.menuAccessKeyFocuses", false);
     //user_pref("ui.key.menuAccessKey", 18); // DEFAULT
 
@@ -454,17 +442,17 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 // [1] https://kb.mozillazine.org/Ui.SpellCheckerUnderlineStyle#Possible_values_and_their_effects
 //user_pref("ui.SpellCheckerUnderlineStyle", 1);
 
-// PREF: Limit the number of bookmark backups Firefox keeps
+// PREF: limit the number of bookmark backups Firefox keeps
 //user_pref("browser.bookmarks.max_backups", 1);
 
-// PREF: Allow for more granular control of zoom levels
+// PREF: allow for more granular control of zoom levels
 // Especially useful if you want to set your default zoom to a custom level
 //user_pref("toolkit.zoomManager.zoomValues", ".3,.5,.67,.8,.9,.95,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,2,2.4,3");
 
-// PREF: Hide image placeholders
+// PREF: hide image placeholders
 //user_pref("browser.display.show_image_placeholders", false);
 
-// PREF: Wrap long lines of text when using source / debugger
+// PREF: wrap long lines of text when using source / debugger
 //user_pref("view_source.wrap_long_lines", true);
 //user_pref("devtools.debugger.ui.editor-wrapping", true);
 
@@ -489,29 +477,20 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 // PREF: zoom only text on webpage, not other elements
 //user_pref("browser.zoom.full", false);
 
-// PREF: enable :has() CSS relational pseudo-class
-// Needed for some extensions, filters, and customizations
-// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
-// [2] https://caniuse.com/css-has
-user_pref("layout.css.has-selector.enabled", true);
-
-// PREF: disable when dragging a scrollbar, if the mouse moves
-// too far from the scrollbar, the scrollbar will snap back to the top [LINUX?]
-// default=6
-//user_pref("slider.snapMultiplier", 0);
-
 // PREF: disable websites overriding Firefox's keyboard shortcuts [FF58+]
 // 0 (default) or 1=allow, 2=block
 // [SETTING] to add site exceptions: Ctrl+I>Permissions>Override Keyboard Shortcuts ***/
 //user_pref("permissions.default.shortcuts", 2);
 
 // PREF: JPEG XL image format [NIGHTLY]
+// May not affect anything on Stable channel [2]
 // [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1539075
 //user_pref("image.jxl.enabled", true);
 
 // PREF: enable CSS moz document rules
 // Still needed for Stylus?
-// [1] https://old.reddit.com/r/FirefoxCSS/comments/8x2q97/reenabling_mozdocument_rules_in_firefox_61/
+// [1] https://reddit.com/r/FirefoxCSS/comments/8x2q97/reenabling_mozdocument_rules_in_firefox_61/
 //user_pref("layout.css.moz-document.content.enabled", true);
 
 // PREF: restore zooming behavior [macOS] [FF109+]
@@ -520,11 +499,3 @@ user_pref("layout.css.has-selector.enabled", true);
 // The prefs below restores the previous zooming behavior
 //user_pref("mousewheel.with_control.action", 3);
 //user_pref("mousewheel.with_meta.action", 3);
-
-// PREF: disable efficiency mode [WINDOWS]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1796525
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
-// [3] https://old.reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
-//user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
-
-
