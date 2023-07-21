@@ -17,7 +17,9 @@
 //user_pref("dom.ipc.processCount.webIsolated", 4); // DEFAULT; Isolated Web Content; per-site
 
 // PREF: disable EcoQoS [WINDOWS]
-// [NOTE] Leave this alone, unless you want to test CPU usage on higher-end machines.
+// Background tab processes use efficiency mode on Windows 11 to limit resource use.
+// [WARNING] Leave this alone, unless you're on Desktop and you rely on
+// background tabs to have maximum performance.
 // [1] https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1796525
 // [3] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
