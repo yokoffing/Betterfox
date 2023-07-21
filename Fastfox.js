@@ -202,7 +202,7 @@ user_pref("gfx.content.skia-font-cache-size", 80);
 
 // PREF: disk cache
 // [NOTE] If you think disk cache helps performance, then feel free to override this.
-// See about:cache
+// [SETTINGS] See about:cache
 // [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
 // More efficient to keep the browser cache instead of having to
 // re-download objects for the websites you visit frequently.
@@ -211,7 +211,7 @@ user_pref("gfx.content.skia-font-cache-size", 80);
 //user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
     //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 //user_pref("browser.cache.disk.max_entry_size", 51200); // 51 MB; DEFAULT; maximum size of an object in disk cache
-//user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
+//user_pref("browser.cache.disk.metadata_memory_limit", 15360); // default=250; increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
 //user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
 
 // PREF: specify how long pages are kept before being removed from cache
