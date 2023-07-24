@@ -20,8 +20,8 @@ user_pref("mousewheel.default.delta_multiplier_y", 275); // 250-400; adjust this
 // recommended for 90hz+ displays
 user_pref("apz.overscroll.enabled", true); // not DEFAULT on Linux
 user_pref("general.smoothScroll", true); // DEFAULT
-user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this number to your liking
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
+user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this number to your liking
 
 /****************************************************************************************
  * OPTION 3: NATURAL SMOOTH SCROLLING V3 [MODIFIED]                                     *
