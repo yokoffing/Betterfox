@@ -2,7 +2,7 @@
  * Smoothfox                                                                            *
  * "Faber est suae quisque fortunae"                                                    *
  * priority: better scrolling                                                           *
- * version: January 2023                                                                *
+ * version: July 2023                                                                   *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -10,13 +10,15 @@
  * OPTION 1: INSTANT SCROLLING (SIMPLE ADJUSTMENT)                                      *
 ****************************************************************************************/
 // recommended for 60hz+ displays
-user_pref("general.smoothScroll",                       true); // DEFAULT
-user_pref("mousewheel.default.delta_multiplier_y",      275);  // 250-400
+user_pref("apz.overscroll.enabled", true); // not DEFAULT on Linux
+user_pref("general.smoothScroll", true); // DEFAULT
+user_pref("mousewheel.default.delta_multiplier_y", 275); // 250-400
 
 /****************************************************************************************
  * OPTION 2: SMOOTH SCROLLING                                                           *
 ****************************************************************************************/
 // recommended for 90hz+ displays
+user_pref("apz.overscroll.enabled", true); // not DEFAULT on Linux
 user_pref("general.smoothScroll",                       true); // DEFAULT
 user_pref("mousewheel.default.delta_multiplier_y",      300); // 250-400
 user_pref("general.smoothScroll.msdPhysics.enabled",    true);
@@ -27,6 +29,7 @@ user_pref("general.smoothScroll.msdPhysics.enabled",    true);
 // recommended for 120hz+ displays
 // largely matches Chrome flags: Windows Scrolling Personality and Smooth Scrolling
 // from https://github.com/AveYo/fox/blob/cf56d1194f4e5958169f9cf335cd175daa48d349/Natural%20Smooth%20Scrolling%20for%20user.js
+user_pref("apz.overscroll.enabled", true); // not DEFAULT on Linux
 user_pref("general.smoothScroll",                                       true); // DEFAULT
 user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
 user_pref("general.smoothScroll.msdPhysics.enabled",                    true);
