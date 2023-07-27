@@ -959,6 +959,13 @@ user_pref("permissions.delegation.enabled", false);
  * SECTION: HEADERS / REFERERS                                             *
 ******************************************************************************/
 
+// PREF: HTTP Referrer Header
+// [NOTE] Only cross-origin referers need control.
+// 0 = Never send
+// 1 = Send only when clicking on links and similar elements
+// 2 = Send on all requests (default)
+//user_pref("network.http.sendRefererHeader", 1);
+
 // PREF: Set the default Referrer Policy; to be used unless overriden by the site.
 // 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
 // 3=no-referrer-when-downgrade.
