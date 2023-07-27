@@ -756,15 +756,17 @@ user_pref("dom.security.https_first", true);
 //user_pref("network.trr.excluded-domains", ""); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR. This pref can be used to make /etc/hosts works with DNS over HTTPS in Firefox.
 //user_pref("network.trr.builtin-excluded-domains", "localhost,local"); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR
 
-// PREF: enable Oblivious DoH setup (Cloudfare)
-// [1] https://blog.cloudflare.com/oblivious-dns/
-// [2] https://www.reddit.com/r/firefox/comments/xc9y4g/how_to_enable_oblivious_doh_odoh_for_enhanced_dns/
-//user_pref("network.trr.mode", 3);
+// PREF: enable Oblivious DoH setup (Cloudfare) [HIDDEN]
+// [1] https://www.reddit.com/r/firefox/comments/xc9y4g/how_to_enable_oblivious_doh_odoh_for_enhanced_dns/
+// [2] https://blog.cloudflare.com/oblivious-dns/
+// [3] https://techpp.com/2020/12/14/odoh-oblivious-dns-over-https-explained/
+//user_pref("network.trr.mode", 2);
 //user_pref("network.trr.odoh.enabled", true);
 //user_pref("network.trr.odoh.configs_uri", "https://odoh.cloudflare-dns.com/.well-known/odohconfigs");
 //user_pref("network.trr.odoh.target_host", "https://odoh.cloudflare-dns.com/");
 //user_pref("network.trr.odoh.target_path", "dns-query");
 //user_pref("network.trr.odoh.proxy_uri", "https://odoh1.surfdomeinen.nl/proxy");
+//user_pref("network.trr.odoh.min_ttl", 86400); // 1 day
 
 /******************************************************************************
  * SECTION: ESNI / ECH                            *
