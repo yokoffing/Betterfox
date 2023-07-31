@@ -184,7 +184,7 @@ user_pref("media.hardware-video-decoding.enabled", true);
 
 // PREF: GPU-accelerated Canvas2D
 // [WARNING] May break PDF rendering on Surface Pro devices [2]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1739448
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
 user_pref("gfx.canvas.accelerated", true); // DEFAULT on macOS and Linux v.110
