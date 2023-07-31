@@ -242,7 +242,7 @@ user_pref("media.cache_resume_threshold", 480); // 8 min; default=30; when a net
 // [2] https://github.com/arkenfox/user.js/pull/941
 user_pref("media.memory_cache_max_size", 1048576); // default=8192
 user_pref("media.memory_caches_combined_limit_kb", 3145728); // default=524288
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory that Firefox can use for media caches
+//user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory that Firefox can use for media caches
 
 // PREF: disable AV1 for hardware decodeable videos
 // AV1 uses software (CPU-based) decoding
