@@ -89,11 +89,10 @@ user_pref("middlemouse.contentLoadURL", false);
     //user_pref("browser.display.focus_ring_style", 0);
     //user_pref("browser.display.focus_ring_width", 0);
 
-// Private Browsing changes [FF106+]
-// PREF: disable private windows being separate from normal windows in taskbar [WINDOWS]
+// PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+]
 //user_pref("browser.privateWindowSeparation.enabled", false);
 
-// PREF: disable "private window" indicator in tab bar [FF106+]
+// PREF: remove "private window" indicator in tab bar [FF106+]
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
 
 // PREF: disable always using dark theme for private browsing windows [FF106+]
