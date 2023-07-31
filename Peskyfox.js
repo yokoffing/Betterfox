@@ -99,13 +99,12 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 // PREF: disable always using dark theme for private browsing windows [FF106+]
 //user_pref("browser.theme.dark-private-windows", false);
 
-// PREF: Firefox Translations [NIGHTLY ONLY]
+// PREF: Firefox Translations [NIGHTLY]
 // Visit about:translations to translate your own text as well.
 // See about:translations
 // [1] https://blog.nightly.mozilla.org/2023/06/01/firefox-translations-and-other-innovations-these-weeks-in-firefox-issue-139/
-//user_pref("browser.translations.enable", true); // DEFAULT
-    //user_pref("browser.translations.autoTranslate", true);
-    //user_pref("browser.translations.alwaysTranslateLanguages", "");
+user_pref("browser.translations.enable", true);
+user_pref("browser.translations.autoTranslate", true);
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
