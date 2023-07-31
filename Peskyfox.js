@@ -427,6 +427,11 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 // 0=previous page, 1=scroll up, 2=do nothing
 //user_pref("browser.backspace_action", 2); // DEFAULT
 
+// PREF: disable Reader mode
+// Firefox will not have to parse webpage for Reader when navigating.
+// Extremely minimal performance impact, if you enable.
+//user_pref("reader.parse-on-load.enabled", false);
+
 // PREF: disable ALT key toggling the menu bar
 //user_pref("ui.key.menuAccessKeyFocuses", false);
     //user_pref("ui.key.menuAccessKey", 18); // DEFAULT
