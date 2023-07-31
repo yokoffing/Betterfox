@@ -68,11 +68,6 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
 //user_pref("content.interrupt.parsing", true); // [HIDDEN]
 //user_pref("content.switch.threshold", 1000000); // alt=1500000; default=750000; [HIDDEN]
 
-// PREF: disable Reader mode
-// Firefox will not have to parse webpage for Reader when navigating.
-// Extremely minimal performance impact, if you enable.
-//user_pref("reader.parse-on-load.enabled", false);
-
 // PREF: unload tabs on low memory
 // Firefox will detect if your computer’s memory is running low (less than 400MB)
 // and suspend tabs that you have not used in awhile
