@@ -186,6 +186,7 @@ user_pref("media.hardware-video-decoding.enabled", true);
 // [WARNING] May break PDF rendering on Surface Pro devices [2]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1739448
 // [2] https://github.com/yokoffing/Betterfox/issues/153
+// [3] https://github.com/yokoffing/Betterfox/issues/198
 user_pref("gfx.canvas.accelerated", true); // DEFAULT on macOS and Linux v.110
 user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
