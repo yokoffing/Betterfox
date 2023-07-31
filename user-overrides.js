@@ -96,8 +96,20 @@ user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by de
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // the percentage of system memory FF can use for media caches
-//user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false); // disable efficiency mode
+user_pref("browser.cache.disk.enable", true); // DEFAULT
+user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache
+user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
+user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
+user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
+user_pref("browser.cache.frecency_half_life_hours", 18); // default=6; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
+user_pref("browser.cache.memory.capacity", 2097152); // 1048576=1GB, 2097152=2GB
+user_pref("browser.cache.memory.max_entry_size", 327680); 
+user_pref("media.memory_cache_max_size", 1048576); // default=8192
+user_pref("media.memory_caches_combined_limit_kb", 3145728); // default=524288
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory FF can use for media caches
+user_pref("image.cache.size", 10485760); // default=5242880
+user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; chunk size for calls to the image decoders
+user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);// default=60000; minimum timeout to unmap shared surfaces since they have been last used
 user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("pdfjs.defaultZoomValue", "125"); // alt=page-width; PDF zoom level
