@@ -183,11 +183,12 @@ user_pref("media.hardware-video-decoding.enabled", true);
     //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
 
 // PREF: GPU-accelerated Canvas2D
-// [WARNING] May break PDF rendering on Surface Pro devices [2]
+// Use gpu-canvas instead of to skia-canvas.
+// [WARNING] May cause issues on some Windows machines [2 3]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
-user_pref("gfx.canvas.accelerated", true); // DEFAULT on macOS and Linux v.110
+user_pref("gfx.canvas.accelerated", true); // DEFAULT on macOS and Linux [FF110]
 user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("gfx.content.skia-font-cache-size", 80);
