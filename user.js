@@ -49,7 +49,6 @@ user_pref("media.cache_readahead_limit", 900);
 user_pref("media.cache_resume_threshold", 480);
 user_pref("media.memory_cache_max_size", 1048576);
 user_pref("media.memory_caches_combined_limit_kb", 3145728);
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 10);
 
 /** IMAGE CACHE  ***/
 user_pref("image.cache.size", 10485760);
