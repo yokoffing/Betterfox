@@ -184,7 +184,7 @@ user_pref("media.hardware-video-decoding.enabled", true);
 
 // PREF: GPU-accelerated Canvas2D
 // Use gpu-canvas instead of to skia-canvas.
-// [WARNING] May cause issues on some Windows machines [2 3]
+// [WARNING] May cause issues on some Windows machines using integrated GPUs [2 3]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
