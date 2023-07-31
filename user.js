@@ -220,7 +220,7 @@ user_pref("findbar.highlightAll", true);
 user_pref("middlemouse.contentLoadURL", false);
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
 user_pref("browser.translations.enable", true);
-user_pref("browser.translations.autoTranslate", true);
+//user_pref("browser.translations.autoTranslate", true); // auto-translate pages
 
 /** FULLSCREEN ***/
 user_pref("full-screen-api.transition-duration.enter", "0 0");
