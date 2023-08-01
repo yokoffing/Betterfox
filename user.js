@@ -134,7 +134,6 @@ user_pref("editor.truncate_user_pastes", false);
 /** ADDRESS + CREDIT CARD MANAGER ***/
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
-user_pref("extensions.formautofill.heuristics.enabled", false);
 user_pref("browser.formfill.enable", false);
 
 /** MIXED CONTENT + CROSS-SITE ***/
