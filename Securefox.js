@@ -733,6 +733,9 @@ user_pref("dom.security.https_first", true);
 // Show the checkbox to enable the fallback warning page in the settings UI
     //user_pref("network.trr_ui.show_fallback_warning_option", false); // DEFAULT; show the checkbox to enable the fallback warning page in the settings UI
 
+// PREF: enable fallback to native DNS upon network errors
+//user_pref("network.trr.strict_native_fallback", false); // DEFAULT
+
 // PREF: DoH resolver
 // [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
 //user_pref("network.trr.uri", "https://xxxx/dns-query");
