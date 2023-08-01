@@ -522,10 +522,18 @@ user_pref("network.dns.disablePrefetch", true);
 // [9] https://web.dev/preload-critical-assets/
 //user_pref("network.preload", true); // DEFAULT
 
-// PREF: early hints
+// early hints
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
+
+// PREF: enable early hints
 //user_pref("network.early-hints.enabled", false); // DEFAULT
+
+// PREF: enable `Link: rel=preconnect` in 103 Early Hint response
     //user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
+
+// PREF: number of speculative connections allowed for `Link: rel=preconnect`.
+// When 0, the speculative connection created due to `Link: rel=preconnect` will
+// be limited by "network.http.speculative-parallel-limit".
     //user_pref("network.early-hints.preconnect.max_connections", 0); // DEFAULT
 
 // PREF: Link prefetching <link rel="prefetch">
@@ -562,7 +570,7 @@ user_pref("network.predictor.enabled", false);
 // Performs both pre-connect and prefetch
 user_pref("network.predictor.enable-prefetch", false);
 
-// PREF: NP activates upon hovered links:
+// PREF: NP activates upon hovered links
 // The next time the user mouseovers a link to that webpage, history is used to predict what
 // resources will be needed rather than wait for the document to link those resources.
 // When you hover over links, connections are established to linked domains and servers
