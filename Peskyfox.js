@@ -99,7 +99,8 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 //user_pref("browser.theme.dark-private-windows", false);
 
 // PREF: Firefox Translations [NIGHTLY]
-// 
+// Automated translation of web content is done locally in Firefox, so that
+// the text being translated does not leave your machine.
 // Visit about:translations to translate your own text as well.
 // [1] https://blog.mozilla.org/en/mozilla/local-translation-add-on-project-bergamot/
 // [2] https://blog.nightly.mozilla.org/2023/06/01/firefox-translations-and-other-innovations-these-weeks-in-firefox-issue-139/
