@@ -312,7 +312,8 @@ user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS
     //user_pref("network.early-hints.preconnect.enabled", true);
     //user_pref("network.early-hints.preconnect.max_connections", 20); // FF113
 //user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
-//user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
+//user_pref("browser.places.interactions.enabled", true); // DEFAULT
+    //user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
 //user_pref("network.prefetch-next", true); // overrides SecureFox
 //user_pref("network.predictor.enabled", true); // overrides SecureFox
 //user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
