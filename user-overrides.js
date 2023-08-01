@@ -69,6 +69,7 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket",
 user_pref("browser.download.folderList", 0); // 0=desktop, 1=downloads, 2=last used
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
+user_pref("browser.translations.autoTranslate", true); // make Firefox auto-translate non-English pages
 user_pref("browser.urlbar.suggest.bookmark", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.history", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.openpage", false); // hide URL bar dropdown suggestions
