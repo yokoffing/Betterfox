@@ -29,12 +29,12 @@ user_pref("layout.css.has-selector.enabled", true);
 user_pref("layout.css.scroll-driven-animations.enabled", true);
 
 /** GFX ***/
-user_pref("gfx.webrender.all", true);
-user_pref("gfx.webrender.precache-shaders", true);
+//user_pref("gfx.webrender.all", true); // enables WR (GPU) + additional features
+//user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.compositor", true);
 user_pref("layers.gpu-process.enabled", true);
 user_pref("media.hardware-video-decoding.enabled", true);
-user_pref("gfx.canvas.accelerated", true);
+//user_pref("gfx.canvas.accelerated", true); // DEFAULT except on WINDOWS; enable if not using an integrated GPU
 user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("gfx.content.skia-font-cache-size", 80);
