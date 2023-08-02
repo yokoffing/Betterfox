@@ -166,13 +166,13 @@ user_pref("layout.css.scroll-driven-animations.enabled", true);
 // [3] https://www.reddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
 // [4] https://www.reddit.com/r/firefox/comments/z5auzi/comment/ixw65gb?context=3
 // [5] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db?permalink_comment_id=4532937#gistcomment-4532937
-//user_pref("gfx.webrender.all", true); // enables WR (GPU) + additional features; may cause visual glitches
-//user_pref("gfx.webrender.precache-shaders", true); // longer startup time; otherwise, performance difference is negligible
-user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS
+//user_pref("gfx.webrender.all", true); // enables WR + additional features
+//user_pref("gfx.webrender.precache-shaders", true); // longer startup time
+//user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS macOS
     //user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
-user_pref("layers.gpu-process.enabled", true);
+user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
     //user_pref("layers.gpu-process.force-enabled", true); // enforce
-user_pref("media.hardware-video-decoding.enabled", true);
+//user_pref("media.hardware-video-decoding.enabled", true); // DEFAULT WINDOWS macOS
     //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
@@ -225,8 +225,8 @@ user_pref("gfx.content.skia-font-cache-size", 80);
 // The "automatic" size selection (default) is based on a decade-old table that only contains settings for systems at or below 8GB of system memory [1]
 // -1=Automatically decide the maximum memory to use to cache decoded images, messages, and chrome based on the total amount of RAM
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
-user_pref("browser.cache.memory.capacity", 2097152); // default=-1; 1048576=1GB, 2097152=2GB
-user_pref("browser.cache.memory.max_entry_size", 327680); // default=5120; alt=65536; -1=entries bigger than than 90% of the mem-cache are never cached
+user_pref("browser.cache.memory.capacity", 1048576); // default=-1; 1048576=1GB, 2097152=2GB
+user_pref("browser.cache.memory.max_entry_size", 65536); // default=5120; -1=entries bigger than than 90% of the mem-cache are never cached
 
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
@@ -241,8 +241,8 @@ user_pref("media.cache_resume_threshold", 480); // 8 min; default=30; when a net
 // PREF: media memory cache
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
 // [2] https://github.com/arkenfox/user.js/pull/941
-user_pref("media.memory_cache_max_size", 1048576); // default=8192
-user_pref("media.memory_caches_combined_limit_kb", 3145728); // default=524288
+user_pref("media.memory_cache_max_size", 131072); // default=8192; AF=65536; alt=1048576
+user_pref("media.memory_caches_combined_limit_kb", 524288); // default=524288; alt=3145728
 //user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory that Firefox can use for media caches
 
 // PREF: disable AV1 for hardware decodeable videos
