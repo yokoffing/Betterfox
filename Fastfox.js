@@ -166,9 +166,9 @@ user_pref("layout.css.scroll-driven-animations.enabled", true);
 // [3] https://www.reddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
 // [4] https://www.reddit.com/r/firefox/comments/z5auzi/comment/ixw65gb?context=3
 // [5] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db?permalink_comment_id=4532937#gistcomment-4532937
-user_pref("gfx.webrender.all", true); // enables WR (GPU) + additional features
-user_pref("gfx.webrender.precache-shaders", true);
-user_pref("gfx.webrender.compositor", true);
+//user_pref("gfx.webrender.all", true); // enables WR (GPU) + additional features
+//user_pref("gfx.webrender.precache-shaders", true); // longer startup time; otherwise, performance difference is negligible
+user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS
     //user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
 user_pref("layers.gpu-process.enabled", true);
     //user_pref("layers.gpu-process.force-enabled", true); // enforce
@@ -185,10 +185,11 @@ user_pref("media.hardware-video-decoding.enabled", true);
 // PREF: GPU-accelerated Canvas2D
 // Use gpu-canvas instead of to skia-canvas.
 // [WARNING] May cause issues on some Windows machines using integrated GPUs [2 3]
+// Add to your overrides if you have a dedicated GPU.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
-user_pref("gfx.canvas.accelerated", true); // DEFAULT on macOS and Linux [FF110]
+//user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatiable with WINDOWS integrated GPUs
 user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("gfx.content.skia-font-cache-size", 80);
