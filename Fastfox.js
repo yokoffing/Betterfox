@@ -166,7 +166,7 @@ user_pref("layout.css.scroll-driven-animations.enabled", true);
 // [3] https://www.reddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
 // [4] https://www.reddit.com/r/firefox/comments/z5auzi/comment/ixw65gb?context=3
 // [5] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db?permalink_comment_id=4532937#gistcomment-4532937
-//user_pref("gfx.webrender.all", true); // enables WR (GPU) + additional features
+//user_pref("gfx.webrender.all", true); // enables WR (GPU) + additional features; may cause visual glitches
 //user_pref("gfx.webrender.precache-shaders", true); // longer startup time; otherwise, performance difference is negligible
 user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS
     //user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
@@ -178,7 +178,7 @@ user_pref("media.hardware-video-decoding.enabled", true);
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
 //user_pref("gfx.webrender.enabled", true);
-//user_pref("gfx.webrender.software", true); // Webrender uses the CPU and not the GPU
+//user_pref("gfx.webrender.software", true); // Software Webrender uses CPU instead of GPU
     //user_pref("gfx.webrender.software.opengl", true); // [LINUX]
     //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
 
