@@ -100,8 +100,8 @@ user_pref("gfx.canvas.accelerated", true); // DEFAULT except on WINDOWS; enable 
 user_pref("browser.cache.memory.capacity", 2097152); // memory cache
 user_pref("browser.cache.memory.max_entry_size", 327680); // max size of entry for memory cache
 user_pref("media.memory_cache_max_size", 1048576); // media memory cache
-user_pref("media.memory_caches_combined_limit_kb", 3145728);
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 10);
+user_pref("media.memory_caches_combined_limit_kb", 3145728); // media memory cache limit
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // media memory cache limit
 
 user_pref("browser.cache.disk.enable", true); // DEFAULT
 user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache
