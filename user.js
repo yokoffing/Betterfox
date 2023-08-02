@@ -29,26 +29,22 @@ user_pref("layout.css.has-selector.enabled", true);
 user_pref("layout.css.scroll-driven-animations.enabled", true);
 
 /** GFX ***/
-//user_pref("gfx.webrender.all", true); // enables WR (GPU) + additional features
-//user_pref("gfx.webrender.precache-shaders", true);
-user_pref("gfx.webrender.compositor", true);
 user_pref("layers.gpu-process.enabled", true);
-user_pref("media.hardware-video-decoding.enabled", true);
-//user_pref("gfx.canvas.accelerated", true); // DEFAULT except on WINDOWS; enable if not using an integrated GPU
+//user_pref("gfx.canvas.accelerated", true); // enable if not using an integrated GPU on WINDOWS
 user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("gfx.content.skia-font-cache-size", 80);
 
 /** BROWSER CACHE ***/
 user_pref("browser.cache.disk.enable", false);
-user_pref("browser.cache.memory.capacity", 2097152);
-user_pref("browser.cache.memory.max_entry_size", 327680);
+user_pref("browser.cache.memory.capacity", 1048576);
+user_pref("browser.cache.memory.max_entry_size", 65536);
 
 /** MEDIA CACHE ***/
 user_pref("media.cache_readahead_limit", 900);
 user_pref("media.cache_resume_threshold", 480);
-user_pref("media.memory_cache_max_size", 1048576);
-user_pref("media.memory_caches_combined_limit_kb", 3145728);
+user_pref("media.memory_cache_max_size", 131072);
+user_pref("media.memory_caches_combined_limit_kb", 524288); // DEFAULT
 
 /** IMAGE CACHE  ***/
 user_pref("image.cache.size", 10485760);
