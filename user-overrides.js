@@ -39,7 +39,6 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
     user_pref("network.predictor.max-uri-length", 1000);
 
 /** SECUREFOX ***/
-user_pref("browser.sessionstore.interval", 300000); // check for change in session state every 5 minutes
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
 //user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
@@ -98,6 +97,12 @@ user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by de
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
 user_pref("gfx.canvas.accelerated", true); // DEFAULT except on WINDOWS; enable if not using an integrated GPU
+user_pref("browser.cache.memory.capacity", 2097152); // memory cache
+user_pref("browser.cache.memory.max_entry_size", 327680); // max size of entry for memory cache
+user_pref("media.memory_cache_max_size", 1048576); // media memory cache
+user_pref("media.memory_caches_combined_limit_kb", 3145728);
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 10);
+
 user_pref("browser.cache.disk.enable", true); // DEFAULT
 user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache
 user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
