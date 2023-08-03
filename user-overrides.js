@@ -20,19 +20,22 @@
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
-user_pref("network.http.speculative-parallel-limit", 18); // default=6
+user_pref("network.http.speculative-parallel-limit", 12);
 user_pref("network.dns.disablePrefetch", false);
     user_pref("network.dns.disablePrefetchFromHTTPS", false);
 user_pref("network.early-hints.enabled", true);
     user_pref("network.early-hints.preconnect.enabled", true);
-    user_pref("network.early-hints.preconnect.max_connections", 20); // Nightly=10
+    user_pref("network.early-hints.preconnect.max_connections", 20);
+user_pref("browser.urlbar.speculativeConnect.enabled", true);
+user_pref("browser.places.interactions.enabled", true); // DEFAULT
+	user_pref("browser.places.speculativeConnect.enabled", true);
 user_pref("network.prefetch-next", true);
 user_pref("network.predictor.enabled", true);
 user_pref("network.predictor.enable-prefetch", true);
 user_pref("network.predictor.enable-hover-on-ssl", true);
-    user_pref("network.predictor.preresolve-min-confidence", 10);
-    user_pref("network.predictor.preconnect-min-confidence", 20);
-    user_pref("network.predictor.prefetch-min-confidence", 30);
+    user_pref("network.predictor.preresolve-min-confidence", 30);
+    user_pref("network.predictor.preconnect-min-confidence", 60);
+    user_pref("network.predictor.prefetch-min-confidence", 90);
         user_pref("network.predictor.prefetch-force-valid-for", 3600);
         user_pref("network.predictor.prefetch-rolling-load-count", 120);
     user_pref("network.predictor.max-resources-per-entry", 250);
@@ -41,18 +44,17 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
 /** SECUREFOX ***/
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
-//user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("signon.firefoxRelay.feature", "unavailable"); // unselect suggestions from Firefox Relay for clean UI
-user_pref("privacy.sanitize.sanitizeOnShutdown", true); // clear browsing data on shutdown
-user_pref("privacy.clearOnShutdown.offlineApps", true); // clear Site Data on shutdown
+//user_pref("privacy.sanitize.sanitizeOnShutdown", true); // clear browsing data on shutdown
+//user_pref("privacy.clearOnShutdown.offlineApps", true); // clear Site Data on shutdown
 user_pref("browser.safebrowsing.downloads.enabled", false); // deny SB to scan downloads to identify suspicious files; local checks only
 user_pref("browser.safebrowsing.downloads.remote.url", ""); // enforce no remote checks for downloads by SB
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false); // clean up UI; not needed in user.js if remote downloads are disabled
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false); // clean up UI; not needed in user.js if remote downloads are disabled
 user_pref("browser.safebrowsing.allowOverride", false); // do not allow user to override SB
-user_pref("dom.push.enabled", false); // disable Push API; breaks FF Sync
+user_pref("dom.push.enabled", false); // disable Push API; breaks FF Sync!
 user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.notify.checkForProxies", false); // skip proxy request check
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
@@ -96,29 +98,9 @@ user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by de
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
-user_pref("gfx.canvas.accelerated", true); // DEFAULT except on WINDOWS; enable if not using an integrated GPU
-user_pref("browser.cache.memory.capacity", 2097152); // memory cache
-user_pref("browser.cache.memory.max_entry_size", 327680); // max size of entry for memory cache
-user_pref("media.memory_cache_max_size", 1048576); // media memory cache
-user_pref("media.memory_caches_combined_limit_kb", 3145728); // media memory cache limit
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // media memory cache limit
-
-user_pref("browser.cache.disk.enable", true); // DEFAULT
-user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache
-user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
-user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
-user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
-user_pref("browser.cache.frecency_half_life_hours", 18); // default=6; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
-user_pref("browser.cache.memory.capacity", 2097152); // 1048576=1GB, 2097152=2GB
-user_pref("browser.cache.memory.max_entry_size", 327680); 
-user_pref("media.memory_cache_max_size", 1048576); // default=8192
-user_pref("media.memory_caches_combined_limit_kb", 3145728); // default=524288
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory FF can use for media caches
-user_pref("image.cache.size", 10485760); // default=5242880
-user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; chunk size for calls to the image decoders
-user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);// default=60000; minimum timeout to unmap shared surfaces since they have been last used
-user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
+user_pref("gfx.canvas.accelerated", true); // DEFAULT except on WINDOWS; enable if not using an integrated GPU
+user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
 user_pref("pdfjs.defaultZoomValue", "125"); // alt=page-width; PDF zoom level
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
@@ -129,6 +111,21 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
+
+user_pref("browser.cache.disk.enable", true); // DEFAULT
+user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache
+user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
+user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
+user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
+user_pref("browser.cache.frecency_half_life_hours", 18); // default=6; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
+user_pref("browser.cache.memory.capacity", 2097152); // memory cache
+user_pref("browser.cache.memory.max_entry_size", 327680); // max size of entry for memory cache
+user_pref("media.memory_cache_max_size", 1048576); // media memory cache
+user_pref("media.memory_caches_combined_limit_kb", 3145728); // media memory cache limit
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory FF can use for media caches
+user_pref("image.cache.size", 10485760); // default=5242880
+user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; chunk size for calls to the image decoders
+user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);// default=60000; minimum timeout to unmap shared surfaces since they have been last used
 
 /** DELETE IF NOT macOS LAPTOP ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
