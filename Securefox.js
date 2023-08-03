@@ -854,7 +854,7 @@ user_pref("signon.autofillForms", false);
 
 // PREF: disable password manager
 // [NOTE] This does not clear any passwords already saved
-user_pref("signon.rememberSignons", false);
+user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
 //user_pref("signon.rememberSignons.visibilityToggle", false);
 //user_pref("signon.schemeUpgrades", false);
 //user_pref("signon.showAutoCompleteFooter", false);
