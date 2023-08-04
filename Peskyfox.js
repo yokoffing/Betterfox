@@ -90,7 +90,7 @@ user_pref("middlemouse.contentLoadURL", false);
     //user_pref("browser.display.focus_ring_width", 0);
 
 // PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+]
-//user_pref("browser.privateWindowSeparation.enabled", false);
+user_pref("browser.privateWindowSeparation.enabled", false);
 
 // PREF: remove "private window" indicator in tab bar [FF106+]
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
