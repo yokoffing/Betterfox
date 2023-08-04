@@ -239,7 +239,7 @@ user_pref("browser.cache.memory.max_entry_size", 65536); // default=5120; -1=ent
 // Disabling MSE allows videos to fully buffer, but you're limited to 720p.
 // [WARNING] Disabling MSE may break certain videos.
 // false=Firefox plays the old WebM format
-// true=Firefox plays the new WebM format and HTML5 videos (default)
+// true=Firefox plays the new WebM format (default)
 // [1] https://support.mozilla.org/en-US/questions/1008271
 //user_pref("media.mediasource.enabled", true); // DEFAULT
 
