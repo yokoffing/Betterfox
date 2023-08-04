@@ -41,8 +41,8 @@ user_pref("browser.cache.memory.capacity", 1048576);
 user_pref("browser.cache.memory.max_entry_size", 65536);
 
 /** MEDIA CACHE ***/
-user_pref("media.cache_readahead_limit", 900);
-user_pref("media.cache_resume_threshold", 480);
+user_pref("media.cache_readahead_limit", 7200);
+user_pref("media.cache_resume_threshold", 3600);
 user_pref("media.memory_cache_max_size", 131072);
 user_pref("media.memory_caches_combined_limit_kb", 524288); // DEFAULT
 
