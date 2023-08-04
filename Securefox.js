@@ -522,10 +522,8 @@ user_pref("network.dns.disablePrefetch", true);
 // [9] https://web.dev/preload-critical-assets/
 //user_pref("network.preload", true); // DEFAULT
 
-// early hints
-// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
-
 // PREF: enable early hints
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
 //user_pref("network.early-hints.enabled", false); // DEFAULT
 
 // PREF: enable `Link: rel=preconnect` in 103 Early Hint response
