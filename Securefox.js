@@ -1194,17 +1194,17 @@ user_pref("browser.tabs.firefox-view", false);
 //user_pref("dom.push.enabled", false);
     //user_pref("dom.push.userAgentID", "");
 
-// PREF: default permission for web notifications
+// PREF: default permission for Web Notifications
 // To add site exceptions: Page Info>Permissions>Receive Notifications.
 // To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings.
 // 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.desktop-notification", 2);
    
-// PREF: default permission for location requests from websites
+// PREF: default permission for Location Requests
 // 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.geo", 2);
 
-// PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
+// PREF: use Mozilla geolocation service instead of Google when geolocation is enabled
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 
 // PREF: disable using the OS's geolocation service
@@ -1221,7 +1221,7 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 //user_pref("browser.region.update.enabled", false);
     //user_pref("browser.region.network.url", "");
 
-// PREF: Enforce Firefox blocklist for extensions + No hiding tabs
+// PREF: enforce Firefox blocklist for extensions + no hiding tabs
 // This includes updates for "revoked certificates".
 // [1] https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/
 // [2] https://trac.torproject.org/projects/tor/ticket/16931
