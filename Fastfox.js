@@ -231,12 +231,23 @@ user_pref("browser.cache.memory.max_entry_size", 65536); // default=5120; -1=ent
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
 ****************************************************************************/
+
 // PREF: media disk cache
+//user_pref("media.cache_size", 512000); // DEFAULT
+
+// PREF: Media Source Extensions (MSE)
+// Disabling MSE allows videos to fully buffer, but you're limited to 720p.
+// [WARNING] Disabling MSE may break certain videos.
+// false=Firefox plays the old WebM format
+// true=Firefox plays the new WebM format and HTML5 videos (default)
+// [1] https://support.mozilla.org/en-US/questions/1008271
+//user_pref("media.mediasource.enabled", true); // DEFAULT
+
+// PREF: adjust video buffering periods when not using MSE (in seconds)
 // [NOTE] Does not affect videos over 720p since they use DASH playback [1]
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
-//user_pref("media.cache_size", 512000); // DEFAULT
-user_pref("media.cache_readahead_limit", 900); // 15 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-user_pref("media.cache_resume_threshold", 480); // 8 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold (in seconds)
+user_pref("media.cache_readahead_limit", 7200); // 120 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+user_pref("media.cache_resume_threshold", 3600); // 60 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
 
 // PREF: media memory cache
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
