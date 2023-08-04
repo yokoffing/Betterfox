@@ -887,23 +887,20 @@ user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Pas
 // Don't let sites dictate use of saved logins and passwords
 //user_pref("signon.storeWhenAutocompleteOff", false);
 
-// PREF: disable Firefox Monitor
-//user_pref("extensions.fxmonitor.enabled", false);
-
 // PREF: prevent password truncation when submitting form data
 // [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
 user_pref("editor.truncate_user_pastes", false);
 
-// PREF: Reveal Password
-//user_pref("layout.forms.reveal-password-button.enabled", true); // show icon
-//user_pref("layout.forms.reveal-password-context-menu.enabled", true); // right-click menu option; DEFAULT FF112
+// PREF: reveal password icon
+//user_pref("layout.forms.reveal-password-button.enabled", true); // always show icon in password fields
+//user_pref("layout.forms.reveal-password-context-menu.enabled", true); // right-click menu option; DEFAULT [FF112]
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
 ****************************************************************************/
 
-// PREF: Disable Form Autofill
-// NOTE: stored data is not secure (uses a JSON file)
+// PREF: disable form autofill
+// [NOTE] stored data is not secure (uses a JSON file)
 // [1] https://wiki.mozilla.org/Firefox/Features/Form_Autofill
 // [2] https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
 user_pref("extensions.formautofill.addresses.enabled", false);
@@ -979,28 +976,28 @@ user_pref("permissions.delegation.enabled", false);
 // 2 = Send on all requests (default)
 //user_pref("network.http.sendRefererHeader", 1);
 
-// PREF: Set the default Referrer Policy; to be used unless overriden by the site.
+// PREF: default referrer policy (used unless overriden by the site)
 // 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
-// 3=no-referrer-when-downgrade.
-// [TEST https://www.sportskeeda.com/mma/news-joe-rogan-accuses-cnn-altering-video-color-make-look-sick
+// 3=no-referrer-when-downgrade
+// [TEST] https://www.sportskeeda.com/mma/news-joe-rogan-accuses-cnn-altering-video-color-make-look-sick
 // [1] https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/
 // [2] https://web.dev/referrer-best-practices/
 // [3] https://plausible.io/blog/referrer-policy
 //user_pref("network.http.referer.defaultPolicy", 2); // DEFAULT
 //user_pref("network.http.referer.defaultPolicy.pbmode", 2); // DEFAULT
 
-// PREF: Set the default Referrer Policy applied to third-party trackers when the
-// default cookie policy is set to reject third-party trackers; to be used
-// unless overriden by the site
-// [NOTE] Trim referrers from trackers to origins by default
+// PREF: default Referrer Policy for trackers (used unless overriden by the site)
+// Applied to third-party trackers when the default
+// cookie policy is set to reject third-party trackers.
 // 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
-// 3=no-referrer-when-downgrade.
+// 3=no-referrer-when-downgrade
+// [1] https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/
 //user_pref("network.http.referer.defaultPolicy.trackers", 1);
 //user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 
 // PREF: control when to send a cross-origin referer
 // 0=always (default), 1=only if base domains match, 2=only if hosts match
-// [NOTE] Known to cause issues with some sites (e.g., Vimeo, iCloud, Instagram) ***/
+// [NOTE] Known to cause issues with some sites (e.g., Vimeo, iCloud, Instagram)
 //user_pref("network.http.referer.XOriginPolicy", 2);
 
 // PREF: control the amount of cross-origin information to send
@@ -1010,6 +1007,7 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 /******************************************************************************
  * SECTION: CONTAINERS                                                        *
 ******************************************************************************/
+
 // PREF: enable Container Tabs and its UI setting [FF50+]
 // [NOTE] No longer a privacy benefit due to Firefox upgrades (see State Partitioning and Network Partitioning)
 // Useful if you want to login to the same site under different accounts
@@ -1196,24 +1194,27 @@ user_pref("browser.tabs.firefox-view", false);
 //user_pref("dom.push.enabled", false);
     //user_pref("dom.push.userAgentID", "");
 
-// PREF: Set a default permission for Web Notifications
+// PREF: default permission for web notifications
 // To add site exceptions: Page Info>Permissions>Receive Notifications.
 // To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings.
 // 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.desktop-notification", 2);
    
-// PREF: disable annoying location requests from websites
+// PREF: default permission for location requests from websites
+// 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.geo", 2);
+
 // PREF: Use Mozilla geolocation service instead of Google when geolocation is enabled
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-// PREF: Enable logging geolocation to the console
-//user_pref("geo.provider.network.logging.enabled", true);
 
 // PREF: disable using the OS's geolocation service
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("geo.provider.use_corelocation", false); // [MAC]
 user_pref("geo.provider.use_gpsd", false); // [LINUX]
 user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
+
+// PREF: logging geolocation to the console
+//user_pref("geo.provider.network.logging.enabled", true);
 
 // PREF: disable region updates
 // [1] https://firefox-source-docs.mozilla.org/toolkit/modules/toolkit_modules/Region.html
