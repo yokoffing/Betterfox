@@ -797,19 +797,19 @@ user_pref("dom.security.https_first", true);
 
 // PREF: set the proxy server to do any DNS lookups when using SOCKS
 // e.g. in Tor, this stops your local DNS server from knowing your Tor destination
-// as a remote Tor node will handle the DNS request
+// as a remote Tor node will handle the DNS request.
 // [1] https://trac.torproject.org/projects/tor/wiki/doc/TorifyHOWTO/WebBrowsers
 // [SETTING] Settings>Network Settings>Proxy DNS when using SOCKS v5
 user_pref("network.proxy.socks_remote_dns", true);
 
-// PREF: disable using UNC (Uniform Naming Convention) paths [FF61+]
+// PREF: disable using UNC (Uniform Naming Convention) paths [FF61+].
 // [SETUP-CHROME] Can break extensions for profiles on network shares
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/26424
 user_pref("network.file.disable_unc_paths", true); // [HIDDEN PREF]
 
 // PREF: disable GIO as a potential proxy bypass vector
 // Gvfs/GIO has a set of supported protocols like obex, network, archive, computer,
-// dav, cdda, gphoto2, trash, etc. By default only sftp is accepted (FF87+)
+// dav, cdda, gphoto2, trash, etc. By default only sftp is accepted (FF87+).
 // [1] https://bugzilla.mozilla.org/1433507
 // [2] https://en.wikipedia.org/wiki/GVfs
 // [3] https://en.wikipedia.org/wiki/GIO_(software)
@@ -827,8 +827,8 @@ user_pref("signon.formlessCapture.enabled", false);
 user_pref("signon.privateBrowsingCapture.enabled", false);
 
 // PREF: disable auto-filling username & password form fields
-// Can leak in cross-site forms and be spoofed
-// NOTE: Username and password is still available when you enter the field
+// Can leak in cross-site forms and be spoofed.
+// NOTE: Username and password is still available when you enter the field.
 user_pref("signon.autofillForms", false);
 //user_pref("signon.autofillForms.autocompleteOff", true);
 //user_pref("signon.showAutoCompleteOrigins", false);
@@ -839,7 +839,7 @@ user_pref("signon.autofillForms", false);
 //user_pref("security.insecure_field_warning.contextual.enabled", true);
 
 // PREF: disable password manager
-// [NOTE] This does not clear any passwords already saved
+// [NOTE] This does not clear any passwords already saved.
 user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
 //user_pref("signon.rememberSignons.visibilityToggle", false);
 //user_pref("signon.schemeUpgrades", false);
@@ -855,7 +855,7 @@ user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Pas
 //user_pref("signon.generation.enabled", false);
 
 // PREF: disable Firefox Lockwise (about:logins)
-// [NOTE] No usernames or passwords are sent to third-party sites
+// [NOTE] No usernames or passwords are sent to third-party sites.
 // [1] https://lockwise.firefox.com/
 // [2] https://support.mozilla.org/en-US/kb/firefox-lockwise-managing-account-data
 // user_pref("signon.management.page.breach-alerts.enabled", false); 
@@ -870,7 +870,7 @@ user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Pas
     //user_pref("signon.recipes.path", "");
 
 // PREF: disable websites autocomplete
-// Don't let sites dictate use of saved logins and passwords
+// Don't let sites dictate use of saved logins and passwords.
 //user_pref("signon.storeWhenAutocompleteOff", false);
 
 // PREF: prevent password truncation when submitting form data
@@ -898,7 +898,7 @@ user_pref("browser.formfill.enable", false);
 ******************************************************************************/
 
 // PREF: limit (or disable) HTTP authentication credentials dialogs triggered by sub-resources
-// Hardens against potential credentials phishing
+// Hardens against potential credentials phishing.
 // 0=don't allow sub-resources to open HTTP authentication credentials dialogs
 // 1=don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
 // 2=allow sub-resources to open HTTP authentication credentials dialogs (default)
@@ -960,7 +960,7 @@ user_pref("permissions.delegation.enabled", false);
 // 0 = Never send
 // 1 = Send only when clicking on links and similar elements
 // 2 = Send on all requests (default)
-//user_pref("network.http.sendRefererHeader", 1);
+//user_pref("network.http.sendRefererHeader", 2); // DEFAULT
 
 // PREF: default referrer policy (used unless overriden by the site)
 // 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
@@ -983,7 +983,7 @@ user_pref("permissions.delegation.enabled", false);
 
 // PREF: control when to send a cross-origin referer
 // 0=always (default), 1=only if base domains match, 2=only if hosts match
-// [NOTE] Known to cause issues with some sites (e.g., Vimeo, iCloud, Instagram)
+// [NOTE] Altering this pref is known to cause issues with some sites (e.g., Vimeo, iCloud, Instagram)
 //user_pref("network.http.referer.XOriginPolicy", 2);
 
 // PREF: control the amount of cross-origin information to send
@@ -1015,7 +1015,7 @@ user_pref("privacy.userContext.ui.enabled", true);
 
 // PREF: disable WebRTC (Web Real-Time Communication)
 // Firefox desktop uses mDNS hostname obfuscation and the private IP is never exposed until
-// required in TRUSTED scenarios; i.e. after you grant device (microphone or camera) access
+// required in TRUSTED scenarios; i.e. after you grant device (microphone or camera) access.
 // [TEST] https://browserleaks.com/webrtc
 // [1] https://groups.google.com/g/discuss-webrtc/c/6stQXi72BEU/m/2FwZd24UAQAJ
 // [2] https://datatracker.ietf.org/doc/html/draft-ietf-mmusic-mdns-ice-candidates#section-3.1.1
@@ -1028,14 +1028,14 @@ user_pref("privacy.userContext.ui.enabled", true);
 user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 
 // PREF: force a single network interface for ICE candidates generation [FF42+]
-// When using a system-wide proxy, it uses the proxy interface
+// When using a system-wide proxy, it uses the proxy interface.
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate
 // [2] https://wiki.mozilla.org/Media/WebRTC/Privacy
 user_pref("media.peerconnection.ice.default_address_only", true);
 
 // PREF: force exclusion of private IPs from ICE candidates [FF51+]
 // [SETUP-HARDEN] This will protect your private IP even in TRUSTED scenarios after you
-// grant device access, but often results in breakage on video-conferencing platforms
+// grant device access, but often results in breakage on video-conferencing platforms.
 //user_pref("media.peerconnection.ice.no_host", true);
 
 /******************************************************************************
@@ -1047,7 +1047,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 //user_pref("media.gmp-provider.enabled", false);
 
 // PREF: disable widevine CDM (Content Decryption Module)
-// [NOTE] This is covered by the EME master switch
+// [NOTE] This is covered by the EME master switch.
 //user_pref("media.gmp-widevinecdm.enabled", false);
 
 // PREF: disable all DRM content (EME: Encryption Media Extension)
@@ -1067,17 +1067,18 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 ******************************************************************************/
 
 // PREF: enable FTP protocol
-// Firefox redirects any attempt to load a FTP resource to the default search engine if the FTP protocol is disabled.
+// Firefox redirects any attempt to load a FTP resource.
+// to the default search engine if the FTP protocol is disabled.
 // [1] https://www.ghacks.net/2018/02/20/firefox-60-with-new-preference-to-disable-ftp/
 //user_pref("network.ftp.enabled", true);
 
 // PREF: decode URLs in other languages
-// [NOTE] I leave this off because it has unintended consequecnes when copy+paste links with underscores.
+// [WARNING] Causes unintended consequecnes when copy+paste links with underscores.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1320061
 //user_pref("browser.urlbar.decodeURLsOnCopy", true);
 
 // PREF: number of usages of the web console
-// If this is less than 5, then pasting code into the web console is disabled
+// If this is less than 5, then pasting code into the web console is disabled.
 //user_pref("devtools.selfxss.count", 5);
 
 /******************************************************************************
@@ -1116,8 +1117,8 @@ user_pref("media.peerconnection.ice.default_address_only", true);
     //user_pref("browser.safebrowsing.provider.google.updateURL", "");
 
 // PREF: disable SB checks for downloads
-// This is the master switch for the safebrowsing.downloads prefs (both local lookups + remote)
-// [NOTE] Still enable this for checks to happen locally
+// This is the master switch for the safebrowsing.downloads prefs (both local lookups + remote).
+// [NOTE] Still enable this for checks to happen locally.
 // [SETTING] Privacy & Security>Security>... "Block dangerous downloads"
 //user_pref("browser.safebrowsing.downloads.enabled", false); // all checks happen locally
       
@@ -1146,8 +1147,8 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 ******************************************************************************/
 
 // PREF: prevent accessibility services from accessing your browser [RESTART]
-// Accessibility Service may negatively impact Firefox browsing performance
-// Disable it if you’re not using any type of physical impairment assistive software
+// Accessibility Service may negatively impact Firefox browsing performance.
+// Disable it if you’re not using any type of physical impairment assistive software.
 // [1] https://support.mozilla.org/kb/accessibility-services
 // [2] https://www.ghacks.net/2021/08/25/firefox-tip-turn-off-accessibility-services-to-improve-performance/
 // [3] https://www.troddit.com/r/firefox/comments/p8g5zd/why_does_disabling_accessibility_services_improve
@@ -1172,7 +1173,7 @@ user_pref("browser.tabs.firefox-view", false);
 // Push is an API that allows websites to send you (subscribed) messages even when the site
 // isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
 // You shouldn't need to disable this.
-// [WHY] Push requires subscription
+// [WHY] Push requires subscription.
 // [NOTE] To remove all subscriptions, reset "dom.push.userAgentID"
 // [1] https://support.mozilla.org/en-US/kb/push-notifications-firefox
 // [2] https://developer.mozilla.org/en-US/docs/Web/API/Push_API
@@ -1181,8 +1182,8 @@ user_pref("browser.tabs.firefox-view", false);
     //user_pref("dom.push.userAgentID", "");
 
 // PREF: default permission for Web Notifications
-// To add site exceptions: Page Info>Permissions>Receive Notifications.
-// To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings.
+// To add site exceptions: Page Info>Permissions>Receive Notifications
+// To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings
 // 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.desktop-notification", 2);
    
@@ -1214,7 +1215,7 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 //user_pref("extensions.blocklist.enabled", true); // DEFAULT
 
 // PREF: disable auto-INSTALLING Firefox updates [NON-WINDOWS]
-// [NOTE] In FF65+ on Windows this SETTING (below) is now stored in a file and the pref was removed
+// [NOTE] In FF65+ on Windows this SETTING (below) is now stored in a file and the pref was removed.
 // [SETTING] General>Firefox Updates>Check for updates but let you choose to install them
 //user_pref("app.update.auto", false);
 
@@ -1222,7 +1223,7 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 //user_pref("extensions.update.enabled", false);
 
 // PREF: disable search engine updates (e.g. OpenSearch)
-// [NOTE] This does not affect Mozilla's built-in or Web Extension search engines
+// [NOTE] This does not affect Mozilla's built-in or Web Extension search engines.
 //user_pref("browser.search.update", false);
 
 // PREF: remove special permissions for certain mozilla domains
@@ -1233,14 +1234,18 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 user_pref("webchannel.allowObject.urlWhitelist", "");
 
 // PREF: disable mozAddonManager Web API [FF57+]
-// [NOTE] To allow extensions to work on AMO, you also need 2662
+// [NOTE] To allow extensions to work on AMO, you also need PREF: extensions.webextensions.restrictedDomains.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988
-//user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN]
+//user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN PREF FF57-108]
 
-// PREF: remove "addons.mozilla.org" from set of domains that extensions cannot access
-// [NOTE] May only work with privacy.resistfingerprinting enabled? and/or DEV/NIGHTLY-only?
+// PREF: remove "addons.mozilla.org" from set of domains that extensions cannot access [FF60+]
+// [NOTE] May only work with PREF: privacy.resistfingerprinting enabled and/or DEV/NIGHTLY-only?
 // [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
 //user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
+// or
+// PREF: disable webextension restrictions on Mozilla domains
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988
+//user_pref("extensions.webextensions.restrictedDomains", "");
 
 // PREF: do not require signing for extensions [ESR/DEV/NIGHTLY ONLY]
 // [1] https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox#w_what-are-my-options-if-i-want-to-use-an-unsigned-add-on-advanced-users
