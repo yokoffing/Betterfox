@@ -62,7 +62,6 @@ user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twim
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // MANUAL
 
 // PREF: lower the priority of network loads for resources on the tracking protection list [NIGHTLY]
-// [NOTE] Applicable because we allow for some social embeds
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
 //user_pref("privacy.trackingprotection.lower_network_priority", true);
 
@@ -147,14 +146,14 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 //user_pref("browser.send_pings", false); // DEFAULT
 
 // PREF: disable Beacon API
-// Disabling this API sometimes causes breakage
+// Disabling this API sometimes causes site breakage.
 // [TEST] https://vercel.com/
 // [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
 // [2] https://github.com/arkenfox/user.js/issues/1586
 //user_pref("beacon.enabled", false);
 
 // PREF: battery status tracking
-// [NOTE] Pref remains, but API is depreciated
+// [NOTE] Pref remains, but API is depreciated.
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API#browser_compatibility
 //user_pref("dom.battery.enabled", false);
 
@@ -167,7 +166,7 @@ user_pref("browser.uitour.enabled", false);
 //user_pref("devtools.debugger.remote-enabled", false); // DEFAULT
 
 // PREF: enable Global Privacy Control (GPC) [NIGHTLY]
-// Honored by many highly ranked sites [2]
+// Honored by many highly ranked sites [2].
 // [TEST] https://global-privacy-control.glitch.me/
 // [1] https://globalprivacycontrol.org/press-release/20201007.html
 // [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
@@ -184,21 +183,20 @@ user_pref("privacy.globalprivacycontrol.enabled", true);
 ****************************************************************************/
 
 // Online Certificate Status Protocol (OCSP)
-// OCSP leaks your IP and domains you visit to the CA when OCSP Stapling is not available on visited host
-// OCSP is vulnerable to replay attacks when nonce is not configured on the OCSP responder
-// OCSP adds latency
-// Short-lived certificates are not checked for revocation (security.pki.cert_short_lifetime_in_days, default:10)
-// Firefox falls back on plain OCSP when must-staple is not configured on the host certificate
+// OCSP leaks your IP and domains you visit to the CA when OCSP Stapling is not available on visited host.
+// OCSP is vulnerable to replay attacks when nonce is not configured on the OCSP responder.
+// Short-lived certificates are not checked for revocation (security.pki.cert_short_lifetime_in_days, default:10).
+// Firefox falls back on plain OCSP when must-staple is not configured on the host certificate.
 // [1] https://scotthelme.co.uk/revocation-is-broken/
 // [2] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
 // [3] https://github.com/arkenfox/user.js/issues/1576#issuecomment-1304590235
 
 // PREF: disable OCSP fetching to confirm current validity of certificates
-// OCSP (non-stapled) leaks information about the sites you visit to the CA (cert authority)
-// It's a trade-off between security (checking) and privacy (leaking info to the CA)
+// OCSP (non-stapled) leaks information about the sites you visit to the CA (cert authority).
+// It's a trade-off between security (checking) and privacy (leaking info to the CA).
 // Unlike Chrome, Firefox’s default settings also query OCSP responders to confirm the validity
 // of SSL/TLS certificates. However, because OCSP query failures are so common, Firefox
-// (like other browsers) implements a “soft-fail” policy
+// (like other browsers) implements a “soft-fail” policy.
 // [NOTE] This pref only controls OCSP fetching and does not affect OCSP stapling
 // [SETTING] Privacy & Security>Security>Certificates>Query OCSP responder servers...
 // [1] https://en.wikipedia.org/wiki/Ocsp
@@ -267,21 +265,12 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 //user_pref("security.ssl.require_safe_negotiation", true);
 
 // PREF: display advanced information on Insecure Connection warning pages
-// only works when it's possible to add an exception
-// i.e. it doesn't work for HSTS discrepancies (https://subdomain.preloaded-hsts.badssl.com/)
 // [TEST] https://expired.badssl.com/
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 
-// PREF: control "Add Security Exception" dialog on SSL warnings
-// [NOTE] the code behind this was removed in FF68 [2]
-// 0=do neither, 1=pre-populate url, 2=pre-populate url + pre-fetch cert (default)
-// [1] https://github.com/pyllyukko/user.js/issues/210
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1530348
-//user_pref("browser.ssl_override_behavior", 1);
-
 // PREF: disable TLS 1.3 0-RTT (round-trip time) [FF51+]
 // This data is not forward secret, as it is encrypted solely under keys derived using
-// the offered PSK. There are no guarantees of non-replay between connections
+// the offered PSK. There are no guarantees of non-replay between connections.
 // [1] https://github.com/tlswg/tls13-spec/issues/1001
 // [2] https://www.rfc-editor.org/rfc/rfc9001.html#name-replay-attacks-with-0-rtt
 // [3] https://blog.cloudflare.com/tls-1-3-overview-and-q-and-a/
