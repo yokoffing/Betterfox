@@ -322,8 +322,8 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 //user_pref("privacy.window.maxInnerHeight", 900);
 
 // PREF: disable showing about:blank as soon as possible during startup [FF60+]
-// When default true this no longer masks the RFP chrome resizing activity
-// [1] https://bugzilla.mozilla.org/1448423
+// [1] https://github.com/arkenfox/user.js/issues/1618
+// [2] https://bugzilla.mozilla.org/1448423
 //user_pref("browser.startup.blankWindow", false);
 
 // PREF: disable ICC color management
@@ -349,8 +349,7 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 // [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 
-// PREF: set the minimum interval (in milliseconds) between session save operations
-// when crashing or restarting to install updates
+// PREF: set the minimum interval (in milliseconds) between session save operations when crashing or restarting to install updates
 // [NOTE] The value is how often FF checks for state changes.
 // Data is only saved when state changes [2].
 // [1] https://kb.mozillazine.org/Browser.sessionstore.interval
@@ -368,8 +367,8 @@ user_pref("browser.sessionstore.privacy_level", 2);
 //user_pref("toolkit.winRegisterApplicationRestart", false);
 
 // PREF: disable fetching and permanently storing favicons for Windows .URL shortcuts created by drag and drop
-// [NOTE] .URL shortcut files will be created with a generic icon
-// Favicons are stored as .ico files in $profile_dir\shortcutCache
+// [NOTE] .URL shortcut files will be created with a generic icon.
+// Favicons are stored as .ico files in $profile_dir\shortcutCache.
 //user_pref("browser.shell.shortcutFavicons", false);
 
 // PREF: remove temp files opened with an external application
@@ -377,7 +376,7 @@ user_pref("browser.sessionstore.privacy_level", 2);
 //user_pref("browser.helperApps.deleteTempFileOnExit", true); // DEFAULT [FF108]
 
 // PREF: disable page thumbnails capturing
-// Page thumbnails are only used in chrome/privileged contexts
+// Page thumbnails are only used in chrome/privileged contexts.
 //user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
 
 /******************************************************************************
@@ -415,17 +414,17 @@ user_pref("browser.sessionstore.privacy_level", 2);
 user_pref("privacy.history.custom", true);
 
 // PREF: clear browsing data on shutdown, while respecting site exceptions
-// Set cookies, site data, cache, etc. to clear on shutdown
+// Set cookies, site data, cache, etc. to clear on shutdown.
 // [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
 // [NOTE] "sessions": Active Logins: refers to HTTP Basic Authentication [1], not logins via cookies
 // [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
-// Clearing "offlineApps" may affect login items after browser restart [2]
+// Clearing "offlineApps" may affect login items after browser restart [2].
 // [1] https://en.wikipedia.org/wiki/Basic_access_authentication
 // [2] https://github.com/arkenfox/user.js/issues/1291
 //user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 
 // Uncomment individual prefs to disable clearing on shutdown:
-// [NOTE] If "history" is true, downloads will also be cleared
+// [NOTE] If "history" is true, downloads will also be cleared.
 // [NOTE] Even if "downloads" pref is enabled, downloads won't be cleared unless "history" is set to true!
 //user_pref("privacy.clearOnShutdown.history", true); // [DEFAULT]
     //user_pref("privacy.clearOnShutdown.downloads", true);
@@ -480,9 +479,10 @@ user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("browser.places.speculativeConnect.enabled", false);
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
-// Resolve hostnames ahead of time, to avoid DNS latency.
-// In order to reduce latency, Firefox will proactively perform domain name resolution on links that
-// the user may choose to follow as well as URLs for items referenced by elements in a web page.
+// Resolve hostnames ahead of time. In order to reduce latency,
+// Firefox will proactively perform domain name resolution on links that
+// the user may choose to follow, as well as URLs for items
+// referenced by elements in a web page.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
@@ -516,7 +516,7 @@ user_pref("network.dns.disablePrefetch", true);
 // PREF: enable `Link: rel=preconnect` in 103 Early Hint response
     //user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
 
-// PREF: number of speculative connections allowed for `Link: rel=preconnect`.
+// PREF: number of speculative connections allowed for `Link: rel=preconnect`
 // When 0, the speculative connection created due to `Link: rel=preconnect` will
 // be limited by "network.http.speculative-parallel-limit".
     //user_pref("network.early-hints.preconnect.max_connections", 0); // DEFAULT
@@ -551,8 +551,8 @@ user_pref("network.prefetch-next", false);
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
 user_pref("network.predictor.enabled", false);
 
-// PREF: NP fetches resources on the page ahead of time, to accelerate rendering of the page
-// Performs both pre-connect and prefetch
+// PREF: NP fetches resources on the page ahead of time, to accelerate rendering of the page.
+// Performs both pre-connect and prefetch.
 user_pref("network.predictor.enable-prefetch", false);
 
 // PREF: NP activates upon hovered links
@@ -570,8 +570,9 @@ user_pref("network.predictor.enable-prefetch", false);
  * SECTION: SEARCH / URL BAR                              *
 ******************************************************************************/
 
-// PREF: do not trim certain parts of the URL
-// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs#values
+// PREF: disable trimming certain parts of the URL
+// [1] https://udn.realityripple.com/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs
+// [2] https://winaero.com/firefox-75-strips-https-and-www-from-address-bar-results/
 //user_pref("browser.urlbar.trimURLs", false);
 
 // PREF: disable search terms [FF110+]
