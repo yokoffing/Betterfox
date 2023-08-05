@@ -311,10 +311,8 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 ****************************************************************************/
 
 // PREF: enable FingerPrint Protection (FPP) [WiP]
-// Mozilla is slowly rolling out FPP in PB windows
 // [1] https://github.com/arkenfox/user.js/issues/1661
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1816064
-//user_pref("privacy.resistFingerprinting.randomization.enabled", true); // to be removed soon
 //user_pref("privacy.resistFingerprinting.randomization.daily_reset.enabled", true);
 //user_pref("privacy.resistFingerprinting.randomization.daily_reset.private.enabled", true);
 
