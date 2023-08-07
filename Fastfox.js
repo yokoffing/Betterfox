@@ -15,7 +15,7 @@
 // [1] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
 // [2] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes 
 //user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
-user_pref("dom.ipc.processCount.webIsolated", 1); // default=4; Isolated Web Content
+//user_pref("dom.ipc.processCount.webIsolated", 1); // default=4; Isolated Web Content
 
 // PREF: disable EcoQoS [WINDOWS]
 // Background tab processes use efficiency mode on Windows 11 to limit resource use.
