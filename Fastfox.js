@@ -7,14 +7,15 @@
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
-// PREF: process count
-// Process count used to be "# of CPU cores = processCount" starting with Firefox Quantum (2017).
-// Since the introduction of Fission [2], increasing process count is more complicated than changing one pref.
-// [NOTE] View in about:processes
+// PREF: use one process per site to minimize resources
+// [ABOUT] View in about:processes.
+// With Firefox Quantum (2017), CPU cores = processCount. However, since the
+// introduction of Fission [2], the number of website processes is controlled
+// by processCount.webIsolated. Disabling Fission reverts control back to processCount.
 // [1] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
 // [2] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes 
 //user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
-//user_pref("dom.ipc.processCount.webIsolated", 4); // DEFAULT; Isolated Web Content; per-site
+user_pref("dom.ipc.processCount.webIsolated", 1); // default=4; Isolated Web Content
 
 // PREF: disable EcoQoS [WINDOWS]
 // Background tab processes use efficiency mode on Windows 11 to limit resource use.
