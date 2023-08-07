@@ -69,6 +69,12 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
 //user_pref("content.interrupt.parsing", true); // [HIDDEN]
 //user_pref("content.switch.threshold", 1000000); // alt=1500000; default=750000; [HIDDEN]
 
+// PREF: new tab preload
+// [WARNING] Disabling this may cause a delay when opening a new tab in Firefox.
+// [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
+// [2] https://github.com/arkenfox/user.js/issues/1556
+//user_pref("browser.newtab.preload", true); // DEFAULT
+
 // PREF: unload tabs on low memory
 // Firefox will detect if your computer’s memory is running low (less than 400MB)
 // and suspend tabs that you have not used in awhile
