@@ -506,13 +506,10 @@ user_pref("network.dns.disablePrefetch", true);
 // PREF: enable early hints
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
 //user_pref("network.early-hints.enabled", false); // DEFAULT
-
-// PREF: enable `Link: rel=preconnect` in 103 Early Hint response
+// Enable `Link: rel=preconnect` in 103 Early Hint response:
     //user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
-
-// PREF: number of speculative connections allowed for `Link: rel=preconnect`
-// When 0, the speculative connection created due to `Link: rel=preconnect` will
-// be limited by "network.http.speculative-parallel-limit".
+// The number of speculative connections allowed for `Link: rel=preconnect`:
+// When 0, this is limited by "network.http.speculative-parallel-limit".
     //user_pref("network.early-hints.preconnect.max_connections", 0); // DEFAULT
 
 // PREF: Link prefetching <link rel="prefetch">
