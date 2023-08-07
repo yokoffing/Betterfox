@@ -802,14 +802,15 @@ user_pref("dom.security.https_first", true);
 // [SETTING] Settings>Network Settings>Proxy DNS when using SOCKS v5
 user_pref("network.proxy.socks_remote_dns", true);
 
-// PREF: disable using UNC (Uniform Naming Convention) paths [FF61+].
-// [SETUP-CHROME] Can break extensions for profiles on network shares
+// PREF: disable using UNC (Uniform Naming Convention) paths [FF61+]
+// [SETUP-CHROME] Can break extensions for profiles on network shares.
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/26424
 user_pref("network.file.disable_unc_paths", true); // [HIDDEN PREF]
 
 // PREF: disable GIO as a potential proxy bypass vector
-// Gvfs/GIO has a set of supported protocols like obex, network, archive, computer,
-// dav, cdda, gphoto2, trash, etc. By default only sftp is accepted (FF87+).
+// Gvfs/GIO has a set of supported protocols like obex, network,
+// archive, computer, dav, cdda, gphoto2, trash, etc.
+// By default only sftp is accepted (FF87+).
 // [1] https://bugzilla.mozilla.org/1433507
 // [2] https://en.wikipedia.org/wiki/GVfs
 // [3] https://en.wikipedia.org/wiki/GIO_(software)
@@ -828,7 +829,7 @@ user_pref("signon.privateBrowsingCapture.enabled", false);
 
 // PREF: disable auto-filling username & password form fields
 // Can leak in cross-site forms and be spoofed.
-// NOTE: Username and password is still available when you enter the field.
+// [NOTE] Username and password is still available when you enter the field.
 user_pref("signon.autofillForms", false);
 //user_pref("signon.autofillForms.autocompleteOff", true);
 //user_pref("signon.showAutoCompleteOrigins", false);
