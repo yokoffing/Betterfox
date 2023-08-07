@@ -446,12 +446,6 @@ user_pref("privacy.history.custom", true);
  * SECTION: SPECULATIVE CONNECTIONS                           *
 ******************************************************************************/
 
-// PREF: new tab preload
-// [WARNING] Disabling this may cause a delay when opening a new tab in Firefox
-// [1] https://wiki.mozilla.org/Tiles/Technical_Documentation#Ping
-// [2] https://github.com/arkenfox/user.js/issues/1556
-//user_pref("browser.newtab.preload", true); // DEFAULT
-
 // PREF: Speculative Connections
 // Firefox will open predictive connections to sites when the user hovers their mouse over thumbnails
 // on the New Tab Page or the user starts to search in the Search Bar, or in the search field on the
