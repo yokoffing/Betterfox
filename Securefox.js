@@ -982,14 +982,17 @@ user_pref("permissions.delegation.enabled", false);
 //user_pref("network.http.referer.defaultPolicy.trackers", 1);
 //user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 
-// PREF: control when to send a cross-origin referer
-// 0=always (default), 1=only if base domains match, 2=only if hosts match
-// [NOTE] Altering this pref is known to cause issues with some sites (e.g., Vimeo, iCloud, Instagram)
-//user_pref("network.http.referer.XOriginPolicy", 2);
-
 // PREF: control the amount of cross-origin information to send
+// Controls how much referrer to send across origins (different domains).
 // 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+
+// PREF: control when to send a cross-origin referer
+// Controls whether or not to send a referrer across origins (different domains).
+// 0=always send referrer (default)
+// 1=send only when the base domains are the same (breaks Instagram embeds)
+// 2=send only on the same origin (breaks Vimeo, iCloud, Instagram, and more)
+//user_pref("network.http.referer.XOriginPolicy", 0); // DEFAULT
 
 /******************************************************************************
  * SECTION: CONTAINERS                                                        *
