@@ -1234,17 +1234,14 @@ user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 user_pref("webchannel.allowObject.urlWhitelist", "");
 
 // PREF: disable mozAddonManager Web API [FF57+]
-// [NOTE] To allow extensions to work on AMO, you also need PREF: extensions.webextensions.restrictedDomains.
+// [NOTE] To allow extensions to work on AMO, you also need extensions.webextensions.restrictedDomains.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988
 //user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN PREF FF57-108]
 
-// PREF: remove "addons.mozilla.org" from set of domains that extensions cannot access [FF60+]
+// PREF: disable webextension restrictions on Mozilla domains
 // [NOTE] May only work with PREF: privacy.resistfingerprinting enabled and/or DEV/NIGHTLY-only?
 // [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
-//user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
-// or
-// PREF: disable webextension restrictions on Mozilla domains
-// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988
+// [2] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988
 //user_pref("extensions.webextensions.restrictedDomains", "");
 
 // PREF: do not require signing for extensions [ESR/DEV/NIGHTLY ONLY]
