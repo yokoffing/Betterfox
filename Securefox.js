@@ -581,6 +581,7 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 
 // PREF: enable option to add custom search
 // [SETTINGS] Settings -> Search -> Search Shortcuts -> Add
+// [EXAMPLE] https://search.brave.com/search?q=%s
 // [EXAMPLE] https://lite.duckduckgo.com/lite/?q=%s
 // [1] https://reddit.com/r/firefox/comments/xkzswb/adding_firefox_search_engine_manually/
 user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
