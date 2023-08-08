@@ -20,16 +20,6 @@
 // PREF: use one process for process preallocation cache
 //user_pref("dom.ipc.processPrelaunch.fission.number", 1); // default=3; Process Preallocation Cache
 
-// PREF: disable EcoQoS [WINDOWS]
-// Background tab processes use efficiency mode on Windows 11 to limit resource use.
-// [WARNING] Leave this alone, unless you're on Desktop and you rely on
-// background tabs to have maximum performance.
-// [1] https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1796525
-// [3] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
-// [4] https://reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
-//user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
-
 // PREF: initial paint delay
 // How long FF will wait before rendering the page, in milliseconds
 // Reduce the 5ms Firefox waits to render the page
@@ -84,6 +74,16 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
 // [1] https://support.mozilla.org/en-US/questions/1262073
 // [2] https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
 //user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
+
+// PREF: disable EcoQoS [WINDOWS]
+// Background tab processes use efficiency mode on Windows 11 to limit resource use.
+// [WARNING] Leave this alone, unless you're on Desktop and you rely on
+// background tabs to have maximum performance.
+// [1] https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1796525
+// [3] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
+// [4] https://reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
+//user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
 
 // PREF: control how tabs are loaded when a session is restored
 // true=Tabs are not loaded until they are selected (default)
