@@ -117,7 +117,7 @@ user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache
 user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
 user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
-user_pref("browser.cache.frecency_half_life_hours", 18); // default=6; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
+user_pref("browser.cache.frecency_half_life_hours", 24); // default=6; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
 user_pref("browser.cache.memory.capacity", 2097152); // memory cache
 user_pref("browser.cache.memory.max_entry_size", 327680); // max size of entry for memory cache
 user_pref("media.memory_cache_max_size", 1048576); // media memory cache
