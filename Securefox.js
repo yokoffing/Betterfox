@@ -984,7 +984,8 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // This includes images, links, and embedded social media on pages.
 // 0=always send referrer (default)
 // 1=send across subdomains [from a.example.com to b.example.com] (breaks Instagram embeds)
-// 2=send only on the same domain [from example.com to example.com] (breaks Vimeo, iCloud, Instagram, Amazon book previews, and more)
+// 2=full host name must match [from c.example.com to c.example.com] (breaks Vimeo, iCloud, Instagram, Amazon book previews, and more)
+// [TEST] https://www.jeffersonscher.com/res/jstest.php
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#examples
 // [2] https://web.dev/referrer-best-practices/
 //user_pref("network.http.referer.XOriginPolicy", 0); // DEFAULT
