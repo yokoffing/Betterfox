@@ -7,7 +7,7 @@
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
-// PREF: use one process per site to minimize resources
+// PREF: use one process per site origin to minimize resources
 // [ABOUT] View in about:processes.
 // With Firefox Quantum (2017), CPU cores = processCount. However, since the
 // introduction of Fission [2], the number of website processes is controlled
@@ -16,6 +16,9 @@
 // [2] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes 
 //user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
 //user_pref("dom.ipc.processCount.webIsolated", 1); // default=4; Isolated Web Content
+
+// PREF: use one process for process preallocation cache
+//user_pref("dom.ipc.processPrelaunch.fission.number", 1); // default=3; Process Preallocation Cache
 
 // PREF: disable EcoQoS [WINDOWS]
 // Background tab processes use efficiency mode on Windows 11 to limit resource use.
