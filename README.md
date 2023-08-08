@@ -6,7 +6,7 @@
 `about:config` tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/ "Firefox Homepage"). Files are updated as needed for your [user.js](http://kb.mozillazine.org/User.js_file).
 
 ## Made for everyday browsing
-**A private, fast browsing experience. Without site breakage.**
+**A secure, blazing fast browsing experience. Without breakage.**
 
 Betterfox is an opinionated preference list inspired by the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e).
 
