@@ -51,7 +51,7 @@ After applying the `user.js` and restarting Firefox:
       1) Go to *Settings → Search → Default Search Engine*
       2) Change your default search engine to DuckDuckGo, or [add](https://github.com/yokoffing/Betterfox/blob/04c3184359c83d7b58411c3b68f40f3e9d95c373/Securefox.js#L600-L604) a premium search engine like [Kagi](https://kagi.com/).
 
-To further harden Firefox, you can:
+To further harden Firefox:
 1) **Hide the referrer** between sites by changing [`network.http.referer.XOriginPolicy`](https://github.com/yokoffing/Betterfox/blob/e66a549985f6b0db4b14226904b8c09eaaea998f/Securefox.js#L982-L991) to `1`.
    * Note: This will break embedded Instagram posts.
 2) **Clear browsing data** on shutdown ([sanitize on close](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
