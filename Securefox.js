@@ -981,8 +981,8 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // PREF: control when to send a cross-origin referer
 // Controls whether or not to send a referrer across origins (different domains).
 // 0=always send referrer (default)
-// 1=send only when the base domains are the same (breaks Instagram embeds)
-// 2=send only on the same origin (breaks Vimeo, iCloud, Instagram, and more)
+// 1=send only when the base domains are the same [send from a.example.com to b.example.com] (breaks Instagram embeds)
+// 2=send only on the same origin [send from example.com to example.com] (breaks Vimeo, iCloud, Instagram, and more)
 //user_pref("network.http.referer.XOriginPolicy", 0); // DEFAULT
 
 /******************************************************************************
