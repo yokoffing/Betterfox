@@ -19,7 +19,7 @@
 
 /** FASTFOX ***/
 user_pref("dom.ipc.processCount.webIsolated", 1); // use one process per site
-user_pref("dom.ipc.processPrelaunch.fission.number", 1); // # of Preallocated
+//user_pref("dom.ipc.processPrelaunch.fission.number", 1); // # of Preallocated
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
 
