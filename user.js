@@ -30,6 +30,7 @@ user_pref("layout.css.scroll-driven-animations.enabled", true);
 
 /** GFX ***/
 user_pref("gfx.webrender.all", true);
+user_pref("layers.gpu-process.enabled", true);
 //user_pref("gfx.canvas.accelerated", true); // enable if not using an integrated GPU on WINDOWS
 user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
