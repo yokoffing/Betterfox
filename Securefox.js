@@ -66,21 +66,23 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 //user_pref("privacy.trackingprotection.lower_network_priority", true);
 
 // PREF: Site Isolation (sandboxing) [FF100+]
-// Site Isolation builds upon a new security architecture that extends current
-// protection mechanisms by separating (web) content and loading each site
+// [ABOUT] View in about:processes.
+// Site Isolation (Fission) builds upon a new security architecture that extends current
+// protection mechanisms by separating web content and loading each site
 // in its own operating system process. This new security architecture allows
 // Firefox to completely separate code originating from different sites and, in turn,
 // defend against malicious sites trying to access sensitive information from other sites you are visiting.
-// [NOTE] View in about:processes
 // [1] https://hacks.mozilla.org/2021/05/introducing-firefox-new-site-isolation-security-architecture/
 // [2] https://hacks.mozilla.org/2022/05/improved-process-isolation-in-firefox-100/
 // [3] https://hacks.mozilla.org/2021/12/webassembly-and-back-again-fine-grained-sandboxing-in-firefox-95/
 // [4] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
-//user_pref("fission.autostart", true); // DEFAULT
+// [5] https://hg.mozilla.org/mozilla-central/file/tip/dom/ipc/ProcessIsolation.cpp#l53
+//user_pref("fission.autostart", true); // DEFAULT [DO NOT TOUCH]
 //user_pref("fission.webContentIsolationStrategy", 1); // DEFAULT
 
-// PREF: GPU sandbox [FF110+]
+// PREF: GPU sandboxing [FF110+]
 // [1] https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/
+// [2] https://techdows.com/2023/02/disable-gpu-sandboxing-firefox.html
 //user_pref("security.sandbox.gpu.level", 1); // DEFAULT [WINDOWS]
 
 // PREF: State Paritioning [aka Dynamic First-Party Isolation (dFPI)]
