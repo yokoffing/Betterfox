@@ -45,6 +45,7 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
     user_pref("network.predictor.max-uri-length", 1000);
 
 /** SECUREFOX ***/
+//user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
