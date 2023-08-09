@@ -20,6 +20,37 @@
 // PREF: use one process for process preallocation cache
 //user_pref("dom.ipc.processPrelaunch.fission.number", 1); // default=3; Process Preallocation Cache
 
+// PREF: configure process isolation
+// [1] https://hg.mozilla.org/mozilla-central/file/tip/dom/ipc/ProcessIsolation.cpp#l53
+// [2] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
+
+// OPTION 1 (default)
+// Web content is always isolated into its own `webIsolated` content process
+// based on site-origin, and will only load in a shared `web` content process
+// if site-origin could not be determined.
+//user_pref("fission.webContentIsolationStrategy", 1); // DEFAULT
+//user_pref("browser.preferences.defaultPerformanceSettings.enabled", true); // DEFAULT
+    //user_pref("dom.ipc.processCount.webIsolated", 1); // one process per site origin
+
+// OPTION 2
+// Only isolates web content loaded by sites which are considered "high
+// value". A site is considered "high value" if it has been granted a
+// `highValue*` permission by the permission manager, which is done in
+// response to certain actions.
+//user_pref("fission.webContentIsolationStrategy", 2);
+//user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
+    //user_pref("dom.ipc.processCount.webIsolated", 1); // one process per high value site origin
+    //user_pref("dom.ipc.processCount", 8); // determine by number of CPU cores/processors
+
+// OPTION 3 (not recommended)
+// All web content is loaded into a shared `web` content process. This is
+// similar to the non-Fission behavior, however remote subframes may still
+// be used for sites with special isolation behaviour, such as extension or
+// mozillaweb content processes.
+//user_pref("fission.webContentIsolationStrategy", 0);
+//user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
+    //user_pref("dom.ipc.processCount", 8); // determine by number of CPU cores/processors
+
 // PREF: initial paint delay
 // How long FF will wait before rendering the page, in milliseconds
 // Reduce the 5ms Firefox waits to render the page
