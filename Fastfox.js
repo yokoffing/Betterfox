@@ -69,11 +69,17 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
 //user_pref("browser.newtab.preload", true); // DEFAULT
 
 // PREF: unload tabs on low memory
-// Firefox will detect if your computer’s memory is running low (less than 400MB)
-// and suspend tabs that you have not used in awhile
-// [1] https://support.mozilla.org/en-US/questions/1262073
-// [2] https://blog.nightly.mozilla.org/2021/05/14/these-weeks-in-firefox-issue-93/
+// Firefox will detect if your computer’s memory is running low (less than 200MB)
+// and suspend tabs that you have not used in awhile.
 //user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
+
+// PREF: determine when tabs unload
+// Set this to some high value, e.g. 2/3 of total memory available in your system (moderate):
+// 4GB=2640, 8GB=5280, 16GB=10560, 32GB=21120, 64GB=42240
+// Or set this to 1/3 of total memory available in your system (aggressive):
+// 4GB=1320, 8GB=2640, 16GB=5280, 32GB=10560, 64GB=21120
+// [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
+//user_pref("browser.low_commit_space_threshold_mb", 2640); // default=200
 
 // PREF: disable EcoQoS [WINDOWS]
 // Background tab processes use efficiency mode on Windows 11 to limit resource use.
@@ -158,13 +164,7 @@ user_pref("layout.css.scroll-driven-animations.enabled", true);
 // [3] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
 // [4] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
 //user_pref("dom.webgpu.enabled", true);
-    //user_pref("gfx.webgpu.force-enabled", true);
-
-// PREF: NVIDIA RTX Video Super Resolution for video overlay [WINDOWS]
-// This is also a setting in NVIDIA's driver settings, so once this is
-// stable, it should default to true.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1823135
-//user_pref("gfx.webrender.super-resolution.nvidia", true);
+    //user_pref("gfx.webgpu.force-enabled", true); // enforce
 
 /****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
@@ -176,7 +176,7 @@ user_pref("layout.css.scroll-driven-animations.enabled", true);
 // [3] https://www.reddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
 // [4] https://www.reddit.com/r/firefox/comments/z5auzi/comment/ixw65gb?context=3
 // [5] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db?permalink_comment_id=4532937#gistcomment-4532937
-//user_pref("gfx.webrender.all", true); // enables WR + additional features
+user_pref("gfx.webrender.all", true); // enables WR + additional features
 //user_pref("gfx.webrender.precache-shaders", true); // longer startup time
 //user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS macOS
     //user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
@@ -184,6 +184,12 @@ user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
     //user_pref("layers.gpu-process.force-enabled", true); // enforce
 //user_pref("media.hardware-video-decoding.enabled", true); // DEFAULT WINDOWS macOS
     //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
+
+// PREF: NVIDIA RTX Video Super Resolution for video overlay [WINDOWS]
+// This is also a setting in NVIDIA's driver settings, so once this is
+// stable, it should default to true.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1823135
+//user_pref("gfx.webrender.super-resolution.nvidia", true);
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
