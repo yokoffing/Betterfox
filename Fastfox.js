@@ -7,11 +7,12 @@
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
-// PREF: use one process per site origin to minimize resources
+// PREF: process count
 // [ABOUT] View in about:processes.
 // With Firefox Quantum (2017), CPU cores = processCount. However, since the
 // introduction of Fission [2], the number of website processes is controlled
-// by processCount.webIsolated. Disabling Fission reverts control back to processCount.
+// by processCount.webIsolated. Disabling fission.autostart or changing
+// fission.webContentIsolationStrategy reverts control back to processCount.
 // [1] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
 // [2] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes 
 //user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
@@ -24,7 +25,7 @@
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/dom/ipc/ProcessIsolation.cpp#l53
 // [2] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
 
-// OPTION 1 (default)
+// OPTION 1: isolate all websites and limit to one process per site
 // Web content is always isolated into its own `webIsolated` content process
 // based on site-origin, and will only load in a shared `web` content process
 // if site-origin could not be determined.
@@ -32,20 +33,20 @@
 //user_pref("browser.preferences.defaultPerformanceSettings.enabled", true); // DEFAULT
     //user_pref("dom.ipc.processCount.webIsolated", 1); // one process per site origin
 
-// OPTION 2
+// OPTION 2: isolate only "high value" websites
 // Only isolates web content loaded by sites which are considered "high
-// value". A site is considered "high value" if it has been granted a
+// value". A site is considered high value if it has been granted a
 // `highValue*` permission by the permission manager, which is done in
 // response to certain actions.
 //user_pref("fission.webContentIsolationStrategy", 2);
 //user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
-    //user_pref("dom.ipc.processCount.webIsolated", 1); // one process per high value site origin
+    //user_pref("dom.ipc.processCount.webIsolated", 1); // one process per site origin (high value)
     //user_pref("dom.ipc.processCount", 8); // determine by number of CPU cores/processors
 
-// OPTION 3 (not recommended)
+// OPTION 3: do not isolate websites (not recommended)
 // All web content is loaded into a shared `web` content process. This is
-// similar to the non-Fission behavior, however remote subframes may still
-// be used for sites with special isolation behaviour, such as extension or
+// similar to the non-Fission behavior; however, remote subframes may still
+// be used for sites with special isolation behavior, such as extension or
 // mozillaweb content processes.
 //user_pref("fission.webContentIsolationStrategy", 0);
 //user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
