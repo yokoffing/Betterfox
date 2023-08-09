@@ -83,6 +83,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // PREF: GPU sandboxing [FF110+]
 // [1] https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/
 // [2] https://techdows.com/2023/02/disable-gpu-sandboxing-firefox.html
+// 0=disabled, 1=enabled (default)
 //user_pref("security.sandbox.gpu.level", 1); // DEFAULT [WINDOWS]
 
 // PREF: State Paritioning [aka Dynamic First-Party Isolation (dFPI)]
