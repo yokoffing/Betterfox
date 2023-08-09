@@ -19,30 +19,9 @@
 
 /** FASTFOX ***/
 user_pref("dom.ipc.processCount.webIsolated", 1); // use one process per site
-user_pref("dom.ipc.processPrelaunch.fission.number", 1); // # of Process Preallocation Cache
+user_pref("dom.ipc.processPrelaunch.fission.number", 1); // # of Preallocated
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
-
-user_pref("network.http.speculative-parallel-limit", 12);
-user_pref("network.dns.disablePrefetch", false);
-    user_pref("network.dns.disablePrefetchFromHTTPS", false);
-user_pref("network.early-hints.enabled", true);
-    user_pref("network.early-hints.preconnect.enabled", true);
-    user_pref("network.early-hints.preconnect.max_connections", 20);
-user_pref("browser.urlbar.speculativeConnect.enabled", true);
-user_pref("browser.places.interactions.enabled", true); // DEFAULT
-	user_pref("browser.places.speculativeConnect.enabled", true);
-user_pref("network.prefetch-next", true);
-user_pref("network.predictor.enabled", true);
-user_pref("network.predictor.enable-prefetch", true);
-user_pref("network.predictor.enable-hover-on-ssl", true);
-    user_pref("network.predictor.preresolve-min-confidence", 30);
-    user_pref("network.predictor.preconnect-min-confidence", 60);
-    user_pref("network.predictor.prefetch-min-confidence", 90);
-        user_pref("network.predictor.prefetch-force-valid-for", 3600);
-        user_pref("network.predictor.prefetch-rolling-load-count", 120);
-    user_pref("network.predictor.max-resources-per-entry", 250);
-    user_pref("network.predictor.max-uri-length", 1000);
 
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
@@ -104,6 +83,7 @@ user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by de
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
+user_pref("browser.low_commit_space_threshold_mb", 10560); // unload tabs on 1/3 of total memory
 user_pref("gfx.canvas.accelerated", true); // DEFAULT except on WINDOWS; enable if not using an integrated GPU
 user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
 user_pref("pdfjs.defaultZoomValue", "125"); // alt=page-width; PDF zoom level
@@ -117,6 +97,36 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
 
+/** DELETE IF NOT macOS LAPTOP ***/
+user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
+user_pref("browser.low_commit_space_threshold_mb", 2640); // unload tabs on 1/3 of total memory
+user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level
+user_pref("app.update.auto", false); // disable auto-installing Firefox updates [NON-WINDOWS]
+//user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
+
+/** SPECULATIVE CONNECTIONS TEST ***/
+user_pref("network.http.speculative-parallel-limit", 12);
+user_pref("network.dns.disablePrefetch", false);
+    user_pref("network.dns.disablePrefetchFromHTTPS", false);
+user_pref("network.early-hints.enabled", true);
+    user_pref("network.early-hints.preconnect.enabled", true);
+    user_pref("network.early-hints.preconnect.max_connections", 20);
+user_pref("browser.urlbar.speculativeConnect.enabled", true);
+user_pref("browser.places.interactions.enabled", true); // DEFAULT
+	user_pref("browser.places.speculativeConnect.enabled", true);
+user_pref("network.prefetch-next", true);
+user_pref("network.predictor.enabled", true);
+user_pref("network.predictor.enable-prefetch", true);
+user_pref("network.predictor.enable-hover-on-ssl", true);
+    user_pref("network.predictor.preresolve-min-confidence", 30);
+    user_pref("network.predictor.preconnect-min-confidence", 60);
+    user_pref("network.predictor.prefetch-min-confidence", 90);
+        user_pref("network.predictor.prefetch-force-valid-for", 3600);
+        user_pref("network.predictor.prefetch-rolling-load-count", 120);
+    user_pref("network.predictor.max-resources-per-entry", 250);
+    user_pref("network.predictor.max-uri-length", 1000);
+
+/** DISK CACHE TEST ***/
 user_pref("browser.cache.disk.enable", true); // DEFAULT
 user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache
 user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
@@ -132,8 +142,3 @@ user_pref("image.cache.size", 10485760); // default=5242880
 user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; chunk size for calls to the image decoders
 user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);// default=60000; minimum timeout to unmap shared surfaces since they have been last used
 
-/** DELETE IF NOT macOS LAPTOP ***/
-user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
-user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level
-user_pref("app.update.auto", false); // disable auto-installing Firefox updates [NON-WINDOWS]
-//user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
