@@ -18,8 +18,11 @@
 //user_pref("network.trr.uri", "https://dns.nextdns.io/******/Firefox"); // TRR/DoH
 
 /** FASTFOX ***/
+user_pref("dom.ipc.processCount.webIsolated", 1); // use one process per site
+user_pref("dom.ipc.processPrelaunch.fission.number", 1); // # of Process Preallocation Cache
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
+
 user_pref("network.http.speculative-parallel-limit", 12);
 user_pref("network.dns.disablePrefetch", false);
     user_pref("network.dns.disablePrefetchFromHTTPS", false);
