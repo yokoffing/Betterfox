@@ -113,6 +113,9 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
 // [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
 //user_pref("browser.low_commit_space_threshold_mb", 2640); // default=200
 
+// PREF: determine how long tabs are inactive before they unload
+//user_pref("browser.tabs.min_inactive_duration_before_unload", 60000); // 1min; default=600000 (10min)
+
 // PREF: disable EcoQoS [WINDOWS]
 // Background tab processes use efficiency mode on Windows 11 to limit resource use.
 // [WARNING] Leave this alone, unless you're on Desktop and you rely on
