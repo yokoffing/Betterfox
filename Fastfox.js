@@ -106,9 +106,9 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
 //user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
 
 // PREF: determine when tabs unload
-// Set this to some high value, e.g. 2/3 of total memory available in your system (moderate):
+// Set this to some high value, e.g. 2/3 of total memory available in your system (moderate unloads):
 // 4GB=2640, 8GB=5280, 16GB=10560, 32GB=21120, 64GB=42240
-// Or set this to 1/3 of total memory available in your system (aggressive):
+// Or set this to 1/3 of total memory available in your system (aggressive unloads):
 // 4GB=1320, 8GB=2640, 16GB=5280, 32GB=10560, 64GB=21120
 // [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
 //user_pref("browser.low_commit_space_threshold_mb", 2640); // default=200
