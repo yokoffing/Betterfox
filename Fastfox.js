@@ -348,9 +348,53 @@ user_pref("network.buffer.cache.count", 128); // default=24
 // [3] https://www.reddit.com/r/firefox/comments/11m2yuh/how_do_i_make_firefox_use_more_of_my_900_megabit/jbfmru6/
 user_pref("network.http.max-connections", 1800); // default=900
 user_pref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
-//user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
 //user_pref("network.http.max-urgent-start-excessive-connections-per-host", 6); // default=3
+//user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
 user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
+
+// [1] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1178
+// [2] https://www.catchpoint.com/blog/http-transaction-steps
+
+// Timeout connections if an initial response is not received after
+// a given number of seconds.
+//user_pref("network.http.response.timeout", 7); // default=300(5min)
+
+// Close a connection if TLS handshake does not finish in given number of
+// seconds.
+//user_pref("network.http.tls-handshake-timeout", 10); // default=30
+
+//
+// The number of seconds after sending initial SYN for an HTTP connection
+// to give up if the OS does not give up first.
+//user_pref("network.http.connection-timeout", 15); // default=90
+
+// retry attempts (in ms)
+// The number of milliseconds after sending a SYN for an HTTP connection,
+// to wait before trying a different connection. 0 means do not use a second
+// connection.
+// Controls the amount of time to wait for success
+// on the initial connection before beginning the second one.
+// 0=disables the parallel connection
+//user_pref("network.http.connection-retry-timeout", 0); // default=250ms
+
+// There is a problem with some IIS7 servers that don't close the connection
+// properly after it times out (bug #491541). Default timeout on IIS7 is
+// 120 seconds. We need to reuse or drop the connection within this time.
+// We set the timeout a little shorter to keep a reserve for cases when
+// the packet is lost or delayed on the route.
+//user_pref("network.http.keep-alive.timeout", 23); // default=115
+
+// amount of time (in seconds) to suspend pending requests, before spawning a
+// new connection, once the limit on the number of persistent connections per
+// host has been reached.  however, a new connection will not be created if
+// max-connections or max-connections-per-server has also been reached.
+//user_pref("network.http.request.max-start-delay", 5); // default=10
+
+// If a connection is reset, Firefox will retry it max-attempts times.
+//user_pref("network.http.request.max-attempts", 5); // default=10
+
+// Maximum number of consecutive redirects before aborting.
+//user_pref("network.http.redirection-limit", 10); // default=20
 
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
