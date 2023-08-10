@@ -83,7 +83,6 @@ user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by de
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
-user_pref("browser.low_commit_space_threshold_mb", 28800); // unload tabs on 1/3 of total memory
 user_pref("gfx.canvas.accelerated", true); // DEFAULT except on WINDOWS; enable if not using an integrated GPU
 user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
 user_pref("pdfjs.defaultZoomValue", "125"); // alt=page-width; PDF zoom level
@@ -99,7 +98,6 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 
 /** DELETE IF NOT macOS LAPTOP ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
-user_pref("browser.low_commit_space_threshold_mb", 2640); // unload tabs on 1/3 of total memory
 user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level
 user_pref("app.update.auto", false); // disable auto-installing Firefox updates [NON-WINDOWS]
 //user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
