@@ -120,7 +120,7 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
 // and use this percent value (out of 100) to determine if Firefox is in a
 // low memory scenario.
 // [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
-//user_pref("browser.low_commit_space_threshold_percent", 66); // default=5; LINUX
+//user_pref("browser.low_commit_space_threshold_percent", 33); // default=5; LINUX
 
 // PREF: determine how long tabs are inactive before they unload
 //user_pref("browser.tabs.min_inactive_duration_before_unload", 60000); // 1min; default=600000 (10min)
