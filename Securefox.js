@@ -987,7 +987,7 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // Controls whether or not to send a referrer across different sites.
 // This includes images, links, and embedded social media on pages.
 // 0=always send referrer (default)
-// 1=send across subdomains [from a.example.com to b.example.com] (breaks Instagram embeds)
+// 1=send across subdomains [from a.example.com to b.example.com] (breaks Instagram embeds, Bing login)
 // 2=full host name must match [from c.example.com to c.example.com] (breaks Vimeo, iCloud, Instagram, Amazon book previews, and more)
 // [TEST] https://www.jeffersonscher.com/res/jstest.php
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#examples
