@@ -348,11 +348,19 @@ user_pref("network.buffer.cache.count", 128); // default=24
 // [3] https://www.reddit.com/r/firefox/comments/11m2yuh/how_do_i_make_firefox_use_more_of_my_900_megabit/jbfmru6/
 user_pref("network.http.max-connections", 1800); // default=900
 user_pref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
-//user_pref("network.http.max-urgent-start-excessive-connections-per-host", 6); // default=3
-//user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
-user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
+    user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // default=3
+    //user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
+user_pref("network.websocket.max-connections", 400); // default=200
 
-// connection timeouts
+// PREF: pacing requests
+// Controls how many HTTP requests are sent at a time.
+// Pacing HTTP requests can have some benefits, such as reducing network congestion,
+// improving web page loading speed, and avoiding server overload.
+// false=Firefox will send as many requests as possible without pacing
+//user_pref("network.http.pacing.requests.enabled", true); // DEFAULT
+    user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
+
+// Connection Timeouts
 // [1] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1178
 // [2] https://www.catchpoint.com/blog/http-transaction-steps
 
@@ -371,12 +379,12 @@ user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
 // PREF: how long to wait before trying a different connection when the initial one fails
 // The number (in ms) after sending a SYN for an HTTP connection,
 // to wait before trying again with a different connection.
-// 0=disables the second connection
-//user_pref("network.http.connection-retry-timeout", 0); // default=250ms
+// 0=disable the second connection
+user_pref("network.http.connection-retry-timeout", 0); // default=250ms
 
 // PREF: keep-alive request timeout
 // Default timeout on IIS7 is 120 seconds. FF needs to reuse or drop the
-// connection within this time. FF sets the timeout a little shorter to
+// connection within this time. By default, FF sets the timeout a little shorter to
 // keep a reserve for cases when the packet is lost or delayed on the route.
 // [1] http://kb.mozillazine.org/Network.http.keep-alive.timeout
 // [2] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1173-1178
@@ -386,7 +394,7 @@ user_pref("network.http.pacing.requests.min-parallelism", 18); // default=6
 // new connection, once the limit on the number of persistent connections per
 // host has been reached. However, a new connection will not be created if
 // max-connections or max-connections-per-server has also been reached.
-//user_pref("network.http.request.max-start-delay", 5); // default=10
+//user_pref("network.http.request.max-start-delay", 10); // DEFAULT
 
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
