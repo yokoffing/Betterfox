@@ -113,17 +113,18 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
 // Set this to some high value, e.g. 2/3 of total memory available in your system:
 // 4GB=2640, 8GB=5280, 16GB=10560, 32GB=21120, 64GB=42240
 // [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
-//user_pref("browser.low_commit_space_threshold_mb", 2640); // default=200; WINDOWS LINUX
+user_pref("browser.low_commit_space_threshold_mb", 2640); // default=200; WINDOWS LINUX
 
 // PREF: determine when tabs unload [LINUX]
 // On Linux, Firefox checks available memory in comparison to total memory,
 // and use this percent value (out of 100) to determine if Firefox is in a
 // low memory scenario.
 // [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
-//user_pref("browser.low_commit_space_threshold_percent", 33); // default=5; LINUX
+user_pref("browser.low_commit_space_threshold_percent", 33); // default=5; LINUX
 
-// PREF: determine how long tabs are inactive before they unload
-//user_pref("browser.tabs.min_inactive_duration_before_unload", 60000); // 1min; default=600000 (10min)
+// PREF: determine how long (in ms) tabs are inactive before they unload
+// 60000=1min; 300000=5min; 600000=10min (default)
+user_pref("browser.tabs.min_inactive_duration_before_unload", 300000); // 5min; default=600000
 
 // PREF: disable EcoQoS [WINDOWS]
 // Background tab processes use efficiency mode on Windows 11 to limit resource use.
