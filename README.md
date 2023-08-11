@@ -53,7 +53,7 @@ After applying the `user.js` and restarting Firefox:
 
 To further harden Firefox:
 1) **Hide the referrer** between sites.
-   * Go to `about:config` and set [`network.http.referer.XOriginPolicy`](https://github.com/yokoffing/Betterfox/blob/e66a549985f6b0db4b14226904b8c09eaaea998f/Securefox.js#L982-L991) to `1`.
+   * Go to [`about:config`](https://kb.mozillazine.org/About:config) and set [`network.http.referer.XOriginPolicy`](https://github.com/yokoffing/Betterfox/blob/e66a549985f6b0db4b14226904b8c09eaaea998f/Securefox.js#L982-L991) to `1`.
       * Note: This breaks embedded Instagram posts and Bing logins.
 3) **Clear browsing data** on shutdown ([sanitize on close](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
    * You can **allow exceptions** if you want to stay logged in to some sites:
