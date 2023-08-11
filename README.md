@@ -52,9 +52,10 @@ After applying the `user.js` and restarting Firefox:
       2) Change your default search engine to DuckDuckGo, or [add](https://github.com/yokoffing/Betterfox/blob/04c3184359c83d7b58411c3b68f40f3e9d95c373/Securefox.js#L600-L604) a premium search engine like [Kagi](https://kagi.com/).
 
 To further harden Firefox:
-1) **Hide the referrer** between sites by changing [`network.http.referer.XOriginPolicy`](https://github.com/yokoffing/Betterfox/blob/e66a549985f6b0db4b14226904b8c09eaaea998f/Securefox.js#L982-L991) to `1`.
-   * Note: This breaks embedded Instagram posts and logins to Bing.
-2) **Clear browsing data** on shutdown ([sanitize on close](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
+1) **Hide the referrer** between sites.
+   * Go to `about:config` and set [`network.http.referer.XOriginPolicy`](https://github.com/yokoffing/Betterfox/blob/e66a549985f6b0db4b14226904b8c09eaaea998f/Securefox.js#L982-L991) to `1`.
+      * Note: This breaks embedded Instagram posts and Bing logins.
+3) **Clear browsing data** on shutdown ([sanitize on close](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
    * You can **allow exceptions** if you want to stay logged in to some sites:
       1) Go to *Settings → Privacy & Security → Cookies and Site Data → Manage Exceptions*
       2) Check *Delete cookies and site data when Firefox is closed*.
