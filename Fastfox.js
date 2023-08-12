@@ -401,9 +401,15 @@ user_pref("network.http.connection-retry-timeout", 0); // default=250ms
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
 user_pref("network.dnsCacheEntries", 10000); // default=400
+
+// PREF: adjust DNS expiration time
 // [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
-    user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3600 (1 hour)
-    user_pref("network.dnsCacheExpirationGracePeriod", 240); // cache DNS entries for 4 minutes after they expire
+user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3600 (1 hour)
+    //user_pref("network.dnsCacheExpirationGracePeriod", 240); // default=60; cache DNS entries for 4 minutes after they expire
+
+// PREF: the number of threads for DNS
+user_pref("network.dns.max_high_priority_threads", 8); // default=5
+//user_pref("network.dns.max_any_priority_threads", 5); // default=3
 
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
