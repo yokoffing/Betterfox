@@ -238,7 +238,7 @@ user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
-//user_pref("gfx.webrender.enabled", true);
+//user_pref("gfx.webrender.enabled", true); // [REMOVED FF118?]
 //user_pref("gfx.webrender.software", true); // Software Webrender uses CPU instead of GPU
     //user_pref("gfx.webrender.software.opengl", true); // [LINUX]
     //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
@@ -251,9 +251,9 @@ user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
 //user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatiable with WINDOWS integrated GPUs
-user_pref("gfx.canvas.accelerated.cache-items", 32768);
-user_pref("gfx.canvas.accelerated.cache-size", 4096);
-user_pref("gfx.content.skia-font-cache-size", 80);
+    user_pref("gfx.canvas.accelerated.cache-items", 32768);
+    user_pref("gfx.canvas.accelerated.cache-size", 4096);
+    user_pref("gfx.content.skia-font-cache-size", 80);
 
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
