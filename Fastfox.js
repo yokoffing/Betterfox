@@ -259,6 +259,7 @@ user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not c
     user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; alt=32768
     user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; alt=4096
     user_pref("gfx.content.skia-font-cache-size", 20); // in MB; default=5; Chrome=20; alt=80
+    // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
 
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
