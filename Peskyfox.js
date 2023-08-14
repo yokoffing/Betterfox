@@ -213,7 +213,7 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 // [SETTING] Home>New Windows and Tabs>New tabs
 //user_pref("browser.newtabpage.enabled", false);
 
-// PREF: Home / New Tab page items
+// PREF: Pinned Shortcuts on New Tab
 // [SETTINGS] Home>Firefox Home Content
 // [1] https://github.com/arkenfox/user.js/issues/1556
 //user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false); // unnecessary?
