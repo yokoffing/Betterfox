@@ -100,6 +100,30 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
 // [2] https://github.com/arkenfox/user.js/issues/1556
 //user_pref("browser.newtab.preload", true); // DEFAULT
 
+// PREF: disable EcoQoS [WINDOWS]
+// Background tab processes use efficiency mode on Windows 11 to limit resource use.
+// [WARNING] Leave this alone, unless you're on Desktop and you rely on
+// background tabs to have maximum performance.
+// [1] https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1796525
+// [3] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
+// [4] https://reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
+//user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
+
+// PREF: control how tabs are loaded when a session is restored
+// true=Tabs are not loaded until they are selected (default)
+// false=Tabs begin to load immediately.
+//user_pref("browser.sessionstore.restore_on_demand", true); // DEFAULT
+    //user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
+//user_pref("browser.sessionstore.restore_tabs_lazily", true); // DEFAULT
+
+// PREF: disable preSkeletonUI on startup
+user_pref("browser.startup.preXulSkeletonUI", false);
+
+/****************************************************************************
+ * SECTION: TAB UNLOAD                                                      *
+****************************************************************************/
+
 // PREF: unload tabs on low memory
 // Firefox will detect if your computer’s memory is running low (less than 200MB)
 // and suspend tabs that you have not used in awhile.
@@ -125,26 +149,6 @@ user_pref("browser.low_commit_space_threshold_percent", 33); // default=5; LINUX
 // PREF: determine how long (in ms) tabs are inactive before they unload
 // 60000=1min; 300000=5min; 600000=10min (default)
 user_pref("browser.tabs.min_inactive_duration_before_unload", 300000); // 5min; default=600000
-
-// PREF: disable EcoQoS [WINDOWS]
-// Background tab processes use efficiency mode on Windows 11 to limit resource use.
-// [WARNING] Leave this alone, unless you're on Desktop and you rely on
-// background tabs to have maximum performance.
-// [1] https://devblogs.microsoft.com/performance-diagnostics/introducing-ecoqos/
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1796525
-// [3] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
-// [4] https://reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
-//user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
-
-// PREF: control how tabs are loaded when a session is restored
-// true=Tabs are not loaded until they are selected (default)
-// false=Tabs begin to load immediately.
-//user_pref("browser.sessionstore.restore_on_demand", true); // DEFAULT
-    //user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
-//user_pref("browser.sessionstore.restore_tabs_lazily", true); // DEFAULT
-
-// PREF: disable preSkeletonUI on startup
-user_pref("browser.startup.preXulSkeletonUI", false);
 
 /****************************************************************************
  * SECTION: EXPERIMENTAL                                                    *
