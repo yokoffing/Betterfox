@@ -249,15 +249,16 @@ user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
 
 // PREF: GPU-accelerated Canvas2D
 // Use gpu-canvas instead of to skia-canvas.
-// [WARNING] May cause issues on some Windows machines using integrated GPUs [2 3]
+// [WARNING] May cause issues on some Windows machines using integrated GPUs [2] [3]
 // Add to your overrides if you have a dedicated GPU.
+// [NOTE] Higher values will use more memory, which won't seem to benefit perf much (?)
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
-//user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatiable with WINDOWS integrated GPUs
-    user_pref("gfx.canvas.accelerated.cache-items", 32768);
-    user_pref("gfx.canvas.accelerated.cache-size", 4096);
-    user_pref("gfx.content.skia-font-cache-size", 80);
+user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatiable with WINDOWS integrated GPUs
+    user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; alt=32768
+    user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; alt=4096
+    user_pref("gfx.content.skia-font-cache-size", 20); // in MB; default=5; Chrome=20; alt=80
 
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
@@ -332,9 +333,13 @@ user_pref("media.memory_caches_combined_limit_kb", 524288); // default=524288; a
 ****************************************************************************/
 
 // PREF: image cache
-user_pref("image.cache.size", 10485760); // default=5242880
-user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; chunk size for calls to the image decoders
-user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // default=60000; minimum timeout to unmap shared surfaces since they have been last used
+// This is only used on 32-bit builds of Firefox where there is meaningful
+// virtual address space pressure.
+// [1] https://phabricator.services.mozilla.com/D109440
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1699224
+//user_pref("image.cache.size", 5242880); // DEFAULT; in MiB; alt=10485760 (cache images up to 10MiB in size)
+//user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; chunk size for calls to the image decoders
+//user_pref("image.mem.shared.unmap.min_expiration_ms", 120000); // default=60000; minimum timeout to unmap shared surfaces since they have been last used
 
 /****************************************************************************
  * SECTION: NETWORK                                                         *
