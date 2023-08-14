@@ -40,6 +40,7 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 * **Firefox Sync** and **Firefox View** are disabled. Override if you use these features.
 * The built-in **password manager** is disabled. We recommend using [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/) or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager) to manage your credentials on multiple devices.
 * **Location requests** and **site notifications** are blocked to minimize annoyances.
+* **Top sites** (pinned site shortcuts) are removed from new tabs for a minimalistic setup.
 * Embedded **tweets, tiktoks, Instagram and Reddit posts** are allowed to load on webpages in order to avoid site breakage, even though these requests are usually blocked when using [Strict](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection) Enhanced Tracking Protection.
 
 ## Suggestions
@@ -52,9 +53,10 @@ After applying the `user.js` and restarting Firefox:
       2) Change your default search engine to DuckDuckGo, or [add](https://github.com/yokoffing/Betterfox/blob/04c3184359c83d7b58411c3b68f40f3e9d95c373/Securefox.js#L600-L604) a premium search engine like [Kagi](https://kagi.com/).
 
 To further harden Firefox:
-1) **Hide the referrer** between sites by changing [`network.http.referer.XOriginPolicy`](https://github.com/yokoffing/Betterfox/blob/e66a549985f6b0db4b14226904b8c09eaaea998f/Securefox.js#L982-L991) to `1`.
-   * Note: This will break embedded Instagram posts.
-2) **Clear browsing data** on shutdown ([sanitize on close](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
+1) **Hide the referrer** between sites.
+   * Go to [`about:config`](https://kb.mozillazine.org/About:config) and set [`network.http.referer.XOriginPolicy`](https://github.com/yokoffing/Betterfox/blob/e66a549985f6b0db4b14226904b8c09eaaea998f/Securefox.js#L982-L991) to `1`.
+      * Note: This breaks embedded Instagram posts and Bing logins.
+3) **Clear browsing data** on shutdown ([sanitize on close](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
    * You can **allow exceptions** if you want to stay logged in to some sites:
       1) Go to *Settings → Privacy & Security → Cookies and Site Data → Manage Exceptions*
       2) Check *Delete cookies and site data when Firefox is closed*.
