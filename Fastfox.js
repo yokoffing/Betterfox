@@ -169,10 +169,11 @@ user_pref("dom.enable_web_task_scheduling", true);
 // [2] https://caniuse.com/css-has
 user_pref("layout.css.has-selector.enabled", true);
 
-// PREF: scroll-linked animations [NIGHTLY]
-// [1] https://developer.chrome.com/articles/scroll-driven-animations/
-// [2] https://developer.chrome.com/en/blog/scroll-animation-performance-case-study/
-user_pref("layout.css.scroll-driven-animations.enabled", true);
+// PREF: scroll-driven animations [NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Experimental_features#scroll-driven_animations
+// [2] https://developer.chrome.com/articles/scroll-driven-animations/
+// [3] https://developer.chrome.com/en/blog/scroll-animation-performance-case-study/
+//user_pref("layout.css.scroll-driven-animations.enabled", true);
 
 // PREF: HTML Sanitizer API [NIGHTLY]
 //user_pref("dom.security.sanitizer.enabled", true);
