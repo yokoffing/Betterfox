@@ -34,12 +34,12 @@ user_pref("layout.css.has-selector.enabled", true);
 user_pref("layout.css.scroll-driven-animations.enabled", true);
 
 /** GFX ***/
-//user_pref("gfx.webrender.all", true); // enable WR + additional features
+user_pref("gfx.webrender.all", true); // enable WR + additional features
 user_pref("layers.gpu-process.enabled", true);
-//user_pref("gfx.canvas.accelerated", true); // enable if not using an integrated GPU on WINDOWS
-user_pref("gfx.canvas.accelerated.cache-items", 32768);
-user_pref("gfx.canvas.accelerated.cache-size", 4096);
-user_pref("gfx.content.skia-font-cache-size", 80);
+user_pref("gfx.canvas.accelerated", true); // disable if using an integrated GPU on WINDOWS
+user_pref("gfx.canvas.accelerated.cache-items", 4096);
+user_pref("gfx.canvas.accelerated.cache-size", 512);
+user_pref("gfx.content.skia-font-cache-size", 20);
 
 /** BROWSER CACHE ***/
 user_pref("browser.cache.disk.enable", false);
@@ -51,11 +51,6 @@ user_pref("media.cache_readahead_limit", 7200);
 user_pref("media.cache_resume_threshold", 3600);
 user_pref("media.memory_cache_max_size", 131072);
 user_pref("media.memory_caches_combined_limit_kb", 524288); // DEFAULT
-
-/** IMAGE CACHE  ***/
-user_pref("image.cache.size", 10485760);
-user_pref("image.mem.decode_bytes_at_a_time", 65536);
-user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);
 
 /** NETWORK ***/
 user_pref("network.buffer.cache.size", 262144);
