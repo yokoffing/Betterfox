@@ -22,6 +22,11 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0);
 user_pref("content.notify.interval", 100000);
 user_pref("browser.startup.preXulSkeletonUI", false);
 
+/** TAB UNLOAD ***/
+user_pref("browser.low_commit_space_threshold_mb", 2640); // WINDOWS LINUX
+user_pref("browser.low_commit_space_threshold_percent", 33); // LINUX
+user_pref("browser.tabs.min_inactive_duration_before_unload", 300000);
+
 /** EXPERIMENTAL ***/
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
@@ -29,7 +34,7 @@ user_pref("layout.css.has-selector.enabled", true);
 user_pref("layout.css.scroll-driven-animations.enabled", true);
 
 /** GFX ***/
-user_pref("gfx.webrender.all", true);
+//user_pref("gfx.webrender.all", true); // enable WR + additional features
 user_pref("layers.gpu-process.enabled", true);
 //user_pref("gfx.canvas.accelerated", true); // enable if not using an integrated GPU on WINDOWS
 user_pref("gfx.canvas.accelerated.cache-items", 32768);
@@ -57,10 +62,14 @@ user_pref("network.buffer.cache.size", 262144);
 user_pref("network.buffer.cache.count", 128);
 user_pref("network.http.max-connections", 1800);
 user_pref("network.http.max-persistent-connections-per-server", 10);
-user_pref("network.http.pacing.requests.min-parallelism", 18);
+user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
+user_pref("network.websocket.max-connections", 400);
+user_pref("network.http.pacing.requests.min-parallelism", 12);
+user_pref("network.http.pacing.requests.burst", 20);
+user_pref("network.http.connection-retry-timeout", 0);
 user_pref("network.dnsCacheEntries", 10000);
 user_pref("network.dnsCacheExpiration", 86400);
-user_pref("network.dnsCacheExpirationGracePeriod", 240);
+user_pref("network.dns.max_high_priority_threads", 8);
 user_pref("network.ssl_tokens_cache_capacity", 32768);
 
 /****************************************************************************
