@@ -199,8 +199,6 @@ user_pref("layout.css.has-selector.enabled", true);
 // PREF: Array.fromAsync [NIGHTLY]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1795452
 //user_pref("javascript.options.experimental.array_grouping", true);
-//user_pref("javascript.options.experimental.enable_change_array_by_copy", true);
-//user_pref("javascript.options.experimental.enable_array_from_async", true);
 
 // PREF: indexedDB preprocessing
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1112702
@@ -257,7 +255,7 @@ user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
     //user_pref("layers.mlgpu.enabled", true); // LINUX
 //user_pref("media.hardware-video-decoding.enabled", true); // DEFAULT WINDOWS macOS
     //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
-user_pref("media.gpu-process-decoder", true); // DEFAULT WINDOWS
+//user_pref("media.gpu-process-decoder", true); // DEFAULT WINDOWS
 //user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
 
 // PREF: GPU-accelerated Canvas2D
