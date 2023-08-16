@@ -148,7 +148,13 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 //user_pref("browser.send_pings", false); // DEFAULT
 
 // PREF: Beacon API
-// Disabling this API sometimes causes site breakage.
+// Allows websites to asynchronously transmit small amounts of data to servers
+// without impacting page load performance. This allows things like activity tracking
+// to be done reliably in the background. Other tracking methods like form submissions
+// and XHR requests already allow similar capabilities but hurt performance.
+// Disabling the Beacon API wouldn't make the data unavailable - sites could still
+// collect it synchronously instead.
+// [NOTE] Disabling this API sometimes causes site breakage.
 // [TEST] https://vercel.com/
 // [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
 // [2] https://github.com/arkenfox/user.js/issues/1586
@@ -159,11 +165,12 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API#browser_compatibility
 //user_pref("dom.battery.enabled", false);
 
-// PREF: disable UITour backend so there is no chance that a remote page can use it
+// PREF: disable UITour backend
+// This way, there is no chance that a remote page can use it.
 user_pref("browser.uitour.enabled", false);
     //user_pref("browser.uitour.url", "");
 
-// PREF: reset remote debugging to disabled
+// PREF: disable remote debugging
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16222
 //user_pref("devtools.debugger.remote-enabled", false); // DEFAULT
 
@@ -204,7 +211,7 @@ user_pref("privacy.globalprivacycontrol.enabled", true);
 // [1] https://en.wikipedia.org/wiki/Ocsp
 // [2] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
 // 0=disabled, 1=enabled (default), 2=enabled for EV certificates only
-user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
+user_pref("security.OCSP.enabled", 0);
 
 // PREF: set OCSP fetch failures to hard-fail
 // When a CA cannot be reached to validate a cert, Firefox just continues the connection (=soft-fail)
@@ -230,11 +237,11 @@ user_pref("security.OCSP.enabled", 0); // [DEFAULT: 1]
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("security.pki.crlite_mode", 2);
 
-// PREF: enable strict pinning
+// PREF: Public Key Pinning (PKP)
 // MOZILLA_PKIX_ERROR_KEY_PINNING_FAILURE
 // If you rely on an AV (antivirus) to protect your web browsing
-// by inspecting ALL your web traffic, then leave at current default=1
-// PKP (Public Key Pinning) 0=disabled, 1=allow user MiTM (such as your antivirus), 2=strict
+// by inspecting ALL your web traffic, then leave at current default=1.
+// 0=disabled, 1=allow user MiTM (such as your antivirus) (default), 2=strict
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16206
 user_pref("security.cert_pinning.enforcement_level", 2);
 
@@ -248,7 +255,6 @@ user_pref("security.cert_pinning.enforcement_level", 2);
 
 // PREF: display warning on the padlock for "broken security"
 // Bug: warning padlock not indicated for subresources on a secure page! [2]
-// [TEST] (January 2022) https://www.unibs.it/it
 // [1] https://wiki.mozilla.org/Security:Renegotiation
 // [2] https://bugzilla.mozilla.org/1353705
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
@@ -351,7 +357,8 @@ user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve t
 // [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 
-// PREF: set the minimum interval (in milliseconds) between session save operations when crashing or restarting to install updates
+// PREF: set the minimum interval (in milliseconds) between session save operations,
+// when crashing or restarting to install updates
 // [NOTE] The value is how often FF checks for state changes.
 // Data is only saved when state changes [2].
 // [1] https://kb.mozillazine.org/Browser.sessionstore.interval
@@ -448,12 +455,14 @@ user_pref("privacy.history.custom", true);
  * SECTION: SEARCH / URL BAR                              *
 ******************************************************************************/
 
-// PREF: disable trimming certain parts of the URL
+// PREF: trim certain parts of the URL
+// Makes the domain name more prominent by graying out other parts of the URL.
 // [1] https://udn.realityripple.com/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs
 // [2] https://winaero.com/firefox-75-strips-https-and-www-from-address-bar-results/
-//user_pref("browser.urlbar.trimURLs", false);
+//user_pref("browser.urlbar.trimURLs", true); // DEFAULT
 
-// PREF: disable search terms [FF110+]
+// PREF: do not show search terms in URL bar [FF110+]
+// Show search query instead of URL on search results pages.
 // [SETTING] Search>Search Bar>Use the address bar for search and navigation>Show search terms instead of URL...
 //user_pref("browser.urlbar.showSearchTerms.enabled", false);
 
@@ -466,7 +475,7 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 // [1] https://www.reddit.com/r/firefox/comments/yg8jyh/different_private_search_option_gone_firefox_106/
 //user_pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // HIDDEN
 
-// PREF: enable option to add custom search
+// PREF: enable option to add custom search engine
 // [SETTINGS] Settings -> Search -> Search Shortcuts -> Add
 // [EXAMPLE] https://search.brave.com/search?q=%s
 // [EXAMPLE] https://lite.duckduckgo.com/lite/?q=%s
@@ -474,7 +483,7 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
 
 // PREF: disable live search engine suggestions (Google, Bing, etc.)
-// [WARNING] Search engines keylog every character you type from the URL bar
+// [WARNING] Search engines keylog every character you type from the URL bar.
 user_pref("browser.search.suggest.enabled", false);
 //user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
 
@@ -501,9 +510,11 @@ user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 //user_pref("browser.fixup.alternate.enabled", false); // [DEFAULT FF104+]
 
 // PREF: display "Not Secure" text on HTTP sites
-// Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode
+// Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode.
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
+user_pref("security.insecure_connection_icon.enabled", true); // DEFAULT
+user_pref("security.insecure_connection_icon.pbmode.enabled", true); // DEFAULT
 
 // PREF: Disable location bar autofill
 // https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete
@@ -559,8 +570,8 @@ user_pref("dom.security.https_first", true);
 //user_pref("dom.security.https_only_mode", true); // Normal + Private Browsing
 
 // PREF: offer suggestion for HTTPS site when available
-// [1] https://nitter.winscloud.net/leli_gibts_scho/status/1371458534186057731
-//user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
+// [1] https://twitter.com/leli_gibts_scho/status/1371458534186057731
+user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: HTTP background requests in HTTPS-only Mode
 // When attempting to upgrade, if the server doesn't respond within 3 seconds[=default time],
@@ -650,7 +661,7 @@ user_pref("dom.security.https_first", true);
 ******************************************************************************/
 
 // PREF: enable Encrypted Client Hello (ECH)
-// [NOTE] HTTP already isolated with network partitioning
+// [NOTE] HTTP is already isolated with network partitioning.
 // [1] https://blog.cloudflare.com/encrypted-client-hello/
 // [2] https://www.youtube.com/watch?v=tfyrVYqXQRE
 // [3] https://groups.google.com/a/chromium.org/g/blink-dev/c/KrPqrd-pO2M/m/Yoe0AG7JAgAJ
@@ -680,21 +691,21 @@ user_pref("dom.security.https_first", true);
 // as a remote Tor node will handle the DNS request.
 // [1] https://trac.torproject.org/projects/tor/wiki/doc/TorifyHOWTO/WebBrowsers
 // [SETTING] Settings>Network Settings>Proxy DNS when using SOCKS v5
-user_pref("network.proxy.socks_remote_dns", true);
+//user_pref("network.proxy.socks_remote_dns", true);
 
 // PREF: disable using UNC (Uniform Naming Convention) paths [FF61+]
 // [SETUP-CHROME] Can break extensions for profiles on network shares.
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/26424
-user_pref("network.file.disable_unc_paths", true); // [HIDDEN PREF]
+//user_pref("network.file.disable_unc_paths", true); // [HIDDEN PREF]
 
 // PREF: disable GIO as a potential proxy bypass vector
 // Gvfs/GIO has a set of supported protocols like obex, network,
 // archive, computer, dav, cdda, gphoto2, trash, etc.
-// By default only sftp is accepted (FF87+).
+// By default, only sftp is accepted (FF87+).
 // [1] https://bugzilla.mozilla.org/1433507
 // [2] https://en.wikipedia.org/wiki/GVfs
 // [3] https://en.wikipedia.org/wiki/GIO_(software)
-user_pref("network.gio.supported-protocols", ""); // [HIDDEN PREF]
+//user_pref("network.gio.supported-protocols", ""); // [HIDDEN PREF]
 
 /******************************************************************************
  * SECTION: PASSWORDS                             *
@@ -894,7 +905,7 @@ user_pref("privacy.userContext.ui.enabled", true);
 //user_pref("privacy.userContext.enabled", true);
 
 // PREF: set behavior on "+ Tab" button to display container menu on left click [FF74+]
-// [NOTE] The menu is always shown on long press and right click
+// [NOTE] The menu is always shown on long press and right click.
 // [SETTING] General>Tabs>Enable Container Tabs>Settings>Select a container for each new tab ***/
 //user_pref("privacy.userContext.newTabContainerOnLeftClick.enabled", true);
 
@@ -910,7 +921,7 @@ user_pref("privacy.userContext.ui.enabled", true);
 // [2] https://datatracker.ietf.org/doc/html/draft-ietf-mmusic-mdns-ice-candidates#section-3.1.1
 //user_pref("media.peerconnection.enabled", false);
 
-// PREF: enable WebRTC Global Mute Toggles
+// PREF: enable WebRTC Global Mute Toggles [NIGHTLY]
 //user_pref("privacy.webrtc.globalMuteToggles", true);
 
 // PREF: force WebRTC inside the proxy [FF70+]
@@ -962,9 +973,9 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 //user_pref("network.ftp.enabled", true);
 
 // PREF: decode URLs in other languages
-// [WARNING] Causes unintended consequecnes when copy+paste links with underscores.
+// [WARNING] Causes unintended consequences when copy+paste links with underscores.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1320061
-//user_pref("browser.urlbar.decodeURLsOnCopy", true);
+//user_pref("browser.urlbar.decodeURLsOnCopy", false); // DEFAULT
 
 // PREF: number of usages of the web console
 // If this is less than 5, then pasting code into the web console is disabled.
