@@ -733,7 +733,8 @@ user_pref("dom.security.https_first", true);
 //user_pref("network.trr.disable-ECS", true); // DEFAULT
 
 // PREF: DNS Rebind Protection
-// Set to true to allow RFC 1918 private addresses in TRR responses
+// false=do not allow RFC 1918 private addresses in TRR responses (default)
+// true=allow RFC 1918 private addresses in TRR responses
 // [1] https://docs.controld.com/docs/dns-rebind-option
 //user_pref("network.trr.allow-rfc1918", false); // DEFAULT
 
