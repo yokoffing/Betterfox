@@ -215,6 +215,8 @@ user_pref("layout.css.has-selector.enabled", true);
 // [4] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
 //user_pref("dom.webgpu.enabled", true);
     //user_pref("gfx.webgpu.force-enabled", true); // enforce
+// enable WebGPU indirect draws/dispatches:
+//user_pref("dom.webgpu.indirect-dispatch.enabled", true);
 
 // PREF: WebCodecs API [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API
@@ -236,10 +238,12 @@ user_pref("gfx.webrender.all", true); // enables WR + additional features
 //user_pref("gfx.webrender.precache-shaders", true); // longer startup time
 //user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS macOS
     //user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
-user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
-    //user_pref("layers.gpu-process.force-enabled", true); // enforce
-//user_pref("media.hardware-video-decoding.enabled", true); // DEFAULT WINDOWS macOS
-    //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
+
+// PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
+// [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
+//user_pref("gfx.webrender.enabled", true); // [REMOVED FF118?]
+//user_pref("gfx.webrender.software", true); // Software Webrender uses CPU instead of GPU
+    //user_pref("gfx.webrender.software.opengl", true); // LINUX
 
 // PREF: NVIDIA RTX Video Super Resolution for video overlay [WINDOWS]
 // This is also a setting in NVIDIA's driver settings, so once this is
@@ -247,12 +251,14 @@ user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1823135
 //user_pref("gfx.webrender.super-resolution.nvidia", true);
 
-// PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
-// [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
-//user_pref("gfx.webrender.enabled", true); // [REMOVED FF118?]
-//user_pref("gfx.webrender.software", true); // Software Webrender uses CPU instead of GPU
-    //user_pref("gfx.webrender.software.opengl", true); // [LINUX]
-    //user_pref("media.ffmpeg.vaapi.enabled", true); // [LINUX]
+// PREF: prefer GPU over CPU 
+user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
+    //user_pref("layers.gpu-process.force-enabled", true); // enforce
+    //user_pref("layers.mlgpu.enabled", true); // LINUX
+//user_pref("media.hardware-video-decoding.enabled", true); // DEFAULT WINDOWS macOS
+    //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
+user_pref("media.gpu-process-decoder", true); // DEFAULT WINDOWS
+//user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
 
 // PREF: GPU-accelerated Canvas2D
 // Use gpu-canvas instead of to skia-canvas.
@@ -262,11 +268,31 @@ user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
-user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatiable with WINDOWS integrated GPUs
+user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
     user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; alt=32768
     user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; alt=4096
     user_pref("gfx.content.skia-font-cache-size", 20); // in MB; default=5; Chrome=20; alt=80
     // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
+
+// PREF: disable AV1 for hardware decodeable videos
+// AV1 may use software (CPU-based) decoding.
+// Firefox sometimes uses AV1 video decoding even to GPUs which do not support it.
+// [1] https://www.reddit.com/r/AV1/comments/s5xyph/youtube_av1_codec_have_worse_quality_than_old_vp9
+//user_pref("media.av1.enabled", false);
+
+// PREF: Media Source Extensions (MSE) web standard
+// Disabling MSE allows videos to fully buffer, but you're limited to 720p.
+// [WARNING] Disabling MSE may break certain videos.
+// false=Firefox plays the old WebM format
+// true=Firefox plays the new WebM format (default)
+// [1] https://support.mozilla.org/en-US/questions/1008271
+//user_pref("media.mediasource.enabled", true); // DEFAULT
+
+// PREF: adjust video buffering periods when not using MSE (in seconds)
+// [NOTE] Does not affect videos over 720p since they use DASH playback [1]
+// [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
+user_pref("media.cache_readahead_limit", 7200); // 120 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+user_pref("media.cache_resume_threshold", 3600); // 60 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
 
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
@@ -309,32 +335,12 @@ user_pref("browser.cache.memory.max_entry_size", 65536); // default=5120; -1=ent
 // PREF: media disk cache
 //user_pref("media.cache_size", 512000); // DEFAULT
 
-// PREF: Media Source Extensions (MSE)
-// Disabling MSE allows videos to fully buffer, but you're limited to 720p.
-// [WARNING] Disabling MSE may break certain videos.
-// false=Firefox plays the old WebM format
-// true=Firefox plays the new WebM format (default)
-// [1] https://support.mozilla.org/en-US/questions/1008271
-//user_pref("media.mediasource.enabled", true); // DEFAULT
-
-// PREF: adjust video buffering periods when not using MSE (in seconds)
-// [NOTE] Does not affect videos over 720p since they use DASH playback [1]
-// [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
-user_pref("media.cache_readahead_limit", 7200); // 120 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-user_pref("media.cache_resume_threshold", 3600); // 60 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
-
 // PREF: media memory cache
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
 // [2] https://github.com/arkenfox/user.js/pull/941
 user_pref("media.memory_cache_max_size", 131072); // default=8192; AF=65536; alt=1048576
 user_pref("media.memory_caches_combined_limit_kb", 524288); // default=524288; alt=3145728
 //user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory that Firefox can use for media caches
-
-// PREF: disable AV1 for hardware decodeable videos
-// AV1 uses software (CPU-based) decoding
-// Firefox sometimes uses AV1 video decoding even to GPUs which do not support it
-// [1] https://www.reddit.com/r/AV1/comments/s5xyph/youtube_av1_codec_have_worse_quality_than_old_vp9
-//user_pref("media.av1.enabled", false);
 
 /****************************************************************************
  * SECTION: IMAGE CACHE                                                     *
