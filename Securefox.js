@@ -813,12 +813,12 @@ user_pref("pdfjs.enableScripting", false);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1659530,1681331
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 
-// PREF: disable permissions delegation
+// PREF: disable permissions delegation [deprecated in FF118]
 // Currently applies to cross-origin geolocation, camera, mic and screen-sharing
 // permissions, and fullscreen requests. Disabling delegation means any prompts
 // for these will show/use their correct 3rd party origin.
 // [1] https://groups.google.com/forum/#!topic/mozilla.dev.platform/BdFOMAuCGW8/discussion
-//user_pref("permissions.delegation.enabled", false);
+user_pref("permissions.delegation.enabled", false);
 
 // PREF: enforce TLS 1.0 and 1.1 downgrades as session only
 //user_pref("security.tls.version.enable-deprecated", false); // DEFAULT
