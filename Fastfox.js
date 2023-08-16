@@ -176,6 +176,8 @@ user_pref("layout.css.has-selector.enabled", true);
 //user_pref("layout.css.scroll-driven-animations.enabled", true);
 
 // PREF: HTML Sanitizer API [NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer
+// [2] https://caniuse.com/mdn-api_sanitizer
 user_pref("dom.security.sanitizer.enabled", true);
 
 // PREF: Shadowrealms [NIGHTLY]
