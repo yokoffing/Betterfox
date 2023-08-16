@@ -216,6 +216,12 @@ user_pref("layout.css.has-selector.enabled", true);
 //user_pref("dom.webgpu.enabled", true);
     //user_pref("gfx.webgpu.force-enabled", true); // enforce
 
+// PREF: WebCodecs API [NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API
+// [2] https://groups.google.com/a/mozilla.org/g/dev-platform/c/3g0fnn6682A?pli=1
+// [3] https://w3c.github.io/webcodecs/samples/
+//user_pref("dom.media.webcodecs.enabled", true);
+
 /****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
 ****************************************************************************/
