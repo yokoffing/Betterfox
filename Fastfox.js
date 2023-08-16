@@ -249,8 +249,11 @@ user_pref("gfx.webrender.all", true); // enables WR + additional features
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1823135
 //user_pref("gfx.webrender.super-resolution.nvidia", true);
 
-// PREF: prefer GPU over CPU 
-user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
+// PREF: prefer GPU over CPU
+// At best, the prefs do nothing on Linux/macOS.
+// At worst, it'll result in crashes if the sandboxing is a WIP.
+// [1] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#gpu-process
+//user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
     //user_pref("layers.gpu-process.force-enabled", true); // enforce
     //user_pref("layers.mlgpu.enabled", true); // LINUX
 //user_pref("media.hardware-video-decoding.enabled", true); // DEFAULT WINDOWS macOS
