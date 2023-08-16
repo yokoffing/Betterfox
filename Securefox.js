@@ -33,11 +33,10 @@ user_pref("browser.contentblocking.category", "strict");
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // enabled with "Strict"
 
 // PREF: relax blocklist for ETP Strict
-// Some sites break running ETP Strict
-// Using a less aggressive internal blocklist mitigates this breakage
-// This is easier than adjusting prefs for ETP Custom
-// [NOTE] Sadly, this does not work on NIGHTLY; you must use Custom and adjust prefs individually
-//user_pref("browser.contentblocking.features.strict", "	tp,tpPrivate,cookieBehavior5,cookieBehaviorPBM5,cm,fp,stp,emailTP,emailTPPrivate,lvl1,rp,rpTop,ocsp,qps,qpsPBM");
+// Using a less aggressive internal blocklist to mitigate site breakage.
+// This is easier than adjusting prefs for ETP Custom.
+// [NOTE] Sadly, this does not work on NIGHTLY; you must use Custom and adjust prefs individually.
+//user_pref("browser.contentblocking.features.strict", "tp,tpPrivate,cookieBehavior5,cookieBehaviorPBM5,cm,fp,stp,emailTP,emailTPPrivate,lvl1,rp,rpTop,ocsp,qps,qpsPBM");
 
 // PREF: query stripping
 // Currently uses a small list [1]
@@ -49,7 +48,7 @@ user_pref("browser.contentblocking.category", "strict");
 //user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 //user_pref("privacy.query_stripping.enabled.pbmode", true); // enabled with "Strict"
 user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
-//user_pref("privacy.query_stripping.strip_on_share.enabled", false); // DEFAULT
+//user_pref("privacy.query_stripping.strip_on_share.enabled", true); // DEFAULT [FF115+]
 
 // PREF: allow embedded tweets, Instagram and Reddit posts, and TikTok embeds
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
@@ -80,7 +79,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 //user_pref("fission.autostart", true); // DEFAULT [DO NOT TOUCH]
 //user_pref("fission.webContentIsolationStrategy", 1); // DEFAULT
 
-// PREF: GPU sandboxing [FF110+]
+// PREF: GPU sandboxing [FF110+] [WINDOWS]
 // [1] https://www.ghacks.net/2023/01/17/firefox-110-will-launch-with-gpu-sandboxing-on-windows/
 // [2] https://techdows.com/2023/02/disable-gpu-sandboxing-firefox.html
 // 0=disabled, 1=enabled (default)
@@ -141,14 +140,14 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // PREF: SameSite Cookies
 // [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
 // [2] https://web.dev/samesite-cookies-explained/
-//user_pref("network.cookie.sameSite.laxByDefault", true);
-//user_pref("network.cookie.sameSite.noneRequiresSecure", true);
-//user_pref("network.cookie.sameSite.schemeful", true);
+//user_pref("network.cookie.sameSite.laxByDefault", false); // DEFAULT
+//user_pref("network.cookie.sameSite.noneRequiresSecure", true); // DEFAULT
+//user_pref("network.cookie.sameSite.schemeful", false); // DEFAULT
 
-// PREF: Hyperlink Auditing (click tracking).
+// PREF: Hyperlink Auditing (click tracking)
 //user_pref("browser.send_pings", false); // DEFAULT
 
-// PREF: disable Beacon API
+// PREF: Beacon API
 // Disabling this API sometimes causes site breakage.
 // [TEST] https://vercel.com/
 // [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon
@@ -165,7 +164,7 @@ user_pref("browser.uitour.enabled", false);
     //user_pref("browser.uitour.url", "");
 
 // PREF: reset remote debugging to disabled
-// https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16222
+// [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16222
 //user_pref("devtools.debugger.remote-enabled", false); // DEFAULT
 
 // PREF: enable Global Privacy Control (GPC) [NIGHTLY]
