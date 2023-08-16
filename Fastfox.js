@@ -163,8 +163,8 @@ user_pref("layout.css.grid-template-masonry-value.enabled", true);
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 user_pref("dom.enable_web_task_scheduling", true);
 
-// PREF: enable :has() CSS relational pseudo-class [NIGHTLY]
-// Needed for some extensions, filters, and customizations
+// PREF: CSS :has() selector [NIGHTLY]
+// Needed for some extensions, filters, and customizations.
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
 // [2] https://caniuse.com/css-has
 user_pref("layout.css.has-selector.enabled", true);
@@ -176,7 +176,7 @@ user_pref("layout.css.has-selector.enabled", true);
 //user_pref("layout.css.scroll-driven-animations.enabled", true);
 
 // PREF: HTML Sanitizer API [NIGHTLY]
-//user_pref("dom.security.sanitizer.enabled", true);
+user_pref("dom.security.sanitizer.enabled", true);
 
 // PREF: Shadowrealms [NIGHTLY]
 // [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
@@ -232,8 +232,8 @@ user_pref("layout.css.has-selector.enabled", true);
 // [3] https://www.reddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
 // [4] https://www.reddit.com/r/firefox/comments/z5auzi/comment/ixw65gb?context=3
 // [5] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db?permalink_comment_id=4532937#gistcomment-4532937
-user_pref("gfx.webrender.all", true); // enables WR + additional features
-//user_pref("gfx.webrender.precache-shaders", true); // longer startup time
+//user_pref("gfx.webrender.all", true); // enables WR + additional features
+user_pref("gfx.webrender.precache-shaders", true); // longer initial startup time
 //user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS macOS
     //user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
 
@@ -269,7 +269,7 @@ user_pref("gfx.webrender.all", true); // enables WR + additional features
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
-user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
+//user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
     user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; alt=32768
     user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; alt=4096
     user_pref("gfx.content.skia-font-cache-size", 20); // in MB; default=5; Chrome=20; alt=80
@@ -327,7 +327,7 @@ user_pref("media.cache_resume_threshold", 3600); // 60 min; default=30; when a n
 // -1=Automatically decide the maximum memory to use to cache decoded images, messages, and chrome based on the total amount of RAM
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 user_pref("browser.cache.memory.capacity", 1048576); // default=-1; 1048576=1GB, 2097152=2GB
-user_pref("browser.cache.memory.max_entry_size", 65536); // default=5120; -1=entries bigger than than 90% of the mem-cache are never cached
+user_pref("browser.cache.memory.max_entry_size", 327680); // default=5120; alt=65536 -1=entries bigger than than 90% of the mem-cache are never cached
 
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
@@ -339,8 +339,8 @@ user_pref("browser.cache.memory.max_entry_size", 65536); // default=5120; -1=ent
 // PREF: media memory cache
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
 // [2] https://github.com/arkenfox/user.js/pull/941
-user_pref("media.memory_cache_max_size", 131072); // default=8192; AF=65536; alt=1048576
-user_pref("media.memory_caches_combined_limit_kb", 524288); // default=524288; alt=3145728
+user_pref("media.memory_cache_max_size", 512000); // default=8192; AF=65536; alt=131072
+user_pref("media.memory_caches_combined_limit_kb", 3145728); // default=524288
 //user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory that Firefox can use for media caches
 
 /****************************************************************************
@@ -382,6 +382,7 @@ user_pref("network.websocket.max-connections", 400); // default=200
 // Pacing HTTP requests can have some benefits, such as reducing network congestion,
 // improving web page loading speed, and avoiding server overload.
 // false=Firefox will send as many requests as possible without pacing
+// true=Firefox will pace requests (default)
 //user_pref("network.http.pacing.requests.enabled", true); // DEFAULT
     user_pref("network.http.pacing.requests.min-parallelism", 12); // default=6
     user_pref("network.http.pacing.requests.burst", 20); // default=10
@@ -448,29 +449,139 @@ user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS
 // while preserving privacy. Users may relax hardening to maximize their preference.
 // For more information, see SecureFox: "PREF: State Paritioning" and "PREF: Network Partitioning" [1]
 // [1] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L74-L108
-// [NOTE] To activate and increase network predictions, go to settings in uBlock Origin,  and make this setting is DISABLED:
+// [NOTE] To activate and increase network predictions, go to settings in uBlock Origin, and make this setting is DISABLED:
 // - "Disable pre-fetching (to prevent any connection for blocked network requests)"
 // [NOTE] Add prefs to "MY OVERRIDES" section and uncomment to enable them in your user.js.
 
 // PREF: increase network predictions
-//user_pref("network.http.speculative-parallel-limit", 12); // default=6; overrides SecureFox
-//user_pref("network.dns.disablePrefetch", false); // overrides SecureFox
+//user_pref("network.http.speculative-parallel-limit", 12); // default=6
+//user_pref("network.dns.disablePrefetch", false);
 //user_pref("network.dns.disablePrefetchFromHTTPS", false);
 //user_pref("network.early-hints.enabled", true);
     //user_pref("network.early-hints.preconnect.enabled", true);
     //user_pref("network.early-hints.preconnect.max_connections", 18); // default=10
-//user_pref("browser.urlbar.speculativeConnect.enabled", true); // overrides SecureFox
+//user_pref("browser.urlbar.speculativeConnect.enabled", true);
 //user_pref("browser.places.interactions.enabled", true); // DEFAULT
-    //user_pref("browser.places.speculativeConnect.enabled", true); // overrides SecureFox
-//user_pref("network.prefetch-next", true); // overrides SecureFox
-//user_pref("network.predictor.enabled", true); // overrides SecureFox
-//user_pref("network.predictor.enable-prefetch", true); // overrides SecureFox
+    //user_pref("browser.places.speculativeConnect.enabled", true);
+//user_pref("network.prefetch-next", true);
+//user_pref("network.predictor.enabled", true);
+//user_pref("network.predictor.enable-prefetch", true);
 //user_pref("network.predictor.enable-hover-on-ssl", true);
-    //user_pref("network.predictor.preresolve-min-confidence", 30); // default=60; alt=10
-    //user_pref("network.predictor.preconnect-min-confidence", 60); // default=90; alt=20
-    //user_pref("network.predictor.prefetch-min-confidence", 70); // default=100; alt=30
+    //user_pref("network.predictor.preresolve-min-confidence", 40); // default=60
+    //user_pref("network.predictor.preconnect-min-confidence", 60); // default=90
+    //user_pref("network.predictor.prefetch-min-confidence", 80); // default=100
         //user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
         //user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
     //user_pref("network.predictor.max-resources-per-entry", 250); // default=100
     //user_pref("network.predictor.max-uri-length", 1000); // default=500
 
+// PREF: Speculative Connections
+// Firefox will open predictive connections to sites when the user hovers their mouse over thumbnails
+// on the New Tab Page or the user starts to search in the Search Bar, or in the search field on the
+// New Tab Page [1]. This pref may control speculative connects for normal links, too [2].
+// The maximum number of current global half open sockets allowable when starting a new speculative connection [3].
+// In case the user follows through with the action, the page can begin loading faster
+// since some of the work was already started in advance.
+// [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered
+// [1] https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections?redirectslug=how-stop-firefox-automatically-making-connections&redirectlocale=en-US#:~:text=Speculative%20pre%2Dconnections
+// [2] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
+// [3] https://searchfox.org/mozilla-central/rev/028c68d5f32df54bca4cf96376f79e48dfafdf08/modules/libpref/init/all.js#1280-1282
+// [4] https://www.keycdn.com/blog/resource-hints#prefetch
+// [5] https://3perf.com/blog/link-rels/#prefetch
+user_pref("network.http.speculative-parallel-limit", 0);
+
+// PREF: Preconnect to the autocomplete URL in the address bar
+// Firefox preloads URLs that autocomplete when a user types into the address bar.
+// Connects to destination server ahead of time, to avoid TCP handshake latency.
+// [NOTE] Firefox will perform DNS lookup (if enabled) and TCP and TLS handshake,
+// but will not start sending or receiving HTTP data.
+// [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
+
+// PREF: disable mousedown speculative connections on bookmarks and history
+user_pref("browser.places.speculativeConnect.enabled", false);
+
+// PREF: DNS pre-resolve <link rel="dns-prefetch">
+// Resolve hostnames ahead of time. In order to reduce latency,
+// Firefox will proactively perform domain name resolution on links that
+// the user may choose to follow, as well as URLs for items
+// referenced by elements in a web page.
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
+// [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
+// [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
+// [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
+user_pref("network.dns.disablePrefetch", true);
+//user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
+
+// PREF: Preload <link rel=preload>
+// This tells the browser that the resource should be loaded as part of the current navigation
+// and it should start fetching it ASAP. This attribute can be applied to CSS, fonts, images, JavaScript files and more.
+// This tells the browser to download and cache a resource (like a script or a stylesheet) as soon as possible.
+// The browser doesn’t do anything with the resource after downloading it. Scripts aren’t executed, stylesheets
+// aren’t applied. It’s just cached – so that when something else needs it, it’s available immediately.
+// Focuses on fetching a resource for the CURRENT navigation.
+// [NOTE] Unlike other pre-connection tags (except modulepreload), this tag is mandatory for the browser.
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload
+// [2] https://w3c.github.io/preload/
+// [3] https://3perf.com/blog/link-rels/#preload
+// [4] https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
+// [5] https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#how-can-preload-do-better
+// [6] https://www.keycdn.com/blog/resource-hints#preload
+// [7] https://github.com/arkenfox/user.js/issues/1098#issue-791949341
+// [8] https://yashints.dev/blog/2018/10/06/web-perf-2#preload
+// [9] https://web.dev/preload-critical-assets/
+//user_pref("network.preload", true); // DEFAULT
+
+// PREF: enable early hints
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
+//user_pref("network.early-hints.enabled", false); // DEFAULT
+// Enable `Link: rel=preconnect` in 103 Early Hint response:
+    //user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
+// The number of speculative connections allowed for `Link: rel=preconnect`:
+// When 0, this is limited by "network.http.speculative-parallel-limit".
+    //user_pref("network.early-hints.preconnect.max_connections", 0); // DEFAULT
+
+// PREF: Link prefetching <link rel="prefetch">
+// Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
+// A directive that tells a browser to fetch a resource that will likely be needed for the next navigation.
+// The resource will be fetched with extremely low priority (since everything the browser knows
+// is needed in the current page is more important than a resource that we guess might be needed in the next one).
+// Speeds up the NEXT navigation rather than the current one.
+// When the user clicks on a link, or initiates any kind of page load, link prefetching will stop and any prefetch hints will be discarded.
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ#Privacy_implications
+// [2] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
+// [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
+// [4] https://3perf.com/blog/link-rels/#prefetch
+user_pref("network.prefetch-next", false);
+
+// PREF: Network Predictor (NP)
+// Keeps track of components that were loaded during page visits so that the browser knows next time
+// which resources to request from the server: It uses a local file to remember which resources were
+// needed when the user visits a webpage (such as image.jpg and script.js), so that the next time the
+// user prepares to go to that webpage (upon navigation? URL bar? mouseover?), this history can be used
+// to predict what resources will be needed rather than wait for the document to link those resources.
+// NP only performs pre-connect, not prefetch, by default, including DNS pre-resolve and TCP preconnect
+// (which includes SSL handshake). No data is actually sent to the site until a user actively clicks
+// a link. However, NP is still opening TCP connections and doing SSL handshakes, so there is still
+// information leakage about your browsing patterns. This isn't desirable from a privacy perspective.
+// [NOTE] Disabling DNS prefetching disables the DNS prefetching behavior of NP.
+// [1] https://wiki.mozilla.org/Privacy/Reviews/Necko
+// [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
+// [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
+// [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
+user_pref("network.predictor.enabled", false);
+
+// PREF: NP fetches resources on the page ahead of time, to accelerate rendering of the page.
+// Performs both pre-connect and prefetch.
+user_pref("network.predictor.enable-prefetch", false);
+
+// PREF: NP activates upon hovered links
+// The next time the user mouseovers a link to that webpage, history is used to predict what
+// resources will be needed rather than wait for the document to link those resources.
+// When you hover over links, connections are established to linked domains and servers
+// automatically to speed up the loading process should you click on the link. To improve the
+// loading speed, Firefox will open predictive connections to sites when the user hovers their
+// mouse over. In case the user follows through with the action, the page can begin loading
+// faster since some of the work was already started in advance. Focuses on fetching a resource
+// for the NEXT navigation.
+//user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
