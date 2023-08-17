@@ -93,13 +93,13 @@ user_pref("security.cert_pinning.enforcement_level", 2);
 
 /** SSL / TLS ***/
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
+//user_pref("security.ssl.require_safe_negotiation", true); // require safe negotiation
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("security.tls.enable_0rtt_data", false);
 
 /** DISK AVOIDANCE ***/
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 user_pref("browser.sessionstore.interval", 60000);
-user_pref("browser.sessionstore.privacy_level", 2);
 
 /** SHUTDOWN & SANITIZING ***/
 user_pref("privacy.history.custom", true);
@@ -110,32 +110,28 @@ user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
+user_pref("browser.formfill.enable", false);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
 user_pref("network.IDN_show_punycode", true);
 
-/** HTTPS-FIRST MODE ***/
+/** HTTPS-FIRST POLICY ***/
 user_pref("dom.security.https_first", true);
 
-/** PROXY / SOCKS / IPv6 ***/
-user_pref("network.proxy.socks_remote_dns", true);
-user_pref("network.file.disable_unc_paths", true);
-user_pref("network.gio.supported-protocols", "");
+/** HTTPS-ONLY MODE ***/
+user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 /** PASSWORDS AND AUTOFILL ***/
-user_pref("signon.formlessCapture.enabled", false);
-user_pref("signon.privateBrowsingCapture.enabled", false);
-user_pref("signon.autofillForms", false);
 user_pref("signon.rememberSignons", false);
 user_pref("editor.truncate_user_pastes", false);
 
 /** ADDRESS + CREDIT CARD MANAGER ***/
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
-user_pref("browser.formfill.enable", false);
 
 /** MIXED CONTENT + CROSS-SITE ***/
 user_pref("network.auth.subresource-http-auth-allow", 1);
+user_pref("security.mixed_content.block_display_content", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("permissions.delegation.enabled", false);
@@ -160,10 +156,6 @@ user_pref("browser.tabs.firefox-view", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-user_pref("geo.provider.ms-windows-location", false); // WINDOWS
-user_pref("geo.provider.use_corelocation", false); // MAC
-user_pref("geo.provider.use_gpsd", false); // LINUX
-user_pref("geo.provider.use_geoclue", false); // LINUX
 user_pref("permissions.manager.defaultsUrl", "");
 user_pref("webchannel.allowObject.urlWhitelist", "");
 
