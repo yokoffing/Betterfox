@@ -22,20 +22,15 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0);
 user_pref("content.notify.interval", 100000);
 user_pref("browser.startup.preXulSkeletonUI", false);
 
-/** TAB UNLOAD ***/
-user_pref("browser.low_commit_space_threshold_mb", 2640); // WINDOWS LINUX
-user_pref("browser.low_commit_space_threshold_percent", 33); // LINUX
-user_pref("browser.tabs.min_inactive_duration_before_unload", 300000);
-
 /** EXPERIMENTAL ***/
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
 user_pref("layout.css.has-selector.enabled", true);
+user_pref("dom.security.sanitizer.enabled", true);
 
 /** GFX ***/
-user_pref("gfx.webrender.all", true); // enable WR + additional features
-user_pref("layers.gpu-process.enabled", true);
-user_pref("gfx.canvas.accelerated", true); // disable if using an integrated GPU on WINDOWS
+user_pref("gfx.webrender.precache-shaders", true);
+//user_pref("gfx.canvas.accelerated", true); // enable if using a dedicated GPU on WINDOWS
 user_pref("gfx.canvas.accelerated.cache-items", 4096);
 user_pref("gfx.canvas.accelerated.cache-size", 512);
 user_pref("gfx.content.skia-font-cache-size", 20);
@@ -46,10 +41,13 @@ user_pref("browser.cache.memory.capacity", 1048576);
 user_pref("browser.cache.memory.max_entry_size", 65536);
 
 /** MEDIA CACHE ***/
+user_pref("media.memory_cache_max_size", 256000);
+user_pref("media.memory_caches_combined_limit_kb", 1572864);
 user_pref("media.cache_readahead_limit", 7200);
 user_pref("media.cache_resume_threshold", 3600);
-user_pref("media.memory_cache_max_size", 131072);
-user_pref("media.memory_caches_combined_limit_kb", 524288); // DEFAULT
+
+/** IMAGE CACHE ***/
+user_pref("image.mem.decode_bytes_at_a_time", 32768);
 
 /** NETWORK ***/
 user_pref("network.buffer.cache.size", 262144);
@@ -65,6 +63,15 @@ user_pref("network.dnsCacheEntries", 10000);
 user_pref("network.dnsCacheExpiration", 86400);
 user_pref("network.dns.max_high_priority_threads", 8);
 user_pref("network.ssl_tokens_cache_capacity", 32768);
+
+/** SPECULATIVE CONNECTIONS ***/
+user_pref("network.http.speculative-parallel-limit", 0);
+user_pref("network.dns.disablePrefetch", true);
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
+user_pref("browser.places.speculativeConnect.enabled", false);
+user_pref("network.prefetch-next", false);
+user_pref("network.predictor.enabled", false);
+user_pref("network.predictor.enable-prefetch", false);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
@@ -96,15 +103,6 @@ user_pref("browser.sessionstore.privacy_level", 2);
 
 /** SHUTDOWN & SANITIZING ***/
 user_pref("privacy.history.custom", true);
-
-/** SPECULATIVE CONNECTIONS ***/
-user_pref("network.http.speculative-parallel-limit", 0);
-user_pref("network.dns.disablePrefetch", true);
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
-user_pref("browser.places.speculativeConnect.enabled", false);
-user_pref("network.prefetch-next", false);
-user_pref("network.predictor.enabled", false);
-user_pref("network.predictor.enable-prefetch", false);
 
 /** SEARCH / URL BAR ***/
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
