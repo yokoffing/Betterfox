@@ -523,7 +523,7 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // PREF: the number of speculative connections allowed for early hints `Link: rel=preconnect`
 // When 0, this is limited by "network.http.speculative-parallel-limit".
 //user_pref("network.early-hints.preconnect.max_connections", 0);
-//user_pref("network.early-hints.preconnect.max_connections", 18); // default=10
+//user_pref("network.early-hints.preconnect.max_connections", 20); // default=10
 
 // PREF: Link prefetching <link rel="prefetch">
 // Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
