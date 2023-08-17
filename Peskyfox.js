@@ -16,12 +16,15 @@
 // [1] https://www.reddit.com/r/firefox/comments/rfj6yc/how_to_stop_firefoxs_dark_theme_from_overriding/hoe82i5/?context=3
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 
+// PREF: disable always using dark theme for private browsing windows [FF106+]
+//user_pref("browser.theme.dark-private-windows", false);
+
 // PREF: enable Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // PREF: disable annoying update restart prompts
-// Delay update available prompts for ~1 week
-// Will still show green arrow in menu bar
+// Delay update available prompts for ~1 week.
+// Will still show green arrow in menu bar.
 user_pref("app.update.suppressPrompts", true);
 
 // PREF: add compact mode back to options
@@ -56,9 +59,9 @@ user_pref("browser.tabs.tabmanager.enabled", false);
 
 // PREF: disable Warnings
 //user_pref("browser.tabs.warnOnClose", false); // DEFAULT [FF94+]
-//user_pref("browser.tabs.warnOnCloseOtherTabs", false);
-//user_pref("browser.tabs.warnOnOpen", false);
-//user_pref("browser.aboutConfig.showWarning", false);
+//user_pref("browser.tabs.warnOnCloseOtherTabs", true); // DEFAULT
+//user_pref("browser.tabs.warnOnOpen", true); // DEFAULT
+user_pref("browser.aboutConfig.showWarning", false);
 
 // PREF: disable fullscreen delay and notice
 user_pref("full-screen-api.transition-duration.enter", "0 0");
@@ -83,9 +86,8 @@ user_pref("findbar.highlightAll", true);
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089
 user_pref("middlemouse.contentLoadURL", false);
 
-// PREF: attempt to remove ugly border drawn around links when clicked
+// PREF: attempt to remove ugly border drawn around links when clicked [macOS]
 //user_pref("accessibility.mouse_focuses_formcontrol", 0);
-// The above should work, but you may need to add:
     //user_pref("browser.display.focus_ring_style", 0);
     //user_pref("browser.display.focus_ring_width", 0);
 
@@ -95,13 +97,10 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 // PREF: remove "private window" indicator in tab bar [FF106+]
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
 
-// PREF: disable always using dark theme for private browsing windows [FF106+]
-//user_pref("browser.theme.dark-private-windows", false);
-
 // PREF: Firefox Translations [NIGHTLY]
 // Automated translation of web content is done locally in Firefox, so that
 // the text being translated does not leave your machine.
-// Visit about:translations to translate your own text as well.
+// [ABOUT] Visit about:translations to translate your own text as well.
 // [1] https://blog.mozilla.org/en/mozilla/local-translation-add-on-project-bergamot/
 // [2] https://blog.nightly.mozilla.org/2023/06/01/firefox-translations-and-other-innovations-these-weeks-in-firefox-issue-139/
 // [3] https://www.ghacks.net/2023/08/02/mozilla-firefox-117-beta-brings-an-automatic-language-translator-for-websites-and-it-works-offline/
