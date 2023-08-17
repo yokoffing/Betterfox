@@ -57,17 +57,11 @@ user_pref("browser.preferences.moreFromMozilla", false);
 // [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
 user_pref("browser.tabs.tabmanager.enabled", false);
 
-// PREF: disable Warnings
+// PREF: Warnings
 //user_pref("browser.tabs.warnOnClose", false); // DEFAULT [FF94+]
 //user_pref("browser.tabs.warnOnCloseOtherTabs", true); // DEFAULT
 //user_pref("browser.tabs.warnOnOpen", true); // DEFAULT
 user_pref("browser.aboutConfig.showWarning", false);
-
-// PREF: disable fullscreen delay and notice
-user_pref("full-screen-api.transition-duration.enter", "0 0");
-user_pref("full-screen-api.transition-duration.leave", "0 0");
-user_pref("full-screen-api.warning.delay", -1);
-user_pref("full-screen-api.warning.timeout", 0);
 
 // PREF: disable welcome notices
 //user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
@@ -79,13 +73,6 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 // PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
-// PREF: show all matches in Findbar
-user_pref("findbar.highlightAll", true);
-
-// PREF: disable middle mouse click opening links from clipboard
-// [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089
-user_pref("middlemouse.contentLoadURL", false);
-
 // PREF: attempt to remove ugly border drawn around links when clicked [macOS]
 //user_pref("accessibility.mouse_focuses_formcontrol", 0);
     //user_pref("browser.display.focus_ring_style", 0);
@@ -94,8 +81,30 @@ user_pref("middlemouse.contentLoadURL", false);
 // PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+]
 user_pref("browser.privateWindowSeparation.enabled", false);
 
-// PREF: minimize the "private window" indicator in tab bar [FF106+]
+// PREF: reduce the size of the "private window" indicator in tab bar [FF106+]
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
+
+// PREF: Cookie Banner handling [NIGHTLY]
+// [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
+// [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
+// [2] https://phabricator.services.mozilla.com/D153642
+// [3] https://winaero.com/make-firefox-automatically-click-on-reject-all-in-cookie-banner-consent/
+// [4] https://docs.google.com/spreadsheets/d/1Nb4gVlGadyxix4i4FBDnOeT_eJp2Zcv69o-KfHtK-aA/edit#gid=0
+// 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
+// 1: reject banners if it is a one-click option; otherwise, keep banners on screen
+// 0: disable all cookie banner handling
+user_pref("cookiebanners.service.mode", 2);
+user_pref("cookiebanners.service.mode.privateBrowsing", 2);
+    //user_pref("cookiebanners.bannerClicking.enabled", true); // DEFAULT [FF108]
+    //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
+
+// PREF: global CookieBannerRules [WiP]
+// Global rules that can handle a list of cookie banner libraries / providers on any site.
+// This is used for click rules that can handle common Consent Management Providers (CMP)
+// [WARNING] Beware of potential bugs and performance issues. Enabling this may negatively
+// impact site performance. It requires Firefox to run rule-defined query selectors for
+// every page.
+//user_pref("cookiebanners.service.enableGlobalRules", true);
 
 // PREF: Firefox Translations [NIGHTLY]
 // Automated translation of web content is done locally in Firefox, so that
@@ -106,6 +115,16 @@ user_pref("browser.privatebrowsing.enable-new-indicator", false);
 // [3] https://www.ghacks.net/2023/08/02/mozilla-firefox-117-beta-brings-an-automatic-language-translator-for-websites-and-it-works-offline/
 user_pref("browser.translations.enable", true);
     //user_pref("browser.translations.autoTranslate", true);
+
+/****************************************************************************
+ * SECTION: FULLSCREEN NOTICE                                               *
+****************************************************************************/
+
+// PREF: disable fullscreen delay and notice
+user_pref("full-screen-api.transition-duration.enter", "0 0");
+user_pref("full-screen-api.transition-duration.leave", "0 0");
+user_pref("full-screen-api.warning.delay", -1);
+user_pref("full-screen-api.warning.timeout", 0);
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
@@ -363,6 +382,16 @@ user_pref("browser.tabs.loadBookmarksInTabs", true);
 // PREF: leave Bookmarks Menu open when selecting a site
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
+// PREF: restore "View image info" on right-click
+user_pref("browser.menu.showViewImageInfo", true);
+
+// PREF: show all matches in Findbar
+user_pref("findbar.highlightAll", true);
+
+// PREF: disable middle mouse click opening links from clipboard
+// [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089
+user_pref("middlemouse.contentLoadURL", false);
+
 // PREF: Prevent scripts from moving and resizing open windows
 //user_pref("dom.disable_window_move_resize", true);
 
@@ -395,34 +424,9 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false);
 //user_pref("dom.disable_open_during_load", true); // DEFAULT
 //user_pref("privacy.popups.showBrowserMessage", true); // DEFAULT
 
-// PREF: Cookie Banner handling [NIGHTLY]
-// [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
-// [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
-// [2] https://phabricator.services.mozilla.com/D153642
-// [3] https://winaero.com/make-firefox-automatically-click-on-reject-all-in-cookie-banner-consent/
-// [4] https://docs.google.com/spreadsheets/d/1Nb4gVlGadyxix4i4FBDnOeT_eJp2Zcv69o-KfHtK-aA/edit#gid=0
-// 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
-// 1: reject banners if it is a one-click option; otherwise, keep banners on screen
-// 0: disable all cookie banner handling
-user_pref("cookiebanners.service.mode", 2);
-user_pref("cookiebanners.service.mode.privateBrowsing", 2);
-    //user_pref("cookiebanners.bannerClicking.enabled", true); // DEFAULT [FF108]
-    //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
-
-// PREF: global CookieBannerRules [WiP]
-// Global rules that can handle a list of cookie banner libraries / providers on any site.
-// This is used for click rules that can handle common Consent Management Providers (CMP)
-// [WARNING] Beware of potential bugs and performance issues. Enabling this may negatively
-// impact site performance. It requires Firefox to run rule-defined query selectors for
-// every page.
-//user_pref("cookiebanners.service.enableGlobalRules", true);
-
 /****************************************************************************
  * SECTION: UNCATEGORIZED                                                   *
 ****************************************************************************/
-
-// PREF: restore "View image info"
-user_pref("browser.menu.showViewImageInfo", true);
 
 // PREF: disable backspace action
 // 0=previous page, 1=scroll up, 2=do nothing
@@ -450,7 +454,7 @@ user_pref("browser.menu.showViewImageInfo", true);
 //user_pref("ui.SpellCheckerUnderlineStyle", 1);
 
 // PREF: limit the number of bookmark backups Firefox keeps
-user_pref("browser.bookmarks.max_backups", 1); // default=15
+//user_pref("browser.bookmarks.max_backups", 1); // default=15
 
 // PREF: zoom only text on webpage, not other elements
 //user_pref("browser.zoom.full", false);
@@ -470,8 +474,8 @@ user_pref("browser.bookmarks.max_backups", 1); // default=15
 //user_pref("browser.display.show_image_placeholders", false);
 
 // PREF: wrap long lines of text when using source / debugger
-user_pref("view_source.wrap_long_lines", true);
-user_pref("devtools.debugger.ui.editor-wrapping", true);
+//user_pref("view_source.wrap_long_lines", true);
+//user_pref("devtools.debugger.ui.editor-wrapping", true);
 
 // PREF: enable ASRouter Devtools at about:newtab#devtools (useful if you're making your own CSS theme)
 // [1] https://firefox-source-docs.mozilla.org/browser/components/newtab/content-src/asrouter/docs/debugging-docs.html
@@ -497,7 +501,7 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);
 //user_pref("permissions.default.shortcuts", 2);
 
 // PREF: JPEG XL image format [NIGHTLY]
-// May not affect anything on Stable channel [2]
+// May not affect anything on ESR/Stable channel [2].
 // [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1539075
 //user_pref("image.jxl.enabled", true);
