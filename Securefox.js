@@ -1055,9 +1055,7 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 // [4] https://winaero.com/firefox-has-accessibility-service-memory-leak-you-should-disable-it/
 // [5] https://www.ghacks.net/2022/12/26/firefoxs-accessibility-performance-is-getting-a-huge-boost/
 user_pref("accessibility.force_disabled", 1);
-
-// PREF: disable the Accessibility panel
-//user_pref("devtools.accessibility.enabled", false);
+    //user_pref("devtools.accessibility.enabled", false);
 
 // PREF: disable Firefox accounts
 // [ALTERNATIVE] Use xBrowserSync [1]
@@ -1095,10 +1093,10 @@ user_pref("permissions.default.geo", 2);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 
 // PREF: disable using the OS's geolocation service
-user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
-user_pref("geo.provider.use_corelocation", false); // [MAC]
-user_pref("geo.provider.use_gpsd", false); // [LINUX]
-user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
+//user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
+//user_pref("geo.provider.use_corelocation", false); // [MAC]
+//user_pref("geo.provider.use_gpsd", false); // [LINUX]
+//user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 
 // PREF: logging geolocation to the console
 //user_pref("geo.provider.network.logging.enabled", true);
