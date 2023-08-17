@@ -461,7 +461,7 @@ user_pref("privacy.history.custom", true);
 // [2] https://winaero.com/firefox-75-strips-https-and-www-from-address-bar-results/
 //user_pref("browser.urlbar.trimURLs", true); // DEFAULT
 
-// PREF: do not show search terms in URL bar [FF110+]
+// PREF: do not show search terms in URL bar [FF110+] [FF113+]
 // Show search query instead of URL on search results pages.
 // [SETTING] Search>Search Bar>Use the address bar for search and navigation>Show search terms instead of URL...
 //user_pref("browser.urlbar.showSearchTerms.enabled", false);
