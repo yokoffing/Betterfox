@@ -94,7 +94,8 @@ To further harden Firefox:
 * [2023 Browser Showdown: Comparing Chrome, Brave, Firefox, Vivaldi, and Opera](https://www.appdate.lk/technology/2023-browser-showdown/) (Jan 2023)
 
 ### Podcasts
-* [GhoSTORIES with Franz & Pete](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh), S2|E6, 17:05-18:40 (Feb 2021)
+* [Italian] [Digitalia.fm](https://digitalia.fm/684/) (July 2023)
+* [GhoSTORIES with Franz & Pete](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh) S2|E6, 17:05-18:40 (Feb 2021)
 
 ### Guides
 * [FMHY Browser Tools: Privacy Tweaks](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/storage/#wiki_privacy_based_browsers)
@@ -111,6 +112,8 @@ If you like the project and benefit from it, leave a :star: (top right) and beco
 * Our appreciation goes to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://builtin.com/software-engineering-perspectives/open-web).
 * This repository benefits from the ongoing research provided by [arkenfox](https://github.com/arkenfox/user.js). They are the foundation to any worthwhile `user.js`.
 * Special thanks to the 2021 Ghostery team for [pruning](https://github.com/ghostery/user-agent-desktop/pull/512) subjective prefs, and to [Alex Kontos](https://github.com/MrAlex94) for optimizing `Fastfox` prefs in 2023.
+
+***
 
 <div align='center'><a href='https://www.websitecounterfree.com'><img src='https://www.websitecounterfree.com/c.php?d=9&id=19653&s=1' border='0' alt='Free Website Counter'></a><br / >
 <div align='center'>since 23 July 2022</div>
