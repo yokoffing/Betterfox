@@ -40,7 +40,7 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 * **Firefox Sync** and **Firefox View** are disabled. Override if you use these features.
 * The built-in **password manager** is disabled. We recommend using [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/) or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager) to manage your credentials on multiple devices.
 
-Less critical prefs include:
+Less critical changes include:
 * **Top sites** (pinned site shortcuts) are removed for a clean new tab page.
 * **Location requests** and **site notifications** are blocked to minimize annoyances.
 * Embedded **tweets, tiktoks, Instagram and Reddit posts** are allowed to load on webpages in order to avoid site breakage, even though these requests are usually blocked when using [Strict](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection) Enhanced Tracking Protection.
@@ -64,22 +64,11 @@ To further harden Firefox:
       2) Check *Delete cookies and site data when Firefox is closed*.
 
 ## Recognition
-### User Comments
-- [1](https://old.reddit.com/r/browsers/comments/y7w57n/which_browser_do_you_use_on_your_devices/it30hqi/?context=3)
-[2](https://old.reddit.com/r/firefox/comments/z5auzi/firefox_not_properly_usingrecognizing_gpu_poor/iy36hyz)
-[3](https://old.reddit.com/r/firefox/comments/1030fri/why_does_firefox_feel_slowchoppy/j2wu4ow/)
-[4](https://old.reddit.com/r/pcmasterrace/comments/zwioe1/what_browser_will_you_be_using_in_2023_please/j1wmbxo/)
-[5](https://old.reddit.com/r/firefox/comments/zodxzx/performance_optimizations_for_firefox/j0memta/?context=2)
-[6](https://old.reddit.com/r/browsers/comments/106qwyk/in_contrast_to_previous_post_what_do_you_like/j3irpx0/?context=2)
-[7](https://old.reddit.com/r/firefox/comments/115va7d/list_of_aboutconfiguserjs_privacy_tweaks/j9700bc/?context=2)
-[8](https://old.reddit.com/r/browsers/comments/11q6je7/is_block_or_snoof_browser_fingerprint_better/jc2mhcx/?context=2)
-[9](https://old.reddit.com/r/browsers/comments/139h4my/suggestion_for_finding_3_good_privacy_focus/jj3n3qn/?context=2)
-[10](https://old.reddit.com/r/MozillaFirefox/comments/15cc1vk/about_changes_in_aboutconfig/jtyx910/?context=3)
 
 ### Browser Integration
-* [Waterfox](https://github.com/WaterfoxCo/Waterfox) | [files](https://github.com/WaterfoxCo/Waterfox/commit/735d8067b06cca00b9b04b5a6bcd0c1414118f95) (August 2023)
-* [Floorp Browser](https://github.com/Floorp-Projects/Floorp#-betterfox) <sup>[1](https://github.com/Floorp-Projects/Floorp/issues/233#issuecomment-1543557167) [2](https://blog.ablaze.one/3135/2023-04-01/)</sup> | [files](https://github.com/Floorp-Projects/Floorp/blob/f63e87016d88535aafa2b57d690442b9a69cbaa5/toolkit/content/license.html#L200-L224) (April 2023)
-* [Pulse Browser](https://github.com/pulse-browser/browser#%EF%B8%8F-credits) | [files](https://github.com/pulse-browser/browser/tree/alpha/src/browser/app/profile) (Dec 2021)
+* [Waterfox](https://github.com/WaterfoxCo/Waterfox/commit/735d8067b06cca00b9b04b5a6bcd0c1414118f95) | [files](https://github.com/WaterfoxCo/Waterfox/tree/future/waterfox/browser/app/profile) (August 2023)
+* [Floorp](https://github.com/Floorp-Projects/Floorp#-betterfox) <sup>[1](https://github.com/Floorp-Projects/Floorp/issues/233#issuecomment-1543557167) [2](https://blog.ablaze.one/3135/2023-04-01/)</sup> | [files](https://github.com/Floorp-Projects/Floorp/blob/f63e87016d88535aafa2b57d690442b9a69cbaa5/toolkit/content/license.html#L200-L224) (April 2023)
+* [Pulse](https://github.com/pulse-browser/browser#%EF%B8%8F-credits) | [files](https://github.com/pulse-browser/browser/tree/alpha/src/browser/app/profile) (Dec 2021)
 * [Ghostery Private Browser](https://github.com/ghostery/user-agent-desktop#community) <sup>[1](https://web.archive.org/web/20210509171835/https://www.ghostery.com/ghostery-dawn-update-more/) [2](https://web.archive.org/web/20210921114333/https://www.ghostery.com/ghostery-dawn-product-update/)</sup> | [files](https://github.com/ghostery/user-agent-desktop/tree/main/brands/ghostery/branding/pref) (Feb 2021)
 
 ### YouTube
@@ -89,19 +78,27 @@ To further harden Firefox:
 * [Español] [Optimize and Accelerate Firefox](https://www.youtube.com/watch?v=3XtoONmq5_Q) (Nov 2022) 
 * [How To Improve Firefox Performance](https://www.youtube.com/watch?v=N8IOJiOFVEk) (Dec 2021)
 
-### Articles
-* [German] [Pulse Browser Review: Firefox fork with Turbo tweaks and Opera sidebar](https://www.computerbild.de/artikel/cb-Tipps-Software-Pulse-Browser-Review-ein-Firefox-Fork-mit-Seitenleiste-wie-bei-Opera-35644139.html#:~:text=Noch%20mehr%20Speed%2DFeatures) (April 2023)
-* [2023 Browser Showdown: Comparing Chrome, Brave, Firefox, Vivaldi, and Opera](https://www.appdate.lk/technology/2023-browser-showdown/) (Jan 2023)
-
 ### Podcasts
 * [Italian] [Digitalia.fm](https://digitalia.fm/684/) | 1:41.35-1:42.41 (July 2023)
 * [GhoSTORIES with Franz & Pete](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh) | 17:05-18:40 (Feb 2021)
+
+### Articles
+* [German] [Pulse Browser Review: Firefox fork with Turbo tweaks and Opera sidebar](https://www.computerbild.de/artikel/cb-Tipps-Software-Pulse-Browser-Review-ein-Firefox-Fork-mit-Seitenleiste-wie-bei-Opera-35644139.html#:~:text=Noch%20mehr%20Speed%2DFeatures) (April 2023)
+* [2023 Browser Showdown: Comparing Chrome, Brave, Firefox, Vivaldi, and Opera](https://www.appdate.lk/technology/2023-browser-showdown/) (Jan 2023)
 
 ### Guides
 * [FMHY Browser Tools: Privacy Tweaks](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/storage/#wiki_privacy_based_browsers)
 * [Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-Fix/wiki/Tips#privacy)
 * [Narsil/desktop_user.js](https://git.nixnet.services/Narsil/desktop_user.js#thanks)
 * [pyllyukko/user.js](https://github.com/pyllyukko/user.js) [comparator](https://jm42.github.io/compare-user.js/)
+
+### Reviews
+* "... a good balance between privacy and convenience." - [Radplay](https://old.reddit.com/r/firefox/comments/115va7d/list_of_aboutconfiguserjs_privacy_tweaks/j9700bc/?context=2)
+* "... the experience is so good now I don’t think I’ll go back to any of the chromium based browsers." - [Mr_Compromise](https://old.reddit.com/r/pcmasterrace/comments/zwioe1/what_browser_will_you_be_using_in_2023_please/j1wmbxo/)
+* "The best collection of tweaks available ... and doesn't go crazy with privacy/security hardening that completely breaks the usability of Firefox for most users." - [AuRiMaS](https://old.reddit.com/r/MozillaFirefox/comments/15cc1vk/about_changes_in_aboutconfig/jtyx910/?context=3)
+* "BetterFox ... will provide good-enough privacy and help with the performance." - [Qdoit12Super](https://old.reddit.com/r/browsers/comments/139h4my/suggestion_for_finding_3_good_privacy_focus/jj3n3qn/?context=2)
+* "FF is now much snappier! Thanks a lot for the suggestions!" - [whotheff](https://old.reddit.com/r/firefox/comments/z5auzi/firefox_not_properly_usingrecognizing_gpu_poor/iy36hyz/)
+* "... drastically changed the experience with Firefox for me. Improved speed, security, smoothness and removed clutter." - [AppDate](https://www.appdate.lk/technology/2023-browser-showdown/#:~:text=Used%20the%20BetterFox%20user%20config%20settings%20with%20some%20overrides%20which%20drastically%20changed%20the%20experience)
 
 ## Support
 If you like the project and benefit from it, leave a :star: (top right) and become a [stargazer](https://github.com/yokoffing/Betterfox/stargazers)!
