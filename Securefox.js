@@ -839,12 +839,16 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 // [1] https://groups.google.com/forum/#!topic/mozilla.dev.platform/BdFOMAuCGW8/discussion
 user_pref("permissions.delegation.enabled", false);
 
+// PREF: disable middle click on new tab button opening URLs or searches using clipboard [FF115+]
+// Enable if you're using LINUX.
+//user_pref("browser.tabs.searchclipboardfor.middleclick", false); // DEFAULT WINDOWS macOS
+
 // PREF: enforce TLS 1.0 and 1.1 downgrades as session only
 //user_pref("security.tls.version.enable-deprecated", false); // DEFAULT
 
 // PREF: enable (limited but sufficient) window.opener protection
 // Makes rel=noopener implicit for target=_blank in anchor and area elements when no rel attribute is set.
-// https://jakearchibald.com/2016/performance-benefits-of-rel-noopener/
+// [1] https://jakearchibald.com/2016/performance-benefits-of-rel-noopener/
 //user_pref("dom.targetBlankNoOpener.enabled", true); // DEFAULT
 
 // PREF: enable "window.name" protection
