@@ -204,11 +204,12 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", fa
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.tabs.tabmanager.enabled", false);
+user_pref("browser.aboutConfig.showWarning", false);
 user_pref("browser.aboutwelcome.enabled", false);
-user_pref("findbar.highlightAll", true);
-user_pref("middlemouse.contentLoadURL", false);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
+user_pref("cookiebanners.service.mode", 2);
+user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 user_pref("browser.translations.enable", true);
 
 /** FULLSCREEN ***/
@@ -238,12 +239,14 @@ user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 /** PDF ***/
 user_pref("browser.download.open_pdf_attachments_inline", true);
+user_pref("pdfjs.sidebarViewOnLoad", 2);
 
 /** TAB BEHAVIOR ***/
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
-user_pref("cookiebanners.service.mode", 2);
-user_pref("cookiebanners.service.mode.privateBrowsing", 2);
+user_pref("browser.menu.showViewImageInfo", true);
+user_pref("findbar.highlightAll", true);
+user_pref("middlemouse.contentLoadURL", false);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
