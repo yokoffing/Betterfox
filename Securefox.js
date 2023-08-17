@@ -806,7 +806,10 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
 //user_pref("security.mixed_content.block_active_content", true); // DEFAULT
 
 // PREF: block insecure passive content (images) on HTTPS pages
-//user_pref("security.mixed_content.block_display_content", true);
+// The code that handles the pref doesn't seem to depend on HTTPS only.
+// Also, using HTTPS First, it'll still make a HTTP connection if it can't,
+// so it won't be redundant.
+user_pref("security.mixed_content.block_display_content", true);
 
 // PREF: upgrade passive content to use HTTPS on secure pages
 //user_pref("security.mixed_content.upgrade_display_content", true); // DEFAULT [FF 110]
@@ -994,7 +997,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [3] https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work
 // [4] https://educatedguesswork.org/posts/safe-browsing-privacy/
 
-// PREF: disable Safe Browsing
+// PREF: Safe Browsing
 // [WARNING] Be sure to have alternate security measures if you disable SB! Adblockers do not count!
 // [SETTING] Privacy & Security>Security>... Block dangerous and deceptive content
 // [ALTERNATIVE] Enable local checks only: https://github.com/yokoffing/Betterfox/issues/87
@@ -1095,7 +1098,7 @@ user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/
 // PREF: disable using the OS's geolocation service
 //user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 //user_pref("geo.provider.use_corelocation", false); // [MAC]
-//user_pref("geo.provider.use_gpsd", false); // [LINUX]
+//user_pref("geo.provider.use_gpsd", false); // [LINUX] broken on Linux?
 //user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 
 // PREF: logging geolocation to the console
