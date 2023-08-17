@@ -289,7 +289,7 @@ user_pref("gfx.webrender.precache-shaders", true); // longer initial startup tim
 // More efficient to keep the browser cache instead of having to
 // re-download objects for the websites you visit frequently.
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
-//user_pref("browser.cache.disk.enable", true); // DEFAULT
+user_pref("browser.cache.disk.enable", false);
 //user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
     //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 //user_pref("browser.cache.disk.max_entry_size", 51200); // 51 MB; DEFAULT; maximum size of an object in disk cache
@@ -322,7 +322,7 @@ user_pref("browser.cache.memory.max_entry_size", 65536); // default=5120; -1=ent
 // PREF: media memory cache
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
 // [2] https://github.com/arkenfox/user.js/pull/941
-user_pref("media.memory_cache_max_size", 512000); // default=8192; AF=65536; alt=131072
+user_pref("media.memory_cache_max_size", 256000); // default=8192; AF=65536; alt=131072; alt2=512000
 user_pref("media.memory_caches_combined_limit_kb", 1572864); // default=524288
 //user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory that Firefox can use for media caches
 
