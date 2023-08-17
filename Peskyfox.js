@@ -94,7 +94,7 @@ user_pref("middlemouse.contentLoadURL", false);
 // PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+]
 user_pref("browser.privateWindowSeparation.enabled", false);
 
-// PREF: remove "private window" indicator in tab bar [FF106+]
+// PREF: minimize the "private window" indicator in tab bar [FF106+]
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
 
 // PREF: Firefox Translations [NIGHTLY]
