@@ -93,10 +93,10 @@ To further harden Firefox:
 
 ### Reviews
 * "... a good balance between privacy and convenience." - [Radplay](https://old.reddit.com/r/firefox/comments/115va7d/list_of_aboutconfiguserjs_privacy_tweaks/j9700bc/?context=2)
+* "The best collection of tweaks available ... doesn't go crazy with privacy/security hardening that completely breaks the usability of Firefox for most users." - [AuRiMaS](https://old.reddit.com/r/MozillaFirefox/comments/15cc1vk/about_changes_in_aboutconfig/jtyx910/?context=3)
 * "... the experience is so good now I don’t think I’ll go back to any of the chromium based browsers." - [Mr_Compromise](https://old.reddit.com/r/pcmasterrace/comments/zwioe1/what_browser_will_you_be_using_in_2023_please/j1wmbxo/)
-* "The best collection of tweaks available ... and doesn't go crazy with privacy/security hardening that completely breaks the usability of Firefox for most users." - [AuRiMaS](https://old.reddit.com/r/MozillaFirefox/comments/15cc1vk/about_changes_in_aboutconfig/jtyx910/?context=3)
-* "BetterFox ... will provide good-enough privacy and help with the performance." - [Qdoit12Super](https://old.reddit.com/r/browsers/comments/139h4my/suggestion_for_finding_3_good_privacy_focus/jj3n3qn/?context=2)
 * "FF is now much snappier! Thanks a lot for the suggestions!" - [whotheff](https://old.reddit.com/r/firefox/comments/z5auzi/firefox_not_properly_usingrecognizing_gpu_poor/iy36hyz/)
+* "BetterFox ... will provide good-enough privacy and help with the performance." - [Qdoit12Super](https://old.reddit.com/r/browsers/comments/139h4my/suggestion_for_finding_3_good_privacy_focus/jj3n3qn/?context=2)
 * "... drastically changed the experience with Firefox for me. Improved speed, security, smoothness and removed clutter." - [AppDate](https://www.appdate.lk/technology/2023-browser-showdown/#:~:text=Used%20the%20BetterFox%20user%20config%20settings%20with%20some%20overrides%20which%20drastically%20changed%20the%20experience)
 
 ## Support
@@ -107,7 +107,7 @@ If you like the project and benefit from it, leave a :star: (top right) and beco
 ## Credit
 * This repository benefits from the ongoing research provided by [arkenfox](https://github.com/arkenfox/user.js). They are the foundation to any worthwhile `user.js`.
 * Our appreciation goes to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and the developers working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the open web.
-* Special thanks to [Alex Kontos](https://github.com/MrAlex94) for optimizing certain `Fastfox` prefs in 2023, and to the 2021 [Ghostery](https://github.com/ghostery) team for pruning subjective prefs in the project's early days.
+* Special thanks to [Alex Kontos](https://github.com/MrAlex94) for optimizing `Fastfox` prefs in v.116, and to the 2021 [Ghostery](https://github.com/ghostery) team for pruning subjective tweaks in v.85.
 
 <div align='center'><a href='https://www.websitecounterfree.com'><img src='https://www.websitecounterfree.com/c.php?d=9&id=19653&s=1' border='0' alt='Free Website Counter'></a><br / >
 <div align='center'>since 23 July 2022</div>
