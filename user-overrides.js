@@ -28,6 +28,7 @@ user_pref("media.av1.enabled", false); // disable AV1 to force video hardware de
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
+user_pref("signon.autofillForms", false); // unselect "Autofill logins and passwords" for clean UI
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("signon.firefoxRelay.feature", "unavailable"); // unselect suggestions from Firefox Relay for clean UI
 //user_pref("privacy.sanitize.sanitizeOnShutdown", true); // clear browsing data on shutdown
