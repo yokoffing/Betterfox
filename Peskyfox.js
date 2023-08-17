@@ -389,8 +389,9 @@ user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);
 
 // PREF: disable middle mouse click opening links from clipboard
+// It's been default in Linux since at least FF102.
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089
-user_pref("middlemouse.contentLoadURL", false);
+//user_pref("middlemouse.contentLoadURL", false);
 
 // PREF: Prevent scripts from moving and resizing open windows
 //user_pref("dom.disable_window_move_resize", true);
