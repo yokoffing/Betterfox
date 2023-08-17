@@ -369,7 +369,7 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
 // Dictates whether sites may save extra session data such as form content,
 // scrollbar positions, and POST data.
 // 0=everywhere (default), 1=unencrypted sites, 2=nowhere
-user_pref("browser.sessionstore.privacy_level", 2);
+//user_pref("browser.sessionstore.privacy_level", 2);
 
 // PREF: disable automatic Firefox start and session restore after reboot [WINDOWS]
 // [1] https://bugzilla.mozilla.org/603903
@@ -500,6 +500,13 @@ user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 // hide Firefox Suggest label in URL dropdown box
 //user_pref("browser.urlbar.groupLabels.enabled", false);
 
+// PREF: disable search and form history
+// Be aware that autocomplete form data can be read by third parties [1][2]
+// [SETTING] Privacy & Security>History>Custom Settings>Remember search and form history
+// [1] https://blog.mindedsecurity.com/2011/10/autocompleteagain.html
+// [2] https://bugzilla.mozilla.org/381681
+user_pref("browser.formfill.enable", false);
+
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
 // request (e.g. by adding www or .com). This is inconsistent use (e.g. FQDNs), does not work
@@ -513,8 +520,8 @@ user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 // Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode.
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
-user_pref("security.insecure_connection_icon.enabled", true); // DEFAULT
-user_pref("security.insecure_connection_icon.pbmode.enabled", true); // DEFAULT
+//user_pref("security.insecure_connection_icon.enabled", true); // DEFAULT
+//user_pref("security.insecure_connection_icon.pbmode.enabled", true); // DEFAULT
 
 // PREF: Disable location bar autofill
 // https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete
@@ -711,25 +718,6 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
  * SECTION: PASSWORDS                             *
 ******************************************************************************/
 
-// PREF: disable formless login capture
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
-user_pref("signon.formlessCapture.enabled", false);
-
-// PREF: disable capturing credentials in private browsing
-user_pref("signon.privateBrowsingCapture.enabled", false);
-
-// PREF: disable auto-filling username & password form fields
-// Can leak in cross-site forms and be spoofed.
-// [NOTE] Username and password is still available when you enter the field.
-user_pref("signon.autofillForms", false);
-//user_pref("signon.autofillForms.autocompleteOff", true);
-//user_pref("signon.showAutoCompleteOrigins", false);
-
-// PREF: disable autofilling saved passwords on HTTP pages and show warning
-// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1217152,1319119
-//user_pref("signon.autofillForms.http", false);
-//user_pref("security.insecure_field_warning.contextual.enabled", true);
-
 // PREF: disable password manager
 // [NOTE] This does not clear any passwords already saved.
 user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
@@ -754,6 +742,25 @@ user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Pas
     //user_pref("signon.management.page.breachAlertUrl", "");
 // user_pref("browser.contentblocking.report.lockwise.enabled", false);
     //user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
+
+// PREF: disable formless login capture
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
+//user_pref("signon.formlessCapture.enabled", false);
+
+// PREF: disable capturing credentials in private browsing
+//user_pref("signon.privateBrowsingCapture.enabled", false);
+
+// PREF: disable auto-filling username & password form fields
+// Can leak in cross-site forms and be spoofed.
+// [NOTE] Username and password is still available when you enter the field.
+//user_pref("signon.autofillForms", false);
+//user_pref("signon.autofillForms.autocompleteOff", true);
+//user_pref("signon.showAutoCompleteOrigins", false);
+
+// PREF: disable autofilling saved passwords on HTTP pages and show warning
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1217152,1319119
+//user_pref("signon.autofillForms.http", false);
+//user_pref("security.insecure_field_warning.contextual.enabled", true);
 
 // PREF: disable Firefox import password from signons.sqlite file
 // [1] https://support.mozilla.org/en-US/questions/1020818
@@ -783,7 +790,6 @@ user_pref("editor.truncate_user_pastes", false);
 // [2] https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
-user_pref("browser.formfill.enable", false);
 
 /******************************************************************************
  * SECTION: MIXED CONTENT + CROSS-SITE                             *
