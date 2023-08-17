@@ -368,7 +368,7 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
 // PREF: store extra session data when crashing or restarting to install updates
 // Dictates whether sites may save extra session data such as form content,
 // scrollbar positions, and POST data.
-// 0=everywhere, 1=unencrypted sites, 2=nowhere
+// 0=everywhere (default), 1=unencrypted sites, 2=nowhere
 user_pref("browser.sessionstore.privacy_level", 2);
 
 // PREF: disable automatic Firefox start and session restore after reboot [WINDOWS]
