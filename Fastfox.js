@@ -481,7 +481,7 @@ user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.dns.disablePrefetch", true);
 //user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
 // or
-//user_pref("network.dns.disablePrefetch", false);
+//user_pref("network.dns.disablePrefetch", false); // DEFAULT
 //user_pref("network.dns.disablePrefetchFromHTTPS", false);
 
 // PREF: preconnect to the autocomplete URL in the address bar
@@ -518,7 +518,7 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // [9] https://web.dev/preload-critical-assets/
 //user_pref("network.preload", true); // DEFAULT
 
-// PREF: enable early hints
+// PREF: enable early hints [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
 //user_pref("network.early-hints.enabled", false); // DEFAULT
 // or
