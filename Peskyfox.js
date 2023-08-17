@@ -135,19 +135,21 @@ user_pref("browser.translations.enable", true);
  * SECTION: URL BAR                                                         *
 ****************************************************************************/
 
-// PREF: URL bar suggestions (bookmarks, history, open tabs) / dropdown options in the URL bar
+// PREF: minimize URL bar suggestions (bookmarks, history, open tabs)
+// Dropdown options in the URL bar:
 //user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.suggest.history", false);
-//user_pref("browser.urlbar.suggest.openpage", true);
-//user_pref("browser.urlbar.suggest.quickactions", false); // [NIGHTLY]
+//user_pref("browser.urlbar.suggest.openpage", false);
+//user_pref("browser.urlbar.suggest.quickactions", false); // [NIGHTLY-only]
 //user_pref("browser.urlbar.suggest.searches", false);
 //user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
-    //user_pref("browser.urlbar.weather.ignoreVPN", true);
+    //user_pref("browser.urlbar.weather.ignoreVPN", false); // DEFAULT
 
-// Disable dropdown suggestions with empty query:
+// PREF: disable dropdown suggestions with empty query:
 user_pref("browser.urlbar.suggest.topsites", false);
-// enable helpful features:
+
+// PREF: enable helpful features:
 user_pref("browser.urlbar.suggest.calculator", true);
 user_pref("browser.urlbar.unitConversion.enabled", true);
 
@@ -156,21 +158,18 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 //user_pref("browser.urlbar.autoFill", true); // [DEFAULT]
 //user_pref("browser.urlbar.autoFill.adaptiveHistory.enabled", false);
 
-// PREF: Quick Actions in the URL Bar
+// PREF: Quick Actions in the URL Bar [NIGHTLY-only]
 // [1] https://www.ghacks.net/2022/07/19/mozilla-is-testing-quick-actions-in-firefoxs-address-bar/
 //user_pref("browser.urlbar.quickactions.enabled", false);
 //user_pref("browser.urlbar.shortcuts.quickactions", false);
 
-// PREF: Address bar / URL bar dropdown results
+// PREF: adjust the amount of Address bar / URL bar dropdown results
 // This value controls the total number of entries to appear in the location bar dropdown.
 // [NOTE] Items (bookmarks/history/openpages) with a high "frequency"/"bonus" will always
 // be displayed (no we do not know how these are calculated or what the threshold is),
 // and this does not affect the search by search engine suggestion.
-// default=10, disable=0
-//user_pref("browser.urlbar.maxRichResults", 1);
-
-// PREF: do not show search terms in address bar instead of the URL [FF113+]
-//user_pref("browser.urlbar.showSearchTerms.enabled", false);
+// disable=0
+//user_pref("browser.urlbar.maxRichResults", 5); // default=10
 
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
@@ -215,7 +214,7 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 // PREF: Pinned Shortcuts on New Tab
 // [SETTINGS] Home>Firefox Home Content
 // [1] https://github.com/arkenfox/user.js/issues/1556
-//user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false); // unnecessary?
+//user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
       //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts [FF83+]
@@ -248,6 +247,7 @@ user_pref("extensions.pocket.enabled", false);
       //user_pref("extensions.pocket.api"," ");
       //user_pref("extensions.pocket.oAuthConsumerKey", " ");
       //user_pref("extensions.pocket.site", " ");
+      //user_pref("extensions.pocket.showHome", false);
 
 /******************************************************************************
  * SECTION: DOWNLOADS                                 *
@@ -267,7 +267,7 @@ user_pref("browser.download.useDownloadDir", false);
 // PREF: disable downloads panel opening on every download
 user_pref("browser.download.alwaysOpenPanel", false);
 
-// PREF: Disable adding downloads to the system's "recent documents" list
+// PREF: disable adding downloads to the system's "recent documents" list 
 user_pref("browser.download.manager.addToRecentDocs", false);
 
 // PREF: enable user interaction for security by always asking how to handle new mimetypes
@@ -297,7 +297,7 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 // 2=table of contents (if not available, will default to 1)
 // 1=view pages
 // -1=disabled (default)
-//user_pref("pdfjs.sidebarViewOnLoad", 2);
+user_pref("pdfjs.sidebarViewOnLoad", 2);
 
 // PREF: default zoom for PDFs [HIDDEN]
 // [NOTE] "page-width" not needed if using sidebar on load
@@ -409,12 +409,13 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
     //user_pref("cookiebanners.bannerClicking.enabled", true); // DEFAULT [FF108]
     //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
 
-// PREF: enable global CookieBannerRules
+// PREF: global CookieBannerRules [WiP]
+// Global rules that can handle a list of cookie banner libraries / providers on any site.
 // This is used for click rules that can handle common Consent Management Providers (CMP)
-// [WARNING] Enabling this (when the cookie handling feature is enabled) may
-// negatively impact site performance since it requires us to run rule-defined
-// query selectors for every page
-//user_pref("cookiebanners.service.enableGlobalRules", enable);
+// [WARNING] Beware of potential bugs and performance issues. Enabling this may negatively
+// impact site performance. It requires Firefox to run rule-defined query selectors for
+// every page.
+//user_pref("cookiebanners.service.enableGlobalRules", true);
 
 /****************************************************************************
  * SECTION: UNCATEGORIZED                                                   *
