@@ -35,7 +35,7 @@ Most projects have niche concerns with no regard for daily use. But for us, feat
 Fingerprinting is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is only reasonably [addressed by Tor](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> If your context calls for _anonymity_ and not just reasonable _privacy_, then please use the [Tor Browser](https://www.torproject.org).<sup>^[*what's the difference?*](https://thenewoil.org/en/guides/prologue/secprivanon/)</sup> 
 
 ## about:Defaults
-Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky if you want to revert the following behavior:
+Copy and paste preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky if you want to revert the following behavior:
 * Firefox **Accessibility Service** is disabled to improve resource utilization and security. Override this if you use assistive software.
 * **Firefox Sync** and **Firefox View** are disabled. Override if you use these features.
 * The built-in **password manager** is disabled. We recommend using [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/) or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager) to manage your credentials on multiple devices.
@@ -76,6 +76,7 @@ To further harden Firefox:
 [10](https://old.reddit.com/r/MozillaFirefox/comments/15cc1vk/about_changes_in_aboutconfig/jtyx910/?context=3)
 
 ### Browser Integration
+* [Waterfox](https://github.com/WaterfoxCo/Waterfox) | [files](https://github.com/WaterfoxCo/Waterfox/commit/735d8067b06cca00b9b04b5a6bcd0c1414118f95) (August 2023)
 * [Floorp Browser](https://github.com/Floorp-Projects/Floorp#-betterfox) <sup>[1](https://github.com/Floorp-Projects/Floorp/issues/233#issuecomment-1543557167) [2](https://blog.ablaze.one/3135/2023-04-01/)</sup> | [files](https://github.com/Floorp-Projects/Floorp/blob/f63e87016d88535aafa2b57d690442b9a69cbaa5/toolkit/content/license.html#L200-L224) (April 2023)
 * [Pulse Browser](https://github.com/pulse-browser/browser#%EF%B8%8F-credits) | [files](https://github.com/pulse-browser/browser/tree/alpha/src/browser/app/profile) (Dec 2021)
 * [Ghostery Private Browser](https://github.com/ghostery/user-agent-desktop#community) <sup>[1](https://web.archive.org/web/20210509171835/https://www.ghostery.com/ghostery-dawn-update-more/) [2](https://web.archive.org/web/20210921114333/https://www.ghostery.com/ghostery-dawn-product-update/)</sup> | [files](https://github.com/ghostery/user-agent-desktop/tree/main/brands/ghostery/branding/pref) (Feb 2021)
@@ -91,27 +92,19 @@ To further harden Firefox:
 * [GhoSTORIES with Franz & Pete](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh), S2|E6, 17:05-18:40 (Feb 2021)
     
 ### Articles
-* [Full Circle Magazine](https://dl.fullcirclemagazine.org/issue193_en.pdf) (May 2023)
-* [Russian] [The Pulse Browser project develops an experimental fork of Firefox](https://www.opennet.ru/opennews/art.shtml?num=59076) (May 2023)
 * [German] [Pulse Browser Review: Firefox fork with Turbo tweaks and Opera sidebar](https://www.computerbild.de/artikel/cb-Tipps-Software-Pulse-Browser-Review-ein-Firefox-Fork-mit-Seitenleiste-wie-bei-Opera-35644139.html#:~:text=Noch%20mehr%20Speed%2DFeatures) (April 2023)
 * [2023 Browser Showdown: Comparing Chrome, Brave, Firefox, Vivaldi, and Opera](https://www.appdate.lk/technology/2023-browser-showdown/) (Jan 2023)
 
 ### Guides
-* [FMHY Browser Tools: Privacy Hardened Firefox](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/storage/#wiki_privacy_hardened_firefox)
+* [FMHY Browser Tools: Browser Privacy Tweaks](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/storage/#wiki_privacy_based_browsers)
 * [Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-Fix/wiki/Tips#privacy)
 * [Narsil/desktop_user.js](https://git.nixnet.services/Narsil/desktop_user.js#thanks)
 * [pyllyukko/user.js](https://github.com/pyllyukko/user.js) [comparator](https://jm42.github.io/compare-user.js/)
 
-### Contributions
-* [Ghostery Private Browser](https://github.com/ghostery/user-agent-desktop/issues?q=is%3Apr+is%3Aissue+author%3Ayokoffing+)
-* [Orion Browser](https://orionfeedback.org/?author=yokoffing)
-* [Kagi Search Engine](https://kagifeedback.org/?author=yokoffing)
-* [Various blocklists](https://github.com/yokoffing/filterlists#contributions)
-
 ## Credit
-* Many thanks to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://builtin.com/software-engineering-perspectives/open-web).
+* Our appreciation goes to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and to the people working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the [open web](https://builtin.com/software-engineering-perspectives/open-web).
 * This repository benefits from the ongoing research provided by [arkenfox](https://github.com/arkenfox/user.js). They are the foundation to any worthwhile `user.js`.
-* Some prefs in `Fastfox` come from [RubenKelevra](https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db#aboutconfig-settings).
+* Special thanks to the 2021 Ghostery team for [pruning](https://github.com/ghostery/user-agent-desktop/pull/512) subjective prefs, and to [Alex Kontos](https://github.com/MrAlex94) in 2023 for optimizing prefs.
 
 <div align='center'><a href='https://www.websitecounterfree.com'><img src='https://www.websitecounterfree.com/c.php?d=9&id=19653&s=1' border='0' alt='Free Website Counter'></a><br / >
 <div align='center'>since 23 July 2022</div>
