@@ -246,7 +246,6 @@ user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);
-user_pref("middlemouse.contentLoadURL", false);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
