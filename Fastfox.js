@@ -137,18 +137,18 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 // Set this to some high value, e.g. 2/3 of total memory available in your system:
 // 4GB=2640, 8GB=5280, 16GB=10560, 32GB=21120, 64GB=42240
 // [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
-user_pref("browser.low_commit_space_threshold_mb", 2640); // default=200; WINDOWS LINUX
+//user_pref("browser.low_commit_space_threshold_mb", 2640); // default=200; WINDOWS LINUX
 
 // PREF: determine when tabs unload [LINUX]
 // On Linux, Firefox checks available memory in comparison to total memory,
 // and use this percent value (out of 100) to determine if Firefox is in a
 // low memory scenario.
 // [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
-user_pref("browser.low_commit_space_threshold_percent", 33); // default=5; LINUX
+//user_pref("browser.low_commit_space_threshold_percent", 33); // default=5; LINUX
 
 // PREF: determine how long (in ms) tabs are inactive before they unload
 // 60000=1min; 300000=5min; 600000=10min (default)
-user_pref("browser.tabs.min_inactive_duration_before_unload", 300000); // 5min; default=600000
+//user_pref("browser.tabs.min_inactive_duration_before_unload", 300000); // 5min; default=600000
 
 /****************************************************************************
  * SECTION: EXPERIMENTAL                                                    *
@@ -246,6 +246,20 @@ user_pref("gfx.webrender.precache-shaders", true); // longer initial startup tim
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1823135
 //user_pref("gfx.webrender.super-resolution.nvidia", true);
 
+// PREF: GPU-accelerated Canvas2D
+// Use gpu-canvas instead of to skia-canvas.
+// [WARNING] May cause issues on some Windows machines using integrated GPUs [2] [3]
+// Add to your overrides if you have a dedicated GPU.
+// [NOTE] Higher values will use more memory.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
+// [2] https://github.com/yokoffing/Betterfox/issues/153
+// [3] https://github.com/yokoffing/Betterfox/issues/198
+//user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
+    user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; alt=8192
+    user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; alt=1024
+    user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
+    // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
+
 // PREF: prefer GPU over CPU
 // At best, the prefs do nothing on Linux/macOS.
 // At worst, it'll result in crashes if the sandboxing is a WIP.
@@ -258,39 +272,11 @@ user_pref("gfx.webrender.precache-shaders", true); // longer initial startup tim
 //user_pref("media.gpu-process-decoder", true); // DEFAULT WINDOWS
 //user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
 
-// PREF: GPU-accelerated Canvas2D
-// Use gpu-canvas instead of to skia-canvas.
-// [WARNING] May cause issues on some Windows machines using integrated GPUs [2] [3]
-// Add to your overrides if you have a dedicated GPU.
-// [NOTE] Higher values will use more memory.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
-// [2] https://github.com/yokoffing/Betterfox/issues/153
-// [3] https://github.com/yokoffing/Betterfox/issues/198
-//user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
-    user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; alt=8192; alt2=32768
-    user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; alt=1024; alt2=4096
-    user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20; alt=80
-    // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
-
 // PREF: disable AV1 for hardware decodeable videos
 // AV1 may use software (CPU-based) decoding.
 // Firefox sometimes uses AV1 video decoding even to GPUs which do not support it.
 // [1] https://www.reddit.com/r/AV1/comments/s5xyph/youtube_av1_codec_have_worse_quality_than_old_vp9
 //user_pref("media.av1.enabled", false);
-
-// PREF: Media Source Extensions (MSE) web standard
-// Disabling MSE allows videos to fully buffer, but you're limited to 720p.
-// [WARNING] Disabling MSE may break certain videos.
-// false=Firefox plays the old WebM format
-// true=Firefox plays the new WebM format (default)
-// [1] https://support.mozilla.org/en-US/questions/1008271
-//user_pref("media.mediasource.enabled", true); // DEFAULT
-
-// PREF: adjust video buffering periods when not using MSE (in seconds)
-// [NOTE] Does not affect videos over 720p since they use DASH playback [1]
-// [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
-user_pref("media.cache_readahead_limit", 7200); // 120 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-user_pref("media.cache_resume_threshold", 3600); // 60 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
 
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
@@ -324,7 +310,7 @@ user_pref("media.cache_resume_threshold", 3600); // 60 min; default=30; when a n
 // -1=Automatically decide the maximum memory to use to cache decoded images, messages, and chrome based on the total amount of RAM
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 user_pref("browser.cache.memory.capacity", 1048576); // default=-1; 1048576=1GB, 2097152=2GB
-user_pref("browser.cache.memory.max_entry_size", 327680); // default=5120; alt=65536 -1=entries bigger than than 90% of the mem-cache are never cached
+user_pref("browser.cache.memory.max_entry_size", 65536); // default=5120; -1=entries bigger than than 90% of the mem-cache are never cached
 
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
@@ -337,8 +323,22 @@ user_pref("browser.cache.memory.max_entry_size", 327680); // default=5120; alt=6
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
 // [2] https://github.com/arkenfox/user.js/pull/941
 user_pref("media.memory_cache_max_size", 512000); // default=8192; AF=65536; alt=131072
-user_pref("media.memory_caches_combined_limit_kb", 3145728); // default=524288
+user_pref("media.memory_caches_combined_limit_kb", 1572864); // default=524288
 //user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory that Firefox can use for media caches
+
+// PREF: Media Source Extensions (MSE) web standard
+// Disabling MSE allows videos to fully buffer, but you're limited to 720p.
+// [WARNING] Disabling MSE may break certain videos.
+// false=Firefox plays the old WebM format
+// true=Firefox plays the new WebM format (default)
+// [1] https://support.mozilla.org/en-US/questions/1008271
+//user_pref("media.mediasource.enabled", true); // DEFAULT
+
+// PREF: adjust video buffering periods when not using MSE (in seconds)
+// [NOTE] Does not affect videos over 720p since they use DASH playback [1]
+// [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
+user_pref("media.cache_readahead_limit", 7200); // 120 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+user_pref("media.cache_resume_threshold", 3600); // 60 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
 
 /****************************************************************************
  * SECTION: IMAGE CACHE                                                     *
@@ -466,6 +466,7 @@ user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS
 // [4] https://www.keycdn.com/blog/resource-hints#prefetch
 // [5] https://3perf.com/blog/link-rels/#prefetch
 user_pref("network.http.speculative-parallel-limit", 0);
+// or
 //user_pref("network.http.speculative-parallel-limit", 12); // default=6
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
@@ -479,6 +480,9 @@ user_pref("network.http.speculative-parallel-limit", 0);
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
 //user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
+// or
+//user_pref("network.dns.disablePrefetch", false);
+//user_pref("network.dns.disablePrefetchFromHTTPS", false);
 
 // PREF: preconnect to the autocomplete URL in the address bar
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
@@ -487,9 +491,13 @@ user_pref("network.dns.disablePrefetch", true);
 // but will not start sending or receiving HTTP data.
 // [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
+// or
+//user_pref("browser.urlbar.speculativeConnect.enabled", true); // DEFAULT
 
 // PREF: mousedown speculative connections on bookmarks and history
 user_pref("browser.places.speculativeConnect.enabled", false);
+// or
+//user_pref("browser.places.speculativeConnect.enabled", true); // DEFAULT
 
 // PREF: Preload <link rel=preload>
 // This tells the browser that the resource should be loaded as part of the current navigation
@@ -513,13 +521,18 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // PREF: enable early hints
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
 //user_pref("network.early-hints.enabled", false); // DEFAULT
+// or
+//user_pref("network.early-hints.enabled", true);
 
 // PREF: `Link: rel=preconnect` in 103 Early Hint response
 //user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
+// or
+//user_pref("network.early-hints.preconnect.enabled", true);
 
 // PREF: the number of speculative connections allowed for early hints `Link: rel=preconnect`
 // When 0, this is limited by "network.http.speculative-parallel-limit".
 //user_pref("network.early-hints.preconnect.max_connections", 0);
+// or
 //user_pref("network.early-hints.preconnect.max_connections", 20); // default=10
 
 // PREF: Link prefetching <link rel="prefetch">
@@ -537,6 +550,8 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
 // [4] https://3perf.com/blog/link-rels/#prefetch
 user_pref("network.prefetch-next", false);
+// or
+//user_pref("network.prefetch-next", true); // DEFAULT
 
 // PREF: Network Predictor (NP)
 // Keeps track of components that were loaded during page visits so that the browser knows next time
@@ -554,10 +569,14 @@ user_pref("network.prefetch-next", false);
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
 user_pref("network.predictor.enabled", false);
+// or
+//user_pref("network.predictor.enabled", true); // DEFAULT
 
 // PREF: NP fetches resources on the page ahead of time, to accelerate rendering of the page.
 // Performs both pre-connect and prefetch.
 user_pref("network.predictor.enable-prefetch", false);
+// or
+//user_pref("network.predictor.enable-prefetch", true); // DEFAULT
 
 // PREF: NP active when hovering over links
 // The next time the user mouseovers a link to that webpage, history is used to predict what
@@ -569,6 +588,8 @@ user_pref("network.predictor.enable-prefetch", false);
 // faster since some of the work was already started in advance. Focuses on fetching a resource
 // for the NEXT navigation.
 //user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
+// or
+//user_pref("network.predictor.enable-hover-on-ssl", true);
 
 // PREF: assign NP values
     //user_pref("network.predictor.preresolve-min-confidence", 40); // default=60
