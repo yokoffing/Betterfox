@@ -748,7 +748,7 @@ user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Pas
 //user_pref("signon.formlessCapture.enabled", false);
 
 // PREF: disable capturing credentials in private browsing
-//user_pref("signon.privateBrowsingCapture.enabled", false);
+user_pref("signon.privateBrowsingCapture.enabled", false);
 
 // PREF: disable auto-filling username & password form fields
 // Can leak in cross-site forms and be spoofed.
