@@ -757,10 +757,9 @@ user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Pas
 //user_pref("signon.autofillForms.autocompleteOff", true);
 //user_pref("signon.showAutoCompleteOrigins", false);
 
-// PREF: disable autofilling saved passwords on HTTP pages and show warning
+// PREF: disable autofilling saved passwords on HTTP pages
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1217152,1319119
-//user_pref("signon.autofillForms.http", false);
-//user_pref("security.insecure_field_warning.contextual.enabled", true);
+//user_pref("signon.autofillForms.http", false); // DEFAULT
 
 // PREF: disable Firefox import password from signons.sqlite file
 // [1] https://support.mozilla.org/en-US/questions/1020818
