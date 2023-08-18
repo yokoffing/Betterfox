@@ -40,7 +40,7 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 You can easily adjust these by [copying and pasting](https://github.com/yokoffing/Betterfox/issues/87) preferences to your personal file. :thumbsup:
 
 ## about:Privacy
-Betterfox is already a great balance of privacy and convenience. However, here are a few ways to **harden** your setup:
+While Betterfox is already a great balance of privacy and convenience, here are a few ways to further **harden** your setup:
 
 <details>
   <summary><i>Click me for details!</i></summary><p></p>
@@ -56,7 +56,8 @@ Betterfox is already a great balance of privacy and convenience. However, here a
 3) Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to enforce the following behavior:
    * **Hide the referrer** from different sites.
    * Block embedded **tweets, tiktoks, Instagram and Reddit posts** from loading on third-party sites.
-4) We do not use [`privacy.resistFingerprinting`](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3). Fingerprinting is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is only [addressed](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-fingerprinting) reasonably by Tor.<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> Please use the [Tor Browser](https://www.torproject.org) if your context calls for **anonymity** and not just reasonable **privacy**.<sup>^[*what's the difference?*](https://thenewoil.org/en/guides/prologue/secprivanon/)</sup>
+
+We do not use [`privacy.resistFingerprinting`](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3). Fingerprinting is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is only [addressed](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-fingerprinting) reasonably by Tor.<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> Please use the [Tor Browser](https://www.torproject.org) if your context calls for **anonymity** and not just reasonable **privacy**.<sup>^[*what's the difference?*](https://thenewoil.org/en/guides/prologue/secprivanon/)</sup>
 
 </details>
 
@@ -64,7 +65,6 @@ Betterfox is already a great balance of privacy and convenience. However, here a
 After applying the `user.js` and restarting Firefox:
 1) Use an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines). For a quick and easy solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
 2) Add **DNS-level protection** like [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
-3) Enjoy! :slightly_smiling_face:
 
 ## Recognition
 
