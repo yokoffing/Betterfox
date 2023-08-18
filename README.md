@@ -29,39 +29,46 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 
 While Betterfox is designed to [set-and-forget](https://glosbe.com/en/en/set-and-forget), it contains plenty of options for those who like to tinker.
 
-## about:Privacy
-Most projects have niche concerns with no regard for daily use. But for us, features like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here.<sup>^[*why?*](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)</sup>
-
-Fingerprinting is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is only reasonably [addressed by Tor](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> If your context calls for _anonymity_ and not just reasonable _privacy_, then please use the [Tor Browser](https://www.torproject.org).<sup>^[*what's the difference?*](https://thenewoil.org/en/guides/prologue/secprivanon/)</sup> 
-
 ## about:Defaults
-Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky if you want to revert the following behavior:
+Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky if you want to **relax** the following behavior:
 * Firefox **Accessibility Service** is disabled to improve resource utilization and security. Override this if you use assistive software.
 * **Firefox Sync** and **Firefox View** are disabled. Override if you use these features.
 * The built-in **password manager** is disabled. We recommend using [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/) or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager) to manage your credentials on multiple devices.
-
-Less critical changes include:
 * **Top sites** (pinned site shortcuts) are removed for a clean new tab page.
 * **Location requests** and **site notifications** are blocked to minimize annoyances.
-* Embedded **tweets, tiktoks, Instagram and Reddit posts** are allowed to load on webpages in order to avoid site breakage, even though these requests are usually blocked when using [Strict](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection) Enhanced Tracking Protection.
+
+## about:Privacy
+Most projects have niche concerns with no regard for daily use. But for us, features like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here.<sup>^[*why?*](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)</sup>
+
+Perform any of the following steps if you want to **harden** Firefox further:
+
+<details>
+  <summary><i>Click me for details</i></summary>
+
+1) Change your **default search engine**.
+   * Alternatively, select a different search engine just for [Private Browsing](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) windows.
+      1) Go to *Settings → Search → Default Search Engine*
+      2) Change your default search engine to DuckDuckGo, or [add](https://github.com/yokoffing/Betterfox/blob/04c3184359c83d7b58411c3b68f40f3e9d95c373/Securefox.js#L600-L604) a premium search engine like [Kagi](https://kagi.com/).
+2) Do not allow embedded **tweets, tiktoks, Instagram and Reddit posts** to load on webpages.
+   * These requests are usually blocked when using [Strict](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection) Enhanced Tracking Protection.
+   * We allow them by default in order to avoid site breakage.
+   * See the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to reverse this behavior.
+3) **Hide the referrer** between sites.
+   * Go to [`about:config`](https://kb.mozillazine.org/About:config) and set [`network.http.referer.XOriginPolicy`](https://github.com/yokoffing/Betterfox/blob/ec6e78a4ce1bba4f777f0baad3e29e53b19c1991/Securefox.js#L989-L991) to `1`.
+      * This will break embedded Instagram posts, Bing logins, and some third-party streaming sites.
+4) **Clear browsing data** on shutdown ([sanitize on close](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
+   * You can **allow exceptions** if you want to stay logged in to some sites:
+      1) Go to *Settings → Privacy & Security → Cookies and Site Data → Manage Exceptions*
+      2) Check *Delete cookies and site data when Firefox is closed*.
+
+</details>
+
+Fingerprinting is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is only reasonably [addressed by Tor](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> If your context calls for _anonymity_ and not just reasonable _privacy_, then please use the [Tor Browser](https://www.torproject.org).<sup>^[*what's the difference?*](https://thenewoil.org/en/guides/prologue/secprivanon/)</sup>
 
 ## Suggestions
 After applying the `user.js` and restarting Firefox:
 1) Use an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines). For a quick and easy solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
 2) Add **DNS-level protection** like [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
-3) Change your **default search engine**.
-   * Alternatively, select a different search engine just for [Private Browsing](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) windows.
-      1) Go to *Settings → Search → Default Search Engine*
-      2) Change your default search engine to DuckDuckGo, or [add](https://github.com/yokoffing/Betterfox/blob/04c3184359c83d7b58411c3b68f40f3e9d95c373/Securefox.js#L600-L604) a premium search engine like [Kagi](https://kagi.com/).
-
-To further harden Firefox:
-1) **Hide the referrer** between sites.
-   * Go to [`about:config`](https://kb.mozillazine.org/About:config) and set [`network.http.referer.XOriginPolicy`](https://github.com/yokoffing/Betterfox/blob/ec6e78a4ce1bba4f777f0baad3e29e53b19c1991/Securefox.js#L989-L991) to `1`.
-      * Note: This breaks embedded Instagram posts, Bing logins, and some third-party streaming sites.
-3) **Clear browsing data** on shutdown ([sanitize on close](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
-   * You can **allow exceptions** if you want to stay logged in to some sites:
-      1) Go to *Settings → Privacy & Security → Cookies and Site Data → Manage Exceptions*
-      2) Check *Delete cookies and site data when Firefox is closed*.
 
 ## Recognition
 
