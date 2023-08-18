@@ -811,9 +811,11 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
 //user_pref("security.mixed_content.block_active_content", true); // DEFAULT
 
 // PREF: block insecure passive content (images) on HTTPS pages
-// The code that handles the pref doesn't seem to depend on HTTPS only.
-// Also, using HTTPS First, it'll still make a HTTP connection if it can't,
-// so it won't be redundant.
+// Using HTTPS First Policy, Firefox will still make a HTTP connection
+// if it can't find a secure connection, so this isn't redundant.
+// There's the small chance that someone does a MITM on the images
+// and deploys a malicious image. (They're rare, but possible).
+// [NOTE] You can remove if using HTTPS-Only Mode.
 user_pref("security.mixed_content.block_display_content", true);
 
 // PREF: upgrade passive content to use HTTPS on secure pages
