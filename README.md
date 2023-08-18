@@ -43,11 +43,10 @@ However, if desired, there are a few ways to further **harden** Firefox without 
       2) Change your default search engine to DuckDuckGo, or [add](https://github.com/yokoffing/Betterfox/blob/04c3184359c83d7b58411c3b68f40f3e9d95c373/Securefox.js#L600-L604) a premium search engine like [Kagi](https://kagi.com/).
 2) Do not allow embedded **tweets, tiktoks, Instagram and Reddit posts** to load on webpages.
    * These requests are usually blocked when using [Strict](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection) Enhanced Tracking Protection.
-   * We allow them by default in order to avoid site breakage.
-   * See the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to reverse this behavior.
+   * We allow them by default in order to avoid site breakage. See the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to reverse this behavior.
 3) **Hide the referrer** between sites.
-   * Go to [`about:config`](https://kb.mozillazine.org/About:config) and set [`network.http.referer.XOriginPolicy`](https://github.com/yokoffing/Betterfox/blob/ec6e78a4ce1bba4f777f0baad3e29e53b19c1991/Securefox.js#L989-L991) to `1`.
-      * This will break embedded Instagram posts, Bing logins, and some third-party streaming sites.
+   * View the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to enforce this pref.
+      * Altering this will break embedded Instagram posts, Bing logins, and some third-party streaming sites.
 4) **Clear browsing data** on shutdown ([sanitize on close](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
    * You can **allow exceptions** if you want to stay logged in to some sites:
       1) Go to *Settings → Privacy & Security → Cookies and Site Data → Manage Exceptions*
@@ -58,7 +57,7 @@ However, if desired, there are a few ways to further **harden** Firefox without 
 Note: Fingerprinting is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is only reasonably [addressed by Tor](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> If your context calls for _anonymity_ and not just reasonable _privacy_, then please use the [Tor Browser](https://www.torproject.org).<sup>^[*what's the difference?*](https://thenewoil.org/en/guides/prologue/secprivanon/)</sup>
 
 ## about:Defaults
-Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky if you want to **relax** the following behavior:
+Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to **relax** the following behavior:
 * Firefox **Accessibility Service** is disabled to improve resource utilization and security. Override this if you use assistive software.
 * **Firefox Sync** and **Firefox View** are disabled. Override if you use these features.
 * The built-in **password manager** is disabled. We recommend using [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/) or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager) to manage your credentials on multiple devices.
@@ -85,8 +84,8 @@ After applying the `user.js` and restarting Firefox:
 * [How To Improve Firefox Performance](https://www.youtube.com/watch?v=N8IOJiOFVEk) (Dec 2021)
 
 ### Podcasts
-* [Italian] [Digitalia.fm](https://digitalia.fm/684/) | 1:41:35-1:42:41 (July 2023)
-* [GhoSTORIES with Franz & Pete](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh) | 17:05-18:40 (Feb 2021)
+* [Italian] [Digitalia.fm](https://digitalia.fm/684/) | 1:41:35–1:42:41 (July 2023)
+* [GhoSTORIES with Franz & Pete](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh) | 17:05–18:40 (Feb 2021)
 
 ### Articles
 * [German] [Pulse Browser Review: Firefox fork with Turbo tweaks and Opera sidebar](https://www.computerbild.de/artikel/cb-Tipps-Software-Pulse-Browser-Review-ein-Firefox-Fork-mit-Seitenleiste-wie-bei-Opera-35644139.html#:~:text=Noch%20mehr%20Speed%2DFeatures) (April 2023)
@@ -113,8 +112,9 @@ If you like the project and benefit from it, leave a :star: (top right) and beco
 
 ## Credit
 * This repository benefits from the ongoing research provided by [arkenfox](https://github.com/arkenfox/user.js). They are the foundation to any worthwhile `user.js`.
-* Our appreciation goes to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and the developers working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the open web.
-* Special thanks to [Alex Kontos](https://github.com/MrAlex94) for optimizing `Fastfox` prefs in v.116, and also to the 2021 [Ghostery](https://github.com/ghostery) team for pruning subjective tweaks in v.85.
+* Appreciation goes to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and the developers working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the open web.
+* A special thanks to [Alex Kontos](https://github.com/MrAlex94) of [Waterfox](https://github.com/WaterfoxCo/Waterfox) for his collaboration in v.116 and finding the optimal `Fastfox` prefs.
+* Many thanks to the 2021 [Ghostery](https://github.com/ghostery) team for testing Betterfox in its early days and removing prefs that were too subjective.
 
 <div align='center'><a href='https://www.websitecounterfree.com'><img src='https://www.websitecounterfree.com/c.php?d=9&id=19653&s=1' border='0' alt='Free Website Counter'></a><br / >
 <div align='center'>since 23 July 2022</div>
