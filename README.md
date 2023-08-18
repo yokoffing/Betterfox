@@ -2,7 +2,7 @@
 ![GitHub Maintained](https://img.shields.io/badge/maintained-yes-yellow)
 [![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyokoffing%2FBetter-Fox&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
 
-# Betterfox
+# Betterfox :fox_face:
 `about:config` tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/ "Firefox Homepage"). Files are updated as needed for your [user.js](http://kb.mozillazine.org/User.js_file).
 
 ## Made for everyday browsing
@@ -30,17 +30,17 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 While Betterfox is designed to [set-and-forget](https://glosbe.com/en/en/set-and-forget), it contains plenty of options for those who like to tinker.
 
 ## about:Defaults
-Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to **relax** the following behavior:
+Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to adjust the following behavior:
 * Firefox **Accessibility Service** is disabled to improve resource utilization and security. Override this if you use assistive software.
 * **Firefox Sync** and **Firefox View** are disabled. Override if you use these features.
 * The built-in **password manager** is disabled. We recommend using [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/) or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager) to manage your credentials on multiple devices.
 * **Top sites** (pinned site shortcuts) are removed for a clean new tab page.
 * **Location requests** and **site notifications** are blocked to minimize annoyances.
 
-## about:Privacy
-Most projects have niche concerns with no regard for daily use. But for us, features like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here.<sup>^[*why?*](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)</sup>
+You can easily adjust these by [copying and pasting](https://github.com/yokoffing/Betterfox/issues/87) preferences to your personal file. :thumbsup:
 
-However, if desired, there are a few ways to further **harden** Firefox without causing too much site breakage or totally disrupting user experience:
+## about:Privacy
+Betterfox is already a great balance of privacy and convenience. However, here are a few ways to **harden** your setup:
 
 <details>
   <summary><i>Click me for details!</i></summary><p></p>
@@ -49,25 +49,22 @@ However, if desired, there are a few ways to further **harden** Firefox without 
    * Alternatively, select a different search engine just for [Private Browsing](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) windows.
       1) Go to *Settings → Search → Default Search Engine*
       2) Change your default search engine to DuckDuckGo, or [add](https://github.com/yokoffing/Betterfox/blob/04c3184359c83d7b58411c3b68f40f3e9d95c373/Securefox.js#L600-L604) a premium search engine like [Kagi](https://kagi.com/).
-2) Do not allow embedded **tweets, tiktoks, Instagram and Reddit posts** to load on webpages.
-   * These requests are usually blocked when using [Strict](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection) Enhanced Tracking Protection.
-   * We allow them by default in order to avoid site breakage. See the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to reverse this behavior.
-3) **Hide the referrer** between sites.
-   * View the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to enforce this pref.
-      * Altering this will break embedded Instagram posts, Bing logins, and some third-party streaming sites.
-4) **Clear browsing data** on shutdown ([sanitize on close](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
+2) **Clear browsing data** on shutdown ([sanitize on close](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
    * You can **allow exceptions** if you want to stay logged in to some sites:
       1) Go to *Settings → Privacy & Security → Cookies and Site Data → Manage Exceptions*
       2) Check *Delete cookies and site data when Firefox is closed*.
+3) Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to enforce the following behavior:
+   * **Hide the referrer** from different sites.
+   * Block embedded **tweets, tiktoks, Instagram and Reddit posts** from loading on third-party sites.
+4) We do not use [`privacy.resistFingerprinting`](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3). Fingerprinting is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is only [addressed](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-fingerprinting) reasonably by Tor.<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> Please use the [Tor Browser](https://www.torproject.org) if your context calls for **anonymity** and not just reasonable **privacy**.<sup>^[*what's the difference?*](https://thenewoil.org/en/guides/prologue/secprivanon/)</sup>
 
 </details>
-
-Note: Fingerprinting is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is only reasonably [addressed by Tor](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> If your context calls for _anonymity_ and not just reasonable _privacy_, then please use the [Tor Browser](https://www.torproject.org).<sup>^[*what's the difference?*](https://thenewoil.org/en/guides/prologue/secprivanon/)</sup>
 
 ## Suggestions
 After applying the `user.js` and restarting Firefox:
 1) Use an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines). For a quick and easy solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
 2) Add **DNS-level protection** like [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
+3) Enjoy! :slightly_smiling_face:
 
 ## Recognition
 
@@ -108,15 +105,21 @@ After applying the `user.js` and restarting Firefox:
 * “I use this one. I tested this out. The performance is absolutely amazing. There’s definitely a huge difference when it comes to loading sites… You definitely can notice a difference.” - [DIRIKtv](https://youtu.be/N8IOJiOFVEk?t=16)
 
 ## Support
+
 If you like the project and benefit from it, leave a :star: (top right) and become a [stargazer](https://github.com/yokoffing/Betterfox/stargazers)!
 
 [![Stargazers repo roster for @yokoffing/Betterfox](https://reporoster.com/stars/dark/yokoffing/Betterfox)](https://github.com/yokoffing/Betterfox/stargazers)  
 
 ## Credit
-* This repository benefits from the ongoing research provided by [arkenfox](https://github.com/arkenfox/user.js). They are the foundation to any worthwhile `user.js`.
-* Appreciation goes to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and the developers working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the open web.
-* A special thanks to [Alex Kontos](https://github.com/MrAlex94) of [Waterfox](https://github.com/WaterfoxCo/Waterfox) for his collaboration in v.116 and determining the optimal `Fastfox` prefs.
-* Many thanks to the 2021 [Ghostery](https://github.com/ghostery) team for testing Betterfox in its early days and removing prefs that were too subjective.
+<div>
+<img align="right" src="https://media.tenor.com/m_knf6IKaJwAAAAC/hi-fox.gif" width="110" height="120"/>
+</div>
 
-<div align='center'><a href='https://www.websitecounterfree.com'><img src='https://www.websitecounterfree.com/c.php?d=9&id=19653&s=1' border='0' alt='Free Website Counter'></a><br / >
-<div align='center'>since 23 July 2022</div>
+* This repository benefits from the ongoing research provided by [arkenfox](https://github.com/arkenfox/user.js).
+* Appreciation goes to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and the developers working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the open web.
+* A special thanks to [Alex Kontos](https://github.com/MrAlex94) of [Waterfox](https://github.com/WaterfoxCo/Waterfox) for his collaboration in v.116.
+* Many thanks to the 2021 [Ghostery](https://github.com/ghostery) team for testing Betterfox at scale in its early days.
+
+<div align='center'>
+  <a href='https://www.websitecounterfree.com'><img src='https://www.websitecounterfree.com/c.php?d=9&id=19653&s=1' border='0' alt='Free Website Counter'></a><br / >
+since 23 July 2022</div>
