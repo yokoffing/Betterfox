@@ -32,7 +32,7 @@ While Betterfox is designed to [set-and-forget](https://glosbe.com/en/en/set-and
 ## about:Privacy
 Most projects have niche concerns with no regard for daily use. But for us, features like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here.<sup>^[*why?*](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)</sup>
 
-However, if desired, there are a few ways to further **harden** Firefox without causing too much site breakage:
+However, if desired, there are a few ways to further **harden** Firefox without causing too much site breakage or totally disrupting user experience:
 
 <details>
   <summary><i>Click me for details!</i></summary><p></p>
