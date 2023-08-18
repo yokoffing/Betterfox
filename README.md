@@ -3,7 +3,7 @@
 [![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyokoffing%2FBetter-Fox&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
 
 # Betterfox :fox_face:
-`about:config` tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/ "Firefox Homepage"). Files are updated as needed for your [user.js](http://kb.mozillazine.org/User.js_file).
+`about:config` tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/ "Firefox Homepage"). Files are updated as needed for your [user.js](https://kb.mozillazine.org/User.js_file#About_the_user.js_file).
 
 ## Made for everyday browsing
 **A secure, blazing fast browsing experience. Without breakage.**
@@ -40,32 +40,31 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 You can easily adjust these by [copying and pasting](https://github.com/yokoffing/Betterfox/issues/87) preferences to your personal file. :thumbsup:
 
 ## about:Privacy
-While Betterfox is already a great balance of privacy and convenience, here are a few ways to further **harden** your setup:
+Betterfox is already a great balance of privacy and convenience. However, you can still play with a few settings.
 
-<details>
-  <summary><i>Click me for details!</i></summary><p></p>
+See our wiki for [optional hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) suggestions.
 
-1) Change your **default search engine**.
-   * Alternatively, select a different search engine just for [Private Browsing](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) windows.
-      1) Go to *Settings → Search → Default Search Engine*
-      2) Change your default search engine to DuckDuckGo, or [add](https://github.com/yokoffing/Betterfox/blob/04c3184359c83d7b58411c3b68f40f3e9d95c373/Securefox.js#L600-L604) a premium search engine like [Kagi](https://kagi.com/).
-2) **Clear browsing data** on shutdown ([sanitize on close](https://github.com/yokoffing/Betterfox/blob/99f2e860633f307781ddb73d792358ad1bec6af5/Securefox.js#L409-L434)).
-   * You can **allow exceptions** if you want to stay logged in to some sites:
-      1) Go to *Settings → Privacy & Security → Cookies and Site Data → Manage Exceptions*
-      2) Check *Delete cookies and site data when Firefox is closed*.
-3) Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to enforce the following behavior:
-   * Enable **HTTPS-Only Mode** outside of [Private Browsing](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) windows.
-   * Block embedded **tweets, tiktoks, Instagram and Reddit posts** from loading on third-party sites.
-   * **Hide the referrer** from different sites.
+## Getting Started
+A [user.js](https://kb.mozillazine.org/User.js_file#About_the_user.js_file) configuration file for Mozilla Firefox designed to harden browser settings and make it more secure.
+* Find the location of your profile directory using `about:support`
+* Create a new file called `user.js` in that directory.
+* Add settings using user_pref( setting, value );
 
-We do not use [`privacy.resistFingerprinting`](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3). Fingerprinting is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is only [addressed](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-fingerprinting) reasonably by Tor.<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> Please use the [Tor Browser](https://www.torproject.org) if your context calls for **anonymity** and not just reasonable **privacy**.<sup>^[*what's the difference?*](https://thenewoil.org/en/guides/prologue/secprivanon/)</sup>
+### Applying the user.js file
 
-</details>
+Download my user.js file (Right click > Save Page As…).
+In the URL bar type “about:profiles”.
+For the profile you want to use (or default) click “Open Folder” in the Root Directory section.
+With the folder open, close Firefox, then paste the user.js you downloaded into the folder.
+
+### Custom policies.json (optional)
+See the wiki.
 
 ## Suggestions
 After applying the `user.js` and restarting Firefox:
 1) Use an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines). For a quick and easy solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
 2) Add **DNS-level protection** like [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
+    * Once you're happy with your profile, see how to quickly [configure DoH](https://support.mozilla.org/en-US/kb/dns-over-https) in Firefox.
 
 ## Recognition
 
