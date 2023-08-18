@@ -36,8 +36,9 @@ user_pref("gfx.content.skia-font-cache-size", 20);
 
 /** BROWSER CACHE ***/
 user_pref("browser.cache.disk.enable", true); // DEFAULT
-//user_pref("browser.cache.disk.capacity", 8192000); 
-//user_pref("browser.cache.disk.metadata_memory_limit", 15360);
+//user_pref("browser.cache.disk.capacity", 8192000);
+//user_pref("browser.cache.disk.smart_size.enabled", false);
+//user_pref("browser.cache.disk.metadata_memory_limit", 1000);
 user_pref("browser.cache.memory.capacity", 1048576);
 user_pref("browser.cache.memory.max_entry_size", 65536);
 
