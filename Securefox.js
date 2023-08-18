@@ -36,6 +36,7 @@ user_pref("browser.contentblocking.category", "strict");
 // Using a less aggressive internal blocklist to mitigate site breakage.
 // This is easier than adjusting prefs for ETP Custom.
 // [NOTE] Sadly, this does not work on NIGHTLY; you must use Custom and adjust prefs individually.
+// [ALLOWLIST] https://disconnect.me/trackerprotection/unblocked
 //user_pref("browser.contentblocking.features.strict", "tp,tpPrivate,cookieBehavior5,cookieBehaviorPBM5,cm,fp,stp,emailTP,emailTPPrivate,lvl1,rp,rpTop,ocsp,qps,qpsPBM");
 
 // PREF: query stripping
