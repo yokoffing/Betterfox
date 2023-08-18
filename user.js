@@ -28,14 +28,16 @@ user_pref("dom.enable_web_task_scheduling", true);
 user_pref("layout.css.has-selector.enabled", true);
 
 /** GFX ***/
-user_pref("gfx.webrender.precache-shaders", true);
+//user_pref("gfx.webrender.precache-shaders", true); // optional
 //user_pref("gfx.canvas.accelerated", true); // enable if using a dedicated GPU on WINDOWS
 user_pref("gfx.canvas.accelerated.cache-items", 4096);
 user_pref("gfx.canvas.accelerated.cache-size", 512);
 user_pref("gfx.content.skia-font-cache-size", 20);
 
 /** BROWSER CACHE ***/
-user_pref("browser.cache.disk.enable", false);
+user_pref("browser.cache.disk.enable", true); // DEFAULT
+//user_pref("browser.cache.disk.capacity", 8192000); 
+//user_pref("browser.cache.disk.metadata_memory_limit", 15360);
 user_pref("browser.cache.memory.capacity", 1048576);
 user_pref("browser.cache.memory.max_entry_size", 65536);
 
