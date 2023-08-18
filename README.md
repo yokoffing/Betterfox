@@ -54,8 +54,9 @@ While Betterfox is already a great balance of privacy and convenience, here are 
       1) Go to *Settings → Privacy & Security → Cookies and Site Data → Manage Exceptions*
       2) Check *Delete cookies and site data when Firefox is closed*.
 3) Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to enforce the following behavior:
-   * **Hide the referrer** from different sites.
    * Block embedded **tweets, tiktoks, Instagram and Reddit posts** from loading on third-party sites.
+   * **Hide the referrer** from different sites.
+   * Enable **HTTPS-Only Mode** outside of [Private Browsing](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) windows.
 
 We do not use [`privacy.resistFingerprinting`](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3). Fingerprinting is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is only [addressed](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D#-fingerprinting) reasonably by Tor.<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> Please use the [Tor Browser](https://www.torproject.org) if your context calls for **anonymity** and not just reasonable **privacy**.<sup>^[*what's the difference?*](https://thenewoil.org/en/guides/prologue/secprivanon/)</sup>
 
