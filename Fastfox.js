@@ -230,7 +230,7 @@ user_pref("layout.css.has-selector.enabled", true);
 // [4] https://www.reddit.com/r/firefox/comments/z5auzi/comment/ixw65gb?context=3
 // [5] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db?permalink_comment_id=4532937#gistcomment-4532937
 //user_pref("gfx.webrender.all", true); // enables WR + additional features
-user_pref("gfx.webrender.precache-shaders", true); // longer initial startup time
+//user_pref("gfx.webrender.precache-shaders", true); // longer initial startup time
 //user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS macOS
     //user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
 
@@ -289,12 +289,12 @@ user_pref("gfx.webrender.precache-shaders", true); // longer initial startup tim
 // More efficient to keep the browser cache instead of having to
 // re-download objects for the websites you visit frequently.
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
-user_pref("browser.cache.disk.enable", false);
-//user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
-    //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
+user_pref("browser.cache.disk.enable", true); // DEFAULT
+user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
+    user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
 //user_pref("browser.cache.disk.max_entry_size", 51200); // 51 MB; DEFAULT; maximum size of an object in disk cache
-//user_pref("browser.cache.disk.metadata_memory_limit", 15360); // default=250; increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
-//user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
+user_pref("browser.cache.disk.metadata_memory_limit", 10000); // default=250; alt=15360; increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
+//user_pref("browser.cache.max_shutdown_io_lag", 4); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
 
 // PREF: specify how long pages are kept before being removed from cache (in hours)
 // Controls the time period used to re-compute the frecency value of cache entries.
