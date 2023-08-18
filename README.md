@@ -40,10 +40,10 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 ## about:Privacy
 Most projects have niche concerns with no regard for daily use. But for us, features like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here.<sup>^[*why?*](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)</sup>
 
-Perform any of the following steps if you want to **harden** Firefox further:
+However, you can perform any of the following steps if you want to **harden** Firefox further:
 
 <details>
-  <summary><i>Click me for details</i></summary>
+  <summary><i>Click me for details!</i></summary><p></p>
 
 1) Change your **default search engine**.
    * Alternatively, select a different search engine just for [Private Browsing](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) windows.
@@ -85,7 +85,7 @@ After applying the `user.js` and restarting Firefox:
 * [How To Improve Firefox Performance](https://www.youtube.com/watch?v=N8IOJiOFVEk) (Dec 2021)
 
 ### Podcasts
-* [Italian] [Digitalia.fm](https://digitalia.fm/684/) | 1:41.35-1:42.41 (July 2023)
+* [Italian] [Digitalia.fm](https://digitalia.fm/684/) | 1:41:35-1:42:41 (July 2023)
 * [GhoSTORIES with Franz & Pete](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh) | 17:05-18:40 (Feb 2021)
 
 ### Articles
