@@ -265,12 +265,12 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 // safe from the attack if it disables renegotiations but the problem is that the browser can't
 // know that. Setting this pref to true is the only way for the browser to ensure there will be
 // no unsafe renegotiations on the channel between the browser and the server.
-// [STATS] SSL Labs (Sept 2022) reports that over 99.3% of top sites have secure renegotiation [4]
+// [STATS] SSL Labs > Renegotiation Support (Feb 2023) reports over 99.3% of top sites have secure renegotiation [4].
 // [1] https://wiki.mozilla.org/Security:Renegotiation
 // [2] https://datatracker.ietf.org/doc/html/rfc5746
 // [3] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555
 // [4] https://www.ssllabs.com/ssl-pulse/
-//user_pref("security.ssl.require_safe_negotiation", true);
+user_pref("security.ssl.require_safe_negotiation", true);
 
 // PREF: display advanced information on Insecure Connection warning pages
 // [TEST] https://expired.badssl.com/
