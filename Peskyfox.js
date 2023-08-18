@@ -388,6 +388,12 @@ user_pref("browser.menu.showViewImageInfo", true);
 // PREF: show all matches in Findbar
 user_pref("findbar.highlightAll", true);
 
+// PREF: force disable finding text on page without prompting
+// [NOTE] Not as powerful as using Ctrl+F.
+// [SETTINGS] General>Browsing>"Search for text when you start typing"
+// [1] https://github.com/yokoffing/Betterfox/issues/212
+//user_pref("accessibility.typeaheadfind", false); // enforce DEFAULT
+
 // PREF: disable middle mouse click opening links from clipboard
 // It's been default in Linux since at least FF102.
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089
