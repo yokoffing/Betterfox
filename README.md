@@ -98,12 +98,14 @@ After applying the `user.js` and restarting Firefox:
 * [pyllyukko/user.js](https://github.com/pyllyukko/user.js) [comparator](https://jm42.github.io/compare-user.js/)
 
 ### Reviews
+* “I’ve been using it for awhile and it’s actually really, really good. The performance is actually crazy.” - [DIRIKtv](https://youtu.be/N8IOJiOFVEk?t=213)
 * "... a good balance between privacy and convenience." - [Radplay](https://old.reddit.com/r/firefox/comments/115va7d/list_of_aboutconfiguserjs_privacy_tweaks/j9700bc/?context=2)
 * "The best collection of tweaks available ... doesn't go crazy with privacy/security hardening that completely breaks the usability of Firefox for most users." - [AuRiMaS](https://old.reddit.com/r/MozillaFirefox/comments/15cc1vk/about_changes_in_aboutconfig/jtyx910/?context=3)
 * "... the experience is so good now I don’t think I’ll go back to any of the chromium based browsers." - [Mr_Compromise](https://old.reddit.com/r/pcmasterrace/comments/zwioe1/what_browser_will_you_be_using_in_2023_please/j1wmbxo/)
 * "FF is now much snappier! Thanks a lot for the suggestions!" - [whotheff](https://old.reddit.com/r/firefox/comments/z5auzi/firefox_not_properly_usingrecognizing_gpu_poor/iy36hyz/)
 * "BetterFox ... will provide good-enough privacy and help with performance." - [Qdoit12Super](https://old.reddit.com/r/browsers/comments/139h4my/suggestion_for_finding_3_good_privacy_focus/jj3n3qn/?context=2)
 * "... drastically changed the experience with Firefox for me. Improved speed, security, smoothness and removed clutter." - [AppDate](https://www.appdate.lk/technology/2023-browser-showdown/#:~:text=Used%20the%20BetterFox%20user%20config%20settings%20with%20some%20overrides%20which%20drastically%20changed%20the%20experience)
+* “I use this one. I tested this out. The performance is absolutely amazing. There’s definitely a huge difference when it comes to loading sites… You definitely can notice a difference.” - [DIRIKtv](https://youtu.be/N8IOJiOFVEk?t=16)
 
 ## Support
 If you like the project and benefit from it, leave a :star: (top right) and become a [stargazer](https://github.com/yokoffing/Betterfox/stargazers)!
