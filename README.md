@@ -29,18 +29,10 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 
 While Betterfox is designed to [set-and-forget](https://glosbe.com/en/en/set-and-forget), it contains plenty of options for those who like to tinker.
 
-## about:Defaults
-Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky if you want to **relax** the following behavior:
-* Firefox **Accessibility Service** is disabled to improve resource utilization and security. Override this if you use assistive software.
-* **Firefox Sync** and **Firefox View** are disabled. Override if you use these features.
-* The built-in **password manager** is disabled. We recommend using [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/) or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager) to manage your credentials on multiple devices.
-* **Top sites** (pinned site shortcuts) are removed for a clean new tab page.
-* **Location requests** and **site notifications** are blocked to minimize annoyances.
-
 ## about:Privacy
 Most projects have niche concerns with no regard for daily use. But for us, features like WebGL and DRM are still enabled, and you won't find a setting like `privacy.resistFingerprinting` mentioned here.<sup>^[*why?*](https://old.reddit.com/r/firefox/comments/wuqpgi/are_there_any_aboutconfig_tweaks_to_get_smooth/ile3whx/?context=3)</sup>
 
-However, you can perform any of the following steps if you want to **harden** Firefox further:
+However, if desired, there are a few ways to further **harden** Firefox without causing too much site breakage:
 
 <details>
   <summary><i>Click me for details!</i></summary><p></p>
@@ -63,7 +55,15 @@ However, you can perform any of the following steps if you want to **harden** Fi
 
 </details>
 
-Fingerprinting is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is only reasonably [addressed by Tor](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> If your context calls for _anonymity_ and not just reasonable _privacy_, then please use the [Tor Browser](https://www.torproject.org).<sup>^[*what's the difference?*](https://thenewoil.org/en/guides/prologue/secprivanon/)</sup>
+Note: Fingerprinting is a high [threat model](https://thenewoil.org/en/guides/prologue/threatmodel/) issue that is only reasonably [addressed by Tor](https://github.com/arkenfox/user.js/wiki/3.3-Overrides-%5BTo-RFP-or-Not%5D).<sup>[1](https://youtu.be/5NrbdO4yWek?t=4334)</sup> If your context calls for _anonymity_ and not just reasonable _privacy_, then please use the [Tor Browser](https://www.torproject.org).<sup>^[*what's the difference?*](https://thenewoil.org/en/guides/prologue/secprivanon/)</sup>
+
+## about:Defaults
+Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky if you want to **relax** the following behavior:
+* Firefox **Accessibility Service** is disabled to improve resource utilization and security. Override this if you use assistive software.
+* **Firefox Sync** and **Firefox View** are disabled. Override if you use these features.
+* The built-in **password manager** is disabled. We recommend using [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/) or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager) to manage your credentials on multiple devices.
+* **Top sites** (pinned site shortcuts) are removed for a clean new tab page.
+* **Location requests** and **site notifications** are blocked to minimize annoyances.
 
 ## Suggestions
 After applying the `user.js` and restarting Firefox:
