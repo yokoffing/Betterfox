@@ -326,7 +326,7 @@ user_pref("browser.cache.memory.max_entry_size", 65536); // default=5120; -1=ent
 // PREF: media memory cache
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
 // [2] https://github.com/arkenfox/user.js/pull/941
-user_pref("media.memory_cache_max_size", 256000); // default=8192; AF=65536; alt=131072; alt2=512000
+user_pref("media.memory_cache_max_size", 196608); // default=8192; AF=65536; alt=131072; alt2=512000
 user_pref("media.memory_caches_combined_limit_kb", 1572864); // default=524288
 //user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory that Firefox can use for media caches
 
