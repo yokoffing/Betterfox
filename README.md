@@ -50,6 +50,7 @@ Apply preferences from the [common overrides](https://github.com/yokoffing/Bette
 * The built-in **password manager** is disabled. We recommend using [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/) or [1Password](https://addons.mozilla.org/en-US/firefox/addon/1password-x-password-manager) to manage your credentials on multiple devices.
 * **Top sites** (pinned site shortcuts) are removed for a clean new tab page.
 * **Location requests** and **site notifications** are blocked to minimize annoyances.
+* **Search engine suggestions** are disabled in the URL bar to keep everything you type from going to Google. You can still use search buttons and [bookmark keywords](https://support.mozilla.org/en-US/kb/how-search-from-address-bar) ([examples](https://www-archive.mozilla.org/docs/end-user/keywords.html)). You may override if you use and trust a privacy respecting search engine
 
 You can easily adjust these by [copying and pasting](https://github.com/yokoffing/Betterfox/issues/87) preferences to your personal file. :thumbsup:
 
