@@ -238,12 +238,16 @@ user_pref("security.OCSP.enabled", 0);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("security.pki.crlite_mode", 2);
 
-// PREF: Public Key Pinning (PKP)
-// MOZILLA_PKIX_ERROR_KEY_PINNING_FAILURE
-// If you rely on an AV (antivirus) to protect your web browsing
-// by inspecting ALL your web traffic, then leave at current default=1.
+// PREF: HTTP Public Key Pinning (HPKP)
+// If you rely on an antivirus to protect your web browsing
+// by inspecting ALL your web traffic, then leave at 1.
+// [ERROR] MOZILLA_PKIX_ERROR_KEY_PINNING_FAILURE
+// By default, pinning enforcement is not applied if a user-installed
+// certificate authority (CA) is present. However, this allows user-installed
+// CAs to override pins for any site, negating the security benefits of HPKP.
 // 0=disabled, 1=allow user MiTM (such as your antivirus) (default), 2=strict
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16206
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1168603
 user_pref("security.cert_pinning.enforcement_level", 2);
 
 // PREF: disable Enterprise Root Certificates of the operating system
@@ -261,11 +265,14 @@ user_pref("security.cert_pinning.enforcement_level", 2);
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 
 // PREF: require safe negotiation
-// Blocks connections (SSL_ERROR_UNSAFE_NEGOTIATION) to servers that don't support RFC 5746 [2]
-// as they're potentially vulnerable to a MiTM attack [3]. A server without RFC 5746 can be
-// safe from the attack if it disables renegotiations but the problem is that the browser can't
-// know that. Setting this pref to true is the only way for the browser to ensure there will be
-// no unsafe renegotiations on the channel between the browser and the server.
+// [ERROR] SSL_ERROR_UNSAFE_NEGOTIATION
+// Blocks connections to servers that don't support RFC 5746 [2]
+// as they're potentially vulnerable to a MiTM attack [3].
+// A server without RFC 5746 can be safe from the attack if it
+// disables renegotiations but the problem is that the browser can't
+// know that. Setting this pref to true is the only way for the
+// browser to ensure there will be no unsafe renegotiations on
+// the channel between the browser and the server.
 // [STATS] SSL Labs > Renegotiation Support (Feb 2023) reports over 99.3% of top sites have secure renegotiation [4].
 // [1] https://wiki.mozilla.org/Security:Renegotiation
 // [2] https://datatracker.ietf.org/doc/html/rfc5746
