@@ -29,6 +29,20 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 
 While Betterfox is designed to [set-and-forget](https://glosbe.com/en/en/set-and-forget), it contains plenty of options for those who like to tinker.
 
+## Getting started
+*If you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)*
+
+1) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js) (Right click > `Save Link As…`).
+2) Open Firefox. In the URL bar, type `about:profiles` and press `Enter`.
+3) For the profile you want to use (or default), click `Open Folder` in the **Root Directory** section.
+4) Close Firefox. With the folder open, move the `user.js` file into the folder.
+
+*After restarting Firefox:*
+1) Get an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines).
+   * Or, for a quick and easy solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
+3) Enable **DNS-level protection** with [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
+    * See how to [quickly enable](https://support.mozilla.org/en-US/kb/dns-over-https) **secure DNS** in Firefox.
+
 ## about:Defaults
 Apply preferences from the [common overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky to adjust the following behavior:
 * Firefox **Accessibility Service** is disabled to improve resource utilization and security. Override this if you use assistive software.
@@ -43,19 +57,6 @@ You can easily adjust these by [copying and pasting](https://github.com/yokoffin
 Betterfox is already a great balance of privacy and convenience. However, you can still play with a few settings.
 
 See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for suggestions.
-
-## Getting started
-<sup>if you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/new/)</sup>
-
-1) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js) (Right click > `Save Link As…`).
-2) Open Firefox. In the URL bar, type `about:profiles` and press `Enter`.
-3) For the profile you want to use (or default), click `Open Folder` in the **Root Directory** section.
-4) Close Firefox. With the folder open, move the `user.js` file into the folder.
-
-After applying the `user.js` and restarting Firefox:
-1) Use an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines). For a quick and easy solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
-2) Enable **secure DNS** with [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
-    * Once you're happy with your profile, see how to quickly [configure DoH](https://support.mozilla.org/en-US/kb/dns-over-https) in Firefox.
 
 ## Recognition
 
