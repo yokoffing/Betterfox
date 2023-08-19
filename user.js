@@ -121,7 +121,6 @@ user_pref("network.IDN_show_punycode", true);
 user_pref("dom.security.https_first", true);
 
 /** HTTPS-ONLY MODE ***/
-user_pref("dom.security.https_only_mode_pbm", true);
 user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 /** PASSWORDS AND AUTOFILL ***/
