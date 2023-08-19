@@ -30,9 +30,9 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 While Betterfox is designed to [set-and-forget](https://glosbe.com/en/en/set-and-forget), it contains plenty of options for those who like to tinker.
 
 ## about:Defaults
-Check out the [Common Overrides](https://github.com/yokoffing/Betterfox/issues/87) sticky for prefs you may want to enable.
+Easily adjust features by copying + pasting prefs to your personal file :thumbsup:
 
-You can easily adjust these by copying + pasting prefs to your personal file. :thumbsup:
+Check out [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Overrides) to customize your setup.
 
 ## about:Privacy
 Betterfox is already a great balance of privacy and convenience. However, you can still play with a few settings.
@@ -48,8 +48,7 @@ See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Ha
 4) Close Firefox. With the folder open, move the `user.js` file into the folder.
 
 *After restarting Firefox:*
-1) Get an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines).
-   * Or, for a quick and easy solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
+1) Get an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines). For a simple solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
 3) Enable **DNS-level protection** with [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
     * See how to [quickly enable](https://support.mozilla.org/en-US/kb/dns-over-https) **secure DNS** in Firefox.
 
