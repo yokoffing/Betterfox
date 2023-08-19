@@ -248,6 +248,7 @@ user_pref("security.pki.crlite_mode", 2);
 // 0=disabled, 1=allow user MiTM (such as your antivirus) (default), 2=strict
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16206
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1168603
+// [3] https://github.com/yokoffing/Betterfox/issues/53#issuecomment-1035554783
 user_pref("security.cert_pinning.enforcement_level", 2);
 
 // PREF: disable Enterprise Root Certificates of the operating system
