@@ -502,7 +502,8 @@ user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 //user_pref("browser.urlbar.groupLabels.enabled", false);
 
 // PREF: disable search and form history
-// Be aware that autocomplete form data can be read by third parties [1][2]
+// Be aware that autocomplete form data can be read by third parties [1][2].
+// Form data can easily be stolen by third parties.
 // [SETTING] Privacy & Security>History>Custom Settings>Remember search and form history
 // [1] https://blog.mindedsecurity.com/2011/10/autocompleteagain.html
 // [2] https://bugzilla.mozilla.org/381681
