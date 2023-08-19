@@ -42,28 +42,19 @@ You can easily adjust these by [copying and pasting](https://github.com/yokoffin
 ## about:Privacy
 Betterfox is already a great balance of privacy and convenience. However, you can still play with a few settings.
 
-See our wiki for [optional hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) suggestions.
+See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for suggestions.
 
 ## Getting started
-A [user.js](https://kb.mozillazine.org/User.js_file#About_the_user.js_file) configuration file for Mozilla Firefox designed to harden browser settings and make it more secure.
-* Find the location of your profile directory using `about:support`
-* Create a new file called `user.js` in that directory.
-* Add settings using user_pref( setting, value );
+<sup>if you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/new/)</sup>
 
-### Applying the user.js file
+1) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js) (Right click > `Save Link As…`).
+2) Open Firefox. In the URL bar, type `about:profiles` and press `Enter`.
+3) For the profile you want to use (or default), click `Open Folder` in the **Root Directory** section.
+4) Close Firefox. With the folder open, move the `user.js` file into the folder.
 
-Download my user.js file (Right click > Save Page As…).
-In the URL bar type “about:profiles”.
-For the profile you want to use (or default) click “Open Folder” in the Root Directory section.
-With the folder open, close Firefox, then paste the user.js you downloaded into the folder.
-
-### Custom policies.json (optional)
-See the wiki.
-
-## Suggestions
 After applying the `user.js` and restarting Firefox:
 1) Use an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines). For a quick and easy solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
-2) Add **DNS-level protection** like [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
+2) Enable **secure DNS** with [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
     * Once you're happy with your profile, see how to quickly [configure DoH](https://support.mozilla.org/en-US/kb/dns-over-https) in Firefox.
 
 ## Recognition
@@ -102,7 +93,7 @@ After applying the `user.js` and restarting Firefox:
 * "...a good balance between privacy and convenience." - [Radplay](https://old.reddit.com/r/firefox/comments/115va7d/list_of_aboutconfiguserjs_privacy_tweaks/j9700bc/?context=2)
 * "The best collection of tweaks available ... doesn't go crazy with privacy/security hardening that completely breaks the usability of Firefox for most users." - [AuRiMaS](https://old.reddit.com/r/MozillaFirefox/comments/15cc1vk/about_changes_in_aboutconfig/jtyx910/?context=3)
 * "BetterFox ... will provide good-enough privacy and help with performance." - [Qdoit12Super](https://old.reddit.com/r/browsers/comments/139h4my/suggestion_for_finding_3_good_privacy_focus/jj3n3qn/?context=2)
-#### better experience
+#### better browsing
 * "...drastically changed the experience with Firefox for me. Improved speed, security, smoothness, and removed clutter." - [AppDate](https://www.appdate.lk/technology/2023-browser-showdown/#:~:text=Used%20the%20BetterFox%20user%20config%20settings%20with%20some%20overrides%20which%20drastically%20changed%20the%20experience)
 * "...the experience is so good now I don’t think I’ll go back to any of the chromium based browsers." - [Mr_Compromise](https://old.reddit.com/r/pcmasterrace/comments/zwioe1/what_browser_will_you_be_using_in_2023_please/j1wmbxo/)
 
