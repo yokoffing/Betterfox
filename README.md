@@ -3,7 +3,7 @@
 [![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyokoffing%2FBetter-Fox&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
 
 # Betterfox :fox_face:
-`about:config` tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/ "Firefox Homepage"). Files are updated as needed for your [user.js](https://kb.mozillazine.org/User.js_file#About_the_user.js_file).
+[`about:config`](https://kb.mozillazine.org/About:config) tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/ "Firefox Homepage"). Files are updated as needed for your [user.js](https://kb.mozillazine.org/User.js_file#About_the_user.js_file).
 
 ## Made for everyday browsing
 **A secure, blazing fast browsing experience. Without breakage.**
