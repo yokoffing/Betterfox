@@ -583,7 +583,7 @@ user_pref("dom.security.https_first", true);
 // [4] https://www.cloudflare.com/learning/ssl/why-use-https/
 
 // PREF: enable HTTPS-only Mode
-user_pref("dom.security.https_only_mode_pbm", true); // Private Browsing windows only
+//user_pref("dom.security.https_only_mode_pbm", true); // Private Browsing windows only
 //user_pref("dom.security.https_only_mode", true); // Normal + Private Browsing windows
 
 // PREF: offer suggestion for HTTPS site when available
