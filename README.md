@@ -25,19 +25,19 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 | [Smoothfox](https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js) | Get Edge-like smooth scrolling on your favorite browser — or choose something more your style. |
 | [user.js](https://github.com/yokoffing/Betterfox/blob/main/user.js) | All the essentials. None of the breakage. This is your `user.js`. |
 
-:bulb: `Fastfox`, `Securefox`, `Peskyfox`, and `Smoothfox` are guides to settings within Firefox.
+`Fastfox`, `Securefox`, `Peskyfox`, and `Smoothfox` are guides to settings within Firefox.
 
 The `user.js` is curated from the options located in these files.
 
 ## about:Defaults
-`copy+paste` prefs to your personal file to enable features easily :thumbsup:
+Easily `copy+paste` prefs to your personal file to enable common features.
 
-Check out [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Overrides) to customize your setup.
+Check out [Overrides](https://github.com/yokoffing/Betterfox/wiki/Overrides) to customize your setup.
 
 ## about:Privacy
-Betterfox is a great balance of privacy and convenience. However, you can still tweak a few settings.
+Betterfox is a great balance of privacy and convenience.
 
-See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for suggestions.
+See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for other suggestions.
 
 ## Getting started
 *If you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)*
