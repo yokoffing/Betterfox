@@ -1247,8 +1247,9 @@ user_pref("network.captive-portal-service.enabled", false);
 user_pref("network.connectivity-service.enabled", false);
 
 // PREF: software that continually reports what default browser you are using [WINDOWS]
-// [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser [1].
-// [1] https://github.com/yokoffing/Betterfox/issues/166
+// [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser [2].
+// [1] https://techdows.com/2020/04/what-is-firefox-default-browser-agent-and-how-to-disable-it.html
+// [2] https://github.com/yokoffing/Betterfox/issues/166
 //user_pref("default-browser-agent.enabled", false);
 
 // PREF: "report extensions for abuse"
