@@ -120,9 +120,6 @@ user_pref("network.IDN_show_punycode", true);
 /** HTTPS-FIRST POLICY ***/
 user_pref("dom.security.https_first", true);
 
-/** HTTPS-ONLY MODE ***/
-user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
-
 /** PASSWORDS AND AUTOFILL ***/
 user_pref("signon.rememberSignons", false);
 user_pref("editor.truncate_user_pastes", false);
