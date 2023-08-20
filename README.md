@@ -2,15 +2,13 @@
 ![GitHub Maintained](https://img.shields.io/badge/maintained-yes-yellow)
 [![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyokoffing%2FBetter-Fox&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
 
-# Betterfox :fox_face:
+# Betterfox
 [`about:config`](https://kb.mozillazine.org/About:config) tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/ "Firefox Homepage"). Files are updated as needed for your [user.js](https://kb.mozillazine.org/User.js_file#About_the_user.js_file).
 
 ## Made for everyday browsing
 **A secure, blazing fast browsing experience. Without breakage.**
 
 Betterfox is an opinionated preference list inspired by the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e).
-
-While Betterfox is designed to [set-and-forget](https://glosbe.com/en/en/set-and-forget), it contains plenty of options for those who like to tinker.
 
 ## Simple goals
 1) **Minimalism:** get what isn't needed out of the way
@@ -32,12 +30,12 @@ While Betterfox is designed to [set-and-forget](https://glosbe.com/en/en/set-and
 The `user.js` is curated from the options located in these files.
 
 ## about:Defaults
-`copy+paste` prefs to your personal file to easily enable features :thumbsup:
+`copy+paste` prefs to your personal file to enable features easily :thumbsup:
 
 Check out [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Overrides) to customize your setup.
 
 ## about:Privacy
-Betterfox is already a great balance of privacy and convenience. However, you can still play with a few settings.
+Betterfox is a great balance of privacy and convenience. However, you can still tweak a few settings.
 
 See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for suggestions.
 
@@ -87,7 +85,6 @@ See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Ha
 * "BetterFox ... will provide good-enough privacy and help with performance." - [Qdoit12Super](https://old.reddit.com/r/browsers/comments/139h4my/suggestion_for_finding_3_good_privacy_focus/jj3n3qn/?context=2)
 * "...drastically changed the experience with Firefox for me. Improved speed, security, smoothness, and removed clutter." - [AppDate](https://www.appdate.lk/technology/2023-browser-showdown/#:~:text=Used%20the%20BetterFox%20user%20config%20settings%20with%20some%20overrides%20which%20drastically%20changed%20the%20experience)
 * "The best collection of tweaks available." - [AuRiMaS](https://old.reddit.com/r/MozillaFirefox/comments/15cc1vk/about_changes_in_aboutconfig/jtyx910/?context=3)
-* "...a good balance between privacy and convenience." - [Radplay](https://old.reddit.com/r/firefox/comments/115va7d/list_of_aboutconfiguserjs_privacy_tweaks/j9700bc/?context=2)
 * "FF is now much snappier! Thanks a lot for the suggestions!" - [whotheff](https://old.reddit.com/r/firefox/comments/z5auzi/firefox_not_properly_usingrecognizing_gpu_poor/iy36hyz/)
 * "...the experience is so good now I don’t think I’ll go back to any of the chromium based browsers." - [Mr_Compromise](https://old.reddit.com/r/pcmasterrace/comments/zwioe1/what_browser_will_you_be_using_in_2023_please/j1wmbxo/)
 
