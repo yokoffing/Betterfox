@@ -32,7 +32,7 @@ While Betterfox is designed to [set-and-forget](https://glosbe.com/en/en/set-and
 ## about:Defaults
 Easily adjust features by copying + pasting prefs to your personal file :thumbsup:
 
-Check out [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Overrides) to customize your setup.
+Check out [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Common-Overrides) to customize your setup.
 
 ## about:Privacy
 Betterfox is already a great balance of privacy and convenience. However, you can still play with a few settings.
