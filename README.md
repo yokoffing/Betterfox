@@ -45,7 +45,7 @@ See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Ha
 1) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js) (Right click > `Save Link As…`).
 2) Open Firefox. In the URL bar, type `about:profiles` and press `Enter`.
 3) For the profile you want to use (or default), click `Open Folder` in the **Root Directory** section.
-4) Close Firefox. With the folder open, move the `user.js` file into the folder.
+4) Move the `user.js` file into the folder.
 
 *After restarting Firefox:*
 1) Get an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines). For a simple solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
