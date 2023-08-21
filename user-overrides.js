@@ -21,7 +21,7 @@
 user_pref("dom.ipc.processCount.webIsolated", 1); // use one process per site
 //user_pref("dom.ipc.processPrelaunch.fission.number", 1); // # of Preallocated
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
-user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
+//user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
 
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
@@ -38,7 +38,7 @@ user_pref("browser.safebrowsing.downloads.remote.url", ""); // enforce no remote
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false); // clean up UI; not needed in user.js if remote downloads are disabled
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false); // clean up UI; not needed in user.js if remote downloads are disabled
 user_pref("browser.safebrowsing.allowOverride", false); // do not allow user to override SB
-user_pref("dom.push.enabled", false); // disable Push API; breaks FF Sync!
+user_pref("dom.push.enabled", false); // disable Push API; breaks FF Sync and Site Notifications
 user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.notify.checkForProxies", false); // skip proxy request check
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
@@ -102,42 +102,3 @@ user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
 user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level
 user_pref("app.update.auto", false); // disable auto-installing Firefox updates [NON-WINDOWS]
 //user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
-
-/** SPECULATIVE CONNECTIONS TEST ***/
-user_pref("network.http.speculative-parallel-limit", 12);
-user_pref("network.dns.disablePrefetch", false);
-    user_pref("network.dns.disablePrefetchFromHTTPS", false);
-user_pref("network.early-hints.enabled", true);
-    user_pref("network.early-hints.preconnect.enabled", true);
-    user_pref("network.early-hints.preconnect.max_connections", 20);
-user_pref("browser.urlbar.speculativeConnect.enabled", true);
-user_pref("browser.places.interactions.enabled", true); // DEFAULT
-	user_pref("browser.places.speculativeConnect.enabled", true);
-user_pref("network.prefetch-next", true);
-user_pref("network.predictor.enabled", true);
-user_pref("network.predictor.enable-prefetch", true);
-user_pref("network.predictor.enable-hover-on-ssl", true);
-    user_pref("network.predictor.preresolve-min-confidence", 30);
-    user_pref("network.predictor.preconnect-min-confidence", 60);
-    user_pref("network.predictor.prefetch-min-confidence", 90);
-        user_pref("network.predictor.prefetch-force-valid-for", 3600);
-        user_pref("network.predictor.prefetch-rolling-load-count", 120);
-    user_pref("network.predictor.max-resources-per-entry", 250);
-    user_pref("network.predictor.max-uri-length", 1000);
-
-/** DISK CACHE TEST ***/
-user_pref("browser.cache.disk.enable", true); // DEFAULT
-user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache
-user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
-user_pref("browser.cache.disk.metadata_memory_limit", 15360); // increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
-user_pref("browser.cache.max_shutdown_io_lag", 16); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
-user_pref("browser.cache.frecency_half_life_hours", 24); // default=6; sweep intervals, the half life used to re-compute cache entries frequency (in hours)
-user_pref("browser.cache.memory.capacity", 2097152); // memory cache
-user_pref("browser.cache.memory.max_entry_size", 327680); // max size of entry for memory cache
-user_pref("media.memory_cache_max_size", 1048576); // media memory cache
-user_pref("media.memory_caches_combined_limit_kb", 3145728); // media memory cache limit
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory FF can use for media caches
-user_pref("image.cache.size", 10485760); // default=5242880
-user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; chunk size for calls to the image decoders
-user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);// default=60000; minimum timeout to unmap shared surfaces since they have been last used
-
