@@ -185,6 +185,14 @@ user_pref("app.normandy.api_url", "");
 user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
+user_pref("dom.security.unexpected_system_load_telemetry_enabled", false);
+user_pref("messaging-system.rsexperimentloader.enabled", false);
+user_pref("network.trr.confirmation_telemetry_enabled", false);
+user_pref("security.app_menu.recordEventTelemetry", false);
+user_pref("security.certerrors.mitm.priming.enabled", false);
+user_pref("security.certerrors.recordEventTelemetry", false);
+user_pref("security.protectionspopup.recordEventTelemetry", false);
+user_pref("signon.recipes.remoteRecipes.enabled", false);
 
 /****************************************************************************
  * SECTION: PESKYFOX                                                        *
