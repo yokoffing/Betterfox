@@ -618,10 +618,10 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [NOTE] You can set this to 0 if you are already using secure DNS for your entire network (e.g. OS-level, router-level).
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
-// 0=Disable DoH (default)
-// 2=Use DoH; fall back to traditional DNS if necessary
-// 3=Only use DoH; do not fall back to traditional DNS
-// 5=Explicitly disable DoH
+// 0=disable DoH (default)
+// 2=use DoH; fall back to traditional DNS if necessary
+// 3=only use DoH; do not fall back to traditional DNS
+// 5=explicitly disable DoH
 //user_pref("network.trr.mode", 0); // DEFAULT
 
 // PREF: DoH fallback warning page
@@ -670,12 +670,11 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [2] https://blog.cloudflare.com/oblivious-dns/
 // [3] https://techpp.com/2020/12/14/odoh-oblivious-dns-over-https-explained/
 //user_pref("network.trr.mode", 2);
-//user_pref("network.trr.odoh.enabled", true);
-//user_pref("network.trr.odoh.configs_uri", "https://odoh.cloudflare-dns.com/.well-known/odohconfigs");
-//user_pref("network.trr.odoh.target_host", "https://odoh.cloudflare-dns.com/");
-//user_pref("network.trr.odoh.target_path", "dns-query");
-//user_pref("network.trr.odoh.proxy_uri", "https://odoh1.surfdomeinen.nl/proxy");
-//user_pref("network.trr.odoh.min_ttl", 86400); // 1 day
+//user_pref("network.trr.odoh.min_ttl", 86400); // 1 day; HIDDEN
+//user_pref("network.trr.ohttp.config_uri", "https://dooh.cloudflare-dns.com/.well-known/doohconfig"); // HIDDEN
+//user_pref("network.trr.ohttp.uri", "https://dooh.cloudflare-dns.com/dns-query"); // HIDDEN
+//user_pref("network.trr.ohttp.relay_uri", "https://dooh.waterfox.net/"); // HIDDEN
+//user_pref("network.trr.use_ohttp", true); // HIDDEN
 
 /******************************************************************************
  * SECTION: ESNI / ECH                            *
