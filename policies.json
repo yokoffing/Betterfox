@@ -2,6 +2,7 @@
     "__COMMENT__ More Information": "https://github.com/mozilla/policy-templates/tree/master#readme",
     "policies": {
         "AppAutoUpdate": true,
+        "AppAutoUpdate_comment": "Change to false to disable auto-updates.",
         "DisableFirefoxStudies": true,
         "DisableTelemetry": true,
         "DisableFeedbackCommands": true,
@@ -15,6 +16,7 @@
             "Locked": false
         },
         "ManualAppUpdateOnly": false,
+        "ManualAppUpdateOnly_comment": "Change to true to disable auto-updates.",
         "NoDefaultBookmarks": true,
         "WebsiteFilter": {
             "Block": [
