@@ -248,7 +248,7 @@ user_pref("findbar.highlightAll", true);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
-// visit https://github.com/yokoffing/Betterfox/blob/master/Smoothfox.js
+// visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
 // Enter your scrolling prefs below this line:
 
 /****************************************************************************
