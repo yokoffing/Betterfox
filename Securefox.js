@@ -666,11 +666,10 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 //user_pref("network.trr.builtin-excluded-domains", "localhost,local"); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR
 
 // PREF: Oblivious HTTP (OHTTP)
-// Enable DNS over Oblivious HTTP [3].
-// [1] https://www.pcwrt.com/2020/12/oblivious-dns-over-https-vs-doh-through-http-proxy/
-// [2] https://www.reddit.com/r/dnscrypt/comments/11ukt43/what_is_dns_over_oblivious_http_targetrelay/
-// [3] https://blog.cloudflare.com/stronger-than-a-promise-proving-oblivious-http-privacy-properties/
-// [4] https://www.ietf.org/archive/id/draft-thomson-http-oblivious-01.html
+// Enable DNS over Oblivious HTTP.
+// [1] https://www.reddit.com/r/dnscrypt/comments/11ukt43/what_is_dns_over_oblivious_http_targetrelay/
+// [2] https://blog.cloudflare.com/stronger-than-a-promise-proving-oblivious-http-privacy-properties/
+// [3] https://www.ietf.org/archive/id/draft-thomson-http-oblivious-01.html
 //user_pref("network.trr.mode", 2);
 //user_pref("network.trr.ohttp.config_uri", "https://dooh.cloudflare-dns.com/.well-known/doohconfig");
 //user_pref("network.trr.ohttp.uri", "https://dooh.cloudflare-dns.com/dns-query");
