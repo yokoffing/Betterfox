@@ -728,6 +728,9 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [3] https://en.wikipedia.org/wiki/GIO_(software)
 //user_pref("network.gio.supported-protocols", ""); // [HIDDEN PREF]
 
+// PREF: disable check for proxies
+//user_pref("network.notify.checkForProxies", false);
+
 /******************************************************************************
  * SECTION: PASSWORDS                             *
 ******************************************************************************/
@@ -1042,7 +1045,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [10] https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers
 //user_pref("browser.safebrowsing.malware.enabled", false); // all checks happen locally
 //user_pref("browser.safebrowsing.phishing.enabled", false); // all checks happen locally
-    //user_pref("browser.safebrowsing.blockedURIs.enabled", false);
+//user_pref("browser.safebrowsing.blockedURIs.enabled", false); // all checks happen locally
     //user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
     //user_pref("browser.safebrowsing.provider.google4.updateURL", "");
     //user_pref("browser.safebrowsing.provider.google.gethashURL", "");
@@ -1272,11 +1275,8 @@ user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 
-// PREF: disable check for proxies
-//user_pref("network.notify.checkForProxies", false);
-
 // PREF: assorted telemetry
-user_pref("doh-rollout.disable-heuristics", true); // ensure DoH doesn't get enabled automatically
+//user_pref("doh-rollout.disable-heuristics", true); // ensure DoH doesn't get enabled automatically
 user_pref("dom.security.unexpected_system_load_telemetry_enabled", false);
 user_pref("messaging-system.rsexperimentloader.enabled", false);
 user_pref("network.trr.confirmation_telemetry_enabled", false);
@@ -1285,5 +1285,5 @@ user_pref("security.certerrors.mitm.priming.enabled", false);
 user_pref("security.certerrors.recordEventTelemetry", false);
 user_pref("security.protectionspopup.recordEventTelemetry", false);
 user_pref("signon.recipes.remoteRecipes.enabled", false);
-user_pref("security.identitypopup.recordEventTelemetry", false); // removed FF116+ [1]
+//user_pref("security.identitypopup.recordEventTelemetry", false); // ESR only; removed FF116+ [1]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1837979
