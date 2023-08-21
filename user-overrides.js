@@ -40,7 +40,7 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false); // cle
 user_pref("browser.safebrowsing.allowOverride", false); // do not allow user to override SB
 user_pref("dom.push.enabled", false); // disable Push API; breaks FF Sync and Site Notifications
 user_pref("browser.search.update", false); // do not update opensearch engines
-user_pref("network.notify.checkForProxies", false); // skip proxy request check
+//user_pref("network.dns.skipTRR-when-parental-control-enabled", false); // bypass parental controls when using DoH
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla domains so adblocker works on pages
 
@@ -96,6 +96,7 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
+//user_pref("security.family_safety.mode", 0); // disable parental controls [WINDOWS 8-10]
 
 /** DELETE IF NOT macOS LAPTOP ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
