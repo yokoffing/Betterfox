@@ -1275,14 +1275,16 @@ user_pref("browser.newtabpage.activity-stream.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 
 // PREF: assorted telemetry
+// [NOTE] Shouldn't be needed for user.js, but browser forks
+// may want to disable these prefs.
 //user_pref("doh-rollout.disable-heuristics", true); // ensure DoH doesn't get enabled automatically
-user_pref("dom.security.unexpected_system_load_telemetry_enabled", false);
-user_pref("messaging-system.rsexperimentloader.enabled", false);
-user_pref("network.trr.confirmation_telemetry_enabled", false);
-user_pref("security.app_menu.recordEventTelemetry", false);
-user_pref("security.certerrors.mitm.priming.enabled", false);
-user_pref("security.certerrors.recordEventTelemetry", false);
-user_pref("security.protectionspopup.recordEventTelemetry", false);
-user_pref("signon.recipes.remoteRecipes.enabled", false);
+//user_pref("dom.security.unexpected_system_load_telemetry_enabled", false);
+//user_pref("messaging-system.rsexperimentloader.enabled", false);
+//user_pref("network.trr.confirmation_telemetry_enabled", false);
+//user_pref("security.app_menu.recordEventTelemetry", false);
+//user_pref("security.certerrors.mitm.priming.enabled", false);
+//user_pref("security.certerrors.recordEventTelemetry", false);
+//user_pref("security.protectionspopup.recordEventTelemetry", false);
+//user_pref("signon.recipes.remoteRecipes.enabled", false);
 //user_pref("security.identitypopup.recordEventTelemetry", false); // ESR only; removed FF116+ [1]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1837979
