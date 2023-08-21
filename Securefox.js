@@ -665,16 +665,17 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 //user_pref("network.trr.excluded-domains", ""); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR. This pref can be used to make /etc/hosts works with DNS over HTTPS in Firefox.
 //user_pref("network.trr.builtin-excluded-domains", "localhost,local"); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR
 
-// PREF: enable Oblivious DoH setup (Cloudfare) [HIDDEN]
-// [1] https://www.reddit.com/r/firefox/comments/xc9y4g/how_to_enable_oblivious_doh_odoh_for_enhanced_dns/
-// [2] https://blog.cloudflare.com/oblivious-dns/
-// [3] https://techpp.com/2020/12/14/odoh-oblivious-dns-over-https-explained/
+// PREF: Oblivious HTTP (OHTTP)
+// Enable DNS over Oblivious HTTP [3].
+// [1] https://www.pcwrt.com/2020/12/oblivious-dns-over-https-vs-doh-through-http-proxy/
+// [2] https://www.reddit.com/r/dnscrypt/comments/11ukt43/what_is_dns_over_oblivious_http_targetrelay/
+// [3] https://blog.cloudflare.com/stronger-than-a-promise-proving-oblivious-http-privacy-properties/
+// [4] https://www.ietf.org/archive/id/draft-thomson-http-oblivious-01.html
 //user_pref("network.trr.mode", 2);
-//user_pref("network.trr.odoh.min_ttl", 86400); // 1 day; HIDDEN
-//user_pref("network.trr.ohttp.config_uri", "https://dooh.cloudflare-dns.com/.well-known/doohconfig"); // HIDDEN
-//user_pref("network.trr.ohttp.uri", "https://dooh.cloudflare-dns.com/dns-query"); // HIDDEN
-//user_pref("network.trr.ohttp.relay_uri", "https://dooh.waterfox.net/"); // HIDDEN
-//user_pref("network.trr.use_ohttp", true); // HIDDEN
+//user_pref("network.trr.ohttp.config_uri", "https://dooh.cloudflare-dns.com/.well-known/doohconfig");
+//user_pref("network.trr.ohttp.uri", "https://dooh.cloudflare-dns.com/dns-query");
+//user_pref("network.trr.ohttp.relay_uri", "https://dooh.waterfox.net/");
+//user_pref("network.trr.use_ohttp", true);
 
 /******************************************************************************
  * SECTION: ESNI / ECH                            *
