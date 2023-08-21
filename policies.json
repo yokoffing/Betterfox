@@ -1,6 +1,7 @@
 {
     "__COMMENT__ More Information": "https://github.com/mozilla/policy-templates/blob/master/README.md",
     "policies": {
+        "AppAutoUpdate": true,
         "DisableFirefoxStudies": true,
         "DisableTelemetry": true,
         "DisableFeedbackCommands": true,
@@ -13,6 +14,7 @@
             "ProviderURL": "",
             "Locked": false
         },
+        "ManualAppUpdateOnly": false,
         "NoDefaultBookmarks": true,
         "WebsiteFilter": {
             "Block": [
