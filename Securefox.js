@@ -667,9 +667,9 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: Oblivious HTTP (OHTTP)
 // Enable DNS over Oblivious HTTP.
-// [1] https://www.reddit.com/r/dnscrypt/comments/11ukt43/what_is_dns_over_oblivious_http_targetrelay/
-// [2] https://blog.cloudflare.com/stronger-than-a-promise-proving-oblivious-http-privacy-properties/
-// [3] https://www.ietf.org/archive/id/draft-thomson-http-oblivious-01.html
+// [1] https://blog.cloudflare.com/stronger-than-a-promise-proving-oblivious-http-privacy-properties/
+// [2] https://www.ietf.org/archive/id/draft-thomson-http-oblivious-01.html
+// [3] https://old.reddit.com/r/dnscrypt/comments/11ukt43/what_is_dns_over_oblivious_http_targetrelay/ji1nl0m/?context=3
 //user_pref("network.trr.mode", 2);
 //user_pref("network.trr.ohttp.config_uri", "https://dooh.cloudflare-dns.com/.well-known/doohconfig");
 //user_pref("network.trr.ohttp.uri", "https://dooh.cloudflare-dns.com/dns-query");
