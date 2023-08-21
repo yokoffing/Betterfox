@@ -615,28 +615,32 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: DNS-over-HTTPS (DoH) mode
 // Mozilla uses Cloudfare by default. NextDNS is also an option.
-// [NOTE] You can set this to 0 if you are already using secure DNS for your entire network (e.g. OS-level, router-level).
+// You can set this to 0 if you are already using secure DNS for
+// your entire network (e.g. OS-level, router-level).
+// [NOTE] Mode 3 has site-exceptions with a nice UI on the error page
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
 // 0=disable DoH (default)
-// 2=use DoH; fall back to traditional DNS if necessary
-// 3=only use DoH; do not fall back to traditional DNS
+// 2=use DoH; fall back to native DNS if necessary
+// 3=only use DoH; do not fall back to native DNS
 // 5=explicitly disable DoH
 //user_pref("network.trr.mode", 0); // DEFAULT
 
-// PREF: DoH fallback warning page
-// Whether DoH fallback warning page will be displayed when DoH doesn't work in TRR first mode.
-//user_pref("network.trr.display_fallback_warning", false); // DEFAULT; 
-// Show the checkbox to enable the fallback warning page in the settings UI
-    //user_pref("network.trr_ui.show_fallback_warning_option", false); // DEFAULT; show the checkbox to enable the fallback warning page in the settings UI
+// PREF: display fallback warning page [FF115+]
+// Show a warning checkbox UI in modes 0 + 2.
+//user_pref("network.trr_ui.show_fallback_warning_option", false); // DEFAULT
+//user_pref("network.trr.display_fallback_warning", false); // DEFAULT
 
-// PREF: enable fallback to native DNS upon network errors
+// PREF: fallback to native DNS upon network errors
 //user_pref("network.trr.strict_native_fallback", false); // DEFAULT
 
 // PREF: DoH resolver
 // [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
 //user_pref("network.trr.uri", "https://xxxx/dns-query");
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
+
+// PREF: adjust providers
+//user_pref("network.trr.resolvers", '[{ "name": "Cloudflare", "url": "https://mozilla.cloudflare-dns.com/dns-query" },{ "name": "SecureDNS", "url": "https://doh.securedns.eu/dns-query" },{ "name": "AppliedPrivacy", "url": "https://doh.appliedprivacy.net/query" },{ "name": "Digitale Gesellschaft (CH)", "url": "https://dns.digitale-gesellschaft.ch/dns-query" }, { "name": "Quad9", "url": "https://dns.quad9.net/dns-query" }]'); 
 
 // PREF: EDNS Client Subnet DNS extension (DNSSEC validation)
 // When set to false, TRR asks the resolver to enable EDNS Client Subnet (ECS).
