@@ -255,6 +255,10 @@ user_pref("security.cert_pinning.enforcement_level", 2);
 //user_pref("security.enterprise_roots.enabled", false); // DEFAULT
     //user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
 
+// PREF: disable Microsoft Family Safety [WINDOWS 8-10]
+// [1] https://wiki.mozilla.org/QA/Windows_Child_Mode
+//user_pref("security.family_safety.mode", 0);
+
 /****************************************************************************
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
 ****************************************************************************/
@@ -650,10 +654,10 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [1] https://docs.controld.com/docs/dns-rebind-option
 //user_pref("network.trr.allow-rfc1918", false); // DEFAULT
 
-// PREF: Assorted Options
+// PREF: assorted options
 //user_pref("network.trr.confirmationNS", "skip"); // skip undesired DOH test connection
 //user_pref("network.dns.skipTRR-when-parental-control-enabled", false); // bypass parental controls when using DoH
-//user_pref("network.trr.skip-AAAA-when-not-supported", true); DEFAULT; If Firefox detects that your system does not have IPv6 connectivity, it will not request IPv6 addresses from the DoH server
+//user_pref("network.trr.skip-AAAA-when-not-supported", true); // DEFAULT; If Firefox detects that your system does not have IPv6 connectivity, it will not request IPv6 addresses from the DoH server
 //user_pref("network.trr.clear-cache-on-pref-change", true); // DEFAULT; DNS+TRR cache will be cleared when a relevant TRR pref changes
 //user_pref("network.trr.wait-for-portal", false); // DEFAULT; set this to true to tell Firefox to wait for the captive portal detection before TRR is used
 
@@ -1270,3 +1274,16 @@ user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 
 // PREF: disable check for proxies
 //user_pref("network.notify.checkForProxies", false);
+
+// PREF: assorted telemetry
+user_pref("doh-rollout.disable-heuristics", true); // ensure DoH doesn't get enabled automatically
+user_pref("dom.security.unexpected_system_load_telemetry_enabled", false);
+user_pref("messaging-system.rsexperimentloader.enabled", false);
+user_pref("network.trr.confirmation_telemetry_enabled", false);
+user_pref("security.app_menu.recordEventTelemetry", false);
+user_pref("security.certerrors.mitm.priming.enabled", false);
+user_pref("security.certerrors.recordEventTelemetry", false);
+user_pref("security.protectionspopup.recordEventTelemetry", false);
+user_pref("signon.recipes.remoteRecipes.enabled", false);
+user_pref("security.identitypopup.recordEventTelemetry", false); // removed FF116+ [1]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1837979
