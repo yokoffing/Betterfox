@@ -642,13 +642,12 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // PREF: adjust providers
 //user_pref("network.trr.resolvers", '[{ "name": "Cloudflare", "url": "https://mozilla.cloudflare-dns.com/dns-query" },{ "name": "SecureDNS", "url": "https://doh.securedns.eu/dns-query" },{ "name": "AppliedPrivacy", "url": "https://doh.appliedprivacy.net/query" },{ "name": "Digitale Gesellschaft (CH)", "url": "https://dns.digitale-gesellschaft.ch/dns-query" }, { "name": "Quad9", "url": "https://dns.quad9.net/dns-query" }]'); 
 
-// PREF: EDNS Client Subnet DNS extension (DNSSEC validation)
-// When set to false, TRR asks the resolver to enable EDNS Client Subnet (ECS).
+// PREF: EDNS Client Subnet (DNSSEC validation)
+// When set to false, TRR asks the resolver to enable EDNS Client Subnet.
+// [NOTE] DNSSEC is not needed with DoH, as long as you trust the DoH resolver
+// to perform DNSSEC validation correctly [1].
 // [WARNING] Some websites won't resolve when enabled, usually due to
 // misconfiguration on the part of the domain owner.
-// [NOTE] DNSSEC is not needed if you’re using DoH, as long as you trust the
-// DoH resolver to perform DNSSEC validation correctly. However, if you don’t
-// trust the DoH resolver, you may still want to use DNSSEC along with DoH [1].
 // [1] https://docs.controld.com/docs/disable-dnssec-option
 //user_pref("network.trr.disable-ECS", true); // DEFAULT
 
