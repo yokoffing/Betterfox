@@ -390,7 +390,7 @@ user_pref("network.websocket.max-connections", 400); // default=200
 // true=Firefox will pace requests (default)
 //user_pref("network.http.pacing.requests.enabled", true); // DEFAULT
     user_pref("network.http.pacing.requests.min-parallelism", 12); // default=6
-    user_pref("network.http.pacing.requests.burst", 20); // default=10
+    user_pref("network.http.pacing.requests.burst", 18); // default=10
 
 // Connection Timeouts
 // [1] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1178
