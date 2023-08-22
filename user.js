@@ -28,7 +28,6 @@ user_pref("dom.enable_web_task_scheduling", true);
 user_pref("layout.css.has-selector.enabled", true);
 
 /** GFX ***/
-//user_pref("gfx.webrender.precache-shaders", true); // optional
 //user_pref("gfx.canvas.accelerated", true); // enable if using a dedicated GPU on WINDOWS
 user_pref("gfx.canvas.accelerated.cache-items", 4096);
 user_pref("gfx.canvas.accelerated.cache-size", 512);
