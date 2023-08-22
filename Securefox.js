@@ -642,13 +642,11 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // PREF: adjust providers
 //user_pref("network.trr.resolvers", '[{ "name": "Cloudflare", "url": "https://mozilla.cloudflare-dns.com/dns-query" },{ "name": "SecureDNS", "url": "https://doh.securedns.eu/dns-query" },{ "name": "AppliedPrivacy", "url": "https://doh.appliedprivacy.net/query" },{ "name": "Digitale Gesellschaft (CH)", "url": "https://dns.digitale-gesellschaft.ch/dns-query" }, { "name": "Quad9", "url": "https://dns.quad9.net/dns-query" }]'); 
 
-// PREF: EDNS Client Subnet (DNSSEC validation)
-// When set to false, TRR asks the resolver to enable EDNS Client Subnet.
-// [NOTE] DNSSEC is not needed with DoH, as long as you trust the DoH resolver
-// to perform DNSSEC validation correctly [1].
-// [WARNING] Some websites won't resolve when enabled, usually due to
-// misconfiguration on the part of the domain owner.
-// [1] https://docs.controld.com/docs/disable-dnssec-option
+// PREF: EDNS Client Subnet (ECS)
+// [WARNING] In some circumstances, this may result in suboptimal routing
+// between CDN origins and end users [1].
+// [1] https://www.quad9.net/support/faq/#edns
+// [2] https://datatracker.ietf.org/doc/html/rfc7871
 //user_pref("network.trr.disable-ECS", true); // DEFAULT
 
 // PREF: DNS Rebind Protection
