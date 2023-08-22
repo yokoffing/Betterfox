@@ -796,8 +796,9 @@ user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Pas
 user_pref("editor.truncate_user_pastes", false);
 
 // PREF: reveal password icon
-//user_pref("layout.forms.reveal-password-button.enabled", true); // always show icon in password fields
 //user_pref("layout.forms.reveal-password-context-menu.enabled", true); // right-click menu option; DEFAULT [FF112]
+// [DO NOT TOUCH] Icons will double-up if the website implements it natively:
+//user_pref("layout.forms.reveal-password-button.enabled", true); // always show icon in password fields
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
