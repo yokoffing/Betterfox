@@ -3,7 +3,7 @@
 [![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyokoffing%2FBetter-Fox&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
 
 # Betterfox
-A collection of tweaks to the [Configuration Editor](https://support.mozilla.org/en-US/kb/about-config-editor-firefox) (`about:config`) in [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/ "Firefox Homepage").
+Enhancements to the [Configuration Editor](https://support.mozilla.org/en-US/kb/about-config-editor-firefox) (`about:config`) in [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/ "Firefox Homepage").
 
 ## Made for everyday browsing
 **A secure, blazing fast browsing experience. Without breakage.**
