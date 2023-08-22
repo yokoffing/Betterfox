@@ -643,10 +643,13 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 //user_pref("network.trr.resolvers", '[{ "name": "Cloudflare", "url": "https://mozilla.cloudflare-dns.com/dns-query" },{ "name": "SecureDNS", "url": "https://doh.securedns.eu/dns-query" },{ "name": "AppliedPrivacy", "url": "https://doh.appliedprivacy.net/query" },{ "name": "Digitale Gesellschaft (CH)", "url": "https://dns.digitale-gesellschaft.ch/dns-query" }, { "name": "Quad9", "url": "https://dns.quad9.net/dns-query" }]'); 
 
 // PREF: EDNS Client Subnet (ECS)
-// [WARNING] In some circumstances, this may result in suboptimal routing
-// between CDN origins and end users [1].
-// [1] https://www.quad9.net/support/faq/#edns
-// [2] https://datatracker.ietf.org/doc/html/rfc7871
+// [WARNING] In some circumstances, enabling ECS may result
+// in suboptimal routing between CDN origins and end users [2].
+// [NOTE] You will also need to enable this with your
+// DoH provider most likely.
+// [1] https://en.wikipedia.org/wiki/EDNS_Client_Subnet
+// [2] https://www.quad9.net/support/faq/#edns
+// [3] https://datatracker.ietf.org/doc/html/rfc7871
 //user_pref("network.trr.disable-ECS", true); // DEFAULT
 
 // PREF: DNS Rebind Protection
