@@ -140,10 +140,12 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 
 // PREF: SameSite Cookies
 // [1] https://github.com/arkenfox/user.js/issues/1640#issuecomment-1464093950
-// [2] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
-// [3] https://web.dev/samesite-cookies-explained/
-// [4] https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions
-// [5] https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+// [2] https://support.mozilla.org/en-US/questions/1364032
+// [3] https://blog.mozilla.org/security/2018/04/24/same-site-cookies-in-firefox-60/
+// [4] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
+// [5] https://web.dev/samesite-cookies-explained/
+// [6] https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions
+// [7] https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 // [TEST] https://samesite-sandbox.glitch.me/
 //user_pref("network.cookie.sameSite.laxByDefault", true);
 //user_pref("network.cookie.sameSite.noneRequiresSecure", true); // DEFAULT on Nightly
