@@ -139,11 +139,15 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 //user_pref("privacy.purge_trackers.enabled", true); // DEFAULT
 
 // PREF: SameSite Cookies
-// [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
-// [2] https://web.dev/samesite-cookies-explained/
-//user_pref("network.cookie.sameSite.laxByDefault", false); // DEFAULT
+// [1] https://github.com/arkenfox/user.js/issues/1640#issuecomment-1464093950
+// [2] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
+// [3] https://web.dev/samesite-cookies-explained/
+// [4] https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions
+// [5] https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+// [TEST] https://samesite-sandbox.glitch.me/
+//user_pref("network.cookie.sameSite.laxByDefault", true);
 //user_pref("network.cookie.sameSite.noneRequiresSecure", true); // DEFAULT
-//user_pref("network.cookie.sameSite.schemeful", false); // DEFAULT
+//user_pref("network.cookie.sameSite.schemeful", true);
 
 // PREF: Hyperlink Auditing (click tracking)
 //user_pref("browser.send_pings", false); // DEFAULT
