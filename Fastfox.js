@@ -411,7 +411,7 @@ user_pref("network.websocket.max-connections", 400); // default=200
 // The number (in ms) after sending a SYN for an HTTP connection,
 // to wait before trying again with a different connection.
 // 0=disable the second connection
-user_pref("network.http.connection-retry-timeout", 0); // default=250ms
+//user_pref("network.http.connection-retry-timeout", 0); // default=250ms
 
 // PREF: keep-alive request timeout
 // Default timeout on IIS7 is 120 seconds. FF needs to reuse or drop the
