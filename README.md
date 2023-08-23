@@ -93,7 +93,17 @@ See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Ha
 
 If you like the project and benefit from it, leave a :star: (top right) and become a [stargazer](https://github.com/yokoffing/Betterfox/stargazers)!
 
-[![Stargazers repo roster for @yokoffing/Betterfox](https://reporoster.com/stars/dark/yokoffing/Betterfox)](https://github.com/yokoffing/Betterfox/stargazers)  
+[![Stargazers repo roster for @yokoffing/Betterfox](https://reporoster.com/stars/dark/yokoffing/Betterfox)](https://github.com/yokoffing/Betterfox/stargazers)
+
+## Star History
+
+<a href="https://star-history.com/#yokoffing/Betterfox&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=yokoffing/Betterfox&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=yokoffing/Betterfox&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=yokoffing/Betterfox&type=Date" />
+  </picture>
+</a>
 
 ## Credit
 <div>
