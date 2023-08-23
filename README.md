@@ -27,7 +27,7 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 
 `Fastfox`, `Securefox`, `Peskyfox`, and `Smoothfox` are guides to hidden settings within Firefox.
 
-The `user.js` — a configuration file that can control Firefox settings — is curated from the options located in these files.
+The `user.js` — a configuration file that can control Firefox settings — is curated from the options located in these guides.
 
 ## Getting started
 *If you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)*
