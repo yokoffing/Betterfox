@@ -563,9 +563,14 @@ user_pref("network.IDN_show_punycode", true);
 ******************************************************************************/
 
 // PREF: HTTPS-First Policy
-// Firefox attempts to make all connections to websites secure, and falls back to insecure
-// connections only when a website does not support it. Unlike HTTPS-Only Mode, Firefox
-// will NOT ask for your permission before connecting to a website that doesn’t support secure connections.
+// Firefox attempts to make all connections to websites secure,
+// and falls back to insecure connections only when a website
+// does not support it. Unlike HTTPS-Only Mode, Firefox
+// will NOT ask for your permission before connecting to a website
+// that doesn’t support secure connections.
+// As of August 2023, Google estimates that 5-10% of traffic
+// has remained on HTTP, allowing attackers to eavesdrop
+// on or change that data [6].
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
 // [TEST] http://example.com [upgrade]
 // [TEST] http://httpforever.com/ [no upgrade]
@@ -574,6 +579,7 @@ user_pref("network.IDN_show_punycode", true);
 // [3] https://github.com/brave/adblock-lists/blob/master/brave-lists/https-upgrade-exceptions-list.txt
 // [4] https://web.dev/why-https-matters/
 // [5] https://www.cloudflare.com/learning/ssl/why-use-https/
+// [6] https://blog.chromium.org/2023/08/towards-https-by-default.html
 user_pref("dom.security.https_first", true);
 //user_pref("dom.security.https_first_pbm", true); // DEFAULT
 
@@ -581,17 +587,22 @@ user_pref("dom.security.https_first", true);
  * SECTION: HTTPS-ONLY MODE                              *
 ******************************************************************************/
 
-// Firefox displays a warning page if HTTPS is not supported by a server. Options to use HTTP are then provided.
-// [NOTE] When "https_only_mode" (all windows) is true, "https_only_mode_pbm" (private windows only) is ignored.
+// Firefox displays a warning page if HTTPS is not supported
+// by a server. Options to use HTTP are then provided.
+// [NOTE] When "https_only_mode" (all windows) is true,
+// "https_only_mode_pbm" (private windows only) is ignored.
+// As of August 2023, Google estimates that 5-10% of traffic
+// has remained on HTTP, allowing attackers to eavesdrop
+// on or change that data [5].
 // [SETTING] to add site exceptions: Padlock>HTTPS-Only mode>On/Off/Off temporarily
 // [SETTING] Privacy & Security>HTTPS-Only Mode
 // [TEST] http://example.com [upgrade]
 // [TEST] http://httpforever.com/ [no upgrade]
-// [TEST] http://speedofanimals.com [no upgrade]
 // [1] https://bugzilla.mozilla.org/1613063
 // [2] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 // [3] https://web.dev/why-https-matters/
 // [4] https://www.cloudflare.com/learning/ssl/why-use-https/
+// [5] https://blog.chromium.org/2023/08/towards-https-by-default.html
 
 // PREF: enable HTTPS-only Mode
 //user_pref("dom.security.https_only_mode_pbm", true); // Private Browsing windows only
