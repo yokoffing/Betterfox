@@ -609,7 +609,8 @@ user_pref("dom.security.https_first", true);
 //user_pref("dom.security.https_only_mode", true); // Normal + Private Browsing windows
 
 // PREF: offer suggestion for HTTPS site when available
-// [1] https://twitter.com/leli_gibts_scho/status/1371458534186057731
+// [1] https://twitter.com/leli_gibts_scho/status/1371463866606059528
+// [TEST] http://speedofanimals.com/
 user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: HTTP background requests in HTTPS-only Mode
