@@ -833,6 +833,8 @@ user_pref("extensions.formautofill.creditCards.enabled", false);
  * SECTION: MIXED CONTENT + CROSS-SITE                             *
 ******************************************************************************/
 
+// [TEST] https://mixed-script.badssl.com/
+
 // PREF: limit (or disable) HTTP authentication credentials dialogs triggered by sub-resources
 // Hardens against potential credentials phishing.
 // 0=don't allow sub-resources to open HTTP authentication credentials dialogs
