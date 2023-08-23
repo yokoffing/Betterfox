@@ -117,8 +117,8 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
     //user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 //user_pref("browser.sessionstore.restore_tabs_lazily", true); // DEFAULT
 
-// PREF: disable preSkeletonUI on startup
-user_pref("browser.startup.preXulSkeletonUI", false);
+// PREF: disable preSkeletonUI on startup [WINDOWS]
+user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 
 /****************************************************************************
  * SECTION: TAB UNLOAD                                                      *
