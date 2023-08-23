@@ -848,7 +848,7 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
 //user_pref("network.http.windows-sso.enabled", false);
 
-// PREF: block insecure active content (scripts) on HTTPS pages.
+// PREF: block insecure active content (scripts) on HTTPS pages
 // [1] https://trac.torproject.org/projects/tor/ticket/21323
 //user_pref("security.mixed_content.block_active_content", true); // DEFAULT
 
