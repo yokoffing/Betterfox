@@ -27,17 +27,7 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 
 `Fastfox`, `Securefox`, `Peskyfox`, and `Smoothfox` are guides to hidden settings within Firefox.
 
-The `user.js` is curated from the options located in these files.
-
-## about:Defaults
-Easily `copy+paste` prefs to enable features.
-
-Check out [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Overrides) to customize your setup.
-
-## about:Privacy
-Betterfox is a great balance of privacy and convenience.
-
-See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for other suggestions.
+The `user.js` — a configuration file that can control Firefox settings — is curated from the options located in these files.
 
 ## Getting started
 *If you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)*
@@ -51,6 +41,16 @@ See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Ha
 1) Get an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines). For a simple solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
 3) Enable **DNS-level protection** with [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
     * See how to [quickly enable](https://support.mozilla.org/en-US/kb/dns-over-https) **secure DNS** in Firefox.
+
+## about:Defaults
+Easily `copy+paste` prefs to enable features.
+
+Check out [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Overrides) to customize your setup.
+
+## about:Privacy
+Betterfox is a great balance of privacy and convenience.
+
+See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for other suggestions.
 
 ## Recognition
 
