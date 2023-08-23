@@ -273,7 +273,6 @@ user_pref("layout.css.has-selector.enabled", true);
 //user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
 
 // PREF: disable AV1 for hardware decodeable videos
-// AV1 may use software (CPU-based) decoding.
 // Firefox sometimes uses AV1 video decoding even to GPUs which do not support it.
 // [1] https://www.reddit.com/r/AV1/comments/s5xyph/youtube_av1_codec_have_worse_quality_than_old_vp9
 //user_pref("media.av1.enabled", false);
