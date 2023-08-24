@@ -31,6 +31,8 @@ user_pref("browser.contentblocking.category", "strict");
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // enabled with "Strict"
+//user_pref("privacy.annotate_channels.strict_list.enabled", true); // enabled with "Strict"
+    //user_pref("privacy.annotate_channels.strict_list.pbmode.enabled", true); // DEFAULT
 
 // PREF: query stripping
 // Currently uses a small list [1]
