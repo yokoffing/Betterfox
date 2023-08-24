@@ -32,13 +32,6 @@ user_pref("browser.contentblocking.category", "strict");
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // enabled with "Strict"
 
-// PREF: relax blocklist for ETP Strict
-// Using a less aggressive internal blocklist to mitigate site breakage.
-// This is easier than adjusting prefs for ETP Custom.
-// [NOTE] Sadly, this does not work on NIGHTLY; you must use Custom and adjust prefs individually.
-// [ALLOWLIST] https://disconnect.me/trackerprotection/unblocked
-//user_pref("browser.contentblocking.features.strict", "tp,tpPrivate,cookieBehavior5,cookieBehaviorPBM5,cm,fp,stp,emailTP,emailTPPrivate,lvl1,rp,rpTop,ocsp,qps,qpsPBM");
-
 // PREF: query stripping
 // Currently uses a small list [1]
 // We set the same query stripping list that Brave and LibreWolf uses [2]
