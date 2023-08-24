@@ -15,6 +15,7 @@
 // Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
 // Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
 // been interacted with in the last 30 days.
+// [ALLOWLIST] https://disconnect.me/trackerprotection/unblocked
 // [NOTE] FF86: "Strict" tracking protection enables dFPI.
 // [1] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 // [2] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
