@@ -96,14 +96,6 @@ If you like the project, leave a :star: (top right) and become a [stargazer](htt
 
 [![Stargazers repo roster for @yokoffing/Betterfox](https://reporoster.com/stars/dark/yokoffing/Betterfox)](https://github.com/yokoffing/Betterfox/stargazers)
 
-<a href="https://star-history.com/#yokoffing/Betterfox&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=yokoffing/Betterfox&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=yokoffing/Betterfox&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=yokoffing/Betterfox&type=Date" />
-  </picture>
-</a>
-
 ## Credit
 <div>
 <img align="right" src="https://media.tenor.com/m_knf6IKaJwAAAAC/hi-fox.gif" width="110" height="120"/>
