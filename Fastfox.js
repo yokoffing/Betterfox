@@ -71,7 +71,7 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 // false = reflow pages whenever new data is received
 //user_pref("content.notify.ontimer", true); // DEFAULT
 
-// PREF: notification interval (in microseconds) [to avoid layout thrashing]
+// PREF: notification interval (in microseconds) (to avoid layout thrashing)
 // When Firefox is loading a page, it periodically reformats
 // or "reflows" the page as it loads. The page displays new elements
 // every 0.12 seconds by default. These redraws increase the total page load time.
@@ -85,14 +85,14 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
 // [2] https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
 // [3] https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
-user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
+user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 
 // PREF: frequency switch threshold [HIDDEN]
 // Raising the value will make the application more responsive at the expense of page load time.
 // [1] http://kb.mozillazine.org/Content.switch.threshold
 // [2] https://www.reddit.com/r/firefox/comments/11m2yuh/comment/jbjxp8s/?context=3
-//user_pref("content.interrupt.parsing", true); // [HIDDEN]
-//user_pref("content.switch.threshold", 1000000); // alt=1500000; default=750000; [HIDDEN]
+//user_pref("content.interrupt.parsing", true); // DEFAULT [HIDDEN]
+//user_pref("content.switch.threshold", 750000); // DEFAULT [HIDDEN]
 
 // PREF: new tab preload
 // [WARNING] Disabling this may cause a delay when opening a new tab in Firefox.
