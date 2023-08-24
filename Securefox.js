@@ -38,13 +38,15 @@ user_pref("browser.contentblocking.category", "strict");
 // Currently uses a small list [1]
 // We set the same query stripping list that Brave and LibreWolf uses [2]
 // If using uBlock Origin or AdGuard, use filter lists as well [3]
+// Query parameters stripped [5]
 // [1] https://www.eyerys.com/articles/news/how-mozilla-firefox-improves-privacy-using-query-parameter-stripping-feature
 // [2] https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc
 // [3] https://github.com/yokoffing/filterlists#url-tracking-parameters
+// [4] https://bugzilla.mozilla.org/show_bug.cgi?id=1706607
+// [5] https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/query-stripping/records
 //user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 //user_pref("privacy.query_stripping.enabled.pbmode", true); // enabled with "Strict"
-user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
-//user_pref("privacy.query_stripping.strip_on_share.enabled", true); // DEFAULT [FF115+]
+//user_pref("privacy.query_stripping.strip_on_share.enabled", true);
 
 // PREF: allow embedded tweets, Instagram and Reddit posts, and TikTok embeds
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
