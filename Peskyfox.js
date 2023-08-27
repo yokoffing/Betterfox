@@ -11,9 +11,9 @@
  * SECTION: MOZILLA UI                                                      *
 ****************************************************************************/
 
-// PREF: choose what site theme Firefox follows by default
-// Firefox 95 has a new feature that lets you choose the color theme of the
-// web pages you visit. By default, it matches the theme of your toolbar (3),
+// PREF: preferred color scheme for websites
+// [SETTING] General>Language and Appearance>Website appearance
+// By default, it matches the theme of your toolbar (3).
 // Set this pref to choose dark theme on sites that support it (0) or to a light theme (1).
 // Before FF95, the pref was 2, which determined site color based on OS theme.
 // Dark (0), Light (1), System (2), Browser (3) (default [FF95+])
