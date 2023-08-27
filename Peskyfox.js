@@ -77,10 +77,11 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 // PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
-// PREF: attempt to remove ugly border drawn around links when clicked [macOS]
-//user_pref("accessibility.mouse_focuses_formcontrol", 0);
-    //user_pref("browser.display.focus_ring_style", 0);
-    //user_pref("browser.display.focus_ring_width", 0);
+// PREF: remove focus indicator for links
+// [1] https://www.askvg.com/firefox-tip-restore-classic-dotted-outline-focus-indicator-for-links/
+user_pref("browser.display.focus_ring_on_anything", true); 
+//user_pref("browser.display.focus_ring_style", 1);
+user_pref("browser.display.focus_ring_width", 0);
 
 // PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+]
 user_pref("browser.privateWindowSeparation.enabled", false);
