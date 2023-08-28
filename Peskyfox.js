@@ -121,6 +121,9 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 user_pref("browser.translations.enable", true);
     //user_pref("browser.translations.autoTranslate", true);
 
+// PREF: Mozilla Shopping [FF116+]
+//user_pref("browser.shopping.experience2023.enabled", false); // DEFAULT
+
 /****************************************************************************
  * SECTION: FULLSCREEN NOTICE                                               *
 ****************************************************************************/
