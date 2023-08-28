@@ -80,7 +80,7 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 // PREF: remove focus indicator for links
 // [1] https://www.askvg.com/firefox-tip-restore-classic-dotted-outline-focus-indicator-for-links/
 user_pref("browser.display.focus_ring_on_anything", true); 
-//user_pref("browser.display.focus_ring_style", 1);
+//user_pref("browser.display.focus_ring_style", 1); // DEFAULT
 user_pref("browser.display.focus_ring_width", 0);
 
 // PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+]
