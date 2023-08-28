@@ -109,7 +109,7 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 // [WARNING] Beware of potential bugs and performance issues. Enabling this may negatively
 // impact site performance. It requires Firefox to run rule-defined query selectors for
 // every page.
-//user_pref("cookiebanners.service.enableGlobalRules", true);
+//user_pref("cookiebanners.service.enableGlobalRules", false); // DEFAULT
 
 // PREF: Firefox Translations [NIGHTLY]
 // Automated translation of web content is done locally in Firefox, so that
