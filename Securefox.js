@@ -1052,6 +1052,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [3] https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work
 // [4] https://educatedguesswork.org/posts/safe-browsing-privacy/
 // [5] https://www.google.com/chrome/privacy/whitepaper.html#malware
+// [6] https://security.googleblog.com/2022/08/how-hash-based-safe-browsing-works-in.html
 
 // PREF: Safe Browsing
 // [WARNING] Be sure to have alternate security measures if you disable SB! Adblockers do not count!
