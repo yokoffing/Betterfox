@@ -277,6 +277,14 @@ user_pref("layout.css.has-selector.enabled", true);
 // [1] https://www.reddit.com/r/AV1/comments/s5xyph/youtube_av1_codec_have_worse_quality_than_old_vp9
 //user_pref("media.av1.enabled", false);
 
+// PREF: hardware and software decoded video overlay [FF116+]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1829063
+// [2] https://phabricator.services.mozilla.com/D175993
+//user_pref("gfx.webrender.dcomp-video-hw-overlay-win", true); // DEFAULT
+    //user_pref("gfx.webrender.dcomp-video-hw-overlay-win-force-enabled", true); // enforce
+//user_pref("gfx.webrender.dcomp-video-sw-overlay-win", true); // DEFAULT
+    //user_pref("gfx.webrender.dcomp-video-sw-overlay-win-force-enabled", true); // enforce
+
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
 ****************************************************************************/
