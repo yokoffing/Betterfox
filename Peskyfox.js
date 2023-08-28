@@ -277,29 +277,32 @@ user_pref("extensions.pocket.enabled", false);
  * SECTION: DOWNLOADS                                 *
 ******************************************************************************/
 
+// PREF: autohide the downloads button
+//user_pref("browser.download.autohideButton", true); // DEFAULT
+
 // PREF: choose download location
 // [SETTING] To set your default "downloads": General>Downloads>Save files to...
 // 0=desktop, 1=downloads (default), 2=last used
-//user_pref("browser.download.folderList", 2);
+//user_pref("browser.download.folderList", 1); // DEFAULT
 
 // PREF: Enforce user interaction for security by always asking where to download
 // [SETTING] General>Downloads>Always ask you where to save files
+// [DIALOGUE] "Ask whether to open or save files"
+// true=direct download (default)
 // false=the user is asked what to do
+// [1] https://github.com/yokoffing/Betterfox/issues/216
 user_pref("browser.download.useDownloadDir", false);
     //user_pref("browser.download.dir", "C:\Users\<YOUR_USERNAME>\AppData\Local\Temp"); // [WINDOWS]
+
+// PREF: enable user interaction for security by always asking how to handle new mimetypes
+// [SETTING] General>Files and Applications>What should Firefox do with other files
+user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 // PREF: disable downloads panel opening on every download
 user_pref("browser.download.alwaysOpenPanel", false);
 
 // PREF: disable adding downloads to the system's "recent documents" list 
 user_pref("browser.download.manager.addToRecentDocs", false);
-
-// PREF: enable user interaction for security by always asking how to handle new mimetypes
-// [SETTING] General>Files and Applications>What should Firefox do with other files
-user_pref("browser.download.always_ask_before_handling_new_types", true);
-
-// PREF: autohide the downloads button
-//user_pref("browser.download.autohideButton", true); // DEFAULT
 
 /****************************************************************************
  * SECTION: PDF                                                             *
