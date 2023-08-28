@@ -295,7 +295,8 @@ user_pref("extensions.pocket.enabled", false);
 user_pref("browser.download.useDownloadDir", false);
     //user_pref("browser.download.dir", "C:\Users\<YOUR_USERNAME>\AppData\Local\Temp"); // [WINDOWS]
 
-// PREF: enable user interaction for security by always asking how to handle new mimetypes
+// PREF: always ask how to handle new mimetypes
+// Enforce user interaction for greater security.
 // [SETTING] General>Files and Applications>What should Firefox do with other files
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 
