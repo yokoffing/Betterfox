@@ -122,6 +122,7 @@ user_pref("browser.translations.enable", true);
     //user_pref("browser.translations.autoTranslate", true);
 
 // PREF: Mozilla Shopping [FF116+]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1836265
 //user_pref("browser.shopping.experience2023.enabled", false); // DEFAULT
 
 /****************************************************************************
