@@ -285,7 +285,8 @@ user_pref("extensions.pocket.enabled", false);
 // 0=desktop, 1=downloads (default), 2=last used
 //user_pref("browser.download.folderList", 1); // DEFAULT
 
-// PREF: Enforce user interaction for security by always asking where to download
+// PREF: always ask where to download
+// Enforce user interaction for greater security.
 // [SETTING] General>Downloads>Always ask you where to save files
 // [DIALOGUE] "Ask whether to open or save files"
 // true=direct download (default)
