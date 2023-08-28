@@ -227,9 +227,9 @@ user_pref("extensions.pocket.enabled", false);
 
 /** DOWNLOADS ***/
 user_pref("browser.download.useDownloadDir", false);
+user_pref("browser.download.always_ask_before_handling_new_types", true);
 user_pref("browser.download.alwaysOpenPanel", false);
 user_pref("browser.download.manager.addToRecentDocs", false);
-user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 /** PDF ***/
 user_pref("browser.download.open_pdf_attachments_inline", true);
