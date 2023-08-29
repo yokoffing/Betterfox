@@ -1004,15 +1004,17 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 
 // PREF: disable all DRM content (EME: Encryption Media Extension)
 // EME is a JavaScript API for playing DRMed (not free) video content in HTML.
-// A DRM component called a Content Decryption Module (CDM) decrypts, decodes, and displays the video.
+// A DRM component called a Content Decryption Module (CDM) decrypts,
+// decodes, and displays the video.
 // e.g. Netflix, Amazon Prime, Hulu, HBO, Disney+, Showtime, Starz, DirectTV
+// DRM is a propriety and closed source, but disabling is overkill.
 // [SETTING] General>DRM Content>Play DRM-controlled content
 // [TEST] https://bitmovin.com/demos/drm
 // [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
 // [2] https://www.reddit.com/r/firefox/comments/10gvplf/comment/j55htc7
 //user_pref("media.eme.enabled", false);
-// Optionally, hide the setting which also disables the DRM prompt:
-//user_pref("browser.eme.ui.enabled", false);
+    // Optionally, hide the setting which also disables the DRM prompt:
+    //user_pref("browser.eme.ui.enabled", false);
 
 /******************************************************************************
  * SECTION: VARIOUS                            *
