@@ -715,14 +715,8 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 ******************************************************************************/
 
 // PREF: disable IPv6
-// IPv6 can be abused, especially with MAC addresses, and can leak with VPNs: assuming
-// your ISP and/or router and/or website is IPv6 capable. Most sites will fall back to IPv4
-// [STATS] Firefox telemetry (Sept 2022) shows ~8% of all successful connections are IPv6
-// [NOTE] This is an application level fallback. Disabling IPv6 is best done at an
-// OS/network level, and/or configured properly in VPN setups. If you are not masking your IP,
-// then this won't make much difference. If you are masking your IP, then it can only help.
-// [NOTE] However, many VPN options now provide IPv6 coverage.
-// [NOTE] PHP defaults to IPv6 with "localhost". Use "php -S 127.0.0.1:PORT"
+// If you are not masking your IP, then this won't make much difference.
+// And some VPNs now cover IPv6.
 // [TEST] https://ipleak.org/
 // [1] https://www.internetsociety.org/tag/ipv6-security/ (Myths 2,4,5,6)
 //user_pref("network.dns.disableIPv6", true);
