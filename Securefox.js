@@ -895,16 +895,6 @@ user_pref("permissions.delegation.enabled", false);
  * SECTION: HEADERS / REFERERS                                             *
 ******************************************************************************/
 
-// PREF: HTTP Referrer Header
-// [NOTE] Only cross-origin referers need control.
-// See network.http.referer.XOriginPolicy.
-// This may cause breakage where third party images and videos
-// may not load, and with authentication on sites such as banks.
-// 0 = Never send
-// 1 = Send only when clicking on links and similar elements
-// 2 = Send on all requests (default)
-//user_pref("network.http.sendRefererHeader", 2); // DEFAULT
-
 // PREF: default referrer policy (used unless overriden by the site)
 // 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
 // 3=no-referrer-when-downgrade
@@ -922,12 +912,15 @@ user_pref("permissions.delegation.enabled", false);
 //user_pref("network.http.referer.defaultPolicy.trackers", 1);
 //user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 
-// PREF: control the amount of cross-origin information to send
-// Controls how much referrer to send across origins (different domains).
-// 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
-// [1] https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/
-// [2] https://web.dev/referrer-best-practices/
-user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+// PREF: HTTP Referrer Header
+// [NOTE] Only cross-origin referers need control.
+// See network.http.referer.XOriginPolicy.
+// This may cause breakage where third party images and videos
+// may not load, and with authentication on sites such as banks.
+// 0 = Never send
+// 1 = Send only when clicking on links and similar elements
+// 2 = Send on all requests (default)
+//user_pref("network.http.sendRefererHeader", 2); // DEFAULT
 
 // PREF: control when to send a cross-origin referer
 // Controls whether or not to send a referrer across different sites.
@@ -941,6 +934,13 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#examples
 // [2] https://web.dev/referrer-best-practices/
 //user_pref("network.http.referer.XOriginPolicy", 0); // DEFAULT
+
+// PREF: control the amount of cross-origin information to send
+// Controls how much referrer to send across origins (different domains).
+// 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
+// [1] https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/
+// [2] https://web.dev/referrer-best-practices/
+user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /******************************************************************************
  * SECTION: CONTAINERS                                                        *
