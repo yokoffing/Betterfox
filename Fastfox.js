@@ -125,9 +125,11 @@ user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 ****************************************************************************/
 
 // PREF: unload tabs on low memory
+// [ABOUT] about:unloads
 // Firefox will detect if your computer’s memory is running low (less than 200MB)
 // and suspend tabs that you have not used in awhile.
-// [1] https://hacks.mozilla.org/2021/10/tab-unloading-in-firefox-93/
+// [1] https://support.mozilla.org/en-US/kb/unload-inactive-tabs-save-system-memory-firefox
+// [2] https://hacks.mozilla.org/2021/10/tab-unloading-in-firefox-93/
 //user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
 
 // PREF: determine when tabs unload [WINDOWS] [LINUX]
