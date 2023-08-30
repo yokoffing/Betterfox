@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 116                                                             *
+ * version: esr115                                                          *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
