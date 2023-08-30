@@ -315,15 +315,26 @@ user_pref("layout.css.has-selector.enabled", true);
 // PREF: memory cache
 // The "automatic" size selection (default) is based on a decade-old table
 // that only contains settings for systems at or below 8GB of system memory [1].
-// Waterfox G6 Beta 3 allows it to go above 8GB [3].
+// Waterfox G6 Beta 3 allows it to go above 8GB machines [3].
 // Value can be up to the max size of an unsigned 64-bit integer.
 // -1=Automatically decide the maximum memory to use to cache decoded images,
 // messages, and chrome based on the total amount of RAM
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
-user_pref("browser.cache.memory.capacity", 1048576); // default=-1; 1048576=1GB, 2097152=2GB
-user_pref("browser.cache.memory.max_entry_size", 65536); // default=5120; -1=entries bigger than than 90% of the mem-cache are never cached
+//user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 1048576=1GB, 2097152=2GB
+//user_pref("browser.cache.memory.max_entry_size", 5120); // DEFAULT; alt=25600; -1=entries bigger than than 90% of the mem-cache are never cached
+
+// PREF: amount of pages stored in memory for Back/Forward
+// Pages that were recently visited are stored in memory in such a way
+// that they don't have to be re-parsed. This improves performance
+// when pressing Back and Forward. This pref limits the maximum
+// number of pages stored in memory. If you are not using the Back
+// and Forward buttons that much, but rather using tabs, then there
+// is no reason for Firefox to keep memory for this.
+// -1=determine automatically (8 pages)
+// [1] https://kb.mozillazine.org/Browser.sessionhistory.max_total_viewers#Possible_values_and_their_effects
+//user_pref("browser.sessionhistory.max_total_viewers", 1);
 
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
@@ -389,15 +400,18 @@ user_pref("network.http.max-persistent-connections-per-server", 10); // default=
     //user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
 user_pref("network.websocket.max-connections", 400); // default=200
 
-// PREF: pacing requests
+// PREF: pacing requests [FF23+]
 // Controls how many HTTP requests are sent at a time.
 // Pacing HTTP requests can have some benefits, such as reducing network congestion,
 // improving web page loading speed, and avoiding server overload.
+// Pacing requests adds a slight delay between requests to throttle them.
+// If you have a fast machine and internet connection, disabling pacing
+// may provide a small speed boost when loading pages with lots of requests.
 // false=Firefox will send as many requests as possible without pacing
 // true=Firefox will pace requests (default)
-//user_pref("network.http.pacing.requests.enabled", true); // DEFAULT
-    user_pref("network.http.pacing.requests.min-parallelism", 12); // default=6
-    user_pref("network.http.pacing.requests.burst", 18); // default=10
+user_pref("network.http.pacing.requests.enabled", false);
+    //user_pref("network.http.pacing.requests.min-parallelism", 10); // default=6
+    //user_pref("network.http.pacing.requests.burst", 14); // default=10
 
 // Connection Timeouts
 // [1] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1178
@@ -449,7 +463,7 @@ user_pref("network.dns.max_high_priority_threads", 8); // default=5
 //user_pref("network.dns.max_any_priority_threads", 5); // default=3
 
 // PREF: increase TLS token caching 
-user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
+user_pref("network.ssl_tokens_cache_capacity", 20480); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                         *
