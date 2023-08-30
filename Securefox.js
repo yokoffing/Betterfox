@@ -1123,6 +1123,7 @@ user_pref("identity.fxaccounts.enabled", false);
 // PREF: disable Firefox View [FF106+]
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
 user_pref("browser.tabs.firefox-view", false);
+//user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
 
 // PREF: disable Push Notifications API [FF44+]
 // Push is an API that allows websites to send you (subscribed) messages even when the site
