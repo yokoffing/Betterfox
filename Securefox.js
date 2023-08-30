@@ -1,9 +1,9 @@
 
 /****************************************************************************
  * Securefox                                                                *
- * "Natura non contristatur"                                               *     
+ * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 116                                                             *
+ * version: esr115                                                          *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
