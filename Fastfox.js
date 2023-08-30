@@ -334,7 +334,7 @@ user_pref("layout.css.has-selector.enabled", true);
 // is no reason for Firefox to keep memory for this.
 // -1=determine automatically (8 pages)
 // [1] https://kb.mozillazine.org/Browser.sessionhistory.max_total_viewers#Possible_values_and_their_effects
-//user_pref("browser.sessionhistory.max_total_viewers", 1);
+user_pref("browser.sessionhistory.max_total_viewers", 2);
 
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
