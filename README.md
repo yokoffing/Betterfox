@@ -6,7 +6,7 @@
 [about:config](https://support.mozilla.org/en-US/kb/about-config-editor-firefox) tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/).
 
 These prefs are applicable for:
-* [Firefox ESR 115.0](https://www.mozilla.org/en-US/firefox/all/#product-desktop-esr)
+* [Firefox ESR 115.0](https://support.mozilla.org/en-US/kb/switch-to-firefox-extended-support-release-esr)
 * [Waterfox G6](https://github.com/WaterfoxCo/Waterfox)
 * [Floorp ESR 115](https://github.com/Floorp-Projects/Floorp/tree/ESR115)
 
