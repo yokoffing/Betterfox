@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 116                                                             *
+ * version: 117                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -35,6 +35,7 @@ user_pref("gfx.content.skia-font-cache-size", 20);
 
 /** BROWSER CACHE ***/
 user_pref("browser.cache.disk.enable", false);
+user_pref("browser.sessionhistory.max_total_viewers", 2);
 
 /** MEDIA CACHE ***/
 user_pref("media.memory_cache_max_size", 65536);
