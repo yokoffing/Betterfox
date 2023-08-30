@@ -346,9 +346,9 @@ user_pref("layout.css.has-selector.enabled", true);
 // PREF: media memory cache
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
 // [2] https://github.com/arkenfox/user.js/pull/941
-user_pref("media.memory_cache_max_size", 196608); // default=8192; AF=65536; alt=131072; alt2=512000
-user_pref("media.memory_caches_combined_limit_kb", 1572864); // default=524288
-//user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5; the percentage of system memory that Firefox can use for media caches
+user_pref("media.memory_cache_max_size", 65536); // default=8192; AF=65536; alt=131072
+//user_pref("media.memory_caches_combined_limit_kb", 524288); // DEFAULT; alt=1048576
+//user_pref("media.memory_caches_combined_limit_pc_sysmem", 5); // DEFAULT; alt=10; the percentage of system memory that Firefox can use for media caches
 
 // PREF: Media Source Extensions (MSE) web standard
 // Disabling MSE allows videos to fully buffer, but you're limited to 720p.
