@@ -35,8 +35,6 @@ user_pref("gfx.content.skia-font-cache-size", 20);
 
 /** BROWSER CACHE ***/
 user_pref("browser.cache.disk.enable", false);
-user_pref("browser.cache.memory.capacity", 1048576);
-user_pref("browser.cache.memory.max_entry_size", 65536);
 
 /** MEDIA CACHE ***/
 user_pref("media.memory_cache_max_size", 196608);
@@ -54,12 +52,11 @@ user_pref("network.http.max-connections", 1800);
 user_pref("network.http.max-persistent-connections-per-server", 10);
 user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
 user_pref("network.websocket.max-connections", 400);
-user_pref("network.http.pacing.requests.min-parallelism", 12);
-user_pref("network.http.pacing.requests.burst", 18);
+user_pref("network.http.pacing.requests.enabled", false);
 user_pref("network.dnsCacheEntries", 10000);
 user_pref("network.dnsCacheExpiration", 86400);
 user_pref("network.dns.max_high_priority_threads", 8);
-user_pref("network.ssl_tokens_cache_capacity", 32768);
+user_pref("network.ssl_tokens_cache_capacity", 20480);
 
 /** SPECULATIVE CONNECTIONS ***/
 user_pref("network.http.speculative-parallel-limit", 0);
