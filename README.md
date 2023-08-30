@@ -35,7 +35,7 @@ The `user.js` — a configuration file that controls Firefox settings — is cur
 1) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js) (Right click > `Save Link As…`).
 2) Review [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Common-Overrides) and make any necessary changes.
 3) Open Firefox. In the URL bar, type `about:profiles` and press `Enter`.
-4) For the profile you want to use (or default), click `Open Folder` in the **Root Directory** section.
+4) For the profile you want to use (or use default), click `Open Folder` in the **Root Directory** section.
 5) Move the `user.js` file into the folder.
 
 *After restarting Firefox:*
@@ -87,7 +87,6 @@ See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Ha
 * "...the experience is so good now I don’t think I’ll go back to any of the chromium based browsers." - [Mr_Compromise](https://old.reddit.com/r/pcmasterrace/comments/zwioe1/what_browser_will_you_be_using_in_2023_please/j1wmbxo/)
 
 ## Support
-
 
 If you like the project, leave a :star: (top right) and become a [stargazer](https://github.com/yokoffing/Betterfox/stargazers)!
 
