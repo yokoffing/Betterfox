@@ -18,10 +18,20 @@
 //user_pref("network.trr.uri", "https://dns.nextdns.io/******/Firefox"); // TRR/DoH
 
 /** FASTFOX ***/
-user_pref("dom.ipc.processCount.webIsolated", 1); // use one process per site
-//user_pref("dom.ipc.processPrelaunch.fission.number", 1); // # of Preallocated
+//user_pref("dom.ipc.processCount.webIsolated", 2); // process per site
+//user_pref("dom.ipc.processPrelaunch.fission.number", 1); // number of Preallocated processes
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
-//user_pref("media.av1.enabled", false); // disable AV1 to force video hardware decoding
+user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT
+user_pref("network.dns.disablePrefetch", false); // DEFAULT; using DoH / ODNS
+user_pref("network.dns.disablePrefetchFromHTTPS", false); // using DoH / ODNS
+user_pref("browser.urlbar.speculativeConnect.enabled", true); // DEFAULT
+user_pref("browser.places.speculativeConnect.enabled", true); // DEFAULT
+user_pref("network.early-hints.enabled", true); // DEFAULT NIGHTLY
+user_pref("network.early-hints.preconnect.enabled", true);
+//user_pref("network.early-hints.preconnect.max_connections", 10); // DEFAULT; when 0, this is limited by "network.http.speculative-parallel-limit"
+user_pref("network.prefetch-next", true); // DEFAULT if using DOH/ODNS
+user_pref("network.predictor.enabled", false);
+user_pref("network.predictor.enable-prefetch", false);
 
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
@@ -40,7 +50,7 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false); // cle
 user_pref("browser.safebrowsing.allowOverride", false); // do not allow user to override SB
 user_pref("dom.push.enabled", false); // disable Push API; breaks FF Sync and Site Notifications
 user_pref("browser.search.update", false); // do not update opensearch engines
-//user_pref("network.dns.skipTRR-when-parental-control-enabled", false); // bypass parental controls when using DoH
+user_pref("network.dns.skipTRR-when-parental-control-enabled", false); // bypass parental controls when using DoH
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla domains so adblocker works on pages
 
