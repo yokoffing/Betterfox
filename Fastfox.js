@@ -71,7 +71,7 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 // false = reflow pages whenever new data is received
 //user_pref("content.notify.ontimer", true); // DEFAULT
 
-// PREF: notification interval (in microseconds) [to avoid layout thrashing]
+// PREF: notification interval (in microseconds) (to avoid layout thrashing)
 // When Firefox is loading a page, it periodically reformats
 // or "reflows" the page as it loads. The page displays new elements
 // every 0.12 seconds by default. These redraws increase the total page load time.
@@ -85,14 +85,14 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
 // [2] https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
 // [3] https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
-user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
+user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 
 // PREF: frequency switch threshold [HIDDEN]
 // Raising the value will make the application more responsive at the expense of page load time.
 // [1] http://kb.mozillazine.org/Content.switch.threshold
 // [2] https://www.reddit.com/r/firefox/comments/11m2yuh/comment/jbjxp8s/?context=3
-//user_pref("content.interrupt.parsing", true); // [HIDDEN]
-//user_pref("content.switch.threshold", 1000000); // alt=1500000; default=750000; [HIDDEN]
+//user_pref("content.interrupt.parsing", true); // DEFAULT [HIDDEN]
+//user_pref("content.switch.threshold", 750000); // DEFAULT [HIDDEN]
 
 // PREF: new tab preload
 // [WARNING] Disabling this may cause a delay when opening a new tab in Firefox.
@@ -117,8 +117,8 @@ user_pref("content.notify.interval", 100000); // (.10s); alt=500000 (.50s)
     //user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 //user_pref("browser.sessionstore.restore_tabs_lazily", true); // DEFAULT
 
-// PREF: disable preSkeletonUI on startup
-user_pref("browser.startup.preXulSkeletonUI", false);
+// PREF: disable preSkeletonUI on startup [WINDOWS]
+user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 
 /****************************************************************************
  * SECTION: TAB UNLOAD                                                      *
@@ -273,10 +273,17 @@ user_pref("layout.css.has-selector.enabled", true);
 //user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
 
 // PREF: disable AV1 for hardware decodeable videos
-// AV1 may use software (CPU-based) decoding.
 // Firefox sometimes uses AV1 video decoding even to GPUs which do not support it.
 // [1] https://www.reddit.com/r/AV1/comments/s5xyph/youtube_av1_codec_have_worse_quality_than_old_vp9
 //user_pref("media.av1.enabled", false);
+
+// PREF: hardware and software decoded video overlay [FF116+]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1829063
+// [2] https://phabricator.services.mozilla.com/D175993
+//user_pref("gfx.webrender.dcomp-video-hw-overlay-win", true); // DEFAULT
+    //user_pref("gfx.webrender.dcomp-video-hw-overlay-win-force-enabled", true); // enforce
+//user_pref("gfx.webrender.dcomp-video-sw-overlay-win", true); // DEFAULT
+    //user_pref("gfx.webrender.dcomp-video-sw-overlay-win-force-enabled", true); // enforce
 
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
@@ -308,13 +315,26 @@ user_pref("layout.css.has-selector.enabled", true);
 // PREF: memory cache
 // The "automatic" size selection (default) is based on a decade-old table
 // that only contains settings for systems at or below 8GB of system memory [1].
+// Waterfox G6 Beta 3 allows it to go above 8GB machines [3].
 // Value can be up to the max size of an unsigned 64-bit integer.
 // -1=Automatically decide the maximum memory to use to cache decoded images,
 // messages, and chrome based on the total amount of RAM
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
-user_pref("browser.cache.memory.capacity", 1048576); // default=-1; 1048576=1GB, 2097152=2GB
-user_pref("browser.cache.memory.max_entry_size", 65536); // default=5120; -1=entries bigger than than 90% of the mem-cache are never cached
+// [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
+//user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 1048576=1GB, 2097152=2GB
+//user_pref("browser.cache.memory.max_entry_size", 5120); // DEFAULT; alt=25600; -1=entries bigger than than 90% of the mem-cache are never cached
+
+// PREF: amount of pages stored in memory for Back/Forward
+// Pages that were recently visited are stored in memory in such a way
+// that they don't have to be re-parsed. This improves performance
+// when pressing Back and Forward. This pref limits the maximum
+// number of pages stored in memory. If you are not using the Back
+// and Forward buttons that much, but rather using tabs, then there
+// is no reason for Firefox to keep memory for this.
+// -1=determine automatically (8 pages)
+// [1] https://kb.mozillazine.org/Browser.sessionhistory.max_total_viewers#Possible_values_and_their_effects
+//user_pref("browser.sessionhistory.max_total_viewers", 1);
 
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
@@ -380,15 +400,18 @@ user_pref("network.http.max-persistent-connections-per-server", 10); // default=
     //user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
 user_pref("network.websocket.max-connections", 400); // default=200
 
-// PREF: pacing requests
+// PREF: pacing requests [FF23+]
 // Controls how many HTTP requests are sent at a time.
 // Pacing HTTP requests can have some benefits, such as reducing network congestion,
 // improving web page loading speed, and avoiding server overload.
+// Pacing requests adds a slight delay between requests to throttle them.
+// If you have a fast machine and internet connection, disabling pacing
+// may provide a small speed boost when loading pages with lots of requests.
 // false=Firefox will send as many requests as possible without pacing
 // true=Firefox will pace requests (default)
-//user_pref("network.http.pacing.requests.enabled", true); // DEFAULT
-    user_pref("network.http.pacing.requests.min-parallelism", 12); // default=6
-    user_pref("network.http.pacing.requests.burst", 20); // default=10
+user_pref("network.http.pacing.requests.enabled", false);
+    //user_pref("network.http.pacing.requests.min-parallelism", 10); // default=6
+    //user_pref("network.http.pacing.requests.burst", 14); // default=10
 
 // Connection Timeouts
 // [1] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1178
@@ -410,7 +433,7 @@ user_pref("network.websocket.max-connections", 400); // default=200
 // The number (in ms) after sending a SYN for an HTTP connection,
 // to wait before trying again with a different connection.
 // 0=disable the second connection
-user_pref("network.http.connection-retry-timeout", 0); // default=250ms
+//user_pref("network.http.connection-retry-timeout", 0); // default=250ms
 
 // PREF: keep-alive request timeout
 // Default timeout on IIS7 is 120 seconds. FF needs to reuse or drop the
@@ -440,7 +463,7 @@ user_pref("network.dns.max_high_priority_threads", 8); // default=5
 //user_pref("network.dns.max_any_priority_threads", 5); // default=3
 
 // PREF: increase TLS token caching 
-user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
+user_pref("network.ssl_tokens_cache_capacity", 20480); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                         *
@@ -471,7 +494,7 @@ user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS
 // [5] https://3perf.com/blog/link-rels/#prefetch
 user_pref("network.http.speculative-parallel-limit", 0);
 // or
-//user_pref("network.http.speculative-parallel-limit", 12); // default=6
+//user_pref("network.http.speculative-parallel-limit", 10); // default=6
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time. In order to reduce latency,
@@ -537,7 +560,7 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // When 0, this is limited by "network.http.speculative-parallel-limit".
 //user_pref("network.early-hints.preconnect.max_connections", 0);
 // or
-//user_pref("network.early-hints.preconnect.max_connections", 20); // default=10
+//user_pref("network.early-hints.preconnect.max_connections", 15); // default=10
 
 // PREF: Link prefetching <link rel="prefetch">
 // Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.

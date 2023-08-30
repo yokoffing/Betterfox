@@ -15,6 +15,7 @@
 // Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
 // Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
 // been interacted with in the last 30 days.
+// [ALLOWLIST] https://disconnect.me/trackerprotection/unblocked
 // [NOTE] FF86: "Strict" tracking protection enables dFPI.
 // [1] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 // [2] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
@@ -31,25 +32,22 @@ user_pref("browser.contentblocking.category", "strict");
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true); // DEFAULT
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // enabled with "Strict"
-
-// PREF: relax blocklist for ETP Strict
-// Using a less aggressive internal blocklist to mitigate site breakage.
-// This is easier than adjusting prefs for ETP Custom.
-// [NOTE] Sadly, this does not work on NIGHTLY; you must use Custom and adjust prefs individually.
-// [ALLOWLIST] https://disconnect.me/trackerprotection/unblocked
-//user_pref("browser.contentblocking.features.strict", "tp,tpPrivate,cookieBehavior5,cookieBehaviorPBM5,cm,fp,stp,emailTP,emailTPPrivate,lvl1,rp,rpTop,ocsp,qps,qpsPBM");
+//user_pref("privacy.annotate_channels.strict_list.enabled", true); // enabled with "Strict"
+    //user_pref("privacy.annotate_channels.strict_list.pbmode.enabled", true); // DEFAULT
 
 // PREF: query stripping
 // Currently uses a small list [1]
 // We set the same query stripping list that Brave and LibreWolf uses [2]
 // If using uBlock Origin or AdGuard, use filter lists as well [3]
+// Query parameters stripped [5]
 // [1] https://www.eyerys.com/articles/news/how-mozilla-firefox-improves-privacy-using-query-parameter-stripping-feature
 // [2] https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc
 // [3] https://github.com/yokoffing/filterlists#url-tracking-parameters
+// [4] https://bugzilla.mozilla.org/show_bug.cgi?id=1706607
+// [5] https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/query-stripping/records
 //user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 //user_pref("privacy.query_stripping.enabled.pbmode", true); // enabled with "Strict"
-user_pref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
-//user_pref("privacy.query_stripping.strip_on_share.enabled", true); // DEFAULT [FF115+]
+//user_pref("privacy.query_stripping.strip_on_share.enabled", true);
 
 // PREF: allow embedded tweets, Instagram and Reddit posts, and TikTok embeds
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
@@ -117,7 +115,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 //user_pref("privacy.partition.network_state", true); // DEFAULT
     //user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
     //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
-    //user_pref("privacy.partition.bloburl_per_agent_cluster", true); [REGRESSIONS]
+    //user_pref("privacy.partition.bloburl_per_agent_cluster", false); // DEFAULT [REGRESSIONS - DO NOT TOUCH]
 // enable APS (Always Partitioning Storage) [FF104+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT: true FF109+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT: false FF109+]
@@ -139,11 +137,18 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 //user_pref("privacy.purge_trackers.enabled", true); // DEFAULT
 
 // PREF: SameSite Cookies
-// [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
-// [2] https://web.dev/samesite-cookies-explained/
-//user_pref("network.cookie.sameSite.laxByDefault", false); // DEFAULT
-//user_pref("network.cookie.sameSite.noneRequiresSecure", true); // DEFAULT
-//user_pref("network.cookie.sameSite.schemeful", false); // DEFAULT
+// [1] https://caniuse.com/?search=samesite
+// [2] https://github.com/arkenfox/user.js/issues/1640#issuecomment-1464093950
+// [3] https://support.mozilla.org/en-US/questions/1364032
+// [4] https://blog.mozilla.org/security/2018/04/24/same-site-cookies-in-firefox-60/
+// [5] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
+// [6] https://web.dev/samesite-cookies-explained/
+// [7] https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions
+// [8] https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+// [TEST] https://samesite-sandbox.glitch.me/
+//user_pref("network.cookie.sameSite.laxByDefault", true);
+//user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+//user_pref("network.cookie.sameSite.schemeful", true);
 
 // PREF: Hyperlink Auditing (click tracking)
 //user_pref("browser.send_pings", false); // DEFAULT
@@ -255,6 +260,10 @@ user_pref("security.cert_pinning.enforcement_level", 2);
 //user_pref("security.enterprise_roots.enabled", false); // DEFAULT
     //user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
 
+// PREF: disable Microsoft Family Safety [WINDOWS 8-10]
+// [1] https://wiki.mozilla.org/QA/Windows_Child_Mode
+//user_pref("security.family_safety.mode", 0);
+
 /****************************************************************************
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
 ****************************************************************************/
@@ -285,13 +294,13 @@ user_pref("security.ssl.require_safe_negotiation", true);
 // [TEST] https://expired.badssl.com/
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 
-// PREF: disable TLS 1.3 0-RTT (round-trip time) [FF51+]
+// PREF: disable 0-RTT (round-trip time) to improve TLS 1.3 security [FF51+]
 // This data is not forward secret, as it is encrypted solely under keys derived using
 // the offered PSK. There are no guarantees of non-replay between connections.
 // [1] https://github.com/tlswg/tls13-spec/issues/1001
 // [2] https://www.rfc-editor.org/rfc/rfc9001.html#name-replay-attacks-with-0-rtt
 // [3] https://blog.cloudflare.com/tls-1-3-overview-and-q-and-a/
-user_pref("security.tls.enable_0rtt_data", false); // disable 0 RTT to improve tls 1.3 security
+user_pref("security.tls.enable_0rtt_data", false);
 
 /****************************************************************************
  * SECTION: FONTS                                                          *
@@ -552,9 +561,14 @@ user_pref("network.IDN_show_punycode", true);
 ******************************************************************************/
 
 // PREF: HTTPS-First Policy
-// Firefox attempts to make all connections to websites secure, and falls back to insecure
-// connections only when a website does not support it. Unlike HTTPS-Only Mode, Firefox
-// will NOT ask for your permission before connecting to a website that doesn’t support secure connections.
+// Firefox attempts to make all connections to websites secure,
+// and falls back to insecure connections only when a website
+// does not support it. Unlike HTTPS-Only Mode, Firefox
+// will NOT ask for your permission before connecting to a website
+// that doesn’t support secure connections.
+// As of August 2023, Google estimates that 5-10% of traffic
+// has remained on HTTP, allowing attackers to eavesdrop
+// on or change that data [6].
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
 // [TEST] http://example.com [upgrade]
 // [TEST] http://httpforever.com/ [no upgrade]
@@ -563,6 +577,7 @@ user_pref("network.IDN_show_punycode", true);
 // [3] https://github.com/brave/adblock-lists/blob/master/brave-lists/https-upgrade-exceptions-list.txt
 // [4] https://web.dev/why-https-matters/
 // [5] https://www.cloudflare.com/learning/ssl/why-use-https/
+// [6] https://blog.chromium.org/2023/08/towards-https-by-default.html
 user_pref("dom.security.https_first", true);
 //user_pref("dom.security.https_first_pbm", true); // DEFAULT
 
@@ -570,24 +585,30 @@ user_pref("dom.security.https_first", true);
  * SECTION: HTTPS-ONLY MODE                              *
 ******************************************************************************/
 
-// Firefox displays a warning page if HTTPS is not supported by a server. Options to use HTTP are then provided.
-// [NOTE] When "https_only_mode" (all windows) is true, "https_only_mode_pbm" (private windows only) is ignored.
+// Firefox displays a warning page if HTTPS is not supported
+// by a server. Options to use HTTP are then provided.
+// [NOTE] When "https_only_mode" (all windows) is true,
+// "https_only_mode_pbm" (private windows only) is ignored.
+// As of August 2023, Google estimates that 5-10% of traffic
+// has remained on HTTP, allowing attackers to eavesdrop
+// on or change that data [5].
 // [SETTING] to add site exceptions: Padlock>HTTPS-Only mode>On/Off/Off temporarily
 // [SETTING] Privacy & Security>HTTPS-Only Mode
 // [TEST] http://example.com [upgrade]
 // [TEST] http://httpforever.com/ [no upgrade]
-// [TEST] http://speedofanimals.com [no upgrade]
 // [1] https://bugzilla.mozilla.org/1613063
 // [2] https://blog.mozilla.org/security/2020/11/17/firefox-83-introduces-https-only-mode/
 // [3] https://web.dev/why-https-matters/
 // [4] https://www.cloudflare.com/learning/ssl/why-use-https/
+// [5] https://blog.chromium.org/2023/08/towards-https-by-default.html
 
 // PREF: enable HTTPS-only Mode
 //user_pref("dom.security.https_only_mode_pbm", true); // Private Browsing windows only
 //user_pref("dom.security.https_only_mode", true); // Normal + Private Browsing windows
 
 // PREF: offer suggestion for HTTPS site when available
-// [1] https://twitter.com/leli_gibts_scho/status/1371458534186057731
+// [1] https://twitter.com/leli_gibts_scho/status/1371463866606059528
+// [TEST] http://speedofanimals.com/
 user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: HTTP background requests in HTTPS-only Mode
@@ -611,22 +632,23 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: DNS-over-HTTPS (DoH) mode
 // Mozilla uses Cloudfare by default. NextDNS is also an option.
-// [NOTE] You can set this to 0 if you are already using secure DNS for your entire network (e.g. OS-level, router-level).
+// You can set this to 0 if you are already using secure DNS for
+// your entire network (e.g. OS-level, router-level).
+// [NOTE] Mode 3 has site-exceptions with a nice UI on the error page
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
-// 0=Disable DoH (default)
-// 2=Use DoH; fall back to traditional DNS if necessary
-// 3=Only use DoH; do not fall back to traditional DNS
-// 5=Explicitly disable DoH
+// 0=disable DoH (default)
+// 2=use DoH; fall back to native DNS if necessary
+// 3=only use DoH; do not fall back to native DNS
+// 5=explicitly disable DoH
 //user_pref("network.trr.mode", 0); // DEFAULT
 
-// PREF: DoH fallback warning page
-// Whether DoH fallback warning page will be displayed when DoH doesn't work in TRR first mode.
-//user_pref("network.trr.display_fallback_warning", false); // DEFAULT; 
-// Show the checkbox to enable the fallback warning page in the settings UI
-    //user_pref("network.trr_ui.show_fallback_warning_option", false); // DEFAULT; show the checkbox to enable the fallback warning page in the settings UI
+// PREF: display fallback warning page [FF115+]
+// Show a warning checkbox UI in modes 0 + 2.
+//user_pref("network.trr_ui.show_fallback_warning_option", false); // DEFAULT
+//user_pref("network.trr.display_fallback_warning", false); // DEFAULT
 
-// PREF: enable fallback to native DNS upon network errors
+// PREF: fallback to native DNS upon network errors
 //user_pref("network.trr.strict_native_fallback", false); // DEFAULT
 
 // PREF: DoH resolver
@@ -634,14 +656,17 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 //user_pref("network.trr.uri", "https://xxxx/dns-query");
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
 
-// PREF: EDNS Client Subnet DNS extension (DNSSEC validation)
-// When set to false, TRR asks the resolver to enable EDNS Client Subnet (ECS).
-// [WARNING] Some websites won't resolve when enabled, usually due to
-// misconfiguration on the part of the domain owner.
-// [NOTE] DNSSEC is not needed if you’re using DoH, as long as you trust the
-// DoH resolver to perform DNSSEC validation correctly. However, if you don’t
-// trust the DoH resolver, you may still want to use DNSSEC along with DoH [1].
-// [1] https://docs.controld.com/docs/disable-dnssec-option
+// PREF: adjust providers
+//user_pref("network.trr.resolvers", '[{ "name": "Cloudflare", "url": "https://mozilla.cloudflare-dns.com/dns-query" },{ "name": "SecureDNS", "url": "https://doh.securedns.eu/dns-query" },{ "name": "AppliedPrivacy", "url": "https://doh.appliedprivacy.net/query" },{ "name": "Digitale Gesellschaft (CH)", "url": "https://dns.digitale-gesellschaft.ch/dns-query" }, { "name": "Quad9", "url": "https://dns.quad9.net/dns-query" }]'); 
+
+// PREF: EDNS Client Subnet (ECS)
+// [WARNING] In some circumstances, enabling ECS may result
+// in suboptimal routing between CDN origins and end users [2].
+// [NOTE] You will also need to enable this with your
+// DoH provider most likely.
+// [1] https://en.wikipedia.org/wiki/EDNS_Client_Subnet
+// [2] https://www.quad9.net/support/faq/#edns
+// [3] https://datatracker.ietf.org/doc/html/rfc7871
 //user_pref("network.trr.disable-ECS", true); // DEFAULT
 
 // PREF: DNS Rebind Protection
@@ -650,10 +675,10 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [1] https://docs.controld.com/docs/dns-rebind-option
 //user_pref("network.trr.allow-rfc1918", false); // DEFAULT
 
-// PREF: Assorted Options
+// PREF: assorted options
 //user_pref("network.trr.confirmationNS", "skip"); // skip undesired DOH test connection
 //user_pref("network.dns.skipTRR-when-parental-control-enabled", false); // bypass parental controls when using DoH
-//user_pref("network.trr.skip-AAAA-when-not-supported", true); DEFAULT; If Firefox detects that your system does not have IPv6 connectivity, it will not request IPv6 addresses from the DoH server
+//user_pref("network.trr.skip-AAAA-when-not-supported", true); // DEFAULT; If Firefox detects that your system does not have IPv6 connectivity, it will not request IPv6 addresses from the DoH server
 //user_pref("network.trr.clear-cache-on-pref-change", true); // DEFAULT; DNS+TRR cache will be cleared when a relevant TRR pref changes
 //user_pref("network.trr.wait-for-portal", false); // DEFAULT; set this to true to tell Firefox to wait for the captive portal detection before TRR is used
 
@@ -661,17 +686,16 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 //user_pref("network.trr.excluded-domains", ""); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR. This pref can be used to make /etc/hosts works with DNS over HTTPS in Firefox.
 //user_pref("network.trr.builtin-excluded-domains", "localhost,local"); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR
 
-// PREF: enable Oblivious DoH setup (Cloudfare) [HIDDEN]
-// [1] https://www.reddit.com/r/firefox/comments/xc9y4g/how_to_enable_oblivious_doh_odoh_for_enhanced_dns/
-// [2] https://blog.cloudflare.com/oblivious-dns/
-// [3] https://techpp.com/2020/12/14/odoh-oblivious-dns-over-https-explained/
+// PREF: Oblivious HTTP (OHTTP)
+// Enable DNS over Oblivious HTTP.
+// [1] https://blog.cloudflare.com/stronger-than-a-promise-proving-oblivious-http-privacy-properties/
+// [2] https://www.ietf.org/archive/id/draft-thomson-http-oblivious-01.html
+// [3] https://old.reddit.com/r/dnscrypt/comments/11ukt43/what_is_dns_over_oblivious_http_targetrelay/ji1nl0m/?context=3
 //user_pref("network.trr.mode", 2);
-//user_pref("network.trr.odoh.enabled", true);
-//user_pref("network.trr.odoh.configs_uri", "https://odoh.cloudflare-dns.com/.well-known/odohconfigs");
-//user_pref("network.trr.odoh.target_host", "https://odoh.cloudflare-dns.com/");
-//user_pref("network.trr.odoh.target_path", "dns-query");
-//user_pref("network.trr.odoh.proxy_uri", "https://odoh1.surfdomeinen.nl/proxy");
-//user_pref("network.trr.odoh.min_ttl", 86400); // 1 day
+//user_pref("network.trr.ohttp.config_uri", "https://dooh.cloudflare-dns.com/.well-known/doohconfig");
+//user_pref("network.trr.ohttp.uri", "https://dooh.cloudflare-dns.com/dns-query");
+//user_pref("network.trr.ohttp.relay_uri", "https://dooh.waterfox.net/");
+//user_pref("network.trr.use_ohttp", true);
 
 /******************************************************************************
  * SECTION: ESNI / ECH                            *
@@ -691,14 +715,8 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 ******************************************************************************/
 
 // PREF: disable IPv6
-// IPv6 can be abused, especially with MAC addresses, and can leak with VPNs: assuming
-// your ISP and/or router and/or website is IPv6 capable. Most sites will fall back to IPv4
-// [STATS] Firefox telemetry (Sept 2022) shows ~8% of all successful connections are IPv6
-// [NOTE] This is an application level fallback. Disabling IPv6 is best done at an
-// OS/network level, and/or configured properly in VPN setups. If you are not masking your IP,
-// then this won't make much difference. If you are masking your IP, then it can only help.
-// [NOTE] However, many VPN options now provide IPv6 coverage.
-// [NOTE] PHP defaults to IPv6 with "localhost". Use "php -S 127.0.0.1:PORT"
+// If you are not masking your IP, then this won't make much difference.
+// And some VPNs now cover IPv6.
 // [TEST] https://ipleak.org/
 // [1] https://www.internetsociety.org/tag/ipv6-security/ (Myths 2,4,5,6)
 //user_pref("network.dns.disableIPv6", true);
@@ -723,6 +741,9 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [2] https://en.wikipedia.org/wiki/GVfs
 // [3] https://en.wikipedia.org/wiki/GIO_(software)
 //user_pref("network.gio.supported-protocols", ""); // [HIDDEN PREF]
+
+// PREF: disable check for proxies
+//user_pref("network.notify.checkForProxies", false);
 
 /******************************************************************************
  * SECTION: PASSWORDS                             *
@@ -786,8 +807,9 @@ user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Pas
 user_pref("editor.truncate_user_pastes", false);
 
 // PREF: reveal password icon
-//user_pref("layout.forms.reveal-password-button.enabled", true); // always show icon in password fields
 //user_pref("layout.forms.reveal-password-context-menu.enabled", true); // right-click menu option; DEFAULT [FF112]
+// [DO NOT TOUCH] Icons will double-up if the website implements it natively:
+//user_pref("layout.forms.reveal-password-button.enabled", true); // always show icon in password fields
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
@@ -804,6 +826,8 @@ user_pref("extensions.formautofill.creditCards.enabled", false);
  * SECTION: MIXED CONTENT + CROSS-SITE                             *
 ******************************************************************************/
 
+// [TEST] https://mixed-script.badssl.com/
+
 // PREF: limit (or disable) HTTP authentication credentials dialogs triggered by sub-resources
 // Hardens against potential credentials phishing.
 // 0=don't allow sub-resources to open HTTP authentication credentials dialogs
@@ -816,7 +840,7 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
 //user_pref("network.http.windows-sso.enabled", false);
 
-// PREF: block insecure active content (scripts) on HTTPS pages.
+// PREF: block insecure active content (scripts) on HTTPS pages
 // [1] https://trac.torproject.org/projects/tor/ticket/21323
 //user_pref("security.mixed_content.block_active_content", true); // DEFAULT
 
@@ -871,16 +895,6 @@ user_pref("permissions.delegation.enabled", false);
  * SECTION: HEADERS / REFERERS                                             *
 ******************************************************************************/
 
-// PREF: HTTP Referrer Header
-// [NOTE] Only cross-origin referers need control.
-// See network.http.referer.XOriginPolicy.
-// This may cause breakage where third party images and videos
-// may not load, and with authentication on sites such as banks.
-// 0 = Never send
-// 1 = Send only when clicking on links and similar elements
-// 2 = Send on all requests (default)
-//user_pref("network.http.sendRefererHeader", 2); // DEFAULT
-
 // PREF: default referrer policy (used unless overriden by the site)
 // 0=no-referrer, 1=same-origin, 2=strict-origin-when-cross-origin (default),
 // 3=no-referrer-when-downgrade
@@ -898,12 +912,15 @@ user_pref("permissions.delegation.enabled", false);
 //user_pref("network.http.referer.defaultPolicy.trackers", 1);
 //user_pref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 
-// PREF: control the amount of cross-origin information to send
-// Controls how much referrer to send across origins (different domains).
-// 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
-// [1] https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/
-// [2] https://web.dev/referrer-best-practices/
-user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+// PREF: HTTP Referrer Header
+// [NOTE] Only cross-origin referers need control.
+// See network.http.referer.XOriginPolicy.
+// This may cause breakage where third party images and videos
+// may not load, and with authentication on sites such as banks.
+// 0 = Never send
+// 1 = Send only when clicking on links and similar elements
+// 2 = Send on all requests (default)
+//user_pref("network.http.sendRefererHeader", 2); // DEFAULT
 
 // PREF: control when to send a cross-origin referer
 // Controls whether or not to send a referrer across different sites.
@@ -917,6 +934,13 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#examples
 // [2] https://web.dev/referrer-best-practices/
 //user_pref("network.http.referer.XOriginPolicy", 0); // DEFAULT
+
+// PREF: control the amount of cross-origin information to send
+// Controls how much referrer to send across origins (different domains).
+// 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
+// [1] https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/
+// [2] https://web.dev/referrer-best-practices/
+user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /******************************************************************************
  * SECTION: CONTAINERS                                                        *
@@ -980,15 +1004,17 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 
 // PREF: disable all DRM content (EME: Encryption Media Extension)
 // EME is a JavaScript API for playing DRMed (not free) video content in HTML.
-// A DRM component called a Content Decryption Module (CDM) decrypts, decodes, and displays the video.
+// A DRM component called a Content Decryption Module (CDM) decrypts,
+// decodes, and displays the video.
 // e.g. Netflix, Amazon Prime, Hulu, HBO, Disney+, Showtime, Starz, DirectTV
+// DRM is a propriety and closed source, but disabling is overkill.
 // [SETTING] General>DRM Content>Play DRM-controlled content
 // [TEST] https://bitmovin.com/demos/drm
 // [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next
 // [2] https://www.reddit.com/r/firefox/comments/10gvplf/comment/j55htc7
 //user_pref("media.eme.enabled", false);
-// Optionally, hide the setting which also disables the DRM prompt:
-//user_pref("browser.eme.ui.enabled", false);
+    // Optionally, hide the setting which also disables the DRM prompt:
+    //user_pref("browser.eme.ui.enabled", false);
 
 /******************************************************************************
  * SECTION: VARIOUS                            *
@@ -1021,6 +1047,8 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [2] https://wiki.mozilla.org/Security/Safe_Browsing
 // [3] https://support.mozilla.org/kb/how-does-phishing-and-malware-protection-work
 // [4] https://educatedguesswork.org/posts/safe-browsing-privacy/
+// [5] https://www.google.com/chrome/privacy/whitepaper.html#malware
+// [6] https://security.googleblog.com/2022/08/how-hash-based-safe-browsing-works-in.html
 
 // PREF: Safe Browsing
 // [WARNING] Be sure to have alternate security measures if you disable SB! Adblockers do not count!
@@ -1038,7 +1066,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [10] https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)#services-we-proxy-through-brave-servers
 //user_pref("browser.safebrowsing.malware.enabled", false); // all checks happen locally
 //user_pref("browser.safebrowsing.phishing.enabled", false); // all checks happen locally
-    //user_pref("browser.safebrowsing.blockedURIs.enabled", false);
+//user_pref("browser.safebrowsing.blockedURIs.enabled", false); // all checks happen locally
     //user_pref("browser.safebrowsing.provider.google4.gethashURL", "");
     //user_pref("browser.safebrowsing.provider.google4.updateURL", "");
     //user_pref("browser.safebrowsing.provider.google.gethashURL", "");
@@ -1079,7 +1107,7 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 // Disable it if you’re not using any type of physical impairment assistive software.
 // [1] https://support.mozilla.org/kb/accessibility-services
 // [2] https://www.ghacks.net/2021/08/25/firefox-tip-turn-off-accessibility-services-to-improve-performance/
-// [3] https://www.troddit.com/r/firefox/comments/p8g5zd/why_does_disabling_accessibility_services_improve
+// [3] https://www.reddit.com/r/firefox/comments/p8g5zd/why_does_disabling_accessibility_services_improve
 // [4] https://winaero.com/firefox-has-accessibility-service-memory-leak-you-should-disable-it/
 // [5] https://www.ghacks.net/2022/12/26/firefoxs-accessibility-performance-is-getting-a-huge-boost/
 user_pref("accessibility.force_disabled", 1);
@@ -1247,8 +1275,9 @@ user_pref("network.captive-portal-service.enabled", false);
 user_pref("network.connectivity-service.enabled", false);
 
 // PREF: software that continually reports what default browser you are using [WINDOWS]
-// [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser [1].
-// [1] https://github.com/yokoffing/Betterfox/issues/166
+// [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser [2].
+// [1] https://techdows.com/2020/04/what-is-firefox-default-browser-agent-and-how-to-disable-it.html
+// [2] https://github.com/yokoffing/Betterfox/issues/166
 //user_pref("default-browser-agent.enabled", false);
 
 // PREF: "report extensions for abuse"
@@ -1267,5 +1296,17 @@ user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 
-// PREF: disable check for proxies
-//user_pref("network.notify.checkForProxies", false);
+// PREF: assorted telemetry
+// [NOTE] Shouldn't be needed for user.js, but browser forks
+// may want to disable these prefs.
+//user_pref("doh-rollout.disable-heuristics", true); // ensure DoH doesn't get enabled automatically
+//user_pref("dom.security.unexpected_system_load_telemetry_enabled", false);
+//user_pref("messaging-system.rsexperimentloader.enabled", false);
+//user_pref("network.trr.confirmation_telemetry_enabled", false);
+//user_pref("security.app_menu.recordEventTelemetry", false);
+//user_pref("security.certerrors.mitm.priming.enabled", false);
+//user_pref("security.certerrors.recordEventTelemetry", false);
+//user_pref("security.protectionspopup.recordEventTelemetry", false);
+//user_pref("signon.recipes.remoteRecipes.enabled", false);
+//user_pref("security.identitypopup.recordEventTelemetry", false); // ESR only; removed FF116+ [1]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1837979

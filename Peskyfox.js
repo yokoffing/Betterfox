@@ -11,8 +11,12 @@
  * SECTION: MOZILLA UI                                                      *
 ****************************************************************************/
 
-// PREF: choose what theme Firefox follows by default
-// Dark (0), Light (1), System (2), or Browser (3) (default)
+// PREF: preferred color scheme for websites
+// [SETTING] General>Language and Appearance>Website appearance
+// By default, color scheme matches the theme of your browser toolbar (3).
+// Set this pref to choose Dark on sites that support it (0) or Light (1).
+// Before FF95, the pref was 2, which determined site color based on OS theme.
+// Dark (0), Light (1), System (2), Browser (3) (default [FF95+])
 // [1] https://www.reddit.com/r/firefox/comments/rfj6yc/how_to_stop_firefoxs_dark_theme_from_overriding/hoe82i5/?context=3
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 
@@ -73,13 +77,14 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 // PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
-// PREF: attempt to remove ugly border drawn around links when clicked [macOS]
-//user_pref("accessibility.mouse_focuses_formcontrol", 0);
-    //user_pref("browser.display.focus_ring_style", 0);
-    //user_pref("browser.display.focus_ring_width", 0);
+// PREF: remove focus indicator for links
+// [1] https://www.askvg.com/firefox-tip-restore-classic-dotted-outline-focus-indicator-for-links/
+user_pref("browser.display.focus_ring_on_anything", true); 
+user_pref("browser.display.focus_ring_style", 0);
+user_pref("browser.display.focus_ring_width", 0);
 
 // PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+]
-user_pref("browser.privateWindowSeparation.enabled", false);
+user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 
 // PREF: reduce the size of the "private window" indicator in tab bar [FF106+]
 user_pref("browser.privatebrowsing.enable-new-indicator", false);
@@ -104,7 +109,7 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 // [WARNING] Beware of potential bugs and performance issues. Enabling this may negatively
 // impact site performance. It requires Firefox to run rule-defined query selectors for
 // every page.
-//user_pref("cookiebanners.service.enableGlobalRules", true);
+//user_pref("cookiebanners.service.enableGlobalRules", false); // DEFAULT
 
 // PREF: Firefox Translations [NIGHTLY]
 // Automated translation of web content is done locally in Firefox, so that
@@ -115,6 +120,10 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 // [3] https://www.ghacks.net/2023/08/02/mozilla-firefox-117-beta-brings-an-automatic-language-translator-for-websites-and-it-works-offline/
 user_pref("browser.translations.enable", true);
     //user_pref("browser.translations.autoTranslate", true);
+
+// PREF: Mozilla Shopping [FF116+]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1836265
+//user_pref("browser.shopping.experience2023.enabled", false); // DEFAULT
 
 /****************************************************************************
  * SECTION: FULLSCREEN NOTICE                                               *
@@ -272,29 +281,34 @@ user_pref("extensions.pocket.enabled", false);
  * SECTION: DOWNLOADS                                 *
 ******************************************************************************/
 
+// PREF: autohide the downloads button
+//user_pref("browser.download.autohideButton", true); // DEFAULT
+
 // PREF: choose download location
 // [SETTING] To set your default "downloads": General>Downloads>Save files to...
 // 0=desktop, 1=downloads (default), 2=last used
-//user_pref("browser.download.folderList", 2);
+//user_pref("browser.download.folderList", 1); // DEFAULT
 
-// PREF: Enforce user interaction for security by always asking where to download
+// PREF: always ask where to download
+// Enforce user interaction for greater security.
 // [SETTING] General>Downloads>Always ask you where to save files
+// [DIALOGUE] "Ask whether to open or save files"
+// true=direct download (default)
 // false=the user is asked what to do
+// [1] https://github.com/yokoffing/Betterfox/issues/216
 user_pref("browser.download.useDownloadDir", false);
     //user_pref("browser.download.dir", "C:\Users\<YOUR_USERNAME>\AppData\Local\Temp"); // [WINDOWS]
+
+// PREF: always ask how to handle new mimetypes
+// Enforce user interaction for greater security.
+// [SETTING] General>Files and Applications>What should Firefox do with other files
+user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 // PREF: disable downloads panel opening on every download
 user_pref("browser.download.alwaysOpenPanel", false);
 
 // PREF: disable adding downloads to the system's "recent documents" list 
 user_pref("browser.download.manager.addToRecentDocs", false);
-
-// PREF: enable user interaction for security by always asking how to handle new mimetypes
-// [SETTING] General>Files and Applications>What should Firefox do with other files
-user_pref("browser.download.always_ask_before_handling_new_types", true);
-
-// PREF: autohide the downloads button
-//user_pref("browser.download.autohideButton", true); // DEFAULT
 
 /****************************************************************************
  * SECTION: PDF                                                             *
