@@ -98,9 +98,10 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1549587
 // [2] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
 // [3] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
-// [4] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
-// [5] https://github.com/arkenfox/user.js/issues/1281
-// [6] https://hacks.mozilla.org/2022/02/improving-the-storage-access-api-in-firefox/
+// [4] https://blog.mozilla.org/en/mozilla/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/
+// [5] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
+// [6] https://github.com/arkenfox/user.js/issues/1281
+// [7] https://hacks.mozilla.org/2022/02/improving-the-storage-access-api-in-firefox/
 //user_pref("network.cookie.cookieBehavior", 5); // DEFAULT FF103+
 //user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // DEFAULT
 
