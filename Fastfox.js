@@ -494,7 +494,7 @@ user_pref("network.ssl_tokens_cache_capacity", 20480); // default=2048; more TLS
 // [5] https://3perf.com/blog/link-rels/#prefetch
 user_pref("network.http.speculative-parallel-limit", 0);
 // or
-//user_pref("network.http.speculative-parallel-limit", 10); // default=6
+//user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time. In order to reduce latency,
@@ -545,23 +545,6 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // [9] https://web.dev/preload-critical-assets/
 //user_pref("network.preload", true); // DEFAULT
 
-// PREF: enable early hints [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
-//user_pref("network.early-hints.enabled", false); // DEFAULT
-// or
-//user_pref("network.early-hints.enabled", true);
-
-// PREF: `Link: rel=preconnect` in 103 Early Hint response
-//user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
-// or
-//user_pref("network.early-hints.preconnect.enabled", true);
-
-// PREF: the number of speculative connections allowed for early hints `Link: rel=preconnect`
-// When 0, this is limited by "network.http.speculative-parallel-limit".
-//user_pref("network.early-hints.preconnect.max_connections", 0);
-// or
-//user_pref("network.early-hints.preconnect.max_connections", 15); // default=10
-
 // PREF: Link prefetching <link rel="prefetch">
 // Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
 // A directive that tells a browser to fetch a resource that will likely be needed for the next navigation.
@@ -579,6 +562,24 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 // or
 //user_pref("network.prefetch-next", true); // DEFAULT
+
+// PREF: enable early hints [NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
+// [2] https://developer.chrome.com/blog/early-hints/
+//user_pref("network.early-hints.enabled", false); // DEFAULT
+// or
+//user_pref("network.early-hints.enabled", true);
+
+// PREF: `Link: rel=preconnect` in 103 Early Hint response
+//user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
+// or
+//user_pref("network.early-hints.preconnect.enabled", true);
+
+// PREF: the number of speculative connections allowed for early hints `Link: rel=preconnect`
+// When 0, this is limited by "network.http.speculative-parallel-limit".
+//user_pref("network.early-hints.preconnect.max_connections", 0);
+// or
+//user_pref("network.early-hints.preconnect.max_connections", 10); // DEFAULT
 
 // PREF: Network Predictor (NP)
 // Keeps track of components that were loaded during page visits so that the browser knows next time
