@@ -37,8 +37,7 @@ user_pref("gfx.content.skia-font-cache-size", 20);
 user_pref("browser.cache.disk.enable", false);
 
 /** MEDIA CACHE ***/
-user_pref("media.memory_cache_max_size", 196608);
-user_pref("media.memory_caches_combined_limit_kb", 1572864);
+user_pref("media.memory_cache_max_size", 65536);
 user_pref("media.cache_readahead_limit", 7200);
 user_pref("media.cache_resume_threshold", 3600);
 
