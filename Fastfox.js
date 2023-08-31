@@ -431,7 +431,7 @@ user_pref("network.dns.max_high_priority_threads", 8); // default=5
 //user_pref("network.dns.max_any_priority_threads", 5); // default=3
 
 // PREF: increase TLS token caching 
-user_pref("network.ssl_tokens_cache_capacity", 20480); // default=2048; more TLS token caching (fast reconnects)
+user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                         *
