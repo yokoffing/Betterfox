@@ -400,7 +400,7 @@ user_pref("network.http.max-connections", 1800); // default=900
 user_pref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
     user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // default=3
     //user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
-user_pref("network.websocket.max-connections", 400); // default=200
+//user_pref("network.websocket.max-connections", 200); // DEFAULT
 
 // PREF: pacing requests [FF23+]
 // Controls how many HTTP requests are sent at a time.
