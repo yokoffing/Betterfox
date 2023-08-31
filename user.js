@@ -51,7 +51,6 @@ user_pref("network.buffer.cache.count", 128);
 user_pref("network.http.max-connections", 1800);
 user_pref("network.http.max-persistent-connections-per-server", 10);
 user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
-user_pref("network.websocket.max-connections", 400);
 user_pref("network.http.pacing.requests.enabled", false);
 user_pref("network.dnsCacheEntries", 10000);
 user_pref("network.dnsCacheExpiration", 86400);
