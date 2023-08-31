@@ -52,7 +52,7 @@ user_pref("network.http.max-connections", 1800);
 user_pref("network.http.max-persistent-connections-per-server", 10);
 user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
 user_pref("network.http.pacing.requests.enabled", false);
-user_pref("network.dnsCacheEntries", 10000);
+user_pref("network.dnsCacheEntries", 1000);
 user_pref("network.dnsCacheExpiration", 86400);
 user_pref("network.dns.max_high_priority_threads", 8);
 user_pref("network.ssl_tokens_cache_capacity", 20480);
