@@ -408,14 +408,12 @@ user_pref("network.http.pacing.requests.enabled", false);
     //user_pref("network.http.pacing.requests.min-parallelism", 10); // default=6
     //user_pref("network.http.pacing.requests.burst", 14); // default=10
 
-// Connection Timeouts
-// [1] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1178
-// [2] https://www.catchpoint.com/blog/http-transaction-steps
-
 // PREF: how long to wait before trying a different connection when the initial one fails
 // The number (in ms) after sending a SYN for an HTTP connection,
 // to wait before trying again with a different connection.
 // 0=disable the second connection
+// [1] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1178
+// [2] https://www.catchpoint.com/blog/http-transaction-steps
 //user_pref("network.http.connection-retry-timeout", 0); // default=250
 
 // PREF: increase DNS cache
