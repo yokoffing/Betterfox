@@ -167,7 +167,7 @@ user_pref("layout.css.has-selector.enabled", true);
 // PREF: HTML Sanitizer API [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer
 // [2] https://caniuse.com/mdn-api_sanitizer
-//user_pref("dom.security.sanitizer.enabled", true);
+user_pref("dom.security.sanitizer.enabled", true);
 
 // PREF: Shadowrealms [NIGHTLY]
 // [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
