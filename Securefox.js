@@ -47,6 +47,7 @@ user_pref("browser.contentblocking.category", "strict");
 // [5] https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/query-stripping/records
 //user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 //user_pref("privacy.query_stripping.enabled.pbmode", true); // enabled with "Strict"
+//user_pref("privacy.query_stripping.strip_list", ""); // DEFAULT
 //user_pref("privacy.query_stripping.strip_on_share.enabled", true);
 
 // PREF: allow embedded tweets, Instagram and Reddit posts, and TikTok embeds
