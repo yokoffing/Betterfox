@@ -387,11 +387,9 @@ user_pref("pdfjs.sidebarViewOnLoad", 2);
 // [1] https://kb.mozillazine.org/About:config_entries
 //user_pref("browser.tabs.loadDivertedInBackground", false); // DEFAULT
 
-// PREF: load bookmarks in the background when left-clicking in Bookmarks Menu
-//user_pref("browser.tabs.loadBookmarksInBackground", true);
-
 // PREF: force bookmarks to open in a new tab, not the current tab
 user_pref("browser.tabs.loadBookmarksInTabs", true);
+    //user_pref("browser.tabs.loadBookmarksInBackground", true); // load bookmarks in background
 
 // PREF: leave Bookmarks Menu open when selecting a site
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
