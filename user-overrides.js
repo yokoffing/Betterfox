@@ -21,9 +21,10 @@
 //user_pref("dom.ipc.processCount.webIsolated", 2); // process per site
 //user_pref("dom.ipc.processPrelaunch.fission.number", 1); // number of Preallocated processes
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
+user_pref("browser.sessionhistory.max_total_viewers", 2); // only remember two pages in Back-Forward cache
 user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT
-user_pref("network.dns.disablePrefetch", false); // DEFAULT; using DoH / ODNS
-user_pref("network.dns.disablePrefetchFromHTTPS", false); // using DoH / ODNS
+user_pref("network.dns.disablePrefetch", false); // DEFAULT
+user_pref("network.dns.disablePrefetchFromHTTPS", false);
 user_pref("browser.urlbar.speculativeConnect.enabled", true); // DEFAULT
 user_pref("browser.places.speculativeConnect.enabled", true); // DEFAULT
 user_pref("network.early-hints.enabled", true); // DEFAULT NIGHTLY
