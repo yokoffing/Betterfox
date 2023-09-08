@@ -15,11 +15,12 @@ Using regular Firefox? [Switch back to the main branch](https://github.com/yokof
 ## Getting started
 *If you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)*
 
-1) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/esr115/user.js) (Right click > `Save Link As…`).
-2) Review [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Common-Overrides) and make any necessary changes.
-3) Open Firefox. In the URL bar, type `about:profiles` and press `Enter`.
-4) For the profile you want to use (or use default), click `Open Folder` in the **Root Directory** section.
-5) Move the `user.js` file into the folder.
+1) Create a [backup profile](https://github.com/yokoffing/Betterfox/wiki/Backup).
+2) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/esr115/user.js) (Right click > `Save Link As…`).
+3) Review [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Common-Overrides) and make any necessary changes.
+4) Open Firefox. In the URL bar, type `about:profiles` and press `Enter`.
+5) For the profile you want to use (or use default), click `Open Folder` in the **Root Directory** section.
+6) Move the `user.js` file into the folder.
 
 *After restarting Firefox:*
 1) Get an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines). For a simple solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
