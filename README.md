@@ -34,15 +34,16 @@ The `user.js` — a configuration file that controls Firefox settings — is cur
 ## Getting started
 *If you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)*
 
-1) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js) (Right click > `Save Link As…`).
-2) Review [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Common-Overrides) and make any necessary changes.
-3) Open Firefox. In the URL bar, type `about:profiles` and press `Enter`.
-4) For the profile you want to use (or use default), click `Open Folder` in the **Root Directory** section.
-5) Move the `user.js` file into the folder.
+1) Create a [backup profile](https://github.com/yokoffing/Betterfox/wiki/Backup).
+2) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js) (Right click > `Save Link As…`).
+3) Review [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Common-Overrides) and make any necessary changes.
+4) Open Firefox. In the URL bar, type `about:profiles` and press `Enter`.
+5) For the profile you want to use (or use default), click `Open Folder` in the **Root Directory** section.
+6) Move the `user.js` file into the folder.
 
 *After restarting Firefox:*
 1) Get an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines). For a simple solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
-3) Enable **DNS-level protection** with [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
+2) Enable **DNS-level protection** with [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
     * See how to [quickly enable](https://support.mozilla.org/en-US/kb/dns-over-https) **secure DNS** in Firefox.
 
 ## about:Privacy
