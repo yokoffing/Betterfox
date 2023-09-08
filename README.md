@@ -13,7 +13,7 @@ These prefs are applicable for:
 Using regular Firefox? [Switch back to the main branch](https://github.com/yokoffing/Betterfox).
 
 ## Getting started
-*If you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)*
+*If you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-esr)*
 
 1) Create a [backup profile](https://github.com/yokoffing/Betterfox/wiki/Backup).
 2) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/esr115/user.js) (Right click > `Save Link As…`).
