@@ -294,7 +294,7 @@ user_pref("dom.security.sanitizer.enabled", true);
 user_pref("browser.cache.disk.enable", false);
 //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
     //user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
-//user_pref("browser.cache.disk.max_entry_size", 51200); // 51 MB; DEFAULT; maximum size of an object in disk cache
+//user_pref("browser.cache.disk.max_entry_size", 51200); // 51.2 MB; DEFAULT; maximum size of an object in disk cache
 //user_pref("browser.cache.disk.metadata_memory_limit", 10000); // default=250; alt=15360; increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
 //user_pref("browser.cache.max_shutdown_io_lag", 4); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
 
@@ -318,7 +318,7 @@ user_pref("browser.cache.disk.enable", false);
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
 //user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 1048576=1GB, 2097152=2GB
-//user_pref("browser.cache.memory.max_entry_size", 5120); // DEFAULT; alt=25600; -1=entries bigger than than 90% of the mem-cache are never cached
+//user_pref("browser.cache.memory.max_entry_size", 5120); // 5 MB DEFAULT; alt=25600; -1=entries bigger than than 90% of the mem-cache are never cached
 
 // PREF: amount of pages stored in memory for Back/Forward
 // Pages that were recently visited are stored in memory in such a way
