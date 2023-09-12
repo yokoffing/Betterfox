@@ -1314,3 +1314,4 @@ user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 //user_pref("signon.recipes.remoteRecipes.enabled", false);
 //user_pref("security.identitypopup.recordEventTelemetry", false); // ESR only; removed FF116+ [1]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1837979
+//user_pref("privacy.trackingprotection.emailtracking.data_collection.enabled", false);
