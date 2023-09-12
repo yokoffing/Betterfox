@@ -87,7 +87,7 @@ user_pref("browser.display.focus_ring_width", 0);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 
 // PREF: reduce the size of the "private window" indicator in tab bar [FF106+]
-user_pref("browser.privatebrowsing.enable-new-indicator", false);
+//user_pref("browser.privatebrowsing.enable-new-indicator", false); // REMOVED [FF119+]
 
 // PREF: Cookie Banner handling [NIGHTLY]
 // [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
