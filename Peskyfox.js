@@ -521,6 +521,7 @@ user_pref("findbar.highlightAll", true);
 
 // PREF: JPEG XL image format [NIGHTLY]
 // May not affect anything on ESR/Stable channel [2].
+// [TEST] https://jpegxl.io/tutorials/firefox/#firefoxjpegxltutorial
 // [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1539075#c51
 //user_pref("image.jxl.enabled", true);
