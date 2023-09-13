@@ -320,7 +320,7 @@ user_pref("browser.cache.disk.enable", false);
 //user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 1048576=1GB, 2097152=2GB
 //user_pref("browser.cache.memory.max_entry_size", 5120); // 5 MB DEFAULT; alt=25600; -1=entries bigger than than 90% of the mem-cache are never cached
 
-// PREF: amount of pages stored in memory for Back/Forward
+// PREF: amount of Back/Forward cached pages stored in memory for each tab
 // Pages that were recently visited are stored in memory in such a way
 // that they don't have to be re-parsed. This improves performance
 // when pressing Back and Forward. This pref limits the maximum
@@ -329,7 +329,7 @@ user_pref("browser.cache.disk.enable", false);
 // is no reason for Firefox to keep memory for this.
 // -1=determine automatically (8 pages)
 // [1] https://kb.mozillazine.org/Browser.sessionhistory.max_total_viewers#Possible_values_and_their_effects
-//user_pref("browser.sessionhistory.max_total_viewers", 2);
+//user_pref("browser.sessionhistory.max_total_viewers", 3);
 
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
