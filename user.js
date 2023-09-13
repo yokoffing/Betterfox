@@ -20,7 +20,6 @@
 user_pref("nglayout.initialpaint.delay", 0);
 user_pref("nglayout.initialpaint.delay_in_oopif", 0);
 user_pref("content.notify.interval", 100000);
-user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 
 /** EXPERIMENTAL ***/
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
