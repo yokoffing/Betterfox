@@ -111,7 +111,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("browser.sessionstore.restore_tabs_lazily", true); // DEFAULT
 
 // PREF: disable preSkeletonUI on startup [WINDOWS]
-user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
+//user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 
 /****************************************************************************
  * SECTION: TAB UNLOAD                                                      *
