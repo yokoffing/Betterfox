@@ -293,9 +293,9 @@ user_pref("dom.security.sanitizer.enabled", true);
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
 user_pref("browser.cache.disk.enable", false);
 //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
-    //user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
+    //user_pref("browser.cache.disk.capacity", 5120000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
 //user_pref("browser.cache.disk.max_entry_size", 51200); // 51.2 MB; DEFAULT; maximum size of an object in disk cache
-//user_pref("browser.cache.disk.metadata_memory_limit", 10000); // default=250; alt=15360; increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
+//user_pref("browser.cache.disk.metadata_memory_limit", 750); // default=250; increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
 //user_pref("browser.cache.max_shutdown_io_lag", 4); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
 
 // PREF: specify how long pages are kept before being removed from cache (in hours)
@@ -305,7 +305,7 @@ user_pref("browser.cache.disk.enable", false);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=913808
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=968101
 // [3] https://rockridge.hatenablog.com/entry/2014/09/15/165501
-//user_pref("browser.cache.frecency_half_life_hours", 24); // default=6
+//user_pref("browser.cache.frecency_half_life_hours", 18); // default=6
 
 // PREF: memory cache
 // The "automatic" size selection (default) is based on a decade-old table
