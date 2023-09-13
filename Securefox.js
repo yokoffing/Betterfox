@@ -508,6 +508,9 @@ user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
 user_pref("browser.search.suggest.enabled", false);
 //user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
 
+// disable showing trending searches
+//user_pref("browser.urlbar.suggest.trending", false); // FF119+
+
 // PREF: disable location bar leaking single words to a DNS provider after searching
 // 0=never resolve single words, 1=heuristic (default), 2=always resolve
 // [1] https://bugzilla.mozilla.org/1642623
