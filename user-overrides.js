@@ -21,9 +21,10 @@
 //user_pref("dom.ipc.processCount.webIsolated", 2); // process per site
 //user_pref("dom.ipc.processPrelaunch.fission.number", 1); // number of Preallocated processes
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
+user_pref("browser.sessionhistory.max_total_viewers", 2); // only remember two pages in Back-Forward cache
 user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT
-user_pref("network.dns.disablePrefetch", false); // DEFAULT; using DoH / ODNS
-user_pref("network.dns.disablePrefetchFromHTTPS", false); // using DoH / ODNS
+user_pref("network.dns.disablePrefetch", false); // DEFAULT
+user_pref("network.dns.disablePrefetchFromHTTPS", false);
 user_pref("browser.urlbar.speculativeConnect.enabled", true); // DEFAULT
 user_pref("browser.places.speculativeConnect.enabled", true); // DEFAULT
 user_pref("network.early-hints.enabled", true); // DEFAULT NIGHTLY
@@ -36,6 +37,7 @@ user_pref("network.predictor.enable-prefetch", false);
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
+//user_pref("browser.urlbar.suggest.trending", false); // FF119+ disable showing trending searches; unselect for clean UI
 user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.autofillForms", false); // unselect "Autofill logins and passwords" for clean UI
@@ -95,6 +97,7 @@ user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by de
 /** DELETE IF NOT WINDOWS DESKTOP ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("gfx.canvas.accelerated", true); // DEFAULT except on WINDOWS; enable if not using an integrated GPU
+user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
 user_pref("pdfjs.defaultZoomValue", "125"); // alt=page-width; PDF zoom level
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);

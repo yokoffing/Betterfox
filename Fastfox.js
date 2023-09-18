@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 116                                                                         *
+ * version: 117                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
@@ -71,7 +71,7 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 // false = reflow pages whenever new data is received
 //user_pref("content.notify.ontimer", true); // DEFAULT
 
-// PREF: notification interval (in microseconds) (to avoid layout thrashing)
+// PREF: notification interval (in microseconds) to avoid layout thrashing
 // When Firefox is loading a page, it periodically reformats
 // or "reflows" the page as it loads. The page displays new elements
 // every 0.12 seconds by default. These redraws increase the total page load time.
@@ -86,13 +86,6 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
 // [2] https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
 // [3] https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
 user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
-
-// PREF: frequency switch threshold [HIDDEN]
-// Raising the value will make the application more responsive at the expense of page load time.
-// [1] http://kb.mozillazine.org/Content.switch.threshold
-// [2] https://www.reddit.com/r/firefox/comments/11m2yuh/comment/jbjxp8s/?context=3
-//user_pref("content.interrupt.parsing", true); // DEFAULT [HIDDEN]
-//user_pref("content.switch.threshold", 750000); // DEFAULT [HIDDEN]
 
 // PREF: new tab preload
 // [WARNING] Disabling this may cause a delay when opening a new tab in Firefox.
@@ -118,16 +111,18 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("browser.sessionstore.restore_tabs_lazily", true); // DEFAULT
 
 // PREF: disable preSkeletonUI on startup [WINDOWS]
-user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
+//user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 
 /****************************************************************************
  * SECTION: TAB UNLOAD                                                      *
 ****************************************************************************/
 
 // PREF: unload tabs on low memory
+// [ABOUT] about:unloads
 // Firefox will detect if your computer’s memory is running low (less than 200MB)
 // and suspend tabs that you have not used in awhile.
-// [1] https://hacks.mozilla.org/2021/10/tab-unloading-in-firefox-93/
+// [1] https://support.mozilla.org/en-US/kb/unload-inactive-tabs-save-system-memory-firefox
+// [2] https://hacks.mozilla.org/2021/10/tab-unloading-in-firefox-93/
 //user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
 
 // PREF: determine when tabs unload [WINDOWS] [LINUX]
@@ -172,7 +167,7 @@ user_pref("layout.css.has-selector.enabled", true);
 // PREF: HTML Sanitizer API [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer
 // [2] https://caniuse.com/mdn-api_sanitizer
-//user_pref("dom.security.sanitizer.enabled", true);
+user_pref("dom.security.sanitizer.enabled", true);
 
 // PREF: Shadowrealms [NIGHTLY]
 // [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
@@ -296,11 +291,11 @@ user_pref("layout.css.has-selector.enabled", true);
 // More efficient to keep the browser cache instead of having to
 // re-download objects for the websites you visit frequently.
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
-//user_pref("browser.cache.disk.enable", true); // DEFAULT
+user_pref("browser.cache.disk.enable", false);
 //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
-    //user_pref("browser.cache.disk.capacity", 8192000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
-//user_pref("browser.cache.disk.max_entry_size", 51200); // 51 MB; DEFAULT; maximum size of an object in disk cache
-//user_pref("browser.cache.disk.metadata_memory_limit", 10000); // default=250; alt=15360; increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
+    //user_pref("browser.cache.disk.capacity", 5120000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
+//user_pref("browser.cache.disk.max_entry_size", 51200); // 51.2 MB; DEFAULT; maximum size of an object in disk cache
+//user_pref("browser.cache.disk.metadata_memory_limit", 750); // default=250; increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
 //user_pref("browser.cache.max_shutdown_io_lag", 4); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
 
 // PREF: specify how long pages are kept before being removed from cache (in hours)
@@ -310,7 +305,7 @@ user_pref("layout.css.has-selector.enabled", true);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=913808
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=968101
 // [3] https://rockridge.hatenablog.com/entry/2014/09/15/165501
-//user_pref("browser.cache.frecency_half_life_hours", 24); // default=6
+//user_pref("browser.cache.frecency_half_life_hours", 18); // default=6
 
 // PREF: memory cache
 // The "automatic" size selection (default) is based on a decade-old table
@@ -323,9 +318,9 @@ user_pref("layout.css.has-selector.enabled", true);
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
 //user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 1048576=1GB, 2097152=2GB
-//user_pref("browser.cache.memory.max_entry_size", 5120); // DEFAULT; alt=25600; -1=entries bigger than than 90% of the mem-cache are never cached
+//user_pref("browser.cache.memory.max_entry_size", 5120); // 5 MB DEFAULT; alt=25600; -1=entries bigger than than 90% of the mem-cache are never cached
 
-// PREF: amount of pages stored in memory for Back/Forward
+// PREF: amount of Back/Forward cached pages stored in memory for each tab
 // Pages that were recently visited are stored in memory in such a way
 // that they don't have to be re-parsed. This improves performance
 // when pressing Back and Forward. This pref limits the maximum
@@ -334,7 +329,7 @@ user_pref("layout.css.has-selector.enabled", true);
 // is no reason for Firefox to keep memory for this.
 // -1=determine automatically (8 pages)
 // [1] https://kb.mozillazine.org/Browser.sessionhistory.max_total_viewers#Possible_values_and_their_effects
-//user_pref("browser.sessionhistory.max_total_viewers", 1);
+//user_pref("browser.sessionhistory.max_total_viewers", 3);
 
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
@@ -398,7 +393,7 @@ user_pref("network.http.max-connections", 1800); // default=900
 user_pref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
     user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // default=3
     //user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
-user_pref("network.websocket.max-connections", 400); // default=200
+//user_pref("network.websocket.max-connections", 200); // DEFAULT
 
 // PREF: pacing requests [FF23+]
 // Controls how many HTTP requests are sent at a time.
@@ -413,47 +408,20 @@ user_pref("network.http.pacing.requests.enabled", false);
     //user_pref("network.http.pacing.requests.min-parallelism", 10); // default=6
     //user_pref("network.http.pacing.requests.burst", 14); // default=10
 
-// Connection Timeouts
-// [1] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1178
-// [2] https://www.catchpoint.com/blog/http-transaction-steps
-
-// PREF: timeout connections if an initial response is not received after
-// a given number of seconds.
-//user_pref("network.http.response.timeout", 60); // default=300 (5min)
-
-// PREF: close a connection if TLS handshake does not finish in a 
-// given number of seconds
-//user_pref("network.http.tls-handshake-timeout", 6); // default=30
-
-// PREF: the number of seconds after sending initial SYN for an HTTP connection
-// to give up if the OS does not give up first.
-//user_pref("network.http.connection-timeout", 18); // default=90
-
 // PREF: how long to wait before trying a different connection when the initial one fails
 // The number (in ms) after sending a SYN for an HTTP connection,
 // to wait before trying again with a different connection.
 // 0=disable the second connection
-//user_pref("network.http.connection-retry-timeout", 0); // default=250ms
-
-// PREF: keep-alive request timeout
-// Default timeout on IIS7 is 120 seconds. FF needs to reuse or drop the
-// connection within this time. By default, FF sets the timeout a little shorter to
-// keep a reserve for cases when the packet is lost or delayed on the route.
-// [1] http://kb.mozillazine.org/Network.http.keep-alive.timeout
-// [2] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1173-1178
-//user_pref("network.http.keep-alive.timeout", 31); // default=115
-
-// PREF: the amount of time (in seconds) to suspend pending requests, before spawning a
-// new connection, once the limit on the number of persistent connections per
-// host has been reached. However, a new connection will not be created if
-// max-connections or max-connections-per-server has also been reached.
-//user_pref("network.http.request.max-start-delay", 10); // DEFAULT
+// [1] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1178
+// [2] https://www.catchpoint.com/blog/http-transaction-steps
+//user_pref("network.http.connection-retry-timeout", 0); // default=250
 
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
-user_pref("network.dnsCacheEntries", 10000); // default=400
+user_pref("network.dnsCacheEntries", 1000); // default=400
 
 // PREF: adjust DNS expiration time
+// [ABOUT] about:networking#dns
 // [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
 user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3600 (1 hour)
     //user_pref("network.dnsCacheExpirationGracePeriod", 240); // default=60; cache DNS entries for 4 minutes after they expire
@@ -463,7 +431,7 @@ user_pref("network.dns.max_high_priority_threads", 8); // default=5
 //user_pref("network.dns.max_any_priority_threads", 5); // default=3
 
 // PREF: increase TLS token caching 
-user_pref("network.ssl_tokens_cache_capacity", 20480); // default=2048; more TLS token caching (fast reconnects)
+user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                         *
@@ -494,7 +462,7 @@ user_pref("network.ssl_tokens_cache_capacity", 20480); // default=2048; more TLS
 // [5] https://3perf.com/blog/link-rels/#prefetch
 user_pref("network.http.speculative-parallel-limit", 0);
 // or
-//user_pref("network.http.speculative-parallel-limit", 10); // default=6
+//user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT
 
 // PREF: DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time. In order to reduce latency,
@@ -545,23 +513,6 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // [9] https://web.dev/preload-critical-assets/
 //user_pref("network.preload", true); // DEFAULT
 
-// PREF: enable early hints [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
-//user_pref("network.early-hints.enabled", false); // DEFAULT
-// or
-//user_pref("network.early-hints.enabled", true);
-
-// PREF: `Link: rel=preconnect` in 103 Early Hint response
-//user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
-// or
-//user_pref("network.early-hints.preconnect.enabled", true);
-
-// PREF: the number of speculative connections allowed for early hints `Link: rel=preconnect`
-// When 0, this is limited by "network.http.speculative-parallel-limit".
-//user_pref("network.early-hints.preconnect.max_connections", 0);
-// or
-//user_pref("network.early-hints.preconnect.max_connections", 15); // default=10
-
 // PREF: Link prefetching <link rel="prefetch">
 // Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
 // A directive that tells a browser to fetch a resource that will likely be needed for the next navigation.
@@ -579,6 +530,24 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 // or
 //user_pref("network.prefetch-next", true); // DEFAULT
+
+// PREF: enable early hints [NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
+// [2] https://developer.chrome.com/blog/early-hints/
+//user_pref("network.early-hints.enabled", false); // DEFAULT
+// or
+//user_pref("network.early-hints.enabled", true);
+
+// PREF: `Link: rel=preconnect` in 103 Early Hint response
+//user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
+// or
+//user_pref("network.early-hints.preconnect.enabled", true);
+
+// PREF: the number of speculative connections allowed for early hints `Link: rel=preconnect`
+// When 0, this is limited by "network.http.speculative-parallel-limit".
+//user_pref("network.early-hints.preconnect.max_connections", 0);
+// or
+//user_pref("network.early-hints.preconnect.max_connections", 10); // DEFAULT
 
 // PREF: Network Predictor (NP)
 // Keeps track of components that were loaded during page visits so that the browser knows next time

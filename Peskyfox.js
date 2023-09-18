@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 116                                                             *
+ * version: 117                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -87,7 +87,7 @@ user_pref("browser.display.focus_ring_width", 0);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 
 // PREF: reduce the size of the "private window" indicator in tab bar [FF106+]
-user_pref("browser.privatebrowsing.enable-new-indicator", false);
+//user_pref("browser.privatebrowsing.enable-new-indicator", false); // REMOVED [FF119+]
 
 // PREF: Cookie Banner handling [NIGHTLY]
 // [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
@@ -387,11 +387,9 @@ user_pref("pdfjs.sidebarViewOnLoad", 2);
 // [1] https://kb.mozillazine.org/About:config_entries
 //user_pref("browser.tabs.loadDivertedInBackground", false); // DEFAULT
 
-// PREF: load bookmarks in the background when left-clicking in Bookmarks Menu
-//user_pref("browser.tabs.loadBookmarksInBackground", true);
-
 // PREF: force bookmarks to open in a new tab, not the current tab
 user_pref("browser.tabs.loadBookmarksInTabs", true);
+    //user_pref("browser.tabs.loadBookmarksInBackground", true); // load bookmarks in background
 
 // PREF: leave Bookmarks Menu open when selecting a site
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
@@ -523,8 +521,9 @@ user_pref("findbar.highlightAll", true);
 
 // PREF: JPEG XL image format [NIGHTLY]
 // May not affect anything on ESR/Stable channel [2].
+// [TEST] https://jpegxl.io/tutorials/firefox/#firefoxjpegxltutorial
 // [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1539075
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1539075#c51
 //user_pref("image.jxl.enabled", true);
 
 // PREF: enable CSS moz document rules

@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 116.1                                                           *
+ * version: 117                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -47,6 +47,7 @@ user_pref("browser.contentblocking.category", "strict");
 // [5] https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/query-stripping/records
 //user_pref("privacy.query_stripping.enabled", true); // enabled with "Strict"
 //user_pref("privacy.query_stripping.enabled.pbmode", true); // enabled with "Strict"
+//user_pref("privacy.query_stripping.strip_list", ""); // DEFAULT
 //user_pref("privacy.query_stripping.strip_on_share.enabled", true);
 
 // PREF: allow embedded tweets, Instagram and Reddit posts, and TikTok embeds
@@ -98,9 +99,10 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1549587
 // [2] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/State_Partitioning
 // [3] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
-// [4] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
-// [5] https://github.com/arkenfox/user.js/issues/1281
-// [6] https://hacks.mozilla.org/2022/02/improving-the-storage-access-api-in-firefox/
+// [4] https://blog.mozilla.org/en/mozilla/firefox-rolls-out-total-cookie-protection-by-default-to-all-users-worldwide/
+// [5] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
+// [6] https://github.com/arkenfox/user.js/issues/1281
+// [7] https://hacks.mozilla.org/2022/02/improving-the-storage-access-api-in-firefox/
 //user_pref("network.cookie.cookieBehavior", 5); // DEFAULT FF103+
 //user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // DEFAULT
 
@@ -116,6 +118,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
     //user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
     //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
     //user_pref("privacy.partition.bloburl_per_agent_cluster", false); // DEFAULT [REGRESSIONS - DO NOT TOUCH]
+    //user_pref("privacy.partition.bloburl_per_partition_key", true); // enabled with "Strict"? [FF118+]
 // enable APS (Always Partitioning Storage) [FF104+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT: true FF109+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT: false FF109+]
@@ -505,6 +508,9 @@ user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
 // [WARNING] Search engines keylog every character you type from the URL bar.
 user_pref("browser.search.suggest.enabled", false);
 //user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
+
+// disable showing trending searches
+//user_pref("browser.urlbar.suggest.trending", false); // FF119+
 
 // PREF: disable location bar leaking single words to a DNS provider after searching
 // 0=never resolve single words, 1=heuristic (default), 2=always resolve
@@ -1123,6 +1129,7 @@ user_pref("identity.fxaccounts.enabled", false);
 // PREF: disable Firefox View [FF106+]
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
 user_pref("browser.tabs.firefox-view", false);
+//user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
 
 // PREF: disable Push Notifications API [FF44+]
 // Push is an API that allows websites to send you (subscribed) messages even when the site
@@ -1311,3 +1318,4 @@ user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 //user_pref("signon.recipes.remoteRecipes.enabled", false);
 //user_pref("security.identitypopup.recordEventTelemetry", false); // ESR only; removed FF116+ [1]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1837979
+//user_pref("privacy.trackingprotection.emailtracking.data_collection.enabled", false);
