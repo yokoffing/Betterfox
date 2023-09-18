@@ -1,7 +1,7 @@
 
 /****************************************************************************
  * Securefox                                                                *
- * "Natura non contristatur"                                               *     
+ * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
  * version: 117                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
@@ -279,6 +279,7 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 
 // PREF: require safe negotiation
 // [ERROR] SSL_ERROR_UNSAFE_NEGOTIATION
+// [WARNING] Breaks ea.com login (Sep 2023).
 // Blocks connections to servers that don't support RFC 5746 [2]
 // as they're potentially vulnerable to a MiTM attack [3].
 // A server without RFC 5746 can be safe from the attack if it
@@ -291,7 +292,7 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 // [2] https://datatracker.ietf.org/doc/html/rfc5746
 // [3] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555
 // [4] https://www.ssllabs.com/ssl-pulse/
-user_pref("security.ssl.require_safe_negotiation", true);
+//user_pref("security.ssl.require_safe_negotiation", true);
 
 // PREF: display advanced information on Insecure Connection warning pages
 // [TEST] https://expired.badssl.com/
