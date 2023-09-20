@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 117                                                             *
+ * version: 118                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -460,9 +460,9 @@ user_pref("findbar.highlightAll", true);
 //user_pref("ui.key.menuAccessKeyFocuses", false);
     //user_pref("ui.key.menuAccessKey", 18); // DEFAULT
 
-// PREF: CTRL+TAB cycles tabs in chronological order instead of
-// recently-used order
-//user_pref("browser.ctrlTab.recentlyUsedOrder", false);
+// PREF: cycle through tabs in recently used order
+// [SETTING] Ctrl+Tab cycles through tabs in recently-used order
+//user_pref("browser.ctrlTab.sortByRecentlyUsed", true);
 
 // PREF: Spell-check
 // 0=none, 1-multi-line, 2=multi-line & single-line
