@@ -461,7 +461,7 @@ user_pref("findbar.highlightAll", true);
     //user_pref("ui.key.menuAccessKey", 18); // DEFAULT
 
 // PREF: cycle through tabs in recently used order
-// [SETTING] Ctrl+Tab cycles through tabs in recently-used order
+// [SETTING] Ctrl+Tab cycles through tabs in recently used order
 //user_pref("browser.ctrlTab.sortByRecentlyUsed", true);
 
 // PREF: Spell-check
