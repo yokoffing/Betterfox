@@ -272,7 +272,7 @@ user_pref("security.cert_pinning.enforcement_level", 2);
 ****************************************************************************/
 
 // PREF: display warning on the padlock for "broken security"
-// Bug: warning padlock not indicated for subresources on a secure page! [2]
+// [NOTE] Warning padlock not indicated for subresources on a secure page! [2]
 // [1] https://wiki.mozilla.org/Security:Renegotiation
 // [2] https://bugzilla.mozilla.org/1353705
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
@@ -1263,7 +1263,7 @@ user_pref("datareporting.policy.dataSubmissionEnabled", false);
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to install and run studies
 user_pref("app.shield.optoutstudies.enabled", false);
 
-// Personalized Extension Recommendations in about:addons and AMO
+// PREF: Personalized Extension Recommendations in about:addons and AMO
 // [NOTE] This pref has no effect when Health Reports are disabled.
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to make personalized extension recommendations
 user_pref("browser.discovery.enabled", false);
