@@ -483,6 +483,17 @@ user_pref("privacy.history.custom", true);
 // [2] https://winaero.com/firefox-75-strips-https-and-www-from-address-bar-results/
 //user_pref("browser.urlbar.trimURLs", true); // DEFAULT
 
+// PREF: trim https:// from the URL bar [FF119+]
+// Firefox will hide https:// from the address bar, but not subdomains like www.
+// [TEST] http://www.http2demo.io/
+// [1] https://www.ghacks.net/2023/09/19/firefox-119-will-launch-with-an-important-address-bar-change/
+//user_pref("browser.urlbar.trimHttps", true);
+
+// PREF: display "Not Secure" text on HTTP sites
+// Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode.
+user_pref("security.insecure_connection_text.enabled", true);
+user_pref("security.insecure_connection_text.pbmode.enabled", true);
+
 // PREF: do not show search terms in URL bar [FF110+] [FF113+]
 // Show search query instead of URL on search results pages.
 // [SETTING] Search>Search Bar>Use the address bar for search and navigation>Show search terms instead of URL...
@@ -541,13 +552,6 @@ user_pref("browser.formfill.enable", false);
 // intend to), can leak sensitive data (e.g. query strings: e.g. Princeton attack),
 // and is a security risk (e.g. common typos & malicious sites set up to exploit this).
 //user_pref("browser.fixup.alternate.enabled", false); // [DEFAULT FF104+]
-
-// PREF: display "Not Secure" text on HTTP sites
-// Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode.
-user_pref("security.insecure_connection_text.enabled", true);
-user_pref("security.insecure_connection_text.pbmode.enabled", true);
-//user_pref("security.insecure_connection_icon.enabled", true); // DEFAULT
-//user_pref("security.insecure_connection_icon.pbmode.enabled", true); // DEFAULT
 
 // PREF: Disable location bar autofill
 // https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete
