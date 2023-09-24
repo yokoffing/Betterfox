@@ -263,10 +263,6 @@ user_pref("security.cert_pinning.enforcement_level", 2);
 //user_pref("security.enterprise_roots.enabled", false); // DEFAULT
     //user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
 
-// PREF: disable Microsoft Family Safety [WINDOWS 8-10]
-// [1] https://wiki.mozilla.org/QA/Windows_Child_Mode
-//user_pref("security.family_safety.mode", 0);
-
 /****************************************************************************
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
 ****************************************************************************/
