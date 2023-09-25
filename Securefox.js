@@ -247,7 +247,13 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("security.pki.crlite_mode", 2);
 
 // PREF: HTTP Public Key Pinning (HPKP)
-// If you rely on an antivirus to protect your web browsing
+// HPKP enhances the security of SSL certificates by associating
+// a host with their expected public key. It prevents attackers
+// from impersonating the host using fraudulent certificates,
+// even if they hold a valid certificate from a trusted certification authority.
+// HPKP ensures that the client maintains a secure connection with
+// the correct server, thereby reducing the risk of man-in-the-middle (MITM) attacks.
+// [NOTE] If you rely on an antivirus to protect your web browsing
 // by inspecting ALL your web traffic, then leave at 1.
 // [ERROR] MOZILLA_PKIX_ERROR_KEY_PINNING_FAILURE
 // By default, pinning enforcement is not applied if a user-installed
