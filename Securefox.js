@@ -1127,7 +1127,7 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 user_pref("accessibility.force_disabled", 1);
     //user_pref("devtools.accessibility.enabled", false);
 
-// PREF: disable Firefox accounts
+// PREF: disable Firefox Sync
 // [ALTERNATIVE] Use xBrowserSync [1]
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
 // [2] https://github.com/arkenfox/user.js/issues/1175
@@ -1137,6 +1137,8 @@ user_pref("identity.fxaccounts.enabled", false);
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
 user_pref("browser.tabs.firefox-view", false);
 //user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
+// disable the Firefox View tour from popping up
+//user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
 
 // PREF: disable Push Notifications API [FF44+]
 // Push is an API that allows websites to send you (subscribed) messages even when the site
