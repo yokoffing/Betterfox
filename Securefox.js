@@ -1137,7 +1137,8 @@ user_pref("identity.fxaccounts.enabled", false);
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
 user_pref("browser.tabs.firefox-view", false);
 //user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
-// disable the Firefox View tour from popping up
+
+// PREF: disable the Firefox View tour from popping up
 //user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
 
 // PREF: disable Push Notifications API [FF44+]
