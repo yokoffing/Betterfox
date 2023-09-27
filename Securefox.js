@@ -954,6 +954,7 @@ user_pref("permissions.delegation.enabled", false);
 // 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
 // [1] https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/
 // [2] https://web.dev/referrer-best-practices/
+// [3] https://www.reddit.com/r/waterfox/comments/16px8yq/comment/k29r6bu/?context=3
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /******************************************************************************
