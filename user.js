@@ -121,7 +121,6 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
 user_pref("security.mixed_content.block_display_content", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
-user_pref("permissions.delegation.enabled", false);
 
 /** HEADERS / REFERERS ***/
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
