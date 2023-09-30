@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 117                                                             *
+ * version: 118                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -72,6 +72,7 @@ user_pref("network.predictor.enable-prefetch", false);
 user_pref("browser.contentblocking.category", "strict");
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
+user_pref("privacy.partition.bloburl_per_partition_key", true);
 user_pref("browser.uitour.enabled", false);
 user_pref("privacy.globalprivacycontrol.enabled", true);
 user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
@@ -121,7 +122,6 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
 user_pref("security.mixed_content.block_display_content", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
-user_pref("permissions.delegation.enabled", false);
 
 /** HEADERS / REFERERS ***/
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
@@ -137,7 +137,6 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 
 /** MOZILLA ***/
-user_pref("accessibility.force_disabled", 1);
 user_pref("identity.fxaccounts.enabled", false);
 user_pref("browser.tabs.firefox-view", false);
 user_pref("permissions.default.desktop-notification", 2);
@@ -230,7 +229,6 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 user_pref("pdfjs.sidebarViewOnLoad", 2);
 
 /** TAB BEHAVIOR ***/
-user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);

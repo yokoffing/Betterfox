@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 117                                                             *
+ * version: 118                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -118,7 +118,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
     //user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
     //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
     //user_pref("privacy.partition.bloburl_per_agent_cluster", false); // DEFAULT [REGRESSIONS - DO NOT TOUCH]
-    //user_pref("privacy.partition.bloburl_per_partition_key", true); // enabled with "Strict"? [FF118+]
+    user_pref("privacy.partition.bloburl_per_partition_key", true); // [FF118+]
 // enable APS (Always Partitioning Storage) [FF104+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT: true FF109+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT: false FF109+]
@@ -247,7 +247,13 @@ user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("security.pki.crlite_mode", 2);
 
 // PREF: HTTP Public Key Pinning (HPKP)
-// If you rely on an antivirus to protect your web browsing
+// HPKP enhances the security of SSL certificates by associating
+// a host with their expected public key. It prevents attackers
+// from impersonating the host using fraudulent certificates,
+// even if they hold a valid certificate from a trusted certification authority.
+// HPKP ensures that the client maintains a secure connection with
+// the correct server, thereby reducing the risk of man-in-the-middle (MITM) attacks.
+// [NOTE] If you rely on an antivirus to protect your web browsing
 // by inspecting ALL your web traffic, then leave at 1.
 // [ERROR] MOZILLA_PKIX_ERROR_KEY_PINNING_FAILURE
 // By default, pinning enforcement is not applied if a user-installed
@@ -263,16 +269,12 @@ user_pref("security.cert_pinning.enforcement_level", 2);
 //user_pref("security.enterprise_roots.enabled", false); // DEFAULT
     //user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
 
-// PREF: disable Microsoft Family Safety [WINDOWS 8-10]
-// [1] https://wiki.mozilla.org/QA/Windows_Child_Mode
-//user_pref("security.family_safety.mode", 0);
-
 /****************************************************************************
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
 ****************************************************************************/
 
 // PREF: display warning on the padlock for "broken security"
-// Bug: warning padlock not indicated for subresources on a secure page! [2]
+// [NOTE] Warning padlock not indicated for subresources on a secure page! [2]
 // [1] https://wiki.mozilla.org/Security:Renegotiation
 // [2] https://bugzilla.mozilla.org/1353705
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
@@ -483,6 +485,17 @@ user_pref("privacy.history.custom", true);
 // [2] https://winaero.com/firefox-75-strips-https-and-www-from-address-bar-results/
 //user_pref("browser.urlbar.trimURLs", true); // DEFAULT
 
+// PREF: trim https:// from the URL bar [FF119+]
+// Firefox will hide https:// from the address bar, but not subdomains like www.
+// [TEST] http://www.http2demo.io/
+// [1] https://www.ghacks.net/2023/09/19/firefox-119-will-launch-with-an-important-address-bar-change/
+//user_pref("browser.urlbar.trimHttps", true);
+
+// PREF: display "Not Secure" text on HTTP sites
+// Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode.
+user_pref("security.insecure_connection_text.enabled", true);
+user_pref("security.insecure_connection_text.pbmode.enabled", true);
+
 // PREF: do not show search terms in URL bar [FF110+] [FF113+]
 // Show search query instead of URL on search results pages.
 // [SETTING] Search>Search Bar>Use the address bar for search and navigation>Show search terms instead of URL...
@@ -541,13 +554,6 @@ user_pref("browser.formfill.enable", false);
 // intend to), can leak sensitive data (e.g. query strings: e.g. Princeton attack),
 // and is a security risk (e.g. common typos & malicious sites set up to exploit this).
 //user_pref("browser.fixup.alternate.enabled", false); // [DEFAULT FF104+]
-
-// PREF: display "Not Secure" text on HTTP sites
-// Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode.
-user_pref("security.insecure_connection_text.enabled", true);
-user_pref("security.insecure_connection_text.pbmode.enabled", true);
-//user_pref("security.insecure_connection_icon.enabled", true); // DEFAULT
-//user_pref("security.insecure_connection_icon.pbmode.enabled", true); // DEFAULT
 
 // PREF: Disable location bar autofill
 // https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete
@@ -637,26 +643,22 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
  * SECTION: DNS-over-HTTPS                                                    *
 ******************************************************************************/
 
-// PREF: DNS-over-HTTPS (DoH) mode
-// Mozilla uses Cloudfare by default. NextDNS is also an option.
-// You can set this to 0 if you are already using secure DNS for
-// your entire network (e.g. OS-level, router-level).
+// PREF: DNS-over-HTTPS (DoH) implementation
+// [NOTE] Mode 3 has site exceptions with a nice UI on the error page.
+// [SETTINGS] Privacy & Security > DNS over HTTPS > Enable secure DNS using:
 // [NOTE] Mode 3 has site-exceptions with a nice UI on the error page
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
-// [2] https://www.internetsociety.org/blog/2018/12/dns-privacy-support-in-mozilla-firefox/
-// 0=disable DoH (default)
-// 2=use DoH; fall back to native DNS if necessary
-// 3=only use DoH; do not fall back to native DNS
-// 5=explicitly disable DoH
+// [2] https://support.mozilla.org/en-US/kb/dns-over-https#w_protection-levels-explained
+// 0= Default Protection: disable DoH (default)
+// 2= Increased Protection: use DoH and fall back to native DNS if necessary
+// 3= Max Protection: only use DoH; do not fall back to native DNS
+// 5= Off: disable DoH
 //user_pref("network.trr.mode", 0); // DEFAULT
 
 // PREF: display fallback warning page [FF115+]
-// Show a warning checkbox UI in modes 0 + 2.
+// Show a warning checkbox UI in modes 0 or 2 above.
 //user_pref("network.trr_ui.show_fallback_warning_option", false); // DEFAULT
 //user_pref("network.trr.display_fallback_warning", false); // DEFAULT
-
-// PREF: fallback to native DNS upon network errors
-//user_pref("network.trr.strict_native_fallback", false); // DEFAULT
 
 // PREF: DoH resolver
 // [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
@@ -665,6 +667,9 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: adjust providers
 //user_pref("network.trr.resolvers", '[{ "name": "Cloudflare", "url": "https://mozilla.cloudflare-dns.com/dns-query" },{ "name": "SecureDNS", "url": "https://doh.securedns.eu/dns-query" },{ "name": "AppliedPrivacy", "url": "https://doh.appliedprivacy.net/query" },{ "name": "Digitale Gesellschaft (CH)", "url": "https://dns.digitale-gesellschaft.ch/dns-query" }, { "name": "Quad9", "url": "https://dns.quad9.net/dns-query" }]'); 
+
+// PREF: fallback to native DNS upon network errors
+//user_pref("network.trr.strict_native_fallback", false); // DEFAULT
 
 // PREF: EDNS Client Subnet (ECS)
 // [WARNING] In some circumstances, enabling ECS may result
@@ -874,13 +879,6 @@ user_pref("pdfjs.enableScripting", false);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1659530,1681331
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 
-// PREF: disable permissions delegation [deprecated in FF118]
-// Currently applies to cross-origin geolocation, camera, mic and screen-sharing
-// permissions, and fullscreen requests. Disabling delegation means any prompts
-// for these will show/use their correct 3rd party origin.
-// [1] https://groups.google.com/forum/#!topic/mozilla.dev.platform/BdFOMAuCGW8/discussion
-user_pref("permissions.delegation.enabled", false);
-
 // PREF: disable middle click on new tab button opening URLs or searches using clipboard [FF115+]
 // Enable if you're using LINUX.
 //user_pref("browser.tabs.searchclipboardfor.middleclick", false); // DEFAULT WINDOWS macOS
@@ -947,6 +945,7 @@ user_pref("permissions.delegation.enabled", false);
 // 0=send full URI (default), 1=scheme+host+port+path, 2=scheme+host+port
 // [1] https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/
 // [2] https://web.dev/referrer-best-practices/
+// [3] https://www.reddit.com/r/waterfox/comments/16px8yq/comment/k29r6bu/?context=3
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /******************************************************************************
@@ -1117,10 +1116,10 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 // [3] https://www.reddit.com/r/firefox/comments/p8g5zd/why_does_disabling_accessibility_services_improve
 // [4] https://winaero.com/firefox-has-accessibility-service-memory-leak-you-should-disable-it/
 // [5] https://www.ghacks.net/2022/12/26/firefoxs-accessibility-performance-is-getting-a-huge-boost/
-user_pref("accessibility.force_disabled", 1);
+//user_pref("accessibility.force_disabled", 1);
     //user_pref("devtools.accessibility.enabled", false);
 
-// PREF: disable Firefox accounts
+// PREF: disable Firefox Sync
 // [ALTERNATIVE] Use xBrowserSync [1]
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
 // [2] https://github.com/arkenfox/user.js/issues/1175
@@ -1130,6 +1129,9 @@ user_pref("identity.fxaccounts.enabled", false);
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
 user_pref("browser.tabs.firefox-view", false);
 //user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
+
+// PREF: disable the Firefox View tour from popping up
+//user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
 
 // PREF: disable Push Notifications API [FF44+]
 // Push is an API that allows websites to send you (subscribed) messages even when the site
@@ -1258,7 +1260,7 @@ user_pref("datareporting.policy.dataSubmissionEnabled", false);
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to install and run studies
 user_pref("app.shield.optoutstudies.enabled", false);
 
-// Personalized Extension Recommendations in about:addons and AMO
+// PREF: Personalized Extension Recommendations in about:addons and AMO
 // [NOTE] This pref has no effect when Health Reports are disabled.
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to make personalized extension recommendations
 user_pref("browser.discovery.enabled", false);

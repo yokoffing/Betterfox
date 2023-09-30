@@ -55,6 +55,8 @@ user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false); // bypass parental controls when using DoH
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla domains so adblocker works on pages
+user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}"); // disable the Firefox View tour from popping up for new profiles
+user_pref("accessibility.force_disabled", 1); // disable Accessibility features
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes un-needed "Inspect Accessibility Properties" on right-click
@@ -77,7 +79,8 @@ user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually ba
 user_pref("view_source.wrap_long_lines", true);  // wrap source lines
 user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devtools
 user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
-user_pref("pdfjs.sidebarViewOnLoad", 2); // [HIDDEN] force showing of Table of Contents in sidebar for PDFs (if available)
+//user_pref("pdfjs.sidebarViewOnLoad", 2); // [HIDDEN] force showing of Table of Contents in sidebar for PDFs (if available)
+user_pref("browser.tabs.loadBookmarksInTabs", true); // force bookmarks to open in a new tab, not the current tab
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
 user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
@@ -93,6 +96,7 @@ user_pref("privacy.userContext.enabled", false); // disable Containers functiona
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 //user_pref("browser.urlbar.suggest.quickactions", false); // Quick Actions in URL bar
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
+user_pref("browser.urlbar.trimHttps", true); // hide https in URL bar [FF119]
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
