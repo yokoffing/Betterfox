@@ -388,7 +388,7 @@ user_pref("pdfjs.sidebarViewOnLoad", 2);
 //user_pref("browser.tabs.loadDivertedInBackground", false); // DEFAULT
 
 // PREF: force bookmarks to open in a new tab, not the current tab
-user_pref("browser.tabs.loadBookmarksInTabs", true);
+//user_pref("browser.tabs.loadBookmarksInTabs", true);
     //user_pref("browser.tabs.loadBookmarksInBackground", true); // load bookmarks in background
 
 // PREF: leave Bookmarks Menu open when selecting a site
