@@ -103,6 +103,7 @@ user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("gfx.canvas.accelerated", true); // DEFAULT except on WINDOWS; enable if not using an integrated GPU
 user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
+user_pref("geo.provider.ms-windows-location", false); //  [WINDOWS]
 user_pref("pdfjs.defaultZoomValue", "125"); // alt=page-width; PDF zoom level
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
@@ -113,10 +114,10 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
-//user_pref("security.family_safety.mode", 0); // disable parental controls [WINDOWS 8-10]
 
 /** DELETE IF NOT macOS LAPTOP ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
-user_pref("pdfjs.defaultZoomValue", "page-width"); // LAPTOP; PDF zoom level
+user_pref("geo.provider.use_corelocation", false); // geolocation [MAC]
+user_pref("pdfjs.defaultZoomValue", "page-width"); // PDF zoom level
 user_pref("app.update.auto", false); // disable auto-installing Firefox updates [NON-WINDOWS]
 //user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
