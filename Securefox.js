@@ -118,7 +118,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
     //user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
     //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
     //user_pref("privacy.partition.bloburl_per_agent_cluster", false); // DEFAULT [REGRESSIONS - DO NOT TOUCH]
-    //user_pref("privacy.partition.bloburl_per_partition_key", true); // enabled with "Strict"? [FF118+]
+    user_pref("privacy.partition.bloburl_per_partition_key", true); // [FF118+]
 // enable APS (Always Partitioning Storage) [FF104+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT: true FF109+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT: false FF109+]
