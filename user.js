@@ -229,7 +229,6 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 user_pref("pdfjs.sidebarViewOnLoad", 2);
 
 /** TAB BEHAVIOR ***/
-user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);
