@@ -26,11 +26,6 @@ user_pref("layout.css.prefers-color-scheme.content-override", 2);
 // PREF: enable Firefox to use userChome, userContent, etc.
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-// PREF: disable annoying update restart prompts
-// Delay update available prompts for ~1 week.
-// Will still show green arrow in menu bar.
-user_pref("app.update.suppressPrompts", true);
-
 // PREF: add compact mode back to options
 user_pref("browser.compactmode.show", true);
 
