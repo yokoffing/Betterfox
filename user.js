@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 118                                                             *
+ * version: 119                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -81,7 +81,6 @@ user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 user_pref("security.OCSP.enabled", 0);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("security.pki.crlite_mode", 2);
-user_pref("security.cert_pinning.enforcement_level", 2);
 
 /** SSL / TLS ***/
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
