@@ -45,11 +45,7 @@ The `user.js` — a configuration file that controls Firefox settings — is cur
 1) Get an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines). For a simple solution, use [Ghostery](https://addons.mozilla.org/en-US/firefox/addon/ghostery/).
 2) Enable **DNS-level protection** with [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
     * See how to [quickly enable](https://support.mozilla.org/en-US/kb/dns-over-https) **secure DNS** in Firefox.
-
-## about:Privacy
-Betterfox is a great balance of privacy and convenience.
-
-See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for other suggestions.
+3) See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for other suggestions.
 
 ## Recognition
 
