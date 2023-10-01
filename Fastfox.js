@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 118                                                                         *
+ * version: 119                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
  
@@ -446,7 +446,7 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // - "Disable pre-fetching (to prevent any connection for blocked network requests)"
 // [NOTE] Add prefs to "MY OVERRIDES" section and uncomment to enable them in your user.js.
 
-// PREF: speculative pre-connections
+// PREF: disable speculative pre-connections
 // Firefox will open predictive connections to sites when the user hovers their mouse over thumbnails
 // on the New Tab Page or the user starts to search in the Search Bar, or in the search field on the
 // New Tab Page [1]. This pref may control speculative connects for normal links, too [2].
@@ -459,11 +459,9 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [3] https://searchfox.org/mozilla-central/rev/028c68d5f32df54bca4cf96376f79e48dfafdf08/modules/libpref/init/all.js#1280-1282
 // [4] https://www.keycdn.com/blog/resource-hints#prefetch
 // [5] https://3perf.com/blog/link-rels/#prefetch
-user_pref("network.http.speculative-parallel-limit", 0);
-// or
-//user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT
+// user_pref("network.http.speculative-parallel-limit", 0); // default=6
 
-// PREF: DNS pre-resolve <link rel="dns-prefetch">
+// PREF: disable DNS pre-resolve <link rel="dns-prefetch">
 // Resolve hostnames ahead of time. In order to reduce latency,
 // Firefox will proactively perform domain name resolution on links that
 // the user may choose to follow, as well as URLs for items
@@ -472,28 +470,21 @@ user_pref("network.http.speculative-parallel-limit", 0);
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
-user_pref("network.dns.disablePrefetch", true);
+//user_pref("network.dns.disablePrefetch", true);
 //user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
-// or
-//user_pref("network.dns.disablePrefetch", false); // DEFAULT
-//user_pref("network.dns.disablePrefetchFromHTTPS", false);
 
-// PREF: preconnect to the autocomplete URL in the address bar
+// PREF: disable preconnect to the autocomplete URL in the address bar
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
 // Connects to destination server ahead of time, to avoid TCP handshake latency.
 // [NOTE] Firefox will perform DNS lookup (if enabled) and TCP and TLS handshake,
 // but will not start sending or receiving HTTP data.
 // [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
-// or
-//user_pref("browser.urlbar.speculativeConnect.enabled", true); // DEFAULT
+//user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
-// PREF: mousedown speculative connections on bookmarks and history
-user_pref("browser.places.speculativeConnect.enabled", false);
-// or
-//user_pref("browser.places.speculativeConnect.enabled", true); // DEFAULT
+// PREF: disable mousedown speculative connections on bookmarks and history
+// user_pref("browser.places.speculativeConnect.enabled", false);
 
-// PREF: Preload <link rel=preload>
+// PREF: network preload <link rel=preload>
 // This tells the browser that the resource should be loaded as part of the current navigation
 // and it should start fetching it ASAP. This attribute can be applied to CSS, fonts, images, JavaScript files and more.
 // This tells the browser to download and cache a resource (like a script or a stylesheet) as soon as possible.
@@ -512,7 +503,7 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // [9] https://web.dev/preload-critical-assets/
 //user_pref("network.preload", true); // DEFAULT
 
-// PREF: Link prefetching <link rel="prefetch">
+// PREF: disable link prefetching <link rel="prefetch">
 // Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
 // A directive that tells a browser to fetch a resource that will likely be needed for the next navigation.
 // The resource will be fetched with extremely low priority (since everything the browser knows
@@ -526,29 +517,21 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // [2] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 // [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
 // [4] https://3perf.com/blog/link-rels/#prefetch
-user_pref("network.prefetch-next", false);
-// or
-//user_pref("network.prefetch-next", true); // DEFAULT
+//user_pref("network.prefetch-next", false);
 
 // PREF: enable early hints [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
 // [2] https://developer.chrome.com/blog/early-hints/
-//user_pref("network.early-hints.enabled", false); // DEFAULT
-// or
-//user_pref("network.early-hints.enabled", true);
+user_pref("network.early-hints.enabled", true);
 
 // PREF: `Link: rel=preconnect` in 103 Early Hint response
-//user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
-// or
-//user_pref("network.early-hints.preconnect.enabled", true);
+user_pref("network.early-hints.preconnect.enabled", true);
 
-// PREF: the number of speculative connections allowed for early hints `Link: rel=preconnect`
+// PREF: number of speculative connections allowed for early hints `Link: rel=preconnect`
 // When 0, this is limited by "network.http.speculative-parallel-limit".
-//user_pref("network.early-hints.preconnect.max_connections", 0);
-// or
 //user_pref("network.early-hints.preconnect.max_connections", 10); // DEFAULT
 
-// PREF: Network Predictor (NP)
+// PREF: disable Network Predictor (NP)
 // Keeps track of components that were loaded during page visits so that the browser knows next time
 // which resources to request from the server: It uses a local file to remember which resources were
 // needed when the user visits a webpage (such as image.jpg and script.js), so that the next time the
@@ -564,14 +547,10 @@ user_pref("network.prefetch-next", false);
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
 user_pref("network.predictor.enabled", false);
-// or
-//user_pref("network.predictor.enabled", true); // DEFAULT
 
-// PREF: NP fetches resources on the page ahead of time, to accelerate rendering of the page.
+// PREF: disable NP fetche for resources ahead of time, to accelerate rendering of the page.
 // Performs both pre-connect and prefetch.
 user_pref("network.predictor.enable-prefetch", false);
-// or
-//user_pref("network.predictor.enable-prefetch", true); // DEFAULT
 
 // PREF: NP active when hovering over links
 // The next time the user mouseovers a link to that webpage, history is used to predict what
@@ -583,8 +562,6 @@ user_pref("network.predictor.enable-prefetch", false);
 // faster since some of the work was already started in advance. Focuses on fetching a resource
 // for the NEXT navigation.
 //user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
-// or
-//user_pref("network.predictor.enable-hover-on-ssl", true);
 
 // PREF: assign NP values
     //user_pref("network.predictor.preresolve-min-confidence", 40); // default=60
