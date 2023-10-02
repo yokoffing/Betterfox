@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 118                                                             *
+ * version: 119                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *                   
 ****************************************************************************/
 
@@ -517,18 +517,21 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 // [1] https://reddit.com/r/firefox/comments/xkzswb/adding_firefox_search_engine_manually/
 user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
 
-// PREF: disable live search engine suggestions (Google, Bing, etc.)
+// PREF: disable urlbar live search engine suggestions (Google, Bing, etc.)
 // [WARNING] Search engines keylog every character you type from the URL bar.
 user_pref("browser.search.suggest.enabled", false);
 //user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
 
-// disable showing trending searches
-//user_pref("browser.urlbar.suggest.trending", false); // FF119+
+// PREF: disable urlbar trending search suggestions [FF118+]
+// [SETTING] Search>Search Suggestions>Show trending search suggestions (FF119)
+user_pref("browser.urlbar.trending.featureGate", false);
+//user_pref("browser.urlbar.suggest.trending", false);
 
-// PREF: disable location bar leaking single words to a DNS provider after searching
-// 0=never resolve single words, 1=heuristic (default), 2=always resolve
-// [1] https://bugzilla.mozilla.org/1642623
-//user_pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0); // DEFAULT FF104+
+// PREF: disable urlbar suggestions
+//user_pref("browser.urlbar.addons.featureGate", false); // [FF115+]
+//user_pref("browser.urlbar.mdn.featureGate", false); // [FF117+] [HIDDEN PREF]
+//user_pref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: false]
+//user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
 
 // PREF: disable Firefox Suggest
 // [1] https://github.com/arkenfox/user.js/issues/1257
