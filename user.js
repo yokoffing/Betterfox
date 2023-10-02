@@ -69,7 +69,6 @@ user_pref("network.predictor.enable-prefetch", false);
 user_pref("browser.contentblocking.category", "strict");
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
-user_pref("privacy.partition.bloburl_per_partition_key", true);
 user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 user_pref("browser.uitour.enabled", false);
 user_pref("privacy.globalprivacycontrol.enabled", true);
