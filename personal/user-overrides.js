@@ -62,6 +62,7 @@ user_pref("browser.urlbar.suggest.history", false); // hide URL bar dropdown sug
 user_pref("browser.urlbar.suggest.openpage", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.searches", false); // hide URL bar dropdown suggestions (needed?)
 user_pref("browser.urlbar.suggest.topsites", false); // disable dropdown suggestions with empty query
+// user_pref("browser.urlbar.suggest.engines", false); // tab-to-search
 //user_pref("browser.urlbar.maxRichResults", 1); // minimum suggestion needed for URL bar autofill
 user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually back-up
 user_pref("view_source.wrap_long_lines", true);  // wrap source lines
