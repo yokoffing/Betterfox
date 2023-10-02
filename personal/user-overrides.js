@@ -66,18 +66,18 @@ user_pref("browser.urlbar.suggest.history", false); // hide URL bar dropdown sug
 user_pref("browser.urlbar.suggest.openpage", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.searches", false); // hide URL bar dropdown suggestions (needed?)
 user_pref("browser.urlbar.suggest.topsites", false); // disable dropdown suggestions with empty query
-//user_pref("browser.urlbar.suggest.engines", false); // tab-to-search
+user_pref("browser.urlbar.suggest.engines", false); // tab-to-search
 //user_pref("browser.urlbar.maxRichResults", 1); // minimum suggestion needed for URL bar autofill
 user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually back-up
 user_pref("view_source.wrap_long_lines", true);  // wrap source lines
 user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devtools
 user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
 user_pref("pdfjs.sidebarViewOnLoad", 2); // force showing of Table of Contents in sidebar for PDFs (if available)
+//user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>When you open a link, image or media in a new tab, switch to it immediately
 //user_pref("browser.tabs.loadBookmarksInTabs", true); // force bookmarks to open in a new tab, not the current tab
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
 user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
-//user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>"When you open a link, image or media in a new tab, switch to it immediately"
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small"); // PiP
 user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false); // PiP in address bar
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
