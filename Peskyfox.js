@@ -249,6 +249,10 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 //user_pref("browser.newtabpage.activity-stream.feeds.snippets", false); // [DEFAULT]
 
+// PREF: clear default topsites
+// [NOTE] This does not block you from adding your own.
+//user_pref("browser.newtabpage.activity-stream.default.sites", "");
+
 // PREF: keep search in the search box; prevent from jumping to address bar
 // [1] https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/
 //user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
