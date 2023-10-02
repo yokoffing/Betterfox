@@ -167,6 +167,8 @@ user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.suggest.searches", false);
 //user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
     //user_pref("browser.urlbar.weather.ignoreVPN", false); // DEFAULT
+//user_pref("browser.urlbar.quickactions.enabled", false); // NIGHTLY
+//user_pref("browser.urlbar.shortcuts.quickactions", false); // NIGHTLY
 user_pref("browser.urlbar.suggest.calculator", true);
 user_pref("browser.urlbar.unitConversion.enabled", true);
 
@@ -182,11 +184,6 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 // [1] https://docs.google.com/document/u/1/d/e/2PACX-1vRBLr_2dxus-aYhZRUkW9Q3B1K0uC-a0qQyE3kQDTU3pcNpDHb36-Pfo9fbETk89e7Jz4nkrqwRhi4j/pub
 //user_pref("browser.urlbar.autoFill", true); // [DEFAULT]
 //user_pref("browser.urlbar.autoFill.adaptiveHistory.enabled", false);
-
-// PREF: Quick Actions in the URL Bar [NIGHTLY-only]
-// [1] https://www.ghacks.net/2022/07/19/mozilla-is-testing-quick-actions-in-firefoxs-address-bar/
-//user_pref("browser.urlbar.quickactions.enabled", false);
-//user_pref("browser.urlbar.shortcuts.quickactions", false);
 
 // PREF: adjust the amount of Address bar / URL bar dropdown results
 // This value controls the total number of entries to appear in the location bar dropdown.
