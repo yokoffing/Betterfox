@@ -173,6 +173,11 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 // PREF: disable dropdown suggestions with empty query
 //user_pref("browser.urlbar.suggest.topsites", false);
 
+// PREF: disable tab-to-search [FF85+]
+// Alternatively, you can exclude on a per-engine basis by unchecking them in Options>Search
+// [SETTING] Privacy & Security>Address Bar>When using the address bar, suggest>Search engines ***/
+//user_pref("browser.urlbar.suggest.engines", false);
+
 // PREF: Adaptive History Autofill
 // [1] https://docs.google.com/document/u/1/d/e/2PACX-1vRBLr_2dxus-aYhZRUkW9Q3B1K0uC-a0qQyE3kQDTU3pcNpDHb36-Pfo9fbETk89e7Jz4nkrqwRhi4j/pub
 //user_pref("browser.urlbar.autoFill", true); // [DEFAULT]
