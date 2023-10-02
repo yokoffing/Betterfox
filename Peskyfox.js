@@ -164,17 +164,14 @@ user_pref("full-screen-api.warning.timeout", 0);
 user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.suggest.history", false);
 //user_pref("browser.urlbar.suggest.openpage", false);
-//user_pref("browser.urlbar.suggest.quickactions", false); // [NIGHTLY-only]
 //user_pref("browser.urlbar.suggest.searches", false);
 //user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
     //user_pref("browser.urlbar.weather.ignoreVPN", false); // DEFAULT
+user_pref("browser.urlbar.suggest.calculator", true);
+user_pref("browser.urlbar.unitConversion.enabled", true);
 
 // PREF: disable dropdown suggestions with empty query:
 user_pref("browser.urlbar.suggest.topsites", false);
-
-// PREF: enable helpful features:
-user_pref("browser.urlbar.suggest.calculator", true);
-user_pref("browser.urlbar.unitConversion.enabled", true);
 
 // PREF: Adaptive History Autofill
 // [1] https://docs.google.com/document/u/1/d/e/2PACX-1vRBLr_2dxus-aYhZRUkW9Q3B1K0uC-a0qQyE3kQDTU3pcNpDHb36-Pfo9fbETk89e7Jz4nkrqwRhi4j/pub
