@@ -310,25 +310,6 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("security.tls.enable_0rtt_data", false);
 
 /****************************************************************************
- * SECTION: FONTS                                                          *
-****************************************************************************/
-
-// PREF: disable rendering of SVG OpenType fonts
-// [1] https://github.com/arkenfox/user.js/issues/1529
-//user_pref("gfx.font_rendering.opentype_svg.enabled", false);
-
-// PREF: limit font visibility (Windows, Mac, some Linux) [FF94+]
-// Uses hardcoded lists with two parts: kBaseFonts + kLangPackFonts [1], bundled fonts are auto-allowed
-// In Normal windows: uses the first applicable: RFP (4506) over TP over Standard
-// In Private Browsing windows: uses the most restrictive between normal and private
-// 1=only base system fonts, 2=also fonts from optional language packs, 3=also user-installed fonts
-// [1] https://searchfox.org/mozilla-central/search?path=StandardFonts*.inc
-//user_pref("layout.css.font-visibility.resistFingerprinting", 1); // DEFAULT
-    //user_pref("layout.css.font-visibility.trackingprotection", 1); // Normal Browsing windows with tracking protection enabled
-    //user_pref("layout.css.font-visibility.private", 1); // Private Browsing windows
-        //user_pref("layout.css.font-visibility.standard", 1); // Normal Browsing windows with tracking protection disabled(?)
-
-/****************************************************************************
  * SECTION: FINGERPRINT PROTECTION (RFP)                                    *
 ****************************************************************************/
 
