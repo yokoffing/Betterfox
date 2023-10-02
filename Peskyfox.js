@@ -177,7 +177,7 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 
 // PREF: disable tab-to-search [FF85+]
 // Alternatively, you can exclude on a per-engine basis by unchecking them in Options>Search
-// [SETTING] Privacy & Security>Address Bar>When using the address bar, suggest>Search engines ***/
+// [SETTING] Privacy & Security>Address Bar>When using the address bar, suggest>Search engines
 //user_pref("browser.urlbar.suggest.engines", false);
 
 // PREF: Adaptive History Autofill
