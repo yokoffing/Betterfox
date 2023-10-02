@@ -555,11 +555,11 @@ user_pref("browser.formfill.enable", false);
 // and is a security risk (e.g. common typos & malicious sites set up to exploit this).
 //user_pref("browser.fixup.alternate.enabled", false); // [DEFAULT FF104+]
 
-// PREF: Disable location bar autofill
+// PREF: disable location bar autofill
 // https://support.mozilla.org/en-US/kb/address-bar-autocomplete-firefox#w_url-autocomplete
 //user_pref("browser.urlbar.autoFill", false);
 
-// PREF: Enforce Punycode for Internationalized Domain Names to eliminate possible spoofing
+// PREF: enforce Punycode for Internationalized Domain Names to eliminate possible spoofing
 // Firefox has some protections, but it is better to be safe than sorry.
 // [!] Might be undesirable for non-latin alphabet users since legitimate IDN's are also punycoded.
 // [TEST] https://www.xn--80ak6aa92e.com/ (www.apple.com)
