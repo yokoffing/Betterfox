@@ -74,7 +74,7 @@ user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devto
 user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
 user_pref("pdfjs.sidebarViewOnLoad", 2); // force showing of Table of Contents in sidebar for PDFs (if available)
 //user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>When you open a link, image or media in a new tab, switch to it immediately
-//user_pref("browser.tabs.loadBookmarksInTabs", true); // force bookmarks to open in a new tab, not the current tab
+user_pref("browser.tabs.loadBookmarksInTabs", true); // force bookmarks to open in a new tab, not the current tab
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
 user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
