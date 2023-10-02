@@ -34,6 +34,8 @@ user_pref("browser.contentblocking.category", "strict");
     //user_pref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true); // enabled with "Strict"
 //user_pref("privacy.annotate_channels.strict_list.enabled", true); // enabled with "Strict"
     //user_pref("privacy.annotate_channels.strict_list.pbmode.enabled", true); // DEFAULT
+//user_pref("privacy.fingerprintingProtection", true); // [FF114+] [ETP FF119+] enabled with "Strict"
+    //user_pref("privacy.fingerprintingProtection.pbmode", true); // DEFAULT
 
 // PREF: query stripping
 // Currently uses a small list [1]
@@ -117,8 +119,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 //user_pref("privacy.partition.network_state", true); // DEFAULT
     //user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
     //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
-    //user_pref("privacy.partition.bloburl_per_agent_cluster", false); // DEFAULT [REGRESSIONS - DO NOT TOUCH]
-    user_pref("privacy.partition.bloburl_per_partition_key", true); // [FF118+]
+    //user_pref("privacy.partition.bloburl_per_partition_key", true); // [FF118+]
 // enable APS (Always Partitioning Storage) [FF104+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT: true FF109+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT: false FF109+]
