@@ -150,7 +150,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [8] https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 // [TEST] https://samesite-sandbox.glitch.me/
 //user_pref("network.cookie.sameSite.laxByDefault", true);
-//user_pref("network.cookie.sameSite.noneRequiresSecure", true);
+user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 //user_pref("network.cookie.sameSite.schemeful", true);
 
 // PREF: Hyperlink Auditing (click tracking)
