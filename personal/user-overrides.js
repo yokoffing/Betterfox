@@ -18,21 +18,8 @@
 //user_pref("network.trr.uri", "https://dns.nextdns.io/******/Firefox"); // TRR/DoH
 
 /** FASTFOX ***/
-//user_pref("dom.ipc.processCount.webIsolated", 2); // process per site
-//user_pref("dom.ipc.processPrelaunch.fission.number", 1); // number of Preallocated processes
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
-user_pref("browser.sessionhistory.max_total_viewers", 2); // only remember two pages in Back-Forward cache
-user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT
-user_pref("network.dns.disablePrefetch", false); // DEFAULT
-user_pref("network.dns.disablePrefetchFromHTTPS", false);
-user_pref("browser.urlbar.speculativeConnect.enabled", true); // DEFAULT
-user_pref("browser.places.speculativeConnect.enabled", true); // DEFAULT
-user_pref("network.early-hints.enabled", true); // DEFAULT NIGHTLY
-user_pref("network.early-hints.preconnect.enabled", true);
-//user_pref("network.early-hints.preconnect.max_connections", 10); // DEFAULT; when 0, this is limited by "network.http.speculative-parallel-limit"
-user_pref("network.prefetch-next", true); // DEFAULT if using DOH/ODNS
-user_pref("network.predictor.enabled", false);
-user_pref("network.predictor.enable-prefetch", false);
+user_pref("browser.sessionhistory.max_total_viewers", 3); // only remember # of pages in Back-Forward cache
 
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
@@ -73,7 +60,8 @@ user_pref("browser.translations.autoTranslate", true); // make Firefox auto-tran
 user_pref("browser.urlbar.suggest.bookmark", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.history", false); // hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.openpage", false); // hide URL bar dropdown suggestions
-//user_pref("browser.urlbar.suggest.searches", false); // hide URL bar dropdown suggestions (needed?)
+user_pref("browser.urlbar.suggest.searches", false); // hide URL bar dropdown suggestions (needed?)
+user_pref("browser.urlbar.suggest.topsites", false); // disable dropdown suggestions with empty query
 //user_pref("browser.urlbar.maxRichResults", 1); // minimum suggestion needed for URL bar autofill
 user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually back-up
 user_pref("view_source.wrap_long_lines", true);  // wrap source lines
