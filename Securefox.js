@@ -1264,6 +1264,7 @@ user_pref("app.normandy.api_url", "");
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
     //user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // DEFAULT
+
 // PREF: enforce no submission of backlogged crash reports
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send backlogged crash reports
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
