@@ -36,7 +36,18 @@ user_pref("browser.privatebrowsing.vpnpromourl", "");
 
 // PREF: disable about:addons' Recommendations pane (uses Google Analytics)
 user_pref("extensions.getAddons.showPane", false); // HIDDEN
+
+// PREF: disable recommendations in about:addons' Extensions and Themes panes
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
+
+// PREF: Personalized Extension Recommendations in about:addons and AMO
+// [NOTE] This pref has no effect when Health Reports are disabled.
+// [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to make personalized extension recommendations
+user_pref("browser.discovery.enabled", false);
+
+// PREF: disable shopping experience [FF116+]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1840156#c0
+user_pref("browser.shopping.experience2023.enabled", false); // [DEFAULT: false]
 
 // PREF: disable Firefox from asking to set as the default browser
 // [1] https://github.com/yokoffing/Betterfox/issues/166
@@ -115,10 +126,6 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 // [3] https://www.ghacks.net/2023/08/02/mozilla-firefox-117-beta-brings-an-automatic-language-translator-for-websites-and-it-works-offline/
 user_pref("browser.translations.enable", true);
     //user_pref("browser.translations.autoTranslate", true);
-
-// PREF: Mozilla Shopping [FF116+]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1836265
-//user_pref("browser.shopping.experience2023.enabled", false); // DEFAULT
 
 /****************************************************************************
  * SECTION: FULLSCREEN NOTICE                                               *
