@@ -37,7 +37,7 @@ The `user.js` — a configuration file that controls Firefox settings — is cur
 1) Create a [backup profile](https://github.com/yokoffing/Betterfox/wiki/Backup).
 2) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js) (Right click > `Save Link As…`).
 3) Review [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Common-Overrides) and make any necessary changes.
-   * See [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for other changes.
+   * See also [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for other recommendations.
 4) Open Firefox. In the URL bar, type `about:profiles` and press **Enter**.
 5) For the profile you want to use (or use default), click **Open Folder** in the **Root Directory** section.
 6) Move the `user.js` file into the folder.
