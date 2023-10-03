@@ -1210,61 +1210,71 @@ user_pref("webchannel.allowObject.urlWhitelist", "");
 ******************************************************************************/
 // Disable all the various Mozilla telemetry, studies, reports, etc.
 
-// PREF: Telemetry
+// PREF: disable new data submission, master kill switch
+// If disabled, no policy is shown or upload takes place, ever
+// [1] https://bugzilla.mozilla.org/1195552
+user_pref("datareporting.policy.dataSubmissionEnabled", false);
+
+// PREF: disable Health Reports
+// [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data.
+user_pref("datareporting.healthreport.uploadEnabled", false);
+
+// PREF: disable telemetry
+// - If "unified" is false then "enabled" controls the telemetry module
+// - If "unified" is true then "enabled" only controls whether to record extended data
+// [NOTE] "toolkit.telemetry.enabled" is now LOCKED to reflect prerelease (true) or release builds (false) [2]
+// [1] https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/telemetry/internals/preferences.html
+// [2] https://medium.com/georg-fritzsche/data-preference-changes-in-firefox-58-2d5df9c428b5 ***/
 user_pref("toolkit.telemetry.unified", false);
-user_pref("toolkit.telemetry.enabled", false);
+user_pref("toolkit.telemetry.enabled", false); // see [NOTE]
 user_pref("toolkit.telemetry.server", "data:,");
 user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.newProfilePing.enabled", false);
 user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
 user_pref("toolkit.telemetry.updatePing.enabled", false);
-user_pref("toolkit.telemetry.bhrPing.enabled", false);
+user_pref("toolkit.telemetry.bhrPing.enabled", false); // [FF57+] Background Hang Reporter
 user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
-user_pref("toolkit.telemetry.dap_enabled", false); // DEFAULT [FF108]
+//user_pref("toolkit.telemetry.dap_enabled", false); // DEFAULT [FF108]
 
-// PREF: Check bundled omni JARs for corruption
-// [1] https://github.com/ghostery/user-agent-desktop/issues/141
-// [2] https://github.com/arkenfox/user.js/issues/791
-//user_pref("corroborator.enabled", false);
+// PREF: disable Telemetry Coverage
+// [1] https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
+user_pref("toolkit.telemetry.coverage.opt-out", true); // [HIDDEN PREF]
+user_pref("toolkit.coverage.opt-out", true); // [FF64+] [HIDDEN PREF]
+user_pref("toolkit.coverage.endpoint.base", "");
 
-// PREF: Telemetry Coverage
-user_pref("toolkit.telemetry.coverage.opt-out", true);
-user_pref("toolkit.coverage.opt-out", true);
-      //user_pref("toolkit.coverage.endpoint.base", "");
+// PREF: disable PingCentre telemetry (used in several System Add-ons) [FF57+]
+// Currently blocked by 'datareporting.healthreport.uploadEnabled'
+user_pref("browser.ping-centre.telemetry", false);
 
-// PREF: Health Reports
-// [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send technical data.
-user_pref("datareporting.healthreport.uploadEnabled", false);
+// PREF: disable Firefox Home (Activity Stream) telemetry 
+user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
-// PREF: new data submission, master kill switch
-// If disabled, no policy is shown or upload takes place, ever
-// [1] https://bugzilla.mozilla.org/1195552
-user_pref("datareporting.policy.dataSubmissionEnabled", false);
-
-// PREF: Studies
+// PREF: disable Studies
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to install and run studies
 user_pref("app.shield.optoutstudies.enabled", false);
 
-// PREF: Personalized Extension Recommendations in about:addons and AMO
-// [NOTE] This pref has no effect when Health Reports are disabled.
-// [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to make personalized extension recommendations
-user_pref("browser.discovery.enabled", false);
+// PREF: disable Normandy/Shield [FF60+]
+// Shield is an telemetry system (including Heartbeat) that can also push and test "recipes".
+// [1] https://mozilla.github.io/normandy/
+user_pref("app.normandy.enabled", false);
+user_pref("app.normandy.api_url", "");
 
 // PREF: disable crash reports
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
     //user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // DEFAULT
 // PREF: enforce no submission of backlogged crash reports
+// [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send backlogged crash reports
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
-// PREF: Captive Portal detection
-// [WARNING] Do NOT use for mobile devices. May NOT be able to use Firefox on public wifi (hotels, coffee shops, etc).
+// PREF: disable Captive Portal detection
 // [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy
 // [2] https://wiki.mozilla.org/Necko/CaptivePortal
 user_pref("captivedetect.canonicalURL", "");
 user_pref("network.captive-portal-service.enabled", false);
 
-// PREF: Network Connectivity checks
+// PREF: disable Network Connectivity checks
 // [WARNING] Do NOT use for mobile devices. May NOT be able to use Firefox on public wifi (hotels, coffee shops, etc).
 // [1] https://bugzilla.mozilla.org/1460537
 user_pref("network.connectivity-service.enabled", false);
@@ -1278,18 +1288,10 @@ user_pref("network.connectivity-service.enabled", false);
 // PREF: "report extensions for abuse"
 //user_pref("extensions.abuseReport.enabled", false);
 
-// PREF: Normandy/Shield [extensions tracking]
-// Shield is an telemetry system (including Heartbeat) that can also push and test "recipes"
-user_pref("app.normandy.enabled", false);
-user_pref("app.normandy.api_url", "");
-
-// PREF: PingCentre telemetry (used in several System Add-ons)
-// Currently blocked by 'datareporting.healthreport.uploadEnabled'
-user_pref("browser.ping-centre.telemetry", false);
-
-// PREF: disable Firefox Home (Activity Stream) telemetry 
-user_pref("browser.newtabpage.activity-stream.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+// PREF: check bundled omni JARs for corruption
+// [1] https://github.com/ghostery/user-agent-desktop/issues/141
+// [2] https://github.com/arkenfox/user.js/issues/791
+//user_pref("corroborator.enabled", false);
 
 // PREF: assorted telemetry
 // [NOTE] Shouldn't be needed for user.js, but browser forks
