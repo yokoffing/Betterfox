@@ -733,11 +733,11 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // PREF: disable GIO as a potential proxy bypass vector
 // Gvfs/GIO has a set of supported protocols like obex, network,
 // archive, computer, dav, cdda, gphoto2, trash, etc.
-// By default, only sftp is accepted (FF87+).
+// From FF87-117, by default only sftp was accepted.
 // [1] https://bugzilla.mozilla.org/1433507
 // [2] https://en.wikipedia.org/wiki/GVfs
 // [3] https://en.wikipedia.org/wiki/GIO_(software)
-//user_pref("network.gio.supported-protocols", ""); // [HIDDEN PREF]
+//user_pref("network.gio.supported-protocols", ""); // [HIDDEN PREF] [DEFAULT FF118+]
 
 // PREF: disable check for proxies
 //user_pref("network.notify.checkForProxies", false);
