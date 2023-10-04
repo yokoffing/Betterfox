@@ -698,11 +698,12 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
  * SECTION: ESNI / ECH                            *
 ******************************************************************************/
 
-// PREF: enable Encrypted Client Hello (ECH)
+// PREF: enable Encrypted Client Hello (ECH) [FF118]
 // [NOTE] HTTP is already isolated with network partitioning.
 // [1] https://blog.cloudflare.com/encrypted-client-hello/
 // [2] https://www.youtube.com/watch?v=tfyrVYqXQRE
 // [3] https://groups.google.com/a/chromium.org/g/blink-dev/c/KrPqrd-pO2M/m/Yoe0AG7JAgAJ
+// [4] https://support.mozilla.org/en-US/kb/understand-encrypted-client-hello
 //user_pref("network.dns.echconfig.enabled", true);
 //user_pref("network.dns.http3_echconfig.enabled", true);
     //user_pref("network.dns.use_https_rr_as_altsvc", true); // DEFAULT
