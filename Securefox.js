@@ -694,19 +694,15 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 //user_pref("network.trr.ohttp.relay_uri", "https://dooh.waterfox.net/");
 //user_pref("network.trr.use_ohttp", true);
 
-/******************************************************************************
- * SECTION: ESNI / ECH                            *
-******************************************************************************/
-
-// PREF: enable Encrypted Client Hello (ECH) [FF118]
+// PREF: Encrypted Client Hello (ECH) [FF118]
 // [NOTE] HTTP is already isolated with network partitioning.
-// [1] https://blog.cloudflare.com/encrypted-client-hello/
-// [2] https://www.youtube.com/watch?v=tfyrVYqXQRE
-// [3] https://groups.google.com/a/chromium.org/g/blink-dev/c/KrPqrd-pO2M/m/Yoe0AG7JAgAJ
-// [4] https://support.mozilla.org/en-US/kb/understand-encrypted-client-hello
+// [TEST] https://www.cloudflare.com/ssl/encrypted-sni
+// [1] https://support.mozilla.org/en-US/kb/understand-encrypted-client-hello
+// [2] https://blog.mozilla.org/en/products/firefox/encrypted-hello/
+// [3] https://support.mozilla.org/en-US/kb/faq-encrypted-client-hello#w_can-i-use-ech-alongside-other-security-tools-like-vpnsre
 //user_pref("network.dns.echconfig.enabled", true);
 //user_pref("network.dns.http3_echconfig.enabled", true);
-    //user_pref("network.dns.use_https_rr_as_altsvc", true); // DEFAULT
+//user_pref("network.dns.echconfig.fallback_to_origin_when_all_failed", false);
 
 /******************************************************************************
  * SECTION: PROXY / SOCKS / IPv6                           *
