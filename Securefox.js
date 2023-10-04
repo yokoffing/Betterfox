@@ -691,7 +691,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 //user_pref("network.trr.mode", 2);
 //user_pref("network.trr.ohttp.config_uri", "https://dooh.cloudflare-dns.com/.well-known/doohconfig");
 //user_pref("network.trr.ohttp.uri", "https://dooh.cloudflare-dns.com/dns-query");
-//user_pref("network.trr.ohttp.relay_uri", "https://dooh.waterfox.net/");
+//user_pref("network.trr.ohttp.relay_uri", ""); // custom
 //user_pref("network.trr.use_ohttp", true);
 
 // PREF: Encrypted Client Hello (ECH) [FF118]
