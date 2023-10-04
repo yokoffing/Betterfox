@@ -701,9 +701,10 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [1] https://support.mozilla.org/en-US/kb/understand-encrypted-client-hello
 // [2] https://blog.mozilla.org/en/products/firefox/encrypted-hello/
 // [3] https://support.mozilla.org/en-US/kb/faq-encrypted-client-hello#w_can-i-use-ech-alongside-other-security-tools-like-vpnsre
-//user_pref("network.dns.echconfig.enabled", true);
-//user_pref("network.dns.http3_echconfig.enabled", true);
-//user_pref("network.dns.echconfig.fallback_to_origin_when_all_failed", false);
+// [4] https://wiki.mozilla.org/Security/Encrypted_Client_Hello#Preferences
+//user_pref("network.dns.echconfig.enabled", true); // use ECH for TLS Connections
+//user_pref("network.dns.http3_echconfig.enabled", true); // use ECH for QUIC connections
+//user_pref("network.dns.echconfig.fallback_to_origin_when_all_failed", false); // fallback to non-ECH without an authenticated downgrade signal
 
 /******************************************************************************
  * SECTION: PROXY / SOCKS / IPv6                           *
