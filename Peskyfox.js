@@ -310,7 +310,9 @@ user_pref("browser.download.useDownloadDir", false);
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 // PREF: disable downloads panel opening on every download
-user_pref("browser.download.alwaysOpenPanel", false);
+// Controls whether to open the downloads panel every time a download begins.
+// [NOTE] The first download ever ran in a new profile will still open the panel.
+//user_pref("browser.download.alwaysOpenPanel", false);
 
 // PREF: disable adding downloads to the system's "recent documents" list 
 user_pref("browser.download.manager.addToRecentDocs", false);
