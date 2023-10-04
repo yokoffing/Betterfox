@@ -320,8 +320,10 @@ user_pref("browser.download.manager.addToRecentDocs", false);
 ****************************************************************************/
 
 // PREF: enforce Firefox's built-in PDF reader
+// [TIP] Use about:reader?url=%s as a keyword to open links automatically in reader mode [1].
 // This setting controls if the option "Display in Firefox" is available in the setting below
 // and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With").
+// [1] https://www.reddit.com/r/firefox/comments/621sr2/i_found_out_how_to_automatically_open_a_url_in/ 
 //user_pref("pdfjs.disabled", false); // DEFAULT
 
 // PREF: allow viewing of PDFs even if the response HTTP headers
