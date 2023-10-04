@@ -683,8 +683,9 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 //user_pref("network.trr.excluded-domains", ""); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR. This pref can be used to make /etc/hosts works with DNS over HTTPS in Firefox.
 //user_pref("network.trr.builtin-excluded-domains", "localhost,local"); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR
 
-// PREF: Oblivious HTTP (OHTTP)
-// Enable DNS over Oblivious HTTP.
+// PREF: Oblivious HTTP (OHTTP) (DoOH)
+// [Oct 2023] Cloudflare are the only ones running an OHTTP server and resolver,
+// but there needs to be a relay, and it's not the cheapest thing to run.
 // [1] https://blog.cloudflare.com/stronger-than-a-promise-proving-oblivious-http-privacy-properties/
 // [2] https://www.ietf.org/archive/id/draft-thomson-http-oblivious-01.html
 // [3] https://old.reddit.com/r/dnscrypt/comments/11ukt43/what_is_dns_over_oblivious_http_targetrelay/ji1nl0m/?context=3
