@@ -467,8 +467,11 @@ user_pref("privacy.history.custom", true);
 // [2] https://winaero.com/firefox-75-strips-https-and-www-from-address-bar-results/
 //user_pref("browser.urlbar.trimURLs", true); // DEFAULT
 
-// PREF: trim https:// from the URL bar [FF119+]
+// PREF: trim HTTPS from the URL bar [FF119+]
 // Firefox will hide https:// from the address bar, but not subdomains like www.
+// It saves some space. Betterfox already uses HTTPS-by-Default and insecure sites
+// get a padlock with a red stripe. Copying the URL still copies the scheme,
+// so it's not like we need to see https. It's not a privacy issue, so you can add to your overrides.
 // [TEST] http://www.http2demo.io/
 // [1] https://www.ghacks.net/2023/09/19/firefox-119-will-launch-with-an-important-address-bar-change/
 //user_pref("browser.urlbar.trimHttps", true);
