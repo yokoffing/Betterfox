@@ -909,6 +909,8 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 // This includes images, links, and embedded social media on pages.
 // This may cause breakage where third party images and videos
 // may not load, and with authentication on sites such as banks.
+// [NOTE] Most navigational "tracking" is harmless (i.e., the same for everyone)
+// and effectively blocking cross-site referers just breaks a lot of sites.
 // 0=always send referrer (default)
 // 1=send across subdomains [from a.example.com to b.example.com] (breaks Instagram embeds, Bing login, MangaPill, and some streaming sites)
 // 2=full host name must match [from c.example.com to c.example.com] (breaks Vimeo, iCloud, Instagram, Amazon book previews, and more)
