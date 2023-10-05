@@ -141,11 +141,16 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 //user_pref("privacy.purge_trackers.enabled", true); // DEFAULT
 
 // PREF: SameSite Cookies
-// [1] https://caniuse.com/?search=samesite
-// [2] https://github.com/arkenfox/user.js/issues/1640#issuecomment-1464093950
-// [3] https://support.mozilla.org/en-US/questions/1364032
-// [4] https://blog.mozilla.org/security/2018/04/24/same-site-cookies-in-firefox-60/
-// [5] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
+// Currently, the absence of the SameSite attribute implies that cookies will be
+// attached to any request for a given origin, no matter who initiated that request.
+// This behavior is equivalent to setting SameSite=None.
+// So the pref allows the lack of attribution, or SameSite=None, only on HTTPS sites
+// to prevent CSFRs on plaintext sites.
+// [1] https://hacks.mozilla.org/2020/08/changes-to-samesite-cookie-behavior/
+// [2] https://caniuse.com/?search=samesite
+// [3] https://github.com/arkenfox/user.js/issues/1640#issuecomment-1464093950
+// [4] https://support.mozilla.org/en-US/questions/1364032
+// [5] https://blog.mozilla.org/security/2018/04/24/same-site-cookies-in-firefox-60/
 // [6] https://web.dev/samesite-cookies-explained/
 // [7] https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions
 // [8] https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
