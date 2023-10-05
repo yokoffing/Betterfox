@@ -745,20 +745,37 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
  * SECTION: PASSWORDS                             *
 ******************************************************************************/
 
+// PREF: disable auto-filling username & password form fields
+// Can leak in cross-site forms and be spoofed.
+// [NOTE] Username and password is still available when you enter the field.
+// [SETTING] Privacy & Security>Logins and Passwords>Autofill logins and passwords
+//user_pref("signon.autofillForms", false);
+//user_pref("signon.autofillForms.autocompleteOff", true); // DEFAULT
+
+// PREF: disable formless login capture for Password Manager [FF51+]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
+user_pref("signon.formlessCapture.enabled", false);
+
+// PREF: disable capturing credentials in private browsing
+user_pref("signon.privateBrowsingCapture.enabled", false);
+
+// PREF: disable autofilling saved passwords on HTTP pages
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1217152,1319119
+//user_pref("signon.autofillForms.http", false); // DEFAULT
+
 // PREF: disable password manager
 // [NOTE] This does not clear any passwords already saved.
-user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
-//user_pref("signon.rememberSignons.visibilityToggle", false);
-//user_pref("signon.schemeUpgrades", false);
-//user_pref("signon.showAutoCompleteFooter", false);
-//user_pref("signon.autologin.proxy", false);
-    //user_pref("signon.debug", false);
+// [SETTING] Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
+//user_pref("signon.rememberSignons", false);
+    //user_pref("signon.rememberSignons.visibilityToggle", true); // DEFAULT
+    //user_pref("signon.schemeUpgrades", true); // DEFAULT
+    //user_pref("signon.showAutoCompleteFooter", true); // DEFAULT
+    //user_pref("signon.autologin.proxy", false); // DEFAULT
 
 // PREF: disable Firefox built-in password generator
 // Create passwords with random characters and numbers.
 // [NOTE] Doesn't work with Lockwise disabled!
 // [1] https://wiki.mozilla.org/Toolkit:Password_Manager/Password_Generation
-//user_pref("signon.generation.available", false);
 //user_pref("signon.generation.enabled", false);
 
 // PREF: disable Firefox Lockwise (about:logins)
@@ -770,33 +787,17 @@ user_pref("signon.rememberSignons", false); // Privacy & Security>Logins and Pas
 // user_pref("browser.contentblocking.report.lockwise.enabled", false);
     //user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
 
-// PREF: disable formless login capture
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1166947
-//user_pref("signon.formlessCapture.enabled", false);
-
-// PREF: disable capturing credentials in private browsing
-//user_pref("signon.privateBrowsingCapture.enabled", false);
-
-// PREF: disable auto-filling username & password form fields
-// Can leak in cross-site forms and be spoofed.
-// [NOTE] Username and password is still available when you enter the field.
-//user_pref("signon.autofillForms", false);
-//user_pref("signon.autofillForms.autocompleteOff", true);
-//user_pref("signon.showAutoCompleteOrigins", false);
-
-// PREF: disable autofilling saved passwords on HTTP pages
-// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1217152,1319119
-//user_pref("signon.autofillForms.http", false); // DEFAULT
-
-// PREF: disable Firefox import password from signons.sqlite file
-// [1] https://support.mozilla.org/en-US/questions/1020818
-//user_pref("signon.management.page.fileImport.enabled", false);
-//user_pref("signon.importedFromSqlite", false);
-    //user_pref("signon.recipes.path", "");
-
 // PREF: disable websites autocomplete
 // Don't let sites dictate use of saved logins and passwords.
 //user_pref("signon.storeWhenAutocompleteOff", false);
+
+// PREF: limit (or disable) HTTP authentication credentials dialogs triggered by sub-resources [FF41+]
+// Hardens against potential credentials phishing.
+// 0=don't allow sub-resources to open HTTP authentication credentials dialogs
+// 1=don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
+// 2=allow sub-resources to open HTTP authentication credentials dialogs (default)
+// [1] https://www.fxsitecompat.com/en-CA/docs/2015/http-auth-dialog-can-no-longer-be-triggered-by-cross-origin-resources/
+user_pref("network.auth.subresource-http-auth-allow", 1);
 
 // PREF: prevent password truncation when submitting form data
 // [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
@@ -804,7 +805,7 @@ user_pref("editor.truncate_user_pastes", false);
 
 // PREF: reveal password icon
 //user_pref("layout.forms.reveal-password-context-menu.enabled", true); // right-click menu option; DEFAULT [FF112]
-// [DO NOT TOUCH] Icons will double-up if the website implements it natively:
+// [DO NOT TOUCH] Icons will double-up if the website implements it natively.
 //user_pref("layout.forms.reveal-password-button.enabled", true); // always show icon in password fields
 
 /****************************************************************************
@@ -823,14 +824,6 @@ user_pref("extensions.formautofill.creditCards.enabled", false);
 ******************************************************************************/
 
 // [TEST] https://mixed-script.badssl.com/
-
-// PREF: limit (or disable) HTTP authentication credentials dialogs triggered by sub-resources
-// Hardens against potential credentials phishing.
-// 0=don't allow sub-resources to open HTTP authentication credentials dialogs
-// 1=don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
-// 2=allow sub-resources to open HTTP authentication credentials dialogs (default)
-// [1] https://www.fxsitecompat.com/en-CA/docs/2015/http-auth-dialog-can-no-longer-be-triggered-by-cross-origin-resources/
-user_pref("network.auth.subresource-http-auth-allow", 1);
 
 // PREF: disable automatic authentication on Microsoft sites [WINDOWS]
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
