@@ -96,7 +96,7 @@ user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 // PREF: reduce the size of the "private window" indicator in tab bar [FF106+]
 //user_pref("browser.privatebrowsing.enable-new-indicator", false); // REMOVED [FF119+]
 
-// PREF: Cookie Banner handling [NIGHTLY]
+// PREF: Cookie Banner handling
 // [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
 // [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
 // [2] https://phabricator.services.mozilla.com/D153642
@@ -107,10 +107,8 @@ user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 // 0: disable all cookie banner handling
 user_pref("cookiebanners.service.mode", 2);
 user_pref("cookiebanners.service.mode.privateBrowsing", 2);
-    //user_pref("cookiebanners.bannerClicking.enabled", true); // DEFAULT [FF108]
-    //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
 
-// PREF: global CookieBannerRules [WiP]
+// PREF: global CookieBannerRules [NIGHTLY]
 // Global rules that can handle a list of cookie banner libraries / providers on any site.
 // This is used for click rules that can handle common Consent Management Providers (CMP)
 // [WARNING] Beware of potential bugs and performance issues. Enabling this may negatively
@@ -118,7 +116,7 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 // every page.
 //user_pref("cookiebanners.service.enableGlobalRules", false); // DEFAULT
 
-// PREF: Firefox Translations [NIGHTLY]
+// PREF: Firefox Translations [FF118+]
 // Automated translation of web content is done locally in Firefox, so that
 // the text being translated does not leave your machine.
 // [ABOUT] Visit about:translations to translate your own text as well.
