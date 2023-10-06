@@ -91,6 +91,8 @@ user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by de
 //user_pref("browser.urlbar.suggest.quickactions", false); // Quick Actions in URL bar
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 user_pref("browser.urlbar.trimHttps", true); // hide https in URL bar [FF119]
+user_pref("cookiebanners.service.mode", 1); // do not accept cookie consents
+user_pref("cookiebanners.service.mode.privateBrowsing", 1); // do not accept cookie consents
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
