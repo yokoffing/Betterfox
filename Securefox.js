@@ -1210,10 +1210,9 @@ user_pref("webchannel.allowObject.urlWhitelist", "");
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
 ******************************************************************************/
-// Disable all the various Mozilla telemetry, studies, reports, etc.
 
-// PREF: disable new data submission, master kill switch
-// If disabled, no policy is shown or upload takes place, ever
+// PREF: disable new data submission [FF41+]
+// If disabled, no policy is shown or upload takes place, ever.
 // [1] https://bugzilla.mozilla.org/1195552
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 
@@ -1252,6 +1251,10 @@ user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
+/******************************************************************************
+ * SECTION: EXPERIMENTS                                                   *
+******************************************************************************/
+
 // PREF: disable Studies
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to install and run studies
 user_pref("app.shield.optoutstudies.enabled", false);
@@ -1262,6 +1265,10 @@ user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 
+/******************************************************************************
+ * SECTION: CRASH REPORTS                                                   *
+******************************************************************************/
+
 // PREF: disable crash reports
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
@@ -1270,6 +1277,10 @@ user_pref("browser.tabs.crashReporting.sendReport", false);
 // PREF: enforce no submission of backlogged crash reports
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send backlogged crash reports
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+
+/******************************************************************************
+ * SECTION: DETECTION                                                   *
+******************************************************************************/
 
 // PREF: disable Captive Portal detection
 // [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy
