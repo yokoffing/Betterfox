@@ -171,34 +171,6 @@ user_pref("layout.css.has-selector.enabled", true);
 // [2] https://caniuse.com/mdn-api_sanitizer
 user_pref("dom.security.sanitizer.enabled", true);
 
-// PREF: Shadowrealms [NIGHTLY]
-// [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
-//user_pref("javascript.options.experimental.shadow_realms", true);
-
-// PREF: Wasm GC [NIGHTLY]
-// WASM GC refers to garbage collection for WebAssembly. Garbage collection is a mechanism
-// to automatically free up memory that is no longer being used by a program. This helps
-// manage memory and prevent memory leaks. 
-// [1] https://github.com/WebAssembly/gc/blob/main/proposals/gc/Overview.md
-//user_pref("javascript.options.wasm_gc", true);
-
-// PREF: WASM Function References [NIGHTLY]
-// [1] https://github.com/WebAssembly/function-references/blob/master/proposals/function-references/Overview.md
-//user_pref("javascript.options.wasm_function_references", true);
-
-// PREF: import assertions [NIGHTLY]
-//user_pref("javascript.options.experimental.import_assertions", true);
-
-// PREF: Array.fromAsync [NIGHTLY]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1795452
-//user_pref("javascript.options.experimental.array_grouping", true);
-
-// PREF: scroll-driven animations [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Experimental_features#scroll-driven_animations
-// [2] https://developer.chrome.com/articles/scroll-driven-animations/
-// [3] https://developer.chrome.com/en/blog/scroll-animation-performance-case-study/
-//user_pref("layout.css.scroll-driven-animations.enabled", true);
-
 // PREF: WebGPU [HIGHLY EXPERIMENTAL!]
 // [WARNING] Do not enable unless you are a web developer!
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
@@ -209,12 +181,6 @@ user_pref("dom.security.sanitizer.enabled", true);
     //user_pref("gfx.webgpu.force-enabled", true); // enforce
 // enable WebGPU indirect draws/dispatches:
 //user_pref("dom.webgpu.indirect-dispatch.enabled", true);
-
-// PREF: WebCodecs API [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API
-// [2] https://groups.google.com/a/mozilla.org/g/dev-platform/c/3g0fnn6682A?pli=1
-// [3] https://w3c.github.io/webcodecs/samples/
-//user_pref("dom.media.webcodecs.enabled", true);
 
 /****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
