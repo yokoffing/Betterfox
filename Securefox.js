@@ -189,7 +189,7 @@ user_pref("browser.uitour.enabled", false);
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16222
 //user_pref("devtools.debugger.remote-enabled", false); // DEFAULT
 
-// PREF: enable Global Privacy Control (GPC) [NIGHTLY]
+// PREF: enable Global Privacy Control (GPC) [FF118+]
 // Honored by many highly ranked sites [2].
 // [TEST] https://global-privacy-control.glitch.me/
 // [1] https://globalprivacycontrol.org/press-release/20201007.html
