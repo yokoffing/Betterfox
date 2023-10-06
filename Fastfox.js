@@ -435,8 +435,10 @@ user_pref("network.dns.max_high_priority_threads", 8); // default=5
 user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
- * SECTION: SPECULATIVE CONNECTIONS                                         *
+ * SECTION: IMPLICIT OUTBOUND                                              *
 ****************************************************************************/
+
+// These are connections that are not explicitly asked for (e.g., clicked on).
 
 // [NOTE] FF85+ partitions (isolates) pooled connections, prefetch connections,
 // pre-connect connections, speculative connections, TLS session identifiers,
@@ -448,7 +450,7 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // - "Disable pre-fetching (to prevent any connection for blocked network requests)"
 // [NOTE] Add prefs to "MY OVERRIDES" section and uncomment to enable them in your user.js.
 
-// PREF: disable speculative pre-connections
+// PREF: disable link-mouseover opening connection to linked server
 // Firefox will open predictive connections to sites when the user hovers their mouse over thumbnails
 // on the New Tab Page or the user starts to search in the Search Bar, or in the search field on the
 // New Tab Page [1]. This pref may control speculative connects for normal links, too [2].
@@ -463,7 +465,7 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [5] https://3perf.com/blog/link-rels/#prefetch
 // user_pref("network.http.speculative-parallel-limit", 0); // default=6
 
-// PREF: disable DNS pre-resolve <link rel="dns-prefetch">
+// PREF: disable DNS prefetching <link rel="dns-prefetch">
 // Resolve hostnames ahead of time. In order to reduce latency,
 // Firefox will proactively perform domain name resolution on links that
 // the user may choose to follow, as well as URLs for items
@@ -472,7 +474,7 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
-//user_pref("network.dns.disablePrefetch", true);
+user_pref("network.dns.disablePrefetch", true);
 //user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
 
 // PREF: disable preconnect to the autocomplete URL in the address bar
@@ -483,8 +485,8 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
 //user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
-// PREF: disable mousedown speculative connections on bookmarks and history
-// user_pref("browser.places.speculativeConnect.enabled", false);
+// PREF: disable mousedown speculative connections on bookmarks and history [FF98+]
+//user_pref("browser.places.speculativeConnect.enabled", false);
 
 // PREF: network preload <link rel=preload>
 // This tells the browser that the resource should be loaded as part of the current navigation
@@ -519,7 +521,8 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [2] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 // [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
 // [4] https://3perf.com/blog/link-rels/#prefetch
-//user_pref("network.prefetch-next", false);
+// [5] https://developer.mozilla.org/docs/Web/HTTP/Link_prefetching_FAQ
+user_pref("network.prefetch-next", false);
 
 // PREF: enable early hints [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
@@ -566,9 +569,9 @@ user_pref("network.predictor.enable-prefetch", false);
 //user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
 
 // PREF: assign NP values
-    //user_pref("network.predictor.preresolve-min-confidence", 40); // default=60
-    //user_pref("network.predictor.preconnect-min-confidence", 60); // default=90
-    //user_pref("network.predictor.prefetch-min-confidence", 80); // default=100
+    //user_pref("network.predictor.preresolve-min-confidence", 30); // default=60
+    //user_pref("network.predictor.preconnect-min-confidence", 50); // default=90
+    //user_pref("network.predictor.prefetch-min-confidence", 70); // default=100
         //user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
         //user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
     //user_pref("network.predictor.max-resources-per-entry", 250); // default=100
