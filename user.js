@@ -26,7 +26,6 @@ user_pref("layout.css.has-selector.enabled", true);
 user_pref("dom.security.sanitizer.enabled", true);
 
 /** GFX ***/
-//user_pref("gfx.canvas.accelerated", true); // enable if using a dedicated GPU on WINDOWS
 user_pref("gfx.canvas.accelerated.cache-items", 4096);
 user_pref("gfx.canvas.accelerated.cache-size", 512);
 user_pref("gfx.content.skia-font-cache-size", 20);
@@ -231,6 +230,7 @@ user_pref("findbar.highlightAll", true);
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
 // Enter your personal prefs below this line:
+//user_pref("gfx.canvas.accelerated", true); // enable if using a dedicated GPU on WINDOWS
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
