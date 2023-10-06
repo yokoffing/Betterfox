@@ -85,7 +85,6 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
 
-
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
@@ -95,7 +94,7 @@ user_pref("browser.urlbar.trimHttps", true); // hide https in URL bar [FF119]
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
-user_pref("gfx.canvas.accelerated", true); // DEFAULT except on WINDOWS; enable if not using an integrated GPU
+user_pref("gfx.canvas.accelerated", true); // DEFAULT NON-WINDOWS; enable if not using an integrated GPU
 user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
 user_pref("geo.provider.ms-windows-location", false); //  [WINDOWS]
