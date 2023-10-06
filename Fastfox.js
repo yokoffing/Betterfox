@@ -376,9 +376,9 @@ user_pref("network.http.pacing.requests.enabled", false);
     //user_pref("network.http.pacing.requests.burst", 14); // default=10
 
 // PREF: how long to wait before trying a different connection when the initial one fails
-// This value signifies how long (in ms) Firefox waits after dispatching
-// a SYN for an HTTP connection before attempting a different connection.
-// 0=disable the second connection
+// This value (in milliseconds) specifies the delay after sending a SYN
+// for an HTTP connection before proceeding with a different connection.
+// 0=disables the second connection
 // [1] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1178
 // [2] https://www.catchpoint.com/blog/http-transaction-steps
 user_pref("network.http.connection-retry-timeout", 0); // default=250
