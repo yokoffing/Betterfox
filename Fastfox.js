@@ -274,7 +274,7 @@ user_pref("network.http.pacing.requests.enabled", false);
 // 0=disables the second connection
 // [1] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1178
 // [2] https://www.catchpoint.com/blog/http-transaction-steps
-user_pref("network.http.connection-retry-timeout", 0); // default=250
+//user_pref("network.http.connection-retry-timeout", 0); // default=250
 
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
