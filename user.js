@@ -237,8 +237,10 @@ user_pref("findbar.highlightAll", true);
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
+// Uncomment the pref below if you use a dedicated GPU on WINDOWS:
+//user_pref("gfx.canvas.accelerated", true);
+
 // Enter your personal prefs below this line:
-//user_pref("gfx.canvas.accelerated", true); // enable if using a dedicated GPU on WINDOWS
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
