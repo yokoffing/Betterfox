@@ -395,7 +395,7 @@ user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3
 
 // PREF: the number of threads for DNS
 user_pref("network.dns.max_high_priority_threads", 8); // default=5
-//user_pref("network.dns.max_any_priority_threads", 5); // default=3
+//user_pref("network.dns.max_any_priority_threads", 3); // DEFAULT
 
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
