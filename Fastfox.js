@@ -6,61 +6,21 @@
  * version: 119                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
- 
-// PREF: process count
-// [ABOUT] View in about:processes.
-// With Firefox Quantum (2017), CPU cores = processCount. However, since the
-// introduction of Fission [2], the number of website processes is controlled
-// by processCount.webIsolated. Disabling fission.autostart or changing
-// fission.webContentIsolationStrategy reverts control back to processCount.
-// [1] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
-// [2] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes 
-//user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
-//user_pref("dom.ipc.processCount.webIsolated", 1); // default=4; Isolated Web Content
 
-// PREF: use one process for process preallocation cache
-//user_pref("dom.ipc.processPrelaunch.fission.number", 1); // default=3; Process Preallocation Cache
-
-// PREF: configure process isolation
-// [1] https://hg.mozilla.org/mozilla-central/file/tip/dom/ipc/ProcessIsolation.cpp#l53
-// [2] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
-
-// OPTION 1: isolate all websites
-// Web content is always isolated into its own `webIsolated` content process
-// based on site-origin, and will only load in a shared `web` content process
-// if site-origin could not be determined.
-//user_pref("fission.webContentIsolationStrategy", 1); // DEFAULT
-//user_pref("browser.preferences.defaultPerformanceSettings.enabled", true); // DEFAULT
-    //user_pref("dom.ipc.processCount.webIsolated", 1); // one process per site origin
-
-// OPTION 2: isolate only "high value" websites
-// Only isolates web content loaded by sites which are considered "high
-// value". A site is considered high value if it has been granted a
-// `highValue*` permission by the permission manager, which is done in
-// response to certain actions.
-//user_pref("fission.webContentIsolationStrategy", 2);
-//user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
-    //user_pref("dom.ipc.processCount.webIsolated", 1); // one process per site origin (high value)
-    //user_pref("dom.ipc.processCount", 8); // determine by number of CPU cores/processors
-
-// OPTION 3: do not isolate websites
-// All web content is loaded into a shared `web` content process. This is
-// similar to the non-Fission behavior; however, remote subframes may still
-// be used for sites with special isolation behavior, such as extension or
-// mozillaweb content processes.
-//user_pref("fission.webContentIsolationStrategy", 0);
-//user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
-    //user_pref("dom.ipc.processCount", 8); // determine by number of CPU cores/processors
+/****************************************************************************
+ * SECTION: GENERAL                                                        *
+****************************************************************************/
 
 // PREF: initial paint delay
-// How long FF will wait before rendering the page, in milliseconds.
-// [NOTE] Dark Reader users may want to use 2000 [3].
+// How long FF will wait before rendering the page (in ms)
+// [NOTE] Older PCs may want to use 250-750.
+// [NOTE] Dark Reader users may want to use 1000-2000 [3].
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1283302
 // [2] https://docs.google.com/document/d/1BvCoZzk2_rNZx3u9ESPoFjSADRI0zIPeJRXFLwWXx_4/edit#heading=h.28ki6m8dg30z
 // [3] https://old.reddit.com/r/firefox/comments/o0xl1q/reducing_cpu_usage_of_dark_reader_extension/
 // [4] https://reddit.com/r/browsers/s/wvNB7UVCpx
-//user_pref("nglayout.initialpaint.delay", 0); // default=5; used to be 250
-//user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
+//user_pref("nglayout.initialpaint.delay", 5); // DEFAULT; formerly 250
+    //user_pref("nglayout.initialpaint.delay_in_oopif", 5); // DEFAULT
 
 // PREF: page reflow timer
 // Rather than wait until a page has completely downloaded to display it to the user,
@@ -113,74 +73,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("browser.sessionstore.restore_tabs_lazily", true); // DEFAULT
 
 // PREF: disable preSkeletonUI on startup [WINDOWS]
-//user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
-
-/****************************************************************************
- * SECTION: TAB UNLOAD                                                      *
-****************************************************************************/
-
-// PREF: unload tabs on low memory
-// [ABOUT] about:unloads
-// Firefox will detect if your computer’s memory is running low (less than 200MB)
-// and suspend tabs that you have not used in awhile.
-// [1] https://support.mozilla.org/en-US/kb/unload-inactive-tabs-save-system-memory-firefox
-// [2] https://hacks.mozilla.org/2021/10/tab-unloading-in-firefox-93/
-//user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
-
-// PREF: determine when tabs unload [WINDOWS] [LINUX]
-// Notify TabUnloader or send the memory pressure if the memory resource
-// notification is signaled AND the available commit space is lower than
-// this value.
-// Set this to some high value, e.g. 2/3 of total memory available in your system:
-// 4GB=2640, 8GB=5280, 16GB=10560, 32GB=21120, 64GB=42240
-// [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
-//user_pref("browser.low_commit_space_threshold_mb", 2640); // default=200; WINDOWS LINUX
-
-// PREF: determine when tabs unload [LINUX]
-// On Linux, Firefox checks available memory in comparison to total memory,
-// and use this percent value (out of 100) to determine if Firefox is in a
-// low memory scenario.
-// [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
-//user_pref("browser.low_commit_space_threshold_percent", 33); // default=5; LINUX
-
-// PREF: determine how long (in ms) tabs are inactive before they unload
-// 60000=1min; 300000=5min; 600000=10min (default)
-//user_pref("browser.tabs.min_inactive_duration_before_unload", 300000); // 5min; default=600000
-
-/****************************************************************************
- * SECTION: EXPERIMENTAL                                                    *
-****************************************************************************/
-
-// PREF: CSS Masonry Layout [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
-
-// PREF: Prioritized Task Scheduling API [NIGHTLY]
-// [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
-// [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
-user_pref("dom.enable_web_task_scheduling", true);
-
-// PREF: CSS :has() selector [NIGHTLY]
-// Needed for some extensions, filters, and customizations.
-// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
-// [2] https://caniuse.com/css-has
-user_pref("layout.css.has-selector.enabled", true);
-
-// PREF: HTML Sanitizer API [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer
-// [2] https://caniuse.com/mdn-api_sanitizer
-user_pref("dom.security.sanitizer.enabled", true);
-
-// PREF: WebGPU [HIGHLY EXPERIMENTAL!]
-// [WARNING] Do not enable unless you are a web developer!
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
-// [2] https://developer.chrome.com/docs/web-platform/webgpu/
-// [3] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
-// [4] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
-//user_pref("dom.webgpu.enabled", true);
-    //user_pref("gfx.webgpu.force-enabled", true); // enforce
-// enable WebGPU indirect draws/dispatches:
-//user_pref("dom.webgpu.indirect-dispatch.enabled", true);
+//user_pref("browser.startup.preXulSkeletonUI", false);
 
 /****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
@@ -542,3 +435,119 @@ user_pref("network.predictor.enable-prefetch", false);
         //user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
     //user_pref("network.predictor.max-resources-per-entry", 250); // default=100
     //user_pref("network.predictor.max-uri-length", 1000); // default=500
+
+/****************************************************************************
+ * SECTION: EXPERIMENTAL                                                    *
+****************************************************************************/
+
+// PREF: CSS Masonry Layout [NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
+
+// PREF: Prioritized Task Scheduling API [NIGHTLY]
+// [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
+// [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
+user_pref("dom.enable_web_task_scheduling", true);
+
+// PREF: CSS :has() selector [NIGHTLY]
+// Needed for some extensions, filters, and customizations.
+// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
+// [2] https://caniuse.com/css-has
+user_pref("layout.css.has-selector.enabled", true);
+
+// PREF: HTML Sanitizer API [NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer
+// [2] https://caniuse.com/mdn-api_sanitizer
+user_pref("dom.security.sanitizer.enabled", true);
+
+// PREF: WebGPU [HIGHLY EXPERIMENTAL!]
+// [WARNING] Do not enable unless you are a web developer!
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
+// [2] https://developer.chrome.com/docs/web-platform/webgpu/
+// [3] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
+// [4] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
+//user_pref("dom.webgpu.enabled", true);
+    //user_pref("gfx.webgpu.force-enabled", true); // enforce
+// enable WebGPU indirect draws/dispatches:
+//user_pref("dom.webgpu.indirect-dispatch.enabled", true);
+
+/****************************************************************************
+ * SECTION: TAB UNLOAD                                                      *
+****************************************************************************/
+
+// PREF: unload tabs on low memory
+// [ABOUT] about:unloads
+// Firefox will detect if your computer’s memory is running low (less than 200MB)
+// and suspend tabs that you have not used in awhile.
+// [1] https://support.mozilla.org/en-US/kb/unload-inactive-tabs-save-system-memory-firefox
+// [2] https://hacks.mozilla.org/2021/10/tab-unloading-in-firefox-93/
+//user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
+
+// PREF: determine when tabs unload [WINDOWS] [LINUX]
+// Notify TabUnloader or send the memory pressure if the memory resource
+// notification is signaled AND the available commit space is lower than
+// this value.
+// Set this to some high value, e.g. 2/3 of total memory available in your system:
+// 4GB=2640, 8GB=5280, 16GB=10560, 32GB=21120, 64GB=42240
+// [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
+//user_pref("browser.low_commit_space_threshold_mb", 2640); // default=200; WINDOWS LINUX
+
+// PREF: determine when tabs unload [LINUX]
+// On Linux, Firefox checks available memory in comparison to total memory,
+// and use this percent value (out of 100) to determine if Firefox is in a
+// low memory scenario.
+// [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
+//user_pref("browser.low_commit_space_threshold_percent", 33); // default=5; LINUX
+
+// PREF: determine how long (in ms) tabs are inactive before they unload
+// 60000=1min; 300000=5min; 600000=10min (default)
+//user_pref("browser.tabs.min_inactive_duration_before_unload", 300000); // 5min; default=600000
+
+/****************************************************************************
+ * SECTION: PROCESS COUNT                                                  *
+****************************************************************************/
+
+// PREF: process count
+// [ABOUT] View in about:processes.
+// With Firefox Quantum (2017), CPU cores = processCount. However, since the
+// introduction of Fission [2], the number of website processes is controlled
+// by processCount.webIsolated. Disabling fission.autostart or changing
+// fission.webContentIsolationStrategy reverts control back to processCount.
+// [1] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
+// [2] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes 
+//user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
+//user_pref("dom.ipc.processCount.webIsolated", 1); // default=4; Isolated Web Content
+
+// PREF: use one process for process preallocation cache
+//user_pref("dom.ipc.processPrelaunch.fission.number", 1); // default=3; Process Preallocation Cache
+
+// PREF: configure process isolation
+// [1] https://hg.mozilla.org/mozilla-central/file/tip/dom/ipc/ProcessIsolation.cpp#l53
+// [2] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
+
+// OPTION 1: isolate all websites
+// Web content is always isolated into its own `webIsolated` content process
+// based on site-origin, and will only load in a shared `web` content process
+// if site-origin could not be determined.
+//user_pref("fission.webContentIsolationStrategy", 1); // DEFAULT
+//user_pref("browser.preferences.defaultPerformanceSettings.enabled", true); // DEFAULT
+    //user_pref("dom.ipc.processCount.webIsolated", 1); // one process per site origin
+
+// OPTION 2: isolate only "high value" websites
+// Only isolates web content loaded by sites which are considered "high
+// value". A site is considered high value if it has been granted a
+// `highValue*` permission by the permission manager, which is done in
+// response to certain actions.
+//user_pref("fission.webContentIsolationStrategy", 2);
+//user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
+    //user_pref("dom.ipc.processCount.webIsolated", 1); // one process per site origin (high value)
+    //user_pref("dom.ipc.processCount", 8); // determine by number of CPU cores/processors
+
+// OPTION 3: do not isolate websites
+// All web content is loaded into a shared `web` content process. This is
+// similar to the non-Fission behavior; however, remote subframes may still
+// be used for sites with special isolation behavior, such as extension or
+// mozillaweb content processes.
+//user_pref("fission.webContentIsolationStrategy", 0);
+//user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
+    //user_pref("dom.ipc.processCount", 8); // determine by number of CPU cores/processors
