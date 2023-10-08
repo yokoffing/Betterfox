@@ -383,13 +383,15 @@ user_pref("network.dns.disablePrefetch", true);
 // [5] https://developer.mozilla.org/docs/Web/HTTP/Link_prefetching_FAQ
 user_pref("network.prefetch-next", false);
 
-// PREF: enable early hints [NIGHTLY]
+// PREF: enable early hints [FF119+]
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
 // [2] https://developer.chrome.com/blog/early-hints/
-user_pref("network.early-hints.enabled", true);
+// [3] https://blog.cloudflare.com/early-hints/
+// [4] https://blog.cloudflare.com/early-hints-performance/
+//user_pref("network.early-hints.enabled", true); // DEFAULT
 
-// PREF: `Link: rel=preconnect` in 103 Early Hint response
-user_pref("network.early-hints.preconnect.enabled", true);
+// PREF: `Link: rel=preconnect` in 103 Early Hint response [FF119+]
+//user_pref("network.early-hints.preconnect.enabled", true); // DEFAULT
 
 // PREF: number of speculative connections allowed for early hints `Link: rel=preconnect`
 // When 0, this is limited by "network.http.speculative-parallel-limit".
