@@ -227,25 +227,20 @@ user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);
 
 /****************************************************************************
- * SECTION: SMOOTHFOX                                                       *
-****************************************************************************/
-// sharpen scrolling
-// uncomment to enable:
-//user_pref("mousewheel.min_line_scroll_amount", 10);
-//user_pref("general.smoothScroll.mouseWheel.durationMinMS", 80);
-//user_pref("general.smoothScroll.currentVelocityWeighting", "0.15");
-//user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6");
-
-// visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
-// Enter your scrolling prefs below this line:
-
-/****************************************************************************
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
-// uncomment if you use a dedicated GPU on WINDOWS:
+// uncomment the pref below if you use a dedicated GPU on WINDOWS:
 //user_pref("gfx.canvas.accelerated", true);
 
-// Enter your overrides below this line:
+// visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
+// visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
+// Enter your personal overrides below this line:
+
+/****************************************************************************
+ * SECTION: SMOOTHFOX                                                       *
+****************************************************************************/
+// visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
+// Enter your scrolling overrides below this line:
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
