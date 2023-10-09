@@ -105,8 +105,8 @@ user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 // 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
 // 1: reject banners if it is a one-click option; otherwise, keep banners on screen
 // 0: disable all cookie banner handling
-user_pref("cookiebanners.service.mode", 2);
-user_pref("cookiebanners.service.mode.privateBrowsing", 2);
+user_pref("cookiebanners.service.mode", 1);
+user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 
 // PREF: global CookieBannerRules [NIGHTLY]
 // Global rules that can handle a list of cookie banner libraries and providers on any site.
