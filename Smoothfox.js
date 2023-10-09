@@ -14,10 +14,10 @@
 ****************************************************************************************/
 // Only Sharpen Scrolling
 // credit: https://github.com/black7375/Firefox-UI-Fix
-user_pref("mousewheel.min_line_scroll_amount",                 10);
-user_pref("general.smoothScroll.mouseWheel.durationMinMS",     80);
-user_pref("general.smoothScroll.currentVelocityWeighting", "0.15");
-user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6");
+user_pref("mousewheel.min_line_scroll_amount", 10); // default=5
+user_pref("general.smoothScroll.mouseWheel.durationMinMS", 80); // default=50
+user_pref("general.smoothScroll.currentVelocityWeighting", "0.15"); // default=.25
+user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6"); // default=.4
 
 /****************************************************************************************
  * OPTION: INSTANT SCROLLING (SIMPLE ADJUSTMENT)                                       *
