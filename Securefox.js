@@ -271,8 +271,11 @@ user_pref("security.pki.crlite_mode", 2);
 // [3] https://github.com/yokoffing/Betterfox/issues/53#issuecomment-1035554783
 //user_pref("security.cert_pinning.enforcement_level", 2);
 
-// PREF: disable Enterprise Root Certificates of the operating system
-//user_pref("security.enterprise_roots.enabled", false); // DEFAULT
+// PREF: do not trust installed third-party root certificates [FF120+]
+// Disable Enterprise Root Certificates of the operating system. 
+// For users trying to get intranet sites on managed networks,
+// or who have security software configured to analyze web traffic.
+//user_pref("security.enterprise_roots.enabled", false);
     //user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
 
 /****************************************************************************
