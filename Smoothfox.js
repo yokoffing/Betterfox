@@ -10,7 +10,7 @@
 // Reset prefs if you decide to use different option.
 
 /****************************************************************************************
- * OPTION: SHARPEN SCROLLING                                       *
+ * OPTION: SHARPEN SCROLLING                                                           *
 ****************************************************************************************/
 // Only Sharpen Scrolling
 // credit: https://github.com/black7375/Firefox-UI-Fix
