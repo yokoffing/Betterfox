@@ -228,16 +228,23 @@ user_pref("findbar.highlightAll", true);
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
+// sharpen scrolling
+// uncomment to enable:
+//user_pref("mousewheel.min_line_scroll_amount", 10);
+//user_pref("general.smoothScroll.mouseWheel.durationMinMS", 80);
+//user_pref("general.smoothScroll.currentVelocityWeighting", "0.15");
+//user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6");
+
 // visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
 // Enter your scrolling prefs below this line:
 
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
-// Uncomment the pref below if you use a dedicated GPU on WINDOWS:
+// uncomment if you use a dedicated GPU on WINDOWS:
 //user_pref("gfx.canvas.accelerated", true);
 
-// Enter your personal prefs below this line:
+// Enter your overrides below this line:
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
