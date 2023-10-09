@@ -120,7 +120,7 @@ user_pref("cookiebanners.service.enableGlobalRules", true);
 // [1] https://blog.mozilla.org/en/mozilla/local-translation-add-on-project-bergamot/
 // [2] https://blog.nightly.mozilla.org/2023/06/01/firefox-translations-and-other-innovations-these-weeks-in-firefox-issue-139/
 // [3] https://www.ghacks.net/2023/08/02/mozilla-firefox-117-beta-brings-an-automatic-language-translator-for-websites-and-it-works-offline/
-user_pref("browser.translations.enable", true);
+//user_pref("browser.translations.enable", true); // DEFAULT
     //user_pref("browser.translations.autoTranslate", true);
 
 /****************************************************************************
