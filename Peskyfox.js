@@ -109,12 +109,9 @@ user_pref("cookiebanners.service.mode", 2);
 user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 
 // PREF: global CookieBannerRules [NIGHTLY]
-// Global rules that can handle a list of cookie banner libraries / providers on any site.
-// This is used for click rules that can handle common Consent Management Providers (CMP)
-// [WARNING] Beware of potential bugs and performance issues. Enabling this may negatively
-// impact site performance. It requires Firefox to run rule-defined query selectors for
-// every page.
-//user_pref("cookiebanners.service.enableGlobalRules", false); // DEFAULT
+// Global rules that can handle a list of cookie banner libraries and providers on any site.
+// This is used for click rules that can handle common Consent Management Providers (CMP).
+user_pref("cookiebanners.service.enableGlobalRules", true);
 
 // PREF: Firefox Translations [FF118+]
 // Automated translation of web content is done locally in Firefox, so that
