@@ -190,15 +190,18 @@ user_pref("browser.uitour.enabled", false);
 //user_pref("devtools.debugger.remote-enabled", false); // DEFAULT
 
 // PREF: enable Global Privacy Control (GPC) [FF118+]
-// Honored by many highly ranked sites [2].
+// A privacy signal that tells the websites that the user
+// doesn’t want to be tracked and doesn’t want their data to be sold.
+// Honored by many highly ranked sites [3].
 // [TEST] https://global-privacy-control.glitch.me/
-// [1] https://globalprivacycontrol.org/press-release/20201007.html
-// [2] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
-// [3] https://blog.mozilla.org/netpolicy/2021/10/28/implementing-global-privacy-control/
-// [4] https://help.duckduckgo.com/duckduckgo-help-pages/privacy/gpc/
-// [5] https://brave.com/web-standards-at-brave/4-global-privacy-control/
-// [6] https://www.eff.org/gpc-privacy-badger
-// [7] https://www.eff.org/issues/do-not-track
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1830623
+// [2] https://globalprivacycontrol.org/press-release/20201007.html
+// [3] https://github.com/arkenfox/user.js/issues/1542#issuecomment-1279823954
+// [4] https://blog.mozilla.org/netpolicy/2021/10/28/implementing-global-privacy-control/
+// [5] https://help.duckduckgo.com/duckduckgo-help-pages/privacy/gpc/
+// [6] https://brave.com/web-standards-at-brave/4-global-privacy-control/
+// [7] https://www.eff.org/gpc-privacy-badger
+// [8] https://www.eff.org/issues/do-not-track
 user_pref("privacy.globalprivacycontrol.enabled", true);
     user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 
@@ -275,6 +278,7 @@ user_pref("security.pki.crlite_mode", 2);
 // Disable Enterprise Root Certificates of the operating system. 
 // For users trying to get intranet sites on managed networks,
 // or who have security software configured to analyze web traffic.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1848815
 //user_pref("security.enterprise_roots.enabled", false);
     //user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
 
