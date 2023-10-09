@@ -62,12 +62,13 @@ user_pref("browser.download.folderList", 0); // 0=desktop, 1=downloads, 2=last u
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
 user_pref("browser.translations.autoTranslate", true); // make Firefox auto-translate non-English pages
-user_pref("browser.urlbar.suggest.bookmark", false); // hide URL bar dropdown suggestions
-user_pref("browser.urlbar.suggest.history", false); // hide URL bar dropdown suggestions
-user_pref("browser.urlbar.suggest.openpage", false); // hide URL bar dropdown suggestions
-user_pref("browser.urlbar.suggest.searches", false); // hide URL bar dropdown suggestions (needed?)
-user_pref("browser.urlbar.suggest.topsites", false); // disable dropdown suggestions with empty query
-user_pref("browser.urlbar.suggest.engines", false); // tab-to-search
+user_pref("browser.urlbar.suggest.history", false); // Browsing history; hide URL bar dropdown suggestions
+user_pref("browser.urlbar.suggest.bookmark", false); // Bookmarks; hide URL bar dropdown suggestions
+user_pref("browser.urlbar.suggest.openpage", false); // Open tabs; hide URL bar dropdown suggestions
+//user_pref("browser.urlbar.suggest.topsites", false); // Shortcuts; disable dropdown suggestions with empty query
+user_pref("browser.urlbar.suggest.engines", false); // Search engines; tab-to-search
+//user_pref("browser.urlbar.suggest.quickactions", false); // Quick actions; hide URL bar dropdown suggestions
+//user_pref("browser.urlbar.suggest.searches", false); // (needed?); hide URL bar dropdown suggestions
 //user_pref("browser.urlbar.maxRichResults", 1); // minimum suggestion needed for URL bar autofill
 user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually back-up
 user_pref("view_source.wrap_long_lines", true);  // wrap source lines
@@ -88,7 +89,6 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
-//user_pref("browser.urlbar.suggest.quickactions", false); // Quick Actions in URL bar
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 user_pref("browser.urlbar.trimHttps", true); // hide https in URL bar [FF119]
 
