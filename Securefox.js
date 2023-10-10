@@ -655,6 +655,10 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // 5= Off: disable DoH
 //user_pref("network.trr.mode", 0); // DEFAULT
 
+// PREF: lower max attempts to use DoH
+// If DNS requests take too long, FF will fallback to your default DNS much quicker.
+//user_pref("network.trr.max-fails", 5); // default=15
+
 // PREF: display fallback warning page [FF115+]
 // Show a warning checkbox UI in modes 0 or 2 above.
 //user_pref("network.trr_ui.show_fallback_warning_option", false); // DEFAULT
@@ -666,10 +670,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
 
 // PREF: adjust providers
-//user_pref("network.trr.resolvers", '[{ "name": "Cloudflare", "url": "https://mozilla.cloudflare-dns.com/dns-query" },{ "name": "SecureDNS", "url": "https://doh.securedns.eu/dns-query" },{ "name": "AppliedPrivacy", "url": "https://doh.appliedprivacy.net/query" },{ "name": "Digitale Gesellschaft (CH)", "url": "https://dns.digitale-gesellschaft.ch/dns-query" }, { "name": "Quad9", "url": "https://dns.quad9.net/dns-query" }]'); 
-
-// PREF: fallback to native DNS upon network errors
-//user_pref("network.trr.strict_native_fallback", false); // DEFAULT
+//user_pref("network.trr.resolvers", '[{ "name": "Cloudflare", "url": "https://mozilla.cloudflare-dns.com/dns-query" },{ "name": "SecureDNS", "url": "https://doh.securedns.eu/dns-query" },{ "name": "AppliedPrivacy", "url": "https://doh.appliedprivacy.net/query" },{ "name": "Digitale Gesellschaft (CH)", "url": "https://dns.digitale-gesellschaft.ch/dns-query" }, { "name": "Quad9", "url": "https://dns.quad9.net/dns-query" }]');
 
 // PREF: EDNS Client Subnet (ECS)
 // [WARNING] In some circumstances, enabling ECS may result
