@@ -176,7 +176,7 @@ user_pref("browser.urlbar.suggest.calculator", true);
 user_pref("browser.urlbar.unitConversion.enabled", true);
 
 // PREF: disable dropdown suggestions with empty query
-user_pref("browser.urlbar.suggest.topsites", false);
+//user_pref("browser.urlbar.suggest.topsites", false);
 
 // PREF: disable tab-to-search [FF85+]
 // Alternatively, you can exclude on a per-engine basis by unchecking them in Options>Search
