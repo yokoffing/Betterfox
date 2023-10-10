@@ -858,6 +858,7 @@ user_pref("extensions.formautofill.creditCards.enabled", false);
 user_pref("security.mixed_content.block_display_content", true);
 
 // PREF: upgrade passive content to use HTTPS on secure pages
+// [NOTE] You can remove if using HTTPS-Only Mode.
 user_pref("security.mixed_content.upgrade_display_content", true);
 
 // PREF: block insecure downloads from secure sites
