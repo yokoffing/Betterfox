@@ -111,6 +111,7 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 
 /** DELETE IF NOT macOS LAPTOP ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
+user_pref("network.trr.max-fails", 5); // lower max attempts to use DoH
 user_pref("geo.provider.use_corelocation", false); // geolocation [MAC]
 user_pref("pdfjs.defaultZoomValue", "page-width"); // PDF zoom level
 user_pref("app.update.auto", false); // disable auto-installing Firefox updates [NON-WINDOWS]
