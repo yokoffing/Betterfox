@@ -292,7 +292,7 @@ user_pref("extensions.pocket.enabled", false);
 
 // PREF: always ask where to download
 // Enforce user interaction for greater security.
-// [SETTING] General>Downloads>Always ask you where to save files
+// [SETTING] General>Files and Applications>Downloads>Always ask you where to save files
 // [DIALOGUE] "Ask whether to open or save files"
 // true=direct download (default)
 // false=the user is asked what to do
@@ -302,7 +302,7 @@ user_pref("browser.download.useDownloadDir", false);
 
 // PREF: always ask how to handle new mimetypes
 // Enforce user interaction for greater security.
-// [SETTING] General>Files and Applications>What should Firefox do with other files
+// [SETTING] General>Files and Applications>Applications>What should Firefox do with other files?>Ask whether to open or save files
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 // PREF: disable downloads panel opening on every download
