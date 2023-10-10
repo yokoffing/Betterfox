@@ -65,7 +65,7 @@ user_pref("browser.translations.autoTranslate", true); // make Firefox auto-tran
 user_pref("browser.urlbar.suggest.history", false); // Browsing history; hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.bookmark", false); // Bookmarks; hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.openpage", false); // Open tabs; hide URL bar dropdown suggestions
-//user_pref("browser.urlbar.suggest.topsites", false); // Shortcuts; disable dropdown suggestions with empty query
+user_pref("browser.urlbar.suggest.topsites", false); // Shortcuts; disable dropdown suggestions with empty query
 user_pref("browser.urlbar.suggest.engines", false); // Search engines; tab-to-search
 //user_pref("browser.urlbar.suggest.quickactions", false); // Quick actions; hide URL bar dropdown suggestions
 //user_pref("browser.urlbar.suggest.searches", false); // (needed?); hide URL bar dropdown suggestions
