@@ -3,7 +3,7 @@
  * Smoothfox                                                                            *
  * "Faber est suae quisque fortunae"                                                    *
  * priority: better scrolling                                                           *
- * version: October 2023                                                                *
+ * version: 10 October 2023                                                             *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
