@@ -130,10 +130,10 @@ user_pref("cookiebanners.service.enableGlobalRules", true);
 ****************************************************************************/
 
 // PREF: disable fullscreen delay and notice
-user_pref("full-screen-api.transition-duration.enter", "0 0");
-user_pref("full-screen-api.transition-duration.leave", "0 0");
-user_pref("full-screen-api.warning.delay", -1);
-user_pref("full-screen-api.warning.timeout", 0);
+user_pref("full-screen-api.transition-duration.enter", "50 50"); // default=200 200
+user_pref("full-screen-api.transition-duration.leave", "50 50"); // default=200 200
+user_pref("full-screen-api.warning.delay", -1); // default=500
+user_pref("full-screen-api.warning.timeout", 0); // default=3000
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
