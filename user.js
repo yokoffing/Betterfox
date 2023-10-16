@@ -104,7 +104,7 @@ user_pref("network.IDN_show_punycode", true);
 user_pref("dom.security.https_first", true);
 
 /** PASSWORDS ***/
-user_pref("signon.rememberSignons", true);
+user_pref("signon.rememberSignons", false);
 user_pref("signon.formlessCapture.enabled", false);
 user_pref("signon.privateBrowsingCapture.enabled", false);
 user_pref("network.auth.subresource-http-auth-allow", 1);
