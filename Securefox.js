@@ -758,8 +758,17 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 //user_pref("network.notify.checkForProxies", false);
 
 /******************************************************************************
- * SECTION: PASSWORDS                             *
+ * SECTION: PASSWORDS                                                        *
 ******************************************************************************/
+
+// PREF: disable password manager
+// [NOTE] This does not clear any passwords already saved.
+// [SETTING] Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
+user_pref("signon.rememberSignons", false);
+    //user_pref("signon.rememberSignons.visibilityToggle", true); // DEFAULT
+    //user_pref("signon.schemeUpgrades", true); // DEFAULT
+    //user_pref("signon.showAutoCompleteFooter", true); // DEFAULT
+    //user_pref("signon.autologin.proxy", false); // DEFAULT
 
 // PREF: disable auto-filling username & password form fields
 // Can leak in cross-site forms and be spoofed.
@@ -778,15 +787,6 @@ user_pref("signon.privateBrowsingCapture.enabled", false);
 // PREF: disable autofilling saved passwords on HTTP pages
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1217152,1319119
 //user_pref("signon.autofillForms.http", false); // DEFAULT
-
-// PREF: disable password manager
-// [NOTE] This does not clear any passwords already saved.
-// [SETTING] Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
-//user_pref("signon.rememberSignons", false);
-    //user_pref("signon.rememberSignons.visibilityToggle", true); // DEFAULT
-    //user_pref("signon.schemeUpgrades", true); // DEFAULT
-    //user_pref("signon.showAutoCompleteFooter", true); // DEFAULT
-    //user_pref("signon.autologin.proxy", false); // DEFAULT
 
 // PREF: disable Firefox built-in password generator
 // Create passwords with random characters and numbers.
@@ -836,7 +836,7 @@ user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
 
 /******************************************************************************
- * SECTION: MIXED CONTENT + CROSS-SITE                             *
+ * SECTION: MIXED CONTENT + CROSS-SITE                                       *
 ******************************************************************************/
 
 // [TEST] https://mixed-script.badssl.com/
@@ -891,7 +891,7 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 //user_pref("privacy.window.name.update.enabled", true); // DEFAULT
 
 /******************************************************************************
- * SECTION: HEADERS / REFERERS                                             *
+ * SECTION: HEADERS / REFERERS                                               *
 ******************************************************************************/
 
 // PREF: default referrer policy (used unless overriden by the site)
@@ -945,7 +945,7 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /******************************************************************************
- * SECTION: CONTAINERS                                                        *
+ * SECTION: CONTAINERS                                                       *
 ******************************************************************************/
 
 // PREF: enable Container Tabs and its UI setting [FF50+]
@@ -964,7 +964,7 @@ user_pref("privacy.userContext.ui.enabled", true);
 //user_pref("privacy.userContext.newTabContainerOnLeftClick.enabled", true);
 
 /******************************************************************************
- * SECTION: WEBRTC                                                            *
+ * SECTION: WEBRTC                                                           *
 ******************************************************************************/
 
 // PREF: disable WebRTC (Web Real-Time Communication)
@@ -993,7 +993,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 //user_pref("media.peerconnection.ice.no_host", true);
 
 /******************************************************************************
- * SECTION: PLUGINS                                                           *
+ * SECTION: PLUGINS                                                          *
 ******************************************************************************/
 
 // PREF: disable GMP (Gecko Media Plugins)
@@ -1019,7 +1019,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
     //user_pref("browser.eme.ui.enabled", false);
 
 /******************************************************************************
- * SECTION: VARIOUS                            *
+ * SECTION: VARIOUS                                                          *
 ******************************************************************************/
 
 // PREF: enable FTP protocol
@@ -1038,7 +1038,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 //user_pref("devtools.selfxss.count", 5);
 
 /******************************************************************************
- * SECTION: SAFE BROWSING (SB)                                                *
+ * SECTION: SAFE BROWSING (SB)                                               *
 ******************************************************************************/
 
 // A full url is never sent to Google, only a part-hash of the prefix,
@@ -1261,7 +1261,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
 /******************************************************************************
- * SECTION: EXPERIMENTS                                                   *
+ * SECTION: EXPERIMENTS                                                      *
 ******************************************************************************/
 
 // PREF: disable Studies
@@ -1275,7 +1275,7 @@ user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 
 /******************************************************************************
- * SECTION: CRASH REPORTS                                                   *
+ * SECTION: CRASH REPORTS                                                    *
 ******************************************************************************/
 
 // PREF: disable crash reports
@@ -1288,7 +1288,7 @@ user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
 /******************************************************************************
- * SECTION: DETECTION                                                   *
+ * SECTION: DETECTION                                                        *
 ******************************************************************************/
 
 // PREF: disable Captive Portal detection
