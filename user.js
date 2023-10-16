@@ -234,9 +234,6 @@ user_pref("findbar.highlightAll", true);
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
-// uncomment the pref below if you use a dedicated GPU on WINDOWS:
-//user_pref("gfx.canvas.accelerated", true);
-
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
