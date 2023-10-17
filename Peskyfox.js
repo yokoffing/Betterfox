@@ -11,24 +11,6 @@
  * SECTION: MOZILLA UI                                                      *
 ****************************************************************************/
 
-// PREF: preferred color scheme for websites
-// [SETTING] General>Language and Appearance>Website appearance
-// By default, color scheme matches the theme of your browser toolbar (3).
-// Set this pref to choose Dark on sites that support it (0) or Light (1).
-// Before FF95, the pref was 2, which determined site color based on OS theme.
-// Dark (0), Light (1), System (2), Browser (3) (default [FF95+])
-// [1] https://www.reddit.com/r/firefox/comments/rfj6yc/how_to_stop_firefoxs_dark_theme_from_overriding/hoe82i5/?context=3
-user_pref("layout.css.prefers-color-scheme.content-override", 2);
-
-// PREF: disable always using dark theme for private browsing windows [FF106+]
-//user_pref("browser.theme.dark-private-windows", false);
-
-// PREF: enable Firefox to use userChome, userContent, etc.
-user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-
-// PREF: add compact mode back to options
-user_pref("browser.compactmode.show", true);
-
 // PREF: Mozilla VPN
 // [1] https://github.com/yokoffing/Betterfox/issues/169
 user_pref("browser.privatebrowsing.vpnpromourl", "");
@@ -70,7 +52,7 @@ user_pref("browser.preferences.moreFromMozilla", false);
 // [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
 user_pref("browser.tabs.tabmanager.enabled", false);
 
-// PREF: Warnings
+// PREF: tab and about:config warnings
 //user_pref("browser.tabs.warnOnClose", false); // DEFAULT [FF94+]
 //user_pref("browser.tabs.warnOnCloseOtherTabs", true); // DEFAULT
 //user_pref("browser.tabs.warnOnOpen", true); // DEFAULT
@@ -86,17 +68,43 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 // PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
+/****************************************************************************
+ * SECTION: THEME ADJUSTMENTS                                              *
+****************************************************************************/
+
+// PREF: enable Firefox to use userChome, userContent, etc.
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+// PREF: add compact mode back to options
+user_pref("browser.compactmode.show", true);
+
 // PREF: remove focus indicator for links
 // [1] https://www.askvg.com/firefox-tip-restore-classic-dotted-outline-focus-indicator-for-links/
 user_pref("browser.display.focus_ring_on_anything", true); 
 user_pref("browser.display.focus_ring_style", 0);
 user_pref("browser.display.focus_ring_width", 0);
 
+// PREF: preferred color scheme for websites
+// [SETTING] General>Language and Appearance>Website appearance
+// By default, color scheme matches the theme of your browser toolbar (3).
+// Set this pref to choose Dark on sites that support it (0) or Light (1).
+// Before FF95, the pref was 2, which determined site color based on OS theme.
+// Dark (0), Light (1), System (2), Browser (3) [DEFAULT FF95+]
+// [1] https://www.reddit.com/r/firefox/comments/rfj6yc/how_to_stop_firefoxs_dark_theme_from_overriding/hoe82i5/?context=3
+user_pref("layout.css.prefers-color-scheme.content-override", 2);
+
+// PREF: disable always using dark theme for private browsing windows [FF106+]
+//user_pref("browser.theme.dark-private-windows", false);
+
 // PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+]
-user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
+user_pref("browser.privateWindowSeparation.enabled", false);
 
 // PREF: reduce the size of the "private window" indicator in tab bar [FF106+]
 //user_pref("browser.privatebrowsing.enable-new-indicator", false); // REMOVED [FF119+]
+
+/****************************************************************************
+ * SECTION: COOKIE BANNER HANDLING                                         *
+****************************************************************************/
 
 // PREF: Cookie Banner handling
 // [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
@@ -115,6 +123,10 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 // This is used for click rules that can handle common Consent Management Providers (CMP).
 user_pref("cookiebanners.service.enableGlobalRules", true);
 
+/****************************************************************************
+ * SECTION: TRANSLATIONS                                                   *
+****************************************************************************/
+
 // PREF: Firefox Translations [FF118+]
 // Automated translation of web content is done locally in Firefox, so that
 // the text being translated does not leave your machine.
@@ -129,9 +141,11 @@ user_pref("cookiebanners.service.enableGlobalRules", true);
  * SECTION: FULLSCREEN NOTICE                                               *
 ****************************************************************************/
 
-// PREF: disable fullscreen delay and notice
+// PREF: shorten fullscreen delay and 
 user_pref("full-screen-api.transition-duration.enter", "50 50"); // default=200 200
 user_pref("full-screen-api.transition-duration.leave", "50 50"); // default=200 200
+
+// PREF: disable fullscreen notice
 user_pref("full-screen-api.warning.delay", -1); // default=500
 user_pref("full-screen-api.warning.timeout", 0); // default=3000
 
