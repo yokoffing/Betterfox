@@ -110,7 +110,7 @@ user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 user_pref("cookiebanners.service.mode", 1);
 user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 
-// PREF: global CookieBannerRules [NIGHTLY]
+// PREF: Cookie Banner global rules
 // Global rules that can handle a list of cookie banner libraries and providers on any site.
 // This is used for click rules that can handle common Consent Management Providers (CMP).
 user_pref("cookiebanners.service.enableGlobalRules", true);
