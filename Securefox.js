@@ -180,6 +180,12 @@ user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API#browser_compatibility
 //user_pref("dom.battery.enabled", false);
 
+// PREF: remove temp files opened from non-PB windows with an external application
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=302433,1738574
+// [2] https://github.com/arkenfox/user.js/issues/1732
+user_pref("browser.download.start_downloads_in_tmp_dir", true); // [FF102+]
+user_pref("browser.helperApps.deleteTempFileOnExit", true);
+
 // PREF: disable UITour backend
 // This way, there is no chance that a remote page can use it.
 user_pref("browser.uitour.enabled", false);
