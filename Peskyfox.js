@@ -205,6 +205,9 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: false]
 //user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
 
+// PREF: disable urlbar clipboard suggestions [FF118+]
+//user_pref("browser.urlbar.clipboard.featureGate", false); // [DEFAULT: false]
+
 // PREF: disable tab-to-search [FF85+]
 // Alternatively, you can exclude on a per-engine basis by unchecking them in Options>Search
 // [SETTING] Privacy & Security>Address Bar>When using the address bar, suggest>Search engines
