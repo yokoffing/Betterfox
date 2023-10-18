@@ -194,6 +194,17 @@ user_pref("browser.urlbar.unitConversion.enabled", true);
 // PREF: disable dropdown suggestions with empty query
 user_pref("browser.urlbar.suggest.topsites", false);
 
+// PREF: disable urlbar trending search suggestions [FF118+]
+// [SETTING] Search>Search Suggestions>Show trending search suggestions (FF119)
+user_pref("browser.urlbar.trending.featureGate", false);
+//user_pref("browser.urlbar.suggest.trending", false);
+
+// PREF: disable urlbar suggestions
+//user_pref("browser.urlbar.addons.featureGate", false); // [FF115+]
+//user_pref("browser.urlbar.mdn.featureGate", false); // [FF117+] [HIDDEN PREF]
+//user_pref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: false]
+//user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
+
 // PREF: disable tab-to-search [FF85+]
 // Alternatively, you can exclude on a per-engine basis by unchecking them in Options>Search
 // [SETTING] Privacy & Security>Address Bar>When using the address bar, suggest>Search engines
