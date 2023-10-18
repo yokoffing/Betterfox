@@ -641,7 +641,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // PREF: DNS-over-HTTPS (DoH) implementation
 // [NOTE] Mode 3 has site exceptions with a nice UI on the error page.
 // [SETTINGS] Privacy & Security > DNS over HTTPS > Enable secure DNS using:
-// [NOTE] Mode 3 has site-exceptions with a nice UI on the error page
+// [NOTE] Mode 3 has site-exceptions with a nice UI on the error page.
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://support.mozilla.org/en-US/kb/dns-over-https#w_protection-levels-explained
 // 0= Default Protection: disable DoH (default)
@@ -663,6 +663,12 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [1] https://github.com/uBlockOrigin/uBlock-issues/issues/1710
 //user_pref("network.trr.uri", "https://xxxx/dns-query");
     //user_pref("network.trr.custom_uri", "https://xxxx/dns-query");
+
+// PREF: set DoH bootstrap address [FF89+]
+// Firefox uses the system DNS to initially resolve the IP address of your DoH server.
+// When set to a valid, working value that matches your "network.trr.uri" Firefox
+// won't use the system DNS. If the IP doesn't match then DoH won't work
+//user_pref("network.trr.bootstrapAddr", "10.0.0.1"); // [HIDDEN PREF]
 
 // PREF: adjust providers
 //user_pref("network.trr.resolvers", '[{ "name": "Cloudflare", "url": "https://mozilla.cloudflare-dns.com/dns-query" },{ "name": "SecureDNS", "url": "https://doh.securedns.eu/dns-query" },{ "name": "AppliedPrivacy", "url": "https://doh.appliedprivacy.net/query" },{ "name": "Digitale Gesellschaft (CH)", "url": "https://dns.digitale-gesellschaft.ch/dns-query" }, { "name": "Quad9", "url": "https://dns.quad9.net/dns-query" }]');
