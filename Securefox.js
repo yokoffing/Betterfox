@@ -476,7 +476,7 @@ user_pref("privacy.history.custom", true);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1767271
 
 /******************************************************************************
- * SECTION: SEARCH / URL BAR                              *
+ * SECTION: SEARCH / URL BAR                                                 *
 ******************************************************************************/
 
 // PREF: trim certain parts of the URL
@@ -524,17 +524,6 @@ user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
 // [WARNING] Search engines keylog every character you type from the URL bar.
 user_pref("browser.search.suggest.enabled", false);
 //user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
-
-// PREF: disable urlbar trending search suggestions [FF118+]
-// [SETTING] Search>Search Suggestions>Show trending search suggestions (FF119)
-user_pref("browser.urlbar.trending.featureGate", false);
-//user_pref("browser.urlbar.suggest.trending", false);
-
-// PREF: disable urlbar suggestions
-//user_pref("browser.urlbar.addons.featureGate", false); // [FF115+]
-//user_pref("browser.urlbar.mdn.featureGate", false); // [FF117+] [HIDDEN PREF]
-//user_pref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: false]
-//user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
 
 // PREF: disable Firefox Suggest
 // [1] https://github.com/arkenfox/user.js/issues/1257
