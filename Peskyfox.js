@@ -488,7 +488,7 @@ user_pref("findbar.highlightAll", true);
 // PREF: disable Reader mode
 // [TIP] Use about:reader?url=%s as a keyword to open links automatically in reader mode [1].
 // Firefox will not have to parse webpage for Reader when navigating.
-// Extremely minimal performance impact, if you enable.
+// Extremely minimal performance impact, if you disable.
 // [1] https://www.reddit.com/r/firefox/comments/621sr2/i_found_out_how_to_automatically_open_a_url_in/ 
 //user_pref("reader.parse-on-load.enabled", false);
 
