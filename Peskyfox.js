@@ -142,8 +142,8 @@ user_pref("cookiebanners.service.enableGlobalRules", true);
 ****************************************************************************/
 
 // PREF: shorten fullscreen delay and 
-user_pref("full-screen-api.transition-duration.enter", "50 50"); // default=200 200
-user_pref("full-screen-api.transition-duration.leave", "50 50"); // default=200 200
+user_pref("full-screen-api.transition-duration.enter", "25 25"); // default=200 200
+user_pref("full-screen-api.transition-duration.leave", "25 25"); // default=200 200
 
 // PREF: disable fullscreen notice
 user_pref("full-screen-api.warning.delay", -1); // default=500
