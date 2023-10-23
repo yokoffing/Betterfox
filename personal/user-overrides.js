@@ -49,6 +49,7 @@ user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":tr
 user_pref("accessibility.force_disabled", 1); // disable Accessibility features
 //user_pref("security.ssl.require_safe_negotiation", true); // safe negotiation
 user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
+user_pref("browser.download.useDownloadDir", true); // one-click downloads
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes un-needed "Inspect Accessibility Properties" on right-click
