@@ -360,10 +360,11 @@ user_pref("browser.download.manager.addToRecentDocs", false);
 // PREF: open PDFs inline (FF103+)
 user_pref("browser.download.open_pdf_attachments_inline", true);
 
-// PREF: PDF sidebar on load [HIDDEN] 
+// PREF: PDF sidebar on load
 // 2=table of contents (if not available, will default to 1)
 // 1=view pages
-// -1=disabled (default)
+// 0=disabled
+// -1=remember previous state (default)
 //user_pref("pdfjs.sidebarViewOnLoad", 2);
 
 // PREF: default zoom for PDFs [HIDDEN]
