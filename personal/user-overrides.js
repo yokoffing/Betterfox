@@ -45,6 +45,7 @@ user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation reques
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla domains so adblocker works on pages
 user_pref("identity.fxaccounts.enabled", false); // disable Firefox Sync
 user_pref("browser.tabs.firefox-view", false); // disable Firefox View
+user_pref("browser.tabs.firefox-view-next", false); // disable Firefox View [FF119+]
 user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}"); // disable the Firefox View tour from popping up for new profiles
 user_pref("accessibility.force_disabled", 1); // disable Accessibility features
 //user_pref("security.ssl.require_safe_negotiation", true); // safe negotiation
