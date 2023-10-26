@@ -644,7 +644,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [NOTE] Mode 3 has site-exceptions with a nice UI on the error page.
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 // [2] https://support.mozilla.org/en-US/kb/dns-over-https#w_protection-levels-explained
-// 0= Default Protection: disable DoH (default)
+// 0= Default Protection: Firefox decides when to use secure DNS (default)
 // 2= Increased Protection: use DoH and fall back to native DNS if necessary
 // 3= Max Protection: only use DoH; do not fall back to native DNS
 // 5= Off: disable DoH
