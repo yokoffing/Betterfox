@@ -557,6 +557,7 @@ user_pref("browser.formfill.enable", false);
 // PREF: enforce Punycode for Internationalized Domain Names to eliminate possible spoofing
 // Firefox has some protections, but it is better to be safe than sorry.
 // [!] Might be undesirable for non-latin alphabet users since legitimate IDN's are also punycoded.
+// [EXAMPLE] https://www.techspot.com/news/100555-malvertising-attack-uses-punycode-character-spread-malware-through.html
 // [TEST] https://www.xn--80ak6aa92e.com/ (www.apple.com)
 // [1] https://wiki.mozilla.org/IDN_Display_Algorithm
 // [2] https://en.wikipedia.org/wiki/IDN_homograph_attack
