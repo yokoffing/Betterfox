@@ -285,7 +285,7 @@ user_pref("network.http.pacing.requests.enabled", false);
 // PREF: adjust DNS expiration time
 // [ABOUT] about:networking#dns
 // [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
-user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3600 (1 hour)
+user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour
     //user_pref("network.dnsCacheExpirationGracePeriod", 240); // default=60; cache DNS entries for 4 minutes after they expire
 
 // PREF: the number of threads for DNS
@@ -384,7 +384,7 @@ user_pref("network.dns.disablePrefetch", true);
 // PREF: disable link prefetching <link rel="prefetch">
 // Enabling link prefetching allows Firefox to preload pages tagged as important.
 // The browser prefetches links with the prefetch-link tag, fetching resources
-// likely needed for the NEXT navigation at low priority. When clicking a link
+// likely needed for the next navigation at low priority. When clicking a link
 // or loading a new page, prefetching stops and discards hints. Prefetching
 // downloads resources without executing them.
 // [1] https://developer.mozilla.org/en-US/docs/Glossary/Prefetch
@@ -409,12 +409,11 @@ user_pref("network.prefetch-next", false);
 //user_pref("network.early-hints.preconnect.max_connections", 10); // DEFAULT
 
 // PREF: disable Network Predictor (NP)
-// When turned on, this is Firefox's algorithm to predict
-// which links you will click on next and have them preloaded.
-// Network Predictor preloads links it predicts you will click next
-// by tracking past page resources. It uses a local file (history) of needed
-// images, scripts, etc. to request them preemptively when navigating
-// or mousing over links.
+// When turned on, this is Firefox's algorithm to predict which links you
+// will click on next and have them preloaded. Network Predictor preloads
+// links it predicts you will click next by tracking past page resources.
+// It uses a local file (history) of needed images, scripts, etc. to request
+// them preemptively when navigating or mousing over links.
 // [NOTE] By default, it only preconnects, doing DNS, TCP, and SSL handshakes.
 // No data sends until clicking. With "network.predictor.enable-prefetch" enabled,
 // it also performs prefetches.
@@ -427,7 +426,7 @@ user_pref("network.predictor.enabled", false);
 // PREF: disable NP fetche for resources ahead of time, to accelerate rendering of the page
 // When turned on, this is Firefox's algorithm to predict which links you will
 // click on next and have them preloaded. Performs both pre-connect and prefetch.
-//user_pref("network.predictor.enable-prefetch", false);
+//user_pref("network.predictor.enable-prefetch", false); // DEFAULT
 
 // PREF: NP active when hovering over links
 // When hovering over links, Network Predictor uses past resource history to
@@ -438,14 +437,14 @@ user_pref("network.predictor.enabled", false);
 
 // PREF: assign NP confidence levels
 // Editing these lower will cause more speculative connections to occur,
-// which has privacy implications.
+// which reduces accuracy over time and has privacy implications.
 //user_pref("network.predictor.preresolve-min-confidence", 60); // DEFAULT
 //user_pref("network.predictor.preconnect-min-confidence", 90); // DEFAULT
 //user_pref("network.predictor.prefetch-min-confidence", 100); // DEFAULT
 
-// PREF: NP values
-//user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
-//user_pref("network.predictor.prefetch-rolling-load-count", 10); DEFAULT; the number of links that can be prefetched in memory at once
+// PREF: other NP values
+//user_pref("network.predictor.prefetch-force-valid-for", 3600); // how long prefetched resources are considered valid and usable (in seconds)
+//user_pref("network.predictor.prefetch-rolling-load-count", 10); // DEFAULT; the maximum number of resources that Firefox will prefetch in memory at one time based on prediction modelin
 //user_pref("network.predictor.max-resources-per-entry", 250); // default=100
 //user_pref("network.predictor.max-uri-length", 1000); // default=500
 
