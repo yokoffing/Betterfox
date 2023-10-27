@@ -423,28 +423,30 @@ user_pref("network.prefetch-next", false);
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
 user_pref("network.predictor.enabled", false);
 
-// PREF: disable NP fetche for resources ahead of time, to accelerate rendering of the page
+// PREF: disable Network Predictor fetch for resources ahead of time
 // When turned on, this is Firefox's algorithm to predict which links you will
 // click on next and have them preloaded. Performs both pre-connect and prefetch.
 //user_pref("network.predictor.enable-prefetch", false); // DEFAULT
 
-// PREF: NP active when hovering over links
+// PREF: make Network Predictor active when hovering over links
 // When hovering over links, Network Predictor uses past resource history to
 // preemptively request what will likely be needed instead of waiting for the document.
 // Predictive connections automatically open when hovering over links to speed up
 // loading, starting some work in advance.
 //user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
 
-// PREF: assign NP confidence levels
+// PREF: assign Network Predictor confidence levels
+// [NOTE] Keep in mmind that Network Predictor must LEARN your browsing habits.
 // Editing these lower will cause more speculative connections to occur,
 // which reduces accuracy over time and has privacy implications.
 //user_pref("network.predictor.preresolve-min-confidence", 60); // DEFAULT
 //user_pref("network.predictor.preconnect-min-confidence", 90); // DEFAULT
 //user_pref("network.predictor.prefetch-min-confidence", 100); // DEFAULT
 
-// PREF: other NP values
-//user_pref("network.predictor.prefetch-force-valid-for", 3600); // how long prefetched resources are considered valid and usable (in seconds)
-//user_pref("network.predictor.prefetch-rolling-load-count", 10); // DEFAULT; the maximum number of resources that Firefox will prefetch in memory at one time based on prediction modelin
+// PREF: other Network Predictor values
+// [NOTE] Keep in mmind that Network Predictor must LEARN your browsing habits.
+//user_pref("network.predictor.prefetch-force-valid-for", 10); // DEFAULT; how long prefetched resources are considered valid and usable (in seconds) for the prediction modeling
+//user_pref("network.predictor.prefetch-rolling-load-count", 10); // DEFAULT; the maximum number of resources that Firefox will prefetch in memory at one time based on prediction modeling
 //user_pref("network.predictor.max-resources-per-entry", 250); // default=100
 //user_pref("network.predictor.max-uri-length", 1000); // default=500
 
