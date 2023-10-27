@@ -20,7 +20,14 @@
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionhistory.max_total_viewers", 3); // only remember # of pages in Back-Forward cache
-user_pref("network.prefetch-next", false); // link prefetching
+/** test ***/
+user_pref("network.dns.disablePrefetch", false); // DEFAULT
+user_pref("network.dns.disablePrefetchFromHTTPS", false);
+user_pref("network.prefetch-next", true); // DEFAULT
+user_pref("network.predictor.enabled", true); // DEFAULT
+user_pref("network.predictor.enable-hover-on-ssl", true);
+    user_pref("network.predictor.max-resources-per-entry", 250); // default=100
+    user_pref("network.predictor.max-uri-length", 1000); // default=500
 
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
