@@ -205,8 +205,8 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 user_pref("cookiebanners.service.enableGlobalRules", true);
 
 /** FULLSCREEN NOTICE ***/
-user_pref("full-screen-api.transition-duration.enter", "25 25");
-user_pref("full-screen-api.transition-duration.leave", "25 25");
+user_pref("full-screen-api.transition-duration.enter", "0 0");
+user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.delay", -1);
 user_pref("full-screen-api.warning.timeout", 0);
 
