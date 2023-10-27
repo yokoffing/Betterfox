@@ -47,7 +47,7 @@ user_pref("network.dnsCacheExpiration", 3600);
 user_pref("network.dns.max_high_priority_threads", 8);
 user_pref("network.ssl_tokens_cache_capacity", 10240);
 
-/** IMPLICIT OUTBOUND ***/
+/** SPECULATIVE LOADING ***/
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
