@@ -358,7 +358,7 @@ user_pref("network.dns.disablePrefetch", true);
 // for the current page to improve performance. The browser downloads resources
 // but does not execute scripts or apply stylesheets - it just caches them for
 // instant availability later.
-// [NOTE] Unlike other pre-connection tags (except modulepreload), this tag is
+// Unlike other pre-connection tags (except modulepreload), this tag is
 // mandatory for the browser.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload
 // [2] https://w3c.github.io/preload/
@@ -379,6 +379,7 @@ user_pref("network.dns.disablePrefetch", true);
 // referenced by links with this attribute in parallel with other resources, rather
 // than sequentially waiting to process each. Preloading reduces overall download times.
 // Browsers may also automatically preload dependencies without firing extra events.
+// Unlike other pre-connection tags (except rel=preload), this tag is mandatory for the browser.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/modulepreload
 //user_pref("network.modulepreload", true); // DEFAULT
 
