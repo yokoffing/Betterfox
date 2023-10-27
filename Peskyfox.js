@@ -461,13 +461,16 @@ user_pref("findbar.highlightAll", true);
 //user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 // PREF: stop websites from reloading pages automatically
-// [WARNING] Breakage with some sites.
+// [WARNING] Breaks some sites.
 // [1] https://www.ghacks.net/2018/08/19/stop-websites-from-reloading-pages-automatically/
 //user_pref("accessibility.blockautorefresh", true);
 //user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
-// PREF: Controls if a double click word selection also deletes one adjacent whitespace
-// (if feasible). This mimics native behavior on macOS.
+// PREF: do not select the space next to a word when selecting a word
+//user_pref("layout.word_select.eat_space_to_next_word", false);
+
+// PREF: controls if a double-click word selection also deletes one adjacent whitespace
+// This mimics native behavior on macOS.
 //user_pref("editor.word_select.delete_space_after_doubleclick_selection", true);
 
 // PREF: limit events that can cause a pop-up
