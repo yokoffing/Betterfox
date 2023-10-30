@@ -467,11 +467,14 @@ user_pref("findbar.highlightAll", true);
 //user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
 // PREF: do not select the space next to a word when selecting a word
-//user_pref("layout.word_select.eat_space_to_next_word", false);
+user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // PREF: controls if a double-click word selection also deletes one adjacent whitespace
 // This mimics native behavior on macOS.
 //user_pref("editor.word_select.delete_space_after_doubleclick_selection", true);
+
+// PREF: do not hide the pointer while typing [LINUX]
+//user_pref("widget.gtk.hide-pointer-while-typing.enabled", false);
 
 // PREF: limit events that can cause a pop-up
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
