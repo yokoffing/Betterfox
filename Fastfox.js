@@ -149,7 +149,6 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // PREF: disk cache
 // [NOTE] If you think disk cache helps performance, then feel free to override this.
 // [SETTINGS] See about:cache
-// [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
 // More efficient to keep the browser cache instead of having to
 // re-download objects for the websites you visit frequently.
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
@@ -168,12 +167,12 @@ user_pref("browser.cache.disk.enable", false);
 // [3] https://rockridge.hatenablog.com/entry/2014/09/15/165501
 //user_pref("browser.cache.frecency_half_life_hours", 6); // DEFAULT
 
-// PREF: compression level for cached JavaScript bytecode
+// PREF: compression level for cached JavaScript bytecode [FF102+]
 // [1] https://github.com/yokoffing/Betterfox/issues/247
 // 0 = do not compress (default)
 // 1 = minimal compression
 // 9 = maximal compression
-//user_pref("browser.cache.jsbc_compression_level", 2);
+//user_pref("browser.cache.jsbc_compression_level", 3);
 
 // PREF: strategy to use for when the bytecode should be encoded and saved [TESTING ONLY]
 // -1 makes page load times marginally longer when a page is being loaded for the first time.
