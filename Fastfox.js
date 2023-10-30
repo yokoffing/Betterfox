@@ -169,6 +169,20 @@ user_pref("browser.cache.disk.enable", false);
 // [3] https://rockridge.hatenablog.com/entry/2014/09/15/165501
 //user_pref("browser.cache.frecency_half_life_hours", 18); // default=6
 
+// PREF: compression level for cached JavaScript bytecode
+// [1] https://github.com/yokoffing/Betterfox/issues/247
+// 0 = do not compress (default)
+// 1 = minimal compression
+// 9 = maximal compression
+//user_pref("browser.cache.jsbc_compression_level", 3);
+
+// PREF: strategy to use for when the bytecode should be encoded and saved [TESTING ONLY]
+// [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#3461-3488
+// -1 = saved as soon as the script is seen for the first time, independently of the size or last access time
+// 0 = saved in order to minimize the page-load time (default)
+//user_pref("dom.script_loader.bytecode_cache.enabled", true); // DEFAULT
+//user_pref("dom.script_loader.bytecode_cache.strategy", 0); // DEFAULT
+
 // PREF: memory cache
 // The "automatic" size selection (default) is based on a decade-old table
 // that only contains settings for systems at or below 8GB of system memory [1].
