@@ -19,13 +19,20 @@
 
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
-user_pref("browser.sessionhistory.max_total_viewers", 3); // only remember # of pages in Back-Forward cache
-/** test ***/
-user_pref("network.http.speculative-parallel-limit", 10);
+user_pref("browser.sessionhistory.max_total_viewers", 4); // only remember # of pages in Back-Forward cache
+
+/** cache test ***/
+user_pref("browser.cache.disk.enable", true); // DEFAULT
+user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
+user_pref("browser.cache.disk.capacity", 1024000); // size of disk cache; default=256000; 1024000=1 GB, 2048000=2GB, 5120000=5GB
+user_pref("browser.cache.max_shutdown_io_lag", 4);
+user_pref("browser.cache.jsbc_compression_level", 3);
+
+/** speculative load test ***/
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
 //user_pref("network.prefetch-next", true);
 user_pref("network.predictor.enabled", true);
-user_pref("network.predictor.enable-prefetch", false); // DEFAULT enforce
+user_pref("network.predictor.enable-prefetch", true);
 user_pref("network.predictor.enable-hover-on-ssl", true);
 user_pref("network.predictor.max-resources-per-entry", 250);
 user_pref("network.predictor.max-uri-length", 1000);
