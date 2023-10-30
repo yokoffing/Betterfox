@@ -207,7 +207,7 @@ user_pref("browser.cache.disk.enable", false);
 // is no reason for Firefox to keep memory for this.
 // -1=determine automatically (8 pages)
 // [1] https://kb.mozillazine.org/Browser.sessionhistory.max_total_viewers#Possible_values_and_their_effects
-//user_pref("browser.sessionhistory.max_total_viewers", 3);
+//user_pref("browser.sessionhistory.max_total_viewers", 4);
 
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
