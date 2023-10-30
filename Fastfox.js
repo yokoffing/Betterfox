@@ -174,7 +174,7 @@ user_pref("browser.cache.disk.enable", false);
 // 0 = do not compress (default)
 // 1 = minimal compression
 // 9 = maximal compression
-//user_pref("browser.cache.jsbc_compression_level", 3);
+//user_pref("browser.cache.jsbc_compression_level", 2);
 
 // PREF: strategy to use for when the bytecode should be encoded and saved [TESTING ONLY]
 // [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#3461-3488
