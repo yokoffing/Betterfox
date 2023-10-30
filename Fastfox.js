@@ -155,8 +155,8 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
 user_pref("browser.cache.disk.enable", false);
 //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
-    //user_pref("browser.cache.disk.capacity", 5120000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
-//user_pref("browser.cache.disk.max_entry_size", 51200); // 51.2 MB; DEFAULT; maximum size of an object in disk cache
+//user_pref("browser.cache.disk.capacity", 1024000); // size of disk cache; default=256000; 1024000=1 GB, 2048000=2GB, 5120000=5GB
+//user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT; maximum size of an object in disk cache in megabytes
 //user_pref("browser.cache.max_shutdown_io_lag", 4); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
 
 // PREF: specify how long pages are kept before being removed from cache (in hours)
@@ -166,7 +166,7 @@ user_pref("browser.cache.disk.enable", false);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=913808
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=968101
 // [3] https://rockridge.hatenablog.com/entry/2014/09/15/165501
-//user_pref("browser.cache.frecency_half_life_hours", 18); // default=6
+//user_pref("browser.cache.frecency_half_life_hours", 6); // DEFAULT
 
 // PREF: compression level for cached JavaScript bytecode
 // [1] https://github.com/yokoffing/Betterfox/issues/247
@@ -176,7 +176,10 @@ user_pref("browser.cache.disk.enable", false);
 //user_pref("browser.cache.jsbc_compression_level", 2);
 
 // PREF: strategy to use for when the bytecode should be encoded and saved [TESTING ONLY]
+// -1 makes page load times marginally longer when a page is being loaded for the first time.
+// Subsequent reload of websites will be much much faster.
 // [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#3461-3488
+// [2] https://www.reddit.com/r/firefox/comments/12786yv/improving_performance_in_firefox_android_part_ii/
 // -1 = saved as soon as the script is seen for the first time, independently of the size or last access time
 // 0 = saved in order to minimize the page-load time (default)
 //user_pref("dom.script_loader.bytecode_cache.enabled", true); // DEFAULT
