@@ -22,6 +22,7 @@ user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionhistory.max_total_viewers", 4); // only remember # of pages in Back-Forward cache
 
 /** speculative load test ***/
+user_pref("network.http.speculative-parallel-limit", 10);
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
 //user_pref("network.prefetch-next", true);
 user_pref("network.predictor.enabled", true);
