@@ -546,6 +546,13 @@ user_pref("layout.css.has-selector.enabled", true);
 // [2] https://caniuse.com/mdn-api_sanitizer
 user_pref("dom.security.sanitizer.enabled", true);
 
+// PREF: fetchPriority property [NIGHTLY]
+// Indicates whether the `fetchpriority` attribute for elements which support it
+// (e.g. `<script>`) is enabled.
+// [1] https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/fetchPriority
+// [2] https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement/fetchPriority
+//user_pref("network.fetchpriority.enabled", true);
+
 // PREF: WebGPU [HIGHLY EXPERIMENTAL!]
 // [WARNING] Do not enable unless you are a web developer!
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
