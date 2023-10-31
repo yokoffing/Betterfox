@@ -28,8 +28,6 @@ user_pref("network.dns.disablePrefetchFromHTTPS", false);
 user_pref("network.predictor.enabled", true);
 user_pref("network.predictor.enable-prefetch", true);
 user_pref("network.predictor.enable-hover-on-ssl", true);
-user_pref("network.predictor.max-resources-per-entry", 250);
-user_pref("network.predictor.max-uri-length", 1000);
 
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
