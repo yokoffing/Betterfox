@@ -143,20 +143,39 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
     //user_pref("gfx.webrender.dcomp-video-sw-overlay-win-force-enabled", true); // enforce
 
 /****************************************************************************
- * SECTION: BROWSER CACHE                                                   *
+ * SECTION: DISK CACHE                                                     *
 ****************************************************************************/
 
 // PREF: disk cache
-// [NOTE] If you think disk cache helps performance, then feel free to override this.
+// [NOTE] If you think it helps performance, then feel free to override this.
 // [SETTINGS] See about:cache
 // More efficient to keep the browser cache instead of having to
 // re-download objects for the websites you visit frequently.
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
-user_pref("browser.cache.disk.enable", false);
-//user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
-//user_pref("browser.cache.disk.capacity", 1024000); // size of disk cache; default=256000; 1024000=1 GB, 2048000=2GB, 5120000=5GB
-//user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT; maximum size of an object in disk cache in megabytes
-//user_pref("browser.cache.max_shutdown_io_lag", 4); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
+user_pref("browser.cache.disk.enable", true); // DEFAULT
+
+// PREF: disk cache size
+user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
+// [NOTE] The two prefs below should scale together:
+user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
+user_pref("browser.cache.disk.metadata_memory_limit", 500); // default=250 (0.25 MB); limit of recent metadata we keep in memory for faster access
+//user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT (50 MB); maximum size of an object in disk cache
+
+// PREF: enforce free space checks
+// When smartsizing is disabled, we could potentially fill all disk space by
+// cache data when the disk capacity is not set correctly. To avoid that, we
+// check the free space every time we write some data to the cache. The free
+// space is checked against two limits. Once the soft limit is reached we start
+// evicting the least useful entries, when we reach the hard limit writing to
+// the entry fails.
+//user_pref("browser.cache.disk.free_space_soft_limit", 10240); // default=5120 (5 MB)
+//user_pref("browser.cache.disk.free_space_hard_limit", 2048); // default=1024 (1 MB)
+
+// PREF: how often to validate document in cache
+// [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#1092-1096
+// 0 = once-per-session
+// 3 = when-appropriate/automatically (default)
+//user_pref("browser.cache.check_doc_frequency, 3); // DEFAULT
 
 // PREF: specify how long pages are kept before being removed from cache (in hours)
 // Controls the time period used to re-compute the frecency value of cache entries.
@@ -172,7 +191,7 @@ user_pref("browser.cache.disk.enable", false);
 // 0 = do not compress (default)
 // 1 = minimal compression
 // 9 = maximal compression
-//user_pref("browser.cache.jsbc_compression_level", 3);
+user_pref("browser.cache.jsbc_compression_level", 3);
 
 // PREF: strategy to use for when the bytecode should be encoded and saved [TESTING ONLY]
 // -1 makes page load times marginally longer when a page is being loaded for the first time.
@@ -183,6 +202,10 @@ user_pref("browser.cache.disk.enable", false);
 // 0 = saved in order to minimize the page-load time (default)
 //user_pref("dom.script_loader.bytecode_cache.enabled", true); // DEFAULT
 //user_pref("dom.script_loader.bytecode_cache.strategy", 0); // DEFAULT
+
+/****************************************************************************
+ * SECTION: MEMORY CACHE                                                   *
+****************************************************************************/
 
 // PREF: memory cache
 // The "automatic" size selection (default) is based on a decade-old table
@@ -195,7 +218,17 @@ user_pref("browser.cache.disk.enable", false);
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
 //user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 1048576=1GB, 2097152=2GB
-//user_pref("browser.cache.memory.max_entry_size", 5120); // 5 MB DEFAULT; alt=25600; -1=entries bigger than than 90% of the mem-cache are never cached
+//user_pref("browser.cache.memory.max_entry_size", 5120); // DEFAULT (5 MB); alt=25600; -1=entries bigger than than 90% of the mem-cache are never cached
+
+// PREF: memory limit (in kB) for new cache data not yet written to disk
+// Writes to the cache are buffered and written to disk on background with low priority.
+// With a slow persistent storage these buffers may grow when data is coming
+// fast from the network. When the amount of unwritten data is exceeded, new
+// writes will simply fail. We have two buckets, one for important data
+// (priority) like html, css, fonts and js, and one for other data like images,
+// video, etc.
+//user_pref("browser.cache.disk.max_chunks_memory_usage", 40960); // DEFAULT (40 MB)
+//user_pref("browser.cache.disk.max_priority_chunks_memory_usage", 40960); // DEFAULT (40 MB)
 
 // PREF: amount of Back/Forward cached pages stored in memory for each tab
 // Pages that were recently visited are stored in memory in such a way
