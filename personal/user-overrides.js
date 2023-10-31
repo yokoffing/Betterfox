@@ -21,13 +21,6 @@
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionhistory.max_total_viewers", 4); // only remember # of pages in Back-Forward cache
 
-/** cache test ***/
-user_pref("browser.cache.disk.enable", true); // DEFAULT
-user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
-user_pref("browser.cache.disk.capacity", 1024000); // size of disk cache; default=256000; 1024000=1 GB, 2048000=2GB, 5120000=5GB
-user_pref("browser.cache.max_shutdown_io_lag", 4);
-user_pref("browser.cache.jsbc_compression_level", 3);
-
 /** speculative load test ***/
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
 //user_pref("network.prefetch-next", true);
@@ -127,6 +120,9 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
+user_pref("browser.cache.disk.capacity", 1024000);
+user_pref("browser.cache.disk.metadata_memory_limit", 1000);
+user_pref("browser.cache.disk.preload_chunk_count", 16);
 
 /** DELETE IF NOT macOS LAPTOP ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
