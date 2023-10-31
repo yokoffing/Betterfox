@@ -472,6 +472,7 @@ user_pref("network.prefetch-next", false);
 // PREF: Fetch Priority API [NIGHTLY]
 // Indicates whether the `fetchpriority` attribute for elements which support it.
 // [1] https://web.dev/articles/fetch-priority
+// [2] https://nitropack.io/blog/post/priority-hints
 // [2] https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/fetchPriority
 // [3] https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement/fetchPriority
 //user_pref("network.fetchpriority.enabled", true);
