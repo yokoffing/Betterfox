@@ -121,7 +121,6 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
 user_pref("browser.cache.disk.capacity", 1024000);
 user_pref("browser.cache.disk.metadata_memory_limit", 1000);
-user_pref("browser.cache.disk.preload_chunk_count", 16);
 
 /** DELETE IF NOT macOS LAPTOP ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
