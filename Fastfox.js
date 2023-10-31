@@ -405,6 +405,9 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 user_pref("network.dns.disablePrefetch", true);
 //user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
 
+// PREF: enable <link rel="preconnect"> tag and Link: rel=preconnect response header handling
+//user_pref("network.preconnect", true); // DEFAULT
+
 // PREF: preconnect to the autocomplete URL in the address bar
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
 // Connects to destination server ahead of time, to avoid TCP handshake latency.
@@ -466,20 +469,18 @@ user_pref("network.dns.disablePrefetch", true);
 // [5] https://developer.mozilla.org/docs/Web/HTTP/Link_prefetching_FAQ
 user_pref("network.prefetch-next", false);
 
-// PREF: early hints [FF119+]
+// PREF: early hints [FF120+]
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
 // [2] https://developer.chrome.com/blog/early-hints/
 // [3] https://blog.cloudflare.com/early-hints/
 // [4] https://blog.cloudflare.com/early-hints-performance/
-user_pref("network.early-hints.enabled", true);
+//user_pref("network.early-hints.enabled", true);
 
-// PREF: `Link: rel=preconnect` in 103 Early Hint response [FF119+]
+// PREF: `Link: rel=preconnect` in 103 Early Hint response [FF120+]
 // Used to warm most critical cross-origin connections to provide
 // performance improvements when connecting to them.
-user_pref("network.early-hints.preconnect.enabled", true);
-
-// PREF: number of speculative connections allowed for early hints `Link: rel=preconnect`
-// When 0, this is limited by "network.http.speculative-parallel-limit".
+// [NOTE] When 0, this is limited by "network.http.speculative-parallel-limit".
+//user_pref("network.early-hints.preconnect.enabled", true);
 //user_pref("network.early-hints.preconnect.max_connections", 10); // DEFAULT
 
 // PREF: Network Predictor (NP)
