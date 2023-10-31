@@ -20,6 +20,7 @@
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionhistory.max_total_viewers", 4); // only remember # of pages in Back-Forward cache
+user_pref("network.fetchpriority.enabled", true); // fetchPriority property
 
 /** speculative load test ***/
 user_pref("network.http.speculative-parallel-limit", 10);
