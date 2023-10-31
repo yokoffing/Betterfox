@@ -155,11 +155,43 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 user_pref("browser.cache.disk.enable", true); // DEFAULT
 
 // PREF: disk cache size
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968106,968101
+// [2] https://rockridge.hatenablog.com/entry/2014/09/15/165501
 user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
-// [NOTE] The two prefs below should scale together:
 user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
-user_pref("browser.cache.disk.metadata_memory_limit", 500); // default=250 (0.25 MB); limit of recent metadata we keep in memory for faster access
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT (50 MB); maximum size of an object in disk cache
+
+// PREF: disk cache memory pool
+// Cache v2 provides a memory pool that stores metadata (such as response headers)
+// for recently read cache entries [1]. It is managed by a cache thread, and caches with
+// metadata in the pool appear to be reused immediately.
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=986179
+user_pref("browser.cache.disk.metadata_memory_limit", 500); // default=250 (0.25 MB); limit of recent metadata we keep in memory for faster access
+
+// PREF: number of chunks we preload ahead of read
+// Large content such as images will load faster.
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913819,988318
+// [2] http://www.janbambas.cz/new-firefox-http-cache-enabled/
+//user_pref("browser.cache.disk.preload_chunk_count", 8); // default=4 (1 MB)
+
+// PREF: the time period used to re-compute the frecency value of cache entries
+// The frequency algorithm is used to select entries, and entries that are recently
+// saved or frequently reused are retained. The frecency value determines how
+// frequently a page has been accessed and is used by Firefox's cache algorithm.
+// The frequency algorithm is used to select entries, and entries that are recently
+// saved or frequently reused are retained. The frecency value determines how
+// often a page has been accessed and is used by Firefox's cache algorithm.
+// When the memory pool becomes full, the oldest data is purged. By default,
+// data older than 6 hours is treated as old.
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=942835,1012327
+// [2] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968101
+user_pref("browser.cache.frecency_half_life_hours", 12); // default=6 (hours)
+
+// PREF: how often to validate document in cache
+// [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#1092-1096
+// 0 = once-per-session
+// 3 = when-appropriate/automatically (default)
+//user_pref("browser.cache.check_doc_frequency, 3); // DEFAULT
 
 // PREF: enforce free space checks
 // When smartsizing is disabled, we could potentially fill all disk space by
@@ -170,21 +202,6 @@ user_pref("browser.cache.disk.metadata_memory_limit", 500); // default=250 (0.25
 // the entry fails.
 //user_pref("browser.cache.disk.free_space_soft_limit", 10240); // default=5120 (5 MB)
 //user_pref("browser.cache.disk.free_space_hard_limit", 2048); // default=1024 (1 MB)
-
-// PREF: how often to validate document in cache
-// [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#1092-1096
-// 0 = once-per-session
-// 3 = when-appropriate/automatically (default)
-//user_pref("browser.cache.check_doc_frequency, 3); // DEFAULT
-
-// PREF: specify how long pages are kept before being removed from cache (in hours)
-// Controls the time period used to re-compute the frecency value of cache entries.
-// The frecency value determines how recently and frequently a page has been accessed
-// and is used by Firefox's cache algorithm.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=913808
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=968101
-// [3] https://rockridge.hatenablog.com/entry/2014/09/15/165501
-//user_pref("browser.cache.frecency_half_life_hours", 6); // DEFAULT
 
 // PREF: compression level for cached JavaScript bytecode [FF102+]
 // [1] https://github.com/yokoffing/Betterfox/issues/247
