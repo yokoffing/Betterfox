@@ -419,7 +419,7 @@ user_pref("network.dns.disablePrefetch", true);
 // PREF: mousedown speculative connections on bookmarks and history [FF98+]
 //user_pref("browser.places.speculativeConnect.enabled", false);
 
-// PREF: network preload <link rel=preload> [REMOVED]
+// PREF: network preload <link rel="preload"> [REMOVED]
 // Used to load high-priority resources faster on the current page, for strategic
 // performance improvements.
 // Instructs the browser to immediately fetch and cache high-priority resources
@@ -468,6 +468,13 @@ user_pref("network.dns.disablePrefetch", true);
 // [4] https://3perf.com/blog/link-rels/#prefetch
 // [5] https://developer.mozilla.org/docs/Web/HTTP/Link_prefetching_FAQ
 user_pref("network.prefetch-next", false);
+
+// PREF: Fetch Priority API [NIGHTLY]
+// Indicates whether the `fetchpriority` attribute for elements which support it.
+// [1] https://web.dev/articles/fetch-priority
+// [2] https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/fetchPriority
+// [3] https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement/fetchPriority
+//user_pref("network.fetchpriority.enabled", true);
 
 // PREF: early hints [FF120+]
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
@@ -545,13 +552,6 @@ user_pref("layout.css.has-selector.enabled", true);
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer
 // [2] https://caniuse.com/mdn-api_sanitizer
 user_pref("dom.security.sanitizer.enabled", true);
-
-// PREF: fetchPriority property [NIGHTLY]
-// Indicates whether the `fetchpriority` attribute for elements which support it
-// (e.g. `<script>`) is enabled.
-// [1] https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/fetchPriority
-// [2] https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement/fetchPriority
-//user_pref("network.fetchpriority.enabled", true);
 
 // PREF: WebGPU [HIGHLY EXPERIMENTAL!]
 // [WARNING] Do not enable unless you are a web developer!
