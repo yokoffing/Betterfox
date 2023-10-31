@@ -172,7 +172,7 @@ user_pref("browser.cache.disk.metadata_memory_limit", 500); // default=250 (0.25
 // Large content such as images will load faster.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913819,988318
 // [2] http://www.janbambas.cz/new-firefox-http-cache-enabled/
-//user_pref("browser.cache.disk.preload_chunk_count", 8); // default=4 (1 MB)
+user_pref("browser.cache.disk.preload_chunk_count", 8); // default=4 (1 MB)
 
 // PREF: the time period used to re-compute the frecency value of cache entries
 // The frequency algorithm is used to select entries, and entries that are recently
@@ -185,7 +185,7 @@ user_pref("browser.cache.disk.metadata_memory_limit", 500); // default=250 (0.25
 // data older than 6 hours is treated as old.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=942835,1012327
 // [2] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968101
-user_pref("browser.cache.frecency_half_life_hours", 12); // default=6 (hours)
+//user_pref("browser.cache.frecency_half_life_hours", 6); // default=6 (hours)
 
 // PREF: how often to validate document in cache
 // [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#1092-1096
