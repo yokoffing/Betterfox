@@ -25,8 +25,12 @@ user_pref("gfx.canvas.accelerated.cache-items", 4096);
 user_pref("gfx.canvas.accelerated.cache-size", 512);
 user_pref("gfx.content.skia-font-cache-size", 20);
 
-/** BROWSER CACHE ***/
-user_pref("browser.cache.disk.enable", false);
+/** DISK CACHE ***/
+user_pref("browser.cache.disk.enable", true); // DEFAULT
+user_pref("browser.cache.disk.smart_size.enabled", false);
+user_pref("browser.cache.disk.capacity", 512000);
+user_pref("browser.cache.disk.metadata_memory_limit", 500);
+user_pref("browser.cache.jsbc_compression_level", 3);
 
 /** MEDIA CACHE ***/
 user_pref("media.memory_cache_max_size", 65536);
