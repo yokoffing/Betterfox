@@ -185,7 +185,16 @@ user_pref("browser.cache.disk.preload_chunk_count", 8); // default=4 (1 MB)
 // data older than 6 hours is treated as old.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=942835,1012327
 // [2] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968101
-//user_pref("browser.cache.frecency_half_life_hours", 6); // default=6 (hours)
+//user_pref("browser.cache.frecency_half_life_hours", 6); // DEFAULT
+
+// PREF: memory limit (in kB) for new cache data not yet written to disk
+// Writes to the cache are buffered and written to disk on background with low priority.
+// With a slow persistent storage, these buffers may grow when data is coming
+// fast from the network. When the amount of unwritten data is exceeded, new
+// writes will simply fail. We have two buckets, one for important data
+// (priority) like html, css, fonts and js, and one for other data like images, video, etc.
+//user_pref("browser.cache.disk.max_chunks_memory_usage", 40960); // DEFAULT (40 MB)
+//user_pref("browser.cache.disk.max_priority_chunks_memory_usage", 40960); // DEFAULT (40 MB)
 
 // PREF: how often to validate document in cache
 // [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#1092-1096
@@ -227,25 +236,15 @@ user_pref("browser.cache.jsbc_compression_level", 3);
 // PREF: memory cache
 // The "automatic" size selection (default) is based on a decade-old table
 // that only contains settings for systems at or below 8GB of system memory [1].
-// Waterfox G6 Beta 3 allows it to go above 8GB machines [3].
+// Waterfox G6 allows it to go above 8GB machines [3].
 // Value can be up to the max size of an unsigned 64-bit integer.
 // -1=Automatically decide the maximum memory to use to cache decoded images,
 // messages, and chrome based on the total amount of RAM
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
-//user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 1048576=1GB, 2097152=2GB
-//user_pref("browser.cache.memory.max_entry_size", 5120); // DEFAULT (5 MB); alt=25600; -1=entries bigger than than 90% of the mem-cache are never cached
-
-// PREF: memory limit (in kB) for new cache data not yet written to disk
-// Writes to the cache are buffered and written to disk on background with low priority.
-// With a slow persistent storage these buffers may grow when data is coming
-// fast from the network. When the amount of unwritten data is exceeded, new
-// writes will simply fail. We have two buckets, one for important data
-// (priority) like html, css, fonts and js, and one for other data like images,
-// video, etc.
-//user_pref("browser.cache.disk.max_chunks_memory_usage", 40960); // DEFAULT (40 MB)
-//user_pref("browser.cache.disk.max_priority_chunks_memory_usage", 40960); // DEFAULT (40 MB)
+//user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 256000=256 MB; 512000=500 MB; 1048576=1GB, 2097152=2GB
+//user_pref("browser.cache.memory.max_entry_size", 10240); // (10 MB); default=5120 (5 MB)
 
 // PREF: amount of Back/Forward cached pages stored in memory for each tab
 // Pages that were recently visited are stored in memory in such a way
