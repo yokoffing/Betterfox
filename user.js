@@ -122,6 +122,7 @@ user_pref("extensions.formautofill.creditCards.enabled", false);
 /** MIXED CONTENT + CROSS-SITE ***/
 user_pref("security.mixed_content.block_display_content", true);
 user_pref("security.mixed_content.upgrade_display_content", true);
+user_pref("security.mixed_content.upgrade_display_content.image", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 
