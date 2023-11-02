@@ -60,7 +60,6 @@ user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false); // cle
 user_pref("browser.safebrowsing.allowOverride", false); // do not allow user to override SB
 user_pref("dom.push.enabled", false); // disable Push API; breaks FF Sync and Site Notifications
 user_pref("browser.search.update", false); // do not update opensearch engines
-user_pref("network.dns.skipTRR-when-parental-control-enabled", false); // bypass parental controls when using DoH
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla domains so adblocker works on pages
 user_pref("identity.fxaccounts.enabled", false); // disable Firefox Sync
