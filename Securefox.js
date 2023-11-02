@@ -862,6 +862,10 @@ user_pref("security.mixed_content.block_display_content", true);
 // PREF: upgrade passive content to use HTTPS on secure pages
 // [NOTE] You can remove if using HTTPS-Only Mode.
 user_pref("security.mixed_content.upgrade_display_content", true);
+// [FF119+]:
+//user_pref("security.mixed_content.upgrade_display_content.audio", true); // DEFAULT
+user_pref("security.mixed_content.upgrade_display_content.image", true);
+//user_pref("security.mixed_content.upgrade_display_content.video", true); // DEFAULT
 
 // PREF: block insecure downloads from secure sites
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
