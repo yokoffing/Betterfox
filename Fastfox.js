@@ -460,7 +460,7 @@ user_pref("network.dns.disablePrefetch", true);
 // [5] https://developer.mozilla.org/docs/Web/HTTP/Link_prefetching_FAQ
 user_pref("network.prefetch-next", false);
 
-// PREF: Fetch Priority API [NIGHTLY]
+// PREF: Fetch Priority API [FF119+]
 // Indicates whether the `fetchpriority` attribute for elements which support it.
 // [1] https://web.dev/articles/fetch-priority
 // [2] https://nitropack.io/blog/post/priority-hints
