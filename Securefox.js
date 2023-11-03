@@ -195,10 +195,11 @@ user_pref("browser.uitour.enabled", false);
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/16222
 //user_pref("devtools.debugger.remote-enabled", false); // DEFAULT
 
-// PREF: enable Global Privacy Control (GPC) [FF118+]
+// PREF: Global Privacy Control (GPC) [FF118+]
 // A privacy signal that tells the websites that the user
 // doesn’t want to be tracked and doesn’t want their data to be sold.
 // Honored by many highly ranked sites [3].
+// [SETTING] Privacy & Security > Website Privacy Preferences > Tell websites not to sell or share my data
 // [TEST] https://global-privacy-control.glitch.me/
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1830623
 // [2] https://globalprivacycontrol.org/press-release/20201007.html
