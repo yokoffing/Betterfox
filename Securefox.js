@@ -251,8 +251,9 @@ user_pref("security.OCSP.enabled", 0);
 // [3] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
 //user_pref("security.OCSP.require", true);
       
-// PREF: enable CRLite
-// CRLite covers valid certs, and it doesn't fall back to OCSP in mode 2 [FF84+]
+// PREF: CRLite
+// CRLite covers valid certs, and it doesn't fall back to OCSP in mode 2 [FF84+].
+// CRLite is faster and more private than OCSP [2].
 // 0 = disabled
 // 1 = consult CRLite but only collect telemetry
 // 2 = consult CRLite and enforce both "Revoked" and "Not Revoked" results
