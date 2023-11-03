@@ -161,7 +161,7 @@ user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max 
 user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT (50 MB); maximum size of an object in disk cache
 
-// PREF: disk cache memory pool
+// PREF: cache memory pool
 // Cache v2 provides a memory pool that stores metadata (such as response headers)
 // for recently read cache entries [1]. It is managed by a cache thread, and caches with
 // metadata in the pool appear to be reused immediately.
@@ -172,7 +172,7 @@ user_pref("browser.cache.disk.metadata_memory_limit", 500); // default=250 (0.25
 // Large content such as images will load faster.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913819,988318
 // [2] http://www.janbambas.cz/new-firefox-http-cache-enabled/
-user_pref("browser.cache.disk.preload_chunk_count", 8); // default=4 (1 MB)
+//user_pref("browser.cache.disk.preload_chunk_count", 4); // DEFAULT (1 MB)
 
 // PREF: the time period used to re-compute the frecency value of cache entries
 // The frequency algorithm is used to select entries, and entries that are recently
