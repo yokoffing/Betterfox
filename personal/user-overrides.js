@@ -27,9 +27,10 @@ user_pref("browser.cache.disk.enable", true);
 user_pref("browser.cache.disk.smart_size.enabled", false);
 user_pref("browser.cache.disk.capacity", 1024000);
 user_pref("browser.cache.disk.metadata_memory_limit", 1000); 
-user_pref("browser.cache.jsbc_compression_level", 7);
+user_pref("browser.cache.jsbc_compression_level", 3);
 user_pref("browser.cache.memory.capacity", 256000); // default= -1 (32768)
 user_pref("browser.cache.memory.max_entry_size", 10240); // default=5120 (5 MB)
+user_pref("media.memory_cache_max_size", 131072); // default=8192; AF=65536
 user_pref("media.memory_caches_combined_limit_kb", 1048576); // default=524288
 user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5
 
