@@ -1,6 +1,6 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: Something is not working!
+about: Use this form if you have an issue.
 title: ''
 labels: ''
 assignees: yokoffing
@@ -35,9 +35,9 @@ I have attempted the following troubleshooting suggestions:
 *If applicable, add screenshots to help explain your problem.*
 
 **Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+ - OS:
+ - Browser:
+ - Version:
 
 **Additional context**
 *Add any other context about the problem here.*
