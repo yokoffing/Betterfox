@@ -401,9 +401,10 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
 // [1] https://bugzilla.mozilla.org/603903
 //user_pref("toolkit.winRegisterApplicationRestart", false);
 
-// PREF: disable fetching and permanently storing favicons for Windows .URL shortcuts created by drag and drop
+// PREF: disable favicons in shortcuts [WINDOWS]
+// Fetches and stores favicons for Windows .URL shortcuts created by drag and drop
 // [NOTE] .URL shortcut files will be created with a generic icon.
-// Favicons are stored as .ico files in $profile_dir\shortcutCache.
+// Favicons are stored as .ico files in profile_dir\shortcutCache.
 //user_pref("browser.shell.shortcutFavicons", false);
 
 // PREF: remove temp files opened with an external application
