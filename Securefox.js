@@ -877,6 +877,14 @@ user_pref("security.mixed_content.upgrade_display_content.image", true);
 // https://www.reddit.com/r/uBlockOrigin/comments/mulc86/firefox_88_now_supports_javascript_in_pdf_files/
 user_pref("pdfjs.enableScripting", false);
 
+// PREF: limit allowed extension directories
+// The pref value represents the sum: e.g. 5 would be profile and application directories.
+// [WARNING] Breaks usage of files which are installed outside allowed directories.
+// [1] https://archive.is/DYjAM
+// 1=profile, 2=user, 4=application, 8=system, 16=temporary, 31=all
+//user_pref("extensions.enabledScopes", 5); // [HIDDEN PREF] DEFAULT
+  // user_pref("extensions.autoDisableScopes", 15); // [DEFAULT: 15]
+
 // PREF: disable bypassing 3rd party extension install prompts
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1659530,1681331
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
