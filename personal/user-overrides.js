@@ -20,22 +20,8 @@
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionhistory.max_total_viewers", 4); // only remember # of pages in Back-Forward cache
-user_pref("network.fetchpriority.enabled", true); // fetchPriority property
-
-/** cache test ***/
-user_pref("browser.cache.disk.enable", true);
-user_pref("browser.cache.disk.smart_size.enabled", false);
-user_pref("browser.cache.disk.capacity", 1024000);
-user_pref("browser.cache.disk.metadata_memory_limit", 1000); 
-user_pref("browser.cache.jsbc_compression_level", 3);
-user_pref("browser.cache.memory.capacity", 256000); // default= -1 (32768)
-user_pref("browser.cache.memory.max_entry_size", 10240); // default=5120 (5 MB)
-user_pref("media.memory_cache_max_size", 131072); // default=8192; AF=65536
-user_pref("media.memory_caches_combined_limit_kb", 1048576); // default=524288
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5
 
 /** speculative load test ***/
-user_pref("network.http.speculative-parallel-limit", 10);
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
 //user_pref("network.prefetch-next", true);
 user_pref("network.predictor.enabled", true);
@@ -131,6 +117,13 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
+/** for 12 GB+ RAM ***/
+user_pref("browser.cache.disk.enable", false);
+user_pref("browser.cache.memory.capacity", 256000); // default= -1 (32768)
+user_pref("browser.cache.memory.max_entry_size", 10240); // default=5120 (5 MB)
+user_pref("media.memory_cache_max_size", 131072); // default=8192; AF=65536
+user_pref("media.memory_caches_combined_limit_kb", 1048576); // default=524288
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5
 
 /** DELETE IF NOT macOS LAPTOP ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
