@@ -12,6 +12,22 @@
 
 Betterfox is an opinionated preference list inspired by the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e).
 
+## Getting started
+*If you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)*
+
+1) Create a [backup profile](https://github.com/yokoffing/Betterfox/wiki/Backup).
+2) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js) (Right click > `Save Link As…`).
+3) Review [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Common-Overrides) and make any necessary changes.
+   * See also [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for other recommendations.
+4) Open Firefox. In the URL bar, type `about:profiles` and press **Enter**.
+5) For the profile you want to use (or use default), click **Open Folder** in the **Root Directory** section.
+6) Move the `user.js` file into the folder.
+
+*After restarting Firefox:*
+1) Get an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines).
+2) Enable **DNS-level protection** with [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
+    * See how to [quickly enable](https://support.mozilla.org/en-US/kb/dns-over-https) **secure DNS** in Firefox.
+
 ## Simple goals
 1) **Minimalism:** get what isn't needed out of the way
 2) **Efficiency:** unleash Firefox's ability to be fast and performant
@@ -30,22 +46,6 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 `Fastfox`, `Securefox`, `Peskyfox`, and `Smoothfox` are guides to settings within Firefox.
 
 The `user.js` — a configuration file that controls Firefox settings — is curated from these guides.
-
-## Getting started
-*If you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)*
-
-1) Create a [backup profile](https://github.com/yokoffing/Betterfox/wiki/Backup).
-2) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js) (Right click > `Save Link As…`).
-3) Review [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Common-Overrides) and make any necessary changes.
-   * See also [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for other recommendations.
-4) Open Firefox. In the URL bar, type `about:profiles` and press **Enter**.
-5) For the profile you want to use (or use default), click **Open Folder** in the **Root Directory** section.
-6) Move the `user.js` file into the folder.
-
-*After restarting Firefox:*
-1) Get an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines).
-2) Enable **DNS-level protection** with [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
-    * See how to [quickly enable](https://support.mozilla.org/en-US/kb/dns-over-https) **secure DNS** in Firefox.
 
 ## Recognition
 
@@ -91,10 +91,6 @@ If you like the project, leave a :star: (top right) and become a [stargazer](htt
 [![Stargazers repo roster for @yokoffing/Betterfox](https://reporoster.com/stars/dark/yokoffing/Betterfox)](https://github.com/yokoffing/Betterfox/stargazers)
 
 ## Credit
-<div>
-<img align="right" src="https://media.tenor.com/m_knf6IKaJwAAAAC/hi-fox.gif" width="110" height="120"/>
-</div>
-
 * This repository benefits from the ongoing research provided by [arkenfox](https://github.com/arkenfox/user.js).
 * Appreciation goes to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and developers working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the open web.
 * A special thanks to [Alex Kontos](https://github.com/MrAlex94) of [Waterfox](https://github.com/WaterfoxCo/Waterfox) for his collaboration in v.116.
