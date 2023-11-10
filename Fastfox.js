@@ -152,13 +152,13 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // More efficient to keep the browser cache instead of having to
 // re-download objects for the websites you visit frequently.
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
-user_pref("browser.cache.disk.enable", true); // DEFAULT
+//user_pref("browser.cache.disk.enable", true); // DEFAULT
 
 // PREF: disk cache size
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968106,968101
 // [2] https://rockridge.hatenablog.com/entry/2014/09/15/165501
-user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
-user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
+//user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
+//user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT (50 MB); maximum size of an object in disk cache
 
 // PREF: cache memory pool
@@ -166,13 +166,13 @@ user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of dis
 // for recently read cache entries [1]. It is managed by a cache thread, and caches with
 // metadata in the pool appear to be reused immediately.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=986179
-user_pref("browser.cache.disk.metadata_memory_limit", 500); // default=250 (0.25 MB); limit of recent metadata we keep in memory for faster access
+//user_pref("browser.cache.disk.metadata_memory_limit", 500); // default=250 (0.25 MB); limit of recent metadata we keep in memory for faster access
 
 // PREF: number of chunks we preload ahead of read
 // Large content such as images will load faster.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913819,988318
 // [2] http://www.janbambas.cz/new-firefox-http-cache-enabled/
-//user_pref("browser.cache.disk.preload_chunk_count", 4); // DEFAULT (1 MB)
+//user_pref("browser.cache.disk.preload_chunk_count", 4); // DEFAULT
 
 // PREF: the time period used to re-compute the frecency value of cache entries
 // The frequency algorithm is used to select entries, and entries that are recently
