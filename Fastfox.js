@@ -3,62 +3,24 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 118                                                                         *
+ * version: 119                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
- 
-// PREF: process count
-// [ABOUT] View in about:processes.
-// With Firefox Quantum (2017), CPU cores = processCount. However, since the
-// introduction of Fission [2], the number of website processes is controlled
-// by processCount.webIsolated. Disabling fission.autostart or changing
-// fission.webContentIsolationStrategy reverts control back to processCount.
-// [1] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
-// [2] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes 
-//user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
-//user_pref("dom.ipc.processCount.webIsolated", 1); // default=4; Isolated Web Content
 
-// PREF: use one process for process preallocation cache
-//user_pref("dom.ipc.processPrelaunch.fission.number", 1); // default=3; Process Preallocation Cache
-
-// PREF: configure process isolation
-// [1] https://hg.mozilla.org/mozilla-central/file/tip/dom/ipc/ProcessIsolation.cpp#l53
-// [2] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
-
-// OPTION 1: isolate all websites
-// Web content is always isolated into its own `webIsolated` content process
-// based on site-origin, and will only load in a shared `web` content process
-// if site-origin could not be determined.
-//user_pref("fission.webContentIsolationStrategy", 1); // DEFAULT
-//user_pref("browser.preferences.defaultPerformanceSettings.enabled", true); // DEFAULT
-    //user_pref("dom.ipc.processCount.webIsolated", 1); // one process per site origin
-
-// OPTION 2: isolate only "high value" websites
-// Only isolates web content loaded by sites which are considered "high
-// value". A site is considered high value if it has been granted a
-// `highValue*` permission by the permission manager, which is done in
-// response to certain actions.
-//user_pref("fission.webContentIsolationStrategy", 2);
-//user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
-    //user_pref("dom.ipc.processCount.webIsolated", 1); // one process per site origin (high value)
-    //user_pref("dom.ipc.processCount", 8); // determine by number of CPU cores/processors
-
-// OPTION 3: do not isolate websites
-// All web content is loaded into a shared `web` content process. This is
-// similar to the non-Fission behavior; however, remote subframes may still
-// be used for sites with special isolation behavior, such as extension or
-// mozillaweb content processes.
-//user_pref("fission.webContentIsolationStrategy", 0);
-//user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
-    //user_pref("dom.ipc.processCount", 8); // determine by number of CPU cores/processors
+/****************************************************************************
+ * SECTION: GENERAL                                                        *
+****************************************************************************/
 
 // PREF: initial paint delay
-// How long FF will wait before rendering the page, in milliseconds
-// Reduce the 5ms Firefox waits to render the page
+// How long FF will wait before rendering the page (in ms)
+// [NOTE] Older PCs may want to use 250-750.
+// [NOTE] Dark Reader users may want to use 1000-2000 [3].
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1283302
 // [2] https://docs.google.com/document/d/1BvCoZzk2_rNZx3u9ESPoFjSADRI0zIPeJRXFLwWXx_4/edit#heading=h.28ki6m8dg30z
-user_pref("nglayout.initialpaint.delay", 0); // default=5; used to be 250
-user_pref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
+// [3] https://old.reddit.com/r/firefox/comments/o0xl1q/reducing_cpu_usage_of_dark_reader_extension/
+// [4] https://reddit.com/r/browsers/s/wvNB7UVCpx
+//user_pref("nglayout.initialpaint.delay", 5); // DEFAULT; formerly 250
+    //user_pref("nglayout.initialpaint.delay_in_oopif", 5); // DEFAULT
 
 // PREF: page reflow timer
 // Rather than wait until a page has completely downloaded to display it to the user,
@@ -111,108 +73,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("browser.sessionstore.restore_tabs_lazily", true); // DEFAULT
 
 // PREF: disable preSkeletonUI on startup [WINDOWS]
-//user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
-
-/****************************************************************************
- * SECTION: TAB UNLOAD                                                      *
-****************************************************************************/
-
-// PREF: unload tabs on low memory
-// [ABOUT] about:unloads
-// Firefox will detect if your computer’s memory is running low (less than 200MB)
-// and suspend tabs that you have not used in awhile.
-// [1] https://support.mozilla.org/en-US/kb/unload-inactive-tabs-save-system-memory-firefox
-// [2] https://hacks.mozilla.org/2021/10/tab-unloading-in-firefox-93/
-//user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
-
-// PREF: determine when tabs unload [WINDOWS] [LINUX]
-// Notify TabUnloader or send the memory pressure if the memory resource
-// notification is signaled AND the available commit space is lower than
-// this value.
-// Set this to some high value, e.g. 2/3 of total memory available in your system:
-// 4GB=2640, 8GB=5280, 16GB=10560, 32GB=21120, 64GB=42240
-// [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
-//user_pref("browser.low_commit_space_threshold_mb", 2640); // default=200; WINDOWS LINUX
-
-// PREF: determine when tabs unload [LINUX]
-// On Linux, Firefox checks available memory in comparison to total memory,
-// and use this percent value (out of 100) to determine if Firefox is in a
-// low memory scenario.
-// [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
-//user_pref("browser.low_commit_space_threshold_percent", 33); // default=5; LINUX
-
-// PREF: determine how long (in ms) tabs are inactive before they unload
-// 60000=1min; 300000=5min; 600000=10min (default)
-//user_pref("browser.tabs.min_inactive_duration_before_unload", 300000); // 5min; default=600000
-
-/****************************************************************************
- * SECTION: EXPERIMENTAL                                                    *
-****************************************************************************/
-
-// PREF: CSS Masonry Layout [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
-
-// PREF: Prioritized Task Scheduling API [NIGHTLY]
-// [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
-// [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
-user_pref("dom.enable_web_task_scheduling", true);
-
-// PREF: CSS :has() selector [NIGHTLY]
-// Needed for some extensions, filters, and customizations.
-// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
-// [2] https://caniuse.com/css-has
-user_pref("layout.css.has-selector.enabled", true);
-
-// PREF: HTML Sanitizer API [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer
-// [2] https://caniuse.com/mdn-api_sanitizer
-user_pref("dom.security.sanitizer.enabled", true);
-
-// PREF: Shadowrealms [NIGHTLY]
-// [1] https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md#introduction
-//user_pref("javascript.options.experimental.shadow_realms", true);
-
-// PREF: Wasm GC [NIGHTLY]
-// WASM GC refers to garbage collection for WebAssembly. Garbage collection is a mechanism
-// to automatically free up memory that is no longer being used by a program. This helps
-// manage memory and prevent memory leaks. 
-// [1] https://github.com/WebAssembly/gc/blob/main/proposals/gc/Overview.md
-//user_pref("javascript.options.wasm_gc", true);
-
-// PREF: WASM Function References [NIGHTLY]
-// [1] https://github.com/WebAssembly/function-references/blob/master/proposals/function-references/Overview.md
-//user_pref("javascript.options.wasm_function_references", true);
-
-// PREF: import assertions [NIGHTLY]
-//user_pref("javascript.options.experimental.import_assertions", true);
-
-// PREF: Array.fromAsync [NIGHTLY]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1795452
-//user_pref("javascript.options.experimental.array_grouping", true);
-
-// PREF: scroll-driven animations [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Experimental_features#scroll-driven_animations
-// [2] https://developer.chrome.com/articles/scroll-driven-animations/
-// [3] https://developer.chrome.com/en/blog/scroll-animation-performance-case-study/
-//user_pref("layout.css.scroll-driven-animations.enabled", true);
-
-// PREF: WebGPU [HIGHLY EXPERIMENTAL!]
-// [WARNING] Do not enable unless you are a web developer!
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
-// [2] https://developer.chrome.com/docs/web-platform/webgpu/
-// [3] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
-// [4] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
-//user_pref("dom.webgpu.enabled", true);
-    //user_pref("gfx.webgpu.force-enabled", true); // enforce
-// enable WebGPU indirect draws/dispatches:
-//user_pref("dom.webgpu.indirect-dispatch.enabled", true);
-
-// PREF: WebCodecs API [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Web/API/WebCodecs_API
-// [2] https://groups.google.com/a/mozilla.org/g/dev-platform/c/3g0fnn6682A?pli=1
-// [3] https://w3c.github.io/webcodecs/samples/
-//user_pref("dom.media.webcodecs.enabled", true);
+//user_pref("browser.startup.preXulSkeletonUI", false);
 
 /****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
@@ -235,9 +96,11 @@ user_pref("dom.security.sanitizer.enabled", true);
     //user_pref("gfx.webrender.software.opengl", true); // LINUX
 
 // PREF: NVIDIA RTX Video Super Resolution for video overlay [WINDOWS]
+// [NOTE] May not work on Stable release [2].
 // This is also a setting in NVIDIA's driver settings, so once this is
 // stable, it should default to true.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1823135
+// [2] https://www.reddit.com/r/firefox/comments/17a0noa/nvidia_video_super_resolution_not_working_on/
 //user_pref("gfx.webrender.super-resolution.nvidia", true);
 
 // PREF: GPU-accelerated Canvas2D
@@ -280,44 +143,109 @@ user_pref("dom.security.sanitizer.enabled", true);
     //user_pref("gfx.webrender.dcomp-video-sw-overlay-win-force-enabled", true); // enforce
 
 /****************************************************************************
- * SECTION: BROWSER CACHE                                                   *
+ * SECTION: DISK CACHE                                                     *
 ****************************************************************************/
 
 // PREF: disk cache
-// [NOTE] If you think disk cache helps performance, then feel free to override this.
+// [NOTE] If you think it helps performance, then feel free to override this.
 // [SETTINGS] See about:cache
-// [EXTENSION] https://addons.mozilla.org/en-US/firefox/addon/cache-longer/
 // More efficient to keep the browser cache instead of having to
 // re-download objects for the websites you visit frequently.
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
-user_pref("browser.cache.disk.enable", false);
-//user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
-    //user_pref("browser.cache.disk.capacity", 5120000); // size of disk cache; default=256000; 1024000 = 1 GB, 2048000=2GB, 5120000=5GB, 8192000=8GB
-//user_pref("browser.cache.disk.max_entry_size", 51200); // 51.2 MB; DEFAULT; maximum size of an object in disk cache
-//user_pref("browser.cache.disk.metadata_memory_limit", 750); // default=250; increase size (in KB) of intermediate memory caching of frequently used metadata (disk cache memory pool)
-//user_pref("browser.cache.max_shutdown_io_lag", 4); // default=2; number of seconds the cache spends writing pending data and closing files after shutdown has been signalled
+//user_pref("browser.cache.disk.enable", true); // DEFAULT
 
-// PREF: specify how long pages are kept before being removed from cache (in hours)
-// Controls the time period used to re-compute the frecency value of cache entries.
-// The frecency value determines how recently and frequently a page has been accessed
-// and is used by Firefox's cache algorithm.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=913808
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=968101
-// [3] https://rockridge.hatenablog.com/entry/2014/09/15/165501
-//user_pref("browser.cache.frecency_half_life_hours", 18); // default=6
+// PREF: disk cache size
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968106,968101
+// [2] https://rockridge.hatenablog.com/entry/2014/09/15/165501
+// [3] https://www.reddit.com/r/firefox/comments/17oqhw3/firefox_and_ssd_disk_consumption/
+//user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
+//user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
+//user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT (50 MB); maximum size of an object in disk cache
+
+// PREF: cache memory pool
+// Cache v2 provides a memory pool that stores metadata (such as response headers)
+// for recently read cache entries [1]. It is managed by a cache thread, and caches with
+// metadata in the pool appear to be reused immediately.
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=986179
+//user_pref("browser.cache.disk.metadata_memory_limit", 500); // default=250 (0.25 MB); limit of recent metadata we keep in memory for faster access
+
+// PREF: number of chunks we preload ahead of read
+// Large content such as images will load faster.
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913819,988318
+// [2] http://www.janbambas.cz/new-firefox-http-cache-enabled/
+//user_pref("browser.cache.disk.preload_chunk_count", 4); // DEFAULT
+
+// PREF: the time period used to re-compute the frecency value of cache entries
+// The frequency algorithm is used to select entries, and entries that are recently
+// saved or frequently reused are retained. The frecency value determines how
+// frequently a page has been accessed and is used by Firefox's cache algorithm.
+// The frequency algorithm is used to select entries, and entries that are recently
+// saved or frequently reused are retained. The frecency value determines how
+// often a page has been accessed and is used by Firefox's cache algorithm.
+// When the memory pool becomes full, the oldest data is purged. By default,
+// data older than 6 hours is treated as old.
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=942835,1012327
+// [2] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968101
+//user_pref("browser.cache.frecency_half_life_hours", 6); // DEFAULT
+
+// PREF: memory limit (in kB) for new cache data not yet written to disk
+// Writes to the cache are buffered and written to disk on background with low priority.
+// With a slow persistent storage, these buffers may grow when data is coming
+// fast from the network. When the amount of unwritten data is exceeded, new
+// writes will simply fail. We have two buckets, one for important data
+// (priority) like html, css, fonts and js, and one for other data like images, video, etc.
+//user_pref("browser.cache.disk.max_chunks_memory_usage", 40960); // DEFAULT (40 MB)
+//user_pref("browser.cache.disk.max_priority_chunks_memory_usage", 40960); // DEFAULT (40 MB)
+
+// PREF: how often to validate document in cache
+// [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#1092-1096
+// 0 = once-per-session
+// 3 = when-appropriate/automatically (default)
+//user_pref("browser.cache.check_doc_frequency, 3); // DEFAULT
+
+// PREF: enforce free space checks
+// When smartsizing is disabled, we could potentially fill all disk space by
+// cache data when the disk capacity is not set correctly. To avoid that, we
+// check the free space every time we write some data to the cache. The free
+// space is checked against two limits. Once the soft limit is reached we start
+// evicting the least useful entries, when we reach the hard limit writing to
+// the entry fails.
+//user_pref("browser.cache.disk.free_space_soft_limit", 10240); // default=5120 (5 MB)
+//user_pref("browser.cache.disk.free_space_hard_limit", 2048); // default=1024 (1 MB)
+
+// PREF: compression level for cached JavaScript bytecode [FF102+]
+// [1] https://github.com/yokoffing/Betterfox/issues/247
+// 0 = do not compress (default)
+// 1 = minimal compression
+// 9 = maximal compression
+user_pref("browser.cache.jsbc_compression_level", 3);
+
+// PREF: strategy to use for when the bytecode should be encoded and saved [TESTING ONLY]
+// -1 makes page load times marginally longer when a page is being loaded for the first time.
+// Subsequent reload of websites will be much much faster.
+// [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#3461-3488
+// [2] https://www.reddit.com/r/firefox/comments/12786yv/improving_performance_in_firefox_android_part_ii/
+// -1 = saved as soon as the script is seen for the first time, independently of the size or last access time
+// 0 = saved in order to minimize the page-load time (default)
+//user_pref("dom.script_loader.bytecode_cache.enabled", true); // DEFAULT
+//user_pref("dom.script_loader.bytecode_cache.strategy", 0); // DEFAULT
+
+/****************************************************************************
+ * SECTION: MEMORY CACHE                                                   *
+****************************************************************************/
 
 // PREF: memory cache
 // The "automatic" size selection (default) is based on a decade-old table
 // that only contains settings for systems at or below 8GB of system memory [1].
-// Waterfox G6 Beta 3 allows it to go above 8GB machines [3].
+// Waterfox G6 allows it to go above 8GB machines [3].
 // Value can be up to the max size of an unsigned 64-bit integer.
 // -1=Automatically decide the maximum memory to use to cache decoded images,
 // messages, and chrome based on the total amount of RAM
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
-//user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 1048576=1GB, 2097152=2GB
-//user_pref("browser.cache.memory.max_entry_size", 5120); // 5 MB DEFAULT; alt=25600; -1=entries bigger than than 90% of the mem-cache are never cached
+//user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 256000=256 MB; 512000=500 MB; 1048576=1GB, 2097152=2GB
+//user_pref("browser.cache.memory.max_entry_size", 10240); // (10 MB); default=5120 (5 MB)
 
 // PREF: amount of Back/Forward cached pages stored in memory for each tab
 // Pages that were recently visited are stored in memory in such a way
@@ -328,7 +256,7 @@ user_pref("browser.cache.disk.enable", false);
 // is no reason for Firefox to keep memory for this.
 // -1=determine automatically (8 pages)
 // [1] https://kb.mozillazine.org/Browser.sessionhistory.max_total_viewers#Possible_values_and_their_effects
-//user_pref("browser.sessionhistory.max_total_viewers", 3);
+//user_pref("browser.sessionhistory.max_total_viewers", 4);
 
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
@@ -407,76 +335,70 @@ user_pref("network.http.pacing.requests.enabled", false);
     //user_pref("network.http.pacing.requests.min-parallelism", 10); // default=6
     //user_pref("network.http.pacing.requests.burst", 14); // default=10
 
-// PREF: how long to wait before trying a different connection when the initial one fails
-// The number (in ms) after sending a SYN for an HTTP connection,
-// to wait before trying again with a different connection.
-// 0=disable the second connection
-// [1] https://searchfox.org/mozilla-esr115/source/modules/libpref/init/all.js#1178
-// [2] https://www.catchpoint.com/blog/http-transaction-steps
-//user_pref("network.http.connection-retry-timeout", 0); // default=250
-
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
-user_pref("network.dnsCacheEntries", 1000); // default=400
+//user_pref("network.dnsCacheEntries", 1000); // default=400
 
 // PREF: adjust DNS expiration time
 // [ABOUT] about:networking#dns
 // [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
-user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3600 (1 hour)
+user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour
     //user_pref("network.dnsCacheExpirationGracePeriod", 240); // default=60; cache DNS entries for 4 minutes after they expire
 
 // PREF: the number of threads for DNS
 user_pref("network.dns.max_high_priority_threads", 8); // default=5
-//user_pref("network.dns.max_any_priority_threads", 5); // default=3
+//user_pref("network.dns.max_any_priority_threads", 3); // DEFAULT
 
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
- * SECTION: SPECULATIVE CONNECTIONS                                         *
+ * SECTION: SPECULATIVE LOADING                                            *
 ****************************************************************************/
+
+// These are connections that are not explicitly asked for (e.g., clicked on).
+// [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Speculative_loading
 
 // [NOTE] FF85+ partitions (isolates) pooled connections, prefetch connections,
 // pre-connect connections, speculative connections, TLS session identifiers,
 // and other connections. We can take advantage of the speed of pre-connections
 // while preserving privacy. Users may relax hardening to maximize their preference.
-// For more information, see SecureFox: "PREF: State Paritioning" and "PREF: Network Partitioning" [1]
-// [1] https://github.com/yokoffing/Betterfox/blob/e9621b0062914da5fdb5f83b8da64041965b7a50/Securefox.js#L74-L108
+// For more information, see SecureFox: "PREF: State Paritioning" and "PREF: Network Partitioning".
 // [NOTE] To activate and increase network predictions, go to settings in uBlock Origin and uncheck:
 // - "Disable pre-fetching (to prevent any connection for blocked network requests)"
 // [NOTE] Add prefs to "MY OVERRIDES" section and uncomment to enable them in your user.js.
 
-// PREF: speculative pre-connections
-// Firefox will open predictive connections to sites when the user hovers their mouse over thumbnails
-// on the New Tab Page or the user starts to search in the Search Bar, or in the search field on the
-// New Tab Page [1]. This pref may control speculative connects for normal links, too [2].
-// The maximum number of current global half open sockets allowable when starting a new speculative connection [3].
-// In case the user follows through with the action, the page can begin loading faster
-// since some of the work was already started in advance.
-// [NOTE] TCP and SSL handshakes are set up in advance but page contents are not downloaded until a click on the link is registered.
+// PREF: link-mouseover opening connection to linked server
+// When accessing content online, devices use sockets as endpoints.
+// The global limit on half-open sockets controls how many speculative
+// connection attempts can occur at once when starting new connections [3].
+// If the user follows through, pages can load faster since some
+// work was done in advance. Firefox opens predictive connections
+// to sites when hovering over New Tab thumbnails or starting a
+// URL Bar search [1] and hyperlinks within a page [2].
+// [NOTE] DNS (if enabled), TCP, and SSL handshakes are set up in advance,
+// but page contents are not downloaded until a click on the link is registered.
 // [1] https://support.mozilla.org/en-US/kb/how-stop-firefox-making-automatic-connections?redirectslug=how-stop-firefox-automatically-making-connections&redirectlocale=en-US#:~:text=Speculative%20pre%2Dconnections
 // [2] https://news.slashdot.org/story/15/08/14/2321202/how-to-quash-firefoxs-silent-requests
 // [3] https://searchfox.org/mozilla-central/rev/028c68d5f32df54bca4cf96376f79e48dfafdf08/modules/libpref/init/all.js#1280-1282
 // [4] https://www.keycdn.com/blog/resource-hints#prefetch
 // [5] https://3perf.com/blog/link-rels/#prefetch
-user_pref("network.http.speculative-parallel-limit", 0);
-// or
 //user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT
 
-// PREF: DNS pre-resolve <link rel="dns-prefetch">
-// Resolve hostnames ahead of time. In order to reduce latency,
-// Firefox will proactively perform domain name resolution on links that
-// the user may choose to follow, as well as URLs for items
-// referenced by elements in a web page.
+// PREF: DNS prefetching <link rel="dns-prefetch">
+// Used for cross-origin connections to provide small performance improvements.
+// Disable DNS prefetching to prevent Firefox from proactively resolving
+// hostnames for other domains linked on a page. This may eliminate
+// unnecessary DNS lookups, but can increase latency when following external links.
 // [1] https://bitsup.blogspot.com/2008/11/dns-prefetching-for-firefox.html
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 user_pref("network.dns.disablePrefetch", true);
 //user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
-// or
-//user_pref("network.dns.disablePrefetch", false); // DEFAULT
-//user_pref("network.dns.disablePrefetchFromHTTPS", false);
+
+// PREF: enable <link rel="preconnect"> tag and Link: rel=preconnect response header handling
+//user_pref("network.preconnect", true); // DEFAULT
 
 // PREF: preconnect to the autocomplete URL in the address bar
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
@@ -484,23 +406,20 @@ user_pref("network.dns.disablePrefetch", true);
 // [NOTE] Firefox will perform DNS lookup (if enabled) and TCP and TLS handshake,
 // but will not start sending or receiving HTTP data.
 // [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
-// or
-//user_pref("browser.urlbar.speculativeConnect.enabled", true); // DEFAULT
+//user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
-// PREF: mousedown speculative connections on bookmarks and history
-user_pref("browser.places.speculativeConnect.enabled", false);
-// or
-//user_pref("browser.places.speculativeConnect.enabled", true); // DEFAULT
+// PREF: mousedown speculative connections on bookmarks and history [FF98+]
+//user_pref("browser.places.speculativeConnect.enabled", false);
 
-// PREF: Preload <link rel=preload>
-// This tells the browser that the resource should be loaded as part of the current navigation
-// and it should start fetching it ASAP. This attribute can be applied to CSS, fonts, images, JavaScript files and more.
-// This tells the browser to download and cache a resource (like a script or a stylesheet) as soon as possible.
-// The browser doesn’t do anything with the resource after downloading it. Scripts aren’t executed, stylesheets
-// aren’t applied. It’s just cached – so that when something else needs it, it’s available immediately.
-// Focuses on fetching a resource for the CURRENT navigation.
-// [NOTE] Unlike other pre-connection tags (except modulepreload), this tag is mandatory for the browser.
+// PREF: network preload <link rel="preload"> [REMOVED]
+// Used to load high-priority resources faster on the current page, for strategic
+// performance improvements.
+// Instructs the browser to immediately fetch and cache high-priority resources
+// for the current page to improve performance. The browser downloads resources
+// but does not execute scripts or apply stylesheets - it just caches them for
+// instant availability later.
+// Unlike other pre-connection tags (except modulepreload), this tag is
+// mandatory for the browser.
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload
 // [2] https://w3c.github.io/preload/
 // [3] https://3perf.com/blog/link-rels/#preload
@@ -510,87 +429,211 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 // [7] https://github.com/arkenfox/user.js/issues/1098#issue-791949341
 // [8] https://yashints.dev/blog/2018/10/06/web-perf-2#preload
 // [9] https://web.dev/preload-critical-assets/
-//user_pref("network.preload", true); // DEFAULT
+//user_pref("network.preload", true); // [REMOVED]
 
-// PREF: Link prefetching <link rel="prefetch">
-// Firefox will prefetch certain links if any of the websites you are viewing uses the special prefetch-link tag.
-// A directive that tells a browser to fetch a resource that will likely be needed for the next navigation.
-// The resource will be fetched with extremely low priority (since everything the browser knows
-// is needed in the current page is more important than a resource that we guess might be needed in the next one).
-// Speeds up the NEXT navigation rather than the current one.
-// When the user clicks on a link, or initiates any kind of page load, link prefetching will stop and any
-// prefetch hints will be discarded.
-// Prefetch just downloads the resources; it doesn't execute anything (such as start to parse the web page),
-// and it may never make any calls to scripts, etc.
+// PREF: network module preload <link rel="modulepreload"> [FF115+]
+// High-priority loading of current page JavaScript modules.
+// Used to preload high-priority JavaScript modules for strategic performance improvements.
+// Module preloading allows developers to fetch JavaScript modules and dependencies
+// earlier to accelerate page loads. The browser downloads, parses, and compiles modules
+// referenced by links with this attribute in parallel with other resources, rather
+// than sequentially waiting to process each. Preloading reduces overall download times.
+// Browsers may also automatically preload dependencies without firing extra events.
+// Unlike other pre-connection tags (except rel=preload), this tag is mandatory for the browser.
+// [1] https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/modulepreload
+//user_pref("network.modulepreload", true); // DEFAULT
+
+// PREF: link prefetching <link rel="prefetch">
+// Pre-populates the HTTP cache by prefetching same-site future navigation
+// resources or subresources used on those pages.
+// Enabling link prefetching allows Firefox to preload pages tagged as important.
+// The browser prefetches links with the prefetch-link tag, fetching resources
+// likely needed for the next navigation at low priority. When clicking a link
+// or loading a new page, prefetching stops and discards hints. Prefetching
+// downloads resources without executing them.
+// [NOTE] Since link prefetch uses the HTTP cache, it has a number of issues
+// with document prefetches, such as being potentially blocked by Cache-Control headers
+// (e.g. cache partitioning).
 // [1] https://developer.mozilla.org/en-US/docs/Glossary/Prefetch
 // [2] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 // [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
 // [4] https://3perf.com/blog/link-rels/#prefetch
+// [5] https://developer.mozilla.org/docs/Web/HTTP/Link_prefetching_FAQ
 user_pref("network.prefetch-next", false);
-// or
-//user_pref("network.prefetch-next", true); // DEFAULT
 
-// PREF: enable early hints [NIGHTLY]
+// PREF: Fetch Priority API [FF119+]
+// Indicates whether the `fetchpriority` attribute for elements which support it.
+// [1] https://web.dev/articles/fetch-priority
+// [2] https://nitropack.io/blog/post/priority-hints
+// [2] https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/fetchPriority
+// [3] https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement/fetchPriority
+//user_pref("network.fetchpriority.enabled", true);
+
+// PREF: early hints [FF120+]
 // [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
 // [2] https://developer.chrome.com/blog/early-hints/
-//user_pref("network.early-hints.enabled", false); // DEFAULT
-// or
+// [3] https://blog.cloudflare.com/early-hints/
+// [4] https://blog.cloudflare.com/early-hints-performance/
 //user_pref("network.early-hints.enabled", true);
 
-// PREF: `Link: rel=preconnect` in 103 Early Hint response
-//user_pref("network.early-hints.preconnect.enabled", false); // DEFAULT
-// or
+// PREF: `Link: rel=preconnect` in 103 Early Hint response [FF120+]
+// Used to warm most critical cross-origin connections to provide
+// performance improvements when connecting to them.
+// [NOTE] When 0, this is limited by "network.http.speculative-parallel-limit".
 //user_pref("network.early-hints.preconnect.enabled", true);
-
-// PREF: the number of speculative connections allowed for early hints `Link: rel=preconnect`
-// When 0, this is limited by "network.http.speculative-parallel-limit".
-//user_pref("network.early-hints.preconnect.max_connections", 0);
-// or
 //user_pref("network.early-hints.preconnect.max_connections", 10); // DEFAULT
 
 // PREF: Network Predictor (NP)
-// Keeps track of components that were loaded during page visits so that the browser knows next time
-// which resources to request from the server: It uses a local file to remember which resources were
-// needed when the user visits a webpage (such as image.jpg and script.js), so that the next time the
-// user prepares to go to that webpage (upon navigation? URL bar? mouseover?), this history can be used
-// to predict what resources will be needed rather than wait for the document to link those resources.
-// NP only performs pre-connect, not prefetch, by default, including DNS pre-resolve and TCP preconnect
-// (which includes SSL handshake). No data is actually sent to the site until a user actively clicks
-// a link. However, NP is still opening TCP connections and doing SSL handshakes, so there is still
-// information leakage about your browsing patterns.
-// [NOTE] Disabling DNS prefetching disables the DNS prefetching behavior of NP.
+// When enabled, it trains and uses Firefox's algorithm to preload page resource
+// by tracking past page resources. It uses a local file (history) of needed images,
+// scripts, etc. to request them preemptively when navigating.
+// [NOTE] By default, it only preconnects, doing DNS, TCP, and SSL handshakes.
+// No data sends until clicking. With "network.predictor.enable-prefetch" enabled,
+// it also performs prefetches.
 // [1] https://wiki.mozilla.org/Privacy/Reviews/Necko
 // [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
 user_pref("network.predictor.enabled", false);
-// or
-//user_pref("network.predictor.enabled", true); // DEFAULT
 
-// PREF: NP fetches resources on the page ahead of time, to accelerate rendering of the page.
-// Performs both pre-connect and prefetch.
-user_pref("network.predictor.enable-prefetch", false);
-// or
-//user_pref("network.predictor.enable-prefetch", true); // DEFAULT
+// PREF: Network Predictor fetch for resources ahead of time
+// Prefetch page resources based on past user behavior.
+//user_pref("network.predictor.enable-prefetch", false); // DEFAULT
 
-// PREF: NP active when hovering over links
-// The next time the user mouseovers a link to that webpage, history is used to predict what
-// resources will be needed rather than wait for the document to link those resources.
-// When you hover over links, connections are established to linked domains and servers
-// automatically to speed up the loading process should you click on the link. To improve the
-// loading speed, Firefox will open predictive connections to sites when the user hovers their
-// mouse over. In case the user follows through with the action, the page can begin loading
-// faster since some of the work was already started in advance. Focuses on fetching a resource
-// for the NEXT navigation.
+// PREF: make Network Predictor active when hovering over links
+// When hovering over links, Network Predictor uses past resource history to
+// preemptively request what will likely be needed instead of waiting for the document.
+// Predictive connections automatically open when hovering over links to speed up
+// loading, starting some work in advance.
 //user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
-// or
-//user_pref("network.predictor.enable-hover-on-ssl", true);
 
-// PREF: assign NP values
-    //user_pref("network.predictor.preresolve-min-confidence", 40); // default=60
-    //user_pref("network.predictor.preconnect-min-confidence", 60); // default=90
-    //user_pref("network.predictor.prefetch-min-confidence", 80); // default=100
-        //user_pref("network.predictor.prefetch-force-valid-for", 3600); // default=10
-        //user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
-    //user_pref("network.predictor.max-resources-per-entry", 250); // default=100
-    //user_pref("network.predictor.max-uri-length", 1000); // default=500
+// PREF: assign Network Predictor confidence levels
+// [NOTE] Keep in mind that Network Predictor must LEARN your browsing habits.
+// Editing these lower will cause more speculative connections to occur,
+// which reduces accuracy over time and has privacy implications.
+//user_pref("network.predictor.preresolve-min-confidence", 60); // DEFAULT
+//user_pref("network.predictor.preconnect-min-confidence", 90); // DEFAULT
+//user_pref("network.predictor.prefetch-min-confidence", 100); // DEFAULT
+
+// PREF: other Network Predictor values
+// [NOTE] Keep in mmind that Network Predictor must LEARN your browsing habits.
+//user_pref("network.predictor.prefetch-force-valid-for", 10); // DEFAULT; how long prefetched resources are considered valid and usable (in seconds) for the prediction modeling
+//user_pref("network.predictor.prefetch-rolling-load-count", 10); // DEFAULT; the maximum number of resources that Firefox will prefetch in memory at one time based on prediction modeling
+//user_pref("network.predictor.max-resources-per-entry", 250); // default=100
+//user_pref("network.predictor.max-uri-length", 1000); // default=500
+
+/****************************************************************************
+ * SECTION: EXPERIMENTAL                                                    *
+****************************************************************************/
+
+// PREF: CSS Masonry Layout [NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
+
+// PREF: Prioritized Task Scheduling API [NIGHTLY]
+// [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
+// [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
+user_pref("dom.enable_web_task_scheduling", true);
+
+// PREF: CSS :has() selector [NIGHTLY]
+// Needed for some extensions, filters, and customizations.
+// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
+// [2] https://caniuse.com/css-has
+user_pref("layout.css.has-selector.enabled", true);
+
+// PREF: HTML Sanitizer API [NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer
+// [2] https://caniuse.com/mdn-api_sanitizer
+user_pref("dom.security.sanitizer.enabled", true);
+
+// PREF: WebGPU [HIGHLY EXPERIMENTAL!]
+// [WARNING] Do not enable unless you are a web developer!
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
+// [2] https://developer.chrome.com/docs/web-platform/webgpu/
+// [3] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
+// [4] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
+//user_pref("dom.webgpu.enabled", true);
+    //user_pref("gfx.webgpu.force-enabled", true); // enforce
+// enable WebGPU indirect draws/dispatches:
+//user_pref("dom.webgpu.indirect-dispatch.enabled", true);
+
+/****************************************************************************
+ * SECTION: TAB UNLOAD                                                      *
+****************************************************************************/
+
+// PREF: unload tabs on low memory
+// [ABOUT] about:unloads
+// Firefox will detect if your computer’s memory is running low (less than 200MB)
+// and suspend tabs that you have not used in awhile.
+// [1] https://support.mozilla.org/en-US/kb/unload-inactive-tabs-save-system-memory-firefox
+// [2] https://hacks.mozilla.org/2021/10/tab-unloading-in-firefox-93/
+//user_pref("browser.tabs.unloadOnLowMemory", true); // DEFAULT
+
+// PREF: determine when tabs unload [WINDOWS] [LINUX]
+// Notify TabUnloader or send the memory pressure if the memory resource
+// notification is signaled AND the available commit space is lower than
+// this value.
+// Set this to some high value, e.g. 2/3 of total memory available in your system:
+// 4GB=2640, 8GB=5280, 16GB=10560, 32GB=21120, 64GB=42240
+// [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
+//user_pref("browser.low_commit_space_threshold_mb", 2640); // default=200; WINDOWS LINUX
+
+// PREF: determine when tabs unload [LINUX]
+// On Linux, Firefox checks available memory in comparison to total memory,
+// and use this percent value (out of 100) to determine if Firefox is in a
+// low memory scenario.
+// [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
+//user_pref("browser.low_commit_space_threshold_percent", 33); // default=5; LINUX
+
+// PREF: determine how long (in ms) tabs are inactive before they unload
+// 60000=1min; 300000=5min; 600000=10min (default)
+//user_pref("browser.tabs.min_inactive_duration_before_unload", 300000); // 5min; default=600000
+
+/****************************************************************************
+ * SECTION: PROCESS COUNT                                                  *
+****************************************************************************/
+
+// PREF: process count
+// [ABOUT] View in about:processes.
+// With Firefox Quantum (2017), CPU cores = processCount. However, since the
+// introduction of Fission [2], the number of website processes is controlled
+// by processCount.webIsolated. Disabling fission.autostart or changing
+// fission.webContentIsolationStrategy reverts control back to processCount.
+// [1] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
+// [2] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes 
+//user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
+//user_pref("dom.ipc.processCount.webIsolated", 1); // default=4; Isolated Web Content
+
+// PREF: use one process for process preallocation cache
+//user_pref("dom.ipc.processPrelaunch.fission.number", 1); // default=3; Process Preallocation Cache
+
+// PREF: configure process isolation
+// [1] https://hg.mozilla.org/mozilla-central/file/tip/dom/ipc/ProcessIsolation.cpp#l53
+// [2] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
+
+// OPTION 1: isolate all websites
+// Web content is always isolated into its own `webIsolated` content process
+// based on site-origin, and will only load in a shared `web` content process
+// if site-origin could not be determined.
+//user_pref("fission.webContentIsolationStrategy", 1); // DEFAULT
+//user_pref("browser.preferences.defaultPerformanceSettings.enabled", true); // DEFAULT
+    //user_pref("dom.ipc.processCount.webIsolated", 1); // one process per site origin
+
+// OPTION 2: isolate only "high value" websites
+// Only isolates web content loaded by sites which are considered "high
+// value". A site is considered high value if it has been granted a
+// `highValue*` permission by the permission manager, which is done in
+// response to certain actions.
+//user_pref("fission.webContentIsolationStrategy", 2);
+//user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
+    //user_pref("dom.ipc.processCount.webIsolated", 1); // one process per site origin (high value)
+    //user_pref("dom.ipc.processCount", 8); // determine by number of CPU cores/processors
+
+// OPTION 3: do not isolate websites
+// All web content is loaded into a shared `web` content process. This is
+// similar to the non-Fission behavior; however, remote subframes may still
+// be used for sites with special isolation behavior, such as extension or
+// mozillaweb content processes.
+//user_pref("fission.webContentIsolationStrategy", 0);
+//user_pref("browser.preferences.defaultPerformanceSettings.enabled", false);
+    //user_pref("dom.ipc.processCount", 8); // determine by number of CPU cores/processors

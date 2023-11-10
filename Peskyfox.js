@@ -3,36 +3,13 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 118                                                             *
+ * version: 119                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
 /****************************************************************************
  * SECTION: MOZILLA UI                                                      *
 ****************************************************************************/
-
-// PREF: preferred color scheme for websites
-// [SETTING] General>Language and Appearance>Website appearance
-// By default, color scheme matches the theme of your browser toolbar (3).
-// Set this pref to choose Dark on sites that support it (0) or Light (1).
-// Before FF95, the pref was 2, which determined site color based on OS theme.
-// Dark (0), Light (1), System (2), Browser (3) (default [FF95+])
-// [1] https://www.reddit.com/r/firefox/comments/rfj6yc/how_to_stop_firefoxs_dark_theme_from_overriding/hoe82i5/?context=3
-user_pref("layout.css.prefers-color-scheme.content-override", 2);
-
-// PREF: disable always using dark theme for private browsing windows [FF106+]
-//user_pref("browser.theme.dark-private-windows", false);
-
-// PREF: enable Firefox to use userChome, userContent, etc.
-user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-
-// PREF: disable annoying update restart prompts
-// Delay update available prompts for ~1 week.
-// Will still show green arrow in menu bar.
-user_pref("app.update.suppressPrompts", true);
-
-// PREF: add compact mode back to options
-user_pref("browser.compactmode.show", true);
 
 // PREF: Mozilla VPN
 // [1] https://github.com/yokoffing/Betterfox/issues/169
@@ -41,7 +18,21 @@ user_pref("browser.privatebrowsing.vpnpromourl", "");
 
 // PREF: disable about:addons' Recommendations pane (uses Google Analytics)
 user_pref("extensions.getAddons.showPane", false); // HIDDEN
+
+// PREF: disable recommendations in about:addons' Extensions and Themes panes
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
+
+// PREF: Personalized Extension Recommendations in about:addons and AMO
+// [NOTE] This pref has no effect when Health Reports are disabled.
+// [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to make personalized extension recommendations
+user_pref("browser.discovery.enabled", false);
+
+// PREF: disable Fakespot integration [FF116+]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1840156#c0
+// [2] https://github.com/arkenfox/user.js/issues/1730
+// [3] https://www.fakespot.com/
+// [4] https://www.ghacks.net/2023/10/12/firefox-will-soon-tell-you-if-product-reviews-are-reliable/
+//user_pref("browser.shopping.experience2023.enabled", false); // [DEFAULT: false]
 
 // PREF: disable Firefox from asking to set as the default browser
 // [1] https://github.com/yokoffing/Betterfox/issues/166
@@ -61,7 +52,7 @@ user_pref("browser.preferences.moreFromMozilla", false);
 // [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
 user_pref("browser.tabs.tabmanager.enabled", false);
 
-// PREF: Warnings
+// PREF: tab and about:config warnings
 //user_pref("browser.tabs.warnOnClose", false); // DEFAULT [FF94+]
 //user_pref("browser.tabs.warnOnCloseOtherTabs", true); // DEFAULT
 //user_pref("browser.tabs.warnOnOpen", true); // DEFAULT
@@ -77,19 +68,45 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 // PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
+/****************************************************************************
+ * SECTION: THEME ADJUSTMENTS                                              *
+****************************************************************************/
+
+// PREF: enable Firefox to use userChome, userContent, etc.
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+// PREF: add compact mode back to options
+user_pref("browser.compactmode.show", true);
+
 // PREF: remove focus indicator for links
 // [1] https://www.askvg.com/firefox-tip-restore-classic-dotted-outline-focus-indicator-for-links/
 user_pref("browser.display.focus_ring_on_anything", true); 
 user_pref("browser.display.focus_ring_style", 0);
 user_pref("browser.display.focus_ring_width", 0);
 
+// PREF: preferred color scheme for websites
+// [SETTING] General>Language and Appearance>Website appearance
+// By default, color scheme matches the theme of your browser toolbar (3).
+// Set this pref to choose Dark on sites that support it (0) or Light (1).
+// Before FF95, the pref was 2, which determined site color based on OS theme.
+// Dark (0), Light (1), System (2), Browser (3) [DEFAULT FF95+]
+// [1] https://www.reddit.com/r/firefox/comments/rfj6yc/how_to_stop_firefoxs_dark_theme_from_overriding/hoe82i5/?context=3
+user_pref("layout.css.prefers-color-scheme.content-override", 2);
+
+// PREF: disable always using dark theme for private browsing windows [FF106+]
+//user_pref("browser.theme.dark-private-windows", false);
+
 // PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+]
-user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
+user_pref("browser.privateWindowSeparation.enabled", false);
 
 // PREF: reduce the size of the "private window" indicator in tab bar [FF106+]
 //user_pref("browser.privatebrowsing.enable-new-indicator", false); // REMOVED [FF119+]
 
-// PREF: Cookie Banner handling [NIGHTLY]
+/****************************************************************************
+ * SECTION: COOKIE BANNER HANDLING                                         *
+****************************************************************************/
+
+// PREF: Cookie Banner handling
 // [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
 // [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
 // [2] https://phabricator.services.mozilla.com/D153642
@@ -98,42 +115,39 @@ user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 // 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
 // 1: reject banners if it is a one-click option; otherwise, keep banners on screen
 // 0: disable all cookie banner handling
-user_pref("cookiebanners.service.mode", 2);
-user_pref("cookiebanners.service.mode.privateBrowsing", 2);
-    //user_pref("cookiebanners.bannerClicking.enabled", true); // DEFAULT [FF108]
-    //user_pref("cookiebanners.cookieInjector.enabled", true); // DEFAULT
+user_pref("cookiebanners.service.mode", 1);
+user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 
-// PREF: global CookieBannerRules [WiP]
-// Global rules that can handle a list of cookie banner libraries / providers on any site.
-// This is used for click rules that can handle common Consent Management Providers (CMP)
-// [WARNING] Beware of potential bugs and performance issues. Enabling this may negatively
-// impact site performance. It requires Firefox to run rule-defined query selectors for
-// every page.
-//user_pref("cookiebanners.service.enableGlobalRules", false); // DEFAULT
+// PREF: Cookie Banner global rules
+// Global rules that can handle a list of cookie banner libraries and providers on any site.
+// This is used for click rules that can handle common Consent Management Providers (CMP).
+user_pref("cookiebanners.service.enableGlobalRules", true);
 
-// PREF: Firefox Translations [NIGHTLY]
+/****************************************************************************
+ * SECTION: TRANSLATIONS                                                   *
+****************************************************************************/
+
+// PREF: Firefox Translations [FF118+]
 // Automated translation of web content is done locally in Firefox, so that
 // the text being translated does not leave your machine.
 // [ABOUT] Visit about:translations to translate your own text as well.
 // [1] https://blog.mozilla.org/en/mozilla/local-translation-add-on-project-bergamot/
 // [2] https://blog.nightly.mozilla.org/2023/06/01/firefox-translations-and-other-innovations-these-weeks-in-firefox-issue-139/
 // [3] https://www.ghacks.net/2023/08/02/mozilla-firefox-117-beta-brings-an-automatic-language-translator-for-websites-and-it-works-offline/
-user_pref("browser.translations.enable", true);
+//user_pref("browser.translations.enable", true); // DEFAULT
     //user_pref("browser.translations.autoTranslate", true);
-
-// PREF: Mozilla Shopping [FF116+]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1836265
-//user_pref("browser.shopping.experience2023.enabled", false); // DEFAULT
 
 /****************************************************************************
  * SECTION: FULLSCREEN NOTICE                                               *
 ****************************************************************************/
 
-// PREF: disable fullscreen delay and notice
-user_pref("full-screen-api.transition-duration.enter", "0 0");
-user_pref("full-screen-api.transition-duration.leave", "0 0");
-user_pref("full-screen-api.warning.delay", -1);
-user_pref("full-screen-api.warning.timeout", 0);
+// PREF: remove fullscreen delay
+user_pref("full-screen-api.transition-duration.enter", "0 0"); // default=200 200
+user_pref("full-screen-api.transition-duration.leave", "0 0"); // default=200 200
+
+// PREF: disable fullscreen notice
+user_pref("full-screen-api.warning.delay", -1); // default=500
+user_pref("full-screen-api.warning.timeout", 0); // default=3000
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
@@ -165,31 +179,44 @@ user_pref("full-screen-api.warning.timeout", 0);
 
 // PREF: minimize URL bar suggestions (bookmarks, history, open tabs)
 // Dropdown options in the URL bar:
-//user_pref("browser.urlbar.suggest.bookmark", true);
+//user_pref("browser.urlbar.suggest.bookmark", true); // DEFAULT
 user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.suggest.history", false);
 //user_pref("browser.urlbar.suggest.openpage", false);
-//user_pref("browser.urlbar.suggest.quickactions", false); // [NIGHTLY-only]
 //user_pref("browser.urlbar.suggest.searches", false);
 //user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
     //user_pref("browser.urlbar.weather.ignoreVPN", false); // DEFAULT
-
-// PREF: disable dropdown suggestions with empty query:
-user_pref("browser.urlbar.suggest.topsites", false);
-
-// PREF: enable helpful features:
+//user_pref("browser.urlbar.quickactions.enabled", false); // NIGHTLY
+//user_pref("browser.urlbar.shortcuts.quickactions", false); // NIGHTLY
 user_pref("browser.urlbar.suggest.calculator", true);
 user_pref("browser.urlbar.unitConversion.enabled", true);
+
+// PREF: disable dropdown suggestions with empty query
+//user_pref("browser.urlbar.suggest.topsites", false);
+
+// PREF: disable urlbar trending search suggestions [FF118+]
+// [SETTING] Search>Search Suggestions>Show trending search suggestions (FF119)
+user_pref("browser.urlbar.trending.featureGate", false);
+//user_pref("browser.urlbar.suggest.trending", false);
+
+// PREF: disable urlbar suggestions
+//user_pref("browser.urlbar.addons.featureGate", false); // [FF115+]
+//user_pref("browser.urlbar.mdn.featureGate", false); // [FF117+] [HIDDEN PREF]
+//user_pref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: false]
+//user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
+
+// PREF: disable urlbar clipboard suggestions [FF118+]
+//user_pref("browser.urlbar.clipboard.featureGate", false); // [DEFAULT: false]
+
+// PREF: disable tab-to-search [FF85+]
+// Alternatively, you can exclude on a per-engine basis by unchecking them in Options>Search
+// [SETTING] Privacy & Security>Address Bar>When using the address bar, suggest>Search engines
+//user_pref("browser.urlbar.suggest.engines", false);
 
 // PREF: Adaptive History Autofill
 // [1] https://docs.google.com/document/u/1/d/e/2PACX-1vRBLr_2dxus-aYhZRUkW9Q3B1K0uC-a0qQyE3kQDTU3pcNpDHb36-Pfo9fbETk89e7Jz4nkrqwRhi4j/pub
 //user_pref("browser.urlbar.autoFill", true); // [DEFAULT]
 //user_pref("browser.urlbar.autoFill.adaptiveHistory.enabled", false);
-
-// PREF: Quick Actions in the URL Bar [NIGHTLY-only]
-// [1] https://www.ghacks.net/2022/07/19/mozilla-is-testing-quick-actions-in-firefoxs-address-bar/
-//user_pref("browser.urlbar.quickactions.enabled", false);
-//user_pref("browser.urlbar.shortcuts.quickactions", false);
 
 // PREF: adjust the amount of Address bar / URL bar dropdown results
 // This value controls the total number of entries to appear in the location bar dropdown.
@@ -255,6 +282,10 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 //user_pref("browser.newtabpage.activity-stream.feeds.snippets", false); // [DEFAULT]
 
+// PREF: clear default topsites
+// [NOTE] This does not block you from adding your own.
+//user_pref("browser.newtabpage.activity-stream.default.sites", "");
+
 // PREF: keep search in the search box; prevent from jumping to address bar
 // [1] https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/
 //user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
@@ -291,7 +322,7 @@ user_pref("extensions.pocket.enabled", false);
 
 // PREF: always ask where to download
 // Enforce user interaction for greater security.
-// [SETTING] General>Downloads>Always ask you where to save files
+// [SETTING] General>Files and Applications>Downloads>Always ask you where to save files
 // [DIALOGUE] "Ask whether to open or save files"
 // true=direct download (default)
 // false=the user is asked what to do
@@ -301,11 +332,13 @@ user_pref("browser.download.useDownloadDir", false);
 
 // PREF: always ask how to handle new mimetypes
 // Enforce user interaction for greater security.
-// [SETTING] General>Files and Applications>What should Firefox do with other files
+// [SETTING] General>Files and Applications>Applications>What should Firefox do with other files?>Ask whether to open or save files
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 // PREF: disable downloads panel opening on every download
-user_pref("browser.download.alwaysOpenPanel", false);
+// Controls whether to open the downloads panel every time a download begins.
+// [NOTE] The first download ever ran in a new profile will still open the panel.
+//user_pref("browser.download.alwaysOpenPanel", false);
 
 // PREF: disable adding downloads to the system's "recent documents" list 
 user_pref("browser.download.manager.addToRecentDocs", false);
@@ -317,6 +350,7 @@ user_pref("browser.download.manager.addToRecentDocs", false);
 // PREF: enforce Firefox's built-in PDF reader
 // This setting controls if the option "Display in Firefox" is available in the setting below
 // and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With").
+// [1] https://mozilla.github.io/pdf.js/
 //user_pref("pdfjs.disabled", false); // DEFAULT
 
 // PREF: allow viewing of PDFs even if the response HTTP headers
@@ -326,11 +360,12 @@ user_pref("browser.download.manager.addToRecentDocs", false);
 // PREF: open PDFs inline (FF103+)
 user_pref("browser.download.open_pdf_attachments_inline", true);
 
-// PREF: PDF sidebar on load [HIDDEN] 
+// PREF: PDF sidebar on load
 // 2=table of contents (if not available, will default to 1)
 // 1=view pages
-// -1=disabled (default)
-user_pref("pdfjs.sidebarViewOnLoad", 2);
+// 0=disabled
+// -1=remember previous state (default)
+//user_pref("pdfjs.sidebarViewOnLoad", 2);
 
 // PREF: default zoom for PDFs [HIDDEN]
 // [NOTE] "page-width" not needed if using sidebar on load
@@ -426,14 +461,20 @@ user_pref("findbar.highlightAll", true);
 //user_pref("browser.tabs.closeWindowWithLastTab", false);
 
 // PREF: stop websites from reloading pages automatically
-// [WARNING] Breakage with some sites.
+// [WARNING] Breaks some sites.
 // [1] https://www.ghacks.net/2018/08/19/stop-websites-from-reloading-pages-automatically/
 //user_pref("accessibility.blockautorefresh", true);
 //user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
-// PREF: Controls if a double click word selection also deletes one adjacent whitespace
-// (if feasible). This mimics native behavior on macOS.
+// PREF: do not select the space next to a word when selecting a word
+user_pref("layout.word_select.eat_space_to_next_word", false);
+
+// PREF: controls if a double-click word selection also deletes one adjacent whitespace
+// This mimics native behavior on macOS.
 //user_pref("editor.word_select.delete_space_after_doubleclick_selection", true);
+
+// PREF: do not hide the pointer while typing [LINUX]
+//user_pref("widget.gtk.hide-pointer-while-typing.enabled", false);
 
 // PREF: limit events that can cause a pop-up
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
@@ -452,8 +493,10 @@ user_pref("findbar.highlightAll", true);
 //user_pref("browser.backspace_action", 2); // DEFAULT
 
 // PREF: disable Reader mode
+// [TIP] Use about:reader?url=%s as a keyword to open links automatically in reader mode [1].
 // Firefox will not have to parse webpage for Reader when navigating.
-// Extremely minimal performance impact, if you enable.
+// Extremely minimal performance impact, if you disable.
+// [1] https://www.reddit.com/r/firefox/comments/621sr2/i_found_out_how_to_automatically_open_a_url_in/ 
 //user_pref("reader.parse-on-load.enabled", false);
 
 // PREF: disable ALT key toggling the menu bar
