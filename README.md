@@ -35,6 +35,10 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 
 ## Simple configs
 
+`Fastfox`, `Securefox`, `Peskyfox`, and `Smoothfox` are guides to settings within Firefox.
+
+The `user.js` — a configuration file that controls Firefox settings — is curated from these guides.
+
 | List      | Description |
 |:---------:|-------------|
 | [Fastfox](https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js)   | Immensely increase Firefox's browsing speed. Give Chrome a run for its money!|
@@ -42,10 +46,6 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 | [Peskyfox](https://github.com/yokoffing/Betterfox/blob/main/Peskyfox.js)  | Unclutter the new tab page. Remove [Pocket](https://support.mozilla.org/en-US/kb/what-pocket). Restore [compact mode](https://support.mozilla.org/en-US/kb/compact-mode-workaround-firefox) as an option. Stop webpage notifications, pop-ups, and other annoyances. |
 | [Smoothfox](https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js) | Get Edge-like smooth scrolling on your favorite browser — or choose something more your style. |
 | [user.js](https://github.com/yokoffing/Betterfox/blob/main/user.js) | All the essentials. None of the breakage. This is your `user.js`. |
-
-`Fastfox`, `Securefox`, `Peskyfox`, and `Smoothfox` are guides to settings within Firefox.
-
-The `user.js` — a configuration file that controls Firefox settings — is curated from these guides.
 
 ## Recognition
 
