@@ -157,6 +157,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // PREF: disk cache size
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968106,968101
 // [2] https://rockridge.hatenablog.com/entry/2014/09/15/165501
+// [3] https://www.reddit.com/r/firefox/comments/17oqhw3/firefox_and_ssd_disk_consumption/
 //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 //user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT (50 MB); maximum size of an object in disk cache
