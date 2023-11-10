@@ -25,6 +25,9 @@ user_pref("gfx.canvas.accelerated.cache-items", 4096);
 user_pref("gfx.canvas.accelerated.cache-size", 512);
 user_pref("gfx.content.skia-font-cache-size", 20);
 
+/** DISK CACHE ***/
+user_pref("browser.cache.jsbc_compression_level", 3);
+
 /** MEDIA CACHE ***/
 user_pref("media.memory_cache_max_size", 65536);
 user_pref("media.cache_readahead_limit", 7200);
