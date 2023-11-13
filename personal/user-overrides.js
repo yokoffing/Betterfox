@@ -117,13 +117,9 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
-/** for 12 GB+ RAM ***/
-user_pref("browser.cache.disk.enable", false);
-user_pref("browser.cache.memory.capacity", 256000); // default= -1 (32768)
-user_pref("browser.cache.memory.max_entry_size", 10240); // default=5120 (5 MB)
-user_pref("media.memory_cache_max_size", 131072); // default=8192; AF=65536
-user_pref("media.memory_caches_combined_limit_kb", 1048576); // default=524288
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5
+user_pref("browser.cache.disk.enable", false); // disable disk cache
+user_pref("browser.cache.memory.capacity", 65536); // default= -1 (32768)
+user_pref("media.memory_cache_max_size", 131072); // AF=65536
 
 /** DELETE IF NOT macOS LAPTOP ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
