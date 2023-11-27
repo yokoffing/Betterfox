@@ -12,16 +12,16 @@
 
 Betterfox is an opinionated preference list inspired by the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e).
 
-## Getting started
+## Required reading
 *If you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)*
 
-1) Create a [backup profile](https://github.com/yokoffing/Betterfox/wiki/Backup).
-2) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js) (Right click > `Save Link As…`).
-3) Review [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Common-Overrides) and make any necessary changes.
+0) Create a [backup profile](https://github.com/yokoffing/Betterfox/wiki/Backup).
+1) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js) (Right click > `Save Link As…`).
+2) Review [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Common-Overrides) and make any necessary changes.
    * See also [Optional Hardening](https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening) for other recommendations.
-4) Open Firefox. In the URL bar, type `about:profiles` and press **Enter**.
-5) For the profile you want to use (or use default), click **Open Folder** in the **Root Directory** section.
-6) Move the `user.js` file into the folder.
+3) Open Firefox. In the URL bar, type `about:profiles` and press **Enter**.
+4) For the profile you want to use (or use default), click **Open Folder** in the **Root Directory** section.
+5) Move the `user.js` file into the folder.
 
 *After restarting Firefox:*
 1) Get an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines).
