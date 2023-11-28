@@ -58,6 +58,7 @@ user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pi
 user_pref("browser.download.useDownloadDir", true); // one-click downloads
 
 /** PESKYFOX ***/
+user_pref("cookiebanners.service.mode", 2); // fall back to the accept button to remove banner
 user_pref("devtools.accessibility.enabled", false); // removes un-needed "Inspect Accessibility Properties" on right-click
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Settings>Home>Firefox Home Content>Recent Activity>Recommended by Pocket>Sponsored Stories  
