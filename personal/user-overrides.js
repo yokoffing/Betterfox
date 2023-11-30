@@ -75,7 +75,6 @@ user_pref("browser.urlbar.suggest.bookmark", false); // Bookmarks; hide URL bar 
 user_pref("browser.urlbar.suggest.openpage", false); // Open tabs; hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.topsites", false); // Shortcuts; disable dropdown suggestions with empty query
 user_pref("browser.urlbar.suggest.engines", false); // Search engines; tab-to-search
-//user_pref("browser.urlbar.suggest.quickactions", false); // Quick actions; hide URL bar dropdown suggestions
 //user_pref("browser.urlbar.suggest.searches", false); // (needed?); hide URL bar dropdown suggestions
 //user_pref("browser.urlbar.maxRichResults", 1); // minimum suggestion needed for URL bar autofill
 user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually back-up
@@ -100,6 +99,8 @@ user_pref("browser.urlbar.trimHttps", true); // hide https in URL bar [FF119]
 user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
+//user_pref("browser.urlbar.suggest.quickactions", false); // Quick actions; hide URL bar dropdown suggestions
+//user_pref("browser.urlbar.suggest.clipboard", false); // Clipboard; hide URL bar dropdown suggestions
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
