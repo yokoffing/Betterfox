@@ -232,18 +232,36 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
 
+/** SECURITY ***/
+
 // PREF: set ETP Mode
 user_pref("browser.contentblocking.category", "strict");  // strict, custom
 
 // PREF: set DoH provider
-user_pref("network.trr.uri", "https://dns.nextdns.io/c3babf");  // just my own DoH
+user_pref("network.trr.uri", "https://dns.nextdns.io/c3babf/Firefox");  // just my own DoH
 
 // PREF: enforce DNS-over-HTTPS (DoH)
 user_pref("network.trr.mode", 3);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
+/** SYNC SETTINGS ***/
+
 // PREF: set Firefox Sync
 user_pref("identity.fxaccounts.enabled", true);  // true, false
+
+// PREF: save Pocket off
+user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // Settings>Home>Firefox Home Content>Recent Activity>Pages Saved to Pocket
+
+/** MOZILLA UI ***/
+
+//PREF: after update notifications
+user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
+
+//PREF: bookmarks just visible on newtab
+user_pref("browser.toolbars.bookmarks.visibility", "newtab") // only show on new tab
+
+// PREF: turn off build-in Password Generator
+user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords"
 
 // PREF: set Firefox View
 user_pref("browser.tabs.firefox-view", true);
@@ -258,6 +276,14 @@ user_pref("browser.newtabpage.activity-stream.default.sites", ""); // clear defa
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts 
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories
+
+/** ADDITIONAL ***/
+
+//PREF: open bookmark on new tab
+user_pref("browser.tabs.loadBookmarksInTabs", true); // force bookmarks to open in a new tab, not the current tab
+
+//PREF: hide https in URL bar
+user_pref("browser.urlbar.trimHttps", true); // [FF119]
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
