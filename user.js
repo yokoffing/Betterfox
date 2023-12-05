@@ -1,6 +1,5 @@
 //
-/* You may copy+paste this file and use it as it is.
- *
+/*
  * If you make changes to your about:config while the program is running, the
  * changes will be overwritten by the user.js when the application restarts.
  *
@@ -8,10 +7,10 @@
  */
 
 /****************************************************************************
- * Betterfox                                                                *
+ * Betterfox + personal tweaks                                              *
  * "Ad meliora"                                                             *
- * version: 119                                                             *
- * url: https://github.com/yokoffing/Betterfox                              *
+ * version: 7 (based on Betterfox version 119)                              *
+ * url: https://github.com/cloudzcodes/Betterfox-personal-tweaks            *
 ****************************************************************************/
 
 /****************************************************************************
@@ -249,27 +248,36 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 user_pref("browser.contentblocking.category", "strict");  // strict, custom
 
 // PREF: set DoH provider
-user_pref("network.trr.uri", "https://dns.nextdns.io/c3babf/Firefox");  // just my own DoH
+//user_pref("network.trr.uri", "https://dns.nextdns.io/***/Firefox");  // just set your own DoH
 
 // PREF: enforce DNS-over-HTTPS (DoH)
-user_pref("network.trr.mode", 3);
+//user_pref("network.trr.mode", 3);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+
+// PREF: disable Accessibility features
+user_pref("accessibility.force_disabled", 1);
 
 /** SYNC SETTINGS ***/
 
 // PREF: set Firefox Sync
-user_pref("identity.fxaccounts.enabled", true);  // true, false
+user_pref("identity.fxaccounts.enabled", true); // true, false
 
 // PREF: save Pocket off
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // Settings>Home>Firefox Home Content>Recent Activity>Pages Saved to Pocket
 
 /** MOZILLA UI ***/
 
-//PREF: after update notifications
+// PREF: hide https in URL bar
+user_pref("browser.urlbar.trimHttps", true); // [FF119]
+
+// PREF: after update notifications
 user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
 
-//PREF: bookmarks just visible on newtab
-user_pref("browser.toolbars.bookmarks.visibility", "newtab") // only show on new tab
+// PREF: remove Firefox logo on newtab
+user_pref("browser.newtabpage.activity-stream.logowordmark.alwaysVisible", "false");
+
+// PREF: bookmarks just visible on newtab
+user_pref("browser.toolbars.bookmarks.visibility", "newtab"); // only show on new tab
 
 // PREF: turn off build-in Password Generator
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords"
@@ -290,14 +298,8 @@ user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsor
 
 /** ADDITIONAL ***/
 
-//PREF: open bookmark on new tab
+// PREF: open bookmark on new tab
 user_pref("browser.tabs.loadBookmarksInTabs", true); // force bookmarks to open in a new tab, not the current tab
-
-//PREF: hide https in URL bar
-user_pref("browser.urlbar.trimHttps", true); // [FF119]
-
-//PREF: disable Accessibility features
-user_pref("accessibility.force_disabled", 1);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
