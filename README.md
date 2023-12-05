@@ -43,7 +43,7 @@ The `user.js` — a configuration file that controls Firefox settings — is cur
 | [Securefox](https://github.com/yokoffing/Betterfox/blob/main/Securefox.js) | Protect user data without causing site breakage. |
 | [Peskyfox](https://github.com/yokoffing/Betterfox/blob/main/Peskyfox.js)  | Provide a clean, distraction-free browsing experience. |
 | [Smoothfox](https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js) | Get Edge-like smooth scrolling on your favorite browser — or choose something more your style. |
-| [user.js](https://github.com/yokoffing/Betterfox/blob/main/user.js) | Edited for personal `user.js`. |
+| [user.js](https://github.com/cloudzcodes/Betterfox-personal-tweaks/blob/main/user.js) | Edited for personal `user.js`. |
 
 ## Recognition
 
