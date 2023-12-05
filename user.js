@@ -285,6 +285,9 @@ user_pref("browser.tabs.loadBookmarksInTabs", true); // force bookmarks to open 
 //PREF: hide https in URL bar
 user_pref("browser.urlbar.trimHttps", true); // [FF119]
 
+//PREF: disable Accessibility features
+user_pref("accessibility.force_disabled", 1);
+
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
