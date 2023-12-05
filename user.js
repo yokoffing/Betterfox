@@ -244,11 +244,45 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
 
+// PREF: set ETP Mode
+user_pref("browser.contentblocking.category", "strict");
+
+// PREF: set DoH provider
+user_pref("network.trr.uri", "https://dns.nextdns.io/c3babf");
+
+// PREF: enforce DNS-over-HTTPS (DoH)
+user_pref("network.trr.mode", 3);
+user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+
+// PREF: Firefox Sync setting
+user_pref("identity.fxaccounts.enabled", true);
+
+// PREF: Firefox View setting
+user_pref("browser.tabs.firefox-view", true);
+user_pref("browser.tabs.firefox-view-next", true); // [FF119+]
+user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
+
+// PREF: restore Top Sites on New Tab page
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", true); // Shortcuts
+user_pref("browser.newtabpage.activity-stream.default.sites", ""); // clear default topsites
+
+// PREF: remove sponsored content on New Tab page
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts 
+user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
+user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories
+
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
 // visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
 // Enter your scrolling overrides below this line:
+
+// only sharpen scrolling
+user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
+user_pref("mousewheel.min_line_scroll_amount", 10); // 10-40; adjust this number to your liking; default=5
+user_pref("general.smoothScroll.mouseWheel.durationMinMS", 80); // default=50
+user_pref("general.smoothScroll.currentVelocityWeighting", "0.15"); // default=.25
+user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6"); // default=.4
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
