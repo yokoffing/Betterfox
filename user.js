@@ -62,7 +62,6 @@ user_pref("dom.security.sanitizer.enabled", true);
  * SECTION: SECUREFOX                                                       *
 ****************************************************************************/
 /** TRACKING PROTECTION ***/
-user_pref("browser.contentblocking.category", "strict");
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
 user_pref("network.cookie.sameSite.noneRequiresSecure", true);
@@ -245,19 +244,19 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // Enter your personal overrides below this line:
 
 // PREF: set ETP Mode
-user_pref("browser.contentblocking.category", "strict");
+user_pref("browser.contentblocking.category", "strict");  // strict, custom
 
 // PREF: set DoH provider
-user_pref("network.trr.uri", "https://dns.nextdns.io/c3babf");
+user_pref("network.trr.uri", "https://dns.nextdns.io/c3babf");  // just my own DoH
 
 // PREF: enforce DNS-over-HTTPS (DoH)
 user_pref("network.trr.mode", 3);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 
-// PREF: Firefox Sync setting
-user_pref("identity.fxaccounts.enabled", true);
+// PREF: set Firefox Sync
+user_pref("identity.fxaccounts.enabled", true);  // true, false
 
-// PREF: Firefox View setting
+// PREF: set Firefox View
 user_pref("browser.tabs.firefox-view", true);
 user_pref("browser.tabs.firefox-view-next", true); // [FF119+]
 user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
