@@ -248,11 +248,11 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 user_pref("browser.contentblocking.category", "strict");  // strict, custom
 
 // PREF: set DoH provider
-//user_pref("network.trr.uri", "https://dns.nextdns.io/***/Firefox");  // just set your own DoH
+//user_pref("network.trr.uri", "https://dns.nextdns.io/***/Firefox");  // just set your own DoH and turn it up once
 
 // PREF: enforce DNS-over-HTTPS (DoH)
-//user_pref("network.trr.mode", 3);
-user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+user_pref("network.trr.mode", 3);
+user_pref("network.dns.skipTRR-when-parental-control-enabled", true);
 
 // PREF: disable Accessibility features
 user_pref("accessibility.force_disabled", 1);
