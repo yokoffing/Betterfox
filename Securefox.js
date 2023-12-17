@@ -330,7 +330,7 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("security.tls.enable_0rtt_data", false);
 
 /****************************************************************************
- * SECTION: FINGERPRINT PROTECTION (RFP)                                    *
+ * SECTION: FINGERPRINT PROTECTION (FPP)                                    *
 ****************************************************************************/
 
 // PREF: enable FingerPrint Protection (FPP) [WiP]
@@ -343,7 +343,7 @@ user_pref("security.tls.enable_0rtt_data", false);
  * SECTION: RESIST FINGERPRINTING (RFP)                                     *
 ****************************************************************************/
 
-// PREF: enable advanced fingerprinting protection 
+// PREF: enable advanced fingerprinting protection (RFP)
 // [WARNING] Leave disabled unless you're okay with all the drawbacks
 // [1] https://librewolf.net/docs/faq/#what-are-the-most-common-downsides-of-rfp-resist-fingerprinting
 // [2] https://www.reddit.com/r/firefox/comments/wuqpgi/comment/ile3whx/?context=3
