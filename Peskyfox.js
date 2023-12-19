@@ -326,8 +326,7 @@ user_pref("extensions.pocket.enabled", false);
 // [DIALOGUE] "Ask whether to open or save files"
 // true=direct download (default)
 // false=the user is asked what to do
-// [1] https://github.com/yokoffing/Betterfox/issues/216
-// [2] https://github.com/yokoffing/Betterfox/issues/267
+// [1] https://github.com/yokoffing/Betterfox/issues/267
 user_pref("browser.download.useDownloadDir", false);
     //user_pref("browser.download.dir", "C:\Users\<YOUR_USERNAME>\AppData\Local\Temp"); // [WINDOWS]
 
