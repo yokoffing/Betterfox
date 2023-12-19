@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 119                                                             *
+ * version: 120                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -332,7 +332,9 @@ user_pref("browser.download.useDownloadDir", false);
 
 // PREF: always ask how to handle new mimetypes
 // Enforce user interaction for greater security.
-// [SETTING] General>Files and Applications>Applications>What should Firefox do with other files?>Ask whether to open or save files
+// [SETTING] General>Files and Applications>Applications>What should Firefox do with other files?
+// false=Save files
+// true=Ask whether to open or save files
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 // PREF: disable downloads panel opening on every download
