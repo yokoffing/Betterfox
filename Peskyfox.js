@@ -320,16 +320,6 @@ user_pref("extensions.pocket.enabled", false);
 // 0=desktop, 1=downloads (default), 2=last used
 //user_pref("browser.download.folderList", 1); // DEFAULT
 
-// PREF: always ask where to download
-// Enforce user interaction for greater security.
-// [SETTING] General>Files and Applications>Downloads>Always ask you where to save files
-// [DIALOGUE] "Ask whether to open or save files"
-// true=direct download (default)
-// false=the user is asked what to do
-// [1] https://github.com/yokoffing/Betterfox/issues/267
-user_pref("browser.download.useDownloadDir", false);
-    //user_pref("browser.download.dir", "C:\Users\<YOUR_USERNAME>\AppData\Local\Temp"); // [WINDOWS]
-
 // PREF: always ask how to handle new mimetypes
 // Enforce user interaction for greater security.
 // [SETTING] General>Files and Applications>Applications>What should Firefox do with other files?
@@ -337,7 +327,17 @@ user_pref("browser.download.useDownloadDir", false);
 // true=Ask whether to open or save files
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 
-// PREF: disable downloads panel opening on every download
+// PREF: always ask where to download
+// [OPTIONAL HARDENING] Enforce user interaction for greater security.
+// [SETTING] General>Files and Applications>Downloads>Always ask you where to save files
+// [DIALOGUE] "Ask whether to open or save files"
+// true=direct download (default)
+// false=the user is asked what to do
+// [1] https://github.com/yokoffing/Betterfox/issues/267
+//user_pref("browser.download.useDownloadDir", false);
+    //user_pref("browser.download.dir", "C:\Users\<YOUR_USERNAME>\AppData\Local\Temp"); // [WINDOWS]
+
+// PREF: disable downloads panel opening on every download [non-functional?]
 // Controls whether to open the downloads panel every time a download begins.
 // [NOTE] The first download ever ran in a new profile will still open the panel.
 //user_pref("browser.download.alwaysOpenPanel", false);
