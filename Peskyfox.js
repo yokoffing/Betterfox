@@ -312,15 +312,12 @@ user_pref("extensions.pocket.enabled", false);
  * SECTION: DOWNLOADS                                 *
 ******************************************************************************/
 
-// PREF: autohide the downloads button
-//user_pref("browser.download.autohideButton", true); // DEFAULT
-
 // PREF: choose download location
 // [SETTING] To set your default "downloads": General>Downloads>Save files to...
 // 0=desktop, 1=downloads (default), 2=last used
 //user_pref("browser.download.folderList", 1); // DEFAULT
 
-// PREF: always ask how to handle new mimetypes
+// PREF: always ask how to handle new mimetypes [FF101+]
 // Enforce user interaction for greater security.
 // [SETTING] General>Files and Applications>Applications>What should Firefox do with other files?
 // false=Save files
@@ -337,8 +334,11 @@ user_pref("browser.download.always_ask_before_handling_new_types", true);
 //user_pref("browser.download.useDownloadDir", false);
     //user_pref("browser.download.dir", "C:\Users\<YOUR_USERNAME>\AppData\Local\Temp"); // [WINDOWS]
 
-// PREF: disable downloads panel opening on every download [non-functional?]
-// Controls whether to open the downloads panel every time a download begins.
+// PREF: autohide the downloads button
+//user_pref("browser.download.autohideButton", true); // DEFAULT
+
+// PREF: disable download panel opening on every download [non-functional?]
+// Controls whether to open the download panel every time a download begins.
 // [NOTE] The first download ever ran in a new profile will still open the panel.
 //user_pref("browser.download.alwaysOpenPanel", false);
 
