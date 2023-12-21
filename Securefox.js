@@ -593,6 +593,7 @@ user_pref("network.IDN_show_punycode", true);
 // [6] https://blog.chromium.org/2023/08/towards-https-by-default.html
 user_pref("dom.security.https_first", true);
 //user_pref("dom.security.https_first_pbm", true); // DEFAULT
+user_pref("dom.security.https_first_schemeless", true); // [FF120+]
 
 /******************************************************************************
  * SECTION: HTTPS-ONLY MODE                              *
@@ -1348,3 +1349,4 @@ user_pref("network.connectivity-service.enabled", false);
 //user_pref("security.identitypopup.recordEventTelemetry", false); // ESR only; removed FF116+ [1]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1837979
 //user_pref("privacy.trackingprotection.emailtracking.data_collection.enabled", false);
+//user_pref("messaging-system.askForFeedback", true); // DEFAULT [FF120+]
