@@ -210,7 +210,8 @@ user_pref("browser.uitour.enabled", false);
 // [7] https://www.eff.org/gpc-privacy-badger
 // [8] https://www.eff.org/issues/do-not-track
 user_pref("privacy.globalprivacycontrol.enabled", true);
-    user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
+    //user_pref("privacy.globalprivacycontrol.functionality.enabled", true); // [FF120+]
+//user_pref("privacy.globalprivacycontrol.pbmode.enabled", true); // [FF120+]
 
 /****************************************************************************
  * SECTION: OSCP & CERTS / HPKP (HTTP Public Key Pinning)                   *
