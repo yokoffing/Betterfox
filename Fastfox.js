@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 119                                                                         *
+ * version: 121                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -74,6 +74,9 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 
 // PREF: disable preSkeletonUI on startup [WINDOWS]
 //user_pref("browser.startup.preXulSkeletonUI", false);
+
+// PREF: lazy load iframes
+//user_pref("dom.iframe_lazy_loading.enabled", true); // DEFAULT [FF121+]
 
 /****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
