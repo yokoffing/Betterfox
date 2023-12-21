@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 120                                                             *
+ * version: 121                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  ***************************************************************************/
 
@@ -121,7 +121,8 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 // PREF: Cookie Banner global rules
 // Global rules that can handle a list of cookie banner libraries and providers on any site.
 // This is used for click rules that can handle common Consent Management Providers (CMP).
-user_pref("cookiebanners.service.enableGlobalRules", true);
+//user_pref("cookiebanners.service.enableGlobalRules", true); // DEFAULT [FF121+]
+//user_pref("cookiebanners.service.enableGlobalRules.subFrames", true); // DEFAULT [FF121+]
 
 /****************************************************************************
  * SECTION: TRANSLATIONS                                                   *
