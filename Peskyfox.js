@@ -33,7 +33,7 @@ user_pref("browser.discovery.enabled", false);
 // [3] https://www.fakespot.com/
 // [4] https://www.ghacks.net/2023/10/12/firefox-will-soon-tell-you-if-product-reviews-are-reliable/
 //user_pref("browser.shopping.experience2023.enabled", false); // DEFAULT
-//user_pref("browser.shopping.experience2023.ads.exposure", false); // DEFAULT
+//user_pref("browser.shopping.experience2023.ads.exposure", false); // DEFAULT [FF121+]
 
 // PREF: disable Firefox from asking to set as the default browser
 // [1] https://github.com/yokoffing/Betterfox/issues/166
