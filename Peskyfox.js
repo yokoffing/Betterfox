@@ -575,3 +575,6 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // Still needed for Stylus?
 // [1] https://reddit.com/r/FirefoxCSS/comments/8x2q97/reenabling_mozdocument_rules_in_firefox_61/
 //user_pref("layout.css.moz-document.content.enabled", true);
+
+// PREF: always underline links [FF120+]
+//user_pref("layout.css.always_underline_links", false); // DEFAULT
