@@ -201,7 +201,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#1092-1096
 // 0 = once-per-session
 // 3 = when-appropriate/automatically (default)
-//user_pref("browser.cache.check_doc_frequency, 3); // DEFAULT
+//user_pref("browser.cache.check_doc_frequency", 3); // DEFAULT
 
 // PREF: enforce free space checks
 // When smartsizing is disabled, we could potentially fill all disk space by
