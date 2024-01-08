@@ -31,6 +31,8 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
 user_pref("signon.rememberSignons", false); // disable password manager
+user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
+user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 //user_pref("browser.urlbar.suggest.trending", false); // FF119+ disable showing trending searches; unselect for clean UI
 user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
