@@ -104,15 +104,10 @@ user_pref("dom.security.https_first", true);
 user_pref("dom.security.https_first_schemeless", true);
 
 /** PASSWORDS ***/
-user_pref("signon.rememberSignons", false);
 user_pref("signon.formlessCapture.enabled", false);
 user_pref("signon.privateBrowsingCapture.enabled", false);
 user_pref("network.auth.subresource-http-auth-allow", 1);
 user_pref("editor.truncate_user_pastes", false);
-
-/** ADDRESS + CREDIT CARD MANAGER ***/
-user_pref("extensions.formautofill.addresses.enabled", false);
-user_pref("extensions.formautofill.creditCards.enabled", false);
 
 /** MIXED CONTENT + CROSS-SITE ***/
 user_pref("security.mixed_content.block_display_content", true);
