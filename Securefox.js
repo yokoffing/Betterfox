@@ -770,7 +770,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // PREF: disable password manager
 // [NOTE] This does not clear any passwords already saved.
 // [SETTING] Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
-user_pref("signon.rememberSignons", false);
+//user_pref("signon.rememberSignons", false);
     //user_pref("signon.rememberSignons.visibilityToggle", true); // DEFAULT
     //user_pref("signon.schemeUpgrades", true); // DEFAULT
     //user_pref("signon.showAutoCompleteFooter", true); // DEFAULT
@@ -838,8 +838,8 @@ user_pref("editor.truncate_user_pastes", false);
 // [NOTE] stored data is not secure (uses a JSON file)
 // [1] https://wiki.mozilla.org/Firefox/Features/Form_Autofill
 // [2] https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
-user_pref("extensions.formautofill.addresses.enabled", false);
-user_pref("extensions.formautofill.creditCards.enabled", false);
+//user_pref("extensions.formautofill.addresses.enabled", false);
+//user_pref("extensions.formautofill.creditCards.enabled", false);
 
 /******************************************************************************
  * SECTION: MIXED CONTENT + CROSS-SITE                                       *
