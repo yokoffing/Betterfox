@@ -10,7 +10,7 @@
 ## Made for everyday browsing
 **A secure, blazing fast browsing experience. Without breakage.**
 
-Betterfox is an opinionated preference list inspired by the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e).
+Betterfox is an opinionated preference list inspired by the [law of diminishing returns](http://psychologyofwellbeing.com/wp-content/uploads/2017/01/Diminishing-Returns.gif) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e).
 
 ## Required reading
 *If you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)*
@@ -25,7 +25,8 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 
 *After restarting Firefox:*
 1) Get an **ad blocker** like [uBlock Origin](https://addons.mozilla.org/blog/ublock-origin-everything-you-need-to-know-about-the-ad-blocker/) with our [recommended filters](https://github.com/yokoffing/filterlists#guidelines).
-2) Enable **DNS-level protection** with [NextDNS](https://nextdns.io/?from=xujj63g5), and check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config).
+2) Enable **DNS-level protection** with [NextDNS](https://nextdns.io/?from=xujj63g5). <sup><i>Use the link and support this page!</i></sup>
+    * Check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config) for the best experience.
     * See how to [quickly enable](https://support.mozilla.org/en-US/kb/dns-over-https) **secure DNS** in Firefox.
 
 ## Simple goals
