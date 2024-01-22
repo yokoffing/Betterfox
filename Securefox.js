@@ -458,6 +458,7 @@ user_pref("privacy.history.custom", true);
 // Clearing "offlineApps" may affect login items after browser restart [2].
 // [1] https://en.wikipedia.org/wiki/Basic_access_authentication
 // [2] https://github.com/arkenfox/user.js/issues/1291
+// [3] https://github.com/yokoffing/Betterfox/issues/272
 //user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 
 // Uncomment individual prefs to disable clearing on shutdown:
