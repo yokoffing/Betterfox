@@ -220,7 +220,7 @@ user_pref("browser.urlbar.trending.featureGate", false);
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 
-/*** POCKET ***/
+/** POCKET ***/
 user_pref("extensions.pocket.enabled", false);
 
 /** DOWNLOADS ***/
