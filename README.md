@@ -92,7 +92,7 @@ If you like the project, leave a :star: (top right) and become a [stargazer](htt
 [![Stargazers repo roster for @yokoffing/Betterfox](https://reporoster.com/stars/dark/yokoffing/Betterfox)](https://github.com/yokoffing/Betterfox/stargazers)
 
 ## Credit
-* This repository benefits from the ongoing research provided by [arkenfox](https://github.com/arkenfox/user.js).
+* Betterfox builds on the ongoing work and research provided by [arkenfox](https://github.com/arkenfox/user.js). Where there are questions regarding originality, credit belongs to arkenfox.
 * Appreciation goes to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and developers working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the open web.
 * A special thanks to [Alex Kontos](https://github.com/MrAlex94) of [Waterfox](https://github.com/WaterfoxCo/Waterfox) for his collaboration in v.116.
 * Many thanks to the 2021 [Ghostery](https://github.com/ghostery) team for testing Betterfox at scale in its early days.
