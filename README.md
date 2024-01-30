@@ -68,6 +68,7 @@ The `user.js` — a configuration file that controls Firefox settings — is cur
 * [GhoSTORIES with Franz & Pete](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh) | 17:05–18:40 (Feb 2021)
 
 ### Articles
+* [Browsers for Daily Using](https://anhkhoakz.neocities.org/blog/browsers-for-daily-using) (Jan 2024)
 * [Avoiding Manifest V3 – Escaping the Ad-Pocalypse](https://www.xbitlabs.com/avoiding-manifest-v3/) (Dec 2023)
 * [German] [Pulse Browser Review: Firefox fork with Turbo tweaks and Opera sidebar](https://www.computerbild.de/artikel/cb-Tipps-Software-Pulse-Browser-Review-ein-Firefox-Fork-mit-Seitenleiste-wie-bei-Opera-35644139.html#:~:text=Noch%20mehr%20Speed%2DFeatures) (Apr 2023)
 * [2023 Browser Showdown: Comparing Chrome, Brave, Firefox, Vivaldi, and Opera](https://www.appdate.lk/technology/2023-browser-showdown/) (Jan 2023)
@@ -97,7 +98,7 @@ If you like the project, leave a :star: (top right) and become a [stargazer](htt
 <noscript><a href="https://liberapay.com/yokoffing/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
 
 ## Credit
-* Betterfox mirrors the ongoing work and research provided by [arkenfox](https://github.com/arkenfox/user.js). Where there are questions regarding originality, credit belongs to arkenfox.
+* Betterfox mirrors the ongoing work provided by [arkenfox](https://github.com/arkenfox/user.js). Additionally, this repository includes content reproduced or adapted from other sources. Credit for overlapping material goes to the original authors.
 * Appreciation goes to the [Firefox](https://www.mozilla.org/en-US/firefox/new/) team and developers working on [Bugzilla](https://bugzilla.mozilla.org/home), fighting for the open web.
 * A special thanks to [Alex Kontos](https://github.com/MrAlex94) of [Waterfox](https://github.com/WaterfoxCo/Waterfox) for his collaboration in v.116.
 * Many thanks to the 2021 [Ghostery](https://github.com/ghostery) team for testing Betterfox at scale in its early days.
