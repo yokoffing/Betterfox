@@ -3,8 +3,11 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 121                                                             *
+ * version: 122                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
+ * source: Betterfox builds on the ongoing work and research provided       *
+ * by arkenfox. Where there are questions regarding originality,            *
+ * credit belongs to arkenfox.                                              *
  ***************************************************************************/
 
 /****************************************************************************
