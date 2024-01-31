@@ -5,9 +5,8 @@
  * priority: remove annoyances                                              *
  * version: 122                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
- * source: Betterfox builds on the ongoing work and research provided       *
- * by arkenfox. Where there are questions regarding originality,            *
- * credit belongs to arkenfox.                                              *
+ * credit: Some prefs are reproduced and adapted from the arkenfox project  *
+ * credit urL: https://github.com/arkenfox/user.js                          *
  ***************************************************************************/
 
 /****************************************************************************
