@@ -49,12 +49,6 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 // PREF: hide "More from Mozilla" in Settings
 user_pref("browser.preferences.moreFromMozilla", false);
 
-// PREF: only show List All Tabs icon when needed
-// true=always show tab overflow dropdown (FF106+ default)
-// false=only display tab dropdown when there are too many tabs
-// [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
-user_pref("browser.tabs.tabmanager.enabled", false);
-
 // PREF: tab and about:config warnings
 //user_pref("browser.tabs.warnOnClose", false); // DEFAULT [FF94+]
 //user_pref("browser.tabs.warnOnCloseOtherTabs", true); // DEFAULT
@@ -70,10 +64,6 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 
 // PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
-
-// PREF: show search bar [FF122+]
-// Mozilla has removed the search bar option from the settings window.
-//user_pref("browser.search.widget.inNavBar", true);
 
 /****************************************************************************
  * SECTION: THEME ADJUSTMENTS                                              *
@@ -586,3 +576,16 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // PREF: always underline links [FF120+]
 //user_pref("layout.css.always_underline_links", false); // DEFAULT
+
+// PREF: only show List All Tabs icon when needed
+// true=always show tab overflow dropdown (FF106+ default)
+// false=only display tab dropdown when there are too many tabs
+// [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
+user_pref("browser.tabs.tabmanager.enabled", false);
+
+// PREF: show search bar [FF122+]
+// Mozilla has removed the search bar option from the settings window.
+//user_pref("browser.search.widget.inNavBar", true);
+
+// PREF: enable Tab Preview [FF122+]
+//user_pref("browser.tabs.cardPreview.enabled", true);
