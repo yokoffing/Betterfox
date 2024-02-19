@@ -190,15 +190,16 @@ user_pref("full-screen-api.warning.timeout", 0); // default=3000
 
 // PREF: minimize URL bar suggestions (bookmarks, history, open tabs)
 // Dropdown options in the URL bar:
-//user_pref("browser.urlbar.suggest.bookmark", true); // DEFAULT
-user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.suggest.history", false);
+//user_pref("browser.urlbar.suggest.bookmark", true); // DEFAULT
+//user_pref("browser.urlbar.suggest.clipboard", false);
 //user_pref("browser.urlbar.suggest.openpage", false);
-//user_pref("browser.urlbar.suggest.searches", false);
+user_pref("browser.urlbar.suggest.engines", false);
+    //user_pref("browser.urlbar.suggest.searches", false);
+//user_pref("browser.urlbar.quickactions.enabled", false);
+//user_pref("browser.urlbar.shortcuts.quickactions", false);
 //user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
     //user_pref("browser.urlbar.weather.ignoreVPN", false); // DEFAULT
-//user_pref("browser.urlbar.quickactions.enabled", false); // NIGHTLY
-//user_pref("browser.urlbar.shortcuts.quickactions", false); // NIGHTLY
 user_pref("browser.urlbar.suggest.calculator", true);
 user_pref("browser.urlbar.unitConversion.enabled", true);
 
@@ -215,9 +216,7 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.urlbar.mdn.featureGate", false); // [FF117+] [HIDDEN PREF]
 //user_pref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: false]
 //user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
-
-// PREF: disable urlbar clipboard suggestions [FF118+]
-//user_pref("browser.urlbar.clipboard.featureGate", false); // [DEFAULT: false]
+//user_pref("browser.urlbar.clipboard.featureGate", false); // [FF118+] [DEFAULT: false]
 
 // PREF: disable tab-to-search [FF85+]
 // Alternatively, you can exclude on a per-engine basis by unchecking them in Options>Search
