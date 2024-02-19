@@ -72,7 +72,7 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 user_pref("browser.tabs.tabmanager.enabled", false);
 
 // PREF: enable new screenshot tool [FF122+]
-user_pref("screenshots.browser.component.enabled", true);
+//user_pref("screenshots.browser.component.enabled", true);
 
 /****************************************************************************
  * SECTION: THEME ADJUSTMENTS                                              *
