@@ -3,8 +3,10 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 119                                                             *
- * url: https://github.com/yokoffing/Betterfox                              *                   
+ * version: 122                                                             *
+ * url: https://github.com/yokoffing/Betterfox                              *
+ * credit: Most prefs are reproduced and adapted from the arkenfox project  *
+ * credit urL: https://github.com/arkenfox/user.js                          *
 ****************************************************************************/
 
 /****************************************************************************
@@ -118,7 +120,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
 //user_pref("privacy.partition.network_state", true); // DEFAULT
     //user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
-    //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict"
+    //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict" [DEFAULT: true FF123+]
     //user_pref("privacy.partition.bloburl_per_partition_key", true); // [FF118+]
 // enable APS (Always Partitioning Storage) [FF104+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT: true FF109+]
@@ -210,7 +212,8 @@ user_pref("browser.uitour.enabled", false);
 // [7] https://www.eff.org/gpc-privacy-badger
 // [8] https://www.eff.org/issues/do-not-track
 user_pref("privacy.globalprivacycontrol.enabled", true);
-    user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
+    //user_pref("privacy.globalprivacycontrol.functionality.enabled", true); // [FF120+]
+//user_pref("privacy.globalprivacycontrol.pbmode.enabled", true); // [FF120+]
 
 /****************************************************************************
  * SECTION: OSCP & CERTS / HPKP (HTTP Public Key Pinning)                   *
@@ -330,7 +333,7 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 user_pref("security.tls.enable_0rtt_data", false);
 
 /****************************************************************************
- * SECTION: FINGERPRINT PROTECTION (RFP)                                    *
+ * SECTION: FINGERPRINT PROTECTION (FPP)                                    *
 ****************************************************************************/
 
 // PREF: enable FingerPrint Protection (FPP) [WiP]
@@ -343,7 +346,7 @@ user_pref("security.tls.enable_0rtt_data", false);
  * SECTION: RESIST FINGERPRINTING (RFP)                                     *
 ****************************************************************************/
 
-// PREF: enable advanced fingerprinting protection 
+// PREF: enable advanced fingerprinting protection (RFP)
 // [WARNING] Leave disabled unless you're okay with all the drawbacks
 // [1] https://librewolf.net/docs/faq/#what-are-the-most-common-downsides-of-rfp-resist-fingerprinting
 // [2] https://www.reddit.com/r/firefox/comments/wuqpgi/comment/ile3whx/?context=3
@@ -457,6 +460,7 @@ user_pref("privacy.history.custom", true);
 // Clearing "offlineApps" may affect login items after browser restart [2].
 // [1] https://en.wikipedia.org/wiki/Basic_access_authentication
 // [2] https://github.com/arkenfox/user.js/issues/1291
+// [3] https://github.com/yokoffing/Betterfox/issues/272
 //user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 
 // Uncomment individual prefs to disable clearing on shutdown:
@@ -592,6 +596,7 @@ user_pref("network.IDN_show_punycode", true);
 // [6] https://blog.chromium.org/2023/08/towards-https-by-default.html
 user_pref("dom.security.https_first", true);
 //user_pref("dom.security.https_first_pbm", true); // DEFAULT
+user_pref("dom.security.https_first_schemeless", true); // [FF120+]
 
 /******************************************************************************
  * SECTION: HTTPS-ONLY MODE                              *
@@ -768,7 +773,7 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // PREF: disable password manager
 // [NOTE] This does not clear any passwords already saved.
 // [SETTING] Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
-user_pref("signon.rememberSignons", false);
+//user_pref("signon.rememberSignons", false);
     //user_pref("signon.rememberSignons.visibilityToggle", true); // DEFAULT
     //user_pref("signon.schemeUpgrades", true); // DEFAULT
     //user_pref("signon.showAutoCompleteFooter", true); // DEFAULT
@@ -836,8 +841,8 @@ user_pref("editor.truncate_user_pastes", false);
 // [NOTE] stored data is not secure (uses a JSON file)
 // [1] https://wiki.mozilla.org/Firefox/Features/Form_Autofill
 // [2] https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
-user_pref("extensions.formautofill.addresses.enabled", false);
-user_pref("extensions.formautofill.creditCards.enabled", false);
+//user_pref("extensions.formautofill.addresses.enabled", false);
+//user_pref("extensions.formautofill.creditCards.enabled", false);
 
 /******************************************************************************
  * SECTION: MIXED CONTENT + CROSS-SITE                                       *
@@ -1135,12 +1140,14 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 // [ALTERNATIVE] Use xBrowserSync [1]
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
 // [2] https://github.com/arkenfox/user.js/issues/1175
-user_pref("identity.fxaccounts.enabled", false);
+//user_pref("identity.fxaccounts.enabled", false);
 
 // PREF: disable Firefox View [FF106+]
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
-user_pref("browser.tabs.firefox-view", false);
-//user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
+//user_pref("browser.tabs.firefox-view", false);
+    //user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
+    //user_pref("browser.firefox-view.search.enabled", false); // [FF122+]
+    //user_pref("browser.firefox-view.virtual-list.enabled", false); // [FF122+]
 
 // PREF: disable the Firefox View tour from popping up
 //user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
@@ -1347,3 +1354,4 @@ user_pref("network.connectivity-service.enabled", false);
 //user_pref("security.identitypopup.recordEventTelemetry", false); // ESR only; removed FF116+ [1]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1837979
 //user_pref("privacy.trackingprotection.emailtracking.data_collection.enabled", false);
+//user_pref("messaging-system.askForFeedback", true); // DEFAULT [FF120+]

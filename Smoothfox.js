@@ -3,9 +3,13 @@
  * Smoothfox                                                                            *
  * "Faber est suae quisque fortunae"                                                    *
  * priority: better scrolling                                                           *
- * version: 10 October 2023                                                             *
+ * version: 8 January 2024                                                              *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
+
+// Note: msdPhysics was enabled by default for 122 Nightly.
+// The options below have not been modified to account for this change.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1846935
 
 // Use only one option at a time!
 // Reset prefs if you decide to use different option.

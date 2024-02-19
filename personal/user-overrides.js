@@ -30,6 +30,9 @@ user_pref("network.predictor.enable-hover-on-ssl", true);
 
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
+user_pref("signon.rememberSignons", false); // disable password manager
+user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
+user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 //user_pref("browser.urlbar.suggest.trending", false); // FF119+ disable showing trending searches; unselect for clean UI
 user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
@@ -58,6 +61,7 @@ user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pi
 user_pref("browser.download.useDownloadDir", true); // one-click downloads
 
 /** PESKYFOX ***/
+user_pref("cookiebanners.service.mode", 2); // fall back to the accept button to remove banner
 user_pref("devtools.accessibility.enabled", false); // removes un-needed "Inspect Accessibility Properties" on right-click
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Settings>Home>Firefox Home Content>Recent Activity>Recommended by Pocket>Sponsored Stories  
@@ -69,13 +73,11 @@ user_pref("browser.download.useDownloadDir", true); // use direct downloads
 user_pref("browser.download.folderList", 0); // 0=desktop, 1=downloads, 2=last used
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
-user_pref("browser.translations.autoTranslate", true); // make Firefox auto-translate non-English pages
 user_pref("browser.urlbar.suggest.history", false); // Browsing history; hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.bookmark", false); // Bookmarks; hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.openpage", false); // Open tabs; hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.topsites", false); // Shortcuts; disable dropdown suggestions with empty query
 user_pref("browser.urlbar.suggest.engines", false); // Search engines; tab-to-search
-//user_pref("browser.urlbar.suggest.quickactions", false); // Quick actions; hide URL bar dropdown suggestions
 //user_pref("browser.urlbar.suggest.searches", false); // (needed?); hide URL bar dropdown suggestions
 //user_pref("browser.urlbar.maxRichResults", 1); // minimum suggestion needed for URL bar autofill
 user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually back-up
@@ -100,6 +102,8 @@ user_pref("browser.urlbar.trimHttps", true); // hide https in URL bar [FF119]
 user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
+//user_pref("browser.urlbar.suggest.quickactions", false); // Quick actions; hide URL bar dropdown suggestions
+//user_pref("browser.urlbar.suggest.clipboard", false); // Clipboard; hide URL bar dropdown suggestions
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
@@ -117,13 +121,9 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
-/** for 12 GB+ RAM ***/
-user_pref("browser.cache.disk.enable", false);
-user_pref("browser.cache.memory.capacity", 256000); // default= -1 (32768)
-user_pref("browser.cache.memory.max_entry_size", 10240); // default=5120 (5 MB)
-user_pref("media.memory_cache_max_size", 131072); // default=8192; AF=65536
-user_pref("media.memory_caches_combined_limit_kb", 1048576); // default=524288
-user_pref("media.memory_caches_combined_limit_pc_sysmem", 10); // default=5
+user_pref("browser.cache.disk.enable", false); // disable disk cache
+user_pref("browser.cache.memory.capacity", 65536); // default= -1 (32768)
+user_pref("media.memory_cache_max_size", 131072); // AF=65536
 
 /** DELETE IF NOT macOS LAPTOP ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
