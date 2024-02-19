@@ -1140,12 +1140,14 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 // [ALTERNATIVE] Use xBrowserSync [1]
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
 // [2] https://github.com/arkenfox/user.js/issues/1175
-user_pref("identity.fxaccounts.enabled", false);
+//user_pref("identity.fxaccounts.enabled", false);
 
 // PREF: disable Firefox View [FF106+]
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
-user_pref("browser.tabs.firefox-view", false);
-//user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
+//user_pref("browser.tabs.firefox-view", false);
+    //user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
+    //user_pref("browser.firefox-view.search.enabled", false); // [FF122+]
+    //user_pref("browser.firefox-view.virtual-list.enabled", false); // [FF122+]
 
 // PREF: disable the Firefox View tour from popping up
 //user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
