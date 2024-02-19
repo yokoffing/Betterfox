@@ -71,6 +71,10 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 // PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
+// PREF: show search bar [FF122+]
+// Mozilla has removed the search bar option from the settings window.
+//user_pref("browser.search.widget.inNavBar", true);
+
 /****************************************************************************
  * SECTION: THEME ADJUSTMENTS                                              *
 ****************************************************************************/
