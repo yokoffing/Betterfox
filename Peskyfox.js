@@ -65,6 +65,15 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 // PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
+// PREF: only show List All Tabs icon when needed
+// true=always show tab overflow dropdown (FF106+ default)
+// false=only display tab dropdown when there are too many tabs
+// [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
+user_pref("browser.tabs.tabmanager.enabled", false);
+
+// PREF: enable new screenshot tool [FF122+]
+user_pref("screenshots.browser.component.enabled", true);
+
 /****************************************************************************
  * SECTION: THEME ADJUSTMENTS                                              *
 ****************************************************************************/
@@ -98,6 +107,10 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 
 // PREF: reduce the size of the "private window" indicator in tab bar [FF106+]
 //user_pref("browser.privatebrowsing.enable-new-indicator", false); // REMOVED [FF119+]
+
+// PREF: show search bar [FF122+]
+// Mozilla has removed the search bar option from the settings window.
+//user_pref("browser.search.widget.inNavBar", true);
 
 /****************************************************************************
  * SECTION: COOKIE BANNER HANDLING                                         *
@@ -484,6 +497,9 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 //user_pref("dom.disable_open_during_load", true); // DEFAULT
 //user_pref("privacy.popups.showBrowserMessage", true); // DEFAULT
 
+// PREF: enable Tab Preview [FF122+]
+//user_pref("browser.tabs.cardPreview.enabled", true);
+
 /****************************************************************************
  * SECTION: UNCATEGORIZED                                                   *
 ****************************************************************************/
@@ -576,16 +592,3 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // PREF: always underline links [FF120+]
 //user_pref("layout.css.always_underline_links", false); // DEFAULT
-
-// PREF: only show List All Tabs icon when needed
-// true=always show tab overflow dropdown (FF106+ default)
-// false=only display tab dropdown when there are too many tabs
-// [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
-user_pref("browser.tabs.tabmanager.enabled", false);
-
-// PREF: show search bar [FF122+]
-// Mozilla has removed the search bar option from the settings window.
-//user_pref("browser.search.widget.inNavBar", true);
-
-// PREF: enable Tab Preview [FF122+]
-//user_pref("browser.tabs.cardPreview.enabled", true);
