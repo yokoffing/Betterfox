@@ -809,8 +809,12 @@ user_pref("signon.privateBrowsingCapture.enabled", false);
 // [2] https://support.mozilla.org/en-US/kb/firefox-lockwise-managing-account-data
 // user_pref("signon.management.page.breach-alerts.enabled", false); 
     //user_pref("signon.management.page.breachAlertUrl", "");
-// user_pref("browser.contentblocking.report.lockwise.enabled", false);
+//user_pref("browser.contentblocking.report.lockwise.enabled", false);
     //user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
+
+// disable Firefox Relay
+// Privacy & Security > Passwords > Suggest Firefox Relay email masks to protect your email address
+//user_pref("signon.firefoxRelay.feature", "");
 
 // PREF: disable websites autocomplete
 // Don't let sites dictate use of saved logins and passwords.
