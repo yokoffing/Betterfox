@@ -1145,7 +1145,8 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 // PREF: disable Firefox View [FF106+]
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
 //user_pref("browser.tabs.firefox-view", false);
-    //user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
+//user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
+//user_pref("browser.tabs.firefox-view-newIcon", false); // [FF119+]
     //user_pref("browser.firefox-view.search.enabled", false); // [FF122+]
     //user_pref("browser.firefox-view.virtual-list.enabled", false); // [FF122+]
 
