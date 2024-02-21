@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 122                                                             *
+ * version: 123                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -1145,6 +1145,7 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
 // [2] https://github.com/arkenfox/user.js/issues/1175
 //user_pref("identity.fxaccounts.enabled", false);
+    //user_pref("identity.fxaccounts.autoconfig.uri", "");
 
 // PREF: disable Firefox View [FF106+]
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
