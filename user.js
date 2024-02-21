@@ -9,9 +9,7 @@
 /****************************************************************************
  * Betterfox + personal tweaks                                              *
  * "Ad meliora"                                                             *
- * version: 128                                                             *
- * url: https://github.com/yokoffing/Betterfox                              *
- * version: 8 (based on Betterfox version 128)                              *
+ * version: 9 (based on Betterfox version 128)                              *
  * url: https://github.com/cloudzcodes/Betterfox-personal-tweaks            *
 ****************************************************************************/
 
@@ -291,6 +289,9 @@ user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsor
 
 // PREF: open bookmark on new tab
 user_pref("browser.tabs.loadBookmarksInTabs", true); // force bookmarks to open in a new tab, not the current tab
+
+// PREF: cookiebanner remover if needed
+user_pref("cookiebanners.service.mode", 2); // fall back to the accept button to remove banner
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
