@@ -812,7 +812,7 @@ user_pref("signon.privateBrowsingCapture.enabled", false);
 //user_pref("browser.contentblocking.report.lockwise.enabled", false);
     //user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
 
-// disable Firefox Relay
+// PREF: disable Firefox Relay
 // Privacy & Security > Passwords > Suggest Firefox Relay email masks to protect your email address
 //user_pref("signon.firefoxRelay.feature", "");
 
