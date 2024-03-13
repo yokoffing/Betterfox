@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 122                                                                         *
+ * version: 122.1                                                                       *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
