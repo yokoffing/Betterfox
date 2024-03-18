@@ -89,7 +89,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // 0=disabled, 1=enabled (default)
 //user_pref("security.sandbox.gpu.level", 1); // DEFAULT WINDOWS
 
-// PREF: State Paritioning [Dynamic First-Party Isolation (dFPI), Total Cookie Protection (TCP)]
+// PREF: State Partitioning [Dynamic First-Party Isolation (dFPI), Total Cookie Protection (TCP)]
 // Firefox manages client-side state (i.e., data stored in the browser) to mitigate the ability of websites to abuse state
 // for cross-site tracking. This effort aims to achieve that by providing what is effectively a "different", isolated storage
 // location to every website a user visits.
