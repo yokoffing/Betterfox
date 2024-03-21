@@ -165,15 +165,24 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT (50 MB); maximum size of an object in disk cache
 
-// PREF: race condition of disk cache and network server
+// PREF: race condition of disk cache and network server [FF59+]
+// [ABOUT] about:networking#rcwn
 // Firefox concurrently sends requests for cached resources to both the
 // local disk cache and the network server. The browser uses whichever
 // result arrives first and cancels the other request. This approach sometimes
 // loads pages faster because the network can be quicker than accessing the cache
 // on a hard drive. When RCWN is enabled, the request might be served from
-// the server even if you have valid entry in the cache. This will break some
-// cache related tests.
+// the server even if you have valid entry in the cache. Set to false if your
+// intention is to increase cache usage and reduce network usage.
+// [1] https://slides.com/valentingosu/race-cache-with-network-2017
+// [2] https://support.mozilla.org/en-US/questions/1267945
+// [3] https://askubuntu.com/questions/1214862/36-syns-in-a-row-how-to-limit-firefox-connections-to-one-website
+// [4] https://bugzilla.mozilla.org/show_bug.cgi?id=1622859
 //user_pref("network.http.rcwn.enabled", true); // DEFAULT
+
+// PREF: attempt to race the cache with the network only if a resource
+// is smaller than this size
+//user_pref("network.http.rcwn.small_resource_size_kb", 256); // DEFAULT
 
 // PREF: cache memory pool
 // Cache v2 provides a memory pool that stores metadata (such as response headers)
