@@ -540,12 +540,6 @@ user_pref("layout.css.grid-template-masonry-value.enabled", true);
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 user_pref("dom.enable_web_task_scheduling", true);
 
-// PREF: CSS :has() selector [NIGHTLY]
-// Needed for some extensions, filters, and customizations.
-// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
-// [2] https://caniuse.com/css-has
-user_pref("layout.css.has-selector.enabled", true);
-
 // PREF: HTML Sanitizer API [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer
 // [2] https://caniuse.com/mdn-api_sanitizer
