@@ -165,7 +165,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT (50 MB); maximum size of an object in disk cache
 
-// PREF: race condition of disk cache and network server [FF59+]
+// PREF: Race Cache With Network (RCWN) [FF59+]
 // [ABOUT] about:networking#rcwn
 // Firefox concurrently sends requests for cached resources to both the
 // local disk cache and the network server. The browser uses whichever
