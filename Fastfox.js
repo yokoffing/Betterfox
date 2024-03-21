@@ -13,8 +13,8 @@
 
 // PREF: initial paint delay
 // How long FF will wait before rendering the page (in ms)
-// [NOTE] Older PCs may want to use 250-750.
-// [NOTE] Dark Reader users may want to use 1000-2000 [3].
+// [NOTE] You may prefer using 250.
+// [NOTE] Dark Reader users may want to use 1000 [3].
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1283302
 // [2] https://docs.google.com/document/d/1BvCoZzk2_rNZx3u9ESPoFjSADRI0zIPeJRXFLwWXx_4/edit#heading=h.28ki6m8dg30z
 // [3] https://old.reddit.com/r/firefox/comments/o0xl1q/reducing_cpu_usage_of_dark_reader_extension/
