@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 122.1                                                           *
+ * version: 123                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -42,7 +42,6 @@ user_pref("network.http.max-persistent-connections-per-server", 10);
 user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
 user_pref("network.http.pacing.requests.enabled", false);
 user_pref("network.dnsCacheExpiration", 3600);
-user_pref("network.dns.max_high_priority_threads", 8);
 user_pref("network.ssl_tokens_cache_capacity", 10240);
 
 /** SPECULATIVE LOADING ***/
