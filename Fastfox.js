@@ -175,13 +175,13 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // the server even if you have valid entry in the cache. Set to false if your
 // intention is to increase cache usage and reduce network usage.
 // [1] https://slides.com/valentingosu/race-cache-with-network-2017
-// [2] https://support.mozilla.org/en-US/questions/1267945
-// [3] https://askubuntu.com/questions/1214862/36-syns-in-a-row-how-to-limit-firefox-connections-to-one-website
-// [4] https://bugzilla.mozilla.org/show_bug.cgi?id=1622859
+// [2] https://simonhearne.com/2020/network-faster-than-cache/
+// [3] https://support.mozilla.org/en-US/questions/1267945
+// [4] https://askubuntu.com/questions/1214862/36-syns-in-a-row-how-to-limit-firefox-connections-to-one-website
+// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1622859
 //user_pref("network.http.rcwn.enabled", true); // DEFAULT
 
-// PREF: attempt to race the cache with the network only if a resource
-// is smaller than this size
+// PREF: attempt to RCWN only if a resource is smaller than this size
 //user_pref("network.http.rcwn.small_resource_size_kb", 256); // DEFAULT
 
 // PREF: cache memory pool
