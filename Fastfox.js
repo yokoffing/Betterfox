@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 122.1                                                                       *
+ * version: 123                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -13,8 +13,8 @@
 
 // PREF: initial paint delay
 // How long FF will wait before rendering the page (in ms)
-// [NOTE] Older PCs may want to use 250-750.
-// [NOTE] Dark Reader users may want to use 1000-2000 [3].
+// [NOTE] You may prefer using 250.
+// [NOTE] Dark Reader users may want to use 1000 [3].
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1283302
 // [2] https://docs.google.com/document/d/1BvCoZzk2_rNZx3u9ESPoFjSADRI0zIPeJRXFLwWXx_4/edit#heading=h.28ki6m8dg30z
 // [3] https://old.reddit.com/r/firefox/comments/o0xl1q/reducing_cpu_usage_of_dark_reader_extension/
@@ -164,6 +164,25 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 //user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT (50 MB); maximum size of an object in disk cache
+
+// PREF: Race Cache With Network (RCWN) [FF59+]
+// [ABOUT] about:networking#rcwn
+// Firefox concurrently sends requests for cached resources to both the
+// local disk cache and the network server. The browser uses whichever
+// result arrives first and cancels the other request. This approach sometimes
+// loads pages faster because the network can be quicker than accessing the cache
+// on a hard drive. When RCWN is enabled, the request might be served from
+// the server even if you have valid entry in the cache. Set to false if your
+// intention is to increase cache usage and reduce network usage.
+// [1] https://slides.com/valentingosu/race-cache-with-network-2017
+// [2] https://simonhearne.com/2020/network-faster-than-cache/
+// [3] https://support.mozilla.org/en-US/questions/1267945
+// [4] https://askubuntu.com/questions/1214862/36-syns-in-a-row-how-to-limit-firefox-connections-to-one-website
+// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1622859
+//user_pref("network.http.rcwn.enabled", true); // DEFAULT
+
+// PREF: attempt to RCWN only if a resource is smaller than this size
+//user_pref("network.http.rcwn.small_resource_size_kb", 256); // DEFAULT
 
 // PREF: cache memory pool
 // Cache v2 provides a memory pool that stores metadata (such as response headers)
@@ -351,8 +370,8 @@ user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour
     //user_pref("network.dnsCacheExpirationGracePeriod", 240); // default=60; cache DNS entries for 4 minutes after they expire
 
 // PREF: the number of threads for DNS
-user_pref("network.dns.max_high_priority_threads", 8); // default=5
-//user_pref("network.dns.max_any_priority_threads", 3); // DEFAULT
+//user_pref("network.dns.max_high_priority_threads", 40); // DEFAULT [FF 123?]
+//user_pref("network.dns.max_any_priority_threads", 24); // DEFAULT [FF 123?]
 
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
@@ -539,12 +558,6 @@ user_pref("layout.css.grid-template-masonry-value.enabled", true);
 // [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 user_pref("dom.enable_web_task_scheduling", true);
-
-// PREF: CSS :has() selector [NIGHTLY]
-// Needed for some extensions, filters, and customizations.
-// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
-// [2] https://caniuse.com/css-has
-user_pref("layout.css.has-selector.enabled", true);
 
 // PREF: HTML Sanitizer API [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer

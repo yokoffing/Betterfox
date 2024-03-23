@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 122                                                             *
+ * version: 123                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -89,7 +89,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // 0=disabled, 1=enabled (default)
 //user_pref("security.sandbox.gpu.level", 1); // DEFAULT WINDOWS
 
-// PREF: State Paritioning [Dynamic First-Party Isolation (dFPI), Total Cookie Protection (TCP)]
+// PREF: State Partitioning [Dynamic First-Party Isolation (dFPI), Total Cookie Protection (TCP)]
 // Firefox manages client-side state (i.e., data stored in the browser) to mitigate the ability of websites to abuse state
 // for cross-site tracking. This effort aims to achieve that by providing what is effectively a "different", isolated storage
 // location to every website a user visits.
@@ -809,8 +809,12 @@ user_pref("signon.privateBrowsingCapture.enabled", false);
 // [2] https://support.mozilla.org/en-US/kb/firefox-lockwise-managing-account-data
 // user_pref("signon.management.page.breach-alerts.enabled", false); 
     //user_pref("signon.management.page.breachAlertUrl", "");
-// user_pref("browser.contentblocking.report.lockwise.enabled", false);
+//user_pref("browser.contentblocking.report.lockwise.enabled", false);
     //user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
+
+// PREF: disable Firefox Relay
+// Privacy & Security > Passwords > Suggest Firefox Relay email masks to protect your email address
+//user_pref("signon.firefoxRelay.feature", "");
 
 // PREF: disable websites autocomplete
 // Don't let sites dictate use of saved logins and passwords.
@@ -1141,11 +1145,13 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
 // [2] https://github.com/arkenfox/user.js/issues/1175
 //user_pref("identity.fxaccounts.enabled", false);
+    //user_pref("identity.fxaccounts.autoconfig.uri", "");
 
 // PREF: disable Firefox View [FF106+]
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
 //user_pref("browser.tabs.firefox-view", false);
-    //user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
+//user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
+//user_pref("browser.tabs.firefox-view-newIcon", false); // [FF119+]
     //user_pref("browser.firefox-view.search.enabled", false); // [FF122+]
     //user_pref("browser.firefox-view.virtual-list.enabled", false); // [FF122+]
 
@@ -1153,10 +1159,10 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 //user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
 
 // PREF: disable Push Notifications API [FF44+]
+// [WHY] Website "push" requires subscription, and the API is required for CRLite.
 // Push is an API that allows websites to send you (subscribed) messages even when the site
 // isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
 // You shouldn't need to disable this.
-// [WHY] Push requires subscription.
 // [NOTE] To remove all subscriptions, reset "dom.push.userAgentID"
 // [1] https://support.mozilla.org/en-US/kb/push-notifications-firefox
 // [2] https://developer.mozilla.org/en-US/docs/Web/API/Push_API
@@ -1274,10 +1280,6 @@ user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 user_pref("toolkit.telemetry.coverage.opt-out", true); // [HIDDEN PREF]
 user_pref("toolkit.coverage.opt-out", true); // [FF64+] [HIDDEN PREF]
 user_pref("toolkit.coverage.endpoint.base", "");
-
-// PREF: disable PingCentre telemetry (used in several System Add-ons) [FF57+]
-// Currently blocked by 'datareporting.healthreport.uploadEnabled'
-user_pref("browser.ping-centre.telemetry", false);
 
 // PREF: disable Firefox Home (Activity Stream) telemetry 
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
