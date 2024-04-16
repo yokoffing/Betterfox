@@ -425,6 +425,7 @@ user_pref("network.dns.disablePrefetch", true);
 //user_pref("network.preconnect", true); // DEFAULT
 
 // PREF: preconnect to the autocomplete URL in the address bar
+// Whether to warm up network connections for autofill or search results.
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
 // Connects to destination server ahead of time, to avoid TCP handshake latency.
 // [NOTE] Firefox will perform DNS lookup (if enabled) and TCP and TLS handshake,
@@ -433,6 +434,7 @@ user_pref("network.dns.disablePrefetch", true);
 //user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
 // PREF: mousedown speculative connections on bookmarks and history [FF98+]
+// Whether to warm up network connections for places:menus and places:toolbar.
 //user_pref("browser.places.speculativeConnect.enabled", false);
 
 // PREF: network preload <link rel="preload"> [REMOVED]
