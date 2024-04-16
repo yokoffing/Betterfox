@@ -293,6 +293,12 @@ user_pref("security.pki.crlite_mode", 2);
 //user_pref("security.enterprise_roots.enabled", false);
     //user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
 
+// PREF: disable content analysis by DLP (Data Loss Prevention) agents [FF124+]
+// DLP agents are background processes on managed computers that allow enterprises to monitor locally running
+// applications for data exfiltration events, which they can allow/block based on customer defined DLP policies.
+// [1] https://github.com/chromium/content_analysis_sdk
+//user_pref("browser.contentanalysis.default_allow", false); // DEFAULT
+
 /****************************************************************************
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
 ****************************************************************************/
