@@ -407,7 +407,7 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [3] https://searchfox.org/mozilla-central/rev/028c68d5f32df54bca4cf96376f79e48dfafdf08/modules/libpref/init/all.js#1280-1282
 // [4] https://www.keycdn.com/blog/resource-hints#prefetch
 // [5] https://3perf.com/blog/link-rels/#prefetch
-//user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT
+//user_pref("network.http.speculative-parallel-limit", 20); // DEFAULT (FF127+?)
 
 // PREF: DNS prefetching <link rel="dns-prefetch">
 // Used for cross-origin connections to provide small performance improvements.
