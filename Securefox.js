@@ -1362,8 +1362,8 @@ user_pref("network.connectivity-service.enabled", false);
 
 // PREF: SERP Telemetry [FF125+]
 // [1] https://blog.mozilla.org/en/products/firefox/firefox-search-update/
-user_pref("browser.search.serpEventTelemetry.enabled", false);
-user_pref("browser.search.serpEventTelemetryCategorization.enabled", false);
+//user_pref("browser.search.serpEventTelemetry.enabled", false); // [removed in FF128?]
+//user_pref("browser.search.serpEventTelemetryCategorization.enabled", false);
 
 // PREF: assorted telemetry
 // [NOTE] Shouldn't be needed for user.js, but browser forks
