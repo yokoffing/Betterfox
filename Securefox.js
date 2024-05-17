@@ -1356,6 +1356,11 @@ user_pref("network.connectivity-service.enabled", false);
 // [2] https://github.com/arkenfox/user.js/issues/791
 //user_pref("corroborator.enabled", false);
 
+// PREF: SERP Telemetry [FF125+]
+// [1] https://blog.mozilla.org/en/products/firefox/firefox-search-update/
+user_pref("browser.search.serpEventTelemetry.enabled", false);
+user_pref("browser.search.serpEventTelemetryCategorization.enabled", false);
+
 // PREF: assorted telemetry
 // [NOTE] Shouldn't be needed for user.js, but browser forks
 // may want to disable these prefs.
