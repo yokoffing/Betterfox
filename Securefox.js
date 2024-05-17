@@ -542,10 +542,14 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 // [1] https://reddit.com/r/firefox/comments/xkzswb/adding_firefox_search_engine_manually/
 user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
 
-// PREF: disable urlbar live search engine suggestions (Google, Bing, etc.)
+// PREF: disable live search suggestions (Google, Bing, etc.)
 // [WARNING] Search engines keylog every character you type from the URL bar.
+// Override these if you trust and use a privacy respecting search engine.
+// [NOTE] Both prefs must be true for live search to work in the location bar.
+// [SETTING] Search>Provide search suggestions > Show search suggestions in address bar result
 user_pref("browser.search.suggest.enabled", false);
-//user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
+    //user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
+user_pref("browser.urlbar.suggest.searches", false);
 
 // PREF: disable Firefox Suggest
 // [1] https://github.com/arkenfox/user.js/issues/1257
