@@ -98,13 +98,11 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("gfx.webrender.software", true); // Software Webrender uses CPU instead of GPU
     //user_pref("gfx.webrender.software.opengl", true); // LINUX
 
-// PREF: NVIDIA RTX Video Super Resolution for video overlay [WINDOWS]
-// [NOTE] May not work on Stable release [2].
-// This is also a setting in NVIDIA's driver settings, so once this is
-// stable, it should default to true.
+// PREF: NVIDIA RTX Video Super Resolution for video overlay [WINDOWS] [REMOVED FF125+]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1823135
 // [2] https://www.reddit.com/r/firefox/comments/17a0noa/nvidia_video_super_resolution_not_working_on/
-//user_pref("gfx.webrender.super-resolution.nvidia", true);
+// [3] https://blogs.nvidia.com/blog/ai-decoded-rtxvideo-firefox/
+//user_pref("gfx.webrender.super-resolution.nvidia", true); // [REMOVED]
 
 // PREF: GPU-accelerated Canvas2D
 // Use gpu-canvas instead of to skia-canvas.
