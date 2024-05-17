@@ -98,11 +98,12 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("gfx.webrender.software", true); // Software Webrender uses CPU instead of GPU
     //user_pref("gfx.webrender.software.opengl", true); // LINUX
 
-// PREF: NVIDIA RTX Video Super Resolution for video overlay [WINDOWS] [REMOVED FF125+]
-// Activiates on video content 720p or below.
+// PREF: NVIDIA RTX Video Super Resolution and RTX Video HDR [WINDOWS] [FF125+]
+// Super Resolution activiates on video content 720p or below.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1823135
 // [2] https://www.reddit.com/r/firefox/comments/17a0noa/nvidia_video_super_resolution_not_working_on/
 // [3] https://blogs.nvidia.com/blog/ai-decoded-rtxvideo-firefox/
+// [4] https://www.mozilla.org/en-US/firefox/126.0/releasenotes/
 //user_pref("gfx.webrender.super-resolution.nvidia", true); // [REMOVED]
 
 // PREF: GPU-accelerated Canvas2D
