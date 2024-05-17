@@ -132,7 +132,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
 //user_pref("extensions.webcompat.enable_shims", true); // enabled with "Strict"
 
-// PREF: Redirect Tracking Prevention
+// PREF: Redirect Tracking Prevention / Cookie Purging
 // All storage is cleared (more or less) daily from origins that are known trackers and that
 // haven’t received a top-level user interaction (including scroll) within the last 45 days.
 // [1] https://www.ghacks.net/2020/08/06/how-to-enable-redirect-tracking-in-firefox/
@@ -140,7 +140,16 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
 // [4] https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
 // [5] https://github.com/arkenfox/user.js/issues/1089
+// [6] https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/cookie-purging/index.html
 //user_pref("privacy.purge_trackers.enabled", true); // DEFAULT
+
+// PREF: Bounce Tracking Protection [FF127+ NIGHTLY]
+// A new standardised variant of Cookie Purging that uses heuristics to detect bounce trackers,
+// rather than relying on tracker lists.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1895222
+// [2] https://groups.google.com/a/mozilla.org/g/dev-platform/c/M6erM0SjPTM
+//user_pref("privacy.bounceTrackingProtection.enabled", true); // DEFAULT
+//user_pref("privacy.bounceTrackingProtection.enableDryRunMode", false); // DEFAULT
 
 // PREF: SameSite Cookies
 // Currently, the absence of the SameSite attribute implies that cookies will be
