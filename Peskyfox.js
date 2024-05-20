@@ -237,6 +237,10 @@ user_pref("browser.urlbar.trending.featureGate", false);
 // disable=0
 //user_pref("browser.urlbar.maxRichResults", 5); // default=10
 
+// PREF: text fragments [FF126+ NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/Text_fragments
+//user_pref("dom.text_fragments.enabled", true);
+
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
 ****************************************************************************/
