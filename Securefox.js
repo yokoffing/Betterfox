@@ -1355,11 +1355,6 @@ user_pref("network.connectivity-service.enabled", false);
 // PREF: "report extensions for abuse"
 //user_pref("extensions.abuseReport.enabled", false);
 
-// PREF: check bundled omni JARs for corruption
-// [1] https://github.com/ghostery/user-agent-desktop/issues/141
-// [2] https://github.com/arkenfox/user.js/issues/791
-//user_pref("corroborator.enabled", false);
-
 // PREF: SERP Telemetry [FF125+]
 // [1] https://blog.mozilla.org/en/products/firefox/firefox-search-update/
 //user_pref("browser.search.serpEventTelemetry.enabled", false); // [removed in FF128?]
