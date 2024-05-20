@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 123                                                             *
+ * version: 126                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
