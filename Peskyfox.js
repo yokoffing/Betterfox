@@ -284,6 +284,8 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
       //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Shortcuts > Sponsored shortcuts [FF83+]
+//user_pref("browser.newtabpage.activity-stream.showWeather", false); // Weather [FF128+ NIGHTLY]
+    //user_pref("browser.newtabpage.activity-stream.system.showWeather", false); // Weather [FF128+ NIGHTLY]
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
       //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
 //user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // Recent Activity [DEFAULT]
@@ -292,6 +294,9 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 //user_pref("browser.newtabpage.activity-stream.feeds.snippets", false); // [DEFAULT]
+
+// PREF: wallpapers on New Tab [FF128+ NIGHTLY]
+//user_pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", false); // Wallpapers
 
 // PREF: clear default topsites
 // [NOTE] This does not block you from adding your own.
