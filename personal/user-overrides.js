@@ -21,13 +21,6 @@
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionhistory.max_total_viewers", 4); // only remember # of pages in Back-Forward cache
 
-/** speculative load test ***/
-user_pref("network.dns.disablePrefetchFromHTTPS", false);
-//user_pref("network.prefetch-next", true);
-user_pref("network.predictor.enabled", true);
-user_pref("network.predictor.enable-prefetch", true);
-user_pref("network.predictor.enable-hover-on-ssl", true);
-
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
 user_pref("signon.rememberSignons", false); // disable password manager
@@ -39,7 +32,7 @@ user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest 
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.autofillForms", false); // unselect "Autofill logins and passwords" for clean UI
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
-user_pref("signon.firefoxRelay.feature", "unavailable"); // unselect suggestions from Firefox Relay for clean UI
+user_pref("signon.firefoxRelay.feature", ""); // unselect suggestions from Firefox Relay for clean UI
 //user_pref("privacy.sanitize.sanitizeOnShutdown", true); // clear browsing data on shutdown
 //user_pref("privacy.clearOnShutdown.offlineApps", true); // clear Site Data on shutdown
 user_pref("browser.safebrowsing.downloads.enabled", false); // deny SB to scan downloads to identify suspicious files; local checks only
@@ -47,7 +40,6 @@ user_pref("browser.safebrowsing.downloads.remote.url", ""); // enforce no remote
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false); // clean up UI; not needed in user.js if remote downloads are disabled
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false); // clean up UI; not needed in user.js if remote downloads are disabled
 user_pref("browser.safebrowsing.allowOverride", false); // do not allow user to override SB
-user_pref("dom.push.enabled", false); // disable Push API; breaks FF Sync and Site Notifications
 user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla domains so adblocker works on pages

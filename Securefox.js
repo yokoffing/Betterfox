@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 122                                                             *
+ * version: 126                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -89,7 +89,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // 0=disabled, 1=enabled (default)
 //user_pref("security.sandbox.gpu.level", 1); // DEFAULT WINDOWS
 
-// PREF: State Paritioning [Dynamic First-Party Isolation (dFPI), Total Cookie Protection (TCP)]
+// PREF: State Partitioning [Dynamic First-Party Isolation (dFPI), Total Cookie Protection (TCP)]
 // Firefox manages client-side state (i.e., data stored in the browser) to mitigate the ability of websites to abuse state
 // for cross-site tracking. This effort aims to achieve that by providing what is effectively a "different", isolated storage
 // location to every website a user visits.
@@ -132,7 +132,7 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
 //user_pref("extensions.webcompat.enable_shims", true); // enabled with "Strict"
 
-// PREF: Redirect Tracking Prevention
+// PREF: Redirect Tracking Prevention / Cookie Purging
 // All storage is cleared (more or less) daily from origins that are known trackers and that
 // haven’t received a top-level user interaction (including scroll) within the last 45 days.
 // [1] https://www.ghacks.net/2020/08/06/how-to-enable-redirect-tracking-in-firefox/
@@ -140,7 +140,16 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [3] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Redirect_tracking_protection
 // [4] https://www.ghacks.net/2020/03/04/firefox-75-will-purge-site-data-if-associated-with-tracking-cookies/
 // [5] https://github.com/arkenfox/user.js/issues/1089
+// [6] https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/cookie-purging/index.html
 //user_pref("privacy.purge_trackers.enabled", true); // DEFAULT
+
+// PREF: Bounce Tracking Protection [FF127+ NIGHTLY]
+// A new standardised variant of Cookie Purging that uses heuristics to detect bounce trackers,
+// rather than relying on tracker lists.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1895222
+// [2] https://groups.google.com/a/mozilla.org/g/dev-platform/c/M6erM0SjPTM
+//user_pref("privacy.bounceTrackingProtection.enabled", true); // DEFAULT
+//user_pref("privacy.bounceTrackingProtection.enableDryRunMode", false); // DEFAULT
 
 // PREF: SameSite Cookies
 // Currently, the absence of the SameSite attribute implies that cookies will be
@@ -292,6 +301,12 @@ user_pref("security.pki.crlite_mode", 2);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1848815
 //user_pref("security.enterprise_roots.enabled", false);
     //user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
+
+// PREF: disable content analysis by DLP (Data Loss Prevention) agents [FF124+]
+// DLP agents are background processes on managed computers that allow enterprises to monitor locally running
+// applications for data exfiltration events, which they can allow/block based on customer defined DLP policies.
+// [1] https://github.com/chromium/content_analysis_sdk
+//user_pref("browser.contentanalysis.default_allow", false); // DEFAULT
 
 /****************************************************************************
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
@@ -527,10 +542,14 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 // [1] https://reddit.com/r/firefox/comments/xkzswb/adding_firefox_search_engine_manually/
 user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
 
-// PREF: disable urlbar live search engine suggestions (Google, Bing, etc.)
+// PREF: disable live search suggestions (Google, Bing, etc.)
 // [WARNING] Search engines keylog every character you type from the URL bar.
+// Override these if you trust and use a privacy respecting search engine.
+// [NOTE] Both prefs must be true for live search to work in the location bar.
+// [SETTING] Search>Provide search suggestions > Show search suggestions in address bar result
 user_pref("browser.search.suggest.enabled", false);
-//user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
+    //user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
+user_pref("browser.urlbar.suggest.searches", false);
 
 // PREF: disable Firefox Suggest
 // [1] https://github.com/arkenfox/user.js/issues/1257
@@ -809,8 +828,12 @@ user_pref("signon.privateBrowsingCapture.enabled", false);
 // [2] https://support.mozilla.org/en-US/kb/firefox-lockwise-managing-account-data
 // user_pref("signon.management.page.breach-alerts.enabled", false); 
     //user_pref("signon.management.page.breachAlertUrl", "");
-// user_pref("browser.contentblocking.report.lockwise.enabled", false);
+//user_pref("browser.contentblocking.report.lockwise.enabled", false);
     //user_pref("browser.contentblocking.report.lockwise.how_it_works.url", "");
+
+// PREF: disable Firefox Relay
+// Privacy & Security > Passwords > Suggest Firefox Relay email masks to protect your email address
+//user_pref("signon.firefoxRelay.feature", "");
 
 // PREF: disable websites autocomplete
 // Don't let sites dictate use of saved logins and passwords.
@@ -1141,11 +1164,13 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 // [1] https://addons.mozilla.org/en-US/firefox/addon/xbs
 // [2] https://github.com/arkenfox/user.js/issues/1175
 //user_pref("identity.fxaccounts.enabled", false);
+    //user_pref("identity.fxaccounts.autoconfig.uri", "");
 
 // PREF: disable Firefox View [FF106+]
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
 //user_pref("browser.tabs.firefox-view", false);
-    //user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
+//user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
+//user_pref("browser.tabs.firefox-view-newIcon", false); // [FF119+]
     //user_pref("browser.firefox-view.search.enabled", false); // [FF122+]
     //user_pref("browser.firefox-view.virtual-list.enabled", false); // [FF122+]
 
@@ -1153,10 +1178,10 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 //user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
 
 // PREF: disable Push Notifications API [FF44+]
+// [WHY] Website "push" requires subscription, and the API is required for CRLite.
 // Push is an API that allows websites to send you (subscribed) messages even when the site
 // isn't loaded, by pushing messages to your userAgentID through Mozilla's Push Server.
 // You shouldn't need to disable this.
-// [WHY] Push requires subscription.
 // [NOTE] To remove all subscriptions, reset "dom.push.userAgentID"
 // [1] https://support.mozilla.org/en-US/kb/push-notifications-firefox
 // [2] https://developer.mozilla.org/en-US/docs/Web/API/Push_API
@@ -1275,10 +1300,6 @@ user_pref("toolkit.telemetry.coverage.opt-out", true); // [HIDDEN PREF]
 user_pref("toolkit.coverage.opt-out", true); // [FF64+] [HIDDEN PREF]
 user_pref("toolkit.coverage.endpoint.base", "");
 
-// PREF: disable PingCentre telemetry (used in several System Add-ons) [FF57+]
-// Currently blocked by 'datareporting.healthreport.uploadEnabled'
-user_pref("browser.ping-centre.telemetry", false);
-
 // PREF: disable Firefox Home (Activity Stream) telemetry 
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
@@ -1334,10 +1355,10 @@ user_pref("network.connectivity-service.enabled", false);
 // PREF: "report extensions for abuse"
 //user_pref("extensions.abuseReport.enabled", false);
 
-// PREF: check bundled omni JARs for corruption
-// [1] https://github.com/ghostery/user-agent-desktop/issues/141
-// [2] https://github.com/arkenfox/user.js/issues/791
-//user_pref("corroborator.enabled", false);
+// PREF: SERP Telemetry [FF125+]
+// [1] https://blog.mozilla.org/en/products/firefox/firefox-search-update/
+//user_pref("browser.search.serpEventTelemetry.enabled", false); // [removed in FF128?]
+//user_pref("browser.search.serpEventTelemetryCategorization.enabled", false);
 
 // PREF: assorted telemetry
 // [NOTE] Shouldn't be needed for user.js, but browser forks

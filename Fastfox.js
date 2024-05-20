@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 122.1                                                                       *
+ * version: 126                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -13,8 +13,8 @@
 
 // PREF: initial paint delay
 // How long FF will wait before rendering the page (in ms)
-// [NOTE] Older PCs may want to use 250-750.
-// [NOTE] Dark Reader users may want to use 1000-2000 [3].
+// [NOTE] You may prefer using 250.
+// [NOTE] Dark Reader users may want to use 1000 [3].
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1283302
 // [2] https://docs.google.com/document/d/1BvCoZzk2_rNZx3u9ESPoFjSADRI0zIPeJRXFLwWXx_4/edit#heading=h.28ki6m8dg30z
 // [3] https://old.reddit.com/r/firefox/comments/o0xl1q/reducing_cpu_usage_of_dark_reader_extension/
@@ -98,13 +98,13 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("gfx.webrender.software", true); // Software Webrender uses CPU instead of GPU
     //user_pref("gfx.webrender.software.opengl", true); // LINUX
 
-// PREF: NVIDIA RTX Video Super Resolution for video overlay [WINDOWS]
-// [NOTE] May not work on Stable release [2].
-// This is also a setting in NVIDIA's driver settings, so once this is
-// stable, it should default to true.
+// PREF: NVIDIA RTX Video Super Resolution and RTX Video HDR [WINDOWS] [FF125+]
+// Super Resolution activiates on video content 720p or below.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1823135
 // [2] https://www.reddit.com/r/firefox/comments/17a0noa/nvidia_video_super_resolution_not_working_on/
-//user_pref("gfx.webrender.super-resolution.nvidia", true);
+// [3] https://blogs.nvidia.com/blog/ai-decoded-rtxvideo-firefox/
+// [4] https://www.mozilla.org/en-US/firefox/126.0/releasenotes/
+//user_pref("gfx.webrender.super-resolution.nvidia", true); // [REMOVED]
 
 // PREF: GPU-accelerated Canvas2D
 // Use gpu-canvas instead of to skia-canvas.
@@ -164,6 +164,25 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 //user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT (50 MB); maximum size of an object in disk cache
+
+// PREF: Race Cache With Network (RCWN) [FF59+]
+// [ABOUT] about:networking#rcwn
+// Firefox concurrently sends requests for cached resources to both the
+// local disk cache and the network server. The browser uses whichever
+// result arrives first and cancels the other request. This approach sometimes
+// loads pages faster because the network can be quicker than accessing the cache
+// on a hard drive. When RCWN is enabled, the request might be served from
+// the server even if you have valid entry in the cache. Set to false if your
+// intention is to increase cache usage and reduce network usage.
+// [1] https://slides.com/valentingosu/race-cache-with-network-2017
+// [2] https://simonhearne.com/2020/network-faster-than-cache/
+// [3] https://support.mozilla.org/en-US/questions/1267945
+// [4] https://askubuntu.com/questions/1214862/36-syns-in-a-row-how-to-limit-firefox-connections-to-one-website
+// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1622859
+//user_pref("network.http.rcwn.enabled", true); // DEFAULT
+
+// PREF: attempt to RCWN only if a resource is smaller than this size
+//user_pref("network.http.rcwn.small_resource_size_kb", 256); // DEFAULT
 
 // PREF: cache memory pool
 // Cache v2 provides a memory pool that stores metadata (such as response headers)
@@ -351,8 +370,8 @@ user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour
     //user_pref("network.dnsCacheExpirationGracePeriod", 240); // default=60; cache DNS entries for 4 minutes after they expire
 
 // PREF: the number of threads for DNS
-user_pref("network.dns.max_high_priority_threads", 8); // default=5
-//user_pref("network.dns.max_any_priority_threads", 3); // DEFAULT
+//user_pref("network.dns.max_high_priority_threads", 40); // DEFAULT [FF 123?]
+//user_pref("network.dns.max_any_priority_threads", 24); // DEFAULT [FF 123?]
 
 // PREF: increase TLS token caching 
 user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
@@ -388,7 +407,7 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [3] https://searchfox.org/mozilla-central/rev/028c68d5f32df54bca4cf96376f79e48dfafdf08/modules/libpref/init/all.js#1280-1282
 // [4] https://www.keycdn.com/blog/resource-hints#prefetch
 // [5] https://3perf.com/blog/link-rels/#prefetch
-//user_pref("network.http.speculative-parallel-limit", 6); // DEFAULT
+//user_pref("network.http.speculative-parallel-limit", 20); // DEFAULT (FF127+?)
 
 // PREF: DNS prefetching <link rel="dns-prefetch">
 // Used for cross-origin connections to provide small performance improvements.
@@ -399,13 +418,15 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
+// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935
 user_pref("network.dns.disablePrefetch", true);
-//user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
+user_pref("network.dns.disablePrefetchFromHTTPS", true); // (FF127+ false)
 
 // PREF: enable <link rel="preconnect"> tag and Link: rel=preconnect response header handling
 //user_pref("network.preconnect", true); // DEFAULT
 
 // PREF: preconnect to the autocomplete URL in the address bar
+// Whether to warm up network connections for autofill or search results.
 // Firefox preloads URLs that autocomplete when a user types into the address bar.
 // Connects to destination server ahead of time, to avoid TCP handshake latency.
 // [NOTE] Firefox will perform DNS lookup (if enabled) and TCP and TLS handshake,
@@ -414,6 +435,7 @@ user_pref("network.dns.disablePrefetch", true);
 //user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
 // PREF: mousedown speculative connections on bookmarks and history [FF98+]
+// Whether to warm up network connections for places:menus and places:toolbar.
 //user_pref("browser.places.speculativeConnect.enabled", false);
 
 // PREF: network preload <link rel="preload"> [REMOVED]
@@ -539,12 +561,6 @@ user_pref("layout.css.grid-template-masonry-value.enabled", true);
 // [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 user_pref("dom.enable_web_task_scheduling", true);
-
-// PREF: CSS :has() selector [NIGHTLY]
-// Needed for some extensions, filters, and customizations.
-// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/:has
-// [2] https://caniuse.com/css-has
-user_pref("layout.css.has-selector.enabled", true);
 
 // PREF: HTML Sanitizer API [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer

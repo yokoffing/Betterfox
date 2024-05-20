@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 122                                                             *
+ * version: 126                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -216,7 +216,8 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.urlbar.mdn.featureGate", false); // [FF117+] [HIDDEN PREF]
 //user_pref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: false]
 //user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
-//user_pref("browser.urlbar.clipboard.featureGate", false); // [FF118+] [DEFAULT: false]
+//user_pref("browser.urlbar.clipboard.featureGate", false); // [FF118+] [DEFAULT: true FF125+]
+//user_pref("browser.urlbar.yelp.featureGate", false); // [FF124+] [DEFAULT: false]
 
 // PREF: disable tab-to-search [FF85+]
 // Alternatively, you can exclude on a per-engine basis by unchecking them in Options>Search
@@ -235,6 +236,10 @@ user_pref("browser.urlbar.trending.featureGate", false);
 // and this does not affect the search by search engine suggestion.
 // disable=0
 //user_pref("browser.urlbar.maxRichResults", 5); // default=10
+
+// PREF: text fragments [FF126+ NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/Text_fragments
+//user_pref("dom.text_fragments.enabled", true);
 
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
@@ -282,7 +287,9 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
-      //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts [FF83+]
+      //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Shortcuts > Sponsored shortcuts [FF83+]
+//user_pref("browser.newtabpage.activity-stream.showWeather", false); // Weather [FF128+ NIGHTLY]
+    //user_pref("browser.newtabpage.activity-stream.system.showWeather", false); // Weather [FF128+ NIGHTLY]
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
       //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
 //user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // Recent Activity [DEFAULT]
@@ -291,6 +298,9 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 //user_pref("browser.newtabpage.activity-stream.feeds.snippets", false); // [DEFAULT]
+
+// PREF: wallpapers on New Tab [FF128+ NIGHTLY]
+//user_pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", false); // Wallpapers
 
 // PREF: clear default topsites
 // [NOTE] This does not block you from adding your own.
