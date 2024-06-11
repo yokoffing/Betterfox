@@ -328,7 +328,7 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 // know that. Setting this pref to true is the only way for the
 // browser to ensure there will be no unsafe renegotiations on
 // the channel between the browser and the server.
-// [STATS] SSL Labs > Renegotiation Support (Feb 2023) reports over 99.3% of top sites have secure renegotiation [4].
+// [STATS] SSL Labs > Renegotiation Support (May 2024) reports over 99.7% of top sites have secure renegotiation [4].
 // [1] https://wiki.mozilla.org/Security:Renegotiation
 // [2] https://datatracker.ietf.org/doc/html/rfc5746
 // [3] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555
@@ -1032,6 +1032,13 @@ user_pref("privacy.userContext.ui.enabled", true);
 // [NOTE] The menu is always shown on long press and right click.
 // [SETTING] General>Tabs>Enable Container Tabs>Settings>Select a container for each new tab ***/
 //user_pref("privacy.userContext.newTabContainerOnLeftClick.enabled", true);
+
+// PREF: set external links to open in site-specific containers [FF123+]
+// Depending on your container extension(s) and their settings:
+// true=Firefox will not choose a container (so your extension can)
+// false=Firefox will choose the container/no-container (default)
+// [1] https://bugzilla.mozilla.org/1874599
+    //user_pref("browser.link.force_default_user_context_id_for_external_opens", true);
 
 /******************************************************************************
  * SECTION: WEBRTC                                                           *
