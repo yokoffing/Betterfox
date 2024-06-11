@@ -86,7 +86,7 @@ The `user.js` — a configuration file that controls Firefox settings — is cur
 * “I use this one ... The performance is absolutely amazing. There’s definitely a huge difference when it comes to loading sites.” - [DIRIKtv](https://youtu.be/N8IOJiOFVEk?t=16)
 * "BetterFox ... will provide good-enough privacy and help with performance." - [Qdoit12Super](https://old.reddit.com/r/browsers/comments/139h4my/suggestion_for_finding_3_good_privacy_focus/jj3n3qn/?context=2)
 * "...drastically changed the experience with Firefox for me. Improved speed, security, smoothness, and removed clutter." - [AppDate](https://www.appdate.lk/technology/2023-browser-showdown/#:~:text=Used%20the%20BetterFox%20user%20config%20settings%20with%20some%20overrides%20which%20drastically%20changed%20the%20experience)
-* "Firefox with uBlock Origin extension and tuned with Betterfox is faster than Safari."  - [cugeloid](https://www.reddit.com/r/macapps/comments/1d72fd8/best_browser_for_mac/)
+* "Firefox with uBlock Origin extension and tuned with Betterfox is faster than Safari."  - [cugeloid](https://elephas.app/blog/best-browsers-mac#what-is-the-best-browser-for-mac-according-to-redditandnbsp)
 * "I don't think I could use Firefox without Betterfox." - [Professional_Fun4616](https://old.reddit.com/r/nextdns/comments/15y815f/the_people_behind_betterfox_have_this_awesome/jxb7cir/?context=3)
 * "The best collection of tweaks available." - [AuRiMaS](https://old.reddit.com/r/MozillaFirefox/comments/15cc1vk/about_changes_in_aboutconfig/jtyx910/?context=3)
 * "FF is now much snappier!" - [whotheff](https://old.reddit.com/r/firefox/comments/z5auzi/firefox_not_properly_usingrecognizing_gpu_poor/iy36hyz/)
