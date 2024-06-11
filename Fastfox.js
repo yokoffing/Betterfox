@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 126                                                                         *
+ * version: 127                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -97,14 +97,6 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
 //user_pref("gfx.webrender.software", true); // Software Webrender uses CPU instead of GPU
     //user_pref("gfx.webrender.software.opengl", true); // LINUX
-
-// PREF: NVIDIA RTX Video Super Resolution and RTX Video HDR [WINDOWS] [FF125+]
-// Super Resolution activiates on video content 720p or below.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1823135
-// [2] https://www.reddit.com/r/firefox/comments/17a0noa/nvidia_video_super_resolution_not_working_on/
-// [3] https://blogs.nvidia.com/blog/ai-decoded-rtxvideo-firefox/
-// [4] https://www.mozilla.org/en-US/firefox/126.0/releasenotes/
-//user_pref("gfx.webrender.super-resolution.nvidia", true); // [REMOVED]
 
 // PREF: GPU-accelerated Canvas2D
 // Use gpu-canvas instead of to skia-canvas.
@@ -437,26 +429,6 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true); // (FF127+ false)
 // PREF: mousedown speculative connections on bookmarks and history [FF98+]
 // Whether to warm up network connections for places:menus and places:toolbar.
 //user_pref("browser.places.speculativeConnect.enabled", false);
-
-// PREF: network preload <link rel="preload"> [REMOVED]
-// Used to load high-priority resources faster on the current page, for strategic
-// performance improvements.
-// Instructs the browser to immediately fetch and cache high-priority resources
-// for the current page to improve performance. The browser downloads resources
-// but does not execute scripts or apply stylesheets - it just caches them for
-// instant availability later.
-// Unlike other pre-connection tags (except modulepreload), this tag is
-// mandatory for the browser.
-// [1] https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload
-// [2] https://w3c.github.io/preload/
-// [3] https://3perf.com/blog/link-rels/#preload
-// [4] https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
-// [5] https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#how-can-preload-do-better
-// [6] https://www.keycdn.com/blog/resource-hints#preload
-// [7] https://github.com/arkenfox/user.js/issues/1098#issue-791949341
-// [8] https://yashints.dev/blog/2018/10/06/web-perf-2#preload
-// [9] https://web.dev/preload-critical-assets/
-//user_pref("network.preload", true); // [REMOVED]
 
 // PREF: network module preload <link rel="modulepreload"> [FF115+]
 // High-priority loading of current page JavaScript modules.
