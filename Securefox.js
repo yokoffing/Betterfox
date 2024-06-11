@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 126                                                             *
+ * version: 127                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -871,31 +871,31 @@ user_pref("editor.truncate_user_pastes", false);
  * SECTION: MIXED CONTENT + CROSS-SITE                                       *
 ******************************************************************************/
 
-// [TEST] https://mixed-script.badssl.com/
-
-// PREF: disable automatic authentication on Microsoft sites [WINDOWS]
-// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
-//user_pref("network.http.windows-sso.enabled", false);
-
 // PREF: block insecure active content (scripts) on HTTPS pages
+// [TEST] https://mixed-script.badssl.com/
 // [1] https://trac.torproject.org/projects/tor/ticket/21323
 //user_pref("security.mixed_content.block_active_content", true); // DEFAULT
 
-// PREF: block insecure passive content (images) on HTTPS pages
-// Using HTTPS First Policy, Firefox will still make a HTTP connection
-// if it can't find a secure connection, so this isn't redundant.
-// There's the small chance that someone does a MITM on the images
-// and deploys a malicious image. (They're rare, but possible).
-// [NOTE] You can remove if using HTTPS-Only Mode.
-user_pref("security.mixed_content.block_display_content", true);
-
 // PREF: upgrade passive content to use HTTPS on secure pages
-// [NOTE] You can remove if using HTTPS-Only Mode.
-user_pref("security.mixed_content.upgrade_display_content", true);
-// [FF119+]:
-//user_pref("security.mixed_content.upgrade_display_content.audio", true); // DEFAULT
-user_pref("security.mixed_content.upgrade_display_content.image", true);
-//user_pref("security.mixed_content.upgrade_display_content.video", true); // DEFAULT
+// Firefox will now automatically try to upgrade <img>, <audio>, and <video> elements
+// from HTTP to HTTPS if they are embedded within an HTTPS page. If these
+// mixed content elements do not support HTTPS, they will no longer load.
+// [NOTE] Enterprise users may need to disable this setting [1].
+// [1] https://blog.mozilla.org/security/2024/06/05/firefox-will-upgrade-more-mixed-content-in-version-127/
+//user_pref("security.mixed_content.upgrade_display_content", true); // [DEFAULT FF127+]
+    //user_pref("security.mixed_content.upgrade_display_content.audio", true); // [DEFAULT FF119+]
+    //user_pref("security.mixed_content.upgrade_display_content.image", true); // [DEFAULT FF127+]
+    //user_pref("security.mixed_content.upgrade_display_content.video", true); // [DEFAULT FF119+]
+
+// PREF: block insecure passive content (images) on HTTPS pages
+// [WARNING] This preference blocks all mixed content, including upgradable.
+// Firefox still attempts an HTTP connection if it can't find a secure one,
+// even with HTTPS First Policy. Although rare, this leaves a small risk of
+// a malicious image being served through a MITM attack.
+// Disable this pref if using HTTPS-Only Mode.
+// [NOTE] Enterprise users may need to enable this setting [1].
+// [1] https://blog.mozilla.org/security/2024/06/05/firefox-will-upgrade-more-mixed-content-in-version-127/
+//user_pref("security.mixed_content.block_display_content", true);
 
 // PREF: block insecure downloads from secure sites
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
@@ -933,6 +933,10 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 // If a new page from another domain is loaded into a tab, then window.name is set to an empty string. The original
 // string is restored if the tab reverts back to the original page. This change prevents some cross-site attacks.
 //user_pref("privacy.window.name.update.enabled", true); // DEFAULT
+
+// PREF: disable automatic authentication on Microsoft sites [WINDOWS]
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
+//user_pref("network.http.windows-sso.enabled", false);
 
 /******************************************************************************
  * SECTION: HEADERS / REFERERS                                               *
