@@ -921,6 +921,14 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 // Enable if you're using LINUX.
 //user_pref("browser.tabs.searchclipboardfor.middleclick", false); // DEFAULT WINDOWS macOS
 
+// PREF: disable content analysis by Data Loss Prevention (DLP) agents
+// DLP agents are background processes on managed computers that
+// allow enterprises to monitor locally running applications for
+// data exfiltration events, which they can allow/block based on
+// customer-defined DLP policies.
+// [1] https://github.com/chromium/content_analysis_sdk
+//user_pref("browser.contentanalysis.default_allow", false); // [FF124+] [DEFAULT: false]
+
 // PREF: enforce TLS 1.0 and 1.1 downgrades as session only
 //user_pref("security.tls.version.enable-deprecated", false); // DEFAULT
 
