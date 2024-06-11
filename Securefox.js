@@ -500,14 +500,14 @@ user_pref("privacy.history.custom", true);
 //user_pref("privacy.clearOnShutdown.cookies", true); // Cookies
 //user_pref("privacy.clearOnShutdown.offlineApps", true); // Site Data
 //user_pref("privacy.clearOnShutdown.sessions", true);  // Active Logins [DEFAULT]
-//user_pref("privacy.clearOnShutdown_v2.cookiesAndStorage", true) // Cookies, Site Data, Active Logins [FF128+]
+//user_pref("privacy.clearOnShutdown_v2.cookiesAndStorage", true); // Cookies, Site Data, Active Logins [FF128+]
 
 // PREF: configure site exceptions
 // [NOTE] Currently, there is no way to add sites via about:config.
 // [SETTING] To manage site exceptions: Options>Privacy & Security>Cookies & Site Data>Manage Exceptions
 // or when on the website in question: Ctrl+I>Permissions>Cookies>Allow 
-// For cross-domain logins, add exceptions for both sites:
-// e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
+// [NOTE] Exceptions: A "cookie" block permission also controls "offlineApps" (see note below). For cross-domain logins,
+// add exceptions for both sites e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
 // [WARNING] Be selective with what cookies you keep, as they also disable partitioning [1]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1767271
 
