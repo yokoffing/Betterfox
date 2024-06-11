@@ -1134,6 +1134,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 //user_pref("devtools.selfxss.count", 5);
 
 // PREF: disable asm.js [FF22+]
+// [WARNING] Disabling this pref may disrupt your browsing experience.
 // [1] http://asmjs.org/
 // [2] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=asm.js
 // [3] https://rh0dev.github.io/blog/2017/the-return-of-the-jit/
@@ -1142,16 +1143,20 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // PREF: disable Ion and baseline JIT to harden against JS exploits
 // [NOTE] When both Ion and JIT are disabled, and trustedprincipals
 // is enabled, then Ion can still be used by extensions [4].
+// [WARNING] Disabling these prefs will disrupt your browsing experience [6].
+// Tor Browser doesn't even ship with these disabled by default.
 // [1] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=firefox+jit
 // [2] https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/
 // [3] https://support.microsoft.com/en-us/microsoft-edge/enhance-your-security-on-the-web-with-microsoft-edge-b8199f13-b21b-4a08-a806-daed31a1929d
 // [4] https://bugzilla.mozilla.org/show_bug.cgi?id=1599226
 // [5] https://wiki.mozilla.org/IonMonkey
+// [6] https://github.com/arkenfox/user.js/issues/1791#issuecomment-1891273681
 //user_pref("javascript.options.ion", false);
 //user_pref("javascript.options.baselinejit", false);
 //user_pref("javascript.options.jit_trustedprincipals", true); // [FF75+] [HIDDEN PREF]
 
 // PREF: disable WebAssembly [FF52+]
+// [WARNING] Disabling this pref may disrupt your browsing experience.
 // Vulnerabilities [1] have increasingly been found, including those known and fixed
 // in native programs years ago [2]. WASM has powerful low-level access, making
 // certain attacks (brute-force) and vulnerabilities more possible.
