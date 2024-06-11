@@ -1085,6 +1085,34 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // If this is less than 5, then pasting code into the web console is disabled.
 //user_pref("devtools.selfxss.count", 5);
 
+// PREF: disable asm.js [FF22+]
+// [1] http://asmjs.org/
+// [2] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=asm.js
+// [3] https://rh0dev.github.io/blog/2017/the-return-of-the-jit/
+//user_pref("javascript.options.asmjs", false);
+
+// PREF: disable Ion and baseline JIT to harden against JS exploits
+// [NOTE] When both Ion and JIT are disabled, and trustedprincipals
+// is enabled, then Ion can still be used by extensions [4].
+// [1] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=firefox+jit
+// [2] https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/
+// [3] https://support.microsoft.com/en-us/microsoft-edge/enhance-your-security-on-the-web-with-microsoft-edge-b8199f13-b21b-4a08-a806-daed31a1929d
+// [4] https://bugzilla.mozilla.org/show_bug.cgi?id=1599226
+// [5] https://wiki.mozilla.org/IonMonkey
+//user_pref("javascript.options.ion", false);
+//user_pref("javascript.options.baselinejit", false);
+//user_pref("javascript.options.jit_trustedprincipals", true); // [FF75+] [HIDDEN PREF]
+
+// PREF: disable WebAssembly [FF52+]
+// Vulnerabilities [1] have increasingly been found, including those known and fixed
+// in native programs years ago [2]. WASM has powerful low-level access, making
+// certain attacks (brute-force) and vulnerabilities more possible.
+// [STATS] ~0.2% of websites, about half of which are for cryptomining / malvertising [2][3]
+// [1] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=wasm
+// [2] https://spectrum.ieee.org/tech-talk/telecom/security/more-worries-over-the-security-of-web-assembly
+// [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes ***/
+//user_pref("javascript.options.wasm", false);
+
 /******************************************************************************
  * SECTION: SAFE BROWSING (SB)                                               *
 ******************************************************************************/
