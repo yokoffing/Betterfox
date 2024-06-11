@@ -434,10 +434,10 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
 //user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
 
 /******************************************************************************
- * SECTION: CLEARING DATA DEFAULTS                           *
+ * SECTION: SANITIZE HISTORY                                                  *
 ******************************************************************************/
 
-// PREF: reset default 'Time range to clear' for 'Clear Recent History'.
+// PREF: reset default 'Time range to clear' for "Clear Data" and "Clear History"
 // Firefox remembers your last choice. This will reset the value when you start Firefox.
 // 0=everything, 1=last hour, 2=last two hours, 3=last four hours,
 // 4=today, 5=last five minutes, 6=last twenty-four hours
@@ -445,21 +445,28 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
 // blank value if they are used, but they do work as advertised.
 //user_pref("privacy.sanitize.timeSpan", 0);
 
-// PREF: reset default items to clear with Ctrl-Shift-Del
-// This dialog can also be accessed from the menu History>Clear Recent History
+// PREF: set manual "Clear Data" items [FF128+]
+// Firefox remembers your last choices. This will reset them when you start Firefox
+// [SETTING] Privacy & Security>Browser Privacy>Cookies and Site Data>Clear Data
+//user_pref("privacy.clearSiteData.cache", true);
+//user_pref("privacy.clearSiteData.cookiesAndStorage", false); // keep false until it respects "allow" site exceptions
+//user_pref("privacy.clearSiteData.historyFormDataAndDownloads", true);
+    //user_pref("privacy.clearSiteData.siteSettings", false);
+
+// PREF: set manual "Clear History" items, also via Ctrl-Shift-Del | clearHistory migration is FF128+
 // Firefox remembers your last choices. This will reset them when you start Firefox.
-// Regardless of what you set privacy.cpd.downloads to, as soon as the dialog
-// for "Clear Recent History" is opened, it is synced to the same as 'history'.
-//user_pref("privacy.cpd.history", true); // Browsing & Download History [DEFAULT]
-//user_pref("privacy.cpd.formdata", true); // Form & Search History [DEFAULT]
-//user_pref("privacy.cpd.cache", true); // Cache [DEFAULT]
-//user_pref("privacy.cpd.cookies", true); // Cookies [DEFAULT]
-//user_pref("privacy.cpd.sessions", false); // Active Logins [DEFAULT]
-//user_pref("privacy.cpd.offlineApps", false); // Offline Website Data [DEFAULT]
-//user_pref("privacy.cpd.siteSettings", false); // Site Preferences [DEFAULT]
+// [NOTE] Regardless of what you set "downloads" to, as soon as the dialog
+// for "Clear Recent History" is opened, it is synced to the same as "history".
+// [SETTING] Privacy & Security>History>Custom Settings>Clear History
+//user_pref("privacy.cpd.cache", true); // [DEFAULT]
+//user_pref("privacy.clearHistory.cache", true);
+//user_pref("privacy.cpd.formdata", true); // [DEFAULT]
+//user_pref("privacy.cpd.history", true); // [DEFAULT]
+    //user_pref("privacy.cpd.downloads", true); // not used; see note above
+//user_pref("privacy.clearHistory.historyFormDataAndDownloads", true);
 
 /******************************************************************************
- * SECTION: SHUTDOWN & SANITIZING                           *
+ * SECTION: SHUTDOWN & SANITIZING                                             *
 ******************************************************************************/
 
 // PREF: set History section to show all options
@@ -478,19 +485,26 @@ user_pref("privacy.history.custom", true);
 // [3] https://github.com/yokoffing/Betterfox/issues/272
 //user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 
-// Uncomment individual prefs to disable clearing on shutdown:
-// [NOTE] If "history" is true, downloads will also be cleared.
-// [NOTE] Even if "downloads" pref is enabled, downloads won't be cleared unless "history" is set to true!
-//user_pref("privacy.clearOnShutdown.history", true); // [DEFAULT]
-    //user_pref("privacy.clearOnShutdown.downloads", true);
-//user_pref("privacy.clearOnShutdown.formdata", true); // [DEFAULT]
-//user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT]
-//user_pref("privacy.clearOnShutdown.offlineApps", true);
-//user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT]
+// PREF: No site exceptions - v2 migration [FF128+]
+//user_pref("privacy.clearOnShutdown.cache", true); // [DEFAULT]
+//user_pref("privacy.clearOnShutdown_v2.cache", true); // [FF128+] [DEFAULT]
+//user_pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true); // [FF128+] [DEFAULT]
+    //user_pref("privacy.clearOnShutdown_v2.siteSettings", false); // [FF128+] [DEFAULT]
+
+// PREF: Allow for site exceptions - v2 migration [FF128+]
+// Set cookies, site data, cache, etc. to clear on shutdown.
+// [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
+// [NOTE] "sessions": Active Logins (has no site exceptions): refers to HTTP Basic Authentication [1], not logins via cookies
+// [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
+// Clearing "offlineApps" may affect login items after browser restart [2].
+//user_pref("privacy.clearOnShutdown.cookies", true); // Cookies
+//user_pref("privacy.clearOnShutdown.offlineApps", true); // Site Data
+//user_pref("privacy.clearOnShutdown.sessions", true);  // Active Logins [DEFAULT]
+//user_pref("privacy.clearOnShutdown_v2.cookiesAndStorage", true) // Cookies, Site Data, Active Logins [FF128+]
 
 // PREF: configure site exceptions
-// [NOTE] Currently, there is no way to add sites via about:config
-// [SETTING] to manage site exceptions: Options>Privacy & Security>Cookies & Site Data>Manage Exceptions
+// [NOTE] Currently, there is no way to add sites via about:config.
+// [SETTING] To manage site exceptions: Options>Privacy & Security>Cookies & Site Data>Manage Exceptions
 // or when on the website in question: Ctrl+I>Permissions>Cookies>Allow 
 // For cross-domain logins, add exceptions for both sites:
 // e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
