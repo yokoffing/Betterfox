@@ -445,7 +445,7 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
 // blank value if they are used, but they do work as advertised.
 //user_pref("privacy.sanitize.timeSpan", 0);
 
-// PREF: set manual "Clear Data" items [FF128+]
+// PREF: sanitize site data: set manual "Clear Data" items [FF128+]
 // Firefox remembers your last choices. This will reset them when you start Firefox
 // [SETTING] Privacy & Security>Browser Privacy>Cookies and Site Data>Clear Data
 //user_pref("privacy.clearSiteData.cache", true);
@@ -453,7 +453,7 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
 //user_pref("privacy.clearSiteData.historyFormDataAndDownloads", true);
     //user_pref("privacy.clearSiteData.siteSettings", false);
 
-// PREF: set manual "Clear History" items, also via Ctrl-Shift-Del | clearHistory migration is FF128+
+// PREF: sanitize history: set manual "Clear History" items, also via Ctrl-Shift-Del | clearHistory migration is FF128+
 // Firefox remembers your last choices. This will reset them when you start Firefox.
 // [NOTE] Regardless of what you set "downloads" to, as soon as the dialog
 // for "Clear Recent History" is opened, it is synced to the same as "history".
@@ -464,6 +464,14 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
 //user_pref("privacy.cpd.history", true); // [DEFAULT]
     //user_pref("privacy.cpd.downloads", true); // not used; see note above
 //user_pref("privacy.clearHistory.historyFormDataAndDownloads", true);
+//user_pref("privacy.cpd.cookies", false);
+//user_pref("privacy.cpd.sessions", true); // [DEFAULT]
+//user_pref("privacy.cpd.offlineApps", false); // [DEFAULT]
+//user_pref("privacy.clearHistory.cookiesAndStorage", false);
+    //user_pref("privacy.cpd.openWindows", false); // Session Restore
+   //user_pref("privacy.cpd.passwords", false);
+   //user_pref("privacy.cpd.siteSettings", false);
+   //user_pref("privacy.clearHistory.siteSettings", false);
 
 /******************************************************************************
  * SECTION: SHUTDOWN & SANITIZING                                             *
@@ -485,18 +493,29 @@ user_pref("privacy.history.custom", true);
 // [3] https://github.com/yokoffing/Betterfox/issues/272
 //user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 
-// PREF: No site exceptions - v2 migration [FF128+]
+// PREF: sanitize on shutdown: no site exceptions | v2 migration [FF128+]
+// [NOTE] If "history" is true, downloads will also be cleared.
 //user_pref("privacy.clearOnShutdown.cache", true); // [DEFAULT]
 //user_pref("privacy.clearOnShutdown_v2.cache", true); // [FF128+] [DEFAULT]
+//user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT]
+//user_pref("privacy.clearOnShutdown.formdata", true);  // [DEFAULT]
+//user_pref("privacy.clearOnShutdown.history", true);   // [DEFAULT]
 //user_pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true); // [FF128+] [DEFAULT]
+    //user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT]
     //user_pref("privacy.clearOnShutdown_v2.siteSettings", false); // [FF128+] [DEFAULT]
 
-// PREF: Allow for site exceptions - v2 migration [FF128+]
+// PREF: set Session Restore to clear on shutdown [FF34+]
+// [NOTE] Not needed if Session Restore is not used or it is already cleared with history (2811)
+// [NOTE] However, if true, this pref prevents resuming from crashes.
+//user_pref("privacy.clearOnShutdown.openWindows", true);
+
+// PREF: sanitize on shutdown: respects allow site exceptions | v2 migration [FF128+]
 // Set cookies, site data, cache, etc. to clear on shutdown.
 // [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings
-// [NOTE] "sessions": Active Logins (has no site exceptions): refers to HTTP Basic Authentication [1], not logins via cookies
-// [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache)
-// Clearing "offlineApps" may affect login items after browser restart [2].
+// [NOTE] "sessions": Active Logins (has no site exceptions): refers to HTTP Basic Authentication [1], not logins via cookies.
+// [NOTE] "offlineApps": Offline Website Data: localStorage, service worker cache, QuotaManager (IndexedDB, asm-cache).
+// Clearing "offlineApps" may affect login items after browser restart.
+// [1] https://en.wikipedia.org/wiki/Basic_access_authentication
 //user_pref("privacy.clearOnShutdown.cookies", true); // Cookies
 //user_pref("privacy.clearOnShutdown.offlineApps", true); // Site Data
 //user_pref("privacy.clearOnShutdown.sessions", true);  // Active Logins [DEFAULT]
@@ -504,8 +523,8 @@ user_pref("privacy.history.custom", true);
 
 // PREF: configure site exceptions
 // [NOTE] Currently, there is no way to add sites via about:config.
+// [SETTING] to add site exceptions: Ctrl+I>Permissions>Cookies>Allow (when on the website in question)
 // [SETTING] To manage site exceptions: Options>Privacy & Security>Cookies & Site Data>Manage Exceptions
-// or when on the website in question: Ctrl+I>Permissions>Cookies>Allow 
 // [NOTE] Exceptions: A "cookie" block permission also controls "offlineApps" (see note below). For cross-domain logins,
 // add exceptions for both sites e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
 // [WARNING] Be selective with what cookies you keep, as they also disable partitioning [1]
