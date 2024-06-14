@@ -1442,12 +1442,10 @@ user_pref("network.connectivity-service.enabled", false);
 
 // PREF: SERP Telemetry [FF125+]
 // [1] https://blog.mozilla.org/en/products/firefox/firefox-search-update/
-//user_pref("browser.search.serpEventTelemetry.enabled", false); // [removed in FF128?]
 //user_pref("browser.search.serpEventTelemetryCategorization.enabled", false);
 
 // PREF: assorted telemetry
-// [NOTE] Shouldn't be needed for user.js, but browser forks
-// may want to disable these prefs.
+// [NOTE] Shouldn't be needed for user.js, but browser forks may want to disable these prefs.
 //user_pref("doh-rollout.disable-heuristics", true); // ensure DoH doesn't get enabled automatically
 //user_pref("dom.security.unexpected_system_load_telemetry_enabled", false);
 //user_pref("messaging-system.rsexperimentloader.enabled", false);
@@ -1457,7 +1455,5 @@ user_pref("network.connectivity-service.enabled", false);
 //user_pref("security.certerrors.recordEventTelemetry", false);
 //user_pref("security.protectionspopup.recordEventTelemetry", false);
 //user_pref("signon.recipes.remoteRecipes.enabled", false);
-//user_pref("security.identitypopup.recordEventTelemetry", false); // ESR only; removed FF116+ [1]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1837979
 //user_pref("privacy.trackingprotection.emailtracking.data_collection.enabled", false);
 //user_pref("messaging-system.askForFeedback", true); // DEFAULT [FF120+]
