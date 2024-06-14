@@ -238,7 +238,9 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.urlbar.maxRichResults", 5); // default=10
 
 // PREF: text fragments [FF126+ NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Web/Text_fragments
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753933#c6
+// [2] https://developer.mozilla.org/en-US/docs/Web/Text_fragments
+// [3] https://web.dev/articles/text-fragments
 //user_pref("dom.text_fragments.enabled", true);
 
 /****************************************************************************
