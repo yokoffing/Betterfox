@@ -597,3 +597,6 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // PREF: always underline links [FF120+]
 //user_pref("layout.css.always_underline_links", false); // DEFAULT
+
+// PREF: hide frequent sites on right-click of taskbar icon [WINDOWS?]
+//user_pref("browser.taskbar.lists.frequent.enabled", false);
