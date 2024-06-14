@@ -102,12 +102,6 @@ user_pref("layout.css.prefers-color-scheme.content-override", 2);
 // PREF: disable always using dark theme for private browsing windows [FF106+]
 //user_pref("browser.theme.dark-private-windows", false);
 
-// PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+] [REMOVED FF128+?]
-user_pref("browser.privateWindowSeparation.enabled", false); // [REMOVED FF128+?]
-
-// PREF: reduce the size of the "private window" indicator in tab bar [FF106+]
-//user_pref("browser.privatebrowsing.enable-new-indicator", false); // REMOVED [FF119+]
-
 // PREF: show search bar [FF122+]
 // Mozilla has removed the search bar option from the settings window.
 //user_pref("browser.search.widget.inNavBar", true);
