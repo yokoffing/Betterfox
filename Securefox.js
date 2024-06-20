@@ -1252,12 +1252,10 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
     //user_pref("identity.fxaccounts.autoconfig.uri", "");
 
 // PREF: disable Firefox View [FF106+]
+// You can no longer disable Firefox View [1].
+// To hide the icon from view, see [2].
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
-//user_pref("browser.tabs.firefox-view", false);
-//user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
-//user_pref("browser.tabs.firefox-view-newIcon", false); // [FF119+]
-    //user_pref("browser.firefox-view.search.enabled", false); // [FF122+]
-    //user_pref("browser.firefox-view.virtual-list.enabled", false); // [FF122+]
+// [2] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_how-do-i-remove-firefox-view-from-the-tabs-bar
 
 // PREF: disable the Firefox View tour from popping up
 //user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
