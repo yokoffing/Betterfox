@@ -51,7 +51,7 @@ user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":tr
 user_pref("accessibility.force_disabled", 1); // disable Accessibility features
 //user_pref("security.ssl.require_safe_negotiation", true); // safe negotiation
 user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
-user_pref("browser.download.useDownloadDir", true); // one-click downloads
+//user_pref("browser.download.useDownloadDir", true); // one-click downloads
 
 /** PESKYFOX ***/
 //user_pref("cookiebanners.service.mode", 2); // fall back to the accept button to remove banner
@@ -125,6 +125,13 @@ user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 user_pref("browser.search.suggest.enabled", true);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", true);
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", false); // no need for userChrome
+user_pref("browser.urlbar.suggest.history", true); // Browsing history
+user_pref("browser.urlbar.suggest.bookmark", true); // Bookmarks
+//user_pref("browser.urlbar.suggest.openpage", true); // Open tabs
+//user_pref("browser.urlbar.suggest.topsites", true); // Shortcuts
+user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last used
+user_pref("browser.download.useDownloadDir", false); // ask where to download
 
 /** DELETE IF NOT macOS LAPTOP ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
