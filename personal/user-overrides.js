@@ -20,6 +20,7 @@
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionhistory.max_total_viewers", 4); // only remember # of pages in Back-Forward cache
+user_pref("browser.cache.disk.enable", false); // disable disk cache
 
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
@@ -28,7 +29,7 @@ user_pref("extensions.formautofill.addresses.enabled", false); // disable addres
 user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 //user_pref("browser.urlbar.suggest.trending", false); // FF119+ disable showing trending searches; unselect for clean UI
-user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
+//user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.autofillForms", false); // unselect "Autofill logins and passwords" for clean UI
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
@@ -53,7 +54,7 @@ user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pi
 user_pref("browser.download.useDownloadDir", true); // one-click downloads
 
 /** PESKYFOX ***/
-user_pref("cookiebanners.service.mode", 2); // fall back to the accept button to remove banner
+//user_pref("cookiebanners.service.mode", 2); // fall back to the accept button to remove banner
 user_pref("devtools.accessibility.enabled", false); // removes un-needed "Inspect Accessibility Properties" on right-click
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Settings>Home>Firefox Home Content>Recent Activity>Recommended by Pocket>Sponsored Stories  
@@ -61,7 +62,7 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmark
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false); // Settings>Home>Firefox Home Content>Recent Activity>Most Recent Download
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false); // Settings>Home>Firefox Home Content>Recent Activity>Visited Pages
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // Settings>Home>Firefox Home Content>Recent Activity>Pages Saved to Pocket
-user_pref("browser.download.useDownloadDir", true); // use direct downloads
+//user_pref("browser.download.useDownloadDir", true); // use direct downloads
 user_pref("browser.download.folderList", 0); // 0=desktop, 1=downloads, 2=last used
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
@@ -113,9 +114,17 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
-user_pref("browser.cache.disk.enable", false); // disable disk cache
-user_pref("browser.cache.memory.capacity", 65536); // default= -1 (32768)
-user_pref("media.memory_cache_max_size", 131072); // AF=65536
+
+/** DELETE IF NOT ENTERPRISE WINDOWS LAPTOP ***/
+//user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
+//user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
+user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
+user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
+user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
+user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
+user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
+user_pref("browser.search.suggest.enabled", true);
+user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", true);
 
 /** DELETE IF NOT macOS LAPTOP ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
