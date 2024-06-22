@@ -534,7 +534,7 @@ user_pref("privacy.history.custom", true);
  * SECTION: SEARCH / URL BAR                                                 *
 ******************************************************************************/
 
-// PREF: trim certain parts of the URL
+// PREF: darken certain parts of the URL
 // Makes the domain name more prominent by graying out other parts of the URL.
 // [1] https://udn.realityripple.com/docs/Mozilla/Preferences/Preference_reference/browser.urlbar.trimURLs
 // [2] https://winaero.com/firefox-75-strips-https-and-www-from-address-bar-results/
@@ -548,6 +548,9 @@ user_pref("privacy.history.custom", true);
 // [TEST] http://www.http2demo.io/
 // [1] https://www.ghacks.net/2023/09/19/firefox-119-will-launch-with-an-important-address-bar-change/
 //user_pref("browser.urlbar.trimHttps", true);
+
+// PREF: reveal HTTPS in the URL upon double click [FF127+]
+//user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 
 // PREF: display "Not Secure" text on HTTP sites
 // Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode.
