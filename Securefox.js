@@ -1250,7 +1250,7 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
     //user_pref("identity.fxaccounts.autoconfig.uri", "");
 
 // PREF: disable Firefox View [FF106+]
-// You can no longer disable Firefox View [1].
+// You can no longer disable Firefox View as of [FF127+].
 // To hide the icon from view, see [2].
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
 // [2] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_how-do-i-remove-firefox-view-from-the-tabs-bar
