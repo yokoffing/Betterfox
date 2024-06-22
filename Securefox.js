@@ -388,13 +388,6 @@ user_pref("security.tls.enable_0rtt_data", false);
 // [1] https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/3.5/ICC_color_correction_in_Firefox
 //user_pref("browser.display.use_system_colors", false);
 
-// PREF: enforce non-native widget theme
-// Security: removes/reduces system API calls, e.g. win32k API [1]
-// Fingerprinting: provides a uniform look and feel across platforms [2]
-// [1] https://bugzilla.mozilla.org/1381938
-// [2] https://bugzilla.mozilla.org/1411425
-//user_pref("widget.non-native-theme.enabled", true); // DEFAULT
-
 /****************************************************************************
  * SECTION: DISK AVOIDANCE                                                  *
 ****************************************************************************/
