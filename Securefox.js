@@ -143,13 +143,13 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [6] https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/cookie-purging/index.html
 //user_pref("privacy.purge_trackers.enabled", true); // DEFAULT
 
-// PREF: Bounce Tracking Protection [FF127+ NIGHTLY]
+// PREF: Bounce Tracking Protection [FF127+]
 // A new standardised variant of Cookie Purging that uses heuristics to detect bounce trackers,
 // rather than relying on tracker lists.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1895222
 // [2] https://groups.google.com/a/mozilla.org/g/dev-platform/c/M6erM0SjPTM
-//user_pref("privacy.bounceTrackingProtection.enabled", true); // DEFAULT
-//user_pref("privacy.bounceTrackingProtection.enableDryRunMode", false); // DEFAULT
+//user_pref("privacy.bounceTrackingProtection.enabled", true);
+//user_pref("privacy.bounceTrackingProtection.enableDryRunMode", false); // false enables tracker data purging
 
 // PREF: SameSite Cookies
 // Currently, the absence of the SameSite attribute implies that cookies will be
@@ -306,7 +306,9 @@ user_pref("security.pki.crlite_mode", 2);
 // DLP agents are background processes on managed computers that allow enterprises to monitor locally running
 // applications for data exfiltration events, which they can allow/block based on customer defined DLP policies.
 // [1] https://github.com/chromium/content_analysis_sdk
-//user_pref("browser.contentanalysis.default_allow", false); // DEFAULT
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1880314
+//user_pref("browser.contentanalysis.enabled", false); // [FF121+] [DEFAULT]
+//user_pref("browser.contentanalysis.default_result", 0; // [FF127+] [DEFAULT]
 
 /****************************************************************************
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
