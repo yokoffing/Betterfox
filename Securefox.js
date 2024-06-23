@@ -553,19 +553,17 @@ user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
 
-// PREF: do not show search terms in URL bar [FF110+] [FF113+]
+// PREF: do not show search terms in URL bar [FF110+]
 // Show search query instead of URL on search results pages.
 // [SETTING] Search>Search Bar>Use the address bar for search and navigation>Show search terms instead of URL...
 //user_pref("browser.urlbar.showSearchTerms.enabled", false);
+    //user_pref("browser.urlbar.showSearchTerms.featureGate", false); // DEFAULT
 
 // PREF: enable seperate search engine for Private Windows
 // [SETTINGS] Preferences>Search>Default Search Engine>"Use this search engine in Private Windows"
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 // [SETTINGS] "Choose a different default search engine for Private Windows only"
-//user_pref("browser.search.separatePrivateDefault", true); // DEFAULT
-// enable prompt for searching in a Private Window when using normal browsing window URL bar
-// [1] https://www.reddit.com/r/firefox/comments/yg8jyh/different_private_search_option_gone_firefox_106/
-//user_pref("browser.search.separatePrivateDefault.urlbarResult.enabled", true); // HIDDEN
+    //user_pref("browser.search.separatePrivateDefault", true); // DEFAULT
 
 // PREF: enable option to add custom search engine
 // [SETTINGS] Settings -> Search -> Search Shortcuts -> Add
