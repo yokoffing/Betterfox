@@ -396,13 +396,16 @@ user_pref("security.tls.enable_0rtt_data", false);
 // [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 
-// PREF: set the minimum interval (in milliseconds) between session save operations,
-// when crashing or restarting to install updates
-// [NOTE] The value is how often FF checks for state changes.
-// Data is only saved when state changes [2].
+// PREF: minimum interval (in ms) between session save operations
+// Firefox periodically saves the user's session so it can restore
+// their most recent tabs and windows if the browser crashes or restarts.
+// The value sets the minimum time between these session save operations.
+// Firefox only saves session data when the state has changed since the last save [2].
+// Work has been done to mitigate potential performance drawbacks of frequent session saving [3].
 // [1] https://kb.mozillazine.org/Browser.sessionstore.interval
-// [2] https://bugzilla.mozilla.org/1304389
-user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (15s)
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1304389#c64
+// [3] https://bugzilla.mozilla.org/show_bug.cgi?id=1304389#c66
+user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (15s); 900000=15 min; 1800000=30 min
 
 // PREF: store extra session data when crashing or restarting to install updates
 // Dictates whether sites may save extra session data such as form content,
