@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 127                                                             *
+ * version: 128                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -101,6 +101,9 @@ user_pref("layout.css.prefers-color-scheme.content-override", 2);
 
 // PREF: disable always using dark theme for private browsing windows [FF106+]
 //user_pref("browser.theme.dark-private-windows", false);
+
+// PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+]
+user_pref("browser.privateWindowSeparation.enabled", false);
 
 // PREF: show search bar [FF122+]
 // Mozilla has removed the search bar option from the settings window.
