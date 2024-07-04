@@ -401,18 +401,23 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [5] https://3perf.com/blog/link-rels/#prefetch
 //user_pref("network.http.speculative-parallel-limit", 20); // DEFAULT (FF127+?)
 
-// PREF: DNS prefetching <link rel="dns-prefetch">
+// PREF: DNS prefetching for HTMLLinkElement <link rel="dns-prefetch">
 // Used for cross-origin connections to provide small performance improvements.
-// Disable DNS prefetching to prevent Firefox from proactively resolving
-// hostnames for other domains linked on a page. This may eliminate
-// unnecessary DNS lookups, but can increase latency when following external links.
+// You can enable rel=dns-prefetch for the HTTPS document without prefetching
+// DNS for anchors, whereas the latter makes more specualtive requests [5].
 // [1] https://bitsup.blogspot.com/2008/11/dns-prefetching-for-firefox.html
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
-// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935
+// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935#c28
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true); // [FF127+ false]
+
+// PREF:  DNS prefetch for HTMLAnchorElement (speculative DNS)
+// Disable speculative DNS calls to prevent Firefox from resolving
+// hostnames for other domains linked on a page. This may eliminate
+// unnecessary DNS lookups, but can increase latency when following external links.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935#c28
 user_pref("dom.prefetch_dns_for_anchor_http_document", false); // [FF128+]
 //user_pref("dom.prefetch_dns_for_anchor_https_document", false); // DEFAULT [FF128+]
 
