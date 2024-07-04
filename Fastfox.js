@@ -412,7 +412,9 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 // [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true); // (FF127+ false)
+user_pref("network.dns.disablePrefetchFromHTTPS", true); // [FF127+ false]
+user_pref("dom.prefetch_dns_for_anchor_http_document", false); // [FF128+]
+//user_pref("dom.prefetch_dns_for_anchor_https_document", false); // DEFAULT [FF128+]
 
 // PREF: enable <link rel="preconnect"> tag and Link: rel=preconnect response header handling
 //user_pref("network.preconnect", true); // DEFAULT
