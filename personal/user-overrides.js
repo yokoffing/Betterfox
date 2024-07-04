@@ -45,8 +45,6 @@ user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla domains so adblocker works on pages
 user_pref("identity.fxaccounts.enabled", false); // disable Firefox Sync
-user_pref("browser.tabs.firefox-view", false); // disable Firefox View
-user_pref("browser.tabs.firefox-view-next", false); // disable Firefox View [FF119+]
 user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}"); // disable the Firefox View tour from popping up for new profiles
 user_pref("accessibility.force_disabled", 1); // disable Accessibility features
 //user_pref("security.ssl.require_safe_negotiation", true); // safe negotiation
@@ -71,7 +69,7 @@ user_pref("browser.urlbar.suggest.bookmark", false); // Bookmarks; hide URL bar 
 user_pref("browser.urlbar.suggest.openpage", false); // Open tabs; hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.topsites", false); // Shortcuts; disable dropdown suggestions with empty query
 user_pref("browser.urlbar.suggest.engines", false); // Search engines; tab-to-search
-//user_pref("browser.urlbar.suggest.searches", false); // (needed?); hide URL bar dropdown suggestions
+user_pref("browser.urlbar.quicksuggest.enabled", false); // hide Firefox Suggest UI in the settings
 //user_pref("browser.urlbar.maxRichResults", 1); // minimum suggestion needed for URL bar autofill
 user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually back-up
 user_pref("view_source.wrap_long_lines", true);  // wrap source lines
@@ -89,7 +87,6 @@ user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false)
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
-user_pref("browser.urlbar.trimHttps", true); // hide https in URL bar [FF119]
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("privacy.userContext.enabled", false); // disable Containers functionality
@@ -123,8 +120,6 @@ user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
-user_pref("browser.search.suggest.enabled", true);
-user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", true);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", false); // no need for userChrome
 user_pref("browser.urlbar.suggest.history", true); // Browsing history
 user_pref("browser.urlbar.suggest.bookmark", true); // Bookmarks
