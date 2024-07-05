@@ -1118,12 +1118,6 @@ user_pref("media.peerconnection.ice.default_address_only", true);
  * SECTION: VARIOUS                                                          *
 ******************************************************************************/
 
-// PREF: enable FTP protocol
-// Firefox redirects any attempt to load a FTP resource.
-// to the default search engine if the FTP protocol is disabled.
-// [1] https://www.ghacks.net/2018/02/20/firefox-60-with-new-preference-to-disable-ftp/
-//user_pref("network.ftp.enabled", true);
-
 // PREF: decode URLs in other languages
 // [WARNING] Causes unintended consequences when copy+paste links with underscores.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1320061
