@@ -3,8 +3,10 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 119                                                             *
+ * version: 128                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
+ * credit: Some prefs are reproduced and adapted from the arkenfox project  *
+ * credit urL: https://github.com/arkenfox/user.js                          *
  ***************************************************************************/
 
 /****************************************************************************
@@ -32,7 +34,8 @@ user_pref("browser.discovery.enabled", false);
 // [2] https://github.com/arkenfox/user.js/issues/1730
 // [3] https://www.fakespot.com/
 // [4] https://www.ghacks.net/2023/10/12/firefox-will-soon-tell-you-if-product-reviews-are-reliable/
-//user_pref("browser.shopping.experience2023.enabled", false); // [DEFAULT: false]
+//user_pref("browser.shopping.experience2023.enabled", false); // DEFAULT
+//user_pref("browser.shopping.experience2023.ads.exposure", false); // DEFAULT [FF121+]
 
 // PREF: disable Firefox from asking to set as the default browser
 // [1] https://github.com/yokoffing/Betterfox/issues/166
@@ -45,12 +48,6 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 
 // PREF: hide "More from Mozilla" in Settings
 user_pref("browser.preferences.moreFromMozilla", false);
-
-// PREF: only show List All Tabs icon when needed
-// true=always show tab overflow dropdown (FF106+ default)
-// false=only display tab dropdown when there are too many tabs
-// [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
-user_pref("browser.tabs.tabmanager.enabled", false);
 
 // PREF: tab and about:config warnings
 //user_pref("browser.tabs.warnOnClose", false); // DEFAULT [FF94+]
@@ -67,6 +64,15 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 
 // PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
+
+// PREF: only show List All Tabs icon when needed
+// true=always show tab overflow dropdown (FF106+ default)
+// false=only display tab dropdown when there are too many tabs
+// [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
+user_pref("browser.tabs.tabmanager.enabled", false);
+
+// PREF: enable new screenshot tool [FF122+]
+//user_pref("screenshots.browser.component.enabled", true);
 
 /****************************************************************************
  * SECTION: THEME ADJUSTMENTS                                              *
@@ -99,8 +105,9 @@ user_pref("layout.css.prefers-color-scheme.content-override", 2);
 // PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+]
 user_pref("browser.privateWindowSeparation.enabled", false);
 
-// PREF: reduce the size of the "private window" indicator in tab bar [FF106+]
-//user_pref("browser.privatebrowsing.enable-new-indicator", false); // REMOVED [FF119+]
+// PREF: show search bar [FF122+]
+// Mozilla has removed the search bar option from the settings window.
+//user_pref("browser.search.widget.inNavBar", true);
 
 /****************************************************************************
  * SECTION: COOKIE BANNER HANDLING                                         *
@@ -121,7 +128,8 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 // PREF: Cookie Banner global rules
 // Global rules that can handle a list of cookie banner libraries and providers on any site.
 // This is used for click rules that can handle common Consent Management Providers (CMP).
-user_pref("cookiebanners.service.enableGlobalRules", true);
+//user_pref("cookiebanners.service.enableGlobalRules", true); // DEFAULT [FF121+]
+//user_pref("cookiebanners.service.enableGlobalRules.subFrames", true); // DEFAULT [FF121+]
 
 /****************************************************************************
  * SECTION: TRANSLATIONS                                                   *
@@ -179,15 +187,16 @@ user_pref("full-screen-api.warning.timeout", 0); // default=3000
 
 // PREF: minimize URL bar suggestions (bookmarks, history, open tabs)
 // Dropdown options in the URL bar:
-//user_pref("browser.urlbar.suggest.bookmark", true); // DEFAULT
-user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.suggest.history", false);
+//user_pref("browser.urlbar.suggest.bookmark", true); // DEFAULT
+//user_pref("browser.urlbar.suggest.clipboard", false);
 //user_pref("browser.urlbar.suggest.openpage", false);
-//user_pref("browser.urlbar.suggest.searches", false);
+user_pref("browser.urlbar.suggest.engines", false);
+    //user_pref("browser.urlbar.suggest.searches", false);
+//user_pref("browser.urlbar.quickactions.enabled", false);
+//user_pref("browser.urlbar.shortcuts.quickactions", false);
 //user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
     //user_pref("browser.urlbar.weather.ignoreVPN", false); // DEFAULT
-//user_pref("browser.urlbar.quickactions.enabled", false); // NIGHTLY
-//user_pref("browser.urlbar.shortcuts.quickactions", false); // NIGHTLY
 user_pref("browser.urlbar.suggest.calculator", true);
 user_pref("browser.urlbar.unitConversion.enabled", true);
 
@@ -204,9 +213,8 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.urlbar.mdn.featureGate", false); // [FF117+] [HIDDEN PREF]
 //user_pref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: false]
 //user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
-
-// PREF: disable urlbar clipboard suggestions [FF118+]
-//user_pref("browser.urlbar.clipboard.featureGate", false); // [DEFAULT: false]
+//user_pref("browser.urlbar.clipboard.featureGate", false); // [FF118+] [DEFAULT: true FF125+]
+//user_pref("browser.urlbar.yelp.featureGate", false); // [FF124+] [DEFAULT: false]
 
 // PREF: disable tab-to-search [FF85+]
 // Alternatively, you can exclude on a per-engine basis by unchecking them in Options>Search
@@ -225,6 +233,12 @@ user_pref("browser.urlbar.trending.featureGate", false);
 // and this does not affect the search by search engine suggestion.
 // disable=0
 //user_pref("browser.urlbar.maxRichResults", 5); // default=10
+
+// PREF: text fragments [FF126+ NIGHTLY]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753933#c6
+// [2] https://developer.mozilla.org/en-US/docs/Web/Text_fragments
+// [3] https://web.dev/articles/text-fragments
+//user_pref("dom.text_fragments.enabled", true);
 
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
@@ -248,13 +262,13 @@ user_pref("browser.urlbar.trending.featureGate", false);
  * SECTION: NEW TAB PAGE                                                    *
 ****************************************************************************/
 
-// PREF: open windows/tabs from last session
+// PREF: startup / new tab page
 // 0=blank, 1=home, 2=last visited page, 3=resume previous session
 // [NOTE] Session Restore is cleared with history and not used in Private Browsing mode
-// [SETTING] General>Startup>Restore previous session
+// [SETTING] General>Startup>Open previous windows and tabs
 //user_pref("browser.startup.page", 3);
 
-// PREF: set HOME+NEWWINDOW page to blank tab
+// PREF: set HOME+NEW WINDOW page to blank tab
 // about:home=Activity Stream, custom URL, about:blank
 // [SETTING] Home>New Windows and Tabs>Homepage and new windows
 // [Custom URLs] Set two or more websites in Home Page Field – delimited by |
@@ -272,7 +286,9 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
-      //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts [FF83+]
+      //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Shortcuts > Sponsored shortcuts [FF83+]
+//user_pref("browser.newtabpage.activity-stream.showWeather", false); // Weather [FF128+ NIGHTLY]
+    //user_pref("browser.newtabpage.activity-stream.system.showWeather", false); // Weather [FF128+ NIGHTLY]
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
       //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
 //user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // Recent Activity [DEFAULT]
@@ -281,6 +297,9 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
 //user_pref("browser.newtabpage.activity-stream.feeds.snippets", false); // [DEFAULT]
+
+// PREF: wallpapers on New Tab [FF128+ NIGHTLY]
+//user_pref("browser.newtabpage.activity-stream.newtabWallpapers.enabled", false); // Wallpapers
 
 // PREF: clear default topsites
 // [NOTE] This does not block you from adding your own.
@@ -312,31 +331,33 @@ user_pref("extensions.pocket.enabled", false);
  * SECTION: DOWNLOADS                                 *
 ******************************************************************************/
 
-// PREF: autohide the downloads button
-//user_pref("browser.download.autohideButton", true); // DEFAULT
-
 // PREF: choose download location
 // [SETTING] To set your default "downloads": General>Downloads>Save files to...
 // 0=desktop, 1=downloads (default), 2=last used
 //user_pref("browser.download.folderList", 1); // DEFAULT
 
-// PREF: always ask where to download
+// PREF: always ask how to handle new mimetypes [FF101+]
 // Enforce user interaction for greater security.
+// [SETTING] General>Files and Applications>Applications>What should Firefox do with other files?
+// false=Save files
+// true=Ask whether to open or save files
+user_pref("browser.download.always_ask_before_handling_new_types", true);
+
+// PREF: always ask where to download
+// [OPTIONAL HARDENING] Enforce user interaction for greater security.
 // [SETTING] General>Files and Applications>Downloads>Always ask you where to save files
 // [DIALOGUE] "Ask whether to open or save files"
 // true=direct download (default)
 // false=the user is asked what to do
-// [1] https://github.com/yokoffing/Betterfox/issues/216
-user_pref("browser.download.useDownloadDir", false);
+// [1] https://github.com/yokoffing/Betterfox/issues/267
+//user_pref("browser.download.useDownloadDir", false);
     //user_pref("browser.download.dir", "C:\Users\<YOUR_USERNAME>\AppData\Local\Temp"); // [WINDOWS]
 
-// PREF: always ask how to handle new mimetypes
-// Enforce user interaction for greater security.
-// [SETTING] General>Files and Applications>Applications>What should Firefox do with other files?>Ask whether to open or save files
-user_pref("browser.download.always_ask_before_handling_new_types", true);
+// PREF: autohide the downloads button
+//user_pref("browser.download.autohideButton", true); // DEFAULT
 
-// PREF: disable downloads panel opening on every download
-// Controls whether to open the downloads panel every time a download begins.
+// PREF: disable download panel opening on every download [non-functional?]
+// Controls whether to open the download panel every time a download begins.
 // [NOTE] The first download ever ran in a new profile will still open the panel.
 //user_pref("browser.download.alwaysOpenPanel", false);
 
@@ -484,6 +505,9 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 //user_pref("dom.disable_open_during_load", true); // DEFAULT
 //user_pref("privacy.popups.showBrowserMessage", true); // DEFAULT
 
+// PREF: enable Tab Preview [FF122+]
+//user_pref("browser.tabs.cardPreview.enabled", true);
+
 /****************************************************************************
  * SECTION: UNCATEGORIZED                                                   *
 ****************************************************************************/
@@ -573,3 +597,9 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // Still needed for Stylus?
 // [1] https://reddit.com/r/FirefoxCSS/comments/8x2q97/reenabling_mozdocument_rules_in_firefox_61/
 //user_pref("layout.css.moz-document.content.enabled", true);
+
+// PREF: always underline links [FF120+]
+//user_pref("layout.css.always_underline_links", false); // DEFAULT
+
+// PREF: hide frequent sites on right-click of taskbar icon [WINDOWS?]
+//user_pref("browser.taskbar.lists.frequent.enabled", false);
