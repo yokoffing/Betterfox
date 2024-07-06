@@ -11,8 +11,6 @@
  * "Ad meliora"                                                             *
  * version: 9 (based on Betterfox version 128)                              *
  * url: https://github.com/cloudzcodes/Betterfox-personal-tweaks            *
- * version: 128                                                             *
- * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
 /****************************************************************************
