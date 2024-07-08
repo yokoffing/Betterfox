@@ -586,11 +586,11 @@ user_pref("browser.urlbar.suggest.searches", false);
 
 // PREF: disable Firefox Suggest
 // [1] https://github.com/arkenfox/user.js/issues/1257
-//user_pref("browser.urlbar.quicksuggest.enabled", false); // controls whether the UI is shown
+user_pref("browser.urlbar.quicksuggest.enabled", false); // controls whether the UI is shown
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false); // [FF92+] 
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false); // [FF95+]
 // hide Firefox Suggest label in URL dropdown box
-//user_pref("browser.urlbar.groupLabels.enabled", false);
+user_pref("browser.urlbar.groupLabels.enabled", false);
 
 // PREF: disable search and form history
 // Be aware that autocomplete form data can be read by third parties [1][2].
