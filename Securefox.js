@@ -549,7 +549,7 @@ user_pref("privacy.history.custom", true);
 user_pref("browser.urlbar.trimHttps", true);
 
 // PREF: reveal HTTPS in the URL upon double click [FF127+]
-user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
+//user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 
 // PREF: display "Not Secure" text on HTTP sites
 // Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode.
