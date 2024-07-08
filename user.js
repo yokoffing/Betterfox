@@ -89,7 +89,6 @@ user_pref("privacy.history.custom", true);
 
 /** SEARCH / URL BAR ***/
 user_pref("browser.urlbar.trimHttps", true);
-user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 user_pref("browser.search.suggest.enabled", false);
