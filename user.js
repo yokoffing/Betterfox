@@ -47,7 +47,6 @@ user_pref("network.ssl_tokens_cache_capacity", 10240);
 /** SPECULATIVE LOADING ***/
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
-user_pref("dom.prefetch_dns_for_anchor_http_document", false);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-prefetch", false);
