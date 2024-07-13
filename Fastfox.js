@@ -411,13 +411,14 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
 // [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935#c28
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true); // [FF127+ false]
+    user_pref("network.dns.disablePrefetchFromHTTPS", true); // [FF127+ false]
 
 // PREF:  DNS prefetch for HTMLAnchorElement (speculative DNS)
 // Disable speculative DNS calls to prevent Firefox from resolving
 // hostnames for other domains linked on a page. This may eliminate
 // unnecessary DNS lookups, but can increase latency when following external links.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935#c28
+// [2] https://github.com/arkenfox/user.js/issues/1870#issuecomment-2220773972
 user_pref("dom.prefetch_dns_for_anchor_http_document", false); // [FF128+]
 //user_pref("dom.prefetch_dns_for_anchor_https_document", false); // DEFAULT [FF128+]
 
