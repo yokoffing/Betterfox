@@ -419,7 +419,7 @@ user_pref("network.dns.disablePrefetch", true);
 // unnecessary DNS lookups, but can increase latency when following external links.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935#c28
 // [2] https://github.com/arkenfox/user.js/issues/1870#issuecomment-2220773972
-user_pref("dom.prefetch_dns_for_anchor_http_document", false); // [FF128+]
+//user_pref("dom.prefetch_dns_for_anchor_http_document", false); // [FF128+]
 //user_pref("dom.prefetch_dns_for_anchor_https_document", false); // DEFAULT [FF128+]
 
 // PREF: enable <link rel="preconnect"> tag and Link: rel=preconnect response header handling
