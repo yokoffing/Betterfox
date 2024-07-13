@@ -704,7 +704,8 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 // [SETTINGS] Privacy & Security > DNS over HTTPS > Enable secure DNS using:
 // [NOTE] Mode 3 has site-exceptions with a nice UI on the error page.
 // [1] https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
-// [2] https://support.mozilla.org/en-US/kb/dns-over-https#w_protection-levels-explained
+// [2] https://wiki.mozilla.org/Security/DOH-resolver-policy
+// [3] https://support.mozilla.org/en-US/kb/dns-over-https#w_protection-levels-explained
 // 0= Default Protection: Firefox decides when to use secure DNS (default)
 // 2= Increased Protection: use DoH and fall back to native DNS if necessary
 // 3= Max Protection: only use DoH; do not fall back to native DNS
@@ -1424,6 +1425,11 @@ user_pref("network.captive-portal-service.enabled", false);
 // [WARNING] Do NOT use for mobile devices. May NOT be able to use Firefox on public wifi (hotels, coffee shops, etc).
 // [1] https://bugzilla.mozilla.org/1460537
 user_pref("network.connectivity-service.enabled", false);
+
+// PREF: disable Privacy-Preserving Attribution [FF128+]
+// [SETTING] Privacy & Security>Website Advertising Preferences>Allow websites to perform privacy-preserving ad measurement
+// [1] https://support.mozilla.org/kb/privacy-preserving-attribution
+user_pref("dom.private-attribution.submission.enabled", false);
 
 // PREF: software that continually reports what default browser you are using [WINDOWS]
 // [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser [2].
