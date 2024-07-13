@@ -112,6 +112,7 @@ user_pref("network.auth.subresource-http-auth-allow", 1);
 user_pref("editor.truncate_user_pastes", false);
 
 /** MIXED CONTENT + CROSS-SITE ***/
+user_pref("security.mixed_content.block_display_content", true);
 user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.postDownloadThirdPartyPrompt", false);
 
