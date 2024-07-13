@@ -523,7 +523,7 @@ user_pref("privacy.history.custom", true);
 // [NOTE] Currently, there is no way to add sites via about:config.
 // [SETTING] to add site exceptions: Ctrl+I>Permissions>Cookies>Allow (when on the website in question)
 // [SETTING] To manage site exceptions: Options>Privacy & Security>Cookies & Site Data>Manage Exceptions
-// [NOTE] Exceptions: A "cookie" block permission also controls "offlineApps" (see note below). For cross-domain logins,
+// [NOTE] Exceptions: A "cookie" permission also controls "offlineApps" (see note below). For cross-domain logins,
 // add exceptions for both sites e.g. https://www.youtube.com (site) + https://accounts.google.com (single sign on)
 // [WARNING] Be selective with what cookies you keep, as they also disable partitioning [1]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1767271
