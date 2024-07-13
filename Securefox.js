@@ -928,7 +928,7 @@ user_pref("editor.truncate_user_pastes", false);
 // Disable this pref if using HTTPS-Only Mode.
 // [NOTE] Enterprise users may need to enable this setting [1].
 // [1] https://blog.mozilla.org/security/2024/06/05/firefox-will-upgrade-more-mixed-content-in-version-127/
-//user_pref("security.mixed_content.block_display_content", true);
+user_pref("security.mixed_content.block_display_content", true);
 
 // PREF: block insecure downloads from secure sites
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
