@@ -156,6 +156,7 @@ user_pref("browser.newtabpage.activity-stream.telemetry", false);
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
+user_pref("dom.private-attribution.submission.enabled", false);
 
 /** CRASH REPORTS ***/
 user_pref("breakpad.reportURL", "");

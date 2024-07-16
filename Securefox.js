@@ -1318,6 +1318,10 @@ user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 
+// PREF: disable Privacy-Preserving Attribution (PPA)
+// [SETTING] Privacy & Security>Website Advertising Preferences>Allow websites to perform privacy-preserving ad measurement
+user_pref("dom.private-attribution.submission.enabled", false);
+
 /******************************************************************************
  * SECTION: CRASH REPORTS                                                    *
 ******************************************************************************/
