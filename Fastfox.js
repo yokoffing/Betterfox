@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 126                                                                         *
+ * version: 128                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -97,14 +97,6 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
 //user_pref("gfx.webrender.software", true); // Software Webrender uses CPU instead of GPU
     //user_pref("gfx.webrender.software.opengl", true); // LINUX
-
-// PREF: NVIDIA RTX Video Super Resolution and RTX Video HDR [WINDOWS] [FF125+]
-// Super Resolution activiates on video content 720p or below.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1823135
-// [2] https://www.reddit.com/r/firefox/comments/17a0noa/nvidia_video_super_resolution_not_working_on/
-// [3] https://blogs.nvidia.com/blog/ai-decoded-rtxvideo-firefox/
-// [4] https://www.mozilla.org/en-US/firefox/126.0/releasenotes/
-//user_pref("gfx.webrender.super-resolution.nvidia", true); // [REMOVED]
 
 // PREF: GPU-accelerated Canvas2D
 // Use gpu-canvas instead of to skia-canvas.
@@ -409,18 +401,26 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [5] https://3perf.com/blog/link-rels/#prefetch
 //user_pref("network.http.speculative-parallel-limit", 20); // DEFAULT (FF127+?)
 
-// PREF: DNS prefetching <link rel="dns-prefetch">
+// PREF: DNS prefetching for HTMLLinkElement <link rel="dns-prefetch">
 // Used for cross-origin connections to provide small performance improvements.
-// Disable DNS prefetching to prevent Firefox from proactively resolving
-// hostnames for other domains linked on a page. This may eliminate
-// unnecessary DNS lookups, but can increase latency when following external links.
+// You can enable rel=dns-prefetch for the HTTPS document without prefetching
+// DNS for anchors, whereas the latter makes more specualtive requests [5].
 // [1] https://bitsup.blogspot.com/2008/11/dns-prefetching-for-firefox.html
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
-// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935
+// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935#c28
 user_pref("network.dns.disablePrefetch", true);
-user_pref("network.dns.disablePrefetchFromHTTPS", true); // (FF127+ false)
+    user_pref("network.dns.disablePrefetchFromHTTPS", true); // [FF127+ false]
+
+// PREF:  DNS prefetch for HTMLAnchorElement (speculative DNS)
+// Disable speculative DNS calls to prevent Firefox from resolving
+// hostnames for other domains linked on a page. This may eliminate
+// unnecessary DNS lookups, but can increase latency when following external links.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935#c28
+// [2] https://github.com/arkenfox/user.js/issues/1870#issuecomment-2220773972
+//user_pref("dom.prefetch_dns_for_anchor_http_document", false); // [FF128+]
+//user_pref("dom.prefetch_dns_for_anchor_https_document", false); // DEFAULT [FF128+]
 
 // PREF: enable <link rel="preconnect"> tag and Link: rel=preconnect response header handling
 //user_pref("network.preconnect", true); // DEFAULT
@@ -437,26 +437,6 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true); // (FF127+ false)
 // PREF: mousedown speculative connections on bookmarks and history [FF98+]
 // Whether to warm up network connections for places:menus and places:toolbar.
 //user_pref("browser.places.speculativeConnect.enabled", false);
-
-// PREF: network preload <link rel="preload"> [REMOVED]
-// Used to load high-priority resources faster on the current page, for strategic
-// performance improvements.
-// Instructs the browser to immediately fetch and cache high-priority resources
-// for the current page to improve performance. The browser downloads resources
-// but does not execute scripts or apply stylesheets - it just caches them for
-// instant availability later.
-// Unlike other pre-connection tags (except modulepreload), this tag is
-// mandatory for the browser.
-// [1] https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload
-// [2] https://w3c.github.io/preload/
-// [3] https://3perf.com/blog/link-rels/#preload
-// [4] https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
-// [5] https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#how-can-preload-do-better
-// [6] https://www.keycdn.com/blog/resource-hints#preload
-// [7] https://github.com/arkenfox/user.js/issues/1098#issue-791949341
-// [8] https://yashints.dev/blog/2018/10/06/web-perf-2#preload
-// [9] https://web.dev/preload-critical-assets/
-//user_pref("network.preload", true); // [REMOVED]
 
 // PREF: network module preload <link rel="modulepreload"> [FF115+]
 // High-priority loading of current page JavaScript modules.
