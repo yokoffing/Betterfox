@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 128.1                                                           *
+ * version: 129                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -605,3 +605,130 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // PREF: hide frequent sites on right-click of taskbar icon [WINDOWS?]
 //user_pref("browser.taskbar.lists.frequent.enabled", false);
+
+/****************************************************************************
+ * SECTION: NAVIGATION AND INTERFACE                                        *
+ ****************************************************************************/
+
+// PREF: disable backspace action
+// 0=previous page, 1=scroll up, 2=do nothing
+//user_pref("browser.backspace_action", 2); // DEFAULT
+
+// PREF: disable ALT key toggling the menu bar
+//user_pref("ui.key.menuAccessKeyFocuses", false);
+    //user_pref("ui.key.menuAccessKey", 18); // DEFAULT
+
+// PREF: cycle through tabs in recently used order
+// [SETTING] Ctrl+Tab cycles through tabs in recently used order
+//user_pref("browser.ctrlTab.sortByRecentlyUsed", true);
+
+/****************************************************************************
+ * SECTION: ACCESSIBILITY AND USABILITY                                     *
+ ****************************************************************************/
+
+// PREF: disable Reader mode
+// [TIP] Use about:reader?url=%s as a keyword to open links automatically in reader mode [1].
+// Firefox will not have to parse webpage for Reader when navigating.
+// Extremely minimal performance impact, if you disable.
+// [1] https://www.reddit.com/r/firefox/comments/621sr2/i_found_out_how_to_automatically_open_a_url_in/ 
+//user_pref("reader.parse-on-load.enabled", false);
+
+// PREF: Spell-check
+// 0=none, 1-multi-line, 2=multi-line & single-line
+//user_pref("layout.spellcheckDefault", 1); // DEFAULT
+
+// PREF: Spell Checker underline styles [HIDDEN]
+// [1] https://kb.mozillazine.org/Ui.SpellCheckerUnderlineStyle#Possible_values_and_their_effects
+//user_pref("ui.SpellCheckerUnderlineStyle", 1);
+
+// PREF: disable websites overriding Firefox's keyboard shortcuts [FF58+]
+// 0=ask (default), 1=allow, 2=block
+// [SETTING] to add site exceptions: Ctrl+I>Permissions>Override Keyboard Shortcuts ***/
+//user_pref("permissions.default.shortcuts", 2);
+
+/****************************************************************************
+ * SECTION: BOOKMARK AND HISTORY MANAGEMENT                                 *
+ ****************************************************************************/
+
+// PREF: limit the number of bookmark backups Firefox keeps
+//user_pref("browser.bookmarks.max_backups", 1); // default=15
+
+/****************************************************************************
+ * SECTION: ZOOM AND DISPLAY SETTINGS                                       *
+ ****************************************************************************/
+
+// PREF: zoom only text on webpage, not other elements
+//user_pref("browser.zoom.full", false);
+
+// PREF: allow for more granular control of zoom levels
+// Especially useful if you want to set your default zoom to a custom level.
+//user_pref("toolkit.zoomManager.zoomValues", ".3,.5,.67,.8,.9,.95,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,2,2.4,3");
+
+// PREF: restore zooming behavior [macOS] [FF109+]
+// On macOS, Ctrl or Cmd + trackpad or mouse wheel now scrolls the page instead of zooming.
+// This avoids accidental zooming and matches Safari's and Chrome's behavior.
+// The prefs below restores the previous zooming behavior
+//user_pref("mousewheel.with_control.action", 3);
+//user_pref("mousewheel.with_meta.action", 3);
+
+// PREF: hide image placeholders
+//user_pref("browser.display.show_image_placeholders", false);
+
+// PREF: adjust the minimum tab width
+// Can be overridden by userChrome.css
+//user_pref("browser.tabs.tabMinWidth", 120); // default=76
+
+// PREF: always underline links [FF120+]
+//user_pref("layout.css.always_underline_links", false); // DEFAULT
+
+/****************************************************************************
+ * SECTION: DEVELOPER TOOLS                                                 *
+ ****************************************************************************/
+
+// PREF: wrap long lines of text when using source / debugger
+//user_pref("view_source.wrap_long_lines", true);
+//user_pref("devtools.debugger.ui.editor-wrapping", true);
+
+// PREF: enable ASRouter Devtools at about:newtab#devtools (useful if you're making your own CSS theme)
+// [1] https://firefox-source-docs.mozilla.org/browser/components/newtab/content-src/asrouter/docs/debugging-docs.html
+//user_pref("browser.newtabpage.activity-stream.asrouter.devtoolsEnabled", true);
+
+// show user agent styles in the inspector
+//user_pref("devtools.inspector.showUserAgentStyles", true);
+
+// show native anonymous content (like scrollbars or tooltips) and user agent shadow roots (like the components of an <input> element) in the inspector
+//user_pref("devtools.inspector.showAllAnonymousContent", true);
+
+/****************************************************************************
+ * SECTION: PRINTING                                                        *
+ ****************************************************************************/
+
+// PREF: print preview
+//user_pref("print.tab_modal.enabled", true); // DEFAULT
+
+/****************************************************************************
+ * SECTION: IMAGE AND MEDIA HANDLING                                        *
+ ****************************************************************************/
+
+// PREF: JPEG XL image format [NIGHTLY]
+// May not affect anything on ESR/Stable channel [2].
+// [TEST] https://jpegxl.io/tutorials/firefox/#firefoxjpegxltutorial
+// [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1539075#c51
+//user_pref("image.jxl.enabled", true);
+
+/****************************************************************************
+ * SECTION: KEYBOARD AND SHORTCUTS                                          *
+ ****************************************************************************/
+
+// PREF: remove underlined characters from various settings
+//user_pref("ui.key.menuAccessKey", 0);
+
+// PREF: enable CSS moz document rules
+// Still needed for Stylus?
+// [1] https://reddit.com/r/FirefoxCSS/comments/8x2q97/reenabling_mozdocument_rules_in_firefox_61/
+//user_pref("layout.css.moz-document.content.enabled", true);
+
+// PREF: hide frequent sites on right-click of taskbar icon [WINDOWS?]
+//user_pref("browser.taskbar.lists.frequent.enabled", false);
+
