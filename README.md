@@ -7,7 +7,7 @@
 
 [about:config](https://support.mozilla.org/en-US/kb/about-config-editor-firefox) tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/). 
 
-:new: Now with [ESR support](https://github.com/yokoffing/Betterfox/tree/esr115#betterfox-esr).
+:new: Now with support for ESR [115](https://github.com/yokoffing/Betterfox/tree/esr115) and [128](https://github.com/yokoffing/Betterfox/tree/esr128).
 
 ## Made for everyday browsing
 **A secure, blazing fast browsing experience. Without breakage.**
