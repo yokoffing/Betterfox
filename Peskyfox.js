@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 128                                                             *
+ * version: 128.1                                                           *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -505,8 +505,10 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 //user_pref("dom.disable_open_during_load", true); // DEFAULT
 //user_pref("privacy.popups.showBrowserMessage", true); // DEFAULT
 
-// PREF: enable Tab Preview [FF122+]
-//user_pref("browser.tabs.cardPreview.enabled", true);
+// PREF: enable Tab Previews [FF122+, FF128+]
+// [1] https://github.com/yokoffing/Betterfox/issues/309
+//user_pref("browser.tabs.hoverPreview.enabled", true);
+    //user_pref("browser.tabs.hoverPreview.showThumbnails", true); // DEFAULT
 
 /****************************************************************************
  * SECTION: UNCATEGORIZED                                                   *
