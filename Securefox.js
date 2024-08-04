@@ -1425,9 +1425,11 @@ user_pref("network.captive-portal-service.enabled", false);
 user_pref("network.connectivity-service.enabled", false);
 
 // PREF: disable Privacy-Preserving Attribution [FF128+]
+// [NOTE] PPA disabled if telemetry is off.
 // [SETTING] Privacy & Security>Website Advertising Preferences>Allow websites to perform privacy-preserving ad measurement
 // [1] https://support.mozilla.org/kb/privacy-preserving-attribution
-user_pref("dom.private-attribution.submission.enabled", false);
+// [2] https://searchfox.org/mozilla-central/rev/f3e4b33a6122ce63bf81ae8c30cc5ac37458864b/dom/privateattribution/PrivateAttributionService.sys.mjs#267
+//user_pref("dom.private-attribution.submission.enabled", false);
 
 // PREF: software that continually reports what default browser you are using [WINDOWS]
 // [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser [2].
