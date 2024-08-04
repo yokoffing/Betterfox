@@ -21,6 +21,7 @@
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionhistory.max_total_viewers", 4); // only remember # of pages in Back-Forward cache
 user_pref("browser.cache.disk.enable", false); // disable disk cache
+user_pref("network.http.max-persistent-connections-per-server", 20);
 
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
@@ -129,6 +130,7 @@ user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last u
 user_pref("browser.download.useDownloadDir", false); // ask where to download
 
 /** DELETE IF NOT macOS LAPTOP ***/
+user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last used
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
 user_pref("network.trr.max-fails", 5); // lower max attempts to use DoH
 user_pref("geo.provider.use_corelocation", false); // geolocation [MAC]
@@ -137,6 +139,7 @@ user_pref("app.update.auto", false); // disable auto-installing Firefox updates 
 //user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
 
 /** DELETE IF NOT LINUX LAPTOP ***/
+user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last used
 //user_pref(layers.acceleration.force-enable", true); // needed in 2024?
 //user_pref("gfx.webrender.software.opengl", true); // needed?
 user_pref("browser.low_commit_space_threshold_mb", 13107); // determine when tabs unload
