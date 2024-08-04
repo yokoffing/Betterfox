@@ -107,8 +107,8 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
 //user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
-    user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; alt=8192
-    user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; alt=1024
+    user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; Chrome=4096
+    user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512
     user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
     // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
 
@@ -123,11 +123,6 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
     //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
 //user_pref("media.gpu-process-decoder", true); // DEFAULT WINDOWS
 //user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
-
-// PREF: disable AV1 for hardware decodeable videos
-// Firefox sometimes uses AV1 video decoding even to GPUs which do not support it.
-// [1] https://www.reddit.com/r/AV1/comments/s5xyph/youtube_av1_codec_have_worse_quality_than_old_vp9
-//user_pref("media.av1.enabled", false);
 
 // PREF: hardware and software decoded video overlay [FF116+]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1829063
