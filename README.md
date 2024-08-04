@@ -3,20 +3,13 @@
 [![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyokoffing%2FBetter-Fox&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
 
 # Betterfox
-31% faster than regular Firefox<sup>[1](https://medium.com/@mihirgrand/comparing-popular-firefox-forks-6fa83fdfdaad#:~:text=31%25%20more%20than%20vanilla%20Firefox)</sup> :rocket:
-
 [about:config](https://support.mozilla.org/en-US/kb/about-config-editor-firefox) tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/). 
 
-:new: Now with support for ESR [115](https://github.com/yokoffing/Betterfox/tree/esr115) and [128](https://github.com/yokoffing/Betterfox/tree/esr128).
+31% [faster](https://medium.com/@mihirgrand/comparing-popular-firefox-forks-6fa83fdfdaad#:~:text=31%25%20more%20than%20vanilla%20Firefox) than regular Firefox :rocket:
 
-## Made for everyday browsing
-**A secure, blazing fast browsing experience. Without breakage.**
-
-Betterfox is an opinionated preference list inspired by the [law of diminishing returns](https://web.archive.org/web/20231108092752if_/https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e).
+Now with support for ESR [128](https://github.com/yokoffing/Betterfox/tree/esr128) :new: 
 
 ## Required reading
-*If you don't have it already: [Get Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release)*
-
 0) Create a [backup profile](https://github.com/yokoffing/Betterfox/wiki/Backup).
 1) Download the user.js file [here](https://raw.githubusercontent.com/yokoffing/Betterfox/main/user.js) (Right click > `Save Link As…`).
 2) Review [Common Overrides](https://github.com/yokoffing/Betterfox/wiki/Common-Overrides) and make any necessary changes.
@@ -30,6 +23,11 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 2) Enable **DNS-level protection** with [NextDNS](https://nextdns.io/?from=xujj63g5). <sup><i>Use the link and support this page!</i></sup>
     * Check out our configuration [guide](https://github.com/yokoffing/NextDNS-Config) for the best experience.
     * See how to [quickly enable](https://support.mozilla.org/en-US/kb/dns-over-https) **secure DNS** in Firefox.
+
+## Made for everyday browsing
+**A secure, blazing fast browsing experience. Without breakage.**
+
+Betterfox is an opinionated preference list inspired by the [law of diminishing returns](https://web.archive.org/web/20231108092752if_/https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e).
 
 ## Simple goals
 1) **Minimalism:** get what isn't needed out of the way
