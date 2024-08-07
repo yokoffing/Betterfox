@@ -1429,6 +1429,9 @@ user_pref("network.connectivity-service.enabled", false);
 // [1] https://support.mozilla.org/kb/privacy-preserving-attribution
 // [2] https://searchfox.org/mozilla-central/rev/f3e4b33a6122ce63bf81ae8c30cc5ac37458864b/dom/privateattribution/PrivateAttributionService.sys.mjs#267
 //user_pref("dom.private-attribution.submission.enabled", false);
+    //user_pref("toolkit.telemetry.dap_helper", ""); // [OPTIONAL HARDENING]
+    //user_pref("toolkit.telemetry.dap_leader", ""); // [OPTIONAL HARDENING]
+
 
 // PREF: software that continually reports what default browser you are using [WINDOWS]
 // [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser [2].
