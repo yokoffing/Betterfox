@@ -88,7 +88,6 @@ user_pref("privacy.history.custom", true);
 
 /** SEARCH / URL BAR ***/
 user_pref("browser.urlbar.trimHttps", true);
-user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 user_pref("browser.search.suggest.enabled", false);
@@ -103,7 +102,6 @@ user_pref("network.IDN_show_punycode", true);
 
 /** HTTPS-FIRST POLICY ***/
 user_pref("dom.security.https_first", true);
-user_pref("dom.security.https_first_schemeless", true);
 
 /** PASSWORDS ***/
 user_pref("signon.formlessCapture.enabled", false);
