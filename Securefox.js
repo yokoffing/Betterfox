@@ -1282,7 +1282,6 @@ user_pref("permissions.default.geo", 2);
 // PREF: disable using the OS's geolocation service
 //user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 //user_pref("geo.provider.use_corelocation", false); // [MAC]
-//user_pref("geo.provider.use_gpsd", false); // [LINUX]
 //user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 
 // PREF: logging geolocation to the console
