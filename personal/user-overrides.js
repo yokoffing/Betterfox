@@ -62,7 +62,7 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownload
 user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false); // Settings>Home>Firefox Home Content>Recent Activity>Visited Pages
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false); // Settings>Home>Firefox Home Content>Recent Activity>Pages Saved to Pocket
 //user_pref("browser.download.useDownloadDir", true); // use direct downloads
-user_pref("browser.download.folderList", 0); // 0=desktop, 1=downloads, 2=last used
+//user_pref("browser.download.folderList", 0); // 0=desktop, 1=downloads, 2=last used
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
 user_pref("browser.urlbar.suggest.history", false); // Browsing history; hide URL bar dropdown suggestions
@@ -130,7 +130,7 @@ user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last u
 user_pref("browser.download.useDownloadDir", false); // ask where to download
 
 /** DELETE IF NOT macOS LAPTOP ***/
-user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last used
+//user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last used
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
 user_pref("network.trr.max-fails", 5); // lower max attempts to use DoH
 user_pref("geo.provider.use_corelocation", false); // geolocation [MAC]
@@ -139,7 +139,7 @@ user_pref("app.update.auto", false); // disable auto-installing Firefox updates 
 //user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
 
 /** DELETE IF NOT LINUX LAPTOP ***/
-user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last used
+//user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last used
 //user_pref(layers.acceleration.force-enable", true); // needed in 2024?
 //user_pref("gfx.webrender.software.opengl", true); // needed?
 user_pref("browser.low_commit_space_threshold_mb", 13107); // determine when tabs unload
