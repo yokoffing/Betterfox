@@ -21,7 +21,9 @@
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionhistory.max_total_viewers", 4); // only remember # of pages in Back-Forward cache
 user_pref("browser.cache.disk.enable", false); // disable disk cache
-user_pref("network.http.max-persistent-connections-per-server", 20);
+user_pref("network.http.max-persistent-connections-per-server", 20); // increase download connections
+user_pref("network.buffer.cache.size", 262144); // default=32768; [WARNING] Cannot open HTML files bigger than 4 MB if changed
+user_pref("network.buffer.cache.count", 128); // default=24; use bigger packets
 
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
@@ -48,12 +50,9 @@ user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla d
 user_pref("identity.fxaccounts.enabled", false); // disable Firefox Sync
 user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}"); // disable the Firefox View tour from popping up for new profiles
 user_pref("accessibility.force_disabled", 1); // disable Accessibility features
-//user_pref("security.ssl.require_safe_negotiation", true); // safe negotiation
 user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
-//user_pref("browser.download.useDownloadDir", true); // one-click downloads
 
 /** PESKYFOX ***/
-//user_pref("cookiebanners.service.mode", 2); // fall back to the accept button to remove banner
 user_pref("devtools.accessibility.enabled", false); // removes un-needed "Inspect Accessibility Properties" on right-click
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Settings>Home>Firefox Home Content>Recent Activity>Recommended by Pocket>Sponsored Stories  
@@ -77,7 +76,7 @@ user_pref("view_source.wrap_long_lines", true);  // wrap source lines
 user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devtools
 user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
 user_pref("pdfjs.sidebarViewOnLoad", 2); // force showing of Table of Contents in sidebar for PDFs (if available)
-//user_pref("layout.word_select.eat_space_to_next_word", false); // do not select the space next to a word when selecting a word
+user_pref("layout.word_select.eat_space_to_next_word", false); // do not select the space next to a word when selecting a word
 //user_pref("browser.tabs.loadInBackground", false); // CTRL+SHIFT+CLICK for background tabs; Settings>General>Tabs>When you open a link, image or media in a new tab, switch to it immediately
 user_pref("browser.tabs.loadBookmarksInTabs", true); // force bookmarks to open in a new tab, not the current tab
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
@@ -126,8 +125,8 @@ user_pref("browser.urlbar.suggest.history", true); // Browsing history
 user_pref("browser.urlbar.suggest.bookmark", true); // Bookmarks
 //user_pref("browser.urlbar.suggest.openpage", true); // Open tabs
 //user_pref("browser.urlbar.suggest.topsites", true); // Shortcuts
-user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last used
-user_pref("browser.download.useDownloadDir", false); // ask where to download
+//user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last used
+//user_pref("browser.download.useDownloadDir", false); // ask where to download
 
 /** DELETE IF NOT macOS LAPTOP ***/
 //user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last used
@@ -147,6 +146,5 @@ user_pref("browser.low_commit_space_threshold_percent", 20); // determine when t
 //user_pref("middlemouse.contentLoadURL", false); // disable middle mouse click opening links from clipboard
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
 user_pref("network.trr.max-fails", 5); // lower max attempts to use DoH
-user_pref("geo.provider.use_gpsd", false); // [LINUX]
 user_pref("geo.provider.use_geoclue", false); // [LINUX]
 user_pref("pdfjs.defaultZoomValue", "page-width"); // PDF zoom level
