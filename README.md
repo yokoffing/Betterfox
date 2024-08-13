@@ -51,6 +51,7 @@ The `user.js` — a configuration file that controls Firefox settings — is cur
 ## Recognition
 
 ### Browser Integration
+* [Zen](https://github.com/zen-browser/desktop/blob/main/src/browser/app/profile/better-fox.js) | [files](https://github.com/zen-browser/desktop/blob/main/src/browser/app/profile/better-fox.js) (July 2024)
 * [Midori](https://github.com/goastian/midori-desktop/blob/ESR115/README.md) | [files](https://github.com/goastian/midori-desktop/blob/f3d8d96eb8e08f35a64e3c957bea4e839d7c7730/floorp/browser/components/userjsUtils.sys.mjs#L28-L33) (Dec 2023?)
 * [Mercury](https://github.com/Alex313031/Mercury/releases/tag/v.115.3.0) | [files](https://github.com/Alex313031/Mercury/commit/eb9600f9fb8f48c8f5b5c6f3264fbcdb5caff7f5) (Sep 2023)
 * [Waterfox](https://www.waterfox.net/en-US/docs/releases/G6.0/) | [files](https://github.com/WaterfoxCo/Waterfox/tree/current/waterfox/browser/app/profile) (Sep 2023)
