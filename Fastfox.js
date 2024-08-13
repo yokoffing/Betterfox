@@ -230,10 +230,12 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 user_pref("browser.cache.jsbc_compression_level", 3);
 
 // PREF: strategy to use for when the bytecode should be encoded and saved [TESTING ONLY]
-// -1 makes page load times marginally longer when a page is being loaded for the first time.
-// Subsequent reload of websites will be much much faster.
+// -1 makes page load times marginally longer when a page is being loaded for the first time, while
+// subsequent reload of websites will be much much faster.
+// 0 means that the bytecode is created every 4 page loads [3].
 // [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#3461-3488
 // [2] https://www.reddit.com/r/firefox/comments/12786yv/improving_performance_in_firefox_android_part_ii/
+// [3] https://github.com/zen-browser/desktop/issues/217
 // -1 = saved as soon as the script is seen for the first time, independently of the size or last access time
 // 0 = saved in order to minimize the page-load time (default)
 //user_pref("dom.script_loader.bytecode_cache.enabled", true); // DEFAULT
