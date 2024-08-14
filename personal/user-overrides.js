@@ -53,6 +53,8 @@ user_pref("accessibility.force_disabled", 1); // disable Accessibility features
 user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
 
 /** PESKYFOX ***/
+user_pref("cookiebanners.service.mode", 0); // disable for performance since I'm using Easylist Cookie
+user_pref("cookiebanners.service.mode.privateBrowsing", 0); // disable for performance since I'm using Easylist Cookie
 user_pref("devtools.accessibility.enabled", false); // removes un-needed "Inspect Accessibility Properties" on right-click
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Settings>Home>Firefox Home Content>Recent Activity>Recommended by Pocket>Sponsored Stories  
