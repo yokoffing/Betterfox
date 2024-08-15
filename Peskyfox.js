@@ -538,7 +538,8 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
  * SECTION: ACCESSIBILITY AND USABILITY                                     *
  ****************************************************************************/
 
-// PREF: disable Reader mode
+// PREF: disable Reader mode parse on load
+// Reader supposedly costs extra CPU after page load.
 // [TIP] Use about:reader?url=%s as a keyword to open links automatically in reader mode [1].
 // Firefox will not have to parse webpage for Reader when navigating.
 // Extremely minimal performance impact, if you disable.
