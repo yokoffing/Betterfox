@@ -341,7 +341,7 @@ user_pref("extensions.pocket.enabled", false);
 // [SETTING] General>Files and Applications>Applications>What should Firefox do with other files?
 // false=Save files
 // true=Ask whether to open or save files
-user_pref("browser.download.always_ask_before_handling_new_types", true);
+//user_pref("browser.download.always_ask_before_handling_new_types", true);
 
 // PREF: always ask where to download
 // [OPTIONAL HARDENING] Enforce user interaction for greater security.
