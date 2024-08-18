@@ -166,7 +166,8 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [3] https://support.mozilla.org/en-US/questions/1267945
 // [4] https://askubuntu.com/questions/1214862/36-syns-in-a-row-how-to-limit-firefox-connections-to-one-website
 // [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1622859
-//user_pref("network.http.rcwn.enabled", true); // DEFAULT
+// [6] https://soylentnews.org/comments.pl?noupdate=1&sid=40195&page=1&cid=1067867#commentwrap
+//user_pref("network.http.rcwn.enabled", false);
 
 // PREF: attempt to RCWN only if a resource is smaller than this size
 //user_pref("network.http.rcwn.small_resource_size_kb", 256); // DEFAULT
