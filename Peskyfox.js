@@ -71,8 +71,8 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 // [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
 user_pref("browser.tabs.tabmanager.enabled", false);
 
-// PREF: enable new screenshot tool [FF122+]
-//user_pref("screenshots.browser.component.enabled", true);
+// PREF: new profile switcher
+user_pref("browser.profiles.enabled", true);
 
 /****************************************************************************
  * SECTION: THEME ADJUSTMENTS                                              *
@@ -108,6 +108,9 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 // PREF: show search bar [FF122+]
 // Mozilla has removed the search bar option from the settings window.
 //user_pref("browser.search.widget.inNavBar", true);
+
+// PREF: new tab page wallpapers
+user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
 
 /****************************************************************************
  * SECTION: COOKIE BANNER HANDLING                                         *
