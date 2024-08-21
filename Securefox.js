@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 128                                                             *
+ * version: 129                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -547,9 +547,7 @@ user_pref("privacy.history.custom", true);
 // [TEST] http://www.http2demo.io/
 // [1] https://www.ghacks.net/2023/09/19/firefox-119-will-launch-with-an-important-address-bar-change/
 user_pref("browser.urlbar.trimHttps", true);
-
-// PREF: reveal HTTPS in the URL upon double click [FF127+]
-//user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
+user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 
 // PREF: display "Not Secure" text on HTTP sites
 // Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode.
@@ -648,7 +646,7 @@ user_pref("network.IDN_show_punycode", true);
 // [6] https://blog.chromium.org/2023/08/towards-https-by-default.html
 user_pref("dom.security.https_first", true); // [DEFAULT FF129+]
 //user_pref("dom.security.https_first_pbm", true); // [DEFAULT FF91+]
-//user_pref("dom.security.https_first_schemeless", true); // [FF120+]
+//user_pref("dom.security.https_first_schemeless", true); // [FF120+] [DEFAULT FF129+]
 
 /******************************************************************************
  * SECTION: HTTPS-ONLY MODE                              *
@@ -676,8 +674,7 @@ user_pref("dom.security.https_first", true); // [DEFAULT FF129+]
 //user_pref("dom.security.https_only_mode", true); // Normal + Private Browsing windows
 
 // PREF: offer suggestion for HTTPS site when available
-// [1] https://twitter.com/leli_gibts_scho/status/1371463866606059528
-// [TEST] http://speedofanimals.com/
+// [1] https://x.com/leli_gibts_scho/status/1371463866606059528
 user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: HTTP background requests in HTTPS-only Mode
@@ -753,9 +750,9 @@ user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: assorted options
 //user_pref("network.trr.confirmationNS", "skip"); // skip undesired DOH test connection
-//user_pref("network.trr.skip-AAAA-when-not-supported", true); // DEFAULT; If Firefox detects that your system does not have IPv6 connectivity, it will not request IPv6 addresses from the DoH server
-//user_pref("network.trr.clear-cache-on-pref-change", true); // DEFAULT; DNS+TRR cache will be cleared when a relevant TRR pref changes
-//user_pref("network.trr.wait-for-portal", false); // DEFAULT; set this to true to tell Firefox to wait for the captive portal detection before TRR is used
+//user_pref("network.trr.skip-AAAA-when-not-supported", true); // [DEFAULT] If Firefox detects that your system does not have IPv6 connectivity, it will not request IPv6 addresses from the DoH server
+//user_pref("network.trr.clear-cache-on-pref-change", true); // [DEFAULT] DNS+TRR cache will be cleared when a relevant TRR pref changes
+//user_pref("network.trr.wait-for-portal", false); // [DEFAULT] set this to true to tell Firefox to wait for the captive portal detection before TRR is used
 
 // PREF: DOH exlcusions
 //user_pref("network.trr.excluded-domains", ""); // DEFAULT; comma-separated list of domain names to be resolved using the native resolver instead of TRR. This pref can be used to make /etc/hosts works with DNS over HTTPS in Firefox.
@@ -1285,7 +1282,6 @@ user_pref("permissions.default.geo", 2);
 // PREF: disable using the OS's geolocation service
 //user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 //user_pref("geo.provider.use_corelocation", false); // [MAC]
-//user_pref("geo.provider.use_gpsd", false); // [LINUX]
 //user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 
 // PREF: logging geolocation to the console
@@ -1427,9 +1423,14 @@ user_pref("network.captive-portal-service.enabled", false);
 user_pref("network.connectivity-service.enabled", false);
 
 // PREF: disable Privacy-Preserving Attribution [FF128+]
+// [NOTE] PPA disabled if main telemetry switches are disabled.
 // [SETTING] Privacy & Security>Website Advertising Preferences>Allow websites to perform privacy-preserving ad measurement
 // [1] https://support.mozilla.org/kb/privacy-preserving-attribution
-user_pref("dom.private-attribution.submission.enabled", false);
+// [2] https://searchfox.org/mozilla-central/rev/f3e4b33a6122ce63bf81ae8c30cc5ac37458864b/dom/privateattribution/PrivateAttributionService.sys.mjs#267
+//user_pref("dom.private-attribution.submission.enabled", false);
+    //user_pref("toolkit.telemetry.dap_helper", ""); // [OPTIONAL HARDENING]
+    //user_pref("toolkit.telemetry.dap_leader", ""); // [OPTIONAL HARDENING]
+
 
 // PREF: software that continually reports what default browser you are using [WINDOWS]
 // [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser [2].

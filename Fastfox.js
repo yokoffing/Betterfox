@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 128                                                                         *
+ * version: 129                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -107,8 +107,8 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
 //user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
-    user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; alt=8192
-    user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; alt=1024
+    user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; Chrome=4096
+    user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512
     user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
     // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
 
@@ -123,11 +123,6 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
     //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
 //user_pref("media.gpu-process-decoder", true); // DEFAULT WINDOWS
 //user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
-
-// PREF: disable AV1 for hardware decodeable videos
-// Firefox sometimes uses AV1 video decoding even to GPUs which do not support it.
-// [1] https://www.reddit.com/r/AV1/comments/s5xyph/youtube_av1_codec_have_worse_quality_than_old_vp9
-//user_pref("media.av1.enabled", false);
 
 // PREF: hardware and software decoded video overlay [FF116+]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1829063
@@ -171,7 +166,8 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [3] https://support.mozilla.org/en-US/questions/1267945
 // [4] https://askubuntu.com/questions/1214862/36-syns-in-a-row-how-to-limit-firefox-connections-to-one-website
 // [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1622859
-//user_pref("network.http.rcwn.enabled", true); // DEFAULT
+// [6] https://soylentnews.org/comments.pl?noupdate=1&sid=40195&page=1&cid=1067867#commentwrap
+//user_pref("network.http.rcwn.enabled", false);
 
 // PREF: attempt to RCWN only if a resource is smaller than this size
 //user_pref("network.http.rcwn.small_resource_size_kb", 256); // DEFAULT
@@ -235,10 +231,12 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 user_pref("browser.cache.jsbc_compression_level", 3);
 
 // PREF: strategy to use for when the bytecode should be encoded and saved [TESTING ONLY]
-// -1 makes page load times marginally longer when a page is being loaded for the first time.
-// Subsequent reload of websites will be much much faster.
+// -1 makes page load times marginally longer when a page is being loaded for the first time, while
+// subsequent reload of websites will be much much faster.
+// 0 means that the bytecode is created every 4 page loads [3].
 // [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#3461-3488
 // [2] https://www.reddit.com/r/firefox/comments/12786yv/improving_performance_in_firefox_android_part_ii/
+// [3] https://github.com/zen-browser/desktop/issues/217
 // -1 = saved as soon as the script is seen for the first time, independently of the size or last access time
 // 0 = saved in order to minimize the page-load time (default)
 //user_pref("dom.script_loader.bytecode_cache.enabled", true); // DEFAULT
@@ -573,18 +571,18 @@ user_pref("dom.security.sanitizer.enabled", true);
 // PREF: determine when tabs unload [WINDOWS] [LINUX]
 // Notify TabUnloader or send the memory pressure if the memory resource
 // notification is signaled AND the available commit space is lower than
-// this value.
-// Set this to some high value, e.g. 2/3 of total memory available in your system:
-// 4GB=2640, 8GB=5280, 16GB=10560, 32GB=21120, 64GB=42240
+// this value (in MiB).
+// Set this to some value, e.g. 4/5 of total memory available on your system:
+// 4GB=3276, 8GB=6553, 16GB=13107, 32GB=25698, 64GB=52429
 // [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
-//user_pref("browser.low_commit_space_threshold_mb", 2640); // default=200; WINDOWS LINUX
+//user_pref("browser.low_commit_space_threshold_mb", 3276); // default=200; WINDOWS LINUX
 
 // PREF: determine when tabs unload [LINUX]
 // On Linux, Firefox checks available memory in comparison to total memory,
 // and use this percent value (out of 100) to determine if Firefox is in a
 // low memory scenario.
 // [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
-//user_pref("browser.low_commit_space_threshold_percent", 33); // default=5; LINUX
+//user_pref("browser.low_commit_space_threshold_percent", 20); // default=5; LINUX
 
 // PREF: determine how long (in ms) tabs are inactive before they unload
 // 60000=1min; 300000=5min; 600000=10min (default)
