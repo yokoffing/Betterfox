@@ -30,6 +30,7 @@ user_pref("network.buffer.cache.count", 128); // default=24; use bigger packets
 user_pref("signon.rememberSignons", false); // disable password manager
 user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
 user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
+user_pref("browser.urlbar.suggest.recentsearches", false);  // unselect "Show recent searches" for clean UI
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 //user_pref("browser.urlbar.suggest.trending", false); // FF119+ disable showing trending searches; unselect for clean UI
 //user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
