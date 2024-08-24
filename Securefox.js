@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 129                                                             *
+ * version: 130                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -580,7 +580,10 @@ user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
 // [SETTING] Search>Provide search suggestions > Show search suggestions in address bar result
 user_pref("browser.search.suggest.enabled", false);
     //user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
-user_pref("browser.urlbar.suggest.searches", false);
+//user_pref("browser.urlbar.suggest.searches", false);
+
+// PREF: disable Show recent searches
+user_pref("browser.urlbar.suggest.recentsearches", false);
 
 // PREF: disable Firefox Suggest
 // [1] https://github.com/arkenfox/user.js/issues/1257
