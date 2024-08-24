@@ -580,10 +580,10 @@ user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
 // [SETTING] Search>Provide search suggestions > Show search suggestions in address bar result
 user_pref("browser.search.suggest.enabled", false);
     //user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
-//user_pref("browser.urlbar.suggest.searches", false);
 
 // PREF: disable Show recent searches
-user_pref("browser.urlbar.suggest.recentsearches", false);
+// [SETTING] Search > Search Suggestions > Show recent searches 
+//user_pref("browser.urlbar.suggest.recentsearches", false);
 
 // PREF: disable Firefox Suggest
 // [1] https://github.com/arkenfox/user.js/issues/1257
