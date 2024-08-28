@@ -947,7 +947,7 @@ user_pref("pdfjs.enableScripting", false);
 user_pref("extensions.enabledScopes", 5); // [HIDDEN PREF]
     //user_pref("extensions.autoDisableScopes", 15); // [DEFAULT: 15]
 
-// PREF: disable bypassing 3rd party extension install prompts [FF82+]
+// PREF: skip 3rd party panel when installing recommended addons [FF82+]
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1659530,1681331
 //user_pref("extensions.postDownloadThirdPartyPrompt", false);
 
