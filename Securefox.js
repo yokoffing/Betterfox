@@ -678,7 +678,7 @@ user_pref("dom.security.https_first", true); // [DEFAULT FF129+]
 
 // PREF: offer suggestion for HTTPS site when available
 // [1] https://x.com/leli_gibts_scho/status/1371463866606059528
-user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
+//user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: HTTP background requests in HTTPS-only Mode
 // When attempting to upgrade, if the server doesn't respond within 3 seconds[=default time],
