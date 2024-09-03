@@ -219,6 +219,11 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.urlbar.clipboard.featureGate", false); // [FF118+] [DEFAULT: true FF125+]
 //user_pref("browser.urlbar.yelp.featureGate", false); // [FF124+] [DEFAULT: false]
 
+// PREF: disable recent searches [FF120+]
+// [NOTE] Recent searches are cleared with history.
+// [1] https://support.mozilla.org/kb/search-suggestions-firefox
+//user_pref("browser.urlbar.recentsearches.featureGate", false);
+
 // PREF: disable tab-to-search [FF85+]
 // Alternatively, you can exclude on a per-engine basis by unchecking them in Options>Search
 // [SETTING] Privacy & Security>Address Bar>When using the address bar, suggest>Search engines
