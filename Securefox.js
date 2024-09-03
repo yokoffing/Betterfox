@@ -302,9 +302,11 @@ user_pref("security.pki.crlite_mode", 2);
 //user_pref("security.enterprise_roots.enabled", false);
     //user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
 
-// PREF: disable content analysis by DLP (Data Loss Prevention) agents [FF124+]
-// DLP agents are background processes on managed computers that allow enterprises to monitor locally running
-// applications for data exfiltration events, which they can allow/block based on customer defined DLP policies.
+// PREF: disable content analysis by Data Loss Prevention (DLP) agents [FF124+]
+// DLP agents are background processes on managed computers that
+// allow enterprises to monitor locally running applications for
+// data exfiltration events, which they can allow/block based on
+// customer-defined DLP policies.
 // [1] https://github.com/chromium/content_analysis_sdk
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1880314
 //user_pref("browser.contentanalysis.enabled", false); // [FF121+] [DEFAULT]
@@ -922,14 +924,6 @@ user_pref("pdfjs.enableScripting", false);
 // PREF: disable middle click on new tab button opening URLs or searches using clipboard [FF115+]
 // Enable if you're using LINUX.
 //user_pref("browser.tabs.searchclipboardfor.middleclick", false); // DEFAULT WINDOWS macOS
-
-// PREF: disable content analysis by Data Loss Prevention (DLP) agents
-// DLP agents are background processes on managed computers that
-// allow enterprises to monitor locally running applications for
-// data exfiltration events, which they can allow/block based on
-// customer-defined DLP policies.
-// [1] https://github.com/chromium/content_analysis_sdk
-//user_pref("browser.contentanalysis.default_allow", false); // [FF124+] [DEFAULT: false]
 
 // PREF: disable automatic authentication on Microsoft sites [WINDOWS]
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
