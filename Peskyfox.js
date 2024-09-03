@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 129                                                             *
+ * version: 130                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -290,8 +290,8 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
       //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Shortcuts > Sponsored shortcuts [FF83+]
-//user_pref("browser.newtabpage.activity-stream.showWeather", false); // Weather [FF128+ NIGHTLY]
-    //user_pref("browser.newtabpage.activity-stream.system.showWeather", false); // Weather [FF128+ NIGHTLY]
+user_pref("browser.newtabpage.activity-stream.showWeather", false); // Weather [FF130+]
+    //user_pref("browser.newtabpage.activity-stream.system.showWeather", false); // Weather [FF130+]
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
       //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
 //user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // Recent Activity [DEFAULT]
