@@ -74,6 +74,10 @@ user_pref("browser.tabs.tabmanager.enabled", false);
 // PREF: new profile switcher
 user_pref("browser.profiles.enabled", true);
 
+// PREF: use native title bar buttons [LINUX]
+// [1] https://github.com/yokoffing/Betterfox/issues/320
+//user_pref("widget.gtk.non-native-titlebar-buttons.enabled", true);
+
 /****************************************************************************
  * SECTION: THEME ADJUSTMENTS                                              *
 ****************************************************************************/
@@ -594,9 +598,6 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // The prefs below restores the previous zooming behavior
 //user_pref("mousewheel.with_control.action", 3);
 //user_pref("mousewheel.with_meta.action", 3);
-
-// PREF: hide image placeholders
-//user_pref("browser.display.show_image_placeholders", false);
 
 // PREF: adjust the minimum tab width
 // Can be overridden by userChrome.css
