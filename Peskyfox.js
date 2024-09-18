@@ -250,7 +250,7 @@ user_pref("browser.urlbar.trending.featureGate", false);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753933#c6
 // [2] https://developer.mozilla.org/en-US/docs/Web/Text_fragments
 // [3] https://web.dev/articles/text-fragments
-//user_pref("dom.text_fragments.enabled", true);
+user_pref("dom.text_fragments.enabled", true);
 
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
@@ -632,7 +632,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // PREF: JPEG XL image format [NIGHTLY]
 // May not affect anything on ESR/Stable channel [2].
-// [TEST] https://jpegxl.io/tutorials/firefox/#firefoxjpegxltutorial
+// [TEST] https://www.jpegxl.io/firefox#firefox-jpegxl-tutorial
 // [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1539075#c51
 //user_pref("image.jxl.enabled", true);
