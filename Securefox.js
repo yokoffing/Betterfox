@@ -1037,7 +1037,7 @@ user_pref("privacy.userContext.ui.enabled", true);
 
 // PREF: set behavior on "+ Tab" button to display container menu on left click [FF74+]
 // [NOTE] The menu is always shown on long press and right click.
-// [SETTING] General>Tabs>Enable Container Tabs>Settings>Select a container for each new tab ***/
+// [SETTING] General>Tabs>Enable Container Tabs>Settings>Select a container for each new tab
 //user_pref("privacy.userContext.newTabContainerOnLeftClick.enabled", true);
 
 // PREF: set external links to open in site-specific containers [FF123+]
@@ -1145,7 +1145,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [STATS] ~0.2% of websites, about half of which are for cryptomining / malvertising [2][3]
 // [1] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=wasm
 // [2] https://spectrum.ieee.org/tech-talk/telecom/security/more-worries-over-the-security-of-web-assembly
-// [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes ***/
+// [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes
 //user_pref("javascript.options.wasm", false);
 
 /******************************************************************************
@@ -1325,7 +1325,7 @@ user_pref("datareporting.healthreport.uploadEnabled", false);
 // - If "unified" is true then "enabled" only controls whether to record extended data
 // [NOTE] "toolkit.telemetry.enabled" is now LOCKED to reflect prerelease (true) or release builds (false) [2]
 // [1] https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/telemetry/internals/preferences.html
-// [2] https://medium.com/georg-fritzsche/data-preference-changes-in-firefox-58-2d5df9c428b5 ***/
+// [2] https://medium.com/georg-fritzsche/data-preference-changes-in-firefox-58-2d5df9c428b5
 user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.enabled", false); // see [NOTE]
 user_pref("toolkit.telemetry.server", "data:,");
