@@ -123,10 +123,6 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 /** CONTAINERS ***/
 user_pref("privacy.userContext.ui.enabled", true);
 
-/** WEBRTC ***/
-user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
-user_pref("media.peerconnection.ice.default_address_only", true);
-
 /** SAFE BROWSING ***/
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 
