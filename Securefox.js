@@ -1063,13 +1063,14 @@ user_pref("privacy.userContext.ui.enabled", true);
 //user_pref("privacy.webrtc.globalMuteToggles", true);
 
 // PREF: force WebRTC inside the proxy [FF70+]
-user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
+//user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 
 // PREF: force a single network interface for ICE candidates generation [FF42+]
 // When using a system-wide proxy, it uses the proxy interface.
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate
 // [2] https://wiki.mozilla.org/Media/WebRTC/Privacy
-user_pref("media.peerconnection.ice.default_address_only", true);
+// [3] https://github.com/zen-browser/desktop/issues/972
+//user_pref("media.peerconnection.ice.default_address_only", true);
 
 // PREF: force exclusion of private IPs from ICE candidates [FF51+]
 // [SETUP-HARDEN] This will protect your private IP even in TRUSTED scenarios after you
