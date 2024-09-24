@@ -533,17 +533,20 @@ user_pref("network.predictor.enabled", false);
 
 // PREF: CSS Masonry Layout [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
+// [2] https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 // PREF: Prioritized Task Scheduling API [NIGHTLY]
 // [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
+// [3] https://github.com/WICG/scheduling-apis/blob/main/explainers/prioritized-post-task.md
+// [4] https://wicg.github.io/scheduling-apis/
 user_pref("dom.enable_web_task_scheduling", true);
 
 // PREF: HTML Sanitizer API [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer
+// [1] https://wicg.github.io/sanitizer-api/
 // [2] https://caniuse.com/mdn-api_sanitizer
-user_pref("dom.security.sanitizer.enabled", true);
+//user_pref("dom.security.sanitizer.enabled", true);
 
 // PREF: WebGPU [HIGHLY EXPERIMENTAL!]
 // [WARNING] Do not enable unless you are a web developer!
