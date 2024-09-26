@@ -30,8 +30,8 @@ user_pref("network.buffer.cache.count", 128); // default=24; use bigger packets
 user_pref("signon.rememberSignons", false); // disable password manager
 user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
 user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
+user_pref("browser.urlbar.suggest.recentsearches", false);  // unselect "Show recent searches" for clean UI
 user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
-//user_pref("browser.urlbar.suggest.trending", false); // FF119+ disable showing trending searches; unselect for clean UI
 //user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.autofillForms", false); // unselect "Autofill logins and passwords" for clean UI
@@ -94,6 +94,7 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 //user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
+//user_pref("browser.urlbar.suggest.trending", false); // FF119+ disable showing trending searches; unselect for clean UI
 //user_pref("browser.urlbar.suggest.quickactions", false); // Quick actions; hide URL bar dropdown suggestions
 //user_pref("browser.urlbar.suggest.clipboard", false); // Clipboard; hide URL bar dropdown suggestions
 
@@ -109,29 +110,34 @@ user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
+//user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
 //user_pref("gfx.font_rendering.cleartype_params.gamma", 898); // 1000-2200; https://www.reddit.com/r/firefox/comments/10ed7o2/comment/j4qar9y/
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
 
 /** DELETE IF NOT ENTERPRISE WINDOWS LAPTOP ***/
-//user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
+user_pref("urlclassifier.trackingSkipURLs", ""); // do not allow embedded tweets, Instagram, Reddit, and Tiktok posts
+user_pref("urlclassifier.features.socialtracking.skipURLs", ""); // do not allow embedded tweets, Instagram, Reddit, and Tiktok posts
+user_pref("browser.search.suggest.enabled", true); // search suggestions
+user_pref("browser.urlbar.showSearchSuggestionsFirst", true); // Show search suggestions ahead of browsing history in address bar results"
+user_pref("network.connectivity-service.enabled", true); // public wifi
+user_pref("network.trr.confirmationNS", "example.com"); // TRR confirmation request
+//user_pref("network.trr.mode", 2); // enable TRR (without System fallback)
 //user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
+//user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", false); // no need for userChrome
-user_pref("browser.urlbar.suggest.history", true); // Browsing history
-user_pref("browser.urlbar.suggest.bookmark", true); // Bookmarks
+//user_pref("browser.urlbar.suggest.history", true); // Browsing history
+//user_pref("browser.urlbar.suggest.bookmark", true); // Bookmarks
 //user_pref("browser.urlbar.suggest.openpage", true); // Open tabs
 //user_pref("browser.urlbar.suggest.topsites", true); // Shortcuts
-//user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last used
-//user_pref("browser.download.useDownloadDir", false); // ask where to download
 
 /** DELETE IF NOT macOS LAPTOP ***/
-//user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last used
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
 user_pref("network.trr.max-fails", 5); // lower max attempts to use DoH
 user_pref("geo.provider.use_corelocation", false); // geolocation [MAC]
@@ -140,11 +146,8 @@ user_pref("app.update.auto", false); // disable auto-installing Firefox updates 
 //user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
 
 /** DELETE IF NOT LINUX LAPTOP ***/
-//user_pref("browser.download.folderList", 1); // 0=desktop, 1=downloads, 2=last used
-//user_pref(layers.acceleration.force-enable", true); // needed in 2024?
-//user_pref("gfx.webrender.software.opengl", true); // needed?
-user_pref("browser.low_commit_space_threshold_mb", 13107); // determine when tabs unload
-user_pref("browser.low_commit_space_threshold_percent", 20); // determine when tabs unload (percentage)
+//user_pref("browser.low_commit_space_threshold_mb", 13107); // determine when tabs unload
+user_pref("browser.low_commit_space_threshold_percent", 10); // determine when tabs unload (percentage)
 //user_pref("middlemouse.contentLoadURL", false); // disable middle mouse click opening links from clipboard
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
 user_pref("network.trr.max-fails", 5); // lower max attempts to use DoH

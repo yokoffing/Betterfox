@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 129                                                             *
+ * version: 130                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -73,6 +73,10 @@ user_pref("browser.tabs.tabmanager.enabled", false);
 
 // PREF: new profile switcher
 user_pref("browser.profiles.enabled", true);
+
+// PREF: use native title bar buttons [LINUX]
+// [1] https://github.com/yokoffing/Betterfox/issues/320
+//user_pref("widget.gtk.non-native-titlebar-buttons.enabled", true);
 
 /****************************************************************************
  * SECTION: THEME ADJUSTMENTS                                              *
@@ -219,6 +223,11 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.urlbar.clipboard.featureGate", false); // [FF118+] [DEFAULT: true FF125+]
 //user_pref("browser.urlbar.yelp.featureGate", false); // [FF124+] [DEFAULT: false]
 
+// PREF: disable recent searches [FF120+]
+// [NOTE] Recent searches are cleared with history.
+// [1] https://support.mozilla.org/kb/search-suggestions-firefox
+//user_pref("browser.urlbar.recentsearches.featureGate", false);
+
 // PREF: disable tab-to-search [FF85+]
 // Alternatively, you can exclude on a per-engine basis by unchecking them in Options>Search
 // [SETTING] Privacy & Security>Address Bar>When using the address bar, suggest>Search engines
@@ -241,7 +250,7 @@ user_pref("browser.urlbar.trending.featureGate", false);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753933#c6
 // [2] https://developer.mozilla.org/en-US/docs/Web/Text_fragments
 // [3] https://web.dev/articles/text-fragments
-//user_pref("dom.text_fragments.enabled", true);
+user_pref("dom.text_fragments.enabled", true);
 
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
@@ -290,8 +299,8 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
       //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Shortcuts > Sponsored shortcuts [FF83+]
-//user_pref("browser.newtabpage.activity-stream.showWeather", false); // Weather [FF128+ NIGHTLY]
-    //user_pref("browser.newtabpage.activity-stream.system.showWeather", false); // Weather [FF128+ NIGHTLY]
+user_pref("browser.newtabpage.activity-stream.showWeather", false); // Weather [FF130+]
+    //user_pref("browser.newtabpage.activity-stream.system.showWeather", false); // hides Weather as an UI option
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
       //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
 //user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // Recent Activity [DEFAULT]
@@ -590,9 +599,6 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 //user_pref("mousewheel.with_control.action", 3);
 //user_pref("mousewheel.with_meta.action", 3);
 
-// PREF: hide image placeholders
-//user_pref("browser.display.show_image_placeholders", false);
-
 // PREF: adjust the minimum tab width
 // Can be overridden by userChrome.css
 //user_pref("browser.tabs.tabMinWidth", 120); // default=76
@@ -626,7 +632,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // PREF: JPEG XL image format [NIGHTLY]
 // May not affect anything on ESR/Stable channel [2].
-// [TEST] https://jpegxl.io/tutorials/firefox/#firefoxjpegxltutorial
+// [TEST] https://www.jpegxl.io/firefox#firefox-jpegxl-tutorial
 // [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1539075#c51
 //user_pref("image.jxl.enabled", true);

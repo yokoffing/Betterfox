@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 129                                                             *
+ * version: 130                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -302,9 +302,11 @@ user_pref("security.pki.crlite_mode", 2);
 //user_pref("security.enterprise_roots.enabled", false);
     //user_pref("security.certerrors.mitm.auto_enable_enterprise_roots", false);
 
-// PREF: disable content analysis by DLP (Data Loss Prevention) agents [FF124+]
-// DLP agents are background processes on managed computers that allow enterprises to monitor locally running
-// applications for data exfiltration events, which they can allow/block based on customer defined DLP policies.
+// PREF: disable content analysis by Data Loss Prevention (DLP) agents [FF124+]
+// DLP agents are background processes on managed computers that
+// allow enterprises to monitor locally running applications for
+// data exfiltration events, which they can allow/block based on
+// customer-defined DLP policies.
 // [1] https://github.com/chromium/content_analysis_sdk
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1880314
 //user_pref("browser.contentanalysis.enabled", false); // [FF121+] [DEFAULT]
@@ -580,7 +582,10 @@ user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
 // [SETTING] Search>Provide search suggestions > Show search suggestions in address bar result
 user_pref("browser.search.suggest.enabled", false);
     //user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
-user_pref("browser.urlbar.suggest.searches", false);
+
+// PREF: disable Show recent searches
+// [SETTING] Search > Search Suggestions > Show recent searches 
+//user_pref("browser.urlbar.suggest.recentsearches", false);
 
 // PREF: disable Firefox Suggest
 // [1] https://github.com/arkenfox/user.js/issues/1257
@@ -675,7 +680,7 @@ user_pref("dom.security.https_first", true); // [DEFAULT FF129+]
 
 // PREF: offer suggestion for HTTPS site when available
 // [1] https://x.com/leli_gibts_scho/status/1371463866606059528
-user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
+//user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: HTTP background requests in HTTPS-only Mode
 // When attempting to upgrade, if the server doesn't respond within 3 seconds[=default time],
@@ -902,22 +907,6 @@ user_pref("editor.truncate_user_pastes", false);
  * SECTION: MIXED CONTENT + CROSS-SITE                                       *
 ******************************************************************************/
 
-// PREF: block insecure active content (scripts) on HTTPS pages
-// [TEST] https://mixed-script.badssl.com/
-// [1] https://trac.torproject.org/projects/tor/ticket/21323
-//user_pref("security.mixed_content.block_active_content", true); // DEFAULT
-
-// PREF: upgrade passive content to use HTTPS on secure pages
-// Firefox will now automatically try to upgrade <img>, <audio>, and <video> elements
-// from HTTP to HTTPS if they are embedded within an HTTPS page. If these
-// mixed content elements do not support HTTPS, they will no longer load.
-// [NOTE] Enterprise users may need to disable this setting [1].
-// [1] https://blog.mozilla.org/security/2024/06/05/firefox-will-upgrade-more-mixed-content-in-version-127/
-//user_pref("security.mixed_content.upgrade_display_content", true); // [DEFAULT FF127+]
-    //user_pref("security.mixed_content.upgrade_display_content.audio", true); // [DEFAULT FF119+]
-    //user_pref("security.mixed_content.upgrade_display_content.image", true); // [DEFAULT FF127+]
-    //user_pref("security.mixed_content.upgrade_display_content.video", true); // [DEFAULT FF119+]
-
 // PREF: block insecure passive content (images) on HTTPS pages
 // [WARNING] This preference blocks all mixed content, including upgradable.
 // Firefox still attempts an HTTP connection if it can't find a secure one,
@@ -928,54 +917,55 @@ user_pref("editor.truncate_user_pastes", false);
 // [1] https://blog.mozilla.org/security/2024/06/05/firefox-will-upgrade-more-mixed-content-in-version-127/
 user_pref("security.mixed_content.block_display_content", true);
 
-// PREF: block insecure downloads from secure sites
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1660952
-//user_pref("dom.block_download_insecure", true); // DEFAULT
-
 // PREF: allow PDFs to load javascript
 // https://www.reddit.com/r/uBlockOrigin/comments/mulc86/firefox_88_now_supports_javascript_in_pdf_files/
 user_pref("pdfjs.enableScripting", false);
-
-// PREF: limit allowed extension directories
-// The pref value represents the sum: e.g. 5 would be profile and application directories.
-// [WARNING] Breaks usage of files which are installed outside allowed directories.
-// [1] https://archive.is/DYjAM
-// 1=profile, 2=user, 4=application, 8=system, 16=temporary, 31=all
-//user_pref("extensions.enabledScopes", 5); // [HIDDEN PREF] DEFAULT
-  // user_pref("extensions.autoDisableScopes", 15); // [DEFAULT: 15]
-
-// PREF: disable bypassing 3rd party extension install prompts
-// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1659530,1681331
-user_pref("extensions.postDownloadThirdPartyPrompt", false);
 
 // PREF: disable middle click on new tab button opening URLs or searches using clipboard [FF115+]
 // Enable if you're using LINUX.
 //user_pref("browser.tabs.searchclipboardfor.middleclick", false); // DEFAULT WINDOWS macOS
 
-// PREF: disable content analysis by Data Loss Prevention (DLP) agents
-// DLP agents are background processes on managed computers that
-// allow enterprises to monitor locally running applications for
-// data exfiltration events, which they can allow/block based on
-// customer-defined DLP policies.
-// [1] https://github.com/chromium/content_analysis_sdk
-//user_pref("browser.contentanalysis.default_allow", false); // [FF124+] [DEFAULT: false]
-
-// PREF: enforce TLS 1.0 and 1.1 downgrades as session only
-//user_pref("security.tls.version.enable-deprecated", false); // DEFAULT
-
-// PREF: enable (limited but sufficient) window.opener protection
-// Makes rel=noopener implicit for target=_blank in anchor and area elements when no rel attribute is set.
-// [1] https://jakearchibald.com/2016/performance-benefits-of-rel-noopener/
-//user_pref("dom.targetBlankNoOpener.enabled", true); // DEFAULT
-
-// PREF: enable "window.name" protection
-// If a new page from another domain is loaded into a tab, then window.name is set to an empty string. The original
-// string is restored if the tab reverts back to the original page. This change prevents some cross-site attacks.
-//user_pref("privacy.window.name.update.enabled", true); // DEFAULT
-
 // PREF: disable automatic authentication on Microsoft sites [WINDOWS]
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
 //user_pref("network.http.windows-sso.enabled", false);
+
+/****************************************************************************
+ * SECTION: EXTENSIONS                                                      *
+****************************************************************************/
+
+// PREF: limit allowed extension directories
+// 1=profile, 2=user, 4=application, 8=system, 16=temporary, 31=all
+// The pref value represents the sum: e.g. 5 would be profile and application directories.
+// [WARNING] Breaks usage of files which are installed outside allowed directories.
+// [1] https://archive.is/DYjAM
+user_pref("extensions.enabledScopes", 5); // [HIDDEN PREF]
+    //user_pref("extensions.autoDisableScopes", 15); // [DEFAULT: 15]
+
+// PREF: skip 3rd party panel when installing recommended addons [FF82+]
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1659530,1681331
+//user_pref("extensions.postDownloadThirdPartyPrompt", false);
+
+// PREF: disable mozAddonManager Web API [FF57+]
+// [NOTE] To allow extensions to work on AMO, you also need extensions.webextensions.restrictedDomains.
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988
+//user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
+
+// PREF: disable webextension restrictions on Mozilla domains [FF60+]
+// [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
+// [2] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988
+//user_pref("extensions.webextensions.restrictedDomains", "");
+
+// PREF: do not require signing for extensions [ESR/DEV/NIGHTLY ONLY]
+// [1] https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox#w_what-are-my-options-if-i-want-to-use-an-unsigned-add-on-advanced-users
+//user_pref("xpinstall.signatures.required", false);
+
+// PREF: disable Quarantined Domains [FF115+]
+// Users may see a notification when running add-ons that are not monitored by Mozilla when they visit certain sites.
+// The notification informs them that “some extensions are not allowed” and were blocked from running on that site.
+// There's no details as to which sites are affected.
+// [1] https://support.mozilla.org/en-US/kb/quarantined-domains
+// [2] https://www.ghacks.net/2023/07/04/firefox-115-new-esr-base-and-some-add-ons-may-be-blocked-from-running-on-certain-sites/
+//user_pref("extensions.quarantinedDomains.enabled", false);
 
 /******************************************************************************
  * SECTION: HEADERS / REFERERS                                               *
@@ -1047,7 +1037,7 @@ user_pref("privacy.userContext.ui.enabled", true);
 
 // PREF: set behavior on "+ Tab" button to display container menu on left click [FF74+]
 // [NOTE] The menu is always shown on long press and right click.
-// [SETTING] General>Tabs>Enable Container Tabs>Settings>Select a container for each new tab ***/
+// [SETTING] General>Tabs>Enable Container Tabs>Settings>Select a container for each new tab
 //user_pref("privacy.userContext.newTabContainerOnLeftClick.enabled", true);
 
 // PREF: set external links to open in site-specific containers [FF123+]
@@ -1073,13 +1063,14 @@ user_pref("privacy.userContext.ui.enabled", true);
 //user_pref("privacy.webrtc.globalMuteToggles", true);
 
 // PREF: force WebRTC inside the proxy [FF70+]
-user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
+//user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 
 // PREF: force a single network interface for ICE candidates generation [FF42+]
 // When using a system-wide proxy, it uses the proxy interface.
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate
 // [2] https://wiki.mozilla.org/Media/WebRTC/Privacy
-user_pref("media.peerconnection.ice.default_address_only", true);
+// [3] https://github.com/zen-browser/desktop/issues/972
+//user_pref("media.peerconnection.ice.default_address_only", true);
 
 // PREF: force exclusion of private IPs from ICE candidates [FF51+]
 // [SETUP-HARDEN] This will protect your private IP even in TRUSTED scenarios after you
@@ -1155,7 +1146,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // [STATS] ~0.2% of websites, about half of which are for cryptomining / malvertising [2][3]
 // [1] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=wasm
 // [2] https://spectrum.ieee.org/tech-talk/telecom/security/more-worries-over-the-security-of-web-assembly
-// [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes ***/
+// [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes
 //user_pref("javascript.options.wasm", false);
 
 /******************************************************************************
@@ -1310,35 +1301,12 @@ user_pref("permissions.default.geo", 2);
 // [NOTE] This does not affect Mozilla's built-in or Web Extension search engines.
 //user_pref("browser.search.update", false);
 
-// PREF: remove special permissions for certain mozilla domains
+// PREF: remove special permissions for certain mozilla domains [FF35+]
 // default = resource://app/defaults/permissions
 //user_pref("permissions.manager.defaultsUrl", "");
 
 // PREF: remove webchannel whitelist
 user_pref("webchannel.allowObject.urlWhitelist", "");
-
-// PREF: disable mozAddonManager Web API [FF57+]
-// [NOTE] To allow extensions to work on AMO, you also need extensions.webextensions.restrictedDomains.
-// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988
-//user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDEN PREF FF57-108]
-
-// PREF: disable webextension restrictions on Mozilla domains
-// [NOTE] May only work with PREF: privacy.resistfingerprinting enabled and/or DEV/NIGHTLY-only?
-// [1] https://www.reddit.com/r/firefox/comments/n1lpaf/make_addons_work_on_mozilla_sites/gwdy235/?context=3
-// [2] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1384330,1406795,1415644,1453988
-//user_pref("extensions.webextensions.restrictedDomains", "");
-
-// PREF: do not require signing for extensions [ESR/DEV/NIGHTLY ONLY]
-// [1] https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox#w_what-are-my-options-if-i-want-to-use-an-unsigned-add-on-advanced-users
-//user_pref("xpinstall.signatures.required", false);
-
-// PREF: disable Quarantined Domains [FF115+]
-// Users may see a notification when running add-ons that are not monitored by Mozilla when they visit certain sites.
-// The notification informs them that “some extensions are not allowed” and were blocked from running on that site.
-// There's no details as to which sites are affected.
-// [1] https://support.mozilla.org/en-US/kb/quarantined-domains
-// [2] https://www.ghacks.net/2023/07/04/firefox-115-new-esr-base-and-some-add-ons-may-be-blocked-from-running-on-certain-sites/
-//user_pref("extensions.quarantinedDomains.enabled", false);
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
@@ -1358,7 +1326,7 @@ user_pref("datareporting.healthreport.uploadEnabled", false);
 // - If "unified" is true then "enabled" only controls whether to record extended data
 // [NOTE] "toolkit.telemetry.enabled" is now LOCKED to reflect prerelease (true) or release builds (false) [2]
 // [1] https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/telemetry/internals/preferences.html
-// [2] https://medium.com/georg-fritzsche/data-preference-changes-in-firefox-58-2d5df9c428b5 ***/
+// [2] https://medium.com/georg-fritzsche/data-preference-changes-in-firefox-58-2d5df9c428b5
 user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.enabled", false); // see [NOTE]
 user_pref("toolkit.telemetry.server", "data:,");
