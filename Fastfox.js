@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 130                                                                         *
+ * version: 131                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -45,8 +45,8 @@
 // to impact page load performance.
 // [EXAMPLE] 100000 = .10s = 100 reflows/second
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
-// [2] https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
-// [3] https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
+// [2] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
+// [3] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
 user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 
 // PREF: new tab preload
