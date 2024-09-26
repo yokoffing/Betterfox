@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 129                                                                         *
+ * version: 130                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -533,7 +533,7 @@ user_pref("network.predictor.enabled", false);
 
 // PREF: CSS Masonry Layout [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
+//user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 // PREF: Prioritized Task Scheduling API [NIGHTLY]
 // [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
@@ -543,7 +543,7 @@ user_pref("dom.enable_web_task_scheduling", true);
 // PREF: HTML Sanitizer API [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer
 // [2] https://caniuse.com/mdn-api_sanitizer
-user_pref("dom.security.sanitizer.enabled", true);
+//user_pref("dom.security.sanitizer.enabled", true);
 
 // PREF: WebGPU [HIGHLY EXPERIMENTAL!]
 // [WARNING] Do not enable unless you are a web developer!
