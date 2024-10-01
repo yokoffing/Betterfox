@@ -65,12 +65,6 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 // PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
-// PREF: only show List All Tabs icon when needed
-// true=always show tab overflow dropdown (FF106+ default)
-// false=only display tab dropdown when there are too many tabs
-// [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
-user_pref("browser.tabs.tabmanager.enabled", false);
-
 // PREF: new profile switcher
 user_pref("browser.profiles.enabled", true);
 
