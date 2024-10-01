@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 130                                                             *
+ * version: 131                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -399,7 +399,7 @@ user_pref("network.http.http3.enable_kyber", true);
  * SECTION: DISK AVOIDANCE                                                  *
 ****************************************************************************/
 
-// PREF: prevent media cache from writing to disk in Private Browsing
+// PREF: set media cache in Private Browsing to in-memory
 // [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 
