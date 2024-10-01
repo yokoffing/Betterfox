@@ -351,6 +351,11 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 // [3] https://blog.cloudflare.com/tls-1-3-overview-and-q-and-a/
 user_pref("security.tls.enable_0rtt_data", false);
 
+// PREF: enable hybrid post-quantum key exchange
+// [1] https://pq.cloudflareresearch.com
+user_pref("security.tls.enable_kyber", true);
+user_pref("network.http.http3.enable_kyber", true);
+
 /****************************************************************************
  * SECTION: FINGERPRINT PROTECTION (FPP)                                    *
 ****************************************************************************/
