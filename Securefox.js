@@ -1404,7 +1404,6 @@ user_pref("network.connectivity-service.enabled", false);
     //user_pref("toolkit.telemetry.dap_helper", ""); // [OPTIONAL HARDENING]
     //user_pref("toolkit.telemetry.dap_leader", ""); // [OPTIONAL HARDENING]
 
-
 // PREF: software that continually reports what default browser you are using [WINDOWS]
 // [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser [2].
 // [1] https://techdows.com/2020/04/what-is-firefox-default-browser-agent-and-how-to-disable-it.html
