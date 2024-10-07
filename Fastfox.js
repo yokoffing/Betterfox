@@ -533,6 +533,11 @@ user_pref("network.predictor.enabled", false);
  * SECTION: EXPERIMENTAL                                                    *
 ****************************************************************************/
 
+// PREF: CSS Masonry Layout [NIGHTLY]
+// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
+// [2] https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
+
 // PREF: Prioritized Task Scheduling API [NIGHTLY]
 // [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
