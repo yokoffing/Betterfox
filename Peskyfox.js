@@ -172,7 +172,6 @@ user_pref("full-screen-api.warning.timeout", 0); // default=3000
 //user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 //user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 //user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
-//user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 //user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 // Some users find these helpful:
     //user_pref("gfx.font_rendering.cleartype_params.gamma", 1750);
