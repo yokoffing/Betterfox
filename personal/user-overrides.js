@@ -101,7 +101,7 @@ user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("gfx.canvas.accelerated", true); // DEFAULT NON-WINDOWS; enable if not using an integrated GPU
 user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
-user_pref("geo.provider.ms-windows-location", false); //  [WINDOWS]
+user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("pdfjs.defaultZoomValue", "125"); // alt=page-width; PDF zoom level
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
@@ -116,9 +116,9 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 user_pref("urlclassifier.trackingSkipURLs", ""); // do not allow embedded tweets, Instagram, Reddit, and Tiktok posts
 user_pref("urlclassifier.features.socialtracking.skipURLs", ""); // do not allow embedded tweets, Instagram, Reddit, and Tiktok posts
 user_pref("browser.search.suggest.enabled", true); // search suggestions
-user_pref("browser.urlbar.showSearchSuggestionsFirst", true); // Show search suggestions ahead of browsing history in address bar results"
-user_pref("network.connectivity-service.enabled", true); // public wifi
-user_pref("network.trr.confirmationNS", "example.com"); // TRR confirmation request
+user_pref("browser.urlbar.showSearchSuggestionsFirst", true); // Show search suggestions ahead of browsing history in address bar results
+//user_pref("network.connectivity-service.enabled", true); // public wifi
+//user_pref("network.trr.confirmationNS", "example.com"); // TRR confirmation request
 //user_pref("network.trr.mode", 2); // enable TRR (without System fallback)
 //user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
