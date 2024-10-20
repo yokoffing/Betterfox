@@ -1307,7 +1307,7 @@ user_pref("permissions.default.geo", 2);
 
 // PREF: remove special permissions for certain mozilla domains [FF35+]
 // default = resource://app/defaults/permissions
-//user_pref("permissions.manager.defaultsUrl", "");
+user_pref("permissions.manager.defaultsUrl", "");
 
 // PREF: remove webchannel whitelist
 user_pref("webchannel.allowObject.urlWhitelist", "");
