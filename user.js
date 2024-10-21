@@ -182,9 +182,6 @@ user_pref("browser.profiles.enabled", true);
 /** THEME ADJUSTMENTS ***/
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.compactmode.show", true);
-user_pref("browser.display.focus_ring_on_anything", true);
-user_pref("browser.display.focus_ring_style", 0);
-user_pref("browser.display.focus_ring_width", 0);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
 
