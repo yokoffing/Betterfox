@@ -82,12 +82,6 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 // PREF: add compact mode back to options
 user_pref("browser.compactmode.show", true);
 
-// PREF: remove focus indicator for links
-// [1] https://www.askvg.com/firefox-tip-restore-classic-dotted-outline-focus-indicator-for-links/
-user_pref("browser.display.focus_ring_on_anything", true); 
-user_pref("browser.display.focus_ring_style", 0);
-user_pref("browser.display.focus_ring_width", 0);
-
 // PREF: preferred color scheme for websites
 // [SETTING] General>Language and Appearance>Website appearance
 // By default, color scheme matches the theme of your browser toolbar (3).
