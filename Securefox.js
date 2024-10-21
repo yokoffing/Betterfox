@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 130                                                             *
+ * version: 131                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -38,6 +38,8 @@ user_pref("browser.contentblocking.category", "strict");
     //user_pref("privacy.annotate_channels.strict_list.pbmode.enabled", true); // DEFAULT
 //user_pref("privacy.fingerprintingProtection", true); // [FF114+] [ETP FF119+] enabled with "Strict"
     //user_pref("privacy.fingerprintingProtection.pbmode", true); // DEFAULT
+//user_pref("privacy.bounceTrackingProtection.mode", 1); // [FF131+] [ETP FF133+]
+// [1] https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11-23
 
 // PREF: query stripping
 // Currently uses a small list [1]
@@ -142,14 +144,6 @@ user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.
 // [5] https://github.com/arkenfox/user.js/issues/1089
 // [6] https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/cookie-purging/index.html
 //user_pref("privacy.purge_trackers.enabled", true); // DEFAULT
-
-// PREF: Bounce Tracking Protection [FF127+]
-// A new standardised variant of Cookie Purging that uses heuristics to detect bounce trackers,
-// rather than relying on tracker lists.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1895222
-// [2] https://groups.google.com/a/mozilla.org/g/dev-platform/c/M6erM0SjPTM
-//user_pref("privacy.bounceTrackingProtection.enabled", true);
-//user_pref("privacy.bounceTrackingProtection.enableDryRunMode", false); // false enables tracker data purging
 
 // PREF: SameSite Cookies
 // Currently, the absence of the SameSite attribute implies that cookies will be
@@ -351,6 +345,11 @@ user_pref("browser.xul.error_pages.expert_bad_cert", true);
 // [3] https://blog.cloudflare.com/tls-1-3-overview-and-q-and-a/
 user_pref("security.tls.enable_0rtt_data", false);
 
+// PREF: enable hybrid post-quantum key exchange
+// [1] https://pq.cloudflareresearch.com
+user_pref("security.tls.enable_kyber", true);
+user_pref("network.http.http3.enable_kyber", true);
+
 /****************************************************************************
  * SECTION: FINGERPRINT PROTECTION (FPP)                                    *
 ****************************************************************************/
@@ -394,7 +393,7 @@ user_pref("security.tls.enable_0rtt_data", false);
  * SECTION: DISK AVOIDANCE                                                  *
 ****************************************************************************/
 
-// PREF: prevent media cache from writing to disk in Private Browsing
+// PREF: set media cache in Private Browsing to in-memory
 // [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 
@@ -590,8 +589,8 @@ user_pref("browser.search.suggest.enabled", false);
 // PREF: disable Firefox Suggest
 // [1] https://github.com/arkenfox/user.js/issues/1257
 user_pref("browser.urlbar.quicksuggest.enabled", false); // controls whether the UI is shown
-user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false); // [FF92+] 
-user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false); // [FF95+]
+    //user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false); // [FF92+] 
+    //user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false); // [FF95+]
 // hide Firefox Suggest label in URL dropdown box
 user_pref("browser.urlbar.groupLabels.enabled", false);
 
@@ -1303,7 +1302,7 @@ user_pref("permissions.default.geo", 2);
 
 // PREF: remove special permissions for certain mozilla domains [FF35+]
 // default = resource://app/defaults/permissions
-//user_pref("permissions.manager.defaultsUrl", "");
+user_pref("permissions.manager.defaultsUrl", "");
 
 // PREF: remove webchannel whitelist
 user_pref("webchannel.allowObject.urlWhitelist", "");
@@ -1398,7 +1397,6 @@ user_pref("network.connectivity-service.enabled", false);
 //user_pref("dom.private-attribution.submission.enabled", false);
     //user_pref("toolkit.telemetry.dap_helper", ""); // [OPTIONAL HARDENING]
     //user_pref("toolkit.telemetry.dap_leader", ""); // [OPTIONAL HARDENING]
-
 
 // PREF: software that continually reports what default browser you are using [WINDOWS]
 // [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser [2].
