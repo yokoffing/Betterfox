@@ -99,14 +99,16 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
     //user_pref("gfx.webrender.software.opengl", true); // LINUX
 
 // PREF: GPU-accelerated Canvas2D
-// Use gpu-canvas instead of to skia-canvas.
+// Uses Accelerated Canvas2D for hardware acceleration of Canvas2D.
+// This provides a consistent acceleration architecture across all platforms
+// by utilizing WebGL instead of relying upon Direct2D.
 // [WARNING] May cause issues on some Windows machines using integrated GPUs [2] [3]
 // Add to your overrides if you have a dedicated GPU.
 // [NOTE] Higher values will use more memory.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
-//user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
+//user_pref("gfx.canvas.accelerated", true); // [DEFAULT FF133+]
     user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; Chrome=4096
     user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512
     user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
