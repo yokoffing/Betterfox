@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 130                                                                         *
+ * version: 131                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -45,8 +45,8 @@
 // to impact page load performance.
 // [EXAMPLE] 100000 = .10s = 100 reflows/second
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
-// [2] https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
-// [3] https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
+// [2] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
+// [3] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
 user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 
 // PREF: new tab preload
@@ -99,14 +99,16 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
     //user_pref("gfx.webrender.software.opengl", true); // LINUX
 
 // PREF: GPU-accelerated Canvas2D
-// Use gpu-canvas instead of to skia-canvas.
+// Uses Accelerated Canvas2D for hardware acceleration of Canvas2D.
+// This provides a consistent acceleration architecture across all platforms
+// by utilizing WebGL instead of relying upon Direct2D.
 // [WARNING] May cause issues on some Windows machines using integrated GPUs [2] [3]
 // Add to your overrides if you have a dedicated GPU.
 // [NOTE] Higher values will use more memory.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
-//user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
+//user_pref("gfx.canvas.accelerated", true); // [DEFAULT FF133+]
     user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; Chrome=4096
     user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512
     user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
@@ -281,6 +283,8 @@ user_pref("browser.cache.jsbc_compression_level", 3);
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
 // [2] https://github.com/arkenfox/user.js/pull/941
 user_pref("media.memory_cache_max_size", 65536); // default=8192; AF=65536; alt=131072
+
+// PREF: media cache combine sizes
 //user_pref("media.memory_caches_combined_limit_kb", 524288); // DEFAULT; alt=1048576
 //user_pref("media.memory_caches_combined_limit_pc_sysmem", 5); // DEFAULT; alt=10; the percentage of system memory that Firefox can use for media caches
 
@@ -534,30 +538,15 @@ user_pref("network.predictor.enabled", false);
 // PREF: CSS Masonry Layout [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
 // [2] https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/
-//user_pref("layout.css.grid-template-masonry-value.enabled", true);
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 // PREF: Prioritized Task Scheduling API [NIGHTLY]
 // [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
 // [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
 // [3] https://github.com/WICG/scheduling-apis/blob/main/explainers/prioritized-post-task.md
 // [4] https://wicg.github.io/scheduling-apis/
+// [5] https://caniuse.com/mdn-api_taskcontroller
 user_pref("dom.enable_web_task_scheduling", true);
-
-// PREF: HTML Sanitizer API [NIGHTLY]
-// [1] https://wicg.github.io/sanitizer-api/
-// [2] https://caniuse.com/mdn-api_sanitizer
-//user_pref("dom.security.sanitizer.enabled", true);
-
-// PREF: WebGPU [HIGHLY EXPERIMENTAL!]
-// [WARNING] Do not enable unless you are a web developer!
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1746245
-// [2] https://developer.chrome.com/docs/web-platform/webgpu/
-// [3] https://github.com/gpuweb/gpuweb/wiki/Implementation-Status
-// [4] https://hacks.mozilla.org/2020/04/experimental-webgpu-in-firefox/
-//user_pref("dom.webgpu.enabled", true);
-    //user_pref("gfx.webgpu.force-enabled", true); // enforce
-// enable WebGPU indirect draws/dispatches:
-//user_pref("dom.webgpu.indirect-dispatch.enabled", true);
 
 /****************************************************************************
  * SECTION: TAB UNLOAD                                                      *
