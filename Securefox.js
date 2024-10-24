@@ -24,7 +24,7 @@
 //user_pref("privacy.trackingprotection.enabled", true); // enabled with "Strict"
 //user_pref("privacy.trackingprotection.pbmode.enabled", true); // DEFAULT
 //user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false); // DEFAULT
-user_pref("browser.contentblocking.category", "strict");
+user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
 //user_pref("privacy.trackingprotection.socialtracking.enabled", true); // enabled with "Strict"
     //user_pref("privacy.socialtracking.block_cookies.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.cryptomining.enabled", true); // DEFAULT
