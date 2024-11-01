@@ -22,8 +22,6 @@ user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionhistory.max_total_viewers", 4); // only remember # of pages in Back-Forward cache
 user_pref("browser.cache.disk.enable", false); // disable disk cache
 user_pref("network.http.max-persistent-connections-per-server", 20); // increase download connections
-user_pref("network.buffer.cache.size", 262144); // default=32768; [WARNING] Cannot open HTML files bigger than 4 MB if changed
-user_pref("network.buffer.cache.count", 128); // default=24; use bigger packets
 
 /** SECUREFOX ***/
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
@@ -103,15 +101,13 @@ user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
 user_pref("gfx.canvas.accelerated", true); // DEFAULT NON-WINDOWS; enable if not using an integrated GPU
 user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
-user_pref("geo.provider.ms-windows-location", false); //  [WINDOWS]
+user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("pdfjs.defaultZoomValue", "125"); // alt=page-width; PDF zoom level
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
-user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 //user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
-//user_pref("gfx.font_rendering.cleartype_params.gamma", 898); // 1000-2200; https://www.reddit.com/r/firefox/comments/10ed7o2/comment/j4qar9y/
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
@@ -120,17 +116,16 @@ user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 user_pref("urlclassifier.trackingSkipURLs", ""); // do not allow embedded tweets, Instagram, Reddit, and Tiktok posts
 user_pref("urlclassifier.features.socialtracking.skipURLs", ""); // do not allow embedded tweets, Instagram, Reddit, and Tiktok posts
 user_pref("browser.search.suggest.enabled", true); // search suggestions
-user_pref("browser.urlbar.showSearchSuggestionsFirst", true); // Show search suggestions ahead of browsing history in address bar results"
-user_pref("network.connectivity-service.enabled", true); // public wifi
-user_pref("network.trr.confirmationNS", "example.com"); // TRR confirmation request
+user_pref("browser.urlbar.showSearchSuggestionsFirst", true); // Show search suggestions ahead of browsing history in address bar results
+//user_pref("network.connectivity-service.enabled", true); // public wifi
+//user_pref("network.trr.confirmationNS", "example.com"); // TRR confirmation request
 //user_pref("network.trr.mode", 2); // enable TRR (without System fallback)
 //user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
-user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
-//user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
+user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", false); // no need for userChrome
 //user_pref("browser.urlbar.suggest.history", true); // Browsing history
 //user_pref("browser.urlbar.suggest.bookmark", true); // Bookmarks
@@ -146,9 +141,6 @@ user_pref("app.update.auto", false); // disable auto-installing Firefox updates 
 //user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
 
 /** DELETE IF NOT LINUX LAPTOP ***/
-//user_pref("browser.low_commit_space_threshold_mb", 13107); // determine when tabs unload
-user_pref("browser.low_commit_space_threshold_percent", 10); // determine when tabs unload (percentage)
-//user_pref("middlemouse.contentLoadURL", false); // disable middle mouse click opening links from clipboard
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
 user_pref("network.trr.max-fails", 5); // lower max attempts to use DoH
 user_pref("geo.provider.use_geoclue", false); // [LINUX]

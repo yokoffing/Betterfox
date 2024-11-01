@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 130                                                             *
+ * version: 131                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -65,12 +65,6 @@ user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
 // PREF: disable "What's New" toolbar icon [FF69+]
 //user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 
-// PREF: only show List All Tabs icon when needed
-// true=always show tab overflow dropdown (FF106+ default)
-// false=only display tab dropdown when there are too many tabs
-// [1] https://www.ghacks.net/2022/10/19/how-to-hide-firefoxs-list-all-tabs-icon/
-user_pref("browser.tabs.tabmanager.enabled", false);
-
 // PREF: new profile switcher
 user_pref("browser.profiles.enabled", true);
 
@@ -87,12 +81,6 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // PREF: add compact mode back to options
 user_pref("browser.compactmode.show", true);
-
-// PREF: remove focus indicator for links
-// [1] https://www.askvg.com/firefox-tip-restore-classic-dotted-outline-focus-indicator-for-links/
-user_pref("browser.display.focus_ring_on_anything", true); 
-user_pref("browser.display.focus_ring_style", 0);
-user_pref("browser.display.focus_ring_width", 0);
 
 // PREF: preferred color scheme for websites
 // [SETTING] General>Language and Appearance>Website appearance
@@ -178,7 +166,6 @@ user_pref("full-screen-api.warning.timeout", 0); // default=3000
 //user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 //user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 //user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
-//user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 6);
 //user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 // Some users find these helpful:
     //user_pref("gfx.font_rendering.cleartype_params.gamma", 1750);
@@ -250,7 +237,7 @@ user_pref("browser.urlbar.trending.featureGate", false);
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753933#c6
 // [2] https://developer.mozilla.org/en-US/docs/Web/Text_fragments
 // [3] https://web.dev/articles/text-fragments
-user_pref("dom.text_fragments.enabled", true);
+//user_pref("dom.text_fragments.enabled", true); // [DEFAULT]
 
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
