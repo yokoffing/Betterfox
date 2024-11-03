@@ -83,11 +83,11 @@ def _get_releases(repository_owner, repository_name):
 
         # Find which firefox releases are supported. Manual overrides for ones that don't have it written in their thing!
         if name == "user.js v.122.1":
-            supported = ["120.0", "120.0.1", "121.0", "121.0.1", "122.0", "122.0.1"]  # Assumed from previous release. TODO check with yokoffing
+            supported = ["107.0", "107.1", "108.0", "108.0.1", "108.0.2", "109.0", "109.0", "110.1", "110.0.1", "111.0", "111.0.1", "112.0", "112.0.1", "112.0.2", "113.0", "113.0.1", "113.0.2", "114.0", "114.0.1", "114.0.2", "115.0", "115.0.1", "115.0.2", "115.0.3", "115.1.0", "115.10.0", "115.11.0", "115.12.0", "115.13.0", "115.14.0", "115.15.0", "115.16.0", "115.16.1", "115.17.0", "115.2.0", "115.2.1", "115.3.0", "115.3.1", "115.4.0", "115.5.0", "115.6.0", "115.7.0", "115.8.0", "115.9.0", "115.9.1", "116.0", "116.0.1", "116.0.2", "116.0.3", "117.0", "117.0.1", "118.0", "118.0.1", "118.0.2", "119.0", "119.0.1", "120.0", "120.0.1", "121.0", "121.0.1", "122.0", "122.0.1"]
         elif name == "user.js 116.1":
-            supported = ["116.0", "116.0.1", "116.0.2", "116.0.3"]  # Assumed from previous release. TODO check with yokoffing
+            supported = ["116.0", "116.0.1", "116.0.2", "116.0.3"]
         elif name == "Betterfox v.107":
-            supported = ["107.0"]  # TODO, check with yokoffing
+            supported = ["107.0"]
         elif "firefox release" in body.lower():
             trim_body = body.lower()[body.lower().index("firefox release"):]
             supported = re_find_version.findall(trim_body)
