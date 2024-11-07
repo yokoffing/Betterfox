@@ -1149,6 +1149,9 @@ user_pref("privacy.userContext.ui.enabled", true);
 // [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes
 //user_pref("javascript.options.wasm", false);
 
+// PREF: purge session icon in Private Browsing windows
+user_pref("browser.privatebrowsing.resetPBM.enabled", false);
+
 /******************************************************************************
  * SECTION: SAFE BROWSING (SB)                                               *
 ******************************************************************************/
