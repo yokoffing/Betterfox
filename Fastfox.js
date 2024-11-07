@@ -230,7 +230,7 @@ user_pref("browser.cache.disk.enable", true);
 // 0 = do not compress (default)
 // 1 = minimal compression
 // 9 = maximal compression
-user_pref("browser.cache.jsbc_compression_level", 3);
+//user_pref("browser.cache.jsbc_compression_level", 3);
 
 // PREF: strategy to use for when the bytecode should be encoded and saved [TESTING ONLY]
 // -1 makes page load times marginally longer when a page is being loaded for the first time, while
