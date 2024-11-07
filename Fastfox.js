@@ -144,7 +144,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // More efficient to keep the browser cache instead of having to
 // re-download objects for the websites you visit frequently.
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
-//user_pref("browser.cache.disk.enable", true); // DEFAULT
+user_pref("browser.cache.disk.enable", true);
 
 // PREF: disk cache size
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968106,968101
