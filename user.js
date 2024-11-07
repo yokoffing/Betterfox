@@ -82,6 +82,7 @@ user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 user_pref("browser.sessionstore.interval", 60000);
 
 /** SHUTDOWN & SANITIZING ***/
+user_pref("browser.privatebrowsing.resetPBM.enabled", false);
 user_pref("privacy.history.custom", true);
 
 /** SEARCH / URL BAR ***/
