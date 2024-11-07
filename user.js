@@ -126,6 +126,7 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 /** MOZILLA ***/
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
+user_pref("browser.search.update", false);
 user_pref("permissions.manager.defaultsUrl", "");
 
 /** TELEMETRY ***/
