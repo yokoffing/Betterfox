@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 131                                                             *
+ * version: 132                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -102,7 +102,7 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 //user_pref("browser.search.widget.inNavBar", true);
 
 // PREF: new tab page wallpapers
-user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
+//user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true); // [DEFAULT FF132+]
 
 /****************************************************************************
  * SECTION: COOKIE BANNER HANDLING                                         *
