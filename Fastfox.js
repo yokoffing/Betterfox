@@ -210,8 +210,9 @@ user_pref("browser.cache.disk.enable", true);
 //user_pref("browser.cache.disk.max_priority_chunks_memory_usage", 40960); // DEFAULT (40 MB)
 
 // PREF: how often to validate document in cache
-// [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#1092-1096
 // 0 = once-per-session
+// 1 = each-time
+// 2 = never
 // 3 = when-appropriate/automatically (default)
 //user_pref("browser.cache.check_doc_frequency", 3); // DEFAULT
 
