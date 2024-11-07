@@ -126,7 +126,6 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("permissions.manager.defaultsUrl", "");
-user_pref("webchannel.allowObject.urlWhitelist", "");
 
 /** TELEMETRY ***/
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
@@ -180,7 +179,6 @@ user_pref("browser.profiles.enabled", true);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.compactmode.show", true);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
-user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true);
 
 /** COOKIE BANNER HANDLING ***/
 user_pref("cookiebanners.service.mode", 1);
