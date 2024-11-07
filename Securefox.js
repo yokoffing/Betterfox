@@ -474,7 +474,7 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
    //user_pref("privacy.clearHistory.siteSettings", false);
 
 // PREF: purge session icon in Private Browsing windows
-user_pref("browser.privatebrowsing.resetPBM.enabled", false);
+user_pref("browser.privatebrowsing.resetPBM.enabled", true);
 
 /******************************************************************************
  * SECTION: SHUTDOWN & SANITIZING                                             *
