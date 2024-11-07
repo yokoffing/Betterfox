@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 131                                                             *
+ * version: 132                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -1306,7 +1306,7 @@ user_pref("permissions.default.geo", 2);
 user_pref("permissions.manager.defaultsUrl", "");
 
 // PREF: remove webchannel whitelist
-user_pref("webchannel.allowObject.urlWhitelist", "");
+//user_pref("webchannel.allowObject.urlWhitelist", ""); // [DEFAULT FF132+]
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
@@ -1373,7 +1373,7 @@ user_pref("browser.tabs.crashReporting.sendReport", false);
 
 // PREF: enforce no submission of backlogged crash reports
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send backlogged crash reports
-user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+//user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false); // [DEFAULT FF132+]
 
 /******************************************************************************
  * SECTION: DETECTION                                                        *
