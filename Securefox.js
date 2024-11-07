@@ -1301,8 +1301,9 @@ user_pref("permissions.default.geo", 2);
 //user_pref("extensions.update.enabled", false);
 
 // PREF: disable search engine updates (e.g. OpenSearch)
+// Prevent Firefox from adding back search engines after you removed them.
 // [NOTE] This does not affect Mozilla's built-in or Web Extension search engines.
-//user_pref("browser.search.update", false);
+user_pref("browser.search.update", false);
 
 // PREF: remove special permissions for certain mozilla domains [FF35+]
 // default = resource://app/defaults/permissions
