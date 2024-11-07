@@ -473,6 +473,9 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
    //user_pref("privacy.cpd.siteSettings", false);
    //user_pref("privacy.clearHistory.siteSettings", false);
 
+// PREF: purge session icon in Private Browsing windows
+user_pref("browser.privatebrowsing.resetPBM.enabled", false);
+
 /******************************************************************************
  * SECTION: SHUTDOWN & SANITIZING                                             *
 ******************************************************************************/
@@ -1148,9 +1151,6 @@ user_pref("privacy.userContext.ui.enabled", true);
 // [2] https://spectrum.ieee.org/tech-talk/telecom/security/more-worries-over-the-security-of-web-assembly
 // [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes
 //user_pref("javascript.options.wasm", false);
-
-// PREF: purge session icon in Private Browsing windows
-user_pref("browser.privatebrowsing.resetPBM.enabled", false);
 
 /******************************************************************************
  * SECTION: SAFE BROWSING (SB)                                               *
