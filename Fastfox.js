@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 131                                                                         *
+ * version: 133                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -144,7 +144,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // More efficient to keep the browser cache instead of having to
 // re-download objects for the websites you visit frequently.
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
-//user_pref("browser.cache.disk.enable", true); // DEFAULT
+user_pref("browser.cache.disk.enable", true);
 
 // PREF: disk cache size
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968106,968101
@@ -210,8 +210,9 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("browser.cache.disk.max_priority_chunks_memory_usage", 40960); // DEFAULT (40 MB)
 
 // PREF: how often to validate document in cache
-// [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#1092-1096
 // 0 = once-per-session
+// 1 = each-time
+// 2 = never
 // 3 = when-appropriate/automatically (default)
 //user_pref("browser.cache.check_doc_frequency", 3); // DEFAULT
 
@@ -230,7 +231,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // 0 = do not compress (default)
 // 1 = minimal compression
 // 9 = maximal compression
-user_pref("browser.cache.jsbc_compression_level", 3);
+//user_pref("browser.cache.jsbc_compression_level", 3);
 
 // PREF: strategy to use for when the bytecode should be encoded and saved [TESTING ONLY]
 // -1 makes page load times marginally longer when a page is being loaded for the first time, while
