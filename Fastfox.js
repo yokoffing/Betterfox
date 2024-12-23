@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 133                                                                         *
+ * version: 134                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -542,12 +542,13 @@ user_pref("network.predictor.enabled", false);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 // PREF: Prioritized Task Scheduling API [NIGHTLY]
-// [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
-// [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
-// [3] https://github.com/WICG/scheduling-apis/blob/main/explainers/prioritized-post-task.md
-// [4] https://wicg.github.io/scheduling-apis/
-// [5] https://caniuse.com/mdn-api_taskcontroller
-user_pref("dom.enable_web_task_scheduling", true);
+// [1] https://github.com/yokoffing/Betterfox/issues/355
+// [2] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
+// [3] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
+// [4] https://github.com/WICG/scheduling-apis/blob/main/explainers/prioritized-post-task.md
+// [5] https://wicg.github.io/scheduling-apis/
+// [6] https://caniuse.com/mdn-api_taskcontroller
+//user_pref("dom.enable_web_task_scheduling", true);
 
 /****************************************************************************
  * SECTION: TAB UNLOAD                                                      *
