@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 133                                                             *
+ * version: 134                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -110,6 +110,7 @@
 // [6] https://github.com/arkenfox/user.js/issues/1281
 // [7] https://hacks.mozilla.org/2022/02/improving-the-storage-access-api-in-firefox/
 //user_pref("network.cookie.cookieBehavior", 5); // DEFAULT FF103+
+//user_pref("network.cookie.cookieBehavior.optInPartitioning", true); // [ETP FF132+]
 //user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // DEFAULT
 
 // PREF: Network Partitioning
