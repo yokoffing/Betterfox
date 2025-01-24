@@ -123,7 +123,7 @@
 // [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
 //user_pref("privacy.partition.network_state", true); // DEFAULT
     //user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
-    //user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict" [DEFAULT: true FF123+]
+    //user_pref("privacy.partition.network_state.ocsp_cache", true); // [DEFAULT: true FF123+]
     //user_pref("privacy.partition.bloburl_per_partition_key", true); // [FF118+]
 // enable APS (Always Partitioning Storage) [FF104+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT: true FF109+]
