@@ -66,7 +66,7 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
 user_pref("urlclassifier.trackingSkipURLs", "embed.reddit.com"); // MANUAL
     // originals:    
-        //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // MANUAL
+        //user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com"); // MANUAL
         //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // MANUAL
 user_pref("extensions.webcompat.smartblockEmbeds.enabled", true); // NIGHTLY-ONLY
 
