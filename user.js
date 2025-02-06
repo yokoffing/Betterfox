@@ -59,6 +59,7 @@ user_pref("layout.css.grid-template-masonry-value.enabled", true);
 ****************************************************************************/
 /** TRACKING PROTECTION ***/
 user_pref("browser.contentblocking.category", "strict");
+user_pref("urlclassifier.trackingSkipURLs", "embed.reddit.com");
 user_pref("extensions.webcompat.smartblockEmbeds.enabled", true);
 user_pref("browser.download.start_downloads_in_tmp_dir", true);
 user_pref("browser.helperApps.deleteTempFileOnExit", true);
