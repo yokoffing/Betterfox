@@ -109,7 +109,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
 //user_pref("gfx.canvas.accelerated", true); // [DEFAULT FF133+]
-    user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; Chrome=4096
+    //user_pref("gfx.canvas.accelerated.cache-items", 8192); // DEFAULT FF135+; Chrome=4096
     user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512
     user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
     // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
