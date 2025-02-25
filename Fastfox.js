@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 133                                                                         *
+ * version: 135                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -109,7 +109,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
 //user_pref("gfx.canvas.accelerated", true); // [DEFAULT FF133+]
-    user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; Chrome=4096
+    //user_pref("gfx.canvas.accelerated.cache-items", 8192); // DEFAULT FF135+; Chrome=4096
     user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512
     user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
     // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
@@ -144,7 +144,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // More efficient to keep the browser cache instead of having to
 // re-download objects for the websites you visit frequently.
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
-user_pref("browser.cache.disk.enable", true);
+user_pref("browser.cache.disk.enable", false);
 
 // PREF: disk cache size
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968106,968101
@@ -542,12 +542,13 @@ user_pref("network.predictor.enabled", false);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 // PREF: Prioritized Task Scheduling API [NIGHTLY]
-// [1] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
-// [2] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
-// [3] https://github.com/WICG/scheduling-apis/blob/main/explainers/prioritized-post-task.md
-// [4] https://wicg.github.io/scheduling-apis/
-// [5] https://caniuse.com/mdn-api_taskcontroller
-user_pref("dom.enable_web_task_scheduling", true);
+// [1] https://github.com/yokoffing/Betterfox/issues/355
+// [2] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
+// [3] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
+// [4] https://github.com/WICG/scheduling-apis/blob/main/explainers/prioritized-post-task.md
+// [5] https://wicg.github.io/scheduling-apis/
+// [6] https://caniuse.com/mdn-api_taskcontroller
+//user_pref("dom.enable_web_task_scheduling", true);
 
 /****************************************************************************
  * SECTION: TAB UNLOAD                                                      *
