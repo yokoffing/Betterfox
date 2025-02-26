@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 135                                                             *
+ * version: 137                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -109,16 +109,19 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 ****************************************************************************/
 
 // PREF: Cookie Banner handling
+// [DEPRECIATED] Future of the project is unclear. See [5] and [6].
 // [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
 // [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
 // [2] https://phabricator.services.mozilla.com/D153642
 // [3] https://winaero.com/make-firefox-automatically-click-on-reject-all-in-cookie-banner-consent/
 // [4] https://docs.google.com/spreadsheets/d/1Nb4gVlGadyxix4i4FBDnOeT_eJp2Zcv69o-KfHtK-aA/edit#gid=0
+// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1940418
+// [6] https://github.com/mozilla/cookie-banner-rules-list/issues/544
 // 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
 // 1: reject banners if it is a one-click option; otherwise, keep banners on screen
 // 0: disable all cookie banner handling
-user_pref("cookiebanners.service.mode", 1);
-user_pref("cookiebanners.service.mode.privateBrowsing", 1);
+//user_pref("cookiebanners.service.mode", 1);
+//user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 
 // PREF: Cookie Banner global rules
 // Global rules that can handle a list of cookie banner libraries and providers on any site.
