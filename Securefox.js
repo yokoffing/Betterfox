@@ -64,11 +64,11 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
 // [TEST - truthsocial embed] https://www.newsweek.com/donald-trump-congratulates-patrick-brittany-mahomes-new-baby-2027097
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
-//user_pref("urlclassifier.trackingSkipURLs", "embed.reddit.com"); // MANUAL
-    // originals:    
-        user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com"); // MANUAL
-        user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // MANUAL
-//user_pref("extensions.webcompat.smartblockEmbeds.enabled", true); // NIGHTLY-ONLY
+user_pref("urlclassifier.trackingSkipURLs", "embed.reddit.com, *.twitter.com, *.twimg.com"); // MANUAL [FF136+]
+user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // MANUAL [FF136+]
+    //user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com"); // [before FF136+]
+    //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // [before FF136+]
+//user_pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT FF136+]
 
 // PREF: lower the priority of network loads for resources on the tracking protection list [NIGHTLY]
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
