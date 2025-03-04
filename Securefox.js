@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 135                                                             *
+ * version: 137                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -657,7 +657,7 @@ user_pref("network.IDN_show_punycode", true);
 // [4] https://web.dev/why-https-matters/
 // [5] https://www.cloudflare.com/learning/ssl/why-use-https/
 // [6] https://blog.chromium.org/2023/08/towards-https-by-default.html
-user_pref("dom.security.https_first", true); // [DEFAULT FF129+]
+//user_pref("dom.security.https_first", true); // [DEFAULT FF136+]
 //user_pref("dom.security.https_first_pbm", true); // [DEFAULT FF91+]
 //user_pref("dom.security.https_first_schemeless", true); // [FF120+] [DEFAULT FF129+]
 
