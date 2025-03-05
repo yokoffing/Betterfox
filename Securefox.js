@@ -261,6 +261,7 @@ user_pref("security.OCSP.enabled", 0);
 // [1] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
 // [2] https://www.imperialviolet.org/2014/04/19/revchecking.html
 // [3] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
+// [4] https://letsencrypt.org/2024/12/05/ending-ocsp/
 //user_pref("security.OCSP.require", true);
       
 // PREF: CRLite
@@ -272,7 +273,7 @@ user_pref("security.OCSP.enabled", 0);
 // 3 = consult CRLite and enforce "Not Revoked" results, but defer to OCSP for "Revoked" [FF99+, default FF100+]
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1429800,1670985,1753071
 // [2] https://blog.mozilla.org/security/tag/crlite/
-user_pref("security.remote_settings.crlite_filters.enabled", true);
+//user_pref("security.remote_settings.crlite_filters.enabled", true); // [DEFAULT: true FF137+]
 user_pref("security.pki.crlite_mode", 2);
 
 // PREF: HTTP Public Key Pinning (HPKP)
