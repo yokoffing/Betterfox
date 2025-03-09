@@ -58,7 +58,11 @@ def _get_firefox_version(bin="firefox"):
         ver_string = check_output([bin, "--version"], encoding="UTF-8")
         return ver_string[ver_string.rindex(" ")+1:].strip()
     except FileNotFoundError:
-        return _get_firefox_version(str(DEFAULT_FIREFOX_INSTALL.joinpath("firefox")))
+        default_path = str(DEFAULT_FIREFOX_INSTALL.joinpath("firefox"))
+        if bin != default_path:  # Avoid infinite recursion
+            return _get_firefox_version(default_path)
+        else:
+            raise Exception("Firefox binary not found. Please ensure Firefox is installed and the path is correct.")
 
 def _get_default_profile_folder():
     config_path = FIREFOX_ROOT.joinpath("profiles.ini")
@@ -124,17 +128,7 @@ def _get_latest_compatible_release(releases):
     for release in releases:
         if firefox_version in release["supported"]:
             return release
-    return None    
-def _get_firefox_version(bin="firefox"):
-    try:
-        ver_string = check_output([bin, "--version"], encoding="UTF-8")
-        return ver_string[ver_string.rindex(" ")+1:].strip()
-    except FileNotFoundError:
-        default_path = str(DEFAULT_FIREFOX_INSTALL.joinpath("firefox"))
-        if bin != default_path:  # Avoid infinite recursion
-            return _get_firefox_version(default_path)
-        else:
-            raise Exception("Firefox binary not found. Please ensure Firefox is installed and the path is correct.")    
+    return None
 
 def backup_profile(src):
     dest = f"{src}-backup-{datetime.today().strftime('%Y-%m-%d-%H-%M-%S')}"
