@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from datetime import datetime
 from os import name, getenv
 from json import loads
