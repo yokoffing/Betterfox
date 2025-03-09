@@ -49,7 +49,7 @@ INSTALLATIONS_TO_CHECK = [
     # windows
     {
         "command": [str(Path("C:/Program Files/Mozilla Firefox/firefox"))],
-        "root": Path(getenv("APPDATA") or "").joinpath("/Mozilla/Firefox/").resolve(),
+        "root": Path(getenv("APPDATA") or "").joinpath("Mozilla/Firefox").resolve(),
     },
     # linux
     {
