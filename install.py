@@ -191,7 +191,10 @@ def list_releases(releases, only_supported=False, add_index=False):
         if not only_supported or (only_supported and supported):
             print(f"{f'[{i}]' if add_index else ''}{'> ' if supported else '  '}{release['name'].ljust(20)}\t\t\tSupported: {','.join(release['supported'])}")
         i+=1
-    
+
+def _press_enter_to_exit(args):
+    if not args.no_wait_for_exit:
+        input("Press ENTER to exit...")
 
 if __name__ == "__main__":
     firefox_version, firefox_root = _get_default_firefox_version_and_root()
@@ -219,6 +222,9 @@ if __name__ == "__main__":
     modes.add_argument("--list-all", action="store_true", default=False, help=f"List all Betterfox releases")
     modes.add_argument("--interactive", "-i", action="store_true", default=False, help=f"Interactively select Betterfox version")
 
+    behaviour = argparser.add_argument_group("Script behaviour")
+    behaviour.add_argument("--no-wait-for-exit", "-nwfe", action="store_true", default=False, help="Disable 'Press ENTER to exit...' and exit immediately"),
+
     args = argparser.parse_args()
 
     releases = _get_releases(args.repository_owner, args.repository_name)
@@ -226,7 +232,7 @@ if __name__ == "__main__":
 
     if args.list or args.list_all:
         list_releases(releases, args.list)
-        input("Press ENTER to exit...")
+        _press_enter_to_exit(args)
         exit()
 
     if not args.no_backup:
@@ -276,6 +282,6 @@ if __name__ == "__main__":
                 userjs_file.write(new_content)
         else:
             print(f"Found no overrides in {args.overrides}")
-    
-    input("Press ENTER to exit...")
+
+    _press_enter_to_exit(args)
 
