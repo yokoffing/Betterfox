@@ -45,27 +45,47 @@ If there's any problems with the script, feel free to mention @Denperidge on Git
 re_find_version = compile(r"mozilla.org/.*?/firefox/(?P<version>[\d.]*?)/", IGNORECASE)
 re_find_overrides = r"(overrides|prefs).*\n(?P<space>\n)"
 
-FIREFOX_ROOT = Path.home().joinpath(".mozilla/firefox").absolute() if name != "nt" else Path(getenv("APPDATA") + "/Mozilla/Firefox/").resolve()
-DEFAULT_FIREFOX_INSTALL = Path("C:/Program Files/Mozilla Firefox/" if name == "nt" else "")
+INSTALLATIONS_TO_CHECK = [
+    # windows
+    {
+        "command": [str(Path("C:/Program Files/Mozilla Firefox/firefox"))],
+        "root": Path(getenv("APPDATA") or "").joinpath("/Mozilla/Firefox/").resolve(),
+    },
+    # linux
+    {
+        "command": ["firefox"],
+        "root": Path.home().joinpath(".mozilla/firefox").absolute(),
+    },
+    # flatpak
+    {
+        "command": ["flatpak", "run", "org.mozilla.firefox"],
+        "root": Path.home().joinpath(".var/app/org.mozilla.firefox/.mozilla/firefox").absolute(),
+    },
+]
 
-selected_if_backup = None
-selected_config = ""
-userjs_path = None
 
+# command is a list, eg. ["firefox"] or ["flatpak", "run", "org.mozilla.firefox"]
+def _get_firefox_version(command):
+    ver_string = check_output(command + ["--version"], encoding="UTF-8")
+    return ver_string[ver_string.rindex(" ")+1:].strip()
 
-def _get_firefox_version(bin="firefox"):
-    try:
-        ver_string = check_output([bin, "--version"], encoding="UTF-8")
-        return ver_string[ver_string.rindex(" ")+1:].strip()
-    except FileNotFoundError:
-        default_path = str(DEFAULT_FIREFOX_INSTALL.joinpath("firefox"))
-        if bin != default_path:  # Avoid infinite recursion
-            return _get_firefox_version(default_path)
-        else:
-            raise Exception("Firefox binary not found. Please ensure Firefox is installed and the path is correct.")
+def _get_default_firefox_version_and_root():
+    print("Searching for Firefox installation...")
+    for installation in INSTALLATIONS_TO_CHECK:
+        try:
+            print(f"  '{" ".join(installation["command"])}': ", end="")
+            version = _get_firefox_version(installation["command"])
+            print("YES")
+            print(f"Root: {installation["root"]}")
+            return version, installation["root"]
+        except Exception:
+            print("no")
+            continue
+    
+    raise Exception("Firefox binary not found. Please ensure Firefox is installed and the path is correct.")
 
-def _get_default_profile_folder():
-    config_path = FIREFOX_ROOT.joinpath("profiles.ini")
+def _get_default_profile_folder(firefox_root):
+    config_path = firefox_root.joinpath("profiles.ini")
     
     print(f"Reading {config_path}...")
 
@@ -88,7 +108,7 @@ def _get_default_profile_folder():
                 break
     
     if path is not None:
-        return FIREFOX_ROOT.joinpath(path)
+        return firefox_root.joinpath(path)
     else:
         raise Exception("Could not determine default Firefox profile! Exiting...")
 
@@ -174,10 +194,10 @@ def list_releases(releases, only_supported=False, add_index=False):
     
 
 if __name__ == "__main__":
-    firefox_version = _get_firefox_version()
-    selected_release = None
+    firefox_version, firefox_root = _get_default_firefox_version_and_root()
 
-    default_profile_folder = _get_default_profile_folder()
+    default_profile_folder = _get_default_profile_folder(firefox_root)
+
     argparser = ArgumentParser(
 
     )
@@ -202,7 +222,7 @@ if __name__ == "__main__":
     args = argparser.parse_args()
 
     releases = _get_releases(args.repository_owner, args.repository_name)
-
+    selected_release = None
 
     if args.list or args.list_all:
         list_releases(releases, args.list)
