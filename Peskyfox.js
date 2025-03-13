@@ -288,12 +288,12 @@ user_pref("browser.urlbar.trending.featureGate", false);
 // [1] https://github.com/arkenfox/user.js/issues/1556
 //user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
-user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
-      //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Shortcuts > Sponsored shortcuts [FF83+]
-user_pref("browser.newtabpage.activity-stream.showWeather", false); // Weather [FF130+]
+//user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
+      user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Shortcuts > Sponsored shortcuts [FF83+]
+//user_pref("browser.newtabpage.activity-stream.showWeather", false); // Weather [FF130+]
     //user_pref("browser.newtabpage.activity-stream.system.showWeather", false); // hides Weather as an UI option
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
-      //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
+      user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
 //user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // Recent Activity [DEFAULT]
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
@@ -306,7 +306,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 
 // PREF: clear default topsites
 // [NOTE] This does not block you from adding your own.
-//user_pref("browser.newtabpage.activity-stream.default.sites", "");
+user_pref("browser.newtabpage.activity-stream.default.sites", "");
 
 // PREF: keep search in the search box; prevent from jumping to address bar
 // [1] https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/
