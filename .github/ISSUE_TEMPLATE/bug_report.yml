@@ -54,7 +54,7 @@ body:
       label: Screenshots
       description: If applicable, add screenshots to help explain your problem. This may speed up the process of identifying the problem.
     validations:
-      required: true
+      required: false
 
   - type: dropdown
     attributes:
