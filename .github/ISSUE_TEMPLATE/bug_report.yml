@@ -16,6 +16,8 @@ body:
         * [Clear website data](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox) and restart Firefox.
         * Create a [new clean profile](https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles).
 
+        If neither works then the issue may be within the scope of Betterfox project and we should investigate it further.
+
   - type: checkboxes
     attributes:
       label: Prerequisites
