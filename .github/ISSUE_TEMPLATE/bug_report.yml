@@ -1,0 +1,101 @@
+name: Bug Report
+description: File a bug report
+assignees: yokoffing
+
+body:
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      description: |
+        - Firefox is a complex application, so many times the issues that you may have are not caused by Betterfox.
+        - To troubleshoot your installation you can use solutions below.
+        - If they do help, the issue is out of scope of Betterfox project.
+        - However, if you tried every single solution it means that the issue is probably somehow related to Betterfox and we should investigate further.
+      options:
+        - label: The issue persists when using Firefox in [Troubleshoot Mode](https://support.mozilla.org/en-US/kb/diagnose-firefox-issues-using-troubleshoot-mode).
+          required: true
+        - label: "The issue persists after I disabled DNS-level content blocking (AdGuard Home, NextDNS, Control D, RethinkDNS, PiHole, etc), [cleared DNS cache](https://www.pcmag.com/how-to/how-to-flush-your-dns-cache), and tried to use ISP's DNS resolver (if applicable)."
+          required: true
+        - label: The issue persists after I [cleared website data](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox) and restarted Firefox.
+          required: true
+        - label: I have created a [new clean profile](https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles). The issue persists in a profile with Betterfox, but is not reproducible in a new clean profile.
+          required: true
+
+  - type: textarea
+    attributes:
+      label: Bug description
+      description: A clear and concise description of what the bug is. It may help to clarify the reasons of the issue.
+      placeholder: A bug causes this and that...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: Clean and concise explanation of steps that are required to reproduce this unusual behavior.
+      placeholder: |
+        - 1. Go to `...`
+        - 2. Click on `...`
+        - 3. Scroll down to `...`
+        - 4. Get an error which I described earlier...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: A clean and concise description of what you expected to happend instead.
+      placeholder: I think these actions should produce this effect instead of that...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem. This may speed up the process of identifying the problem.
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Your Operating System (OS):
+      options:
+        - Windows (10 or later)
+        - Windows (8.1 or older)
+        - Linux-based (provide the name of your distribution of choice in additional context)
+        - MacOS (on ARM-based devices)
+        - MacOS (on Intel-based devices)
+        - Other (provide the name of your OS in additional context)
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: The browser in which the problem occurs
+      options:
+        - Firefox
+        - Firefox Beta
+        - Firefox Developer Edition
+        - Firefox Nightly
+        - Firefox ESR
+        - Floorp
+        - LibreWolf
+        - Zen Browser
+        - Waterfox
+        - Other (provide the name of your browser of choice in additional context)
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Version of this browser
+      placeholder: 128.0 ESR
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Additional attributes
+      description: Any additional information that may be helpful.
+    validations:
+      required: false
