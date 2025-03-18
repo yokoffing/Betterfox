@@ -563,8 +563,8 @@ user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 
 // PREF: display "Not Secure" text on HTTP sites
 // Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode.
-user_pref("security.insecure_connection_text.enabled", true);
-user_pref("security.insecure_connection_text.pbmode.enabled", true);
+//user_pref("security.insecure_connection_text.enabled", true); // [DEFAULT FF136+]
+//user_pref("security.insecure_connection_text.pbmode.enabled", true); // [DEFAULT FF136+]
 
 // PREF: do not show search terms in URL bar [FF110+]
 // Show search query instead of URL on search results pages.
