@@ -1275,10 +1275,11 @@ user_pref("permissions.default.desktop-notification", 2);
 // 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.geo", 2);
 
-// PREF: use Mozilla geolocation service instead of Google when geolocation is enabled
-// [NOTE] Mozilla's geolocation service is discontinued 12 June 2024 [1].
+// PREF: use alternative geolocation service instead of Google
+// [NOTE] Mozilla's geolocation service was discontinued in June 2024 [1].
 // [1] https://github.com/mozilla/ichnaea/issues/2065
-//user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+// [2] https://beacondb.net/
+//user_pref("geo.provider.network.url", "https://beacondb.net/v1/geolocate");
 
 // PREF: disable using the OS's geolocation service
 //user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
