@@ -95,13 +95,13 @@ body:
   - type: input
     attributes:
       label: Version number
-      placeholder: 128.0 ESR
+      placeholder: 136.0 Stable
     validations:
       required: true
 
   - type: textarea
     attributes:
-      label: Additional attributes
+      label: Additional information
       description: Include any other information that may be helpful.
     validations:
       required: false
