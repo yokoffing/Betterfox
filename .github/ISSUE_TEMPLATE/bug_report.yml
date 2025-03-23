@@ -10,9 +10,9 @@ body:
         
         Firefox is a complex application, so many times the issues that you may have are not caused by Betterfox.
 
-        To troubleshoot your installation you can try solutions below:
-        * Launch Firefox in [Troulbeshoot Mode](https://support.mozilla.org/en-US/kb/diagnose-firefox-issues-using-troubleshoot-mode).
-        * Disable DNS-level content blocking (such ad AdGuard Home, NextDNS, Control D, RethinkDNS, PiHole, etc), [clear DNS cache](https://www.pcmag.com/how-to/how-to-flush-your-dns-cache) and use ISP's DNS resolver (if applicable).
+        To troubleshoot your installation, try solutions below and test the issue after each step:
+        * Launch Firefox in [Troubleshoot Mode](https://support.mozilla.org/en-US/kb/diagnose-firefox-issues-using-troubleshoot-mode).
+        * Disable DNS-level content blocking (such ad AdGuard Home, NextDNS, Control D, PiHole, etc) and [clear the DNS cache](https://www.pcmag.com/how-to/how-to-flush-your-dns-cache) and use ISP's DNS resolver (if applicable).
         * [Clear website data](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox) and restart Firefox.
         * Create a [new clean profile](https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles).
 
@@ -28,7 +28,7 @@ body:
           required: true
         - label: The issue persists after I cleared website data and restarted Firefox.
           required: true
-        - label: I have created a new clean profile. The issue persists in a profile with Betterfox, but is not reproducible in a new clean profile.
+        - label: I have created a new, clean profile. The issue persists after adding Betterfox `user.js`, but it is not reproducible in a new, unedited Firefox profile.
           required: true
 
   - type: textarea
