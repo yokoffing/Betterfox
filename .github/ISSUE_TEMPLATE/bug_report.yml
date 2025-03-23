@@ -64,20 +64,20 @@ body:
 
   - type: dropdown
     attributes:
-      label: Your Operating System (OS)
+      label: Operating System (OS)
       options:
         - Windows (10 or later)
         - Windows (8.1 or older)
-        - Linux-based (provide the name of your distribution in additional context)
-        - macOS (on ARM-based devices)
-        - macOS (on Intel-based devices)
-        - Other (provide the name of your OS in additional context)
+        - macOS (ARM-based device)
+        - macOS (Intel-based device)
+        - Linux (add distribution name in Additional Information)
+        - Other (add OS name in Additional Information)
     validations:
       required: true
 
   - type: dropdown
     attributes:
-      label: The browser in which the problem occurs
+      label: Browser
       options:
         - Firefox
         - Firefox Beta
@@ -88,14 +88,14 @@ body:
         - LibreWolf
         - Zen Browser
         - Waterfox
-        - Other (provide the name of your browser of choice in additional context)
+        - Other (add browser name in Additional Information)
     validations:
       required: true
 
   - type: input
     attributes:
-      label: Version number
-      placeholder: 136.0 Stable
+      label: Version
+      placeholder: 136 stable
     validations:
       required: true
 
