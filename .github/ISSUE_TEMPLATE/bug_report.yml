@@ -70,8 +70,8 @@ body:
         - Windows (8.1 or older)
         - macOS (ARM-based device)
         - macOS (Intel-based device)
-        - Linux (add distribution name in Additional Information)
-        - Other (add OS name in Additional Information)
+        - Linux
+        - Other
     validations:
       required: true
 
@@ -88,7 +88,7 @@ body:
         - LibreWolf
         - Zen Browser
         - Waterfox
-        - Other (add browser name in Additional Information)
+        - Other
     validations:
       required: true
 
