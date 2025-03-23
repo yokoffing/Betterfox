@@ -1277,9 +1277,10 @@ user_pref("permissions.default.geo", 2);
 
 // PREF: use alternative geolocation service instead of Google
 // [NOTE] Mozilla's geolocation service was discontinued in June 2024 [1].
+// BeaconDB is its replacement.
 // [1] https://github.com/mozilla/ichnaea/issues/2065
-// [2] https://beacondb.net/
-//user_pref("geo.provider.network.url", "https://beacondb.net/v1/geolocate");
+// [2] https://codeberg.org/beacondb/beacondb
+user_pref("geo.provider.network.url", "https://beacondb.net/v1/geolocate");
 
 // PREF: disable using the OS's geolocation service
 //user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
