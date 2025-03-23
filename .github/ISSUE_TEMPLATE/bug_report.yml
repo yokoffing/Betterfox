@@ -40,10 +40,9 @@ body:
       label: Steps to reproduce
       description: Explain the steps required to reproduce the issue.
       placeholder: |
-        - 1. Go to `...`
-        - 2. Click on `...`
-        - 3. Scroll down to `...`
-        - 4. Get an error which I described earlier...
+        1. Go to `...`
+        2. Click on `...`
+        3. Scroll down to `...`
     validations:
       required: true
 
