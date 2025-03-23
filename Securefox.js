@@ -1280,6 +1280,7 @@ user_pref("permissions.default.geo", 2);
 // BeaconDB is its replacement.
 // [1] https://github.com/mozilla/ichnaea/issues/2065
 // [2] https://codeberg.org/beacondb/beacondb
+// [3] https://github.com/yokoffing/Betterfox/issues/378
 user_pref("geo.provider.network.url", "https://beacondb.net/v1/geolocate");
 
 // PREF: disable using the OS's geolocation service
