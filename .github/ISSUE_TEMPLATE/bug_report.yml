@@ -52,7 +52,7 @@ body:
       description: What did you expect to happen instead?
       placeholder: Firefox should do [this]. Instead, it did [that].
     validations:
-      required: true
+      required: false
 
   - type: textarea
     attributes:
@@ -66,7 +66,6 @@ body:
       label: Operating System (OS)
       options:
         - Windows (10 or later)
-        - Windows (8.1 or older)
         - macOS (ARM-based device)
         - macOS (Intel-based device)
         - Linux
@@ -96,7 +95,7 @@ body:
       label: Version
       placeholder: 136 stable
     validations:
-      required: true
+      required: false
 
   - type: textarea
     attributes:
