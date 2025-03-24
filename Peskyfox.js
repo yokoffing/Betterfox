@@ -194,7 +194,7 @@ user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.shortcuts.quickactions", false);
 //user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
     //user_pref("browser.urlbar.weather.ignoreVPN", false); // DEFAULT
-user_pref("browser.urlbar.suggest.calculator", true);
+//user_pref("browser.urlbar.suggest.calculator", true); // [DEFAULT FF137+]
 user_pref("browser.urlbar.unitConversion.enabled", true);
 
 // PREF: disable dropdown suggestions with empty query
