@@ -60,7 +60,8 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
 // [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
 // [2] https://www.youtube.com/watch?v=VE8SrClOTgw
 // [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
-//user_pref("extensions.webcompat.enable_shims", true); // enabled with "Strict"
+//user_pref("extensions.webcompat.enable_shims", true); // [HIDDEN] enabled with "Strict"
+//user_pref("extensions.webcompat.smartblockEmbeds.enabled", true); // enabled with "Strict"
 
 // PREF: allow embedded tweets and reddit posts [FF136+]
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
