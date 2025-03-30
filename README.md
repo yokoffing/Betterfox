@@ -22,7 +22,7 @@ Now with support for ESR [128](https://github.com/yokoffing/Betterfox/tree/esr12
 ## Made for everyday browsing
 **A secure, blazing fast browsing experience. Without breakage.**
 
-Betterfox is an opinionated preference list inspired by the [law of diminishing returns]() and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e).
+Betterfox is an opinionated preference list inspired by the [law of diminishing returns](https://miro.medium.com/v2/resize:fit:1206/1*lcOcxriV_II_lZuXQYLoXg.jpeg) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e).
 
 ## Simple goals
 1) **Minimalism:** get what isn't needed out of the way
