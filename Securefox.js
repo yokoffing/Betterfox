@@ -1363,6 +1363,10 @@ user_pref("toolkit.coverage.endpoint.base", "");
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
+// PREF: disable daily active users [FF136+]
+// [NOTE] Already disabled by main telemetry switch
+//user_pref("datareporting.usage.uploadEnabled", false);
+
 /******************************************************************************
  * SECTION: EXPERIMENTS                                                      *
 ******************************************************************************/
