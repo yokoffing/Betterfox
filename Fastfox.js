@@ -329,8 +329,8 @@ user_pref("image.mem.decode_bytes_at_a_time", 32768); // default=16384; alt=6553
 // [1] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74561.html
 // [2] https://github.com/yokoffing/Betterfox/issues/279
 // [3] https://ra1ahq.blog/en/optimizaciya-proizvoditelnosti-mozilla-firefox
-user_pref("network.buffer.cache.size", 65535); // default=32768 (32 kb)
-user_pref("network.buffer.cache.count", 48); // default=24
+user_pref("network.buffer.cache.size", 65535); // default=32768 (32 kb); 262144 too large
+user_pref("network.buffer.cache.count", 48); // default=24; 128 too large
 
 // PREF: increase the absolute number of HTTP connections
 // [1] https://kb.mozillazine.org/Network.http.max-connections
