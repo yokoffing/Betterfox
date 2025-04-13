@@ -840,7 +840,6 @@ user_pref("network.IDN_show_punycode", true);
 // [NOTE] This does not clear any passwords already saved.
 // [SETTING] Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
 //user_pref("signon.rememberSignons", false);
-    //user_pref("signon.rememberSignons.visibilityToggle", true); // DEFAULT
     //user_pref("signon.schemeUpgrades", true); // DEFAULT
     //user_pref("signon.showAutoCompleteFooter", true); // DEFAULT
     //user_pref("signon.autologin.proxy", false); // DEFAULT
