@@ -33,8 +33,6 @@ user_pref("signon.management.page.breach-alerts.enabled", false); // extra harde
 user_pref("signon.autofillForms", false); // unselect "Autofill logins and passwords" for clean UI
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("signon.firefoxRelay.feature", ""); // unselect suggestions from Firefox Relay for clean UI
-//user_pref("privacy.sanitize.sanitizeOnShutdown", true); // clear browsing data on shutdown
-//user_pref("privacy.clearOnShutdown.offlineApps", true); // clear Site Data on shutdown
 user_pref("browser.safebrowsing.downloads.enabled", false); // deny SB to scan downloads to identify suspicious files; local checks only
 user_pref("browser.safebrowsing.downloads.remote.url", ""); // enforce no remote checks for downloads by SB
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false); // clean up UI; not needed in user.js if remote downloads are disabled
@@ -77,7 +75,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false); // do not select 
 user_pref("browser.tabs.loadBookmarksInTabs", true); // force bookmarks to open in a new tab, not the current tab
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
-user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
+user_pref("ui.SpellCheckerUnderlineStyle", 1); // [HIDDEN] dots for spell check errors
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small"); // PiP
 user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false); // PiP in address bar
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
@@ -94,7 +92,7 @@ user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by de
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
-user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
+//user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("pdfjs.defaultZoomValue", "125"); // alt=page-width; PDF zoom level
