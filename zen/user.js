@@ -52,6 +52,9 @@ user_pref("browser.sessionstore.interval", 60000);
 user_pref("browser.privatebrowsing.resetPBM.enabled", true);
 user_pref("privacy.history.custom", true);
 
+/** SEARCH / URL BAR ***/
+user_pref("browser.urlbar.quicksuggest.enabled", false);
+
 /** PASSWORDS ***/
 user_pref("signon.formlessCapture.enabled", false);
 user_pref("signon.privateBrowsingCapture.enabled", false);
