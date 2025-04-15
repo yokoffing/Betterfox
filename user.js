@@ -232,7 +232,19 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
  * END: BETTERFOX                                                           *
 ****************************************************************************/
 
+// Disable top sites suggestions
+user_pref("browser.urlbar.suggest.topsites", false);
 
+// Disable suggestions from open tabs
+user_pref("browser.urlbar.suggest.openpage", false);
 
+// Disable suggestions from Pocket
+user_pref("browser.urlbar.suggest.pocket", false);
 
+// Keep only bookmarks in address bar suggestions
+user_pref("browser.urlbar.suggest.bookmark", true);
+
+//Disable animations
+user_pref("ui.prefersReducedMotion", 1);
+user_pref("browser.tabs.animate", false);
 
