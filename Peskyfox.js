@@ -237,11 +237,12 @@ user_pref("browser.urlbar.trending.featureGate", false);
 // disable=0
 //user_pref("browser.urlbar.maxRichResults", 5); // default=10
 
-// PREF: text fragments [FF126+ NIGHTLY]
+// PREF: text fragments
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753933#c6
 // [2] https://developer.mozilla.org/en-US/docs/Web/Text_fragments
 // [3] https://web.dev/articles/text-fragments
 //user_pref("dom.text_fragments.enabled", true); // [DEFAULT]
+user_pref("dom.text_fragments.create_text_fragment.enabled", true);
 
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
