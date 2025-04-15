@@ -86,7 +86,11 @@ user_pref("browser.newtabpage.activity-stream.default.sites", "");
 /****************************************************************************
  * START: ZEN-SPECIFIC OVERRIDES                                            *
 ****************************************************************************/
-// Remove the slashes to enable the pref
+// Remove the slashes to enable the prefs
+
+// PREF: reduce CPU and GPU use until bug is fixed
+// [1] https://github.com/zen-browser/desktop/issues/6302
+user_pref("zen.view.experimental-rounded-view", false);
 
 // PREF: re-enable Windows efficiency mode
 //user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", true);
