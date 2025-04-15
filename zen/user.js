@@ -83,6 +83,9 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 /** NEW TAB PAGE ***/
 user_pref("browser.newtabpage.activity-stream.default.sites", "");
 
+/** URL BAR ***/
+user_pref("dom.text_fragments.create_text_fragment.enabled", true);
+
 /****************************************************************************
  * START: ZEN-SPECIFIC OVERRIDES                                            *
 ****************************************************************************/
