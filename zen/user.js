@@ -84,6 +84,21 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("browser.newtabpage.activity-stream.default.sites", "");
 
 /****************************************************************************
+ * START: ZEN-SPECIFIC OVERRIDES                                            *
+****************************************************************************/
+// Remove the slashes to enable the pref
+
+// PREF: re-enable Windows efficiency mode
+//user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", true);
+
+// PREF: disable new tab preload since they are off by default
+//user_pref("browser.newtab.preload", false);
+
+// PREF: show Enhance Tracking Protection shield in URL bar
+// Currently bugged if you click to view what's blocked
+//user_pref("zen.urlbar.show-protections-icon", true);
+
+/****************************************************************************
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
@@ -91,18 +106,15 @@ user_pref("browser.newtabpage.activity-stream.default.sites", "");
 // Enter your personal overrides below this line:
 
 
-
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
-// visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
-// Enter your scrolling overrides below this line:
-
-// Zen scrolling prefs need to be reset to Firefox default for changes
-// to be meaningful here
+// Reset Zen's custom scrolling prefs to their Firefox defaults before making changes!
 // [1] Zen changes: https://github.com/zen-browser/desktop/blob/3932ec21f5661440c4b20796f90341a6ac725818/src/browser/app/profile/zen-browser.js#L297-L312
 // [2] Firefox defaults: https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml
-
+// Then apply an example from Smoothfox
+// [3] https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
+// Enter your scrolling overrides below this line:
 
 
 /****************************************************************************
