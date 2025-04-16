@@ -20,11 +20,9 @@
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionhistory.max_total_viewers", 4); // only remember # of pages in Back-Forward cache
-user_pref("browser.cache.disk.enable", false); // disable disk cache
 user_pref("network.http.max-persistent-connections-per-server", 20); // increase download connections
 
 /** SECUREFOX ***/
-//user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // removed *.instagram.com
 user_pref("signon.rememberSignons", false); // disable password manager
 user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
 user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
@@ -35,8 +33,6 @@ user_pref("signon.management.page.breach-alerts.enabled", false); // extra harde
 user_pref("signon.autofillForms", false); // unselect "Autofill logins and passwords" for clean UI
 user_pref("signon.generation.enabled", false); // unselect "Suggest and generate strong passwords" for clean UI
 user_pref("signon.firefoxRelay.feature", ""); // unselect suggestions from Firefox Relay for clean UI
-//user_pref("privacy.sanitize.sanitizeOnShutdown", true); // clear browsing data on shutdown
-//user_pref("privacy.clearOnShutdown.offlineApps", true); // clear Site Data on shutdown
 user_pref("browser.safebrowsing.downloads.enabled", false); // deny SB to scan downloads to identify suspicious files; local checks only
 user_pref("browser.safebrowsing.downloads.remote.url", ""); // enforce no remote checks for downloads by SB
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false); // clean up UI; not needed in user.js if remote downloads are disabled
@@ -51,8 +47,6 @@ user_pref("accessibility.force_disabled", 1); // disable Accessibility features
 user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
 
 /** PESKYFOX ***/
-user_pref("cookiebanners.service.mode", 0); // disable for performance since I'm using Easylist Cookie
-user_pref("cookiebanners.service.mode.privateBrowsing", 0); // disable for performance since I'm using Easylist Cookie
 user_pref("devtools.accessibility.enabled", false); // removes un-needed "Inspect Accessibility Properties" on right-click
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Settings>Home>Firefox Home Content>Recent Activity>Shortcuts>Sponsored shortcuts
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Settings>Home>Firefox Home Content>Recent Activity>Recommended by Pocket>Sponsored Stories  
@@ -81,7 +75,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false); // do not select 
 user_pref("browser.tabs.loadBookmarksInTabs", true); // force bookmarks to open in a new tab, not the current tab
 user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
 user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
-user_pref("ui.SpellCheckerUnderlineStyle", 1); // dots for spell check errors
+user_pref("ui.SpellCheckerUnderlineStyle", 1); // [HIDDEN] dots for spell check errors
 user_pref("media.videocontrols.picture-in-picture.display-text-tracks.size", "small"); // PiP
 user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false); // PiP in address bar
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
@@ -98,8 +92,7 @@ user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by de
 
 /** DELETE IF NOT WINDOWS DESKTOP ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
-user_pref("gfx.canvas.accelerated", true); // DEFAULT NON-WINDOWS; enable if not using an integrated GPU
-user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
+//user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("pdfjs.defaultZoomValue", "125"); // alt=page-width; PDF zoom level

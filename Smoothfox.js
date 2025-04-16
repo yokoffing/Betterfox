@@ -3,7 +3,7 @@
  * Smoothfox                                                                            *
  * "Faber est suae quisque fortunae"                                                    *
  * priority: better scrolling                                                           *
- * version: 126.1                                                                       *
+ * version: 137                                                                       *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -17,7 +17,7 @@
 // only sharpen scrolling
 user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
 user_pref("general.smoothScroll", true); // DEFAULT
-user_pref("mousewheel.min_line_scroll_amount", 10); // 10-40; adjust this number to your liking; default=5
+user_pref("mousewheel.min_line_scroll_amount", 10); // adjust this number to your liking; default=5
 user_pref("general.smoothScroll.mouseWheel.durationMinMS", 80); // default=50
 user_pref("general.smoothScroll.currentVelocityWeighting", "0.15"); // default=.25
 user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6"); // default=.4

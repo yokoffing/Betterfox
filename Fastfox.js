@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 135                                                                         *
+ * version: 137                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -323,13 +323,14 @@ user_pref("image.mem.decode_bytes_at_a_time", 32768); // default=16384; alt=6553
 ****************************************************************************/
 
 // PREF: use bigger packets
-// [WARNING] Cannot open HTML files bigger than 4MB if changed [2].
+// [WARNING] Cannot open HTML files bigger than 4MB if value is too large [2].
 // Reduce Firefox's CPU usage by requiring fewer application-to-driver data transfers.
 // However, it does not affect the actual packet sizes transmitted over the network.
 // [1] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74561.html
 // [2] https://github.com/yokoffing/Betterfox/issues/279
-//user_pref("network.buffer.cache.size", 262144); // 256 kb; default=32768 (32 kb)
-//user_pref("network.buffer.cache.count", 128); // default=24
+// [3] https://ra1ahq.blog/en/optimizaciya-proizvoditelnosti-mozilla-firefox
+//user_pref("network.buffer.cache.size", 65535); // default=32768 (32 kb); 262144 too large
+//user_pref("network.buffer.cache.count", 48); // default=24; 128 too large
 
 // PREF: increase the absolute number of HTTP connections
 // [1] https://kb.mozillazine.org/Network.http.max-connections

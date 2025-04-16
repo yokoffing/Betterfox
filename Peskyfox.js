@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 135                                                             *
+ * version: 137                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -109,16 +109,19 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 ****************************************************************************/
 
 // PREF: Cookie Banner handling
+// [DEPRECIATED] Future of the project is unclear. See [5] and [6].
 // [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
 // [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
 // [2] https://phabricator.services.mozilla.com/D153642
 // [3] https://winaero.com/make-firefox-automatically-click-on-reject-all-in-cookie-banner-consent/
 // [4] https://docs.google.com/spreadsheets/d/1Nb4gVlGadyxix4i4FBDnOeT_eJp2Zcv69o-KfHtK-aA/edit#gid=0
+// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1940418
+// [6] https://github.com/mozilla/cookie-banner-rules-list/issues/544
 // 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
 // 1: reject banners if it is a one-click option; otherwise, keep banners on screen
 // 0: disable all cookie banner handling
-user_pref("cookiebanners.service.mode", 1);
-user_pref("cookiebanners.service.mode.privateBrowsing", 1);
+//user_pref("cookiebanners.service.mode", 1);
+//user_pref("cookiebanners.service.mode.privateBrowsing", 1);
 
 // PREF: Cookie Banner global rules
 // Global rules that can handle a list of cookie banner libraries and providers on any site.
@@ -191,7 +194,7 @@ user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.shortcuts.quickactions", false);
 //user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
     //user_pref("browser.urlbar.weather.ignoreVPN", false); // DEFAULT
-user_pref("browser.urlbar.suggest.calculator", true);
+//user_pref("browser.urlbar.suggest.calculator", true); // [DEFAULT FF137+]
 user_pref("browser.urlbar.unitConversion.enabled", true);
 
 // PREF: disable dropdown suggestions with empty query
@@ -234,11 +237,12 @@ user_pref("browser.urlbar.trending.featureGate", false);
 // disable=0
 //user_pref("browser.urlbar.maxRichResults", 5); // default=10
 
-// PREF: text fragments [FF126+ NIGHTLY]
+// PREF: text fragments
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753933#c6
 // [2] https://developer.mozilla.org/en-US/docs/Web/Text_fragments
 // [3] https://web.dev/articles/text-fragments
 //user_pref("dom.text_fragments.enabled", true); // [DEFAULT]
+user_pref("dom.text_fragments.create_text_fragment.enabled", true);
 
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
@@ -285,12 +289,12 @@ user_pref("browser.urlbar.trending.featureGate", false);
 // [1] https://github.com/arkenfox/user.js/issues/1556
 //user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
-user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
-      //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Shortcuts > Sponsored shortcuts [FF83+]
-user_pref("browser.newtabpage.activity-stream.showWeather", false); // Weather [FF130+]
+//user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
+      user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Shortcuts > Sponsored shortcuts [FF83+]
+//user_pref("browser.newtabpage.activity-stream.showWeather", false); // Weather [FF130+]
     //user_pref("browser.newtabpage.activity-stream.system.showWeather", false); // hides Weather as an UI option
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
-      //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
+      user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
 //user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // Recent Activity [DEFAULT]
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
@@ -303,7 +307,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 
 // PREF: clear default topsites
 // [NOTE] This does not block you from adding your own.
-//user_pref("browser.newtabpage.activity-stream.default.sites", "");
+user_pref("browser.newtabpage.activity-stream.default.sites", "");
 
 // PREF: keep search in the search box; prevent from jumping to address bar
 // [1] https://www.reddit.com/r/firefox/comments/oxwvbo/firefox_start_page_search_options/

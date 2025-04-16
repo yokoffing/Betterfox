@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 135                                                             *
+ * version: 137                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -56,7 +56,14 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
 //user_pref("privacy.query_stripping.strip_list", ""); // DEFAULT
 //user_pref("privacy.query_stripping.strip_on_share.enabled", true);
 
-// PREF: allow embedded tweets, Instagram and Reddit posts, and TikTok embeds
+// PREF: Smartblock
+// [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
+// [2] https://www.youtube.com/watch?v=VE8SrClOTgw
+// [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
+//user_pref("extensions.webcompat.enable_shims", true); // [HIDDEN] enabled with "Strict"
+//user_pref("extensions.webcompat.smartblockEmbeds.enabled", true); // enabled with "Strict"
+
+// PREF: allow embedded tweets and reddit posts [FF136+]
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
 // [TEST - instagram embed] https://www.ndtv.com/entertainment/bharti-singh-and-husband-haarsh-limbachiyaa-announce-pregnancy-see-trending-post-2646359
 // [TEST - tweet embed] https://www.newsweek.com/cryptic-tweet-britney-spears-shows-elton-john-collab-may-date-back-2015-1728036
@@ -64,11 +71,12 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
 // [TEST - truthsocial embed] https://www.newsweek.com/donald-trump-congratulates-patrick-brittany-mahomes-new-baby-2027097
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
-//user_pref("urlclassifier.trackingSkipURLs", "embed.reddit.com"); // MANUAL
-    // originals:    
-        user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com"); // MANUAL
-        user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // MANUAL
-//user_pref("extensions.webcompat.smartblockEmbeds.enabled", true); // NIGHTLY-ONLY
+//user_pref("urlclassifier.trackingSkipURLs", "embed.reddit.com, *.twitter.com, *.twimg.com"); // MANUAL [FF136+]
+//user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // MANUAL [FF136+]
+
+// PREF: allow embedded tweets, Instagram and Reddit posts, and TikTok embeds [before FF136+]
+//user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com"); // MANUAL
+//user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // MANUAL
 
 // PREF: lower the priority of network loads for resources on the tracking protection list [NIGHTLY]
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
@@ -132,12 +140,6 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
 // enable APS (Always Partitioning Storage) [FF104+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT: true FF109+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false); // [DEFAULT: false FF109+]
-
-// PREF: Smartblock
-// [1] https://support.mozilla.org/en-US/kb/smartblock-enhanced-tracking-protection
-// [2] https://www.youtube.com/watch?v=VE8SrClOTgw
-// [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
-//user_pref("extensions.webcompat.enable_shims", true); // enabled with "Strict"
 
 // PREF: Redirect Tracking Prevention / Cookie Purging
 // All storage is cleared (more or less) daily from origins that are known trackers and that
@@ -260,6 +262,7 @@ user_pref("security.OCSP.enabled", 0);
 // [1] https://blog.mozilla.org/security/2013/07/29/ocsp-stapling-in-firefox/
 // [2] https://www.imperialviolet.org/2014/04/19/revchecking.html
 // [3] https://www.ssl.com/blogs/how-do-browsers-handle-revoked-ssl-tls-certificates/#ftoc-heading-3
+// [4] https://letsencrypt.org/2024/12/05/ending-ocsp/
 //user_pref("security.OCSP.require", true);
       
 // PREF: CRLite
@@ -271,7 +274,7 @@ user_pref("security.OCSP.enabled", 0);
 // 3 = consult CRLite and enforce "Not Revoked" results, but defer to OCSP for "Revoked" [FF99+, default FF100+]
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1429800,1670985,1753071
 // [2] https://blog.mozilla.org/security/tag/crlite/
-user_pref("security.remote_settings.crlite_filters.enabled", true);
+//user_pref("security.remote_settings.crlite_filters.enabled", true); // [DEFAULT: true FF137+]
 user_pref("security.pki.crlite_mode", 2);
 
 // PREF: HTTP Public Key Pinning (HPKP)
@@ -561,8 +564,8 @@ user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 
 // PREF: display "Not Secure" text on HTTP sites
 // Needed with HTTPS-First Policy; not needed with HTTPS-Only Mode.
-user_pref("security.insecure_connection_text.enabled", true);
-user_pref("security.insecure_connection_text.pbmode.enabled", true);
+//user_pref("security.insecure_connection_text.enabled", true); // [DEFAULT FF136+]
+//user_pref("security.insecure_connection_text.pbmode.enabled", true); // [DEFAULT FF136+]
 
 // PREF: do not show search terms in URL bar [FF110+]
 // Show search query instead of URL on search results pages.
@@ -657,7 +660,7 @@ user_pref("network.IDN_show_punycode", true);
 // [4] https://web.dev/why-https-matters/
 // [5] https://www.cloudflare.com/learning/ssl/why-use-https/
 // [6] https://blog.chromium.org/2023/08/towards-https-by-default.html
-user_pref("dom.security.https_first", true); // [DEFAULT FF129+]
+//user_pref("dom.security.https_first", true); // [DEFAULT FF136+]
 //user_pref("dom.security.https_first_pbm", true); // [DEFAULT FF91+]
 //user_pref("dom.security.https_first_schemeless", true); // [FF120+] [DEFAULT FF129+]
 
@@ -837,7 +840,6 @@ user_pref("dom.security.https_first", true); // [DEFAULT FF129+]
 // [NOTE] This does not clear any passwords already saved.
 // [SETTING] Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites
 //user_pref("signon.rememberSignons", false);
-    //user_pref("signon.rememberSignons.visibilityToggle", true); // DEFAULT
     //user_pref("signon.schemeUpgrades", true); // DEFAULT
     //user_pref("signon.showAutoCompleteFooter", true); // DEFAULT
     //user_pref("signon.autologin.proxy", false); // DEFAULT
@@ -1273,10 +1275,13 @@ user_pref("permissions.default.desktop-notification", 2);
 // 0=always ask (default), 1=allow, 2=block
 user_pref("permissions.default.geo", 2);
 
-// PREF: use Mozilla geolocation service instead of Google when geolocation is enabled
-// [NOTE] Mozilla's geolocation service is discontinued 12 June 2024 [1].
+// PREF: use alternative geolocation service instead of Google
+// [NOTE] Mozilla's geolocation service was discontinued in June 2024 [1].
+// BeaconDB is its replacement.
 // [1] https://github.com/mozilla/ichnaea/issues/2065
-//user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+// [2] https://codeberg.org/beacondb/beacondb
+// [3] https://github.com/yokoffing/Betterfox/issues/378
+user_pref("geo.provider.network.url", "https://beacondb.net/v1/geolocate");
 
 // PREF: disable using the OS's geolocation service
 //user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
@@ -1356,6 +1361,10 @@ user_pref("toolkit.coverage.endpoint.base", "");
 // PREF: disable Firefox Home (Activity Stream) telemetry 
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
+
+// PREF: disable daily active users [FF136+]
+// [NOTE] Already disabled by main telemetry switch
+//user_pref("datareporting.usage.uploadEnabled", false);
 
 /******************************************************************************
  * SECTION: EXPERIMENTS                                                      *
