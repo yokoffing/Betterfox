@@ -1,0 +1,105 @@
+name: Bug Report
+description: File a bug report
+assignees: yokoffing
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+       Please confirm the issue relates to Betterfox user.js before submitting a report.
+
+        To troubleshoot your installation, try solutions below and test the issue after each step:
+        * Launch Firefox in [Troubleshoot Mode](https://support.mozilla.org/en-US/kb/diagnose-firefox-issues-using-troubleshoot-mode).
+        * Disable DNS-level content blocking (such ad AdGuard Home, NextDNS, Control D, PiHole, etc) and [clear the DNS cache](https://www.pcmag.com/how-to/how-to-flush-your-dns-cache) and use ISP's DNS resolver (if applicable).
+        * [Clear website data](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox) and restart Firefox.
+        * Create a [new clean profile](https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles).
+
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      options:
+        - label: The issue persists when using Firefox in Troubleshoot Mode.
+          required: true
+        - label: "The issue persists after I disabled DNS-level content blocking (PiHole, NextDNS, etc.), cleared DNS cache, and tried to use ISP's DNS resolver (if applicable)."
+          required: true
+        - label: The issue persists after I cleared website data and restarted Firefox.
+          required: true
+        - label: I have created a new, clean profile. The issue persists after adding the user.js, but it is not reproducible in a new, unedited Firefox profile.
+          required: true
+
+  - type: textarea
+    attributes:
+      label: Bug description
+      description: Describe the issue.
+      placeholder: A bug causes this and that...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: Explain the steps required to reproduce the issue.
+      placeholder: |
+        1. Go to `...`
+        2. Click on `...`
+        3. Scroll down to `...`
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen instead?
+      placeholder: Firefox should do [this]. Instead, it did [that].
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: Screenshots
+      description: Add screenshots to help explain your problem (optional).
+    validations:
+      required: false
+
+  - type: dropdown
+    attributes:
+      label: Operating System (OS)
+      options:
+        - Windows (10 or later)
+        - macOS (ARM-based device)
+        - macOS (Intel-based device)
+        - Linux
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Browser
+      options:
+        - Firefox
+        - Firefox Beta
+        - Firefox Developer Edition
+        - Firefox Nightly
+        - Firefox ESR
+        - Floorp
+        - LibreWolf
+        - Zen Browser
+        - Waterfox
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Version
+      placeholder: 136 stable
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: Include any other information that may be helpful.
+    validations:
+      required: false
