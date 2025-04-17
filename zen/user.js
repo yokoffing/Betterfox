@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterZen                                                                *
  * "Ex nihilo nihil fit"                                                    *
- * version: 137                                                             *
+ * version: 138                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -18,7 +18,6 @@
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
 /** GFX ***/
-user_pref("gfx.canvas.accelerated.cache-items", 8192); // DEFAULT FF135+
 user_pref("gfx.canvas.accelerated.cache-size", 512);
 
 /** DISK CACHE ***/
