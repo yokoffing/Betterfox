@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 137                                                             *
+ * version: 138                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -1398,15 +1398,16 @@ user_pref("browser.tabs.crashReporting.sendReport", false);
 ******************************************************************************/
 
 // PREF: disable Captive Portal detection
+// [WARNING] Do NOT use for mobile devices. May NOT be able to use Firefox on public wifi (hotels, coffee shops, etc).
 // [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy
 // [2] https://wiki.mozilla.org/Necko/CaptivePortal
-user_pref("captivedetect.canonicalURL", "");
-user_pref("network.captive-portal-service.enabled", false);
+//user_pref("captivedetect.canonicalURL", "");
+//user_pref("network.captive-portal-service.enabled", false);
 
 // PREF: disable Network Connectivity checks
 // [WARNING] Do NOT use for mobile devices. May NOT be able to use Firefox on public wifi (hotels, coffee shops, etc).
 // [1] https://bugzilla.mozilla.org/1460537
-user_pref("network.connectivity-service.enabled", false);
+//user_pref("network.connectivity-service.enabled", false);
 
 // PREF: disable Privacy-Preserving Attribution [FF128+]
 // [NOTE] PPA disabled if main telemetry switches are disabled.
