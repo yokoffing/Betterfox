@@ -104,6 +104,9 @@ user_pref("zen.view.experimental-rounded-view", false);
 // Currently bugged if you click to view what's blocked
 //user_pref("zen.urlbar.show-protections-icon", true);
 
+// PREF: Disable the Picture in picture pop-out when changing tabs
+//user_pref("media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled", false);
+
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
