@@ -1272,6 +1272,8 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 // To add site exceptions: Page Info>Permissions>Receive Notifications
 // To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings
 // 0=always ask (default), 1=allow, 2=block
+// [1] https://easylinuxtipsproject.blogspot.com/p/security.html#ID5
+// [2] https://github.com/yokoffing/Betterfox/wiki/Common-Overrides#site-notifications
 user_pref("permissions.default.desktop-notification", 2);
    
 // PREF: default permission for Location Requests
