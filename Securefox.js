@@ -1327,6 +1327,10 @@ user_pref("permissions.manager.defaultsUrl", "");
 // PREF: remove webchannel whitelist
 //user_pref("webchannel.allowObject.urlWhitelist", ""); // [DEFAULT FF132+]
 
+// PREF: disable metadata caching for installed add-ons by default
+// [1] https://blog.mozilla.org/addons/how-to-opt-out-of-add-on-metadata-updates/
+user_pref("extensions.getAddons.cache.enabled", false);
+
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
 ******************************************************************************/
