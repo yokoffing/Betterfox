@@ -403,7 +403,7 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [3] https://searchfox.org/mozilla-central/rev/028c68d5f32df54bca4cf96376f79e48dfafdf08/modules/libpref/init/all.js#1280-1282
 // [4] https://www.keycdn.com/blog/resource-hints#prefetch
 // [5] https://3perf.com/blog/link-rels/#prefetch
-//user_pref("network.http.speculative-parallel-limit", 20); // DEFAULT (FF127+?)
+user_pref("network.http.speculative-parallel-limit", 0);
 
 // PREF: DNS prefetching for HTMLLinkElement <link rel="dns-prefetch">
 // Used for cross-origin connections to provide small performance improvements.
@@ -436,11 +436,11 @@ user_pref("network.dns.disablePrefetch", true);
 // [NOTE] Firefox will perform DNS lookup (if enabled) and TCP and TLS handshake,
 // but will not start sending or receiving HTTP data.
 // [1] https://www.ghacks.net/2017/07/24/disable-preloading-firefox-autocomplete-urls/
-//user_pref("browser.urlbar.speculativeConnect.enabled", false);
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
 
 // PREF: mousedown speculative connections on bookmarks and history [FF98+]
 // Whether to warm up network connections for places:menus and places:toolbar.
-//user_pref("browser.places.speculativeConnect.enabled", false);
+user_pref("browser.places.speculativeConnect.enabled", false);
 
 // PREF: network module preload <link rel="modulepreload"> [FF115+]
 // High-priority loading of current page JavaScript modules.
