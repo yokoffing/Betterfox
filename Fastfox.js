@@ -254,13 +254,14 @@ user_pref("browser.cache.disk.enable", false);
 // that only contains settings for systems at or below 8GB of system memory [1].
 // Waterfox G6 allows it to go above 8GB machines [3].
 // Value can be up to the max size of an unsigned 64-bit integer.
-// -1=Automatically decide the maximum memory to use to cache decoded images,
+// -1 = Automatically decide the maximum memory to use to cache decoded images,
 // messages, and chrome based on the total amount of RAM
+// For machines with 8GB+ RAM, that equals 32768 kb = 32 MB
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
-//user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 256000=256 MB; 512000=500 MB; 1048576=1GB, 2097152=2GB
-//user_pref("browser.cache.memory.max_entry_size", 10240); // (10 MB); default=5120 (5 MB)
+user_pref("browser.cache.memory.capacity", 131072); // (128 MB)
+user_pref("browser.cache.memory.max_entry_size", 20480); // (20 MB); default=5120 (5 MB)
 
 // PREF: amount of Back/Forward cached pages stored in memory for each tab
 // Pages that were recently visited are stored in memory in such a way
@@ -271,7 +272,7 @@ user_pref("browser.cache.disk.enable", false);
 // is no reason for Firefox to keep memory for this.
 // -1=determine automatically (8 pages)
 // [1] https://kb.mozillazine.org/Browser.sessionhistory.max_total_viewers#Possible_values_and_their_effects
-//user_pref("browser.sessionhistory.max_total_viewers", 4);
+user_pref("browser.sessionhistory.max_total_viewers", 4);
 
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
