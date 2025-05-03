@@ -418,7 +418,7 @@ user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.dns.disablePrefetch", true);
     user_pref("network.dns.disablePrefetchFromHTTPS", true); // [FF127+ false]
 
-// PREF:  DNS prefetch for HTMLAnchorElement (speculative DNS)
+// PREF: DNS prefetch for HTMLAnchorElement (speculative DNS)
 // Disable speculative DNS calls to prevent Firefox from resolving
 // hostnames for other domains linked on a page. This may eliminate
 // unnecessary DNS lookups, but can increase latency when following external links.
@@ -499,7 +499,7 @@ user_pref("network.prefetch-next", false);
 // When enabled, it trains and uses Firefox's algorithm to preload page resource
 // by tracking past page resources. It uses a local file (history) of needed images,
 // scripts, etc. to request them preemptively when navigating.
-// [NOTE] By default, it only preconnects, doing DNS, TCP, and SSL handshakes.
+// [NOTE] By default, it only preconnects DNS, TCP, and SSL handshakes.
 // No data sends until clicking. With "network.predictor.enable-prefetch" enabled,
 // it also performs prefetches.
 // [1] https://wiki.mozilla.org/Privacy/Reviews/Necko
