@@ -19,7 +19,16 @@
 
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
-user_pref("browser.sessionhistory.max_total_viewers", 4); // only remember # of pages in Back-Forward cache
+
+// SPECULATIVE LOADING WITHOUT PREDICTOR
+user_pref("network.http.speculative-parallel-limit", 20);
+//user_pref("network.dns.disablePrefetch", false);
+//user_pref("network.dns.disablePrefetchFromHTTPS", false);
+//user_pref("dom.prefetch_dns_for_anchor_https_document", true); 
+user_pref("browser.urlbar.speculativeConnect.enabled", true);
+user_pref("browser.places.speculativeConnect.enabled", true);
+user_pref("network.prefetch-next", true);
+
 user_pref("network.http.max-persistent-connections-per-server", 20); // increase download connections
 
 /** SECUREFOX ***/
