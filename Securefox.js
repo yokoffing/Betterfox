@@ -887,6 +887,7 @@ user_pref("signon.privateBrowsingCapture.enabled", false);
 
 // PREF: limit (or disable) HTTP authentication credentials dialogs triggered by sub-resources [FF41+]
 // Hardens against potential credentials phishing.
+// [WARNING] Hardening this pref may prevent you from subscribing to SoGo calendars in Thunderbird 138
 // 0=don't allow sub-resources to open HTTP authentication credentials dialogs
 // 1=don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
 // 2=allow sub-resources to open HTTP authentication credentials dialogs (default)
