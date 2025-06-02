@@ -28,8 +28,6 @@ user_pref("gfx.content.skia-font-cache-size", 20);
 user_pref("browser.cache.disk.enable", false);
 
 /** MEMORY CACHE ***/
-user_pref("browser.cache.memory.capacity", 131072);
-user_pref("browser.cache.memory.max_entry_size", 20480);
 user_pref("browser.sessionhistory.max_total_viewers", 4);
 
 /** MEDIA CACHE ***/
