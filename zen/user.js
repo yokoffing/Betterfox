@@ -10,7 +10,7 @@
 /****************************************************************************
  * BetterZen                                                                *
  * "Ex nihilo nihil fit"                                                    *
- * version: 137                                                             *
+ * version: 138                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -18,7 +18,6 @@
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
 /** GFX ***/
-user_pref("gfx.canvas.accelerated.cache-items", 8192); // DEFAULT FF135+
 user_pref("gfx.canvas.accelerated.cache-size", 512);
 
 /** DISK CACHE ***/
@@ -104,6 +103,9 @@ user_pref("zen.view.experimental-rounded-view", false);
 // PREF: show Enhance Tracking Protection shield in URL bar
 // Currently bugged if you click to view what's blocked
 //user_pref("zen.urlbar.show-protections-icon", true);
+
+// PREF: Disable the Picture in picture pop-out when changing tabs
+//user_pref("media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled", false);
 
 /****************************************************************************
  * START: MY OVERRIDES                                                      *

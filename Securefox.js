@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 137                                                             *
+ * version: 138                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -61,7 +61,7 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
 // [2] https://www.youtube.com/watch?v=VE8SrClOTgw
 // [3] https://searchfox.org/mozilla-central/source/browser/extensions/webcompat/data/shims.js
 //user_pref("extensions.webcompat.enable_shims", true); // [HIDDEN] enabled with "Strict"
-//user_pref("extensions.webcompat.smartblockEmbeds.enabled", true); // enabled with "Strict"
+//user_pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT FF137+]
 
 // PREF: allow embedded tweets and reddit posts [FF136+]
 // [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
@@ -121,6 +121,7 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
 // [5] https://hacks.mozilla.org/2021/02/introducing-state-partitioning/
 // [6] https://github.com/arkenfox/user.js/issues/1281
 // [7] https://hacks.mozilla.org/2022/02/improving-the-storage-access-api-in-firefox/
+// [8] https://blog.includesecurity.com/2025/04/cross-site-websocket-hijacking-exploitation-in-2025/
 //user_pref("network.cookie.cookieBehavior", 5); // DEFAULT FF103+
 //user_pref("network.cookie.cookieBehavior.optInPartitioning", true); // [ETP FF132+]
 //user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // DEFAULT
@@ -166,6 +167,7 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
 // [6] https://web.dev/samesite-cookies-explained/
 // [7] https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions
 // [8] https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+// [9] https://blog.includesecurity.com/2025/04/cross-site-websocket-hijacking-exploitation-in-2025/
 // [TEST] https://samesite-sandbox.glitch.me/
 //user_pref("network.cookie.sameSite.laxByDefault", true);
 //user_pref("network.cookie.sameSite.noneRequiresSecure", true); // [DEFAULT FF131+]
@@ -660,6 +662,7 @@ user_pref("network.IDN_show_punycode", true);
 // [4] https://web.dev/why-https-matters/
 // [5] https://www.cloudflare.com/learning/ssl/why-use-https/
 // [6] https://blog.chromium.org/2023/08/towards-https-by-default.html
+// [7] https://attackanddefense.dev/2025/03/31/https-first-in-firefox-136.html
 //user_pref("dom.security.https_first", true); // [DEFAULT FF136+]
 //user_pref("dom.security.https_first_pbm", true); // [DEFAULT FF91+]
 //user_pref("dom.security.https_first_schemeless", true); // [FF120+] [DEFAULT FF129+]
@@ -891,7 +894,7 @@ user_pref("signon.privateBrowsingCapture.enabled", false);
 // 0=don't allow sub-resources to open HTTP authentication credentials dialogs
 // 1=don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
 // 2=allow sub-resources to open HTTP authentication credentials dialogs (default)
-// [1] https://www.fxsitecompat.com/en-CA/docs/2015/http-auth-dialog-can-no-longer-be-triggered-by-cross-origin-resources/
+// [1] https://web.archive.org/web/20181123134351/https://www.fxsitecompat.com/en-CA/docs/2015/http-auth-dialog-can-no-longer-be-triggered-by-cross-origin-resources/
 user_pref("network.auth.subresource-http-auth-allow", 1);
 
 // PREF: prevent password truncation when submitting form data
@@ -1270,6 +1273,8 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 // To add site exceptions: Page Info>Permissions>Receive Notifications
 // To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings
 // 0=always ask (default), 1=allow, 2=block
+// [1] https://easylinuxtipsproject.blogspot.com/p/security.html#ID5
+// [2] https://github.com/yokoffing/Betterfox/wiki/Common-Overrides#site-notifications
 user_pref("permissions.default.desktop-notification", 2);
    
 // PREF: default permission for Location Requests
@@ -1323,6 +1328,10 @@ user_pref("permissions.manager.defaultsUrl", "");
 // PREF: remove webchannel whitelist
 //user_pref("webchannel.allowObject.urlWhitelist", ""); // [DEFAULT FF132+]
 
+// PREF: disable metadata caching for installed add-ons by default
+// [1] https://blog.mozilla.org/addons/how-to-opt-out-of-add-on-metadata-updates/
+user_pref("extensions.getAddons.cache.enabled", false);
+
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
 ******************************************************************************/
@@ -1364,8 +1373,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
 // PREF: disable daily active users [FF136+]
-// [NOTE] Already disabled by main telemetry switch
-//user_pref("datareporting.usage.uploadEnabled", false);
+user_pref("datareporting.usage.uploadEnabled", false);
 
 /******************************************************************************
  * SECTION: EXPERIMENTS                                                      *
@@ -1399,15 +1407,16 @@ user_pref("browser.tabs.crashReporting.sendReport", false);
 ******************************************************************************/
 
 // PREF: disable Captive Portal detection
+// [WARNING] Do NOT use for mobile devices. May NOT be able to use Firefox on public wifi (hotels, coffee shops, etc).
 // [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy
 // [2] https://wiki.mozilla.org/Necko/CaptivePortal
-user_pref("captivedetect.canonicalURL", "");
-user_pref("network.captive-portal-service.enabled", false);
+//user_pref("captivedetect.canonicalURL", "");
+//user_pref("network.captive-portal-service.enabled", false);
 
 // PREF: disable Network Connectivity checks
 // [WARNING] Do NOT use for mobile devices. May NOT be able to use Firefox on public wifi (hotels, coffee shops, etc).
 // [1] https://bugzilla.mozilla.org/1460537
-user_pref("network.connectivity-service.enabled", false);
+//user_pref("network.connectivity-service.enabled", false);
 
 // PREF: disable Privacy-Preserving Attribution [FF128+]
 // [NOTE] PPA disabled if main telemetry switches are disabled.
