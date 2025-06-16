@@ -90,10 +90,6 @@ user_pref("dom.text_fragments.create_text_fragment.enabled", true);
 ****************************************************************************/
 // Remove the slashes to enable the prefs
 
-// PREF: reduce CPU and GPU use until bug is fixed
-// [1] https://github.com/zen-browser/desktop/issues/6302
-user_pref("zen.view.experimental-rounded-view", false);
-
 // PREF: re-enable Windows efficiency mode
 //user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", true);
 
