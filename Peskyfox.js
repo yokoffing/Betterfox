@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 137                                                             *
+ * version: 140                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -238,11 +238,13 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.urlbar.maxRichResults", 5); // default=10
 
 // PREF: text fragments
+// [WARNING] Enabling can cause tab crashes [4]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1753933#c6
 // [2] https://developer.mozilla.org/en-US/docs/Web/Text_fragments
 // [3] https://web.dev/articles/text-fragments
+// [4] https://github.com/yokoffing/Betterfox/issues/397
 //user_pref("dom.text_fragments.enabled", true); // [DEFAULT]
-user_pref("dom.text_fragments.create_text_fragment.enabled", true);
+//user_pref("dom.text_fragments.create_text_fragment.enabled", true);
 
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
