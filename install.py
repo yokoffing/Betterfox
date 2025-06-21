@@ -73,10 +73,10 @@ def _get_default_firefox_version_and_root():
     print("Searching for Firefox installation...")
     for installation in INSTALLATIONS_TO_CHECK:
         try:
-            print(f"  '{" ".join(installation["command"])}': ", end="")
+            print(f"  '{' '.join(installation['command'])}': ", end="")
             version = _get_firefox_version(installation["command"])
             print("YES")
-            print(f"Root: {installation["root"]}")
+            print(f"Root: {installation['root']}")
             return version, installation["root"]
         except Exception:
             print("no")
