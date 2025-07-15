@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 138                                                             *
+ * version: 140                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -582,11 +582,13 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
     //user_pref("browser.search.separatePrivateDefault", true); // DEFAULT
 
 // PREF: enable option to add custom search engine
+// Before FF140, this pref was hidden.
 // [SETTINGS] Settings -> Search -> Search Shortcuts -> Add
 // [EXAMPLE] https://search.brave.com/search?q=%s
 // [EXAMPLE] https://lite.duckduckgo.com/lite/?q=%s
 // [1] https://reddit.com/r/firefox/comments/xkzswb/adding_firefox_search_engine_manually/
-user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
+// [2] https://www.mozilla.org/en-US/firefox/140.0/releasenotes/
+//user_pref("browser.urlbar.update2.engineAliasRefresh", true); // [DEFAULT FF140+]
 
 // PREF: disable live search suggestions (Google, Bing, etc.)
 // [WARNING] Search engines keylog every character you type from the URL bar.
