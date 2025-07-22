@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 140                                                             *
+ * version: 142                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -195,7 +195,7 @@ user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
     //user_pref("browser.urlbar.weather.ignoreVPN", false); // DEFAULT
 //user_pref("browser.urlbar.suggest.calculator", true); // [DEFAULT FF137+]
-user_pref("browser.urlbar.unitConversion.enabled", true);
+//user_pref("browser.urlbar.unitConversion.enabled", true); // [DEFAULT FF141+]
 
 // PREF: disable dropdown suggestions with empty query
 //user_pref("browser.urlbar.suggest.topsites", false);
