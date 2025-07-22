@@ -54,7 +54,6 @@ user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("browser.places.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
-user_pref("network.predictor.enable-prefetch", false);
 
 /** EXPERIMENTAL ***/
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
