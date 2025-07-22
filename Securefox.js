@@ -1165,6 +1165,10 @@ user_pref("privacy.userContext.ui.enabled", true);
 // [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes
 //user_pref("javascript.options.wasm", false);
 
+// PREF: CSP reporting
+// [1] https://github.com/yokoffing/Betterfox/issues/415
+//user_pref("security.csp.reporting.enabled", false);
+
 /******************************************************************************
  * SECTION: SAFE BROWSING (SB)                                               *
 ******************************************************************************/
