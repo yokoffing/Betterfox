@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 138                                                             *
+ * version: 140                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -71,6 +71,7 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
 // [TEST - truthsocial embed] https://www.newsweek.com/donald-trump-congratulates-patrick-brittany-mahomes-new-baby-2027097
 // [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
 // [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
+// [3] https://github.com/yokoffing/Betterfox/issues/413
 //user_pref("urlclassifier.trackingSkipURLs", "embed.reddit.com, *.twitter.com, *.twimg.com"); // MANUAL [FF136+]
 //user_pref("urlclassifier.features.socialtracking.skipURLs", "*.twitter.com, *.twimg.com"); // MANUAL [FF136+]
 
@@ -582,11 +583,13 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
     //user_pref("browser.search.separatePrivateDefault", true); // DEFAULT
 
 // PREF: enable option to add custom search engine
+// Before FF140, this pref was hidden.
 // [SETTINGS] Settings -> Search -> Search Shortcuts -> Add
 // [EXAMPLE] https://search.brave.com/search?q=%s
 // [EXAMPLE] https://lite.duckduckgo.com/lite/?q=%s
 // [1] https://reddit.com/r/firefox/comments/xkzswb/adding_firefox_search_engine_manually/
-user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
+// [2] https://www.mozilla.org/en-US/firefox/140.0/releasenotes/
+//user_pref("browser.urlbar.update2.engineAliasRefresh", true); // [DEFAULT FF140+]
 
 // PREF: disable live search suggestions (Google, Bing, etc.)
 // [WARNING] Search engines keylog every character you type from the URL bar.
@@ -1162,6 +1165,10 @@ user_pref("privacy.userContext.ui.enabled", true);
 // [2] https://spectrum.ieee.org/tech-talk/telecom/security/more-worries-over-the-security-of-web-assembly
 // [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes
 //user_pref("javascript.options.wasm", false);
+
+// PREF: CSP reporting
+// [1] https://github.com/yokoffing/Betterfox/issues/415
+//user_pref("security.csp.reporting.enabled", false);
 
 /******************************************************************************
  * SECTION: SAFE BROWSING (SB)                                               *

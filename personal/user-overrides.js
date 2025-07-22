@@ -54,6 +54,9 @@ user_pref("identity.fxaccounts.enabled", false); // disable Firefox Sync
 user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}"); // disable the Firefox View tour from popping up for new profiles
 user_pref("accessibility.force_disabled", 1); // disable Accessibility features
 user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
+user_pref("captivedetect.canonicalURL", ""); // disable captive portal detection
+user_pref("network.captive-portal-service.enabled", false); // disable captive portal detection
+user_pref("network.connectivity-service.enabled", false); // disable captive portal detection
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes un-needed "Inspect Accessibility Properties" on right-click
