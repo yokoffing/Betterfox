@@ -29,14 +29,6 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to make personalized extension recommendations
 user_pref("browser.discovery.enabled", false);
 
-// PREF: disable Fakespot integration [FF116+]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1840156#c0
-// [2] https://github.com/arkenfox/user.js/issues/1730
-// [3] https://www.fakespot.com/
-// [4] https://www.ghacks.net/2023/10/12/firefox-will-soon-tell-you-if-product-reviews-are-reliable/
-//user_pref("browser.shopping.experience2023.enabled", false); // DEFAULT
-//user_pref("browser.shopping.experience2023.ads.exposure", false); // DEFAULT [FF121+]
-
 // PREF: disable Firefox from asking to set as the default browser
 // [1] https://github.com/yokoffing/Betterfox/issues/166
 user_pref("browser.shell.checkDefaultBrowser", false);
@@ -210,7 +202,6 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.urlbar.amp.featureGate", false); // [FF141+] adMarketplace
 //user_pref("browser.urlbar.fakespot.featureGate", false); // [FF130+] [DEFAULT: false]
 //user_pref("browser.urlbar.mdn.featureGate", false); // [FF117+] [HIDDEN PREF]
-//user_pref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: false]
 //user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
 //user_pref("browser.urlbar.wikipedia.featureGate", false); // [FF141+]
 //user_pref("browser.urlbar.clipboard.featureGate", false); // [FF118+] [DEFAULT: true FF125+]
