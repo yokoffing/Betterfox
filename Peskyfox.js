@@ -97,7 +97,17 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 //user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true); // [DEFAULT FF132+]
 
 /****************************************************************************
- * SECTION: COOKIE BANNER HANDLING                                         *
+ * SECTION: AI                                                              *
+****************************************************************************/
+// PREF: LLM / AI master switch
+// [1] https://github.com/yokoffing/Betterfox/issues/416
+user_pref("browser.ml.enable", false);
+
+// PREF: AI chat
+//user_pref("browser.ml.chat.enabled", false);
+
+/****************************************************************************
+ * SECTION: COOKIE BANNER HANDLING                                          *
 ****************************************************************************/
 
 // PREF: Cookie Banner handling
@@ -122,7 +132,7 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 //user_pref("cookiebanners.service.enableGlobalRules.subFrames", true); // DEFAULT [FF121+]
 
 /****************************************************************************
- * SECTION: TRANSLATIONS                                                   *
+ * SECTION: TRANSLATIONS                                                    *
 ****************************************************************************/
 
 // PREF: Firefox Translations [FF118+]
