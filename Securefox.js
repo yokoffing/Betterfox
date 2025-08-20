@@ -22,6 +22,8 @@
 // [1] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 // [2] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
 user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
+//user_pref('privacy.trackingprotection.allow_list.baseline.enabled", true); // DEFAULT [FF142+]
+//user_pref('privacy.trackingprotection.allow_list.convenience.enabled", true); // DEFAULT [FF142+]
 //user_pref("privacy.trackingprotection.enabled", true); // enabled with "Strict"
 //user_pref("privacy.trackingprotection.pbmode.enabled", true); // DEFAULT
 //user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false); // DEFAULT
