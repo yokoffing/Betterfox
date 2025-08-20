@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 140                                                             *
+ * version: 142                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -28,14 +28,6 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 // [NOTE] This pref has no effect when Health Reports are disabled.
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to make personalized extension recommendations
 user_pref("browser.discovery.enabled", false);
-
-// PREF: disable Fakespot integration [FF116+]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1840156#c0
-// [2] https://github.com/arkenfox/user.js/issues/1730
-// [3] https://www.fakespot.com/
-// [4] https://www.ghacks.net/2023/10/12/firefox-will-soon-tell-you-if-product-reviews-are-reliable/
-//user_pref("browser.shopping.experience2023.enabled", false); // DEFAULT
-//user_pref("browser.shopping.experience2023.ads.exposure", false); // DEFAULT [FF121+]
 
 // PREF: disable Firefox from asking to set as the default browser
 // [1] https://github.com/yokoffing/Betterfox/issues/166
@@ -105,7 +97,24 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 //user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true); // [DEFAULT FF132+]
 
 /****************************************************************************
- * SECTION: COOKIE BANNER HANDLING                                         *
+ * SECTION: AI                                                              *
+****************************************************************************/
+// PREF: AI master switch
+// [1] https://github.com/yokoffing/Betterfox/issues/416
+user_pref("browser.ml.enable", false);
+
+// PREF: AI chat
+user_pref("browser.ml.chat.enabled", false);
+
+// PREF: link previews
+//user_pref("browser.ml.linkPreview.enabled", false);
+
+// PREF: AI-enhanced tab groups
+// [1] https://support.mozilla.org/kb/how-use-ai-enhanced-tab-groups
+//user_pref("browser.tabs.groups.smart.enabled", false);
+
+/****************************************************************************
+ * SECTION: COOKIE BANNER HANDLING                                          *
 ****************************************************************************/
 
 // PREF: Cookie Banner handling
@@ -130,7 +139,7 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 //user_pref("cookiebanners.service.enableGlobalRules.subFrames", true); // DEFAULT [FF121+]
 
 /****************************************************************************
- * SECTION: TRANSLATIONS                                                   *
+ * SECTION: TRANSLATIONS                                                    *
 ****************************************************************************/
 
 // PREF: Firefox Translations [FF118+]
@@ -195,7 +204,7 @@ user_pref("browser.urlbar.suggest.engines", false);
 //user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
     //user_pref("browser.urlbar.weather.ignoreVPN", false); // DEFAULT
 //user_pref("browser.urlbar.suggest.calculator", true); // [DEFAULT FF137+]
-user_pref("browser.urlbar.unitConversion.enabled", true);
+//user_pref("browser.urlbar.unitConversion.enabled", true); // [DEFAULT FF141+]
 
 // PREF: disable dropdown suggestions with empty query
 //user_pref("browser.urlbar.suggest.topsites", false);
@@ -207,10 +216,11 @@ user_pref("browser.urlbar.trending.featureGate", false);
 
 // PREF: disable urlbar suggestions
 //user_pref("browser.urlbar.addons.featureGate", false); // [FF115+]
+//user_pref("browser.urlbar.amp.featureGate", false); // [FF141+] adMarketplace
 //user_pref("browser.urlbar.fakespot.featureGate", false); // [FF130+] [DEFAULT: false]
 //user_pref("browser.urlbar.mdn.featureGate", false); // [FF117+] [HIDDEN PREF]
-//user_pref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: false]
 //user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
+//user_pref("browser.urlbar.wikipedia.featureGate", false); // [FF141+]
 //user_pref("browser.urlbar.clipboard.featureGate", false); // [FF118+] [DEFAULT: true FF125+]
 //user_pref("browser.urlbar.yelp.featureGate", false); // [FF124+] [DEFAULT: false]
 
@@ -292,11 +302,12 @@ user_pref("browser.urlbar.trending.featureGate", false);
 //user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
 //user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
-      user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Shortcuts > Sponsored shortcuts [FF83+]
+      user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts [FF83+]
 //user_pref("browser.newtabpage.activity-stream.showWeather", false); // Weather [FF130+]
     //user_pref("browser.newtabpage.activity-stream.system.showWeather", false); // hides Weather as an UI option
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
-      user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
+user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored stories [FF58+]  
+user_pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false); // [FF140+] Support Firefox
 //user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // Recent Activity [DEFAULT]
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
       //user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);

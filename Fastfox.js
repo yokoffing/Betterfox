@@ -78,6 +78,15 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // PREF: lazy load iframes
 //user_pref("dom.iframe_lazy_loading.enabled", true); // DEFAULT [FF121+]
 
+// PREF: Prioritized Task Scheduling API 
+// [1] https://github.com/yokoffing/Betterfox/issues/355
+// [2] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
+// [3] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
+// [4] https://github.com/WICG/scheduling-apis/blob/main/explainers/prioritized-post-task.md
+// [5] https://wicg.github.io/scheduling-apis/
+// [6] https://caniuse.com/mdn-api_taskcontroller
+//user_pref("dom.enable_web_task_scheduling", true); // DEFAULT [FF142+]
+
 /****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
 ****************************************************************************/
@@ -542,15 +551,6 @@ user_pref("network.predictor.enabled", false);
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
 // [2] https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
-
-// PREF: Prioritized Task Scheduling API [NIGHTLY]
-// [1] https://github.com/yokoffing/Betterfox/issues/355
-// [2] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
-// [3] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
-// [4] https://github.com/WICG/scheduling-apis/blob/main/explainers/prioritized-post-task.md
-// [5] https://wicg.github.io/scheduling-apis/
-// [6] https://caniuse.com/mdn-api_taskcontroller
-//user_pref("dom.enable_web_task_scheduling", true);
 
 /****************************************************************************
  * SECTION: TAB UNLOAD                                                      *

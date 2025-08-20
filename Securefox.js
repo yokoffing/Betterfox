@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 140                                                             *
+ * version: 142                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -22,6 +22,9 @@
 // [1] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 // [2] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
 user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1970647
+user_pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [FF142+]
+user_pref("privacy.trackingprotection.allow_list.convenience.enabled", true); // [FF142+]
 //user_pref("privacy.trackingprotection.enabled", true); // enabled with "Strict"
 //user_pref("privacy.trackingprotection.pbmode.enabled", true); // DEFAULT
 //user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false); // DEFAULT
@@ -316,6 +319,13 @@ user_pref("security.pki.crlite_mode", 2);
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1880314
 //user_pref("browser.contentanalysis.enabled", false); // [FF121+] [DEFAULT]
 //user_pref("browser.contentanalysis.default_result", 0; // [FF127+] [DEFAULT]
+
+// PREF: disable referrer and storage access for resources injected by content scripts [FF139+]
+//user_pref("privacy.antitracking.isolateContentScriptResources", true);
+
+// PREF: disable CSP Level 2 Reporting [FF140+]
+// [1] https://github.com/yokoffing/Betterfox/issues/415
+user_pref("security.csp.reporting.enabled", false);
 
 /****************************************************************************
  * SECTION: SSL (Secure Sockets Layer) / TLS (Transport Layer Security)    *
@@ -980,9 +990,9 @@ user_pref("extensions.enabledScopes", 5); // [HIDDEN PREF]
 // Users may see a notification when running add-ons that are not monitored by Mozilla when they visit certain sites.
 // The notification informs them that “some extensions are not allowed” and were blocked from running on that site.
 // There's no details as to which sites are affected.
-// [1] https://support.mozilla.org/en-US/kb/quarantined-domains
+// [1] https://support.mozilla.org/kb/quarantined-domains
 // [2] https://www.ghacks.net/2023/07/04/firefox-115-new-esr-base-and-some-add-ons-may-be-blocked-from-running-on-certain-sites/
-//user_pref("extensions.quarantinedDomains.enabled", false);
+//user_pref("extensions.quarantinedDomains.enabled", true); // [DEFAULT: true]
 
 /******************************************************************************
  * SECTION: HEADERS / REFERERS                                               *
@@ -1165,10 +1175,6 @@ user_pref("privacy.userContext.ui.enabled", true);
 // [2] https://spectrum.ieee.org/tech-talk/telecom/security/more-worries-over-the-security-of-web-assembly
 // [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes
 //user_pref("javascript.options.wasm", false);
-
-// PREF: CSP reporting
-// [1] https://github.com/yokoffing/Betterfox/issues/415
-//user_pref("security.csp.reporting.enabled", false);
 
 /******************************************************************************
  * SECTION: SAFE BROWSING (SB)                                               *
