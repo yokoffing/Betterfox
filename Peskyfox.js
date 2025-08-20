@@ -104,7 +104,7 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 user_pref("browser.ml.enable", false);
 
 // PREF: AI chat
-//user_pref("browser.ml.chat.enabled", false);
+user_pref("browser.ml.chat.enabled", false);
 
 /****************************************************************************
  * SECTION: COOKIE BANNER HANDLING                                          *
