@@ -179,6 +179,7 @@ user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 
 /** AI ***/
 user_pref("browser.ml.enable", false);
+user_pref("browser.ml.chat.enabled", false);
 
 /** FULLSCREEN NOTICE ***/
 user_pref("full-screen-api.transition-duration.enter", "0 0");
@@ -230,6 +231,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
+
 
 
 
