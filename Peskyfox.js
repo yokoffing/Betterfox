@@ -99,12 +99,15 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 /****************************************************************************
  * SECTION: AI                                                              *
 ****************************************************************************/
-// PREF: LLM / AI master switch
+// PREF: AI master switch
 // [1] https://github.com/yokoffing/Betterfox/issues/416
 user_pref("browser.ml.enable", false);
 
 // PREF: AI chat
 user_pref("browser.ml.chat.enabled", false);
+
+// PREF: link previews
+//user_pref("browser.ml.linkPreview.enabled", false);
 
 /****************************************************************************
  * SECTION: COOKIE BANNER HANDLING                                          *
