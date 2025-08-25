@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 142                                                             *
+ * version: 144                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -496,6 +496,14 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
 
 // PREF: purge session icon in Private Browsing windows
 user_pref("browser.privatebrowsing.resetPBM.enabled", true);
+
+// PREF: delete files downloaded in Private Browsing when all private windows are closed
+// When downloading a file in private browsing mode, the user will be prompted
+// to chose whether they want to keep or delete files that are downloaded
+// while in private browsing. 
+user_pref("browser.download.enableDeletePrivate", true);
+user_pref("browser.download.deletePrivateChosen", true);
+user_pref("browser.download.deletePrivate", true);
 
 /******************************************************************************
  * SECTION: SHUTDOWN & SANITIZING                                             *
