@@ -281,7 +281,7 @@ user_pref("security.OCSP.enabled", 0);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1429800,1670985,1753071
 // [2] https://blog.mozilla.org/security/tag/crlite/
 //user_pref("security.remote_settings.crlite_filters.enabled", true); // [DEFAULT: true FF137+]
-user_pref("security.pki.crlite_mode", 2);
+//user_pref("security.pki.crlite_mode", 2); // [DEFAULT: 2 FF142+]
 
 // PREF: HTTP Public Key Pinning (HPKP)
 // HPKP enhances the security of SSL certificates by associating
