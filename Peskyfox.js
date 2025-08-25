@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 142                                                             *
+ * version: 144                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -337,8 +337,9 @@ user_pref("browser.newtabpage.activity-stream.default.sites", "");
  * SECTION: POCKET                                                            *
 ******************************************************************************/
 
-// PREF: Disable built-in Pocket extension
-user_pref("extensions.pocket.enabled", false);
+// PREF: disable built-in Pocket extension
+// [1] https://support.mozilla.org/kb/future-of-pocket
+//user_pref("extensions.pocket.enabled", false); // DEFAULT
       //user_pref("extensions.pocket.api"," ");
       //user_pref("extensions.pocket.oAuthConsumerKey", " ");
       //user_pref("extensions.pocket.site", " ");
