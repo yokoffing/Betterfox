@@ -199,7 +199,7 @@ user_pref("browser.cache.disk.enable", false);
 // for recently read cache entries [1]. It is managed by a cache thread, and caches with
 // metadata in the pool appear to be reused immediately.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=986179
-//user_pref("browser.cache.disk.metadata_memory_limit", 500); // alt=16384; default=250 (0.25 MB); limit of recent metadata we keep in memory for faster access
+//user_pref("browser.cache.disk.metadata_memory_limit", 16384); // default=250 (0.25 MB); limit of recent metadata we keep in memory for faster access
 
 // PREF: number of chunks we preload ahead of read
 // Large content such as images will load faster.
@@ -280,8 +280,8 @@ user_pref("browser.cache.disk.enable", false);
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
-user_pref("browser.cache.memory.capacity", 131072); // 128 MB RAM cache
-user_pref("browser.cache.memory.max_entry_size", 32768); // 32 MB max entry; default=5120 (5 MB)
+user_pref("browser.cache.memory.capacity", 65536); // 64MB RAM cahce; alt=131072 (128 MB RAM cache)
+user_pref("browser.cache.memory.max_entry_size", 16384); // 16MB max entry; alt=32768; 32 MB max entry; default=5120 (5 MB)
 
 // PREF: amount of Back/Forward cached pages stored in memory for each tab
 // Pages that were recently visited are stored in memory in such a way
@@ -388,7 +388,7 @@ user_pref("network.http.pacing.requests.enabled", false);
 
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
-//user_pref("network.dnsCacheEntries", 10000); // default=400
+user_pref("network.dnsCacheEntries", 10000); // default=400
 
 // PREF: adjust DNS expiration time
 // [ABOUT] about:networking#dns
@@ -401,7 +401,7 @@ user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; defau
 //user_pref("network.dns.max_any_priority_threads", 24); // DEFAULT [FF 123?]
 
 // PREF: increase TLS token caching 
-user_pref("network.ssl_tokens_cache_capacity", 32768); // default=2048; alt=10240; more TLS token caching (fast reconnects)
+user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
  * SECTION: SPECULATIVE LOADING                                            *
