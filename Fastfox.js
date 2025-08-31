@@ -284,7 +284,7 @@ user_pref("browser.cache.disk.enable", false);
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
-user_pref("browser.cache.memory.capacity", 65536); // 64MB RAM cahce; alt=131072 (128 MB RAM cache)
+user_pref("browser.cache.memory.capacity", 65536); // 64MB RAM cache; alt=131072 (128 MB RAM cache)
 user_pref("browser.cache.memory.max_entry_size", 32768); // 32 MB max entry; default=5120 (5 MB)
 
 // PREF: amount of Back/Forward cached pages stored in memory for each tab
