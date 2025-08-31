@@ -33,7 +33,7 @@
 // false = reflow pages whenever new data is received
 //user_pref("content.notify.ontimer", true); // DEFAULT
 
-// PREF: notification interval (in microseconds) to avoid layout thrashing
+// PREF: content notification delay - notification interval (in microseconds) to avoid layout thrashing
 // When Firefox is loading a page, it periodically reformats
 // or "reflows" the page as it loads. The page displays new elements
 // every 0.12 seconds by default. These redraws increase the total page load time.
@@ -48,11 +48,16 @@
 // [2] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
 // [3] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
 user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
-//user_pref("content.max.tokenizing.time", 1000000);
-//user_pref("content.switch.threshold", 500000); // default= 750000
-//user_pref("content.interrupt.parsing", true);
-//user_pref("content.notify.ontimer", true);
-//user_pref("content.maxtextrun", 8191); // DEFAULT
+user_pref("content.max.tokenizing.time", 1000000); // (1.00s); alt=2000000; HIDDEN
+user_pref("content.interrupt.parsing", true); // HIDDEN
+user_pref("content.notify.ontimer", true); // HIDDEN
+
+// PREF: UI responsiveness threshold
+user_pref("content.switch.threshold", 300000); // HIDDEN; default= 750000; alt=500000
+
+// PREF: split text nodes to a length
+// The number of bytes in a text node.
+//user_pref("content.maxtextrun", 8191); // DEFAULT; HIDDEN
 
 // PREF: new tab preload
 // [WARNING] Disabling this may cause a delay when opening a new tab in Firefox.
@@ -123,10 +128,10 @@ user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
 //user_pref("gfx.canvas.accelerated", true); // [DEFAULT FF133+]
-    //user_pref("gfx.canvas.accelerated.cache-items", 16384); // [DEFAULT=8192 FF135+]; Chrome=4096; alt=32768
-    user_pref("gfx.canvas.accelerated.cache-size", 2048); // default=256; Chrome=512; alt=4096
-    user_pref("gfx.content.skia-font-cache-size", 32); // default=5; Chrome=20
-    //user_pref("gfx.canvas.max-size", 32767); // DEFAULT=32767
+user_pref("gfx.canvas.accelerated.cache-items", 32768); // [default=8192 FF135+]; Chrome=4096
+user_pref("gfx.canvas.accelerated.cache-size", 4096); // default=256; Chrome=512; alt=4096
+user_pref("gfx.content.skia-font-cache-size", 32); // default=5; Chrome=20
+//user_pref("gfx.canvas.max-size", 32767); // DEFAULT=32767
     // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
 
 // PREF: WebGL
@@ -280,7 +285,7 @@ user_pref("browser.cache.disk.enable", false);
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
 user_pref("browser.cache.memory.capacity", 65536); // 64MB RAM cahce; alt=131072 (128 MB RAM cache)
-user_pref("browser.cache.memory.max_entry_size", 16384); // 16MB max entry; alt=32768; 32 MB max entry; default=5120 (5 MB)
+user_pref("browser.cache.memory.max_entry_size", 32768); // 32 MB max entry; default=5120 (5 MB)
 
 // PREF: amount of Back/Forward cached pages stored in memory for each tab
 // Pages that were recently visited are stored in memory in such a way
@@ -299,7 +304,7 @@ user_pref("dom.storage.shadow_writes", true);
 
 // PREF: tell garbage collector to start running when javascript is using xx MB of memory
 // Garbage collection releases memory back to the system.
-//user_pref("javascript.options.mem.high_water_mark", 128); [HIDDEN OR REMOVED]
+//user_pref("javascript.options.mem.high_water_mark", 128); // DEFAULT [HIDDEN OR REMOVED]
 
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
@@ -379,8 +384,8 @@ user_pref("network.http.request.max-start-delay", 5); // default=10
 // Pacing requests adds a slight delay between requests to throttle them.
 // If you have a fast machine and internet connection, disabling pacing
 // may provide a small speed boost when loading pages with lots of requests.
-// false=Firefox will send as many requests as possible without pacing
-// true=Firefox will pace requests (default)
+// false = Firefox will send as many requests as possible without pacing
+// true = Firefox will pace requests (default)
 user_pref("network.http.pacing.requests.enabled", false);
     //user_pref("network.http.pacing.requests.min-parallelism", 10); // default=6
     //user_pref("network.http.pacing.requests.burst", 32); // default=10
@@ -570,7 +575,7 @@ user_pref("network.predictor.enabled", false);
 // PREF: CSS Masonry Layout [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
 // [2] https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
+//user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 /****************************************************************************
  * SECTION: TAB UNLOAD                                                      *
