@@ -48,9 +48,8 @@
 // [2] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
 // [3] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
 user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
-//user_pref("content.notify.interval", 50000);
-//user_pref("content.max.tokenizing.time", 150000);
-//user_pref("content.switch.threshold", 300000); // default= 750000
+//user_pref("content.max.tokenizing.time", 1000000);
+//user_pref("content.switch.threshold", 500000); // default= 750000
 //user_pref("content.interrupt.parsing", true);
 //user_pref("content.notify.ontimer", true);
 //user_pref("content.maxtextrun", 8191); // DEFAULT
@@ -124,14 +123,14 @@ user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
 //user_pref("gfx.canvas.accelerated", true); // [DEFAULT FF133+]
-    //user_pref("gfx.canvas.accelerated.cache-items", 8192); // DEFAULT FF135+; Chrome=4096; alt=32768
-    user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512; alt=4096
-    user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20; alt=30
-    //user_pref("gfx.canvas.max-size", 16384);
+    //user_pref("gfx.canvas.accelerated.cache-items", 16384); // [DEFAULT=8192 FF135+]; Chrome=4096; alt=32768
+    user_pref("gfx.canvas.accelerated.cache-size", 2048); // default=256; Chrome=512; alt=4096
+    user_pref("gfx.content.skia-font-cache-size", 32); // default=5; Chrome=20
+    //user_pref("gfx.canvas.max-size", 32767); // DEFAULT=32767
     // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
 
 // PREF: WebGL
-//user_pref("webgl.max-size", 16384);
+user_pref("webgl.max-size", 8192); // default=1024
 //user_pref("webgl.force-enabled", true);
 
 // PREF: prefer GPU over CPU
@@ -295,8 +294,8 @@ user_pref("browser.cache.memory.max_entry_size", 16384); // 16MB max entry; alt=
 user_pref("browser.sessionhistory.max_total_viewers", 4); // default=8
 user_pref("browser.sessionstore.max_tabs_undo", 10); // default=25
 //user_pref("browser.sessionstore.max_entries", 10); // [HIDDEN OR REMOVED]
-//user_pref("dom.storage.default_quota", 20480); // 20MB; default=5120
-//user_pref("dom.storage.shadow_writes", true);
+user_pref("dom.storage.default_quota", 20480); // 20MB; default=5120
+user_pref("dom.storage.shadow_writes", true);
 
 // PREF: tell garbage collector to start running when javascript is using xx MB of memory
 // Garbage collection releases memory back to the system.
@@ -312,7 +311,7 @@ user_pref("browser.sessionstore.max_tabs_undo", 10); // default=25
 // PREF: media memory cache
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
 // [2] https://github.com/arkenfox/user.js/pull/941
-user_pref("media.memory_cache_max_size", 106496); // default=8192; AF=65536; alt=131072
+user_pref("media.memory_cache_max_size", 524288); // 512MB; default=8192; AF=65536; alt=131072
 
 // PREF: media cache combine sizes
 user_pref("media.memory_caches_combined_limit_kb", 2097152); // 2GB; default=524288
@@ -337,7 +336,7 @@ user_pref("media.cache_resume_threshold", 300); // 5 min; default=30; when a net
 ****************************************************************************/
 
 // PREF: image cache
-//user_pref("image.cache.size", 10485760); // (cache images up to 10MiB in size) [DEFAULT 5242880]
+user_pref("image.cache.size", 10485760); // (cache images up to 10MiB in size) [DEFAULT 5242880]
 user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; alt=32768; chunk size for calls to the image decoders
 //user_pref("image.mem.max_decoded_image_kb", 512000); // 500MB [HIDDEN OR REMOVED?]
 
