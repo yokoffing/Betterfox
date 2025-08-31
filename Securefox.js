@@ -501,9 +501,9 @@ user_pref("browser.privatebrowsing.resetPBM.enabled", true);
 // When downloading a file in private browsing mode, the user will be prompted
 // to chose whether they want to keep or delete files that are downloaded
 // while in private browsing. 
-user_pref("browser.download.enableDeletePrivate", true);
-user_pref("browser.download.deletePrivateChosen", true);
-user_pref("browser.download.deletePrivate", true);
+//user_pref("browser.download.enableDeletePrivate", true);
+//user_pref("browser.download.deletePrivateChosen", true);
+//user_pref("browser.download.deletePrivate", true);
 
 /******************************************************************************
  * SECTION: SHUTDOWN & SANITIZING                                             *
