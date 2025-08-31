@@ -50,7 +50,7 @@
 user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 user_pref("content.max.tokenizing.time", 1000000); // (1.00s); alt=2000000; HIDDEN
 user_pref("content.interrupt.parsing", true); // HIDDEN
-user_pref("content.notify.ontimer", true); // HIDDEN
+//user_pref("content.notify.ontimer", true); // DEFAULT
 
 // PREF: UI responsiveness threshold
 user_pref("content.switch.threshold", 300000); // HIDDEN; default= 750000; alt=500000
