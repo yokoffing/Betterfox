@@ -109,12 +109,12 @@ user_pref("browser.ml.enable", false);
 // PREF: AI chat
 user_pref("browser.ml.chat.enabled", false);
 
-// PREF: link previews
-//user_pref("browser.ml.linkPreview.enabled", false);
-
 // PREF: AI-enhanced tab groups
 // [1] https://support.mozilla.org/kb/how-use-ai-enhanced-tab-groups
 //user_pref("browser.tabs.groups.smart.enabled", false);
+
+// PREF: link previews
+//user_pref("browser.ml.linkPreview.enabled", false);
 
 /****************************************************************************
  * SECTION: COOKIE BANNER HANDLING                                          *
