@@ -392,7 +392,7 @@ user_pref("network.http.pacing.requests.enabled", false);
 
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
-user_pref("network.dnsCacheEntries", 10000); // default=400
+user_pref("network.dnsCacheEntries", 10000); // default=800
 
 // PREF: adjust DNS expiration time
 // [ABOUT] about:networking#dns
