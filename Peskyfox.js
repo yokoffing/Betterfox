@@ -64,6 +64,9 @@ user_pref("browser.profiles.enabled", true);
 // [1] https://github.com/yokoffing/Betterfox/issues/320
 //user_pref("widget.gtk.non-native-titlebar-buttons.enabled", true);
 
+// PREF: disable search engine switcher in the URL bar [FF136+]
+//user_pref("browser.urlbar.scotchBonnet.enableOverride", false);
+
 /****************************************************************************
  * SECTION: THEME ADJUSTMENTS                                              *
 ****************************************************************************/
