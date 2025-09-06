@@ -48,12 +48,12 @@
 // [2] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
 // [3] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
 user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
-user_pref("content.max.tokenizing.time", 1000000); // (1.00s); alt=2000000; HIDDEN
-user_pref("content.interrupt.parsing", true); // HIDDEN
+//user_pref("content.max.tokenizing.time", 1000000); // (1.00s); alt=2000000; HIDDEN
+//user_pref("content.interrupt.parsing", true); // HIDDEN
 //user_pref("content.notify.ontimer", true); // DEFAULT
 
 // PREF: UI responsiveness threshold
-user_pref("content.switch.threshold", 300000); // HIDDEN; default= 750000; alt=500000
+//user_pref("content.switch.threshold", 300000); // HIDDEN; default= 750000; alt=500000
 
 // PREF: split text nodes to a length
 // The number of bytes in a text node.
@@ -73,7 +73,7 @@ user_pref("content.switch.threshold", 300000); // HIDDEN; default= 750000; alt=5
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1796525
 // [3] https://bugzilla.mozilla.org/show_bug.cgi?id=1800412
 // [4] https://reddit.com/r/firefox/comments/107fj69/how_can_i_disable_the_efficiency_mode_on_firefox/
-user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
+//user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
 
 // PREF: control how tabs are loaded when a session is restored
 // true=Tabs are not loaded until they are selected (default)
@@ -129,8 +129,8 @@ user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
 // [3] https://github.com/yokoffing/Betterfox/issues/198
 //user_pref("gfx.canvas.accelerated", true); // [DEFAULT FF133+]
 user_pref("gfx.canvas.accelerated.cache-items", 32768); // [default=8192 FF135+]; Chrome=4096
-user_pref("gfx.canvas.accelerated.cache-size", 4096); // default=256; Chrome=512; alt=4096
-user_pref("gfx.content.skia-font-cache-size", 32); // default=5; Chrome=20
+user_pref("gfx.canvas.accelerated.cache-size", 1024); // default=256; Chrome=512
+user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
 //user_pref("gfx.canvas.max-size", 32767); // DEFAULT=32767
     // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
 
@@ -299,8 +299,8 @@ user_pref("browser.cache.memory.max_entry_size", 20480); // 20 MB max entry; def
 user_pref("browser.sessionhistory.max_total_viewers", 4); // default=8
 user_pref("browser.sessionstore.max_tabs_undo", 10); // default=25
 //user_pref("browser.sessionstore.max_entries", 10); // [HIDDEN OR REMOVED]
-user_pref("dom.storage.default_quota", 20480); // 20MB; default=5120
-user_pref("dom.storage.shadow_writes", true);
+//user_pref("dom.storage.default_quota", 20480); // 20MB; default=5120
+//user_pref("dom.storage.shadow_writes", true);
 
 // PREF: tell garbage collector to start running when javascript is using xx MB of memory
 // Garbage collection releases memory back to the system.
@@ -315,11 +315,11 @@ user_pref("dom.storage.shadow_writes", true);
 
 // PREF: media memory cache
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
-// [2] https://github.com/arkenfox/user.js/pull/941
-user_pref("media.memory_cache_max_size", 524288); // 512MB; default=8192; AF=65536; alt=131072
+// [2] https://github.com/arkenfox/user.js/pull/941#issuecomment-668278121
+user_pref("media.memory_cache_max_size", 98304); // 98MB; default=8192; AF=65536
 
 // PREF: media cache combine sizes
-user_pref("media.memory_caches_combined_limit_kb", 2097152); // 2GB; default=524288
+user_pref("media.memory_caches_combined_limit_kb", 1048576); // 1GB; default=524288
 //user_pref("media.memory_caches_combined_limit_pc_sysmem", 5); // DEFAULT; alt=10; the percentage of system memory that Firefox can use for media caches
 
 // PREF: Media Source Extensions (MSE) web standard
@@ -405,7 +405,7 @@ user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; defau
 //user_pref("network.dns.max_any_priority_threads", 24); // DEFAULT [FF 123?]
 
 // PREF: increase TLS token caching 
-user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
+//user_pref("network.ssl_tokens_cache_capacity", 6144); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
  * SECTION: SPECULATIVE LOADING                                            *
