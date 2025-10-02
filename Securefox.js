@@ -24,7 +24,7 @@
 user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1970647
 user_pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [FF142+]
-user_pref("privacy.trackingprotection.allow_list.convenience.enabled", true); // [FF142+]
+//user_pref("privacy.trackingprotection.allow_list.convenience.enabled", true); // [FF142+]
 //user_pref("privacy.trackingprotection.enabled", true); // enabled with "Strict"
 //user_pref("privacy.trackingprotection.pbmode.enabled", true); // DEFAULT
 //user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false); // DEFAULT
