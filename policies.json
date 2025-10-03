@@ -36,7 +36,8 @@
             "PreventInstalls": false,
             "Remove": [
                 "Amazon.com",
-                "eBay"
+                "eBay",
+                "Google"
             ],
             "Default": "DuckDuckGo",
             "Add": [
