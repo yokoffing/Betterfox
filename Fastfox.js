@@ -47,7 +47,7 @@
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
 // [2] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
 // [3] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
-user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
+//user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("content.max.tokenizing.time", 1000000); // (1.00s); alt=2000000; HIDDEN
 //user_pref("content.interrupt.parsing", true); // HIDDEN
 //user_pref("content.notify.ontimer", true); // DEFAULT
