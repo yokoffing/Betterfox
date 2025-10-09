@@ -129,13 +129,13 @@
 // [3] https://github.com/yokoffing/Betterfox/issues/198
 //user_pref("gfx.canvas.accelerated", true); // [DEFAULT FF133+]
 user_pref("gfx.canvas.accelerated.cache-items", 32768); // [default=8192 FF135+]; Chrome=4096
-user_pref("gfx.canvas.accelerated.cache-size", 1024); // default=256; Chrome=512
-user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
+user_pref("gfx.canvas.accelerated.cache-size", 4096); // default=256; Chrome=512
+user_pref("gfx.content.skia-font-cache-size", 32); // default=5; Chrome=20
 //user_pref("gfx.canvas.max-size", 32767); // DEFAULT=32767
     // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
 
 // PREF: WebGL
-user_pref("webgl.max-size", 8192); // default=1024
+user_pref("webgl.max-size", 16384); // default=1024
 //user_pref("webgl.force-enabled", true);
 
 // PREF: prefer GPU over CPU
@@ -284,7 +284,7 @@ user_pref("browser.cache.disk.enable", false);
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
-user_pref("browser.cache.memory.capacity", 65536); // 64MB RAM cache; alt=131072 (128 MB RAM cache); default=32768
+user_pref("browser.cache.memory.capacity", 131072); // 128 MB RAM cache; alt=65536 (65 MB RAM cache); default=32768
 user_pref("browser.cache.memory.max_entry_size", 20480); // 20 MB max entry; default=5120 (5 MB)
 
 // PREF: amount of Back/Forward cached pages stored in memory for each tab
@@ -316,7 +316,7 @@ user_pref("browser.sessionstore.max_tabs_undo", 10); // default=25
 // PREF: media memory cache
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
 // [2] https://github.com/arkenfox/user.js/pull/941#issuecomment-668278121
-user_pref("media.memory_cache_max_size", 98304); // 98MB; default=8192; AF=65536
+user_pref("media.memory_cache_max_size", 262144); // 256 MB; default=8192; AF=65536
 
 // PREF: media cache combine sizes
 user_pref("media.memory_caches_combined_limit_kb", 1048576); // 1GB; default=524288
