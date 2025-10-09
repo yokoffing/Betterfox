@@ -22,6 +22,12 @@
 //user_pref("nglayout.initialpaint.delay", 5); // DEFAULT; formerly 250
     //user_pref("nglayout.initialpaint.delay_in_oopif", 5); // DEFAULT
 
+// PREF: Font rendering cache in Skia (32MB)
+// Increases font cache size to improve performance on text-heavy websites.
+// Especially beneficial for sites with many font faces or complex typography.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
+user_pref("gfx.content.skia-font-cache-size", 32); // 32 MB; default=5; Chrome=20
+
 // PREF: page reflow timer
 // Rather than wait until a page has completely downloaded to display it to the user,
 // web browsers will periodically render what has been received to that point.
@@ -130,9 +136,7 @@
 //user_pref("gfx.canvas.accelerated", true); // [DEFAULT FF133+]
 user_pref("gfx.canvas.accelerated.cache-items", 32768); // [default=8192 FF135+]; Chrome=4096
 user_pref("gfx.canvas.accelerated.cache-size", 4096); // default=256; Chrome=512
-user_pref("gfx.content.skia-font-cache-size", 32); // default=5; Chrome=20
 //user_pref("gfx.canvas.max-size", 32767); // DEFAULT=32767
-    // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
 
 // PREF: WebGL
 user_pref("webgl.max-size", 16384); // default=1024
