@@ -409,7 +409,7 @@ user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; defau
 //user_pref("network.dns.max_any_priority_threads", 24); // DEFAULT [FF 123?]
 
 // PREF: increase TLS token caching 
-//user_pref("network.ssl_tokens_cache_capacity", 6144); // default=2048; more TLS token caching (fast reconnects)
+user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
  * SECTION: SPECULATIVE LOADING                                            *
