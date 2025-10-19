@@ -46,6 +46,7 @@ The `user.js` — a configuration file that controls Firefox settings — is cur
 > While the browsers listed below incorporate Betterfox to some extent, they often modify it in ways that reduce its effectiveness. For optimal results, apply the `user.js` file even when using Firefox forks.
 
 * [Zen](https://github.com/zen-browser/desktop?tab=readme-ov-file) | [files](https://github.com/zen-browser/desktop/blob/stable/src/browser/app/profile/zen-browser.js) (July 2024)
+* [FireDragon](https://github.com/dr460nf1r3/firedragon-browser/blob/master/README.md) | [files](https://github.com/dr460nf1r3/firedragon-browser/blob/55fc6e5029542cd90fabe23cb44c89568d74d006/firedragon.cfg#L822-L824) (Jan 2024?)
 * [Midori](https://github.com/goastian/midori-desktop/blob/ESR115/README.md) | [files](https://github.com/goastian/midori-desktop/blob/f3d8d96eb8e08f35a64e3c957bea4e839d7c7730/floorp/browser/components/userjsUtils.sys.mjs#L28-L33) (Dec 2023?)
 * [Mercury](https://github.com/Alex313031/Mercury/releases/tag/v.115.3.0) | [files](https://github.com/Alex313031/Mercury/commit/eb9600f9fb8f48c8f5b5c6f3264fbcdb5caff7f5) (Sep 2023)
 * [Waterfox](https://www.waterfox.net/docs/releases/G6.0/) | [files](https://github.com/WaterfoxCo/Waterfox/tree/current/waterfox/browser/app/profile) (Sep 2023)

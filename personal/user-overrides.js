@@ -28,10 +28,10 @@ user_pref("network.http.speculative-parallel-limit", 20);
 user_pref("browser.urlbar.speculativeConnect.enabled", true);
 user_pref("browser.places.speculativeConnect.enabled", true);
 user_pref("network.prefetch-next", true);
-
 user_pref("network.http.max-persistent-connections-per-server", 20); // increase download connections
 
 /** SECUREFOX ***/
+user_pref("privacy.trackingprotection.allow_list.convenience.enabled", false); // disable Strict allowlist of convenience features
 user_pref("signon.rememberSignons", false); // disable password manager
 user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
 user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
@@ -57,6 +57,9 @@ user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pi
 user_pref("captivedetect.canonicalURL", ""); // disable captive portal detection
 user_pref("network.captive-portal-service.enabled", false); // disable captive portal detection
 user_pref("network.connectivity-service.enabled", false); // disable captive portal detection
+user_pref("browser.download.enableDeletePrivate", true); // Delete files downloaded in private browsing when all private windows are closed
+user_pref("browser.download.deletePrivateChosen", true); // Delete files downloaded in private browsing when all private windows are closed
+user_pref("browser.download.deletePrivate", true); // Delete files downloaded in private browsing when all private windows are closed
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes un-needed "Inspect Accessibility Properties" on right-click
@@ -150,3 +153,5 @@ user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
 user_pref("network.trr.max-fails", 5); // lower max attempts to use DoH
 user_pref("geo.provider.use_geoclue", false); // [LINUX]
 user_pref("pdfjs.defaultZoomValue", "page-width"); // PDF zoom level
+
+
