@@ -1139,6 +1139,53 @@ user_pref("privacy.userContext.ui.enabled", true);
     //user_pref("browser.eme.ui.enabled", false);
 
 /******************************************************************************
+ * SECTION: JIT                                                              *
+******************************************************************************/
+// PREF: Just-In-Time Compilation
+// Around half of zero-day exploits are directly related to "just in time"
+// (JIT) compilers, and disabling that can greatly improve your protection against
+// these potential exploits.
+// [1] https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/
+// [2] https://www.youtube.com/watch?v=i7qlZeDt9o4
+
+// PREF: JavaScript JIT
+// PREF: disable Ion and baseline JIT to harden against JS exploits
+// [NOTE] When both Ion and JIT are disabled, and trustedprincipals
+// is enabled, then Ion can still be used by extensions [4].
+// Tor Browser doesn't even ship with these disabled by default.
+// [1] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=firefox+jit
+// [2] https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/
+// [3] https://support.microsoft.com/en-us/microsoft-edge/enhance-your-security-on-the-web-with-microsoft-edge-b8199f13-b21b-4a08-a806-daed31a1929d
+// [4] https://bugzilla.mozilla.org/show_bug.cgi?id=1599226
+// [5] https://wiki.mozilla.org/IonMonkey
+// [6] https://github.com/arkenfox/user.js/issues/1791#issuecomment-1891273681
+//user_pref("javascript.options.baselinejit", false);
+//user_pref("javascript.options.ion", false);
+//user_pref("javascript.options.jit_trustedprincipals", false);
+
+// PREF: WebAssembly JIT [FF52+]
+// Vulnerabilities [1] have increasingly been found, including those known and fixed
+// in native programs years ago [2]. WASM has powerful low-level access, making
+// certain attacks (brute-force) and vulnerabilities more possible.
+// [STATS] ~0.2% of websites, about half of which are for cryptomining / malvertising [2][3]
+// [1] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=wasm
+// [2] https://spectrum.ieee.org/tech-talk/telecom/security/more-worries-over-the-security-of-web-assembly
+// [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes
+//user_pref("javascript.options.wasm", false);
+    //user_pref("javascript.options.wasm_trustedprincipals", false);
+    //user_pref("javascript.options.wasm_baselinejit", false);
+    //user_pref("javascript.options.wasm_optimizingjit", false);
+
+// PREF: Asm.js JIT [FF22+]
+// [1] http://asmjs.org/
+// [2] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=asm.js
+// [3] https://rh0dev.github.io/blog/2017/the-return-of-the-jit/
+//user_pref("javascript.options.asmjs", false);
+
+// PREF: Blinterp (JIT-like)
+//user_pref("javascript.options.blinterp", false);
+     
+/******************************************************************************
  * SECTION: VARIOUS                                                          *
 ******************************************************************************/
 
@@ -1151,40 +1198,7 @@ user_pref("privacy.userContext.ui.enabled", true);
 // If this is less than 5, then pasting code into the web console is disabled.
 //user_pref("devtools.selfxss.count", 5);
 
-// PREF: disable asm.js [FF22+]
-// [WARNING] Disabling this pref may disrupt your browsing experience.
-// [1] http://asmjs.org/
-// [2] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=asm.js
-// [3] https://rh0dev.github.io/blog/2017/the-return-of-the-jit/
-//user_pref("javascript.options.asmjs", false);
-
-// PREF: disable Ion and baseline JIT to harden against JS exploits
-// [NOTE] When both Ion and JIT are disabled, and trustedprincipals
-// is enabled, then Ion can still be used by extensions [4].
-// [WARNING] Disabling these prefs will disrupt your browsing experience [6].
-// Tor Browser doesn't even ship with these disabled by default.
-// [1] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=firefox+jit
-// [2] https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/
-// [3] https://support.microsoft.com/en-us/microsoft-edge/enhance-your-security-on-the-web-with-microsoft-edge-b8199f13-b21b-4a08-a806-daed31a1929d
-// [4] https://bugzilla.mozilla.org/show_bug.cgi?id=1599226
-// [5] https://wiki.mozilla.org/IonMonkey
-// [6] https://github.com/arkenfox/user.js/issues/1791#issuecomment-1891273681
-//user_pref("javascript.options.ion", false);
-//user_pref("javascript.options.baselinejit", false);
-//user_pref("javascript.options.jit_trustedprincipals", true); // [FF75+] [HIDDEN PREF]
-
-// PREF: disable WebAssembly [FF52+]
-// [WARNING] Disabling this pref may disrupt your browsing experience.
-// Vulnerabilities [1] have increasingly been found, including those known and fixed
-// in native programs years ago [2]. WASM has powerful low-level access, making
-// certain attacks (brute-force) and vulnerabilities more possible.
-// [STATS] ~0.2% of websites, about half of which are for cryptomining / malvertising [2][3]
-// [1] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=wasm
-// [2] https://spectrum.ieee.org/tech-talk/telecom/security/more-worries-over-the-security-of-web-assembly
-// [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes
-//user_pref("javascript.options.wasm", false);
-
-/******************************************************************************
+ /******************************************************************************
  * SECTION: SAFE BROWSING (SB)                                               *
 ******************************************************************************/
 
