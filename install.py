@@ -65,6 +65,11 @@ INSTALLATIONS_TO_CHECK = [
         "command": ["flatpak", "run", "org.mozilla.firefox"],
         "root": Path.home().joinpath(".var/app/org.mozilla.firefox/.mozilla/firefox").absolute(),
     },
+    # macOS
+    {
+        "command": ["/Applications/Firefox.app/Contents/MacOS/firefox"],
+        "root": Path.home().joinpath("Library/Application Support/Firefox").absolute(),
+    },
 ]
 
 
