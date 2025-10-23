@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 144                                                             *
+ * version: 146                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -48,7 +48,7 @@ user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.aboutConfig.showWarning", false);
 
 // PREF: disable welcome notices
-//user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
+user_pref("browser.startup.homepage_override.mstone", "ignore");
 user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
     //user_pref("startup.homepage_welcome_url", "");
     //user_pref("startup.homepage_welcome_url.additional", "");
