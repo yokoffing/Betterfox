@@ -13,11 +13,6 @@
  * SECTION: MOZILLA UI                                                      *
 ****************************************************************************/
 
-// PREF: Mozilla VPN
-// [1] https://github.com/yokoffing/Betterfox/issues/169
-user_pref("browser.privatebrowsing.vpnpromourl", "");
-    //user_pref("browser.vpn_promo.enabled", false);
-
 // PREF: disable about:addons' Recommendations pane (uses Google Analytics)
 user_pref("extensions.getAddons.showPane", false); // HIDDEN
 
