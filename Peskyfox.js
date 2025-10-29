@@ -13,11 +13,6 @@
  * SECTION: MOZILLA UI                                                      *
 ****************************************************************************/
 
-// PREF: Mozilla VPN
-// [1] https://github.com/yokoffing/Betterfox/issues/169
-user_pref("browser.privatebrowsing.vpnpromourl", "");
-    //user_pref("browser.vpn_promo.enabled", false);
-
 // PREF: disable about:addons' Recommendations pane (uses Google Analytics)
 user_pref("extensions.getAddons.showPane", false); // HIDDEN
 
@@ -206,7 +201,6 @@ user_pref("full-screen-api.warning.timeout", 0); // default=3000
 user_pref("browser.urlbar.suggest.engines", false);
     //user_pref("browser.urlbar.suggest.searches", false);
 //user_pref("browser.urlbar.quickactions.enabled", false);
-//user_pref("browser.urlbar.shortcuts.quickactions", false);
 //user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
     //user_pref("browser.urlbar.weather.ignoreVPN", false); // DEFAULT
 //user_pref("browser.urlbar.suggest.calculator", true); // [DEFAULT FF137+]
