@@ -162,9 +162,9 @@ user_pref("full-screen-api.transition-duration.enter", "0 0"); // default=200 20
 user_pref("full-screen-api.transition-duration.leave", "0 0"); // default=200 200
 
 // PREF: disable fullscreen notice
-// 0 = completely disable warning window
-user_pref("full-screen-api.warning.delay", -1); // default=500
-user_pref("full-screen-api.warning.timeout", 1250); // default=3000
+// [NOTE] Adjust to a sensible value, like 1250, if you have security concerns.
+//user_pref("full-screen-api.warning.timeout", 0); // default=3000; alt=1250
+//user_pref("full-screen-api.warning.delay", -1); // default=500
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
