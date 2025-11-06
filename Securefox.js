@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 144                                                             *
+ * version: 146                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -201,8 +201,9 @@ user_pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [F
 // PREF: remove temp files opened from non-PB windows with an external application
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=302433,1738574
 // [2] https://github.com/arkenfox/user.js/issues/1732
+// [3] https://bugzilla.mozilla.org/302433
 user_pref("browser.download.start_downloads_in_tmp_dir", true); // [FF102+]
-user_pref("browser.helperApps.deleteTempFileOnExit", true);
+//user_pref("browser.helperApps.deleteTempFileOnExit", true); // DEFAULT [FF108]
 
 // PREF: disable UITour backend
 // This way, there is no chance that a remote page can use it.
@@ -445,10 +446,6 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
 // [NOTE] .URL shortcut files will be created with a generic icon.
 // Favicons are stored as .ico files in profile_dir\shortcutCache.
 //user_pref("browser.shell.shortcutFavicons", false);
-
-// PREF: remove temp files opened with an external application
-// [1] https://bugzilla.mozilla.org/302433
-//user_pref("browser.helperApps.deleteTempFileOnExit", true); // DEFAULT [FF108]
 
 // PREF: disable page thumbnails capturing
 // Page thumbnails are only used in chrome/privileged contexts.
