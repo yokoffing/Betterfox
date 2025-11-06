@@ -70,7 +70,6 @@ user_pref("network.predictor.enabled", false);
 user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.trackingprotection.allow_list.baseline.enabled", true);
 user_pref("browser.download.start_downloads_in_tmp_dir", true);
-user_pref("browser.helperApps.deleteTempFileOnExit", true);
 user_pref("browser.uitour.enabled", false);
 user_pref("privacy.globalprivacycontrol.enabled", true);
 
@@ -234,5 +233,3 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
-
-
