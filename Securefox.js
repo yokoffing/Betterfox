@@ -661,16 +661,14 @@ user_pref("network.IDN_show_punycode", true);
 /******************************************************************************
  * SECTION: HTTPS-FIRST POLICY                          *
 ******************************************************************************/
-
 // PREF: HTTPS-First Policy
 // Firefox attempts to make all connections to websites secure,
 // and falls back to insecure connections only when a website
 // does not support it. Unlike HTTPS-Only Mode, Firefox
 // will NOT ask for your permission before connecting to a website
 // that doesn’t support secure connections.
-// As of August 2023, Google estimates that 5-10% of traffic
-// has remained on HTTP, allowing attackers to eavesdrop
-// on or change that data [6].
+// As of October 2025, Google estimates that 3-5% of traffic
+// is insecure, allowing attackers to eavesdrop on or change that data [8].
 // [NOTE] HTTPS-Only Mode needs to be disabled for HTTPS First to work.
 // [TEST] http://example.com [upgrade]
 // [TEST] http://httpforever.com/ [no upgrade]
@@ -681,9 +679,20 @@ user_pref("network.IDN_show_punycode", true);
 // [5] https://www.cloudflare.com/learning/ssl/why-use-https/
 // [6] https://blog.chromium.org/2023/08/towards-https-by-default.html
 // [7] https://attackanddefense.dev/2025/03/31/https-first-in-firefox-136.html
+// [8] https://security.googleblog.com/2025/10/https-by-default.html
 //user_pref("dom.security.https_first", true); // [DEFAULT FF136+]
 //user_pref("dom.security.https_first_pbm", true); // [DEFAULT FF91+]
 //user_pref("dom.security.https_first_schemeless", true); // [FF120+] [DEFAULT FF129+]
+
+// PREF: block insecure passive content (images) on HTTPS pages
+// [WARNING] This preference blocks all mixed content, including upgradable.
+// Firefox still attempts an HTTP connection if it can't find a secure one,
+// even with HTTPS First Policy. Although rare, this leaves a small risk of
+// a malicious image being served through a MITM attack.
+// Disable this pref if using HTTPS-Only Mode.
+// [NOTE] Enterprise users may need to enable this setting [1].
+// [1] https://blog.mozilla.org/security/2024/06/05/firefox-will-upgrade-more-mixed-content-in-version-127/
+//user_pref("security.mixed_content.block_display_content", true); // Defense-in-depth (see HTTPS-Only mode)
 
 /******************************************************************************
  * SECTION: HTTPS-ONLY MODE                              *
@@ -693,9 +702,8 @@ user_pref("network.IDN_show_punycode", true);
 // by a server. Options to use HTTP are then provided.
 // [NOTE] When "https_only_mode" (all windows) is true,
 // "https_only_mode_pbm" (private windows only) is ignored.
-// As of August 2023, Google estimates that 5-10% of traffic
-// has remained on HTTP, allowing attackers to eavesdrop
-// on or change that data [5].
+// As of October 2025, Google estimates that 3-5% of traffic
+// is insecure, allowing attackers to eavesdrop on or change that data [6].
 // [SETTING] to add site exceptions: Padlock>HTTPS-Only mode>On/Off/Off temporarily
 // [SETTING] Privacy & Security>HTTPS-Only Mode
 // [TEST] http://example.com [upgrade]
@@ -705,17 +713,23 @@ user_pref("network.IDN_show_punycode", true);
 // [3] https://web.dev/why-https-matters/
 // [4] https://www.cloudflare.com/learning/ssl/why-use-https/
 // [5] https://blog.chromium.org/2023/08/towards-https-by-default.html
+// [6] https://security.googleblog.com/2025/10/https-by-default.html
 
-// PREF: enable HTTPS-only Mode
-//user_pref("dom.security.https_only_mode_pbm", true); // Private Browsing windows only
-//user_pref("dom.security.https_only_mode", true); // Normal + Private Browsing windows
+// PREF: enable HTTPS-Only mode in all windows
+// When the top-level is HTTPS, insecure subresources are also upgraded (silent fail)
+// [SETTING] to add site exceptions: Padlock>HTTPS-Only mode>On (after "Continue to HTTP Site")
+// [SETTING] Privacy & Security>HTTPS-Only Mode (and manage exceptions)
+// [TEST] http://example.com [upgrade]
+// [TEST] http://httpforever.com/ | http://http.rip [no upgrade]
+user_pref("dom.security.https_only_mode", true); // [FF76+]
+    //user_pref("dom.security.https_only_mode_pbm", true); // [FF80+] Private Browsing windows only
 
 // PREF: offer suggestion for HTTPS site when available
 // [1] https://x.com/leli_gibts_scho/status/1371463866606059528
 //user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: HTTP background requests in HTTPS-only Mode
-// When attempting to upgrade, if the server doesn't respond within 3 seconds[=default time],
+// When attempting to upgrade, if the server doesn't respond within a few seconds,
 // Firefox sends HTTP requests in order to check if the server supports HTTPS or not.
 // This is done to avoid waiting for a timeout which takes 90 seconds.
 // Firefox only sends top level domain when falling back to http.
@@ -724,10 +738,6 @@ user_pref("network.IDN_show_punycode", true);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1642387,1660945
 // [2] https://blog.mozilla.org/attack-and-defense/2021/03/10/insights-into-https-only-mode/
 //user_pref("dom.security.https_only_mode_send_http_background_request", true); // DEFAULT
-    //user_pref("dom.security.https_only_fire_http_request_background_timer_ms", 3000); // DEFAULT
-
-// PREF: disable HTTPS-Only mode for local resources
-//user_pref("dom.security.https_only_mode.upgrade_local", false); // DEFAULT
 
 /******************************************************************************
  * SECTION: DNS-over-HTTPS                                                    *
@@ -924,6 +934,10 @@ user_pref("editor.truncate_user_pastes", false);
 // [DO NOT TOUCH] Icons will double-up if the website implements it natively.
 //user_pref("layout.forms.reveal-password-button.enabled", true); // always show icon in password fields
 
+// PREF: disable automatic authentication on Microsoft sites [WINDOWS]
+// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
+//user_pref("network.http.windows-sso.enabled", false);
+
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
 ****************************************************************************/
@@ -934,32 +948,6 @@ user_pref("editor.truncate_user_pastes", false);
 // [2] https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
 //user_pref("extensions.formautofill.addresses.enabled", false);
 //user_pref("extensions.formautofill.creditCards.enabled", false);
-
-/******************************************************************************
- * SECTION: MIXED CONTENT + CROSS-SITE                                       *
-******************************************************************************/
-
-// PREF: block insecure passive content (images) on HTTPS pages
-// [WARNING] This preference blocks all mixed content, including upgradable.
-// Firefox still attempts an HTTP connection if it can't find a secure one,
-// even with HTTPS First Policy. Although rare, this leaves a small risk of
-// a malicious image being served through a MITM attack.
-// Disable this pref if using HTTPS-Only Mode.
-// [NOTE] Enterprise users may need to enable this setting [1].
-// [1] https://blog.mozilla.org/security/2024/06/05/firefox-will-upgrade-more-mixed-content-in-version-127/
-user_pref("security.mixed_content.block_display_content", true);
-
-// PREF: allow PDFs to load javascript
-// https://www.reddit.com/r/uBlockOrigin/comments/mulc86/firefox_88_now_supports_javascript_in_pdf_files/
-user_pref("pdfjs.enableScripting", false);
-
-// PREF: disable middle click on new tab button opening URLs or searches using clipboard [FF115+]
-// Enable if you're using LINUX.
-//user_pref("browser.tabs.searchclipboardfor.middleclick", false); // DEFAULT WINDOWS macOS
-
-// PREF: disable automatic authentication on Microsoft sites [WINDOWS]
-// [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
-//user_pref("network.http.windows-sso.enabled", false);
 
 /****************************************************************************
  * SECTION: EXTENSIONS                                                      *
@@ -1194,6 +1182,14 @@ user_pref("privacy.userContext.ui.enabled", true);
 // PREF: number of usages of the web console
 // If this is less than 5, then pasting code into the web console is disabled.
 //user_pref("devtools.selfxss.count", 5);
+
+// PREF: disable middle click on new tab button opening URLs or searches using clipboard [FF115+]
+// Enable if you're using LINUX.
+//user_pref("browser.tabs.searchclipboardfor.middleclick", false); // DEFAULT WINDOWS macOS
+
+// PREF: do not allow PDFs to load javascript
+// [1] https://www.reddit.com/r/uBlockOrigin/comments/mulc86/firefox_88_now_supports_javascript_in_pdf_files/
+user_pref("pdfjs.enableScripting", false);
 
  /******************************************************************************
  * SECTION: SAFE BROWSING (SB)                                               *
