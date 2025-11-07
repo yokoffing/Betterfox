@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 144                                                                         *
+ * version: 146                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -543,11 +543,11 @@ user_pref("network.prefetch-next", false);
 // [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
-user_pref("network.predictor.enabled", false);
+//user_pref("network.predictor.enabled", false); // [DEFAULT: false FF144+]
 
 // PREF: Network Predictor fetch for resources ahead of time
 // Prefetch page resources based on past user behavior.
-//user_pref("network.predictor.enable-prefetch", false); // DEFAULT
+//user_pref("network.predictor.enable-prefetch", false); // [FF48+] [DEFAULT: false]
 
 // PREF: make Network Predictor active when hovering over links
 // When hovering over links, Network Predictor uses past resource history to
