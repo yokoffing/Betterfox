@@ -61,7 +61,6 @@ user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 user_pref("browser.places.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
-user_pref("network.predictor.enabled", false);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
@@ -75,6 +74,7 @@ user_pref("privacy.globalprivacycontrol.enabled", true);
 
 /** OCSP & CERTS / HPKP ***/
 user_pref("security.OCSP.enabled", 0);
+user_pref("privacy.antitracking.isolateContentScriptResources", true);
 user_pref("security.csp.reporting.enabled", false);
 
 /** SSL / TLS ***/
@@ -236,4 +236,3 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
-
