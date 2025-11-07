@@ -277,8 +277,8 @@ user_pref("security.OCSP.enabled", 0);
 // CRLite is faster and more private than OCSP [2].
 // 0 = disabled
 // 1 = consult CRLite but only collect telemetry
-// 2 = consult CRLite and enforce both "Revoked" and "Not Revoked" results
-// 3 = consult CRLite and enforce "Not Revoked" results, but defer to OCSP for "Revoked" [FF99+, default FF100+]
+// 2 = consult CRLite and enforce both "Revoked" and "Not Revoked" results (default)
+// 3 = consult CRLite and enforce "Not Revoked" results, but defer to OCSP for "Revoked" (removed FF145)
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1429800,1670985,1753071
 // [2] https://blog.mozilla.org/security/tag/crlite/
 //user_pref("security.remote_settings.crlite_filters.enabled", true); // [DEFAULT: true FF137+]
