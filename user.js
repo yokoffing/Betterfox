@@ -100,15 +100,14 @@ user_pref("browser.urlbar.groupLabels.enabled", false);
 user_pref("browser.formfill.enable", false);
 user_pref("network.IDN_show_punycode", true);
 
+/** HTTPS-ONLY MODE ***/
+user_pref("dom.security.https_only_mode", true); 
+
 /** PASSWORDS ***/
 user_pref("signon.formlessCapture.enabled", false);
 user_pref("signon.privateBrowsingCapture.enabled", false);
 user_pref("network.auth.subresource-http-auth-allow", 1);
 user_pref("editor.truncate_user_pastes", false);
-
-/** MIXED CONTENT + CROSS-SITE ***/
-user_pref("security.mixed_content.block_display_content", true);
-user_pref("pdfjs.enableScripting", false);
 
 /** EXTENSIONS ***/
 user_pref("extensions.enabledScopes", 5);
@@ -118,6 +117,9 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /** CONTAINERS ***/
 user_pref("privacy.userContext.ui.enabled", true);
+
+/** VARIOUS ***/
+user_pref("pdfjs.enableScripting", false);
 
 /** SAFE BROWSING ***/
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
