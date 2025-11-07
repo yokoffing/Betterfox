@@ -322,7 +322,7 @@ user_pref("security.OCSP.enabled", 0);
 //user_pref("browser.contentanalysis.default_result", 0; // [FF127+] [DEFAULT]
 
 // PREF: disable referrer and storage access for resources injected by content scripts [FF139+]
-//user_pref("privacy.antitracking.isolateContentScriptResources", true);
+user_pref("privacy.antitracking.isolateContentScriptResources", true);
 
 // PREF: disable CSP Level 2 Reporting [FF140+]
 // [1] https://github.com/yokoffing/Betterfox/issues/415
@@ -1189,7 +1189,20 @@ user_pref("privacy.userContext.ui.enabled", true);
 
 // PREF: do not allow PDFs to load javascript
 // [1] https://www.reddit.com/r/uBlockOrigin/comments/mulc86/firefox_88_now_supports_javascript_in_pdf_files/
-user_pref("pdfjs.enableScripting", false);
+
+// PREF: enforce PDFJS, disable PDFJS scripting
+// This setting controls if the option "Display in Firefox" is available in the setting below
+// and by effect controls whether PDFs are handled in-browser or externally ("Ask" or "Open With").
+// [WHY] pdfjs is lightweight, open source, and secure: the last exploit was June 2015 [1].
+// It doesn't break "state separation" of browser content (by not sharing with OS, independent apps).
+// It maintains disk avoidance and application data isolation. It's convenient. You can still save to disk.
+// [NOTE] JS can still force a pdf to open in-browser by bundling its own code.
+// [SETUP-CHROME] You may prefer a different pdf reader for security/workflow reasons.
+// [SETTING] General>Applications>Portable Document Format (PDF)
+// [1] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=pdf.js+firefox
+// [2] https://www.reddit.com/r/uBlockOrigin/comments/mulc86/firefox_88_now_supports_javascript_in_pdf_files/
+//user_pref("pdfjs.disabled", false); // [DEFAULT: false]
+user_pref("pdfjs.enableScripting", false); // [FF86+]
 
  /******************************************************************************
  * SECTION: SAFE BROWSING (SB)                                               *
