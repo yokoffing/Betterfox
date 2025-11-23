@@ -1417,6 +1417,7 @@ user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
 
 // PREF: disable Telemetry Coverage
 // [1] https://blog.mozilla.org/data/2018/08/20/effectively-measuring-search-in-firefox/
+// [2] https://github.com/yokoffing/Betterfox/issues/443
 user_pref("toolkit.telemetry.coverage.opt-out", true); // [HIDDEN PREF]
 user_pref("toolkit.coverage.opt-out", true); // [FF64+] [HIDDEN PREF]
 user_pref("toolkit.coverage.endpoint.base", "");
