@@ -12,19 +12,16 @@
 /****************************************************************************
  * SECTION: TRACKING PROTECTION                                             *
 ****************************************************************************/
-
-// PREF: Enhanced Tracking Protection (ETP)
-// Tracking Content blocking will strip cookies and block all resource requests to domains listed in Disconnect.me.
-// Firefox deletes all stored site data (incl. cookies, browser storage) if the site is a known tracker and hasn’t
-// been interacted with in the last 30 days.
-// [ALLOWLIST] https://disconnect.me/trackerprotection/unblocked
-// [NOTE] FF86: "Strict" tracking protection enables dFPI.
-// [1] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
-// [2] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
-user_pref("browser.contentblocking.category", "strict"); // [HIDDEN]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1970647
-user_pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [FF142+]
-//user_pref("privacy.trackingprotection.allow_list.convenience.enabled", true); // [FF142+]
+// PREF: enable ETP Strict Mode [FF86+]
+// ETP Strict Mode enables Total Cookie Protection (TCP)
+// [NOTE] Adding site exceptions disables all ETP protections for that site and increases the risk of
+// cross-site state tracking e.g. exceptions for SiteA and SiteB means PartyC on both sites is shared
+// [1] https://blog.mozilla.org/security/2021/02/23/total-cookie-protection/
+// [2] https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
+// [3] https://www.reddit.com/r/firefox/comments/l7xetb/network_priority_for_firefoxs_enhanced_tracking/gle2mqn/?web2x&context=3
+// [SETTING] to add site exceptions: Urlbar>ETP Shield
+// [SETTING] to manage site exceptions: Options>Privacy & Security>Enhanced Tracking Protection>Manage Exceptions
+user_pref("browser.contentblocking.category", "strict"); // [HIDDEN PREF]
 //user_pref("privacy.trackingprotection.enabled", true); // enabled with "Strict"
 //user_pref("privacy.trackingprotection.pbmode.enabled", true); // DEFAULT
 //user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false); // DEFAULT
@@ -43,6 +40,21 @@ user_pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [F
     //user_pref("privacy.fingerprintingProtection.pbmode", true); // DEFAULT
 //user_pref("privacy.bounceTrackingProtection.mode", 1); // [FF131+] [ETP FF133+]
 // [1] https://searchfox.org/mozilla-central/source/toolkit/components/antitracking/bouncetrackingprotection/nsIBounceTrackingProtection.idl#11-23
+
+// PREF: disable ETP web compat features (about:compat) [FF93+]
+// [SETUP-HARDEN] Includes skip lists, heuristics (SmartBlock) and automatic grants
+// Opener and redirect heuristics are granted for 30 days, see [3]
+// [1] https://blog.mozilla.org/security/2021/07/13/smartblock-v2/
+// [2] https://hg.mozilla.org/mozilla-central/rev/e5483fd469ab#l4.12
+// [3] https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
+    // user_pref("privacy.antitracking.enableWebcompat", false);
+
+// PREF: set ETP Strict/Custom exception lists (FF141+)
+// [SETTING] Options>Privacy & Security>Enhanced Tracking Protection>Strict/Custom>Fix major [baseline] | minor [convenience]
+// [1] https://support.mozilla.org/en-US/kb/manage-enhanced-tracking-protection-exceptions
+// [2] https://etp-exceptions.mozilla.org/
+// user_pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [DEFAULT: true]
+// user_pref("privacy.trackingprotection.allow_list.convenience.enabled", true); // [DEFAULT: true]
 
 // PREF: query stripping
 // Currently uses a small list [1]
