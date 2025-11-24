@@ -24,6 +24,7 @@ user_pref("gfx.content.skia-font-cache-size", 32);
 user_pref("gfx.canvas.accelerated.cache-items", 32768);
 user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("webgl.max-size", 16384);
+user_pref("gfx.webrender.layer-compositor", true);
 
 /** DISK CACHE ***/
 user_pref("browser.cache.disk.enable", false);
@@ -235,4 +236,5 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
+
 
