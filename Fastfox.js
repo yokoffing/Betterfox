@@ -117,6 +117,15 @@ user_pref("gfx.content.skia-font-cache-size", 32); // 32 MB; default=5; Chrome=2
 //user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS macOS
     //user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
 
+// PREF: Webrender layer compositor
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1945683
+// [2] https://www.reddit.com/r/firefox/comments/1p58qre/firefox_is_getting_ready_to_make_youtube_fast/
+// [3] https://www.ghacks.net/2025/11/24/these-two-tweaks-should-improve-firefoxs-performance-on-youtube-significantly/
+user_pref("gfx.webrender.layer-compositor", true);
+    // If your PC uses an AMD GPU, you might want to make a second change.
+    // This one improves CPU usage on AMD systems.
+    //user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
+
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
 // [1] https://www.ghacks.net/2020/12/14/how-to-find-out-if-webrender-is-enabled-in-firefox-and-how-to-enable-it-if-it-is-not/
 //user_pref("gfx.webrender.software", true); // Software Webrender uses CPU instead of GPU
