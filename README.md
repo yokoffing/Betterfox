@@ -67,6 +67,8 @@ The `user.js` — a configuration file that controls Firefox settings — is cur
 * [GhoSTORIES with Franz & Pete](https://anchor.fm/ghostories/episodes/S2E6-We-Talking-Ghostery-Dawn----Again-er0q02/a-a4o5vmh) | 17:05–18:40 (Feb 2021)
 
 ### Articles
+* [How I Set Up Firefox for True Privacy ](https://dtptips.com/how-i-set-up-firefox-for-true-privacy-hint-its-not-the-default-setup/) (Oct 2025)
+* [Phishing Bank Logins Over Plain HTTP in 2025](https://vrls.ws/posts/phishing-bank-logins-over-plain-http-in-2025/) (Oct 2025)
 * [Español] [Firefox is an excellent browser, but this small modification makes it much faster and more private](https://www.genbeta.com/a-fondo/firefox-excelente-navegador-esta-pequena-modificacion-hace-mucho-rapido-privado-asi-funciona-betterfox) (Jan 2025)
 * [Browsers for Daily Use](https://anhkhoakz.neocities.org/blog/browsers-for-daily-using/#firefox-but-hardened) (Jan 2024)
 * [Avoiding Manifest V3 – Escaping the Ad-Pocalypse](https://www.xbitlabs.com/avoiding-manifest-v3/) (Dec 2023)
