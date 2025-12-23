@@ -4,7 +4,7 @@
 [about:config](https://support.mozilla.org/en-US/kb/about-config-editor-firefox) tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/).
 
 ## Made for everyday browsing
-[Faster](https://medium.com/@mihirgrand/comparing-popular-firefox-forks-6fa83fdfdaad#:~:text=31%25%20more%20than%20vanilla%20Firefox), more private and secure — without using third-party code.
+Make Firefox more private and secure — without using third-party code.
 
 Betterfox is an opinionated preference list inspired by the [law of diminishing returns](https://miro.medium.com/v2/resize:fit:1206/1*lcOcxriV_II_lZuXQYLoXg.jpeg) and the [minimum effective dose](https://medium.com/the-mission/less-is-more-the-minimum-effective-dose-e6d56625931e).
 
@@ -27,17 +27,14 @@ Betterfox is an opinionated preference list inspired by the [law of diminishing 
 
 ## Simple configs
 
-`Fastfox`, `Securefox`, `Peskyfox`, and `Smoothfox` are guides to settings within Firefox.
-
-The `user.js` — a configuration file that controls Firefox settings — is curated from these guides.
+`Securefox`, `Peskyfox`, and `Smoothfox` are guides to settings within Firefox. The `user.js` — a configuration file that controls Firefox settings — is curated from these guides.
 
 | List      | Description |
 |:---------:|-------------|
-| [Fastfox](https://github.com/yokoffing/Betterfox/blob/main/Fastfox.js)   | Increase Firefox's browsing speed. Give Chrome a run for its money!|
+| [user.js](https://github.com/yokoffing/Betterfox/blob/main/user.js) | All the essentials. None of the breakage. This is your `user.js`. |
 | [Securefox](https://github.com/yokoffing/Betterfox/blob/main/Securefox.js) | Protect user data without causing site breakage. |
 | [Peskyfox](https://github.com/yokoffing/Betterfox/blob/main/Peskyfox.js)  | Provide a clean, distraction-free browsing experience. |
-| [Smoothfox](https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js) | Get Edge-like smooth scrolling on your favorite browser — or choose something more your style. |
-| [user.js](https://github.com/yokoffing/Betterfox/blob/main/user.js) | All the essentials. None of the breakage. This is your `user.js`. |
+| [Smoothfox](https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js)<br>(optional) | Get Edge-like smooth scrolling on your favorite browser — or choose something more your style. |
 
 ## Recognition
 
