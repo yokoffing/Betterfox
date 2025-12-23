@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 146                                                             *
+ * version: 148                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -428,9 +428,20 @@ user_pref("security.tls.enable_0rtt_data", false);
  * SECTION: DISK AVOIDANCE                                                  *
 ****************************************************************************/
 
-// PREF: set media cache in Private Browsing to in-memory
+// PREF: disk cache
+// [NOTE] If you think it helps performance, then feel free to override this.
+// [SETTINGS] See about:cache
+// More efficient to keep the browser cache instead of having to
+// re-download objects for the websites you visit frequently.
+// [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
+user_pref("browser.cache.disk.enable", false);
+
+// PREF: set media cache in Private Browsing to in-memory and increase its maximum size
 // [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
+// [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
+// [2] https://github.com/arkenfox/user.js/pull/941#issuecomment-668278121
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
+user_pref("media.memory_cache_max_size", 65536); // 64 MB; default=8192; AF=65536
 
 // PREF: minimum interval (in ms) between session save operations
 // Firefox periodically saves the user's session so it can restore
