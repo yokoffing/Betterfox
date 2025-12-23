@@ -121,7 +121,7 @@
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1945683
 // [2] https://www.reddit.com/r/firefox/comments/1p58qre/firefox_is_getting_ready_to_make_youtube_fast/
 // [3] https://www.ghacks.net/2025/11/24/these-two-tweaks-should-improve-firefoxs-performance-on-youtube-significantly/
-user_pref("gfx.webrender.layer-compositor", true);
+//user_pref("gfx.webrender.layer-compositor", true);
     // If your PC uses an AMD GPU, you might want to make a second change.
     // This one improves CPU usage on AMD systems.
     //user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
@@ -147,7 +147,7 @@ user_pref("gfx.webrender.layer-compositor", true);
     //user_pref("gfx.canvas.max-size", 32767); // DEFAULT=32767
 
 // PREF: WebGL
-user_pref("webgl.max-size", 16384); // default=1024
+//user_pref("webgl.max-size", 16384); // default=1024
 //user_pref("webgl.force-enabled", true);
 
 // PREF: prefer GPU over CPU
@@ -318,7 +318,7 @@ user_pref("webgl.max-size", 16384); // default=1024
 //user_pref("media.cache_size", 512000); // DEFAULT
 
 // PREF: media cache combine sizes
-user_pref("media.memory_caches_combined_limit_kb", 1048576); // 1GB; default=524288
+//user_pref("media.memory_caches_combined_limit_kb", 1048576); // 1GB; default=524288
 //user_pref("media.memory_caches_combined_limit_pc_sysmem", 5); // DEFAULT; alt=10; the percentage of system memory that Firefox can use for media caches
 
 // PREF: Media Source Extensions (MSE) web standard
@@ -332,16 +332,16 @@ user_pref("media.memory_caches_combined_limit_kb", 1048576); // 1GB; default=524
 // PREF: adjust video buffering periods when not using MSE (in seconds)
 // [NOTE] Does not affect videos over 720p since they use DASH playback [1]
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
-user_pref("media.cache_readahead_limit", 600); // 10 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-user_pref("media.cache_resume_threshold", 300); // 5 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
+//user_pref("media.cache_readahead_limit", 600); // 10 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+//user_pref("media.cache_resume_threshold", 300); // 5 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
 
 /****************************************************************************
  * SECTION: IMAGE CACHE                                                     *
 ****************************************************************************/
 
 // PREF: image cache
-user_pref("image.cache.size", 10485760); // (cache images up to 10MiB in size) [DEFAULT 5242880]
-user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; alt=32768; chunk size for calls to the image decoders
+//user_pref("image.cache.size", 10485760); // (cache images up to 10MiB in size) [DEFAULT 5242880]
+//user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; alt=32768; chunk size for calls to the image decoders
 //user_pref("image.mem.max_decoded_image_kb", 512000); // 500MB [HIDDEN OR REMOVED?]
 
 // PREF: set minimum timeout to unmap shared surfaces since they have been last used
@@ -369,11 +369,11 @@ user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; alt=3276
 // [1] https://kb.mozillazine.org/Network.http.max-connections
 // [2] https://kb.mozillazine.org/Network.http.max-persistent-connections-per-server
 // [3] https://www.reddit.com/r/firefox/comments/11m2yuh/how_do_i_make_firefox_use_more_of_my_900_megabit/jbfmru6/
-user_pref("network.http.max-connections", 1800); // default=900
-user_pref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
-    user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // default=3
+//user_pref("network.http.max-connections", 1800); // default=900
+//user_pref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
+    //user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // default=3
     //user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
-user_pref("network.http.request.max-start-delay", 5); // default=10
+//user_pref("network.http.request.max-start-delay", 5); // default=10
 //user_pref("network.websocket.max-connections", 200); // DEFAULT
 
 // PREF: pacing requests [FF23+]
@@ -385,18 +385,18 @@ user_pref("network.http.request.max-start-delay", 5); // default=10
 // may provide a small speed boost when loading pages with lots of requests.
 // false = Firefox will send as many requests as possible without pacing
 // true = Firefox will pace requests (default)
-user_pref("network.http.pacing.requests.enabled", false);
+//user_pref("network.http.pacing.requests.enabled", false);
     //user_pref("network.http.pacing.requests.min-parallelism", 10); // default=6
     //user_pref("network.http.pacing.requests.burst", 32); // default=10
 
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
-user_pref("network.dnsCacheEntries", 10000); // default=800
+//user_pref("network.dnsCacheEntries", 10000); // default=800
 
 // PREF: adjust DNS expiration time
 // [ABOUT] about:networking#dns
 // [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
-user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; default=60
+//user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; default=60
     //user_pref("network.dnsCacheExpirationGracePeriod", 120); // default=60; cache DNS entries for 2 minutes after they expire
 
 // PREF: the number of threads for DNS
@@ -404,7 +404,7 @@ user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; defau
 //user_pref("network.dns.max_any_priority_threads", 24); // DEFAULT [FF 123?]
 
 // PREF: increase TLS token caching 
-user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
+//user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
  * SECTION: EXPERIMENTAL                                                    *
