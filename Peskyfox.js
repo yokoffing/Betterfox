@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 144                                                             *
+ * version: 146                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -43,7 +43,7 @@ user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.aboutConfig.showWarning", false);
 
 // PREF: disable welcome notices
-//user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
+user_pref("browser.startup.homepage_override.mstone", "ignore");
 user_pref("browser.aboutwelcome.enabled", false); // disable Intro screens
     //user_pref("startup.homepage_welcome_url", "");
     //user_pref("startup.homepage_welcome_url.additional", "");
@@ -162,8 +162,9 @@ user_pref("full-screen-api.transition-duration.enter", "0 0"); // default=200 20
 user_pref("full-screen-api.transition-duration.leave", "0 0"); // default=200 200
 
 // PREF: disable fullscreen notice
-user_pref("full-screen-api.warning.delay", -1); // default=500
-user_pref("full-screen-api.warning.timeout", 0); // default=3000
+// [NOTE] Adjust to a sensible value, like 1250, if you have security concerns.
+//user_pref("full-screen-api.warning.timeout", 0); // default=3000; alt=1250
+//user_pref("full-screen-api.warning.delay", -1); // default=500
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
