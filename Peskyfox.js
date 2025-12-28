@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 146                                                             *
+ * version: 148                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -411,6 +411,17 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 //user_pref("pdfjs.defaultZoomValue", page-width);
 
 /****************************************************************************
+ * SECTION: DOM (DOCUMENT OBJECT MODEL)                                     *
+****************************************************************************/
+// PREF: prevent scripts from moving and resizing open windows
+//user_pref("dom.disable_window_move_resize", true);
+
+// PREF: disable beforeunload event
+// [WHY] The method is commonly abused by scam and spyware sites.
+// [1] https://developer.mozilla.org/docs/Web/API/Window/beforeunload_event
+//user_pref("dom.disable_beforeunload", true);
+
+/****************************************************************************
  * SECTION: TAB BEHAVIOR                                                    *
 ****************************************************************************/
 
@@ -433,7 +444,7 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 // 0 = force all new windows opened by JavaScript into tabs
 // [NOTE] Most advertising popups also open in new windows with values set
 // [1] https://kb.mozillazine.org/About:config_entries
-//user_pref("browser.link.open_newwindow.restriction", 0);
+//user_pref("browser.link.open_newwindow.restriction", 2); // DEFAULT
 
 // PREF: override <browser.link.open_newwindow> for external links
 // Set if a different destination for external links is needed
@@ -484,9 +495,6 @@ user_pref("findbar.highlightAll", true);
 // It's been default in Linux since at least FF102.
 // [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/10089
 //user_pref("middlemouse.contentLoadURL", false);
-
-// PREF: Prevent scripts from moving and resizing open windows
-//user_pref("dom.disable_window_move_resize", true);
 
 // PREF: insert new tabs after groups like it
 // true(default) = open new tabs to the right of the parent tab
