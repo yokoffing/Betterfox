@@ -92,6 +92,9 @@ user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false);
 
+/** TAB BEHAVIOR ***/
+//user_pref("browser.link.open_newwindow.restriction", 2); // restore FF default
+
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
 ****************************************************************************/
