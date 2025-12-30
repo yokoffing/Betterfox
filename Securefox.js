@@ -78,22 +78,6 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN PREF]
 //user_pref("extensions.webcompat.enable_shims", true); // [HIDDEN] enabled with "Strict"
 //user_pref("extensions.webcompat.smartblockEmbeds.enabled", true); // [DEFAULT FF137+]
 
-// PREF: allow embedded tweets and reddit posts [FF136+]
-// [TEST - reddit embed] https://www.pcgamer.com/amazing-halo-infinite-bugs-are-already-rolling-in/
-// [TEST - instagram embed] https://www.ndtv.com/entertainment/bharti-singh-and-husband-haarsh-limbachiyaa-announce-pregnancy-see-trending-post-2646359
-// [TEST - tweet embed] https://www.newsweek.com/cryptic-tweet-britney-spears-shows-elton-john-collab-may-date-back-2015-1728036
-// [TEST - tiktok embed] https://www.vulture.com/article/snl-adds-four-new-cast-members-for-season-48.html
-// [TEST - truthsocial embed] https://www.newsweek.com/donald-trump-congratulates-patrick-brittany-mahomes-new-baby-2027097
-// [1] https://www.reddit.com/r/firefox/comments/l79nxy/firefox_dev_is_ignoring_social_tracking_preference/gl84ukk
-// [2] https://www.reddit.com/r/firefox/comments/pvds9m/reddit_embeds_not_loading/
-// [3] https://github.com/yokoffing/Betterfox/issues/413
-//user_pref("urlclassifier.trackingSkipURLs", "*://embed.reddit.com/*,*://*.twitter.com/*,*://*.twimg.com/*"); // MANUAL
-//user_pref("urlclassifier.features.socialtracking.skipURLs", "*://*.twitter.com/*,*://*.twimg.com/*"); // MANUAL
-
-// PREF: allow embedded tweets, Instagram and Reddit posts, and TikTok embeds [before FF136+]
-//user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com"); // MANUAL
-//user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com"); // MANUAL
-
 // PREF: lower the priority of network loads for resources on the tracking protection list [NIGHTLY]
 // [1] https://github.com/arkenfox/user.js/issues/102#issuecomment-298413904
 //user_pref("privacy.trackingprotection.lower_network_priority", true);
