@@ -352,6 +352,8 @@ user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 //user_pref("security.ssl.require_safe_negotiation", true);
 
 // PREF: display advanced information on Insecure Connection warning pages
+// This pref only works when it's possible to add an exception,
+// i.e. it doesn't work for HSTS discrepancies (https://subdomain.preloaded-hsts.badssl.com/)
 // [TEST] https://expired.badssl.com/
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
 
