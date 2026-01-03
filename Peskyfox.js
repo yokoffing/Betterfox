@@ -115,31 +115,6 @@ user_pref("browser.tabs.groups.smart.enabled", false);
 user_pref("browser.ml.linkPreview.enabled", false);
 
 /****************************************************************************
- * SECTION: COOKIE BANNER HANDLING                                          *
-****************************************************************************/
-
-// PREF: Cookie Banner handling
-// [DEPRECIATED] Future of the project is unclear. See [5] and [6].
-// [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
-// [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
-// [2] https://phabricator.services.mozilla.com/D153642
-// [3] https://winaero.com/make-firefox-automatically-click-on-reject-all-in-cookie-banner-consent/
-// [4] https://docs.google.com/spreadsheets/d/1Nb4gVlGadyxix4i4FBDnOeT_eJp2Zcv69o-KfHtK-aA/edit#gid=0
-// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1940418
-// [6] https://github.com/mozilla/cookie-banner-rules-list/issues/544
-// 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
-// 1: reject banners if it is a one-click option; otherwise, keep banners on screen
-// 0: disable all cookie banner handling
-//user_pref("cookiebanners.service.mode", 1);
-//user_pref("cookiebanners.service.mode.privateBrowsing", 1);
-
-// PREF: Cookie Banner global rules
-// Global rules that can handle a list of cookie banner libraries and providers on any site.
-// This is used for click rules that can handle common Consent Management Providers (CMP).
-//user_pref("cookiebanners.service.enableGlobalRules", true); // DEFAULT [FF121+]
-//user_pref("cookiebanners.service.enableGlobalRules.subFrames", true); // DEFAULT [FF121+]
-
-/****************************************************************************
  * SECTION: TRANSLATIONS                                                    *
 ****************************************************************************/
 
