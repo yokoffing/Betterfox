@@ -121,7 +121,7 @@
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1945683
 // [2] https://www.reddit.com/r/firefox/comments/1p58qre/firefox_is_getting_ready_to_make_youtube_fast/
 // [3] https://www.ghacks.net/2025/11/24/these-two-tweaks-should-improve-firefoxs-performance-on-youtube-significantly/
-//user_pref("gfx.webrender.layer-compositor", true);
+user_pref("gfx.webrender.layer-compositor", true);
     // If your PC uses an AMD GPU, you might want to make a second change.
     // This one improves CPU usage on AMD systems.
     //user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
