@@ -142,8 +142,8 @@
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
 //user_pref("gfx.canvas.accelerated", true); // [DEFAULT FF133+]
-    //user_pref("gfx.canvas.accelerated.cache-items", 32768); // [default=8192 FF135+]; Chrome=4096
-    //user_pref("gfx.canvas.accelerated.cache-size", 4096); // default=256; Chrome=512
+    //user_pref("gfx.canvas.accelerated.cache-items", 4096); // [default=8192 FF135+]; Chrome=4096
+    //user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512
     //user_pref("gfx.canvas.max-size", 32767); // DEFAULT=32767
 
 // PREF: WebGL
