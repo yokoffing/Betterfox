@@ -416,7 +416,7 @@ user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; defau
 //user_pref("network.dns.max_high_priority_threads", 40); // DEFAULT [FF 123?]
 //user_pref("network.dns.max_any_priority_threads", 24); // DEFAULT [FF 123?]
 
-// PREF: increase TLS token caching 
+// PREF: increase TLS token caching
 user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
@@ -574,7 +574,7 @@ user_pref("network.prefetch-next", false);
 //user_pref("network.predictor.prefetch-min-confidence", 100); // DEFAULT
 
 // PREF: other Network Predictor values
-// [NOTE] Keep in mmind that Network Predictor must LEARN your browsing habits.
+// [NOTE] Keep in mind that Network Predictor must LEARN your browsing habits.
 //user_pref("network.predictor.prefetch-force-valid-for", 10); // DEFAULT; how long prefetched resources are considered valid and usable (in seconds) for the prediction modeling
 //user_pref("network.predictor.prefetch-rolling-load-count", 10); // DEFAULT; the maximum number of resources that Firefox will prefetch in memory at one time based on prediction modeling
 //user_pref("network.predictor.max-resources-per-entry", 250); // default=100
