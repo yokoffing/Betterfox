@@ -2,6 +2,8 @@
  * Some privacy related features *
  * ----------------------------- */
 
+user_pref("browser.contentblocking.category", "standard");
+
 // PREF: disable login manager
 user_pref("signon.rememberSignons", false);
 
@@ -63,6 +65,10 @@ user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsor
 
 // PREF: no search on New Tab page
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
+
+// PREF: show weather on New Tab page
+// I'm too lazy to look out the window...
+user_pref("browser.newtabpage.activity-stream.system.showWeather", true);
 
 /* ----------- *
  * UX settings *
