@@ -97,22 +97,30 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 /****************************************************************************
  * SECTION: AI                                                              *
 ****************************************************************************/
-// PREF: AI master switch
+// PREF: AI default controls
+user_pref("browser.ai.control.default", "blocked");
 // [1] https://github.com/yokoffing/Betterfox/issues/416
 user_pref("browser.ml.enable", false);
 
-// PREF: AI chat
-user_pref("browser.ml.chat.enabled", false);
+// PREF: Translations
+user_pref("browser.ai.control.translations", "blocked");
 
-// PREF: AI chatbot option in right click menu
-user_pref("browser.ml.chat.menu", false);
+// PREF: Image alt text in Nightly PDF viewer
+user_pref("browser.ai.control.pdfjsAltText", "blocked");
 
-// PREF: AI-enhanced tab groups
+// PREF: Tab group suggestions
 // [1] https://support.mozilla.org/kb/how-use-ai-enhanced-tab-groups
+user_pref("browser.ai.control.smartTabGroups", "blocked");
 user_pref("browser.tabs.groups.smart.enabled", false);
 
-// PREF: link previews
+// PREF: Key points in link previews
+user_pref("browser.ai.control.linkPreviewKeyPoints", "blocked");
 user_pref("browser.ml.linkPreview.enabled", false);
+
+// PREF: Chatbot in sidebar
+user_pref("browser.ai.control.sidebarChatbot", "blocked");
+user_pref("browser.ml.chat.enabled", false);
+user_pref("browser.ml.chat.menu", false);
 
 /****************************************************************************
  * SECTION: TRANSLATIONS                                                    *
