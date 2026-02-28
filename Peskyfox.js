@@ -98,27 +98,27 @@ user_pref("browser.privateWindowSeparation.enabled", false);
  * SECTION: AI                                                              *
 ****************************************************************************/
 // PREF: AI default controls
+// [1] https://blog.mozilla.org/en/firefox/how-to-use-ai-controls/
 user_pref("browser.ai.control.default", "blocked");
-// [1] https://github.com/yokoffing/Betterfox/issues/416
 user_pref("browser.ml.enable", false);
 
 // PREF: Translations
-user_pref("browser.ai.control.translations", "blocked");
+//user_pref("browser.ai.control.translations", "blocked");
 
 // PREF: Image alt text in Nightly PDF viewer
-user_pref("browser.ai.control.pdfjsAltText", "blocked");
+//user_pref("browser.ai.control.pdfjsAltText", "blocked");
 
 // PREF: Tab group suggestions
 // [1] https://support.mozilla.org/kb/how-use-ai-enhanced-tab-groups
-user_pref("browser.ai.control.smartTabGroups", "blocked");
+//user_pref("browser.ai.control.smartTabGroups", "blocked");
 user_pref("browser.tabs.groups.smart.enabled", false);
 
 // PREF: Key points in link previews
-user_pref("browser.ai.control.linkPreviewKeyPoints", "blocked");
+//user_pref("browser.ai.control.linkPreviewKeyPoints", "blocked");
 user_pref("browser.ml.linkPreview.enabled", false);
 
 // PREF: Chatbot in sidebar
-user_pref("browser.ai.control.sidebarChatbot", "blocked");
+//user_pref("browser.ai.control.sidebarChatbot", "blocked");
 user_pref("browser.ml.chat.enabled", false);
 user_pref("browser.ml.chat.menu", false);
 
