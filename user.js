@@ -18,7 +18,6 @@
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
 user_pref("gfx.canvas.accelerated.cache-size", 256); // reset pref
-user_pref("gfx.webrender.layer-compositor", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
