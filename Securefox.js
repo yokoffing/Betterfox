@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 148                                                             *
+ * version: 149                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -1106,7 +1106,7 @@ user_pref("editor.truncate_user_pastes", false);
 
 // PREF: disable automatic authentication on Microsoft sites [WINDOWS]
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
-//user_pref("network.http.windows-sso.enabled", false);
+//user_pref("network.http.windows-sso.enabled", false); // DEFAULT
 
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
@@ -1654,7 +1654,6 @@ user_pref("browser.tabs.crashReporting.sendReport", false);
 
 // PREF: assorted telemetry
 // [NOTE] Shouldn't be needed for user.js, but browser forks may want to disable these prefs.
-//user_pref("doh-rollout.disable-heuristics", true); // ensure DoH doesn't get enabled automatically
 //user_pref("dom.security.unexpected_system_load_telemetry_enabled", false);
 //user_pref("messaging-system.rsexperimentloader.enabled", false);
 //user_pref("network.trr.confirmation_telemetry_enabled", false);
