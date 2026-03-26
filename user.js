@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 148                                                             *
+ * version: 149                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -18,7 +18,6 @@
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
 user_pref("gfx.canvas.accelerated.cache-size", 256); // reset pref
-user_pref("gfx.webrender.layer-compositor", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
