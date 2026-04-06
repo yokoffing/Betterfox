@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 149                                                             *
+ * version: 150                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -1388,6 +1388,11 @@ user_pref("pdfjs.enableScripting", false); // [FF86+]
 // [4] https://educatedguesswork.org/posts/safe-browsing-privacy/
 // [5] https://www.google.com/chrome/privacy/whitepaper.html#malware
 // [6] https://security.googleblog.com/2022/08/how-hash-based-safe-browsing-works-in.html
+
+// [FF147+] Firefox now supports the Safe Browsing V5 protocol and has migrated
+// from Safe Browsing V4 to the local list mode of Safe Browsing V5 protocol.
+// [1] https://developers.google.com/safe-browsing/reference
+// [2] https://developers.google.com/safe-browsing/reference/Local.List.Mode
 
 // PREF: Safe Browsing
 // [WARNING] Be sure to have alternate security measures if you disable SB! Adblockers do not count!
