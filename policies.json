@@ -6,7 +6,6 @@
         "DisableFirefoxStudies": true,
         "DisableTelemetry": true,
         "DisableFeedbackCommands": true,
-        "DisablePocket": true,
         "DisableSetDesktopBackground": true,
         "DisableDeveloperTools": false,
         "DontCheckDefaultBrowser": true,
@@ -37,6 +36,7 @@
             "Remove": [
                 "Amazon.com",
                 "eBay"
+                "Perplexity"
             ],
             "Default": "DuckDuckGo",
             "Add": [
