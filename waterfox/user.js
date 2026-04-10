@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox Aqua                                                           *
  * "Ex nihilo nihil fit"                                                    *
- * version: 140.8                                                           *
+ * version: 140.10                                                          *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -44,6 +44,7 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 
 /** SEARCH / URL BAR ***/
+//user_pref("browser.urlbar.trimURLs", true); // FF default
 //user_pref("browser.urlbar.trimHttps", true); // optional
 //user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true); // optional
 user_pref("browser.search.suggest.enabled", false);
