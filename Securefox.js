@@ -1108,6 +1108,10 @@ user_pref("editor.truncate_user_pastes", false);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
 //user_pref("network.http.windows-sso.enabled", false); // DEFAULT
 
+// PREF: enforce no direct attestation in passkeys [FF144+]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1981587 ***/
+//user_pref("security.webauthn.always_allow_direct_attestation", false); // [DEFAULT: false]
+
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
 ****************************************************************************/
