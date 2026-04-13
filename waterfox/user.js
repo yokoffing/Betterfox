@@ -102,7 +102,6 @@ user_pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false);
 // visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
 // Enter your scrolling overrides below this line:
 
-
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
@@ -110,6 +109,12 @@ user_pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
 
+/** WATERFOX-SPECIFIC ***/
+user_pref("cookiebanners.service.mode", 0); // project depreciated
+user_pref("cookiebanners.service.mode.privateBrowsing", 0); // project depreciated
+
+//user_pref("waterfox.blocker.ui.enabled", true); // new adblocker option
+//user_pref("waterfox.blocker.enabled", true);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
