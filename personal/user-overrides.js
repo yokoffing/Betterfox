@@ -175,6 +175,8 @@ user_pref("signon.rememberSignons", false); // disable password manager
 user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
 user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
 user_pref("accessibility.force_disabled", 1); // disable Accessibility features
+user_pref("dom.security.https_only_mode", false); // disable HTTPS Only in normal windows
+user_pref("dom.security.https_only_mode_pbm", true); // HTTPS Only in PB windows
 
 user_pref("media.eme.enabled", false); // disable DRM
 user_pref("browser.eme.ui.enabled", false); // hide the UI setting; this also disables the DRM prompt 
