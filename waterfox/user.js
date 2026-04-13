@@ -22,7 +22,7 @@ user_pref("browser.contentblocking.category", "strict");
 user_pref("browser.download.start_downloads_in_tmp_dir", true);
 
 /** OCSP & CERTS / HPKP ***/
-//user_pref("privacy.antitracking.isolateContentScriptResources", true); // needed for next ESR if not a default pref
+user_pref("privacy.antitracking.isolateContentScriptResources", true); // needed for next ESR if not a default pref
 user_pref("security.csp.reporting.enabled", false);
 
 /** DISK AVOIDANCE ***/
