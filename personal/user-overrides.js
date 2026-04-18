@@ -159,7 +159,7 @@ user_pref("browser.profiles.enabled", false); // disable Firefox Sync and profil
 
 /** FASTFOX ***/
 user_pref("network.http.rcwn.enabled", false);
-user_pref("network.http.pacing.requests.enabled", false); // pacing requests
+//user_pref("network.http.pacing.requests.enabled", false); // pacing requests
 
 user_pref("browser.sessionhistory.max_total_viewers", 4); // default=8
 
