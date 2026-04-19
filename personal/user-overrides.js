@@ -20,16 +20,6 @@
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 
-// SPECULATIVE LOADING WITHOUT PREDICTOR
-user_pref("network.http.speculative-parallel-limit", 20);
-//user_pref("network.dns.disablePrefetch", false);
-//user_pref("network.dns.disablePrefetchFromHTTPS", false);
-//user_pref("dom.prefetch_dns_for_anchor_https_document", true); 
-user_pref("browser.urlbar.speculativeConnect.enabled", true);
-user_pref("browser.places.speculativeConnect.enabled", true);
-user_pref("network.prefetch-next", true);
-user_pref("network.http.max-persistent-connections-per-server", 20); // increase download connections
-
 /** SECUREFOX ***/
 user_pref("privacy.trackingprotection.allow_list.convenience.enabled", false); // disable Strict allowlist of convenience features
 user_pref("signon.rememberSignons", false); // disable password manager
@@ -155,3 +145,58 @@ user_pref("geo.provider.use_geoclue", false); // [LINUX]
 user_pref("pdfjs.defaultZoomValue", "page-width"); // PDF zoom level
 
 
+/** DELETE IF NOT WATERFOX ***/
+// PREF: improve font rendering by using DirectWrite everywhere like Chrome [WINDOWS]
+user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
+user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
+user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
+user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
+
+// UI
+user_pref("browser.urlbar.scotchBonnet.enableOverride", false); // disable unified search button
+user_pref("identity.fxaccounts.enabled", false); // disable Firefox Sync and profiles
+user_pref("browser.profiles.enabled", false); // disable Firefox Sync and profiles
+
+/** FASTFOX ***/
+user_pref("network.http.rcwn.enabled", false);
+//user_pref("network.http.pacing.requests.enabled", false); // pacing requests
+
+user_pref("browser.sessionhistory.max_total_viewers", 4); // default=8
+
+// PREF: adjust DNS expiration time
+// [ABOUT] about:networking#dns
+// [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
+user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; default=60
+
+user_pref("browser.sessionstore.interval", 900000); // save session every 15 minutes
+
+/** SECUREFOX ***/
+user_pref("signon.rememberSignons", false); // disable password manager
+user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
+user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
+user_pref("accessibility.force_disabled", 1); // disable Accessibility features
+user_pref("dom.security.https_only_mode", false); // disable HTTPS Only in normal windows
+user_pref("dom.security.https_only_mode_pbm", true); // HTTPS Only in PB windows
+
+user_pref("media.eme.enabled", false); // disable DRM
+user_pref("browser.eme.ui.enabled", false); // hide the UI setting; this also disables the DRM prompt 
+
+user_pref("network.trr.max-fails", 5); // lower max attempts to use DoH
+
+// PREF: disable using the OS's geolocation service
+//user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
+//user_pref("geo.provider.use_corelocation", false); // [MAC]
+//user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
+
+user_pref("privacy.userContext.enabled", false); // disable Container Tabs
+
+/** PESKYFOX ***/
+user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually back-up
+user_pref("view_source.wrap_long_lines", true);  // wrap source lines
+user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devtools
+user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
+user_pref("layout.word_select.eat_space_to_next_word", false); // do not select the space next to a word when selecting a word
+user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
+user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
+user_pref("ui.SpellCheckerUnderlineStyle", 1); // [HIDDEN] dots for spell check errors
+user_pref("reader.parse-on-load.enabled", false); // disable reader mode

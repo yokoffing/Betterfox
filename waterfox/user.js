@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox Aqua                                                           *
  * "Ex nihilo nihil fit"                                                    *
- * version: 140.8                                                           *
+ * version: 140.10                                                          *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -22,7 +22,7 @@ user_pref("browser.contentblocking.category", "strict");
 user_pref("browser.download.start_downloads_in_tmp_dir", true);
 
 /** OCSP & CERTS / HPKP ***/
-//user_pref("privacy.antitracking.isolateContentScriptResources", true); // needed for next ESR if not a default pref
+user_pref("privacy.antitracking.isolateContentScriptResources", true); // needed for next ESR if not a default pref
 user_pref("security.csp.reporting.enabled", false);
 
 /** DISK AVOIDANCE ***/
@@ -44,6 +44,7 @@ user_pref("browser.places.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 
 /** SEARCH / URL BAR ***/
+//user_pref("browser.urlbar.trimURLs", true); // FF default
 //user_pref("browser.urlbar.trimHttps", true); // optional
 //user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true); // optional
 user_pref("browser.search.suggest.enabled", false);
@@ -101,7 +102,6 @@ user_pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false);
 // visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
 // Enter your scrolling overrides below this line:
 
-
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
 ****************************************************************************/
@@ -109,6 +109,12 @@ user_pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
 
+/** WATERFOX-SPECIFIC ***/
+user_pref("cookiebanners.service.mode", 0); // project depreciated
+user_pref("cookiebanners.service.mode.privateBrowsing", 0); // project depreciated
+
+//user_pref("waterfox.blocker.ui.enabled", true); // new adblocker option
+//user_pref("waterfox.blocker.enabled", true);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *

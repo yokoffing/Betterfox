@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 149                                                             *
+ * version: 150                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -1108,6 +1108,10 @@ user_pref("editor.truncate_user_pastes", false);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
 //user_pref("network.http.windows-sso.enabled", false); // DEFAULT
 
+// PREF: enforce no direct attestation in passkeys [FF144+]
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1981587 ***/
+//user_pref("security.webauthn.always_allow_direct_attestation", false); // [DEFAULT: false]
+
 /****************************************************************************
  * SECTION: ADDRESS + CREDIT CARD MANAGER                                   *
 ****************************************************************************/
@@ -1294,7 +1298,7 @@ user_pref("privacy.userContext.ui.enabled", true);
     //user_pref("browser.eme.ui.enabled", false);
 
 /******************************************************************************
- * SECTION: JIT                                                              *
+ * SECTION: JIT & WASM                                                        *
 ******************************************************************************/
 // PREF: Just-In-Time Compilation
 // Around half of zero-day exploits are directly related to "just in time"
@@ -1303,8 +1307,7 @@ user_pref("privacy.userContext.ui.enabled", true);
 // [1] https://microsoftedge.github.io/edgevr/posts/Super-Duper-Secure-Mode/
 // [2] https://www.youtube.com/watch?v=i7qlZeDt9o4
 
-// PREF: JavaScript JIT
-// PREF: disable Ion and baseline JIT to harden against JS exploits
+// PREF: Ion and Baseline JIT
 // [NOTE] When both Ion and JIT are disabled, and trustedprincipals
 // is enabled, then Ion can still be used by extensions [4].
 // Tor Browser doesn't even ship with these disabled by default.
@@ -1314,31 +1317,40 @@ user_pref("privacy.userContext.ui.enabled", true);
 // [4] https://bugzilla.mozilla.org/show_bug.cgi?id=1599226
 // [5] https://wiki.mozilla.org/IonMonkey
 // [6] https://github.com/arkenfox/user.js/issues/1791#issuecomment-1891273681
-//user_pref("javascript.options.baselinejit", false);
+//user_pref("javascript.options.baselinejit", false); // DO NOT TOUCH
 //user_pref("javascript.options.ion", false);
-//user_pref("javascript.options.jit_trustedprincipals", false);
+//user_pref("javascript.options.jit_trustedprincipals", true); // HIDDEN PREF
+
+// PREF: Blinterp (JIT-like)
+// You do not need to touch blinterp unless you want to go even slower
+// than the Baseline JIT (which I do not recommend).
+//user_pref("javascript.options.blinterp", false);
 
 // PREF: WebAssembly JIT [FF52+]
 // Vulnerabilities [1] have increasingly been found, including those known and fixed
 // in native programs years ago [2]. WASM has powerful low-level access, making
 // certain attacks (brute-force) and vulnerabilities more possible.
+// trustedprincipals: This controls whether WebAssembly is allowed in "privileged" contexts
+// (like your extensions or internal browser scripts).
 // [STATS] ~0.2% of websites, about half of which are for cryptomining / malvertising [2][3]
 // [1] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=wasm
 // [2] https://spectrum.ieee.org/tech-talk/telecom/security/more-worries-over-the-security-of-web-assembly
 // [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes
 //user_pref("javascript.options.wasm", false);
     //user_pref("javascript.options.wasm_trustedprincipals", false);
-    //user_pref("javascript.options.wasm_baselinejit", false);
+    //user_pref("javascript.options.wasm_baselinejit", true); // DO NOT TOUCH
     //user_pref("javascript.options.wasm_optimizingjit", false);
 
 // PREF: Asm.js JIT [FF22+]
+// Asm.js is essentially the "ancestor" of WebAssembly. It was a strict subset of JavaScript
+// designed to allow browsers to pre-compile code into highly efficient machine instructions.
+// However, WebAssembly was created specifically to replace Asm.js and has done so almost entirely.
+// Disabling Asm.js removes the "legacy" risk surface without affecting your ability to run modern WebAssembly sites.
 // [1] http://asmjs.org/
 // [2] https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=asm.js
 // [3] https://rh0dev.github.io/blog/2017/the-return-of-the-jit/
-//user_pref("javascript.options.asmjs", false);
-
-// PREF: Blinterp (JIT-like)
-//user_pref("javascript.options.blinterp", false);
+// [4] https://github.com/rh0dev/slides/blob/master/OffensiveCon2018_From_Assembly_to_JavaScript_and_back.pdf
+//user_pref("javascript.options.asmjs", false); // DEFAULT
      
 /******************************************************************************
  * SECTION: VARIOUS                                                          *
@@ -1388,6 +1400,11 @@ user_pref("pdfjs.enableScripting", false); // [FF86+]
 // [4] https://educatedguesswork.org/posts/safe-browsing-privacy/
 // [5] https://www.google.com/chrome/privacy/whitepaper.html#malware
 // [6] https://security.googleblog.com/2022/08/how-hash-based-safe-browsing-works-in.html
+
+// [FF147+] Firefox now supports the Safe Browsing V5 protocol and has migrated
+// from Safe Browsing V4 to the local list mode of Safe Browsing V5 protocol.
+// [1] https://developers.google.com/safe-browsing/reference
+// [2] https://developers.google.com/safe-browsing/reference/Local.List.Mode
 
 // PREF: Safe Browsing
 // [WARNING] Be sure to have alternate security measures if you disable SB! Adblockers do not count!
