@@ -690,45 +690,6 @@ user_pref("network.prefetch-next", false);
 //user_pref("network.early-hints.preconnect.enabled", true);
 //user_pref("network.early-hints.preconnect.max_connections", 10); // DEFAULT
 
-// PREF: Network Predictor (NP)
-// When enabled, it trains and uses Firefox's algorithm to preload page resource
-// by tracking past page resources. It uses a local file (history) of needed images,
-// scripts, etc. to request them preemptively when navigating.
-// [NOTE] By default, it only preconnects DNS, TCP, and SSL handshakes.
-// No data sends until clicking. With "network.predictor.enable-prefetch" enabled,
-// it also performs prefetches.
-// [1] https://wiki.mozilla.org/Privacy/Reviews/Necko
-// [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
-// [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
-// [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
-//user_pref("network.predictor.enabled", false); // [DEFAULT: false FF144+]
-
-// PREF: Network Predictor fetch for resources ahead of time
-// Prefetch page resources based on past user behavior.
-//user_pref("network.predictor.enable-prefetch", false); // [FF48+] [DEFAULT: false]
-
-// PREF: make Network Predictor active when hovering over links
-// When hovering over links, Network Predictor uses past resource history to
-// preemptively request what will likely be needed instead of waiting for the document.
-// Predictive connections automatically open when hovering over links to speed up
-// loading, starting some work in advance.
-//user_pref("network.predictor.enable-hover-on-ssl", false); // DEFAULT
-
-// PREF: assign Network Predictor confidence levels
-// [NOTE] Keep in mind that Network Predictor must LEARN your browsing habits.
-// Editing these lower will cause more speculative connections to occur,
-// which reduces accuracy over time and has privacy implications.
-//user_pref("network.predictor.preresolve-min-confidence", 60); // DEFAULT
-//user_pref("network.predictor.preconnect-min-confidence", 90); // DEFAULT
-//user_pref("network.predictor.prefetch-min-confidence", 100); // DEFAULT
-
-// PREF: other Network Predictor values
-// [NOTE] Keep in mmind that Network Predictor must LEARN your browsing habits.
-//user_pref("network.predictor.prefetch-force-valid-for", 10); // DEFAULT; how long prefetched resources are considered valid and usable (in seconds) for the prediction modeling
-//user_pref("network.predictor.prefetch-rolling-load-count", 10); // DEFAULT; the maximum number of resources that Firefox will prefetch in memory at one time based on prediction modeling
-//user_pref("network.predictor.max-resources-per-entry", 250); // default=100
-//user_pref("network.predictor.max-uri-length", 1000); // default=500
-
 /******************************************************************************
  * SECTION: SEARCH / URL BAR                                                 *
 ******************************************************************************/
