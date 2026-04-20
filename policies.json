@@ -10,7 +10,7 @@
         "DisableDeveloperTools": false,
         "DontCheckDefaultBrowser": true,
         "DNSOverHTTPS": {
-            "Enabled": true,
+            "Enabled": false,
             "ProviderURL": "",
             "Locked": false
         },
