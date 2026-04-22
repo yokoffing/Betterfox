@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 150                                                             *
+ * version: 152                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -47,14 +47,18 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN PREF]
 // [1] https://blog.mozilla.org/security/2021/07/13/smartblock-v2/
 // [2] https://hg.mozilla.org/mozilla-central/rev/e5483fd469ab#l4.12
 // [3] https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
-    // user_pref("privacy.antitracking.enableWebcompat", false);
+//user_pref("privacy.antitracking.enableWebcompat", false);
+    //user_pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false);
+    //user_pref("privacy.restrict3rdpartystorage.heuristic.redirect", false);
+    //user_pref("privacy.restrict3rdpartystorage.heuristic.window_open", false);
+    //user_pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false);
 
 // PREF: set ETP Strict/Custom exception lists (FF141+)
 // [SETTING] Options>Privacy & Security>Enhanced Tracking Protection>Strict/Custom>Fix major [baseline] | minor [convenience]
 // [1] https://support.mozilla.org/en-US/kb/manage-enhanced-tracking-protection-exceptions
 // [2] https://etp-exceptions.mozilla.org/
-// user_pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [DEFAULT: true]
-// user_pref("privacy.trackingprotection.allow_list.convenience.enabled", true); // [DEFAULT: true]
+//user_pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [DEFAULT: true]
+//user_pref("privacy.trackingprotection.allow_list.convenience.enabled", true); // [DEFAULT: true]
 
 // PREF: query stripping
 // Currently uses a small list [1]
