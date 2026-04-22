@@ -46,7 +46,7 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN PREF]
 // Opener and redirect heuristics are granted for 30 days, see [3]
 // [1] https://blog.mozilla.org/security/2021/07/13/smartblock-v2/
 // [2] https://hg.mozilla.org/mozilla-central/rev/e5483fd469ab#l4.12
-// [3] https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
+// [3] https://developer.mozilla.org/docs/Web/Privacy/Guides/State_Partitioning#storage_access_heuristics
 //user_pref("privacy.antitracking.enableWebcompat", false);
     //user_pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false);
     //user_pref("privacy.restrict3rdpartystorage.heuristic.redirect", false);
