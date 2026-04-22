@@ -48,10 +48,11 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN PREF]
 // [2] https://hg.mozilla.org/mozilla-central/rev/e5483fd469ab#l4.12
 // [3] https://developer.mozilla.org/docs/Web/Privacy/Guides/State_Partitioning#storage_access_heuristics
 //user_pref("privacy.antitracking.enableWebcompat", false);
-    //user_pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false);
-    //user_pref("privacy.restrict3rdpartystorage.heuristic.redirect", false);
-    //user_pref("privacy.restrict3rdpartystorage.heuristic.window_open", false);
+    //user_pref("privacy.restrict3rdpartystorage.heuristic.navigation", false);
     //user_pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false);
+        //user_pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false); // DEFAULT
+        //user_pref("privacy.restrict3rdpartystorage.heuristic.redirect", false); // DEFAULT
+        //user_pref("privacy.restrict3rdpartystorage.heuristic.window_open", false); // DEFAULT
 
 // PREF: set ETP Strict/Custom exception lists (FF141+)
 // [SETTING] Options>Privacy & Security>Enhanced Tracking Protection>Strict/Custom>Fix major [baseline] | minor [convenience]
