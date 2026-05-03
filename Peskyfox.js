@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 148                                                             *
+ * version: 152                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -93,6 +93,14 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 
 // PREF: new tab page wallpapers
 //user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true); // [DEFAULT FF132+]
+
+// PREF: browser scrollbar styles
+// 0 - Default
+// 1 - Thin and round, more like Chromium ones
+// 2 - Thinner than 1
+// 3 - Even thinner than 1
+// 4 - Very bold and square
+//user_pref("widget.non-native-theme.scrollbar.style", 0); // [DEFAULT]
 
 /****************************************************************************
  * SECTION: AI                                                              *
