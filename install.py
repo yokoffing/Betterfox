@@ -99,7 +99,7 @@ def _get_default_profile_folder(firefox_root):
     print(f"Reading {config_path}...")
 
     config_parser = ConfigParser(strict=False)
-    config_parser.read(config_path)
+    config_parser.read(config_path, encoding = "utf8")
 
     path = None
     for section in config_parser.sections():
