@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 150                                                                         *
+ * version: 152                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -182,7 +182,7 @@
 //user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT (50 MB); maximum size of an object in disk cache
 
-// PREF: Race Cache With Network (RCWN) [FF59+]
+// PREF: Race Cache With Network (RCWN) [FF59+] [REMOVED FF152+]
 // [ABOUT] about:networking#rcwn
 // Firefox concurrently sends requests for cached resources to both the
 // local disk cache and the network server. The browser uses whichever
@@ -197,10 +197,8 @@
 // [4] https://askubuntu.com/questions/1214862/36-syns-in-a-row-how-to-limit-firefox-connections-to-one-website
 // [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1622859
 // [6] https://soylentnews.org/comments.pl?noupdate=1&sid=40195&page=1&cid=1067867#commentwrap
-//user_pref("network.http.rcwn.enabled", false);
-
-// PREF: attempt to RCWN only if a resource is smaller than this size
-//user_pref("network.http.rcwn.small_resource_size_kb", 256); // DEFAULT
+//user_pref("network.http.rcwn.enabled", false); // [REMOVED FF152+]
+//user_pref("network.http.rcwn.small_resource_size_kb", 256); // attempt to RCWN only if a resource is smaller than this size
 
 // PREF: cache memory pool
 // Cache v2 provides a memory pool that stores metadata (such as response headers)
