@@ -505,8 +505,8 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
    //user_pref("privacy.cpd.siteSettings", false);
    //user_pref("privacy.clearHistory.siteSettings", false);
 
-// PREF: purge session icon in Private Browsing windows
-user_pref("browser.privatebrowsing.resetPBM.enabled", true);
+// PREF: purge session icon in Private Browsing windows [FF152+]
+//user_pref("browser.privatebrowsing.resetPBM.enabled", true); // [DEFAULT FF152+]
 
 // PREF: delete files downloaded in Private Browsing when all private windows are closed
 // When downloading a file in private browsing mode, the user will be prompted
