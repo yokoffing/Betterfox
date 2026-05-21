@@ -219,7 +219,6 @@ if __name__ == "__main__":
 
     argparser = ArgumentParser()
     argparser.add_argument("--overrides", "-o", default=default_profile_folder.joinpath("user-overrides.js"), help="if the provided file exists, add overrides to user.js. Defaults to " + str(default_profile_folder.joinpath("user-overrides.js"))),
-    argparser.add_argument("--zen", "-z", action="store_true", default=False, help="Install user.js for the Zen browser instead. Defaults to False"),
     
     advanced = argparser.add_argument_group("Advanced")
     advanced.add_argument("--betterfox-version", "-bv", default=None, help=f"Which version of Betterfox to install. Defaults to the latest compatible release for your installed Firefox version")
@@ -241,6 +240,7 @@ if __name__ == "__main__":
     behaviour.add_argument("--no-wait-for-exit", "-nwfe", action="store_true", default=False, help="Disable 'Press ENTER to exit...' and exit immediately"),
 
     args = argparser.parse_args()
+
     releases = _get_releases(args.repository_owner, args.repository_name)
     selected_release = None
 
