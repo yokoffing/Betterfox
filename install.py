@@ -174,12 +174,17 @@ def download_betterfox(url):
 def extract_betterfox(data, profile_folder):
     zipfile = ZipFile(data)
     userjs_zipinfo = None
+    depth = 1 # default to firefox user.js living at root dir
+    if args.browser != "firefox":
+        depth = 2 # ignore the outside
     for file in zipfile.filelist:
-        if "/zen/" in file.filename and not args.zen:
+        path = file.filename.split("/")
+        if len(path)-1 != depth or (args.browser not in path and depth != 1) :
             continue
         if file.filename.endswith("user.js"):
             userjs_zipinfo = file
             userjs_zipinfo.filename = Path(userjs_zipinfo.filename).name
+            break
 
     if not userjs_zipinfo:
         raise BaseException("Could not find user.js!")
@@ -212,18 +217,16 @@ if __name__ == "__main__":
 
     default_profile_folder = _get_default_profile_folder(firefox_root)
 
-    argparser = ArgumentParser(
-
-    )
+    argparser = ArgumentParser()
     argparser.add_argument("--overrides", "-o", default=default_profile_folder.joinpath("user-overrides.js"), help="if the provided file exists, add overrides to user.js. Defaults to " + str(default_profile_folder.joinpath("user-overrides.js"))),
     argparser.add_argument("--zen", "-z", action="store_true", default=False, help="Install user.js for the Zen browser instead. Defaults to False"),
-    
     
     advanced = argparser.add_argument_group("Advanced")
     advanced.add_argument("--betterfox-version", "-bv", default=None, help=f"Which version of Betterfox to install. Defaults to the latest compatible release for your installed Firefox version")
     advanced.add_argument("--profile-dir", "-p", "-pd", default=default_profile_folder, help=f"Which profile dir to install user.js in. Defaults to {default_profile_folder}")
     advanced.add_argument("--repository-owner", "-ro", default="yokoffing", help="owner of the Betterfox repository. Defaults to yokoffing")
     advanced.add_argument("--repository-name", "-rn", default="Betterfox", help="name of the Betterfox repository. Defaults to Betterfox")
+    advanced.add_argument("--browser", "-b", default="firefox", help="Which browser should Betterfox install to. Defaults to firefox. Available options: firefox, zen, waterfox")
     
     disable = argparser.add_argument_group("Disable functionality")
     disable.add_argument("--no-backup", "-nb", action="store_true", default=False, help="disable backup of current profile (not recommended)"),
@@ -238,7 +241,6 @@ if __name__ == "__main__":
     behaviour.add_argument("--no-wait-for-exit", "-nwfe", action="store_true", default=False, help="Disable 'Press ENTER to exit...' and exit immediately"),
 
     args = argparser.parse_args()
-
     releases = _get_releases(args.repository_owner, args.repository_name)
     selected_release = None
 
