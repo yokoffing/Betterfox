@@ -153,7 +153,7 @@ user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 
 // UI
-user_pref("browser.urlbar.scotchBonnet.enableOverride", false); // disable unified search button
+//user_pref("browser.urlbar.scotchBonnet.enableOverride", false); // disable unified search button AND hides Quick Actions
 user_pref("identity.fxaccounts.enabled", false); // disable Firefox Sync and profiles
 user_pref("browser.profiles.enabled", false); // disable Firefox Sync and profiles
 
