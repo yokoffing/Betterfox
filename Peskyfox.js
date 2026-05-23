@@ -60,6 +60,7 @@ user_pref("browser.profiles.enabled", true);
 //user_pref("widget.gtk.non-native-titlebar-buttons.enabled", true);
 
 // PREF: disable search engine switcher in the URL bar [FF136+]
+// WARNING: Hides "Quick Actions" suggestions.
 //user_pref("browser.urlbar.scotchBonnet.enableOverride", false);
 
 /****************************************************************************
