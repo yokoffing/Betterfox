@@ -338,7 +338,7 @@ user_pref("media.cache_resume_threshold", 1800); // 5 min; default=30; when a ne
 ****************************************************************************/
 
 // PREF: image cache
-//user_pref("image.cache.size", 10485760); // (cache images up to 10MiB in size) [DEFAULT 5242880]
+//user_pref("image.cache.size", 20971520); // (cache images up to 20 MiB in size) [DEFAULT]
 user_pref("image.mem.decode_bytes_at_a_time", 32768); // default=16384; chunk size for calls to the image decoders
 //user_pref("image.mem.max_decoded_image_kb", 512000); // 500MB [HIDDEN OR REMOVED?]
 
