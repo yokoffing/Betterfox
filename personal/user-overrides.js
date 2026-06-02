@@ -48,12 +48,12 @@ user_pref("accessibility.force_disabled", 1); // disable Accessibility features
 user_pref("dom.security.https_only_mode", false); // disable HTTPS Only in normal windows
 user_pref("dom.security.https_only_mode_pbm", true); // HTTPS Only in PB windows
 user_pref("media.eme.enabled", false); // disable DRM
-user_pref("browser.eme.ui.enabled", false); // hide the UI setting; this also disables the DRM prompt 
-
-//user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
-user_pref("captivedetect.canonicalURL", ""); // disable captive portal detection
-user_pref("network.captive-portal-service.enabled", false); // disable captive portal detection
-user_pref("network.connectivity-service.enabled", false); // disable captive portal detection
+user_pref("browser.eme.ui.enabled", false); // hide the UI setting; this also disables the DRM prompt
+user_pref("dom.serviceWorkers.enabled", false); // disable service workers in Normal Browsing
+user_pref("dom.serviceWorkers.privateBrowsing.enabled", false); // disable service workers in Private Browsing
+user_pref("privacy.restrict3rdpartystorage.heuristic.navigation", false); // restrict dynamic storage access
+user_pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false); // restrict dynamic storage access
+user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
 //user_pref("browser.download.enableDeletePrivate", true); // Delete files downloaded in private browsing when all private windows are closed
 //user_pref("browser.download.deletePrivateChosen", true); // Delete files downloaded in private browsing when all private windows are closed
 //user_pref("browser.download.deletePrivate", true); // Delete files downloaded in private browsing when all private windows are closed
@@ -109,6 +109,10 @@ user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
+user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
+user_pref("captivedetect.canonicalURL", ""); // disable captive portal detection
+user_pref("network.captive-portal-service.enabled", false); // disable captive portal detection
+user_pref("network.connectivity-service.enabled", false); // disable captive portal detection
 
 /** DELETE IF NOT ENTERPRISE WINDOWS LAPTOP ***/
 user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; default=60
@@ -127,6 +131,10 @@ user_pref("geo.provider.use_corelocation", false); // geolocation [MAC]
 user_pref("pdfjs.defaultZoomValue", "page-width"); // PDF zoom level
 user_pref("app.update.auto", false); // disable auto-installing Firefox updates [NON-WINDOWS]
 //user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
+user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
+user_pref("captivedetect.canonicalURL", ""); // disable captive portal detection
+user_pref("network.captive-portal-service.enabled", false); // disable captive portal detection
+user_pref("network.connectivity-service.enabled", false); // disable captive portal detection
 
 /** DELETE IF NOT LINUX ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
