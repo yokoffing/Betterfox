@@ -174,38 +174,24 @@ user_pref("gfx.content.skia-font-cache-size", 20); // 20 MB; default=5; Chrome=2
  * SECTION: DISK CACHE                                                     *
 ****************************************************************************/
 
+// PREF: force a fixed max cache size on disk
+// NOTE: You need this set to false if you are to edit the disk capacity value
+// [1] https://support.mozilla.org/en-US/questions/1271481
+//user_pref("browser.cache.disk.smart_size.enabled", false);
+
 // PREF: disk cache size
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968106,968101
 // [2] https://rockridge.hatenablog.com/entry/2014/09/15/165501
 // [3] https://www.reddit.com/r/firefox/comments/17oqhw3/firefox_and_ssd_disk_consumption/
-//user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 //user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT (50 MB); maximum size of an object in disk cache
-
-// PREF: Race Cache With Network (RCWN) [FF59+] [REMOVED FF152+]
-// [ABOUT] about:networking#rcwn
-// Firefox concurrently sends requests for cached resources to both the
-// local disk cache and the network server. The browser uses whichever
-// result arrives first and cancels the other request. This approach sometimes
-// loads pages faster because the network can be quicker than accessing the cache
-// on a hard drive. When RCWN is enabled, the request might be served from
-// the server even if you have valid entry in the cache. Set to false if your
-// intention is to increase cache usage and reduce network usage.
-// [1] https://slides.com/valentingosu/race-cache-with-network-2017
-// [2] https://simonhearne.com/2020/network-faster-than-cache/
-// [3] https://support.mozilla.org/en-US/questions/1267945
-// [4] https://askubuntu.com/questions/1214862/36-syns-in-a-row-how-to-limit-firefox-connections-to-one-website
-// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1622859
-// [6] https://soylentnews.org/comments.pl?noupdate=1&sid=40195&page=1&cid=1067867#commentwrap
-//user_pref("network.http.rcwn.enabled", false); // [REMOVED FF152+]
-//user_pref("network.http.rcwn.small_resource_size_kb", 256); // attempt to RCWN only if a resource is smaller than this size
 
 // PREF: cache memory pool
 // Cache v2 provides a memory pool that stores metadata (such as response headers)
 // for recently read cache entries [1]. It is managed by a cache thread, and caches with
 // metadata in the pool appear to be reused immediately.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=986179
-//user_pref("browser.cache.disk.metadata_memory_limit", 16384); // default=250 (0.25 MB); limit of recent metadata we keep in memory for faster access
+//user_pref("browser.cache.disk.metadata_memory_limit", 1024); // DEFAULT (1 MB); limit of recent metadata we keep in memory for faster access
 
 // PREF: number of chunks we preload ahead of read
 // Large content such as images will load faster.
