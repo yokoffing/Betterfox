@@ -197,7 +197,7 @@ user_pref("gfx.content.skia-font-cache-size", 20); // 20 MB; default=5; Chrome=2
 // Large content such as images will load faster.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913819,988318
 // [2] http://www.janbambas.cz/new-firefox-http-cache-enabled/
-//user_pref("browser.cache.disk.preload_chunk_count", 4); // DEFAULT
+//user_pref("browser.cache.disk.preload_chunk_count", 8); // default=4
 
 // PREF: the time period used to re-compute the frecency value of cache entries
 // The frequency algorithm is used to select entries, and entries that are recently
@@ -284,7 +284,7 @@ user_pref("gfx.content.skia-font-cache-size", 20); // 20 MB; default=5; Chrome=2
 // is no reason for Firefox to keep memory for this.
 // -1=determine automatically (8 pages)
 // [1] https://kb.mozillazine.org/Browser.sessionhistory.max_total_viewers#Possible_values_and_their_effects
-user_pref("browser.sessionhistory.max_total_viewers", 4); // default=8
+//user_pref("browser.sessionhistory.max_total_viewers", 8); // DEFAULT
 //user_pref("browser.sessionstore.max_tabs_undo", 10); // default=25
     //user_pref("browser.sessionstore.max_entries", 10); // [HIDDEN OR REMOVED]
     //user_pref("dom.storage.default_quota", 20480); // 20MB; default=5120
@@ -314,7 +314,7 @@ user_pref("browser.sessionhistory.max_total_viewers", 4); // default=8
 //user_pref("media.mediasource.enabled", true); // DEFAULT
 
 // PREF: adjust video buffering periods when not using MSE (in seconds)
-// [NOTE] Does not affect videos over 720p since they use DASH playback [1]
+// [NOTE] Does not affect videos over 720p since they use DASH playback [1] or Web Audio API
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
 user_pref("media.cache_readahead_limit", 3600); // 10 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
 user_pref("media.cache_resume_threshold", 1800); // 5 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
@@ -369,7 +369,7 @@ user_pref("network.http.request.max-start-delay", 5); // default=10
 // may provide a small speed boost when loading pages with lots of requests.
 // false = Firefox will send as many requests as possible without pacing
 // true = Firefox will pace requests (default)
-user_pref("network.http.pacing.requests.enabled", false);
+//user_pref("network.http.pacing.requests.enabled", false);
     //user_pref("network.http.pacing.requests.min-parallelism", 12); // default=6
     //user_pref("network.http.pacing.requests.burst", 20); // default=10
 
@@ -388,7 +388,7 @@ user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; defau
 //user_pref("network.dns.max_any_priority_threads", 24); // DEFAULT [FF 123?]
 
 // PREF: increase TLS token caching 
-user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
+//user_pref("network.ssl_tokens_cache_capacity", 8192); // TLS token caching (fast reconnects)
 
 /****************************************************************************
  * SECTION: EXPERIMENTAL                                                    *
