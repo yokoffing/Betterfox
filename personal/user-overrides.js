@@ -49,7 +49,7 @@ user_pref("dom.security.https_only_mode", false); // disable HTTPS Only in norma
 user_pref("dom.security.https_only_mode_pbm", true); // HTTPS Only in PB windows
 user_pref("media.eme.enabled", false); // disable DRM
 user_pref("browser.eme.ui.enabled", false); // hide the UI setting; this also disables the DRM prompt
-user_pref("dom.serviceWorkers.enabled", false); // disable service workers in Normal Browsing
+//user_pref("dom.serviceWorkers.enabled", false); // disable service workers in Normal Browsing
 user_pref("dom.serviceWorkers.privateBrowsing.enabled", false); // disable service workers in Private Browsing
 user_pref("privacy.restrict3rdpartystorage.heuristic.navigation", false); // restrict dynamic storage access
 user_pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false); // restrict dynamic storage access
@@ -92,6 +92,7 @@ user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false)
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
+user_pref("dom.disable_beforeunload", true); // disable beforeunload behavior on sites
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("privacy.userContext.enabled", false); // disable Containers functionality
