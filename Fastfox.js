@@ -351,15 +351,6 @@ user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; defau
 //user_pref("network.ssl_tokens_cache_capacity", 8192); // TLS token caching (fast reconnects)
 
 /****************************************************************************
- * SECTION: EXPERIMENTAL                                                    *
-****************************************************************************/
-
-// PREF: CSS Masonry Layout [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
-// [2] https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/
-//user_pref("layout.css.grid-template-masonry-value.enabled", true);
-
-/****************************************************************************
  * SECTION: TAB UNLOAD                                                      *
 ****************************************************************************/
 
@@ -385,7 +376,7 @@ user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; defau
 // and use this percent value (out of 100) to determine if Firefox is in a
 // low memory scenario.
 // [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
-//user_pref("browser.low_commit_space_threshold_percent", 20); // default=5; LINUX
+//user_pref("browser.low_commit_space_threshold_percent", 5); // default=5; LINUX
 
 // PREF: determine how long (in ms) tabs are inactive before they unload
 // 60000=1min; 300000=5min; 600000=10min (default)
