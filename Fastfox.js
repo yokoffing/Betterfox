@@ -53,16 +53,12 @@ user_pref("gfx.content.skia-font-cache-size", 20); // 20 MB; default=5; Chrome=2
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
 // [2] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
 // [3] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
-//user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
+user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
     //user_pref("content.max.tokenizing.time", 1000000); // (1.00s); alt=2000000; HIDDEN
     //user_pref("content.interrupt.parsing", true); // HIDDEN
 
 // PREF: UI responsiveness threshold
 //user_pref("content.switch.threshold", 300000); // HIDDEN; default= 750000; alt=500000
-
-// PREF: split text nodes to a length
-// The number of bytes in a text node.
-//user_pref("content.maxtextrun", 8191); // DEFAULT; HIDDEN
 
 // PREF: new tab preload
 // [WARNING] Disabling this may cause a delay when opening a new tab in Firefox.
@@ -90,18 +86,6 @@ user_pref("gfx.content.skia-font-cache-size", 20); // 20 MB; default=5; Chrome=2
 // PREF: disable preSkeletonUI on startup [WINDOWS]
 //user_pref("browser.startup.preXulSkeletonUI", false);
 
-// PREF: lazy load iframes
-//user_pref("dom.iframe_lazy_loading.enabled", true); // DEFAULT [FF121+]
-
-// PREF: Prioritized Task Scheduling API 
-// [1] https://github.com/yokoffing/Betterfox/issues/355
-// [2] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
-// [3] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
-// [4] https://github.com/WICG/scheduling-apis/blob/main/explainers/prioritized-post-task.md
-// [5] https://wicg.github.io/scheduling-apis/
-// [6] https://caniuse.com/mdn-api_taskcontroller
-//user_pref("dom.enable_web_task_scheduling", true); // DEFAULT [FF142+]
-
 /****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
 ****************************************************************************/
@@ -122,8 +106,8 @@ user_pref("gfx.content.skia-font-cache-size", 20); // 20 MB; default=5; Chrome=2
 // [2] https://www.reddit.com/r/firefox/comments/1p58qre/firefox_is_getting_ready_to_make_youtube_fast/
 // [3] https://www.ghacks.net/2025/11/24/these-two-tweaks-should-improve-firefoxs-performance-on-youtube-significantly/
 //user_pref("gfx.webrender.layer-compositor", true);
-    // If your PC uses an AMD GPU, you might want to make a second change.
-    // This one improves CPU usage on AMD systems.
+
+// PREF: improve CPU usage on AMD systems
 //user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
@@ -145,30 +129,6 @@ user_pref("gfx.content.skia-font-cache-size", 20); // 20 MB; default=5; Chrome=2
     //user_pref("gfx.canvas.accelerated.cache-items", 8192); // [DEFAULT FF135+]
     user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512; max=2048
     //user_pref("gfx.canvas.max-size", 32767); // [DEFAULT]
-
-// PREF: WebGL
-//user_pref("webgl.max-size", 16384); // default=1024
-//user_pref("webgl.force-enabled", true);
-
-// PREF: prefer GPU over CPU
-// At best, the prefs do nothing on Linux/macOS.
-// At worst, it'll result in crashes if the sandboxing is a WIP.
-// [1] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#gpu-process
-//user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
-    //user_pref("layers.gpu-process.force-enabled", true); // enforce
-    //user_pref("layers.mlgpu.enabled", true); // LINUX
-//user_pref("media.hardware-video-decoding.enabled", true); // DEFAULT WINDOWS macOS
-    //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
-//user_pref("media.gpu-process-decoder", true); // DEFAULT WINDOWS
-//user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
-
-// PREF: hardware and software decoded video overlay [FF116+]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1829063
-// [2] https://phabricator.services.mozilla.com/D175993
-//user_pref("gfx.webrender.dcomp-video-hw-overlay-win", true); // DEFAULT
-    //user_pref("gfx.webrender.dcomp-video-hw-overlay-win-force-enabled", true); // enforce
-//user_pref("gfx.webrender.dcomp-video-sw-overlay-win", true); // DEFAULT
-    //user_pref("gfx.webrender.dcomp-video-sw-overlay-win-force-enabled", true); // enforce
 
 /****************************************************************************
  * SECTION: DISK CACHE                                                     *
@@ -246,9 +206,9 @@ user_pref("gfx.content.skia-font-cache-size", 20); // 20 MB; default=5; Chrome=2
 //user_pref("browser.cache.jsbc_compression_level", 3);
 
 // PREF: strategy to use for when the bytecode should be encoded and saved [TESTING ONLY]
-// -1 makes page load times marginally longer when a page is being loaded for the first time, while
+// -1 = makes page load times marginally longer when a page is being loaded for the first time, while
 // subsequent reload of websites will be much much faster.
-// 0 means that the bytecode is created every 4 page loads [3].
+// 0 = the bytecode is created every 4 page loads [3].
 // [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#3461-3488
 // [2] https://www.reddit.com/r/firefox/comments/12786yv/improving_performance_in_firefox_android_part_ii/
 // [3] https://github.com/zen-browser/desktop/issues/217
