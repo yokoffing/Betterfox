@@ -472,7 +472,7 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
 // PREF: restore "View image info" on right-click
-user_pref("browser.menu.showViewImageInfo", true);
+//user_pref("browser.menu.showViewImageInfo", true);
 
 // PREF: show all matches in Findbar
 user_pref("findbar.highlightAll", true);
@@ -506,7 +506,7 @@ user_pref("findbar.highlightAll", true);
 //user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
 // PREF: do not select the space next to a word when selecting a word
-user_pref("layout.word_select.eat_space_to_next_word", false);
+//user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // PREF: controls if a double-click word selection also deletes one adjacent whitespace
 // This mimics native behavior on macOS.
