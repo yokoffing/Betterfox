@@ -23,6 +23,7 @@ user_pref("browser.sessionstore.interval", 900000); // save session every 15 min
 
 /** SECUREFOX ***/
 user_pref("privacy.trackingprotection.allow_list.convenience.enabled", false); // disable Strict allowlist of convenience features
+user_pref("security.webauth.webauthn", false); // disable passkeys
 user_pref("signon.rememberSignons", false); // disable password manager
 user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
 user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
@@ -54,9 +55,6 @@ user_pref("dom.serviceWorkers.privateBrowsing.enabled", false); // disable servi
 user_pref("privacy.restrict3rdpartystorage.heuristic.navigation", false); // restrict dynamic storage access
 user_pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false); // restrict dynamic storage access
 user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
-//user_pref("browser.download.enableDeletePrivate", true); // Delete files downloaded in private browsing when all private windows are closed
-//user_pref("browser.download.deletePrivateChosen", true); // Delete files downloaded in private browsing when all private windows are closed
-//user_pref("browser.download.deletePrivate", true); // Delete files downloaded in private browsing when all private windows are closed
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes un-needed "Inspect Accessibility Properties" on right-click
