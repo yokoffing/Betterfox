@@ -48,8 +48,8 @@ user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":tr
 user_pref("accessibility.force_disabled", 1); // disable Accessibility features
 user_pref("dom.security.https_only_mode", false); // disable HTTPS Only in normal windows
 user_pref("dom.security.https_only_mode_pbm", true); // HTTPS Only in PB windows
-user_pref("media.eme.enabled", false); // disable DRM
-user_pref("browser.eme.ui.enabled", false); // hide the UI setting; this also disables the DRM prompt
+//user_pref("media.eme.enabled", false); // disable DRM
+//user_pref("browser.eme.ui.enabled", false); // hide the UI setting; this also disables the DRM prompt
 //user_pref("dom.serviceWorkers.enabled", false); // disable service workers in Normal Browsing
 user_pref("dom.serviceWorkers.privateBrowsing.enabled", false); // disable service workers in Private Browsing
 user_pref("privacy.restrict3rdpartystorage.heuristic.navigation", false); // restrict dynamic storage access
