@@ -20,6 +20,13 @@
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.interval", 900000); // save session every 15 minutes
+user_pref("browser.newtab.preload", false); // disable new tab if not using
+user_pref("nglayout.initialpaint.delay", 50); // delay painting new tabs
+user_pref("javascript.options.baselinejit.threshold", 50); // default=100
+//user_pref("javascript.options.ion.threshold", 5000);
+user_pref("network.buffer.cache.size", 65535);
+user_pref("network.buffer.cache.count", 48);
+user_pref("javascript.options.concurrent_multiprocess_gcs.cpu_divisor", 12); // default=4
 
 /** SECUREFOX ***/
 user_pref("privacy.trackingprotection.allow_list.convenience.enabled", false); // disable Strict allowlist of convenience features
@@ -55,6 +62,8 @@ user_pref("dom.serviceWorkers.privateBrowsing.enabled", false); // disable servi
 user_pref("privacy.restrict3rdpartystorage.heuristic.navigation", false); // restrict dynamic storage access
 user_pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false); // restrict dynamic storage access
 user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
+user_pref("dom.fs.enabled", false); // FROST
+user_pref("dom.fs.writable_file_stream.enabled", false); // FROST
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes un-needed "Inspect Accessibility Properties" on right-click
@@ -105,6 +114,7 @@ user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
+//user_pref("browser.display.auto_quality_min_font_size", 0);
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
@@ -121,6 +131,7 @@ user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; defau
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
+//user_pref("browser.display.auto_quality_min_font_size", 0);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", false); // no need for userChrome
 
 /** DELETE IF NOT macOS ***/
@@ -147,5 +158,6 @@ user_pref("app.update.auto", false); // disable auto-installing Firefox updates 
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
+//user_pref("browser.display.auto_quality_min_font_size", 0);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 user_pref("privacy.userContext.enabled", false); // disable Container Tabs
