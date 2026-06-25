@@ -26,7 +26,7 @@ user_pref("javascript.options.baselinejit.threshold", 50); // default=100
 //user_pref("javascript.options.ion.threshold", 5000);
 user_pref("network.buffer.cache.size", 65535);
 user_pref("network.buffer.cache.count", 48);
-user_pref("javascript.options.concurrent_multiprocess_gcs.cpu_divisor", 12); // default=4
+user_pref("javascript.options.concurrent_multiprocess_gcs.cpu_divisor", 2); // default=4
 
 /** SECUREFOX ***/
 user_pref("privacy.trackingprotection.allow_list.convenience.enabled", false); // disable Strict allowlist of convenience features
