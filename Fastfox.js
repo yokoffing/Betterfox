@@ -131,6 +131,38 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
     //user_pref("gfx.canvas.max-size", 32767); // [DEFAULT]
 
 /****************************************************************************
+ * SECTION: JAVASCRIPT OPTIONS                                              *
+****************************************************************************/
+// PREF: lower the Baseline JIT compilation threshold
+// Controls how many times a function runs before Firefox promotes it from the
+// C++ interpreter to the Baseline JIT compiler. The Baseline JIT compiles each
+// bytecode instruction into a small piece of machine code and uses Inline Caches
+// (ICs) to both speed up execution and collect type info for the Ion optimizing JIT.
+// Lowering this from 100 to 50 promotes "warm" functions to compiled machine code
+// sooner, which reduces dropped frames while browsing.
+// [1] https://ra1ahq.blog/en/optimizaciya-proizvoditelnosti-mozilla-firefox-chast-1
+user_pref("javascript.options.baselinejit.threshold", 50); // default=100
+
+// PREF: raise the IonMonkey (Ion) optimizing-JIT compilation threshold
+// Controls how many times a function runs before Firefox promotes it from the
+// Baseline JIT to IonMonkey, the optimizing JIT. Ion applies advanced compiler
+// optimizations to produce fast code for "hot" functions, at the cost of slower
+// compilation. The Baseline JIT is quicker to produce but can't cope with the large
+// amounts of code on heavy websites.
+// Raising this threshold keeps more code on the faster-to-compile Baseline JIT,
+// reserving the expensive Ion compilation for only the hottest functions.
+// [1] https://ra1ahq.blog/en/optimizaciya-proizvoditelnosti-mozilla-firefox-chast-1
+//user_pref("javascript.options.ion.threshold", 1500); // DEFAULT
+
+// PREF: decrease concurrent JavaScript garbage collection (GC) threads
+// Sets the divisor in the formula: GC threads = CPU threads ÷ divisor (min 1).
+// A LOWER value = MORE parallel GC threads. A HIGHER value = FEWER threads.
+// Example (24-thread CPU):  divisor 1 → 24 threads | 2 → 12 | 4 (default) → 6 | 12 → 2
+// Power users with many cores should LOWER this value, not raise it.
+// [NOTE] Mozilla's default of 4 is conservative to avoid thread contention on weak hardware.
+//user_pref("javascript.options.concurrent_multiprocess_gcs.cpu_divisor", 4); // DEFAULT
+
+/****************************************************************************
  * SECTION: DISK CACHE                                                     *
 ****************************************************************************/
 
@@ -306,8 +338,8 @@ user_pref("image.mem.decode_bytes_at_a_time", 32768); // default=16384; chunk si
 // [1] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74561.html
 // [2] https://github.com/yokoffing/Betterfox/issues/279
 // [3] https://ra1ahq.blog/en/optimizaciya-proizvoditelnosti-mozilla-firefox
-//user_pref("network.buffer.cache.size", 65535); // default=32768 (32 kb); 262144 too large
-//user_pref("network.buffer.cache.count", 48); // default=24; 128 too large
+user_pref("network.buffer.cache.size", 65535); // default=32768 (32 kb); 262144 too large
+user_pref("network.buffer.cache.count", 48); // default=24; 128 too large
 
 // PREF: increase the absolute number of HTTP connections
 // [1] https://kb.mozillazine.org/Network.http.max-connections
