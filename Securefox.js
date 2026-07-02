@@ -1360,6 +1360,26 @@ user_pref("pdfjs.enableScripting", false); // [FF86+]
 //user_pref("dom.fs.enabled=false", false);
 //user_pref("dom.fs.writable_file_stream.enabled", false);
 
+// PREF: disable BITS (Background Intelligent Transfer Service) for updates [WINDOWS]
+// BITS is a Windows service that downloads files in the background using idle
+// network capacity. Firefox uses BITS to fetch updates, but two known bugs
+// make this option risky on Windows.
+// Firefox can flood the BITS job queue until it hits the default limit of 60
+// jobs, and once that happens, BITS stops working correctly. Windows can't
+// clear the backlog on its own, so users must clear the queue manually
+// through the command line.
+// Firefox also fills the C:\ProgramData\Mozilla folder with leftover temp files
+// whenever this pref stays enabled.
+// [NOTE] Neither bug affects browsing directly, but Firefox runs for hours at
+// a stretch on most systems, so updates can just as easily download over the
+// regular network path instead of BITS.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1856462 (queue overflow bug,
+// marked fixed, but still reported as of mid-2026)
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1879383 (leftover temp files)
+// [3] https://www.reddit.com/r/firefox/comments/1oglolg/bug_windows_bitsjob/
+// (recent report of the queue overflow bug)
+//user_pref("app.update.BITS.enabled", false); // [WINDOWS]
+
  /******************************************************************************
  * SECTION: SAFE BROWSING (SB)                                               *
 ******************************************************************************/
