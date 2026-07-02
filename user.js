@@ -15,6 +15,35 @@
 ****************************************************************************/
 
 /****************************************************************************
+ * SECTION: FASTFOX                                                         *
+****************************************************************************/
+/** GENERAL ***/
+user_pref("gfx.content.skia-font-cache-size", 20);
+user_pref("content.notify.interval", 100000);
+
+/** GFX ***/
+user_pref("gfx.canvas.accelerated.cache-size", 512);
+
+/** JS ***/
+user_pref("javascript.options.baselinejit.threshold", 50);
+
+/** MEDIA CACHE ***/
+user_pref("media.cache_readahead_limit", 3600);
+user_pref("media.cache_resume_threshold", 1800);
+
+/** IMAGE CACHE ***/
+user_pref("image.mem.decode_bytes_at_a_time", 32768);
+
+/** NETWORKING ***/
+user_pref("network.buffer.cache.size", 65535);
+user_pref("network.buffer.cache.count", 48);
+user_pref("network.http.max-connections", 1800);
+user_pref("network.http.max-persistent-connections-per-server", 10);
+user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
+user_pref("network.http.request.max-start-delay", 5);
+user_pref("network.dnsCacheExpiration", 3600);
+
+/****************************************************************************
  * SECTION: SECUREFOX                                                       *
 ****************************************************************************/
 /** TRACKING PROTECTION ***/
