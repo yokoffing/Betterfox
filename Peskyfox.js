@@ -3,7 +3,7 @@
  * Peskyfox                                                                 *
  * "Aquila non capit muscas"                                                *
  * priority: remove annoyances                                              *
- * version: 148                                                             *
+ * version: 152                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Some prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -60,6 +60,7 @@ user_pref("browser.profiles.enabled", true);
 //user_pref("widget.gtk.non-native-titlebar-buttons.enabled", true);
 
 // PREF: disable search engine switcher in the URL bar [FF136+]
+// WARNING: Hides "Quick Actions" suggestions.
 //user_pref("browser.urlbar.scotchBonnet.enableOverride", false);
 
 /****************************************************************************
@@ -93,6 +94,14 @@ user_pref("browser.privateWindowSeparation.enabled", false);
 
 // PREF: new tab page wallpapers
 //user_pref("browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled", true); // [DEFAULT FF132+]
+
+// PREF: browser scrollbar styles
+// 0 - Default
+// 1 - Thin and round, more like Chromium ones
+// 2 - Thinner than 1
+// 3 - Even thinner than 1
+// 4 - Very bold and square
+//user_pref("widget.non-native-theme.scrollbar.style", 0); // [DEFAULT]
 
 /****************************************************************************
  * SECTION: AI                                                              *
@@ -463,7 +472,7 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
 
 // PREF: restore "View image info" on right-click
-user_pref("browser.menu.showViewImageInfo", true);
+//user_pref("browser.menu.showViewImageInfo", true);
 
 // PREF: show all matches in Findbar
 user_pref("findbar.highlightAll", true);
@@ -497,7 +506,7 @@ user_pref("findbar.highlightAll", true);
 //user_pref("browser.meta_refresh_when_inactive.disabled", true);
 
 // PREF: do not select the space next to a word when selecting a word
-user_pref("layout.word_select.eat_space_to_next_word", false);
+//user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // PREF: controls if a double-click word selection also deletes one adjacent whitespace
 // This mimics native behavior on macOS.

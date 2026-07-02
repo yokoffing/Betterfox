@@ -19,14 +19,24 @@
 
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
+user_pref("browser.sessionstore.interval", 900000); // save session every 15 minutes
+user_pref("browser.newtab.preload", false); // disable new tab if not using
+user_pref("nglayout.initialpaint.delay", 50); // delay painting new tabs
+user_pref("javascript.options.baselinejit.threshold", 50); // default=100
+//user_pref("javascript.options.ion.threshold", 5000);
+user_pref("network.buffer.cache.size", 65535);
+user_pref("network.buffer.cache.count", 48);
+user_pref("javascript.options.concurrent_multiprocess_gcs.cpu_divisor", 2); // default=4
 
 /** SECUREFOX ***/
 user_pref("privacy.trackingprotection.allow_list.convenience.enabled", false); // disable Strict allowlist of convenience features
+user_pref("security.webauth.webauthn", false); // disable passkeys
 user_pref("signon.rememberSignons", false); // disable password manager
+user_pref("browser.formfill.enable", true); // re-enable Remember search and form history
 user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
 user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
-user_pref("browser.urlbar.suggest.recentsearches", false);  // unselect "Show recent searches" for clean UI
-user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
+//user_pref("browser.urlbar.suggest.recentsearches", false);  // unselect "Show recent searches" for clean UI
+//user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 //user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
 user_pref("signon.management.page.breach-alerts.enabled", false); // extra hardening
 user_pref("signon.autofillForms", false); // unselect "Autofill logins and passwords" for clean UI
@@ -41,15 +51,20 @@ user_pref("browser.search.update", false); // do not update opensearch engines
 user_pref("network.trr.confirmationNS", "skip"); // skip TRR confirmation request
 user_pref("extensions.webextensions.restrictedDomains", ""); // remove Mozilla domains so adblocker works on pages
 user_pref("identity.fxaccounts.enabled", false); // disable Firefox Sync
+user_pref("browser.profiles.enabled", false); // disable Firefox Sync and profiles
 user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}"); // disable the Firefox View tour from popping up for new profiles
 user_pref("accessibility.force_disabled", 1); // disable Accessibility features
+user_pref("dom.security.https_only_mode", false); // disable HTTPS Only in normal windows
+user_pref("dom.security.https_only_mode_pbm", true); // HTTPS Only in PB windows
+//user_pref("media.eme.enabled", false); // disable DRM
+//user_pref("browser.eme.ui.enabled", false); // hide the UI setting; this also disables the DRM prompt
+//user_pref("dom.serviceWorkers.enabled", false); // disable service workers in Normal Browsing
+user_pref("dom.serviceWorkers.privateBrowsing.enabled", false); // disable service workers in Private Browsing
+user_pref("privacy.restrict3rdpartystorage.heuristic.navigation", false); // restrict dynamic storage access
+user_pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false); // restrict dynamic storage access
 user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
-user_pref("captivedetect.canonicalURL", ""); // disable captive portal detection
-user_pref("network.captive-portal-service.enabled", false); // disable captive portal detection
-user_pref("network.connectivity-service.enabled", false); // disable captive portal detection
-user_pref("browser.download.enableDeletePrivate", true); // Delete files downloaded in private browsing when all private windows are closed
-user_pref("browser.download.deletePrivateChosen", true); // Delete files downloaded in private browsing when all private windows are closed
-user_pref("browser.download.deletePrivate", true); // Delete files downloaded in private browsing when all private windows are closed
+user_pref("dom.fs.enabled", false); // FROST
+user_pref("dom.fs.writable_file_stream.enabled", false); // FROST
 
 /** PESKYFOX ***/
 user_pref("devtools.accessibility.enabled", false); // removes un-needed "Inspect Accessibility Properties" on right-click
@@ -63,12 +78,11 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket",
 //user_pref("browser.download.folderList", 0); // 0=desktop, 1=downloads, 2=last used
 user_pref("browser.toolbars.bookmarks.visibility", "never"); // always hide bookmark bar
 user_pref("browser.startup.homepage_override.mstone", "ignore"); // What's New page after updates; master switch
-user_pref("browser.urlbar.suggest.history", false); // Browsing history; hide URL bar dropdown suggestions
-user_pref("browser.urlbar.suggest.bookmark", false); // Bookmarks; hide URL bar dropdown suggestions
+//user_pref("browser.urlbar.suggest.history", false); // Browsing history; hide URL bar dropdown suggestions
+//user_pref("browser.urlbar.suggest.bookmark", false); // Bookmarks; hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.openpage", false); // Open tabs; hide URL bar dropdown suggestions
 user_pref("browser.urlbar.suggest.topsites", false); // Shortcuts; disable dropdown suggestions with empty query
 user_pref("browser.urlbar.suggest.engines", false); // Search engines; tab-to-search
-user_pref("browser.urlbar.quicksuggest.enabled", false); // hide Firefox Suggest UI in the settings
 //user_pref("browser.urlbar.maxRichResults", 1); // minimum suggestion needed for URL bar autofill
 user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually back-up
 user_pref("view_source.wrap_long_lines", true);  // wrap source lines
@@ -86,117 +100,65 @@ user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false)
 user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 //user_pref("reader.color_scheme", "auto"); // match system theme for when reader is enabled
 //user_pref("browser.urlbar.openintab", true); // stay on current site and open new tab when typing in URL bar
+user_pref("dom.disable_beforeunload", true); // disable beforeunload behavior on sites
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
-//user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
-//user_pref("browser.urlbar.suggest.trending", false); // FF119+ disable showing trending searches; unselect for clean UI
-//user_pref("browser.urlbar.suggest.quickactions", false); // Quick actions; hide URL bar dropdown suggestions
-//user_pref("browser.urlbar.suggest.clipboard", false); // Clipboard; hide URL bar dropdown suggestions
+user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 
-/** DELETE IF NOT WINDOWS DESKTOP ***/
+/** DELETE IF NOT WINDOWS ***/
 user_pref("network.trr.mode", 3); // enable TRR (without System fallback)
-//user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 user_pref("default-browser-agent.enabled", false); // deny Mozilla monitoring default browser (breaks "Make Default" button)
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
-user_pref("pdfjs.defaultZoomValue", "125"); // alt=page-width; PDF zoom level
+//user_pref("pdfjs.defaultZoomValue", "125"); // alt=page-width; PDF zoom level
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
-user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
-user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
-//user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
+user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
+//user_pref("browser.display.auto_quality_min_font_size", 0);
 //user_pref("font.name.serif.x-western", "Roboto Slab"); // serif font
 //user_pref("font.name.sans-serif.x-western", "Roboto"); // sans-serif font
 //user_pref("font.name.monospace.x-western", "Fira Code"); // monospace font
+user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
+user_pref("captivedetect.canonicalURL", ""); // disable captive portal detection
+user_pref("network.captive-portal-service.enabled", false); // disable captive portal detection
+user_pref("network.connectivity-service.enabled", false); // disable captive portal detection
 
 /** DELETE IF NOT ENTERPRISE WINDOWS LAPTOP ***/
-user_pref("urlclassifier.trackingSkipURLs", ""); // do not allow embedded tweets, Instagram, Reddit, and Tiktok posts
-user_pref("urlclassifier.features.socialtracking.skipURLs", ""); // do not allow embedded tweets, Instagram, Reddit, and Tiktok posts
-user_pref("browser.search.suggest.enabled", true); // search suggestions
-user_pref("browser.urlbar.showSearchSuggestionsFirst", true); // Show search suggestions ahead of browsing history in address bar results
+user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; default=60
 //user_pref("network.connectivity-service.enabled", true); // public wifi
 //user_pref("network.trr.confirmationNS", "example.com"); // TRR confirmation request
 //user_pref("network.trr.mode", 2); // enable TRR (without System fallback)
-//user_pref("browser.startup.preXulSkeletonUI", false); // WINDOWS
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
-user_pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families", "");
-user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
+//user_pref("browser.display.auto_quality_min_font_size", 0);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", false); // no need for userChrome
-//user_pref("browser.urlbar.suggest.history", true); // Browsing history
-//user_pref("browser.urlbar.suggest.bookmark", true); // Bookmarks
-//user_pref("browser.urlbar.suggest.openpage", true); // Open tabs
-//user_pref("browser.urlbar.suggest.topsites", true); // Shortcuts
 
-/** DELETE IF NOT macOS LAPTOP ***/
+/** DELETE IF NOT macOS ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
 user_pref("network.trr.max-fails", 5); // lower max attempts to use DoH
 user_pref("geo.provider.use_corelocation", false); // geolocation [MAC]
 user_pref("pdfjs.defaultZoomValue", "page-width"); // PDF zoom level
 user_pref("app.update.auto", false); // disable auto-installing Firefox updates [NON-WINDOWS]
 //user_pref("font.name.monospace.x-western", "SF Mono"); // monospace font
+user_pref("security.cert_pinning.enforcement_level", 2); // strict public key pinning
+user_pref("captivedetect.canonicalURL", ""); // disable captive portal detection
+user_pref("network.captive-portal-service.enabled", false); // disable captive portal detection
+user_pref("network.connectivity-service.enabled", false); // disable captive portal detection
 
-/** DELETE IF NOT LINUX LAPTOP ***/
+/** DELETE IF NOT LINUX ***/
 user_pref("network.trr.mode", 2); // enable TRR (with System fallback)
 user_pref("network.trr.max-fails", 5); // lower max attempts to use DoH
 user_pref("geo.provider.use_geoclue", false); // [LINUX]
 user_pref("pdfjs.defaultZoomValue", "page-width"); // PDF zoom level
-
+user_pref("app.update.auto", false); // disable auto-installing Firefox updates [NON-WINDOWS]
 
 /** DELETE IF NOT WATERFOX ***/
 // PREF: improve font rendering by using DirectWrite everywhere like Chrome [WINDOWS]
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
+//user_pref("browser.display.auto_quality_min_font_size", 0);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
-
-// UI
-user_pref("browser.urlbar.scotchBonnet.enableOverride", false); // disable unified search button
-user_pref("identity.fxaccounts.enabled", false); // disable Firefox Sync and profiles
-user_pref("browser.profiles.enabled", false); // disable Firefox Sync and profiles
-
-/** FASTFOX ***/
-user_pref("network.http.rcwn.enabled", false);
-//user_pref("network.http.pacing.requests.enabled", false); // pacing requests
-
-user_pref("browser.sessionhistory.max_total_viewers", 4); // default=8
-
-// PREF: adjust DNS expiration time
-// [ABOUT] about:networking#dns
-// [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
-user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; default=60
-
-user_pref("browser.sessionstore.interval", 900000); // save session every 15 minutes
-
-/** SECUREFOX ***/
-user_pref("signon.rememberSignons", false); // disable password manager
-user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
-user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
-user_pref("accessibility.force_disabled", 1); // disable Accessibility features
-user_pref("dom.security.https_only_mode", false); // disable HTTPS Only in normal windows
-user_pref("dom.security.https_only_mode_pbm", true); // HTTPS Only in PB windows
-
-user_pref("media.eme.enabled", false); // disable DRM
-user_pref("browser.eme.ui.enabled", false); // hide the UI setting; this also disables the DRM prompt 
-
-user_pref("network.trr.max-fails", 5); // lower max attempts to use DoH
-
-// PREF: disable using the OS's geolocation service
-//user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
-//user_pref("geo.provider.use_corelocation", false); // [MAC]
-//user_pref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
-
 user_pref("privacy.userContext.enabled", false); // disable Container Tabs
-
-/** PESKYFOX ***/
-user_pref("browser.bookmarks.max_backups", 0); // minimize disk use; manually back-up
-user_pref("view_source.wrap_long_lines", true);  // wrap source lines
-user_pref("devtools.debugger.ui.editor-wrapping", true);  // wrap lines in devtools
-user_pref("browser.zoom.full", false); // text-only zoom, not all elements on page
-user_pref("layout.word_select.eat_space_to_next_word", false); // do not select the space next to a word when selecting a word
-user_pref("ui.key.menuAccessKey", 0); // remove underlined characters from various settings
-user_pref("general.autoScroll", false); // disable unintentional behavior for middle click
-user_pref("ui.SpellCheckerUnderlineStyle", 1); // [HIDDEN] dots for spell check errors
-user_pref("reader.parse-on-load.enabled", false); // disable reader mode

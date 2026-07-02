@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 150                                                                         *
+ * version: 152                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -26,7 +26,7 @@
 // Increases font cache size to improve performance on text-heavy websites.
 // Especially beneficial for sites with many font faces or complex typography.
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
-//user_pref("gfx.content.skia-font-cache-size", 32); // 32 MB; default=5; Chrome=20
+user_pref("gfx.content.skia-font-cache-size", 20); // 20 MB; default=5; Chrome=20
 
 // PREF: page reflow timer
 // Rather than wait until a page has completely downloaded to display it to the user,
@@ -53,16 +53,12 @@
 // [1] https://searchfox.org/mozilla-central/rev/c1180ea13e73eb985a49b15c0d90e977a1aa919c/modules/libpref/init/StaticPrefList.yaml#1824-1834
 // [2] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#reflow
 // [3] https://web.archive.org/web/20240115073722/https://dev.opera.com/articles/efficient-javascript/?page=3#smoothspeed
-//user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
-//user_pref("content.max.tokenizing.time", 1000000); // (1.00s); alt=2000000; HIDDEN
-//user_pref("content.interrupt.parsing", true); // HIDDEN
+user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
+    //user_pref("content.max.tokenizing.time", 1000000); // (1.00s); alt=2000000; HIDDEN
+    //user_pref("content.interrupt.parsing", true); // HIDDEN
 
 // PREF: UI responsiveness threshold
 //user_pref("content.switch.threshold", 300000); // HIDDEN; default= 750000; alt=500000
-
-// PREF: split text nodes to a length
-// The number of bytes in a text node.
-//user_pref("content.maxtextrun", 8191); // DEFAULT; HIDDEN
 
 // PREF: new tab preload
 // [WARNING] Disabling this may cause a delay when opening a new tab in Firefox.
@@ -90,18 +86,6 @@
 // PREF: disable preSkeletonUI on startup [WINDOWS]
 //user_pref("browser.startup.preXulSkeletonUI", false);
 
-// PREF: lazy load iframes
-//user_pref("dom.iframe_lazy_loading.enabled", true); // DEFAULT [FF121+]
-
-// PREF: Prioritized Task Scheduling API 
-// [1] https://github.com/yokoffing/Betterfox/issues/355
-// [2] https://blog.mozilla.org/performance/2022/06/02/prioritized-task-scheduling-api-is-prototyped-in-nightly/
-// [3] https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91
-// [4] https://github.com/WICG/scheduling-apis/blob/main/explainers/prioritized-post-task.md
-// [5] https://wicg.github.io/scheduling-apis/
-// [6] https://caniuse.com/mdn-api_taskcontroller
-//user_pref("dom.enable_web_task_scheduling", true); // DEFAULT [FF142+]
-
 /****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
 ****************************************************************************/
@@ -122,8 +106,8 @@
 // [2] https://www.reddit.com/r/firefox/comments/1p58qre/firefox_is_getting_ready_to_make_youtube_fast/
 // [3] https://www.ghacks.net/2025/11/24/these-two-tweaks-should-improve-firefoxs-performance-on-youtube-significantly/
 //user_pref("gfx.webrender.layer-compositor", true);
-    // If your PC uses an AMD GPU, you might want to make a second change.
-    // This one improves CPU usage on AMD systems.
+
+// PREF: improve CPU usage on AMD systems
 //user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
@@ -142,78 +126,70 @@
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
 //user_pref("gfx.canvas.accelerated", true); // [DEFAULT FF133+]
-    //user_pref("gfx.canvas.accelerated.cache-items", 4096); // [default=8192 FF135+]; Chrome=4096
-    //user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512
-    //user_pref("gfx.canvas.max-size", 32767); // DEFAULT=32767
+    //user_pref("gfx.canvas.accelerated.cache-items", 8192); // [DEFAULT FF135+]
+    user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512; max=2048
+    //user_pref("gfx.canvas.max-size", 32767); // [DEFAULT]
 
-// PREF: WebGL
-//user_pref("webgl.max-size", 16384); // default=1024
-//user_pref("webgl.force-enabled", true);
+/****************************************************************************
+ * SECTION: JAVASCRIPT OPTIONS                                              *
+****************************************************************************/
+// PREF: lower the Baseline JIT compilation threshold
+// Controls how many times a function runs before Firefox promotes it from the
+// C++ interpreter to the Baseline JIT compiler. The Baseline JIT compiles each
+// bytecode instruction into a small piece of machine code and uses Inline Caches
+// (ICs) to both speed up execution and collect type info for the Ion optimizing JIT.
+// Lowering this from 100 to 50 promotes "warm" functions to compiled machine code
+// sooner, which reduces dropped frames while browsing.
+// [1] https://ra1ahq.blog/en/optimizaciya-proizvoditelnosti-mozilla-firefox-chast-1
+user_pref("javascript.options.baselinejit.threshold", 50); // default=100
 
-// PREF: prefer GPU over CPU
-// At best, the prefs do nothing on Linux/macOS.
-// At worst, it'll result in crashes if the sandboxing is a WIP.
-// [1] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#gpu-process
-//user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
-    //user_pref("layers.gpu-process.force-enabled", true); // enforce
-    //user_pref("layers.mlgpu.enabled", true); // LINUX
-//user_pref("media.hardware-video-decoding.enabled", true); // DEFAULT WINDOWS macOS
-    //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
-//user_pref("media.gpu-process-decoder", true); // DEFAULT WINDOWS
-//user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
+// PREF: raise the IonMonkey (Ion) optimizing-JIT compilation threshold
+// Controls how many times a function runs before Firefox promotes it from the
+// Baseline JIT to IonMonkey, the optimizing JIT. Ion applies advanced compiler
+// optimizations to produce fast code for "hot" functions, at the cost of slower
+// compilation. The Baseline JIT is quicker to produce but can't cope with the large
+// amounts of code on heavy websites.
+// Raising this threshold keeps more code on the faster-to-compile Baseline JIT,
+// reserving the expensive Ion compilation for only the hottest functions.
+// [1] https://ra1ahq.blog/en/optimizaciya-proizvoditelnosti-mozilla-firefox-chast-1
+//user_pref("javascript.options.ion.threshold", 1500); // DEFAULT
 
-// PREF: hardware and software decoded video overlay [FF116+]
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1829063
-// [2] https://phabricator.services.mozilla.com/D175993
-//user_pref("gfx.webrender.dcomp-video-hw-overlay-win", true); // DEFAULT
-    //user_pref("gfx.webrender.dcomp-video-hw-overlay-win-force-enabled", true); // enforce
-//user_pref("gfx.webrender.dcomp-video-sw-overlay-win", true); // DEFAULT
-    //user_pref("gfx.webrender.dcomp-video-sw-overlay-win-force-enabled", true); // enforce
+// PREF: decrease concurrent JavaScript garbage collection (GC) threads
+// Sets the divisor in the formula: GC threads = CPU threads ÷ divisor (min 1).
+// A LOWER value = MORE parallel GC threads. A HIGHER value = FEWER threads.
+// Example (24-thread CPU):  divisor 1 → 24 threads | 2 → 12 | 4 (default) → 6 | 12 → 2
+// Power users with many cores should LOWER this value, not raise it.
+// [NOTE] Mozilla's default of 4 is conservative to avoid thread contention on weak hardware.
+//user_pref("javascript.options.concurrent_multiprocess_gcs.cpu_divisor", 4); // DEFAULT
 
 /****************************************************************************
  * SECTION: DISK CACHE                                                     *
 ****************************************************************************/
 
+// PREF: force a fixed max cache size on disk
+// NOTE: You need this set to false if you are to edit the disk capacity value
+// [1] https://support.mozilla.org/en-US/questions/1271481
+//user_pref("browser.cache.disk.smart_size.enabled", false);
+
 // PREF: disk cache size
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968106,968101
 // [2] https://rockridge.hatenablog.com/entry/2014/09/15/165501
 // [3] https://www.reddit.com/r/firefox/comments/17oqhw3/firefox_and_ssd_disk_consumption/
-//user_pref("browser.cache.disk.smart_size.enabled", false); // force a fixed max cache size on disk
 //user_pref("browser.cache.disk.capacity", 512000); // default=256000; size of disk cache; 1024000=1GB, 2048000=2GB
 //user_pref("browser.cache.disk.max_entry_size", 51200); // DEFAULT (50 MB); maximum size of an object in disk cache
-
-// PREF: Race Cache With Network (RCWN) [FF59+]
-// [ABOUT] about:networking#rcwn
-// Firefox concurrently sends requests for cached resources to both the
-// local disk cache and the network server. The browser uses whichever
-// result arrives first and cancels the other request. This approach sometimes
-// loads pages faster because the network can be quicker than accessing the cache
-// on a hard drive. When RCWN is enabled, the request might be served from
-// the server even if you have valid entry in the cache. Set to false if your
-// intention is to increase cache usage and reduce network usage.
-// [1] https://slides.com/valentingosu/race-cache-with-network-2017
-// [2] https://simonhearne.com/2020/network-faster-than-cache/
-// [3] https://support.mozilla.org/en-US/questions/1267945
-// [4] https://askubuntu.com/questions/1214862/36-syns-in-a-row-how-to-limit-firefox-connections-to-one-website
-// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1622859
-// [6] https://soylentnews.org/comments.pl?noupdate=1&sid=40195&page=1&cid=1067867#commentwrap
-//user_pref("network.http.rcwn.enabled", false);
-
-// PREF: attempt to RCWN only if a resource is smaller than this size
-//user_pref("network.http.rcwn.small_resource_size_kb", 256); // DEFAULT
 
 // PREF: cache memory pool
 // Cache v2 provides a memory pool that stores metadata (such as response headers)
 // for recently read cache entries [1]. It is managed by a cache thread, and caches with
 // metadata in the pool appear to be reused immediately.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=986179
-//user_pref("browser.cache.disk.metadata_memory_limit", 16384); // default=250 (0.25 MB); limit of recent metadata we keep in memory for faster access
+//user_pref("browser.cache.disk.metadata_memory_limit", 1024); // DEFAULT (1 MB); limit of recent metadata we keep in memory for faster access
 
 // PREF: number of chunks we preload ahead of read
 // Large content such as images will load faster.
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913819,988318
 // [2] http://www.janbambas.cz/new-firefox-http-cache-enabled/
-//user_pref("browser.cache.disk.preload_chunk_count", 4); // DEFAULT
+//user_pref("browser.cache.disk.preload_chunk_count", 8); // default=4
 
 // PREF: the time period used to re-compute the frecency value of cache entries
 // The frequency algorithm is used to select entries, and entries that are recently
@@ -262,9 +238,9 @@
 //user_pref("browser.cache.jsbc_compression_level", 3);
 
 // PREF: strategy to use for when the bytecode should be encoded and saved [TESTING ONLY]
-// -1 makes page load times marginally longer when a page is being loaded for the first time, while
+// -1 = makes page load times marginally longer when a page is being loaded for the first time, while
 // subsequent reload of websites will be much much faster.
-// 0 means that the bytecode is created every 4 page loads [3].
+// 0 = the bytecode is created every 4 page loads [3].
 // [1] https://searchfox.org/mozilla-release/source/modules/libpref/init/StaticPrefList.yaml#3461-3488
 // [2] https://www.reddit.com/r/firefox/comments/12786yv/improving_performance_in_firefox_android_part_ii/
 // [3] https://github.com/zen-browser/desktop/issues/217
@@ -288,8 +264,8 @@
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
-//user_pref("browser.cache.memory.capacity", 131072); // 128 MB RAM cache; alt=65536 (65 MB RAM cache); default=32768
-//user_pref("browser.cache.memory.max_entry_size", 20480); // 20 MB max entry; default=5120 (5 MB)
+//user_pref("browser.cache.memory.capacity", 65536); // default=32768 (32 MB)
+    //user_pref("browser.cache.memory.max_entry_size", 10240); // default=5120 (5 MB)
 
 // PREF: amount of Back/Forward cached pages stored in memory for each tab
 // Pages that were recently visited are stored in memory in such a way
@@ -300,7 +276,7 @@
 // is no reason for Firefox to keep memory for this.
 // -1=determine automatically (8 pages)
 // [1] https://kb.mozillazine.org/Browser.sessionhistory.max_total_viewers#Possible_values_and_their_effects
-//user_pref("browser.sessionhistory.max_total_viewers", 4); // default=8
+//user_pref("browser.sessionhistory.max_total_viewers", 8); // DEFAULT
 //user_pref("browser.sessionstore.max_tabs_undo", 10); // default=25
     //user_pref("browser.sessionstore.max_entries", 10); // [HIDDEN OR REMOVED]
     //user_pref("dom.storage.default_quota", 20480); // 20MB; default=5120
@@ -330,18 +306,18 @@
 //user_pref("media.mediasource.enabled", true); // DEFAULT
 
 // PREF: adjust video buffering periods when not using MSE (in seconds)
-// [NOTE] Does not affect videos over 720p since they use DASH playback [1]
+// [NOTE] Does not affect videos over 720p since they use DASH playback [1] or Web Audio API
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
-//user_pref("media.cache_readahead_limit", 600); // 10 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-//user_pref("media.cache_resume_threshold", 300); // 5 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
+user_pref("media.cache_readahead_limit", 3600); // 10 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+user_pref("media.cache_resume_threshold", 1800); // 5 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
 
 /****************************************************************************
  * SECTION: IMAGE CACHE                                                     *
 ****************************************************************************/
 
 // PREF: image cache
-//user_pref("image.cache.size", 10485760); // (cache images up to 10MiB in size) [DEFAULT 5242880]
-//user_pref("image.mem.decode_bytes_at_a_time", 65536); // default=16384; alt=32768; chunk size for calls to the image decoders
+//user_pref("image.cache.size", 20971520); // (cache images up to 20 MiB in size) [DEFAULT]
+user_pref("image.mem.decode_bytes_at_a_time", 32768); // default=16384; chunk size for calls to the image decoders
 //user_pref("image.mem.max_decoded_image_kb", 512000); // 500MB [HIDDEN OR REMOVED?]
 
 // PREF: set minimum timeout to unmap shared surfaces since they have been last used
@@ -362,18 +338,18 @@
 // [1] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74561.html
 // [2] https://github.com/yokoffing/Betterfox/issues/279
 // [3] https://ra1ahq.blog/en/optimizaciya-proizvoditelnosti-mozilla-firefox
-//user_pref("network.buffer.cache.size", 65535); // default=32768 (32 kb); 262144 too large
-//user_pref("network.buffer.cache.count", 48); // default=24; 128 too large
+user_pref("network.buffer.cache.size", 65535); // default=32768 (32 kb); 262144 too large
+user_pref("network.buffer.cache.count", 48); // default=24; 128 too large
 
 // PREF: increase the absolute number of HTTP connections
 // [1] https://kb.mozillazine.org/Network.http.max-connections
 // [2] https://kb.mozillazine.org/Network.http.max-persistent-connections-per-server
 // [3] https://www.reddit.com/r/firefox/comments/11m2yuh/how_do_i_make_firefox_use_more_of_my_900_megabit/jbfmru6/
-//user_pref("network.http.max-connections", 1800); // default=900
-//user_pref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
-    //user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // default=3
-    //user_pref("network.http.max-persistent-connections-per-proxy", 48); // default=32
-//user_pref("network.http.request.max-start-delay", 5); // default=10
+user_pref("network.http.max-connections", 1800); // default=900
+user_pref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
+    user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5); // default=3
+    //user_pref("network.http.max-persistent-connections-per-proxy", 32); // default=32
+user_pref("network.http.request.max-start-delay", 5); // default=10
 //user_pref("network.websocket.max-connections", 200); // DEFAULT
 
 // PREF: pacing requests [FF23+]
@@ -386,17 +362,17 @@
 // false = Firefox will send as many requests as possible without pacing
 // true = Firefox will pace requests (default)
 //user_pref("network.http.pacing.requests.enabled", false);
-    //user_pref("network.http.pacing.requests.min-parallelism", 10); // default=6
-    //user_pref("network.http.pacing.requests.burst", 32); // default=10
+    //user_pref("network.http.pacing.requests.min-parallelism", 12); // default=6
+    //user_pref("network.http.pacing.requests.burst", 20); // default=10
 
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
-//user_pref("network.dnsCacheEntries", 10000); // default=800
+//user_pref("network.dnsCacheEntries", 1600); // default=800
 
 // PREF: adjust DNS expiration time
 // [ABOUT] about:networking#dns
 // [NOTE] These prefs will be ignored by DNS resolver if using DoH/TRR.
-//user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; default=60
+user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; default=60
     //user_pref("network.dnsCacheExpirationGracePeriod", 120); // default=60; cache DNS entries for 2 minutes after they expire
 
 // PREF: the number of threads for DNS
@@ -404,16 +380,7 @@
 //user_pref("network.dns.max_any_priority_threads", 24); // DEFAULT [FF 123?]
 
 // PREF: increase TLS token caching 
-//user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
-
-/****************************************************************************
- * SECTION: EXPERIMENTAL                                                    *
-****************************************************************************/
-
-// PREF: CSS Masonry Layout [NIGHTLY]
-// [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
-// [2] https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/
-//user_pref("layout.css.grid-template-masonry-value.enabled", true);
+//user_pref("network.ssl_tokens_cache_capacity", 8192); // TLS token caching (fast reconnects)
 
 /****************************************************************************
  * SECTION: TAB UNLOAD                                                      *
@@ -441,7 +408,7 @@
 // and use this percent value (out of 100) to determine if Firefox is in a
 // low memory scenario.
 // [1] https://dev.to/msugakov/taking-firefox-memory-usage-under-control-on-linux-4b02
-//user_pref("browser.low_commit_space_threshold_percent", 20); // default=5; LINUX
+//user_pref("browser.low_commit_space_threshold_percent", 5); // default=5; LINUX
 
 // PREF: determine how long (in ms) tabs are inactive before they unload
 // 60000=1min; 300000=5min; 600000=10min (default)

@@ -10,7 +10,7 @@
 /****************************************************************************
  * Betterfox                                                                *
  * "Ad meliora"                                                             *
- * version: 150                                                             *
+ * version: 152                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -41,7 +41,6 @@ user_pref("browser.sessionstore.interval", 60000);
 
 /** SHUTDOWN & SANITIZING ***/
 user_pref("privacy.history.custom", true);
-user_pref("browser.privatebrowsing.resetPBM.enabled", true);
 
 /** SPECULATIVE LOADING ***/
 user_pref("network.http.speculative-parallel-limit", 0);
@@ -174,9 +173,7 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 
 /** TAB BEHAVIOR ***/
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
-user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);
-user_pref("layout.word_select.eat_space_to_next_word", false);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *

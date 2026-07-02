@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 150                                                             *
+ * version: 152                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -46,15 +46,20 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN PREF]
 // Opener and redirect heuristics are granted for 30 days, see [3]
 // [1] https://blog.mozilla.org/security/2021/07/13/smartblock-v2/
 // [2] https://hg.mozilla.org/mozilla-central/rev/e5483fd469ab#l4.12
-// [3] https://developer.mozilla.org/docs/Web/Privacy/State_Partitioning#storage_access_heuristics
-    // user_pref("privacy.antitracking.enableWebcompat", false);
+// [3] https://developer.mozilla.org/docs/Web/Privacy/Guides/State_Partitioning#storage_access_heuristics
+//user_pref("privacy.antitracking.enableWebcompat", false);
+    //user_pref("privacy.restrict3rdpartystorage.heuristic.navigation", false);
+    //user_pref("privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction", false);
+        //user_pref("privacy.restrict3rdpartystorage.heuristic.recently_visited", false); // DEFAULT
+        //user_pref("privacy.restrict3rdpartystorage.heuristic.redirect", false); // DEFAULT
+        //user_pref("privacy.restrict3rdpartystorage.heuristic.window_open", false); // DEFAULT
 
 // PREF: set ETP Strict/Custom exception lists (FF141+)
 // [SETTING] Options>Privacy & Security>Enhanced Tracking Protection>Strict/Custom>Fix major [baseline] | minor [convenience]
 // [1] https://support.mozilla.org/en-US/kb/manage-enhanced-tracking-protection-exceptions
 // [2] https://etp-exceptions.mozilla.org/
-// user_pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [DEFAULT: true]
-// user_pref("privacy.trackingprotection.allow_list.convenience.enabled", true); // [DEFAULT: true]
+//user_pref("privacy.trackingprotection.allow_list.baseline.enabled", true); // [DEFAULT: true]
+//user_pref("privacy.trackingprotection.allow_list.convenience.enabled", true); // [DEFAULT: true]
 
 // PREF: query stripping
 // Currently uses a small list [1]
@@ -500,8 +505,8 @@ user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (1
    //user_pref("privacy.cpd.siteSettings", false);
    //user_pref("privacy.clearHistory.siteSettings", false);
 
-// PREF: purge session icon in Private Browsing windows
-user_pref("browser.privatebrowsing.resetPBM.enabled", true);
+// PREF: purge session icon in Private Browsing windows [FF152+]
+//user_pref("browser.privatebrowsing.resetPBM.enabled", true); // [DEFAULT FF152+]
 
 // PREF: delete files downloaded in Private Browsing when all private windows are closed
 // When downloading a file in private browsing mode, the user will be prompted
@@ -1069,6 +1074,9 @@ user_pref("editor.truncate_user_pastes", false);
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1695693,1719301
 //user_pref("network.http.windows-sso.enabled", false); // DEFAULT
 
+// PREF: disable passkeys
+//user_pref("security.webauth.webauthn", false);
+
 // PREF: enforce no direct attestation in passkeys [FF144+]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1981587 ***/
 //user_pref("security.webauthn.always_allow_direct_attestation", false); // [DEFAULT: false]
@@ -1346,6 +1354,31 @@ user_pref("privacy.userContext.ui.enabled", true);
 // [2] https://www.reddit.com/r/uBlockOrigin/comments/mulc86/firefox_88_now_supports_javascript_in_pdf_files/
 //user_pref("pdfjs.disabled", false); // [DEFAULT: false]
 user_pref("pdfjs.enableScripting", false); // [FF86+]
+
+// PREF: mitigate FROST attack
+// [1] https://github.com/yokoffing/Betterfox/issues/486
+//user_pref("dom.fs.enabled=false", false);
+//user_pref("dom.fs.writable_file_stream.enabled", false);
+
+// PREF: disable BITS (Background Intelligent Transfer Service) for updates [WINDOWS]
+// BITS is a Windows service that downloads files in the background using idle
+// network capacity. Firefox uses BITS to fetch updates, but two known bugs
+// make this option risky on Windows.
+// Firefox can flood the BITS job queue until it hits the default limit of 60
+// jobs, and once that happens, BITS stops working correctly. Windows can't
+// clear the backlog on its own, so users must clear the queue manually
+// through the command line.
+// Firefox also fills the C:\ProgramData\Mozilla folder with leftover temp files
+// whenever this pref stays enabled.
+// [NOTE] Neither bug affects browsing directly, but Firefox runs for hours at
+// a stretch on most systems, so updates can just as easily download over the
+// regular network path instead of BITS.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1856462 (queue overflow bug,
+// marked fixed, but still reported as of mid-2026)
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1879383 (leftover temp files)
+// [3] https://www.reddit.com/r/firefox/comments/1oglolg/bug_windows_bitsjob/
+// (recent report of the queue overflow bug)
+//user_pref("app.update.BITS.enabled", false); // [WINDOWS]
 
  /******************************************************************************
  * SECTION: SAFE BROWSING (SB)                                               *
