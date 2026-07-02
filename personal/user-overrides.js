@@ -32,6 +32,7 @@ user_pref("javascript.options.concurrent_multiprocess_gcs.cpu_divisor", 2); // d
 user_pref("privacy.trackingprotection.allow_list.convenience.enabled", false); // disable Strict allowlist of convenience features
 user_pref("security.webauth.webauthn", false); // disable passkeys
 user_pref("signon.rememberSignons", false); // disable password manager
+user_pref("browser.formfill.enable", true); // re-enable Remember search and form history
 user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
 user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
 //user_pref("browser.urlbar.suggest.recentsearches", false);  // unselect "Show recent searches" for clean UI
