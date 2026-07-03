@@ -24,8 +24,6 @@ user_pref("browser.newtab.preload", false); // disable new tab if not using
 user_pref("nglayout.initialpaint.delay", 50); // delay painting new tabs
 user_pref("javascript.options.baselinejit.threshold", 50); // default=100
 //user_pref("javascript.options.ion.threshold", 5000);
-user_pref("network.buffer.cache.size", 65535);
-user_pref("network.buffer.cache.count", 48);
 user_pref("javascript.options.concurrent_multiprocess_gcs.cpu_divisor", 2); // default=4
 
 /** SECUREFOX ***/
