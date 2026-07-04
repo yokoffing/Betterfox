@@ -27,7 +27,7 @@ user_pref("javascript.options.baselinejit.threshold", 50); // default=100
 user_pref("javascript.options.concurrent_multiprocess_gcs.cpu_divisor", 2); // default=4
 
 /** SECUREFOX ***/
-user_pref("privacy.trackingprotection.allow_list.convenience.enabled", false); // disable Strict allowlist of convenience features
+//user_pref("privacy.trackingprotection.allow_list.convenience.enabled", false); // disable allowlist of convenience features
 user_pref("security.webauth.webauthn", false); // disable passkeys
 user_pref("signon.rememberSignons", false); // disable password manager
 user_pref("browser.formfill.enable", true); // re-enable Remember search and form history
