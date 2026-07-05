@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 152                                                             *
+ * version: 154                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -1619,9 +1619,9 @@ user_pref("app.normandy.api_url", "");
 // PREF: disable crash reports
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
-    //user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // DEFAULT
+user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // [DEFAULT ENFORCE]
 
-// PREF: enforce no submission of backlogged crash reports
+// PREF: no autosubmission of backlogged crash reports
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send backlogged crash reports
 //user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false); // [DEFAULT FF132+]
 
