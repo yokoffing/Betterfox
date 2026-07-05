@@ -101,7 +101,7 @@ user_pref("dom.disable_beforeunload", true); // disable beforeunload behavior on
 
 /** DELETE IF NOT NIGHTLY ***/
 user_pref("privacy.userContext.enabled", false); // disable Containers functionality
-user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
+//user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS ***/
