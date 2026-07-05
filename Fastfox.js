@@ -3,7 +3,7 @@
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
  * priority: speedy browsing                                                            *
- * version: 152                                                                         *
+ * version: 154                                                                         *
  * url: https://github.com/yokoffing/Betterfox                                          *
  ***************************************************************************************/
 
@@ -141,7 +141,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // Lowering this from 100 to 50 promotes "warm" functions to compiled machine code
 // sooner, which reduces dropped frames while browsing.
 // [1] https://ra1ahq.blog/en/optimizaciya-proizvoditelnosti-mozilla-firefox-chast-1
-user_pref("javascript.options.baselinejit.threshold", 50); // default=100
+//user_pref("javascript.options.baselinejit.threshold", 50); // default=100
 
 // PREF: raise the IonMonkey (Ion) optimizing-JIT compilation threshold
 // Controls how many times a function runs before Firefox promotes it from the
