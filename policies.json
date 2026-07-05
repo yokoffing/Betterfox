@@ -5,6 +5,7 @@
         "AppAutoUpdate_comment": "Change to false to disable auto-updates.",
         "DisableFirefoxStudies": true,
         "DisableTelemetry": true,
+        "DisableRemoteImprovements": true,
         "DisableFeedbackCommands": true,
         "DisableSetDesktopBackground": true,
         "DisableDeveloperTools": false,
