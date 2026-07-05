@@ -24,9 +24,6 @@ user_pref("content.notify.interval", 100000);
 /** GFX ***/
 user_pref("gfx.canvas.accelerated.cache-size", 512);
 
-/** JS ***/
-user_pref("javascript.options.baselinejit.threshold", 50);
-
 /** MEDIA CACHE ***/
 user_pref("media.cache_readahead_limit", 3600);
 user_pref("media.cache_resume_threshold", 1800);
