@@ -10,6 +10,7 @@
         "DisableSetDesktopBackground": true,
         "DisableDeveloperTools": false,
         "DontCheckDefaultBrowser": true,
+        "SkipTermsOfUse": true,
         "DNSOverHTTPS": {
             "Enabled": false,
             "ProviderURL": "",
