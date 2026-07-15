@@ -105,7 +105,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1945683
 // [2] https://www.reddit.com/r/firefox/comments/1p58qre/firefox_is_getting_ready_to_make_youtube_fast/
 // [3] https://www.ghacks.net/2025/11/24/these-two-tweaks-should-improve-firefoxs-performance-on-youtube-significantly/
-//user_pref("gfx.webrender.layer-compositor", true);
+//user_pref("gfx.webrender.layer-compositor", true); // [DEFAULT FF152]
 
 // PREF: improve CPU usage on AMD systems
 //user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
@@ -128,7 +128,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 //user_pref("gfx.canvas.accelerated", true); // [DEFAULT FF133+]
     //user_pref("gfx.canvas.accelerated.cache-items", 8192); // [DEFAULT FF135+]
     user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512; max=2048
-    //user_pref("gfx.canvas.max-size", 32767); // [DEFAULT]
+    //user_pref("gfx.canvas.max-size", 65535); // [DEFAULT FF152]
 
 /****************************************************************************
  * SECTION: JAVASCRIPT OPTIONS                                              *
@@ -276,7 +276,7 @@ user_pref("javascript.options.baselinejit.threshold", 50); // default=100
 // is no reason for Firefox to keep memory for this.
 // -1=determine automatically (8 pages)
 // [1] https://kb.mozillazine.org/Browser.sessionhistory.max_total_viewers#Possible_values_and_their_effects
-//user_pref("browser.sessionhistory.max_total_viewers", 8); // DEFAULT
+//user_pref("browser.sessionhistory.max_total_viewers", -1); // DEFAULT
 //user_pref("browser.sessionstore.max_tabs_undo", 10); // default=25
     //user_pref("browser.sessionstore.max_entries", 10); // [HIDDEN OR REMOVED]
     //user_pref("dom.storage.default_quota", 20480); // 20MB; default=5120
@@ -308,8 +308,8 @@ user_pref("javascript.options.baselinejit.threshold", 50); // default=100
 // PREF: adjust video buffering periods when not using MSE (in seconds)
 // [NOTE] Does not affect videos over 720p since they use DASH playback [1] or Web Audio API
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
-user_pref("media.cache_readahead_limit", 3600); // 10 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-user_pref("media.cache_resume_threshold", 1800); // 5 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
+user_pref("media.cache_readahead_limit", 3600); // 60 min; default=60 sec; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+user_pref("media.cache_resume_threshold", 1800); // 30 min; default=30 sec; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
 
 /****************************************************************************
  * SECTION: IMAGE CACHE                                                     *
@@ -367,7 +367,7 @@ user_pref("network.http.request.max-start-delay", 5); // default=10
 
 // PREF: increase DNS cache
 // [1] https://developer.mozilla.org/en-US/docs/Web/Performance/Understanding_latency
-//user_pref("network.dnsCacheEntries", 1600); // default=800
+//user_pref("network.dnsCacheEntries", 1600); // [DEFAULT FF152]
 
 // PREF: adjust DNS expiration time
 // [ABOUT] about:networking#dns
@@ -380,7 +380,7 @@ user_pref("network.dnsCacheExpiration", 3600); // keep entries for 1 hour; defau
 //user_pref("network.dns.max_any_priority_threads", 24); // DEFAULT [FF 123?]
 
 // PREF: increase TLS token caching 
-//user_pref("network.ssl_tokens_cache_capacity", 8192); // TLS token caching (fast reconnects)
+//user_pref("network.ssl_tokens_cache_capacity", 8192); // TLS token caching (fast reconnects) [DEFAULT FF152]
 
 /****************************************************************************
  * SECTION: TAB UNLOAD                                                      *
