@@ -1357,7 +1357,7 @@ user_pref("pdfjs.enableScripting", false); // [FF86+]
 
 // PREF: mitigate FROST attack
 // [1] https://github.com/yokoffing/Betterfox/issues/486
-//user_pref("dom.fs.enabled=false", false);
+//user_pref("dom.fs.enabled", false);
 //user_pref("dom.fs.writable_file_stream.enabled", false);
 
 // PREF: disable BITS (Background Intelligent Transfer Service) for updates [WINDOWS]
