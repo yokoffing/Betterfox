@@ -5,6 +5,8 @@
 # Betterfox
 [about:config](https://support.mozilla.org/en-US/kb/about-config-editor-firefox) tweaks to enhance [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/).
 
+:new: Betterfox for [Firefox 153 ESR](https://github.com/yokoffing/Betterfox/tree/esr153#betterfox-153-esr) is now available
+
 ## Made for everyday browsing
 Make Firefox more private and secure — without using third-party code.
 
