@@ -2,17 +2,23 @@
     "__COMMENT__ More Information": "https://github.com/mozilla/policy-templates/tree/master#readme",
     "policies": {
         "AppAutoUpdate": true,
-        "AppAutoUpdate_comment": "Change to false to disable auto-updates.",
+        "AppAutoUpdate_comment": "Change to false to disable auto-updates",
+        "CrashReportsSubmit": {
+          "ForceAutoSubmit": false
+        },
+        "CrashReportsSubmit_comment": "Only implemented in Firefox ESR",
         "DisableFirefoxStudies": true,
         "DisableTelemetry": true,
+        "DisableRemoteImprovements": true,
         "DisableFeedbackCommands": true,
         "DisableSetDesktopBackground": true,
         "DisableDeveloperTools": false,
         "DontCheckDefaultBrowser": true,
+        "SkipTermsOfUse": true,
         "DNSOverHTTPS": {
-            "Enabled": false,
-            "ProviderURL": "",
-            "Locked": false
+          "Enabled": false,
+          "ProviderURL": "",
+          "Locked": false
         },
 
         "FirefoxHome": {
@@ -24,7 +30,7 @@
           "Enabled": false
         },
         "ManualAppUpdateOnly": false,
-        "ManualAppUpdateOnly_comment": "Change to true to disable auto-updates.",
+        "ManualAppUpdateOnly_comment": "Change to true to disable auto-updates",
         "NoDefaultBookmarks": true,
         "WebsiteFilter": {
             "Block": [
