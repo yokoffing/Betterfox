@@ -128,7 +128,7 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN PREF]
 // [7] https://hacks.mozilla.org/2022/02/improving-the-storage-access-api-in-firefox/
 // [8] https://blog.includesecurity.com/2025/04/cross-site-websocket-hijacking-exploitation-in-2025/
 //user_pref("network.cookie.cookieBehavior", 5); // DEFAULT FF103+
-//user_pref("network.cookie.cookieBehavior.optInPartitioning", true); // [ETP FF132+]
+//user_pref("network.cookie.cookieBehavior.optInPartitioning", false); // DEFAULT [ETP FF132-137]
 //user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // DEFAULT
 
 // PREF: Network Partitioning
@@ -141,7 +141,6 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN PREF]
 // [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
 //user_pref("privacy.partition.network_state", true); // DEFAULT
     //user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
-    //user_pref("privacy.partition.network_state.ocsp_cache", true); // [DEFAULT: true FF123+]
     //user_pref("privacy.partition.bloburl_per_partition_key", true); // [FF118+]
 // enable APS (Always Partitioning Storage) [FF104+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT: true FF109+]
