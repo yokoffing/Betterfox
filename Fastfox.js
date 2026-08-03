@@ -125,9 +125,10 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
+// [4] https://github.com/yokoffing/Betterfox/issues/460#issuecomment-3983660306
 //user_pref("gfx.canvas.accelerated", true); // [DEFAULT FF133+]
     //user_pref("gfx.canvas.accelerated.cache-items", 8192); // [DEFAULT FF135+]
-    user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512; max=2048
+    user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512; max=2048 [4]
     //user_pref("gfx.canvas.max-size", 65535); // [DEFAULT FF152]
 
 /****************************************************************************
