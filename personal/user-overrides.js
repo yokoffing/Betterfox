@@ -32,6 +32,7 @@ user_pref("signon.rememberSignons", false); // disable password manager
 user_pref("browser.formfill.enable", true); // re-enable Remember search and form history
 user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
 user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
+user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 //user_pref("browser.urlbar.suggest.recentsearches", false);  // unselect "Show recent searches" for clean UI
 //user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 //user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
@@ -100,7 +101,6 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 user_pref("dom.disable_beforeunload", true); // disable beforeunload behavior on sites
 
 /** DELETE IF NOT NIGHTLY ***/
-user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 //user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 
@@ -158,4 +158,3 @@ user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
 //user_pref("browser.display.auto_quality_min_font_size", 0);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
-user_pref("privacy.userContext.enabled", false); // disable Container Tabs
