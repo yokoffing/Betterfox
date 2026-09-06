@@ -1614,6 +1614,7 @@ user_pref("app.normandy.api_url", "");
 // PREF: disable remote improvements [FF148+]
 // [SETTING] Allow Firefox to improve features, performance, and stability between updates.
 // [1] https://support.mozilla.org/kb/remote-improvements
+// [2] https://experimenter.info/
 user_pref("nimbus.rollouts.enabled", false);
 
 /******************************************************************************
