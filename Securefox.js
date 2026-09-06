@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 152                                                             *
+ * version: 154                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -128,7 +128,7 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN PREF]
 // [7] https://hacks.mozilla.org/2022/02/improving-the-storage-access-api-in-firefox/
 // [8] https://blog.includesecurity.com/2025/04/cross-site-websocket-hijacking-exploitation-in-2025/
 //user_pref("network.cookie.cookieBehavior", 5); // DEFAULT FF103+
-//user_pref("network.cookie.cookieBehavior.optInPartitioning", true); // [ETP FF132+]
+//user_pref("network.cookie.cookieBehavior.optInPartitioning", false); // DEFAULT [ETP FF132-137]
 //user_pref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true); // DEFAULT
 
 // PREF: Network Partitioning
@@ -141,7 +141,6 @@ user_pref("browser.contentblocking.category", "strict"); // [HIDDEN PREF]
 // [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
 //user_pref("privacy.partition.network_state", true); // DEFAULT
     //user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
-    //user_pref("privacy.partition.network_state.ocsp_cache", true); // [DEFAULT: true FF123+]
     //user_pref("privacy.partition.bloburl_per_partition_key", true); // [FF118+]
 // enable APS (Always Partitioning Storage) [FF104+]
 //user_pref("privacy.partition.always_partition_third_party_non_cookie_storage", true); // [DEFAULT: true FF109+]
@@ -1188,15 +1187,15 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
  * SECTION: CONTAINERS                                                       *
 ******************************************************************************/
 
-// PREF: enable Container Tabs and its UI setting [FF50+]
+// PREF: Container Tabs [FF50+]
 // [NOTE] No longer a privacy benefit due to Firefox upgrades (see State Partitioning and Network Partitioning)
 // Useful if you want to login to the same site under different accounts
 // You also may want to download Multi-Account Containers for extra options (2)
 // [SETTING] General>Tabs>Enable Container Tabs
 // [1] https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers
 // [2] https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/
-user_pref("privacy.userContext.ui.enabled", true);
-//user_pref("privacy.userContext.enabled", true);
+//user_pref("privacy.userContext.ui.enabled", true); [DEFAULT FF153+]
+//user_pref("privacy.userContext.enabled", true); [DEFAULT FF153+]
 
 // PREF: set behavior on "+ Tab" button to display container menu on left click [FF74+]
 // [NOTE] The menu is always shown on long press and right click.
@@ -1357,7 +1356,7 @@ user_pref("pdfjs.enableScripting", false); // [FF86+]
 
 // PREF: mitigate FROST attack
 // [1] https://github.com/yokoffing/Betterfox/issues/486
-//user_pref("dom.fs.enabled=false", false);
+//user_pref("dom.fs.enabled", false);
 //user_pref("dom.fs.writable_file_stream.enabled", false);
 
 // PREF: disable BITS (Background Intelligent Transfer Service) for updates [WINDOWS]
@@ -1612,6 +1611,12 @@ user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 
+// PREF: disable remote improvements [FF148+]
+// [SETTING] Allow Firefox to improve features, performance, and stability between updates.
+// [1] https://support.mozilla.org/kb/remote-improvements
+// [2] https://experimenter.info/
+user_pref("nimbus.rollouts.enabled", false);
+
 /******************************************************************************
  * SECTION: CRASH REPORTS                                                    *
 ******************************************************************************/
@@ -1619,9 +1624,9 @@ user_pref("app.normandy.api_url", "");
 // PREF: disable crash reports
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
-    //user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // DEFAULT
+user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // [DEFAULT ENFORCE]
 
-// PREF: enforce no submission of backlogged crash reports
+// PREF: no autosubmission of backlogged crash reports
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send backlogged crash reports
 //user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false); // [DEFAULT FF132+]
 

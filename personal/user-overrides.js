@@ -15,26 +15,24 @@
 ****************************************************************************/
 
 /** SETUP ON FIRST INSTALLATION ***/
-//user_pref("network.trr.uri", "https://dns.nextdns.io/******/Firefox"); // TRR/DoH
+//user_pref("network.trr.uri", ""); // DoH
 
 /** FASTFOX ***/
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 user_pref("browser.sessionstore.interval", 900000); // save session every 15 minutes
 user_pref("browser.newtab.preload", false); // disable new tab if not using
-user_pref("nglayout.initialpaint.delay", 50); // delay painting new tabs
-user_pref("javascript.options.baselinejit.threshold", 50); // default=100
-//user_pref("javascript.options.ion.threshold", 5000);
-user_pref("network.buffer.cache.size", 65535);
-user_pref("network.buffer.cache.count", 48);
-user_pref("javascript.options.concurrent_multiprocess_gcs.cpu_divisor", 2); // default=4
+//user_pref("nglayout.initialpaint.delay", 50); // delay painting new tabs
+//user_pref("javascript.options.baselinejit.threshold", 50); // default=100
+//user_pref("javascript.options.concurrent_multiprocess_gcs.cpu_divisor", 2); // default=4
 
 /** SECUREFOX ***/
-user_pref("privacy.trackingprotection.allow_list.convenience.enabled", false); // disable Strict allowlist of convenience features
+//user_pref("privacy.trackingprotection.allow_list.convenience.enabled", false); // disable allowlist of convenience features
 user_pref("security.webauth.webauthn", false); // disable passkeys
 user_pref("signon.rememberSignons", false); // disable password manager
 user_pref("browser.formfill.enable", true); // re-enable Remember search and form history
 user_pref("extensions.formautofill.addresses.enabled", false); // disable address manager
 user_pref("extensions.formautofill.creditCards.enabled", false); // disable credit card manager
+user_pref("privacy.userContext.enabled", false); // disable Containers functionality
 //user_pref("browser.urlbar.suggest.recentsearches", false);  // unselect "Show recent searches" for clean UI
 //user_pref("browser.urlbar.showSearchSuggestionsFirst", false); // unselect "Show search suggestions ahead of browsing history in address bar results" for clean UI
 //user_pref("browser.urlbar.groupLabels.enabled", false); // hide Firefox Suggest label in URL dropdown box
@@ -103,8 +101,7 @@ user_pref("reader.parse-on-load.enabled", false); // disable reader mode
 user_pref("dom.disable_beforeunload", true); // disable beforeunload behavior on sites
 
 /** DELETE IF NOT NIGHTLY ***/
-user_pref("privacy.userContext.enabled", false); // disable Containers functionality
-user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
+//user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // true by default on NIGHTLY
 user_pref("xpinstall.signatures.required", false); // [ESR/DEV/NIGHTLY]
 
 /** DELETE IF NOT WINDOWS ***/
@@ -161,4 +158,3 @@ user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
 //user_pref("browser.display.auto_quality_min_font_size", 0);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
-user_pref("privacy.userContext.enabled", false); // disable Container Tabs
