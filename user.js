@@ -102,9 +102,6 @@ user_pref("extensions.enabledScopes", 5);
 /** HEADERS / REFERERS ***/
 user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
-/** CONTAINERS ***/
-user_pref("privacy.userContext.ui.enabled", true);
-
 /** VARIOUS ***/
 user_pref("pdfjs.enableScripting", false);
 
