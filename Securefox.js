@@ -1187,15 +1187,15 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
  * SECTION: CONTAINERS                                                       *
 ******************************************************************************/
 
-// PREF: enable Container Tabs and its UI setting [FF50+]
+// PREF: Container Tabs [FF50+]
 // [NOTE] No longer a privacy benefit due to Firefox upgrades (see State Partitioning and Network Partitioning)
 // Useful if you want to login to the same site under different accounts
 // You also may want to download Multi-Account Containers for extra options (2)
 // [SETTING] General>Tabs>Enable Container Tabs
 // [1] https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers
 // [2] https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/
-user_pref("privacy.userContext.ui.enabled", true);
-//user_pref("privacy.userContext.enabled", true);
+//user_pref("privacy.userContext.ui.enabled", true); [DEFAULT FF154+]
+//user_pref("privacy.userContext.enabled", true); [DEFAULT FF154+]
 
 // PREF: set behavior on "+ Tab" button to display container menu on left click [FF74+]
 // [NOTE] The menu is always shown on long press and right click.
