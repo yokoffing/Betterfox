@@ -3,7 +3,7 @@
  * Securefox                                                                *
  * "Natura non contristatur"                                                *     
  * priority: provide sensible security and privacy                          *
- * version: 154                                                             *
+ * version: 153 ESR                                                         *
  * url: https://github.com/yokoffing/Betterfox                              *
  * credit: Most prefs are reproduced and adapted from the arkenfox project  *
  * credit urL: https://github.com/arkenfox/user.js                          *
@@ -1611,6 +1611,12 @@ user_pref("app.shield.optoutstudies.enabled", false);
 // [1] https://mozilla.github.io/normandy/
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
+
+// PREF: disable remote improvements [FF148+]
+// [SETTING] Allow Firefox to improve features, performance, and stability between updates.
+// [1] https://support.mozilla.org/kb/remote-improvements
+// [2] https://experimenter.info/
+user_pref("nimbus.rollouts.enabled", false);
 
 /******************************************************************************
  * SECTION: CRASH REPORTS                                                    *
