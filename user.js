@@ -161,6 +161,8 @@ user_pref("browser.aboutConfig.showWarning", false);
 user_pref("browser.startup.homepage_override.mstone", "ignore");
 user_pref("browser.aboutwelcome.enabled", false);
 user_pref("browser.profiles.enabled", true);
+user_pref("browser.promo.syncPromo.history.signin.dismissed", true);
+user_pref("browser.promo.syncPromo.bookmarks.signin.dismissed", true);
 
 /** THEME ADJUSTMENTS ***/
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);

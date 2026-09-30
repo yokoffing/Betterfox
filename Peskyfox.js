@@ -63,6 +63,10 @@ user_pref("browser.profiles.enabled", true);
 // WARNING: Hides "Quick Actions" suggestions.
 //user_pref("browser.urlbar.scotchBonnet.enableOverride", false);
 
+// PREF: Stay in sync across devices notification message removal on the Bookmarks & History tab
+user_pref("browser.promo.syncPromo.history.signin.dismissed", true);
+user_pref("browser.promo.syncPromo.bookmarks.signin.dismissed", true);
+
 /****************************************************************************
  * SECTION: THEME ADJUSTMENTS                                              *
 ****************************************************************************/
